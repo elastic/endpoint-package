@@ -1,5 +1,5 @@
 ---
-title: Fields common to all events.
+title: Endgame Network events.
 embedded: true
 fields:
 # ECS
@@ -120,6 +120,113 @@ fields:
     description: >
       Unique sensor identifier.
     example: 8a4f500d
+- name: network
+  description: >
+    The network is defined as the communication path over which a host or network event happens.
+  fields:
+  - name: transport
+    type: keyword
+    description: >
+      Protocol Name corresponding to the field `iana_number`.
+  - name: protocol
+    type: keyword
+    description: >
+      L7 Network protocol name.
+  - name: community_id
+    type: keyword
+    description: >
+      Learn more at https://github.com/corelight/community-id-spec.
+  - name: bytes
+    type: long
+    format: bytes
+    description: >
+      Total bytes transferred in both directions.
+  - name: packets
+    type: long
+    description: >
+      Total packets transferred in both directions.
+- name: source
+  description: >
+    Source fields describe details about the source of a packet/event.
+  fields:
+  - name: address
+    type: keyword
+    description: >
+      Some event source addresses are defined ambiguously. The event will
+      sometimes list an IP, a domain or a unix socket.  You should always
+      store the raw address in the `.address` field.
+      Then it should be duplicated to `.ip` or `.domain`, depending on which
+      one it is.
+  - name: ip
+    type: ip
+    description: >
+      IP address of the source.
+      Can be one or multiple IPv4 or IPv6 addresses.
+  - name: port
+    type: long
+    description: >
+      Port of the source.
+  - name: bytes
+    format: bytes
+    type: long
+    description: >
+      Bytes sent from the source to the destination.
+  - name: packets
+    type: long
+    description: >
+      Packets sent from the source to the destination.
+- name: destination
+  description: >
+    Destination fields describe details about the destination of a packet/event.
+  fields:
+  - name: address
+    type: keyword
+    description: ">
+      Some event destination addresses are defined ambiguously. The event will
+      sometimes list an IP, a domain or a unix socket.  You should always
+      store the raw address in the `.address` field.
+      Then it should be duplicated to `.ip` or `.domain`, depending on which
+      one it is."
+  - name: ip
+    type: ip
+    description: >
+      IP address of the destination.
+      Can be one or multiple IPv4 or IPv6 addresses.
+  - name: port
+    type: long
+    description: >
+      Port of the destination.
+  - name: bytes
+    format: bytes
+    type: long
+    description: >
+      Bytes sent from the destination to the source.
+  - name: packets
+    type: long
+    description: >
+      Packets sent from the destination to the source.
+- name: dns
+  description: >
+    Fields describing DNS queries and answers.
+  fields:
+  - name: question
+    fields:
+    - name: name
+      type: keyword
+      description: >
+        The name being queried.
+    - name: type
+      type: keyword
+      description: >
+        The type of record being queried.
+    - name: registered_domain
+      type: keyword
+      description: >
+        The highest registered domain, stripped of the subdomain.
+  - name: resolved_ip
+    type: ip
+    description: >
+      Array containing all IPs.
 # Our current stuff
 - name: endgame
   description: >
@@ -200,4 +307,23 @@ fields:
     description: ""
   - name: effective_gid
     type: integer # this is a uint32 right now
+    description: ""
+  # DnsDataBuffer
+  - name: query_name
+    type: keyword
+    description: ""
+  - name: event_id
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: query_type
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: query_status
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: query_options
+    type: long # this is a uint64 right now
+    description: ""
+  - name: query_results
+    type: keyword
     description: ""

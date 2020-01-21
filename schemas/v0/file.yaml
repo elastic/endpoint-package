@@ -14,7 +14,7 @@ fields:
 
     Required field for all events.
 - name: message
-  type: keyword
+  type: text
   description: >
     For log events the message field contains the log message, optimized for viewing in a log viewer.
 

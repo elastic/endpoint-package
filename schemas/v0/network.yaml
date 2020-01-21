@@ -1,5 +1,5 @@
 ---
-title: Fields common to all events.
+title: Endgame Network events.
 embedded: true
 fields:
 # ECS
@@ -120,6 +120,91 @@ fields:
     description: >
       Unique sensor identifier.
     example: 8a4f500d
+- name: network
+  description: >
+    The network is defined as the communication path over which a host or network event happens.
+  fields:
+  - name: transport
+    type: keyword
+    description: >
+      Protocol Name corresponding to the field `iana_number`.
+  - name: protocol
+    type: keyword
+    description: >
+      L7 Network protocol name.
+  - name: community_id
+    type: keyword
+    description: >
+      Learn more at https://github.com/corelight/community-id-spec.
+  - name: bytes
+    type: long
+    format: bytes
+    description: >
+      Total bytes transferred in both directions.
+  - name: packets
+    type: long
+    description: >
+      Total packets transferred in both directions.
+- name: source
+  description: >
+    Source fields describe details about the source of a packet/event.
+  fields:
+  - name: address
+    type: keyword
+    description: >
+      Some event source addresses are defined ambiguously. The event will
+      sometimes list an IP, a domain or a unix socket.  You should always
+      store the raw address in the `.address` field.
+      Then it should be duplicated to `.ip` or `.domain`, depending on which
+      one it is.
+  - name: ip
+    type: ip
+    description: >
+      IP address of the source.
+      Can be one or multiple IPv4 or IPv6 addresses.
+  - name: port
+    type: long
+    description: >
+      Port of the source.
+  - name: bytes
+    format: bytes
+    type: long
+    description: >
+      Bytes sent from the source to the destination.
+  - name: packets
+    type: long
+    description: >
+      Packets sent from the source to the destination.
+- name: destination
+  description: >
+    Destination fields describe details about the destination of a packet/event.
+  fields:
+  - name: address
+    type: keyword
+    description: ">
+      Some event destination addresses are defined ambiguously. The event will
+      sometimes list an IP, a domain or a unix socket.  You should always
+      store the raw address in the `.address` field.
+      Then it should be duplicated to `.ip` or `.domain`, depending on which
+      one it is."
+  - name: ip
+    type: ip
+    description: >
+      IP address of the destination.
+      Can be one or multiple IPv4 or IPv6 addresses.
+  - name: port
+    type: long
+    description: >
+      Port of the destination.
+  - name: bytes
+    format: bytes
+    type: long
+    description: >
+      Bytes sent from the destination to the source.
+  - name: packets
+    type: long
+    description: >
+      Packets sent from the destination to the source.
 # Our current stuff
 - name: endgame
   description: >
@@ -200,4 +285,83 @@ fields:
     description: ""
   - name: effective_gid
     type: integer # this is a uint32 right now
+    description: ""
+  # NetworkDataBuffer
+  - name: protocol
+    type: keyword
+    description: ""
+  - name: connection_id
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: destination_address
+    type: keyword
+    description: ""
+  - name: destination_port
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: source_port
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: source_address
+    type: keyword
+    description: ""
+  - name: out_bytes
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: in_bytes
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: sequence_number
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: partial_flow
+    type: boolean
+    description: ""
+  - name: total_in_bytes
+    type: long # this is a uint64 right now
+    description: ""
+  - name: total_out_bytes
+    type: long # this is a uint64 right now
+    description: ""
+  - name: in_packet_count
+    type: long # this is a uint64 right now
+    description: ""
+  - name: out_packet_count
+    type: long # this is a uint64 right now
+    description: ""
+  - name: in_bytes_mean
+    type: double
+    description: ""
+  - name: out_bytes_mean
+    type: double
+    description: ""
+  - name: in_bytes_standard_deviation
+    type: double
+    description: ""
+  - name: out_bytes_standard_deviation
+    type: double
+    description: ""
+  - name: in_interval_mean
+    type: double
+    description: ""
+  - name: out_interval_mean
+    type: double
+    description: ""
+  - name: in_interval_standard_deviation
+    type: double
+    description: ""
+  - name: out_interval_standard_deviation
+    type: double
+    description: ""
+  - name: event_id
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: task
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: size
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: http_request
+    type: text
     description: ""

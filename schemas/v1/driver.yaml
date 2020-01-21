@@ -1,5 +1,5 @@
 ---
-title: Elastic Endpoint File Events
+title: Elastic Endpoint Driver Load Events
 fields:
 
 - name: "@timestamp"
@@ -126,7 +126,7 @@ fields:
   - name: module
     type: keyword
     description: >
-      Hardcode to endpoint.
+      Hardcode to "endpoint".
     example: endpoint
 
   - name: kind
@@ -139,13 +139,19 @@ fields:
     type: keyword
     description: >
       The event category.
-    example: file
+    example: process
 
   - name: type
     type: keyword
     description: >
       The event type.
-    example: file_create
+    example: create, info, end, change
+
+  - name: action
+    type: keyword
+    description: >
+      The event action.
+    example: library_load
 
 - name: agent
   description: >
@@ -170,70 +176,36 @@ fields:
       Unique sensor identifier.
     example: 8a4f500d
 
-- name: file
+- name: group
   description: >
+    The group fields are used to describe by which group the event belongs to.
   fields:
+
+  - name: id
+    type: keyword
+    description: >
+      Unique identifier for the group on the system/platform.
 
   - name: name
     type: keyword
     description: >
-      Name of the file.
+      Name of the group.
 
-  - name: path
+- name: user
+  description: >
+    The user fields are used to describe by which user the event belongs to. In this case the "effective" user and group
+  fields:
+
+  - name: id
     type: keyword
     description: >
-      Path to the file.
+      One or multiple unique identifiers of the user.
 
-  - name: mode
-    type: keyword
-    description: Mode of the file in octal representation.
-    example: '0640'
-
-  - name: inode
-    type: keyword
-    description: Inode representing the file in the filesystem.
-    example: '256383'
-
-  - name: uid
+  - name: name
     type: keyword
     description: >
-      The user ID (UID) or security identifier (SID) of the file owner.
-    example: '1001'
-
-  - name: owner
-    type: keyword
-    description: File owner's username.
-    example: alice
-
-  - name: gid
-    type: keyword
-    description: Primary group ID (GID) of the file.
-    example: '1001'
-
-  - name: group
-    type: keyword
-    description: Primary group name of the file.
-    example: alice
-
-  - name: hash
-    description: >
-      The hash fields are used to describe the hash values for a particular process.
-    fields:
-
-    - name: md5
-      type: keyword
-      description: >
-        MD5 hash.
-
-    - name: sha1
-      type: keyword
-      description: >
-        SHA1 hash.
-
-    - name: sha256
-      type: keyword
-      description: >
-        SHA256 hash.
+      Short name or login of the user.
+    example: albert
 
 - name: process
   description: >
@@ -257,10 +229,95 @@ fields:
     description: >
       Absolute path to the process executable.
 
+  - name: thread
+    description: >
+      The thread fields are used to describe by which process thread the event belongs to.
+    fields:
+
+    - name: id
+      type: long
+      description: >
+        Thread ID.
+
+- name: file
+  description: >
+  fields:
+
+  - name: name
+    type: keyword
+    description: >
+      Name of the file.
+
+  - name: path
+    type: keyword
+    description: >
+      Path to the file.
+
+  - name: hash
+    description: >
+      The hash fields are used to describe the hash values for a particular process.
+    fields:
+
+    - name: md5
+      type: keyword
+      description: >
+        MD5 hash.
+
+    - name: sha1
+      type: keyword
+      description: >
+        SHA1 hash.
+
+    - name: sha256
+      type: keyword
+      description: >
+        SHA256 hash.
+
 - name: endpoint
   description: >
     Endpoint custom fields.
   fields:
+
+  - name: group
+    description: >
+      Extended "group" field set
+    fields:
+
+    - name: real
+      description: >
+        Group info prior to any setgid operations.
+      fields:
+
+      - name: id
+        type: keyword
+        description: >
+          Unique identifier for the group on the system/platform.
+
+      - name: name
+        type: keyword
+        description: >
+          Name of the group.
+
+  - name: user
+    description: >
+      Extended "user" field set
+    fields:
+
+    - name: real
+      description: >
+        User info prior to any setuid operations.
+      fields:
+
+      - name: id
+        type: keyword
+        description: >
+          One or multiple unique identifiers of the user.
+
+      - name: name
+        type: keyword
+        description: >
+          Short name or login of the user.
+        example: albert
 
   - name: process
     description: >
@@ -272,58 +329,37 @@ fields:
       description: >
         The globally unique identifier for the process
 
-  - name: file
+  - name: pe
     description: >
-      Extended "file" field set
+      Extended "pe" field set
     fields:
 
-    - name: windows
+    - name: original_file_name
+      type: keyword
       description: >
-        Platform-specific Windows fields
+        Original file name hardcoded into the PE header
+
+    - name: file_version
+      type: keyword
+      description: >
+        Original file version hardcoded into the PE header
+
+    - name: product_version
+      type: keyword
+      description: >
+        Original product version hardcoded into the PE header
+
+    - name: signature
+      description: >
+        Fields describing either PE or package signing
       fields:
 
-      - name: zone_identifier
-        type: keyword
-        description:
-          Windows zone identifier for a file
-
-    - name: original
-      description: >
-        Original file information during a modification event.
-      fields:
-
-      - name: name
+      - name: signer
         type: keyword
         description: >
-          Original file name prior to a modification event
+          The name of the package signer
 
-      - name: path
+      - name: status
         type: keyword
         description: >
-          Original file path prior to a modification event
-
-      - name: mode
-        type: keyword
-        description: >
-          Original file mode prior to a modification event
-
-      - name: uid
-        type: keyword
-        description: >
-          The user ID (UID) or security identifier (SID) of the file owner.
-        example: '1001'
-
-      - name: owner
-        type: keyword
-        description: File owner's username.
-        example: alice
-
-      - name: gid
-        type: keyword
-        description: Primary group ID (GID) of the file.
-        example: '1001'
-
-      - name: group
-        type: keyword
-        description: Primary group name of the file.
-        example: alice
+          The status of the signed package

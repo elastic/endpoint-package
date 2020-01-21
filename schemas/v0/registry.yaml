@@ -1,5 +1,5 @@
 ---
-title: Fields common to all events.
+title: Endgame Registry events.
 embedded: true
 fields:
 # ECS
@@ -200,4 +200,29 @@ fields:
     description: ""
   - name: effective_gid
     type: integer # this is a uint32 right now
+    description: ""
+  # RegistryDataBuffer
+  - name: key_path
+    type: keyword
+    description: ""
+  - name: key_type
+    type: keyword
+    description: ""
+  - name: bytes_written_count
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: bytes_written
+    type: keyword
+    description: ""
+  - name: bytes_written_u32
+    type: integer # this is a uint32 right now
+    description: ""
+  - name: bytes_written_u64
+    type: long # this is a uint32 right now
+    description: ""
+  - name: bytes_written_string
+    type: keyword
+    description: ""
+  - name: bytes_written_string_list
+    type: keyword
     description: ""

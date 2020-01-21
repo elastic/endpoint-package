@@ -1,5 +1,5 @@
 ---
-title: Fields common to all events.
+title: Endgame Imageload events.
 embedded: true
 fields:
 # ECS
@@ -200,4 +200,35 @@ fields:
     description: ""
   - name: effective_gid
     type: integer # this is a uint32 right now
+    description: ""
+  # ImageLoadDataBuffer
+  - name: image_path
+    type: keyword
+    description: ""
+  - name: image_name
+    type: keyword
+    description: ""
+  - name: md5
+    type: keyword
+    description: ""
+  - name: sha1
+    type: keyword
+    description: ""
+  - name: sha256
+    type: keyword
+    description: ""
+  - name: signature_signer
+    type: keyword
+    description: ""
+  - name: signature_status
+    type: keyword
+    description: ""
+  - name: file_version
+    type: keyword
+    description: ""
+  - name: product_version
+    type: keyword
+    description: ""
+  - name: original_file_name
+    type: keyword
     description: ""
