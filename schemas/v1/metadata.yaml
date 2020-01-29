@@ -1,7 +1,7 @@
 ---
 title: Elastic Endpoint Metadata Events
 fields:
-- name: @timestamp
+- name: "@timestamp"
   type: date
   description: >
     Date/time when the event originated. This is the date/time extracted from the event, typically representing

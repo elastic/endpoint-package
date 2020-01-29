@@ -101,7 +101,7 @@ fields:
       example: 10.14.1
 
   - name: ip
-    type: keyword
+    type: ip
     description: >
       The IP address of the endpoint.
     example: 10.0.1.5
