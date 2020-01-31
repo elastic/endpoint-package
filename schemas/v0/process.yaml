@@ -47,7 +47,7 @@ fields:
         Operating system version as a raw string.
       example: 10.14.1
   - name: ip
-    type: keyword
+    type: ip
     description: >
       The IP address of the sensor, currently this is the IP that the SMP sees.
     example: 10.0.1.5
@@ -168,7 +168,7 @@ fields:
     description: >
       Absolute path to the process executable.
   - name: args
-    type: nested
+    type: keyword
     object_type: keyword
     description: >
       Array of process arguments.
