@@ -1,0 +1,27 @@
+---
+base:
+  "@timestamp": "*"
+agent: "*"
+ecs: "*"
+event:
+  action: "*"
+  category: "*"
+  created: "*"
+  dataset: "*"
+  hash: "*"
+  id: "*"
+  ingested: "*"
+  kind: "*"
+  module: "*"
+  outcome: "*"
+  sequence: "*"
+  type: "*"
+rule: "*"
+threat: "*"
+host: "*"
+file: "*"
+file_classification: "*"
+process: "*"
+thread: "*"
+target: "*"
+

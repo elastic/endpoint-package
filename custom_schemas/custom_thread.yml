@@ -1,0 +1,18 @@
+---
+- name: thread
+  title: Thread
+  group: 2
+  short: TODO
+  description: >
+    TODO
+  reusable:
+    top_level: true
+    expected:
+      - target
+  type: group
+  fields:
+    - name: call_stack
+      level: custom
+      type: nested
+      description: >
+        TODO
