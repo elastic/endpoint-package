@@ -139,6 +139,12 @@ fields:
     The event fields are used to describe the event metadata.
   fields:
 
+  - name: id
+    type: keyword
+    description: >
+      Unique ID to describe the event.
+    example: 8a4f500d
+
   - name: module
     type: keyword
     description: >
