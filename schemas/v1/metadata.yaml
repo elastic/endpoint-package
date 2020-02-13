@@ -63,6 +63,12 @@ fields:
       Unique identifier of this elastic endpoint agent (if one exists).
     type: keyword
     example: 8a4f500d
+  
+  - name: name
+    description: >
+      Custom name of the agent
+    type: keyword
+    example: elastic endpoint
 
 - name: host
   description: >
@@ -124,4 +130,11 @@ fields:
         Operating system version as a raw string.
       type: keyword
       example: 10.14.1
+    
+    - name: variant
+      description: >
+        A string value or phrase that further aid to classify or qualify the operating system (OS). 
+        For example the distribution for a Linux OS will be entered in this field. 
+      type: keyword
+      example: Ubuntu
 
