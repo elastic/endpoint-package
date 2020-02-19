@@ -14,7 +14,7 @@ fields:
 
     Required field for all events.
 - name: message
-  type: keyword
+  type: text
   description: >
     For log events the message field contains the log message, optimized for viewing in a log viewer.
 
@@ -47,7 +47,7 @@ fields:
         Operating system version as a raw string.
       example: 10.14.1
   - name: ip
-    type: keyword
+    type: ip
     description: >
       The IP address of the sensor, currently this is the IP that the SMP sees.
     example: 10.0.1.5
@@ -65,6 +65,11 @@ fields:
   description: >
     The event fields are used to describe the event metadata.
   fields:
+  - name: id
+    type: keyword
+    description: >
+      Unique ID to describe the event.
+    example: 8a4f500d
   - name: module
     type: keyword
     description: >

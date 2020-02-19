@@ -14,13 +14,29 @@ fields:
     Required field for all events.
 
 - name: message
-  type: keyword
+  type: text
   description: >
     For log events the message field contains the log message, optimized for viewing in a log viewer.
 
     For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event.
 
     If multiple messages exist, they can be combined into one message.
+
+- name: ecs
+  title: ECS
+  description: >
+    Meta-information specific to ECS.
+  fields:
+
+    - name: version
+      type: keyword
+      description: >
+        ECS version this event conforms to. `ecs.version` is a required field and must exist in all events.
+
+        When querying across multiple indices -- which may conform to slightly
+        different ECS versions -- this field lets integrations adjust to the
+        schema version of the events.
+      example: 1.0.0
 
 - name: host
   description: >
@@ -101,7 +117,7 @@ fields:
       example: 10.14.1
 
   - name: ip
-    type: keyword
+    type: ip
     description: >
       The IP address of the endpoint.
     example: 10.0.1.5
@@ -122,6 +138,12 @@ fields:
   description: >
     The event fields are used to describe the event metadata.
   fields:
+
+  - name: id
+    type: keyword
+    description: >
+      Unique ID to describe the event.
+    example: 8a4f500d
 
   - name: module
     type: keyword
@@ -230,7 +252,7 @@ fields:
       Absolute path to the process executable.
 
   - name: args
-    type: nested
+    type: keyword
     object_type: keyword
     description: >
       Array of process arguments.
@@ -379,15 +401,15 @@ fields:
         Extended "process.parent" field set.
       fields:
 
+      - name: entity_id
+        type: keyword
+        description: >
+          The globally unique identifier for the parent process
+
       - name: real
         description: >
           The field set containing parent process info in case of any ppid spoofing.
         fields:
-
-        - name: entity_id
-          type: keyword
-          description: >
-            The globally unique identifier for the parent process
 
         - name: pid
           type: long
