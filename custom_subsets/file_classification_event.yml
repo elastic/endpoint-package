@@ -1,27 +1,52 @@
 ---
 base:
-  "@timestamp": "*"
-agent: "*"
-ecs: "*"
+  fields:
+    "@timestamp": 
+      fields: "*"
+agent: 
+  fields: "*"
+ecs: 
+  fields: "*"
 event:
-  action: "*"
-  category: "*"
-  created: "*"
-  dataset: "*"
-  hash: "*"
-  id: "*"
-  ingested: "*"
-  kind: "*"
-  module: "*"
-  outcome: "*"
-  sequence: "*"
-  type: "*"
-rule: "*"
-threat: "*"
-host: "*"
-file: "*"
-file_classification: "*"
-process: "*"
-thread: "*"
-target: "*"
+  fields:
+    action: 
+      fields: "*"
+    category: 
+      fields: "*"
+    created: 
+      fields: "*"
+    dataset: 
+      fields: "*"
+    hash: 
+      fields: "*"
+    id: 
+      fields: "*"
+    ingested: 
+      fields: "*"
+    kind: 
+      fields: "*"
+    module: 
+      fields: "*"
+    outcome: 
+      fields: "*"
+    sequence: 
+      fields: "*"
+    type: 
+      fields: "*"
+rule: 
+  fields: "*"
+threat: 
+  fields: "*"
+host: 
+  fields: "*"
+file: 
+  fields: "*"
+file_classification: 
+  fields: "*"
+process: 
+  fields: "*"
+thread: 
+  fields: "*"
+target: 
+  fields: "*"
 
