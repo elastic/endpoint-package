@@ -1,10 +1,12 @@
 {
+  "index_patterns": [
+    "ecs-*"
+  ],
   "mappings": {
     "_meta": {
       "version": "1.5.0-dev"
     },
     "date_detection": false,
-    "dynamic": "strict",
     "dynamic_templates": [
       {
         "strings_as_keyword": {
@@ -360,6 +362,27 @@
           }
         }
       },
+      "code_signature": {
+        "properties": {
+          "exists": {
+            "type": "boolean"
+          },
+          "status": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "subject_name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "trusted": {
+            "type": "boolean"
+          },
+          "valid": {
+            "type": "boolean"
+          }
+        }
+      },
       "container": {
         "properties": {
           "id": {
@@ -549,6 +572,87 @@
           }
         }
       },
+      "dll": {
+        "properties": {
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            }
+          },
+          "hash": {
+            "properties": {
+              "imphash": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "md5": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "sha1": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "sha256": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "sha512": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "path": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
       "dns": {
         "properties": {
           "answers": {
@@ -668,18 +772,6 @@
           }
         }
       },
-      "endpoint": {
-        "properties": {
-          "policy": {
-            "properties": {
-              "id": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          }
-        }
-      },
       "event": {
         "properties": {
           "action": {
@@ -774,6 +866,27 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            }
+          },
           "created": {
             "type": "date"
           },
@@ -857,6 +970,30 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "size": {
             "type": "long"
           },
@@ -911,55 +1048,89 @@
               "file_extension": {
                 "type": "long"
               },
-              "macro_collection_hashes": {
+              "macro_collection": {
                 "properties": {
-                  "imphash": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "md5": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha1": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha256": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                  "hash": {
+                    "properties": {
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "md5": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha1": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha256": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha512": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   }
-                }
+                },
+                "type": "object"
               },
-              "project_file_hashes": {
+              "project_file": {
                 "properties": {
-                  "imphash": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "md5": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha1": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha256": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                  "hash": {
+                    "properties": {
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "md5": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha1": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha256": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha512": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   }
-                }
+                },
+                "type": "object"
               },
               "stream_data": {
                 "properties": {
-                  "imphash": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "md5": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                  "hash": {
+                    "properties": {
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "md5": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha1": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha256": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha512": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   },
                   "name": {
                     "ignore_above": 1024,
@@ -970,14 +1141,6 @@
                     "type": "keyword"
                   },
                   "raw_code_size": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha1": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha256": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
@@ -1044,9 +1207,6 @@
           "temp_file_path": {
             "ignore_above": 1024,
             "type": "keyword"
-          },
-          "user_blacklisted": {
-            "type": "boolean"
           },
           "yara_hits": {
             "properties": {
@@ -1937,6 +2097,30 @@
           }
         }
       },
+      "pe": {
+        "properties": {
+          "company": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "description": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "file_version": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "original_file_name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "product": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "process": {
         "properties": {
           "args": {
@@ -2003,6 +2187,27 @@
               "publisher_link": {
                 "ignore_above": 1024,
                 "type": "keyword"
+              }
+            }
+          },
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
               }
             }
           },
@@ -2118,6 +2323,10 @@
             "type": "nested"
           },
           "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "entity_id": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -2530,6 +2739,27 @@
               "args_count": {
                 "type": "long"
               },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                }
+              },
               "command_line": {
                 "fields": {
                   "text": {
@@ -2537,6 +2767,10 @@
                     "type": "text"
                   }
                 },
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "entity_id": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -2552,6 +2786,30 @@
               },
               "exit_code": {
                 "type": "long"
+              },
+              "hash": {
+                "properties": {
+                  "imphash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "md5": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha1": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha256": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha512": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
               },
               "name": {
                 "fields": {
@@ -2606,6 +2864,30 @@
                     "type": "text"
                   }
                 },
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -3523,6 +3805,27 @@
                   }
                 }
               },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                }
+              },
               "command_line": {
                 "fields": {
                   "text": {
@@ -3635,6 +3938,10 @@
                 "type": "nested"
               },
               "domain": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "entity_id": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -4047,6 +4354,27 @@
                   "args_count": {
                     "type": "long"
                   },
+                  "code_signature": {
+                    "properties": {
+                      "exists": {
+                        "type": "boolean"
+                      },
+                      "status": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "subject_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "trusted": {
+                        "type": "boolean"
+                      },
+                      "valid": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
                   "command_line": {
                     "fields": {
                       "text": {
@@ -4054,6 +4382,10 @@
                         "type": "text"
                       }
                     },
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "entity_id": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
@@ -4069,6 +4401,30 @@
                   },
                   "exit_code": {
                     "type": "long"
+                  },
+                  "hash": {
+                    "properties": {
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "md5": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha1": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha256": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha512": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   },
                   "name": {
                     "fields": {
@@ -4123,6 +4479,30 @@
                         "type": "text"
                       }
                     },
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "pe": {
+                "properties": {
+                  "company": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "description": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "original_file_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
@@ -5258,6 +5638,7 @@
       }
     }
   },
+  "order": 1,
   "settings": {
     "index": {
       "mapping": {
@@ -5265,7 +5646,7 @@
           "limit": 10000
         }
       },
-      "refresh_interval": "1s"
+      "refresh_interval": "5s"
     }
   }
 }

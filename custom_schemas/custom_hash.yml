@@ -1,0 +1,27 @@
+---
+- name: hash
+  title: Hash
+  group: 2
+  type: group
+  short: Hashes, usually file hashes.
+  description: >
+    The hash fields represent different hash algorithms and their values.
+
+    Field names for common hashes (e.g. MD5, SHA1) are predefined. Add fields for other hashes
+    by lowercasing the hash algorithm name and using underscore separators as appropriate
+    (snake case, e.g. sha3_512).
+
+  reusable:
+    top_level: false
+    expected:
+      - file
+      - process
+      - file_classification.macro_details.macro_collection
+      - file_classification.macro_details.project_file
+      - file_classification.macro_details.stream_data
+
+  fields:
+    - name: imphash
+      level: extended
+      type: keyword
+      description: Imphash.

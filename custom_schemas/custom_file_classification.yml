@@ -37,60 +37,6 @@
       description: >
         TODO
 
-    - name: user_blacklisted
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: macro_details.macro_collection_hashes.md5
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.macro_collection_hashes.sha1
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.macro_collection_hashes.sha256
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.macro_collection_hashes.imphash
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.project_file_hashes.md5
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.project_file_hashes.sha1
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.project_file_hashes.sha256
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.project_file_hashes.imphash
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: macro_details.errors
       level: custom
       type: nested
@@ -109,6 +55,18 @@
       description: >
         TODO
 
+    - name: macro_details.macro_collection
+      level: custom
+      type: object
+      description: >
+        TODO
+
+    - name: macro_details.project_file
+      level: custom
+      type: object
+      description: >
+        TODO
+
     - name: macro_details.stream_data
       level: custom
       type: nested
@@ -116,30 +74,6 @@
         TODO
 
     - name: macro_details.stream_data.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.stream_data.md5
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.stream_data.sha1
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.stream_data.sha256
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: macro_details.stream_data.imphash
       level: custom
       type: keyword
       description: >
