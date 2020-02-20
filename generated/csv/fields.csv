@@ -250,10 +250,11 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.modules.authenticode.program_name,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.modules.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.modules.compile_time,date,custom,,,TODO
-1.5.0-dev,true,process,process.modules.hash.imphash,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.hash.md5,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.hash.sha1,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.hash.sha256,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.modules.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,process,process.modules.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,process,process.modules.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,process,process.modules.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,process,process.modules.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
@@ -528,10 +529,11 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.modules.authenticode.program_name,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.compile_time,date,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.hash.imphash,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.hash.md5,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.hash.sha1,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.hash.sha256,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.modules.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,target,target.process.modules.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,target,target.process.modules.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,target,target.process.modules.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,target,target.process.modules.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO

@@ -3289,7 +3289,7 @@ process:
       level: custom
       name: architecture
       normalize: []
-      order: 8
+      order: 4
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3432,57 +3432,69 @@ process:
       level: custom
       name: compile_time
       normalize: []
-      order: 7
+      order: 3
       original_fieldset: modules
       short: TODO
       type: date
     modules.hash.imphash:
       dashed_name: process-modules-hash-imphash
-      description: TODO
+      description: Imphash.
       flat_name: process.modules.hash.imphash
       ignore_above: 1024
-      level: custom
-      name: hash.imphash
+      level: extended
+      name: imphash
       normalize: []
-      order: 4
-      original_fieldset: modules
-      short: TODO
+      order: 0
+      original_fieldset: hash
+      short: Imphash.
       type: keyword
     modules.hash.md5:
       dashed_name: process-modules-hash-md5
-      description: TODO
+      description: MD5 hash.
       flat_name: process.modules.hash.md5
       ignore_above: 1024
-      level: custom
-      name: hash.md5
+      level: extended
+      name: md5
       normalize: []
-      order: 1
-      original_fieldset: modules
-      short: TODO
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
       type: keyword
     modules.hash.sha1:
       dashed_name: process-modules-hash-sha1
-      description: TODO
+      description: SHA1 hash.
       flat_name: process.modules.hash.sha1
       ignore_above: 1024
-      level: custom
-      name: hash.sha1
+      level: extended
+      name: sha1
       normalize: []
-      order: 2
-      original_fieldset: modules
-      short: TODO
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
       type: keyword
     modules.hash.sha256:
       dashed_name: process-modules-hash-sha256
-      description: TODO
+      description: SHA256 hash.
       flat_name: process.modules.hash.sha256
       ignore_above: 1024
-      level: custom
-      name: hash.sha256
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    modules.hash.sha512:
+      dashed_name: process-modules-hash-sha512
+      description: SHA512 hash.
+      flat_name: process.modules.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
       normalize: []
       order: 3
-      original_fieldset: modules
-      short: TODO
+      original_fieldset: hash
+      short: SHA512 hash.
       type: keyword
     modules.malware_classification.compressed_malware_features.data_buffer:
       dashed_name: process-modules-malware-classification-compressed-malware-features-data-buffer
@@ -3595,7 +3607,7 @@ process:
       level: custom
       name: mapped_address
       normalize: []
-      order: 5
+      order: 1
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3606,7 +3618,7 @@ process:
       level: custom
       name: mapped_size
       normalize: []
-      order: 6
+      order: 2
       original_fieldset: modules
       short: TODO
       type: long
@@ -3629,7 +3641,7 @@ process:
       level: custom
       name: pe_exports
       normalize: []
-      order: 12
+      order: 8
       original_fieldset: modules
       short: TODO
       type: nested
@@ -3641,7 +3653,7 @@ process:
       level: custom
       name: pe_exports.name
       normalize: []
-      order: 14
+      order: 10
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3652,7 +3664,7 @@ process:
       level: custom
       name: pe_exports.ordinal
       normalize: []
-      order: 13
+      order: 9
       original_fieldset: modules
       short: TODO
       type: long
@@ -3663,7 +3675,7 @@ process:
       level: custom
       name: pe_imports
       normalize: []
-      order: 9
+      order: 5
       original_fieldset: modules
       short: TODO
       type: nested
@@ -3675,7 +3687,7 @@ process:
       level: custom
       name: pe_imports.dll_name
       normalize: []
-      order: 10
+      order: 6
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3687,7 +3699,7 @@ process:
       level: custom
       name: pe_imports.import_names
       normalize: []
-      order: 11
+      order: 7
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3699,7 +3711,7 @@ process:
       level: custom
       name: signature_signer
       normalize: []
-      order: 15
+      order: 11
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -3711,7 +3723,7 @@ process:
       level: custom
       name: signature_status
       normalize: []
-      order: 16
+      order: 12
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6588,7 +6600,7 @@ target:
       level: custom
       name: architecture
       normalize: []
-      order: 8
+      order: 4
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6731,57 +6743,69 @@ target:
       level: custom
       name: compile_time
       normalize: []
-      order: 7
+      order: 3
       original_fieldset: modules
       short: TODO
       type: date
     process.modules.hash.imphash:
       dashed_name: target-process-modules-hash-imphash
-      description: TODO
+      description: Imphash.
       flat_name: target.process.modules.hash.imphash
       ignore_above: 1024
-      level: custom
-      name: hash.imphash
+      level: extended
+      name: imphash
       normalize: []
-      order: 4
-      original_fieldset: modules
-      short: TODO
+      order: 0
+      original_fieldset: hash
+      short: Imphash.
       type: keyword
     process.modules.hash.md5:
       dashed_name: target-process-modules-hash-md5
-      description: TODO
+      description: MD5 hash.
       flat_name: target.process.modules.hash.md5
       ignore_above: 1024
-      level: custom
-      name: hash.md5
+      level: extended
+      name: md5
       normalize: []
-      order: 1
-      original_fieldset: modules
-      short: TODO
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
       type: keyword
     process.modules.hash.sha1:
       dashed_name: target-process-modules-hash-sha1
-      description: TODO
+      description: SHA1 hash.
       flat_name: target.process.modules.hash.sha1
       ignore_above: 1024
-      level: custom
-      name: hash.sha1
+      level: extended
+      name: sha1
       normalize: []
-      order: 2
-      original_fieldset: modules
-      short: TODO
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
       type: keyword
     process.modules.hash.sha256:
       dashed_name: target-process-modules-hash-sha256
-      description: TODO
+      description: SHA256 hash.
       flat_name: target.process.modules.hash.sha256
       ignore_above: 1024
-      level: custom
-      name: hash.sha256
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    process.modules.hash.sha512:
+      dashed_name: target-process-modules-hash-sha512
+      description: SHA512 hash.
+      flat_name: target.process.modules.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
       normalize: []
       order: 3
-      original_fieldset: modules
-      short: TODO
+      original_fieldset: hash
+      short: SHA512 hash.
       type: keyword
     process.modules.malware_classification.compressed_malware_features.data_buffer:
       dashed_name: target-process-modules-malware-classification-compressed-malware-features-data-buffer
@@ -6894,7 +6918,7 @@ target:
       level: custom
       name: mapped_address
       normalize: []
-      order: 5
+      order: 1
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6905,7 +6929,7 @@ target:
       level: custom
       name: mapped_size
       normalize: []
-      order: 6
+      order: 2
       original_fieldset: modules
       short: TODO
       type: long
@@ -6928,7 +6952,7 @@ target:
       level: custom
       name: pe_exports
       normalize: []
-      order: 12
+      order: 8
       original_fieldset: modules
       short: TODO
       type: nested
@@ -6940,7 +6964,7 @@ target:
       level: custom
       name: pe_exports.name
       normalize: []
-      order: 14
+      order: 10
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6951,7 +6975,7 @@ target:
       level: custom
       name: pe_exports.ordinal
       normalize: []
-      order: 13
+      order: 9
       original_fieldset: modules
       short: TODO
       type: long
@@ -6962,7 +6986,7 @@ target:
       level: custom
       name: pe_imports
       normalize: []
-      order: 9
+      order: 5
       original_fieldset: modules
       short: TODO
       type: nested
@@ -6974,7 +6998,7 @@ target:
       level: custom
       name: pe_imports.dll_name
       normalize: []
-      order: 10
+      order: 6
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6986,7 +7010,7 @@ target:
       level: custom
       name: pe_imports.import_names
       normalize: []
-      order: 11
+      order: 7
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -6998,7 +7022,7 @@ target:
       level: custom
       name: signature_signer
       normalize: []
-      order: 15
+      order: 11
       original_fieldset: modules
       short: TODO
       type: keyword
@@ -7010,7 +7034,7 @@ target:
       level: custom
       name: signature_status
       normalize: []
-      order: 16
+      order: 12
       original_fieldset: modules
       short: TODO
       type: keyword

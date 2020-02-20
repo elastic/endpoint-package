@@ -19,6 +19,7 @@
       - file_classification.macro_details.macro_collection
       - file_classification.macro_details.project_file
       - file_classification.macro_details.stream_data
+      - modules
 
   fields:
     - name: imphash

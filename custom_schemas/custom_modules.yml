@@ -18,30 +18,6 @@
       description: >
         TODO
 
-    - name: hash.md5
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: hash.sha1
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: hash.sha256
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: hash.imphash
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: mapped_address
       level: custom
       type: keyword
