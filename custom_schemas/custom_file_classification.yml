@@ -42,6 +42,7 @@
       type: nested
       description: >
         TODO
+      index: False
 
     - name: macro_details.errors.count
       level: custom
@@ -72,6 +73,7 @@
       type: nested
       description: >
         TODO
+      index: False
 
     - name: macro_details.stream_data.name
       level: custom
@@ -108,6 +110,7 @@
       type: nested
       description: >
         TODO
+      index: False
 
     - name: yara_hits.rule_name
       level: custom

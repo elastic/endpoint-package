@@ -69,6 +69,7 @@
       type: nested
       description: >
         Array describing the privileges associated with the token.
+      index: False
     
     - name: privileges.name
       level: extended

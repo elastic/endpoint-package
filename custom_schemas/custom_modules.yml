@@ -11,6 +11,7 @@
       - process
   type: nested
   level: custom
+  index: False
   fields:
     - name: path
       level: custom

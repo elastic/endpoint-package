@@ -11,7 +11,9 @@
       - modules
       - process.pe_info
       - process
-  type: group
+  type: nested
+  level: custom
+  index: False
   fields:
     - name: cert_signer.issuer_name
       level: custom

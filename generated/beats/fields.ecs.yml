@@ -1059,6 +1059,11 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: authenticode
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
     - name: authenticode.cert_signer.issuer_name
       level: custom
       type: keyword
@@ -1641,6 +1646,11 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: modules.authenticode
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
     - name: modules.authenticode.cert_signer.issuer_name
       level: custom
       type: keyword
@@ -2137,6 +2147,11 @@
       level: custom
       type: keyword
       ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: pe_info.authenticode
+      level: custom
+      type: nested
       description: TODO
       default_field: false
     - name: pe_info.authenticode.cert_signer.issuer_name
@@ -2786,6 +2801,11 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: process.authenticode
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
     - name: process.authenticode.cert_signer.issuer_name
       level: custom
       type: keyword
@@ -3372,6 +3392,11 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: process.modules.authenticode
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
     - name: process.modules.authenticode.cert_signer.issuer_name
       level: custom
       type: keyword
@@ -3868,6 +3893,11 @@
       level: custom
       type: keyword
       ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: process.pe_info.authenticode
+      level: custom
+      type: nested
       description: TODO
       default_field: false
     - name: process.pe_info.authenticode.cert_signer.issuer_name

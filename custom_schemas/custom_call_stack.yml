@@ -12,6 +12,7 @@
       - process.defense_evasions
   type: nested
   level: custom
+  index: False
   fields:
     - name: module_path
       level: custom

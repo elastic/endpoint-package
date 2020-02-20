@@ -11,12 +11,6 @@
       - target
   type: group
   fields:
-    - name: call_stack
-      level: custom
-      type: nested
-      description: >
-        TODO
-
     - name: id
       level: core
       type: long
