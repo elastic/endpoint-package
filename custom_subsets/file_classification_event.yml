@@ -49,4 +49,6 @@ thread:
   fields: "*"
 target: 
   fields: "*"
+user:
+  fields: "*"
 

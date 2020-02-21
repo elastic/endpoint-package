@@ -9467,3 +9467,131 @@ threat.technique.reference:
   order: 6
   short: Threat technique reference.
   type: keyword
+user.domain:
+  dashed_name: user-domain
+  description: 'Name of the directory the user is a member of.
+
+    For example, an LDAP or Active Directory domain name.'
+  flat_name: user.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  order: 5
+  original_fieldset: user
+  short: Name of the directory the user is a member of.
+  type: keyword
+user.email:
+  dashed_name: user-email
+  description: User email address.
+  flat_name: user.email
+  ignore_above: 1024
+  level: extended
+  name: email
+  normalize: []
+  order: 3
+  original_fieldset: user
+  short: User email address.
+  type: keyword
+user.full_name:
+  dashed_name: user-full-name
+  description: User's full name, if available.
+  example: Albert Einstein
+  flat_name: user.full_name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: user.full_name.text
+    name: text
+    norms: false
+    type: text
+  name: full_name
+  normalize: []
+  order: 2
+  original_fieldset: user
+  short: User's full name, if available.
+  type: keyword
+user.group.domain:
+  dashed_name: user-group-domain
+  description: 'Name of the directory the group is a member of.
+
+    For example, an LDAP or Active Directory domain name.'
+  flat_name: user.group.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  order: 2
+  original_fieldset: group
+  short: Name of the directory the group is a member of.
+  type: keyword
+user.group.id:
+  dashed_name: user-group-id
+  description: Unique identifier for the group on the system/platform.
+  flat_name: user.group.id
+  ignore_above: 1024
+  level: extended
+  name: id
+  normalize: []
+  order: 0
+  original_fieldset: group
+  short: Unique identifier for the group on the system/platform.
+  type: keyword
+user.group.name:
+  dashed_name: user-group-name
+  description: Name of the group.
+  flat_name: user.group.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  order: 1
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
+user.hash:
+  dashed_name: user-hash
+  description: 'Unique user hash to correlate information for a user in anonymized
+    form.
+
+    Useful if `user.id` or `user.name` contain confidential information and cannot
+    be used.'
+  flat_name: user.hash
+  ignore_above: 1024
+  level: extended
+  name: hash
+  normalize: []
+  order: 4
+  original_fieldset: user
+  short: Unique user hash to correlate information for a user in anonymized form.
+  type: keyword
+user.id:
+  dashed_name: user-id
+  description: Unique identifiers of the user.
+  flat_name: user.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  order: 0
+  original_fieldset: user
+  short: Unique identifiers of the user.
+  type: keyword
+user.name:
+  dashed_name: user-name
+  description: Short name or login of the user.
+  example: albert
+  flat_name: user.name
+  ignore_above: 1024
+  level: core
+  multi_fields:
+  - flat_name: user.name.text
+    name: text
+    norms: false
+    type: text
+  name: name
+  normalize: []
+  order: 1
+  original_fieldset: user
+  short: Short name or login of the user.
+  type: keyword

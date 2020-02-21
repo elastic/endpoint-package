@@ -755,3 +755,14 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,threat,threat.technique.name,keyword,extended,array,endpoint denial of service,Threat technique name.
 1.5.0-dev,true,threat,threat.technique.name.text,text,extended,,endpoint denial of service,Threat technique name.
 1.5.0-dev,true,threat,threat.technique.reference,keyword,extended,array,https://attack.mitre.org/techniques/T1499/,Threat technique reference.
+1.5.0-dev,true,user,user.domain,keyword,extended,,,Name of the directory the user is a member of.
+1.5.0-dev,true,user,user.email,keyword,extended,,,User email address.
+1.5.0-dev,true,user,user.full_name,keyword,extended,,Albert Einstein,"User's full name, if available."
+1.5.0-dev,true,user,user.full_name.text,text,extended,,Albert Einstein,"User's full name, if available."
+1.5.0-dev,true,user,user.group.domain,keyword,extended,,,Name of the directory the group is a member of.
+1.5.0-dev,true,user,user.group.id,keyword,extended,,,Unique identifier for the group on the system/platform.
+1.5.0-dev,true,user,user.group.name,keyword,extended,,,Name of the group.
+1.5.0-dev,true,user,user.hash,keyword,extended,,,Unique user hash to correlate information for a user in anonymized form.
+1.5.0-dev,true,user,user.id,keyword,core,,,Unique identifiers of the user.
+1.5.0-dev,true,user,user.name,keyword,core,,albert,Short name or login of the user.
+1.5.0-dev,true,user,user.name.text,text,core,,albert,Short name or login of the user.
