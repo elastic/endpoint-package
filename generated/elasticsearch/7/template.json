@@ -280,8 +280,6 @@
                 "type": "long"
               },
               "errors": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "count": {
                     "type": "long"
@@ -355,8 +353,6 @@
                 "type": "object"
               },
               "stream_data": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "hash": {
                     "properties": {
@@ -459,8 +455,6 @@
             "type": "keyword"
           },
           "yara_hits": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "identifier": {
                 "ignore_above": 1024,
@@ -666,8 +660,6 @@
             "type": "keyword"
           },
           "authenticode": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "cert_signer": {
                 "properties": {
@@ -763,12 +755,8 @@
             "type": "keyword"
           },
           "defense_evasions": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "call_stack": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "instruction_pointer": {
                     "ignore_above": 1024,
@@ -822,8 +810,6 @@
                 "type": "keyword"
               },
               "memory_sections": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "memory_address": {
                     "ignore_above": 1024,
@@ -919,8 +905,6 @@
             "type": "keyword"
           },
           "handles": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "handle_id": {
                 "type": "long"
@@ -1012,8 +996,6 @@
             "type": "double"
           },
           "memory_region": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "allocation_base": {
                 "ignore_above": 1024,
@@ -1091,16 +1073,12 @@
             "type": "nested"
           },
           "modules": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "architecture": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
               "authenticode": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "cert_signer": {
                     "properties": {
@@ -1453,8 +1431,6 @@
                 "type": "keyword"
               },
               "authenticode": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "cert_signer": {
                     "properties": {
@@ -1560,8 +1536,6 @@
                 }
               },
               "pe_exports": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "name": {
                     "ignore_above": 1024,
@@ -1574,8 +1548,6 @@
                 "type": "nested"
               },
               "pe_imports": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "dll_name": {
                     "ignore_above": 1024,
@@ -1589,8 +1561,6 @@
                 "type": "nested"
               },
               "resources": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "resource_data": {
                     "properties": {
@@ -1617,8 +1587,6 @@
                 "type": "nested"
               },
               "sections": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "entropy": {
                     "type": "double"
@@ -1655,8 +1623,6 @@
                 "type": "keyword"
               },
               "version_info": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "code_page": {
                     "type": "long"
@@ -1728,8 +1694,6 @@
             }
           },
           "threads": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "entrypoint": {
                 "ignore_above": 1024,
@@ -1778,8 +1742,6 @@
                 "type": "boolean"
               },
               "privileges": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "description": {
                     "ignore_above": 1024,
@@ -1913,8 +1875,6 @@
                 "type": "keyword"
               },
               "authenticode": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "cert_signer": {
                     "properties": {
@@ -2010,12 +1970,8 @@
                 "type": "keyword"
               },
               "defense_evasions": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "call_stack": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "instruction_pointer": {
                         "ignore_above": 1024,
@@ -2069,8 +2025,6 @@
                     "type": "keyword"
                   },
                   "memory_sections": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "memory_address": {
                         "ignore_above": 1024,
@@ -2166,8 +2120,6 @@
                 "type": "keyword"
               },
               "handles": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "handle_id": {
                     "type": "long"
@@ -2259,8 +2211,6 @@
                 "type": "double"
               },
               "memory_region": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "allocation_base": {
                     "ignore_above": 1024,
@@ -2338,16 +2288,12 @@
                 "type": "nested"
               },
               "modules": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "architecture": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "authenticode": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "cert_signer": {
                         "properties": {
@@ -2700,8 +2646,6 @@
                     "type": "keyword"
                   },
                   "authenticode": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "cert_signer": {
                         "properties": {
@@ -2807,8 +2751,6 @@
                     }
                   },
                   "pe_exports": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "name": {
                         "ignore_above": 1024,
@@ -2821,8 +2763,6 @@
                     "type": "nested"
                   },
                   "pe_imports": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "dll_name": {
                         "ignore_above": 1024,
@@ -2836,8 +2776,6 @@
                     "type": "nested"
                   },
                   "resources": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "resource_data": {
                         "properties": {
@@ -2864,8 +2802,6 @@
                     "type": "nested"
                   },
                   "sections": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "entropy": {
                         "type": "double"
@@ -2902,8 +2838,6 @@
                     "type": "keyword"
                   },
                   "version_info": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "code_page": {
                         "type": "long"
@@ -2975,8 +2909,6 @@
                 }
               },
               "threads": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "entrypoint": {
                     "ignore_above": 1024,
@@ -3025,8 +2957,6 @@
                     "type": "boolean"
                   },
                   "privileges": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "description": {
                         "ignore_above": 1024,
@@ -3111,8 +3041,6 @@
           "thread": {
             "properties": {
               "call_stack": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "instruction_pointer": {
                     "ignore_above": 1024,
@@ -3192,8 +3120,6 @@
                     "type": "boolean"
                   },
                   "privileges": {
-                    "doc_values": false,
-                    "index": false,
                     "properties": {
                       "description": {
                         "ignore_above": 1024,
@@ -3230,8 +3156,6 @@
       "thread": {
         "properties": {
           "call_stack": {
-            "doc_values": false,
-            "index": false,
             "properties": {
               "instruction_pointer": {
                 "ignore_above": 1024,
@@ -3311,8 +3235,6 @@
                 "type": "boolean"
               },
               "privileges": {
-                "doc_values": false,
-                "index": false,
                 "properties": {
                   "description": {
                     "ignore_above": 1024,

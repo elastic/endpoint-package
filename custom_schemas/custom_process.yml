@@ -62,7 +62,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: memory_region.memory_address
       level: custom
@@ -177,7 +176,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: threads.id
       level: custom
@@ -208,7 +206,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: handles.handle_id
       level: custom
@@ -359,7 +356,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: pe_info.sections.virtual_address
       level: custom
@@ -402,7 +398,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: pe_info.pe_imports.dll_name
       level: custom
@@ -421,7 +416,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: pe_info.pe_exports.ordinal
       level: custom
@@ -440,7 +434,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: pe_info.resources.resource_id
       level: custom
@@ -477,7 +470,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: pe_info.version_info.language
       level: custom
@@ -538,7 +530,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: defense_evasions.evasion_type
       level: custom
@@ -569,7 +560,6 @@
       type: nested
       description: >
         TODO
-      index: False
 
     - name: defense_evasions.memory_sections.memory_address
       level: custom

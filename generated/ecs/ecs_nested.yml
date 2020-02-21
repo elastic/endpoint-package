@@ -1168,9 +1168,7 @@ file_classification:
     macro_details.errors:
       dashed_name: file-classification-macro-details-errors
       description: TODO
-      doc_values: false
       flat_name: file_classification.macro_details.errors
-      index: false
       level: custom
       name: macro_details.errors
       normalize: []
@@ -1353,9 +1351,7 @@ file_classification:
     macro_details.stream_data:
       dashed_name: file-classification-macro-details-stream-data
       description: TODO
-      doc_values: false
       flat_name: file_classification.macro_details.stream_data
-      index: false
       level: custom
       name: macro_details.stream_data
       normalize: []
@@ -1605,9 +1601,7 @@ file_classification:
     yara_hits:
       dashed_name: file-classification-yara-hits
       description: TODO
-      doc_values: false
       flat_name: file_classification.yara_hits
-      index: false
       level: custom
       name: yara_hits
       normalize: []
@@ -2185,10 +2179,8 @@ process:
     authenticode:
       dashed_name: process-authenticode
       description: TODO
-      doc_values: false
       flat_name: process.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -2452,9 +2444,7 @@ process:
     defense_evasions:
       dashed_name: process-defense-evasions
       description: TODO
-      doc_values: false
       flat_name: process.defense_evasions
-      index: false
       level: custom
       name: defense_evasions
       normalize: []
@@ -2464,10 +2454,8 @@ process:
     defense_evasions.call_stack:
       dashed_name: process-defense-evasions-call-stack
       description: TODO
-      doc_values: false
       flat_name: process.defense_evasions.call_stack
       group: 2
-      index: false
       level: custom
       name: call_stack
       normalize: []
@@ -2612,9 +2600,7 @@ process:
     defense_evasions.memory_sections:
       dashed_name: process-defense-evasions-memory-sections
       description: TODO
-      doc_values: false
       flat_name: process.defense_evasions.memory_sections
-      index: false
       level: custom
       name: defense_evasions.memory_sections
       normalize: []
@@ -2849,9 +2835,7 @@ process:
     handles:
       dashed_name: process-handles
       description: TODO
-      doc_values: false
       flat_name: process.handles
-      index: false
       level: custom
       name: handles
       normalize: []
@@ -3096,9 +3080,7 @@ process:
     memory_region:
       dashed_name: process-memory-region
       description: TODO
-      doc_values: false
       flat_name: process.memory_region
-      index: false
       level: custom
       name: memory_region
       normalize: []
@@ -3304,10 +3286,8 @@ process:
     modules:
       dashed_name: process-modules
       description: These fields contain information about a list of modules.
-      doc_values: false
       flat_name: process.modules
       group: 2
-      index: false
       level: custom
       name: modules
       normalize: []
@@ -3335,10 +3315,8 @@ process:
     modules.authenticode:
       dashed_name: process-modules-authenticode
       description: TODO
-      doc_values: false
       flat_name: process.modules.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -4269,10 +4247,8 @@ process:
     pe_info.authenticode:
       dashed_name: process-pe-info-authenticode
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -4555,9 +4531,7 @@ process:
     pe_info.pe_exports:
       dashed_name: process-pe-info-pe-exports
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.pe_exports
-      index: false
       level: custom
       name: pe_info.pe_exports
       normalize: []
@@ -4588,9 +4562,7 @@ process:
     pe_info.pe_imports:
       dashed_name: process-pe-info-pe-imports
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.pe_imports
-      index: false
       level: custom
       name: pe_info.pe_imports
       normalize: []
@@ -4622,9 +4594,7 @@ process:
     pe_info.resources:
       dashed_name: process-pe-info-resources
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.resources
-      index: false
       level: custom
       name: pe_info.resources
       normalize: []
@@ -4686,9 +4656,7 @@ process:
     pe_info.sections:
       dashed_name: process-pe-info-sections
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.sections
-      index: false
       level: custom
       name: pe_info.sections
       normalize: []
@@ -4785,9 +4753,7 @@ process:
     pe_info.version_info:
       dashed_name: process-pe-info-version-info
       description: TODO
-      doc_values: false
       flat_name: process.pe_info.version_info
-      index: false
       level: custom
       name: pe_info.version_info
       normalize: []
@@ -4985,9 +4951,7 @@ process:
     threads:
       dashed_name: process-threads
       description: TODO
-      doc_values: false
       flat_name: process.threads
-      index: false
       level: custom
       name: threads
       normalize: []
@@ -5115,9 +5079,7 @@ process:
     token.privileges:
       dashed_name: process-token-privileges
       description: Array describing the privileges associated with the token.
-      doc_values: false
       flat_name: process.token.privileges
-      index: false
       level: extended
       name: privileges
       normalize: []
@@ -5530,10 +5492,8 @@ target:
     process.authenticode:
       dashed_name: target-process-authenticode
       description: TODO
-      doc_values: false
       flat_name: target.process.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -5800,9 +5760,7 @@ target:
     process.defense_evasions:
       dashed_name: target-process-defense-evasions
       description: TODO
-      doc_values: false
       flat_name: target.process.defense_evasions
-      index: false
       level: custom
       name: defense_evasions
       normalize: []
@@ -5813,10 +5771,8 @@ target:
     process.defense_evasions.call_stack:
       dashed_name: target-process-defense-evasions-call-stack
       description: TODO
-      doc_values: false
       flat_name: target.process.defense_evasions.call_stack
       group: 2
-      index: false
       level: custom
       name: call_stack
       normalize: []
@@ -5965,9 +5921,7 @@ target:
     process.defense_evasions.memory_sections:
       dashed_name: target-process-defense-evasions-memory-sections
       description: TODO
-      doc_values: false
       flat_name: target.process.defense_evasions.memory_sections
-      index: false
       level: custom
       name: defense_evasions.memory_sections
       normalize: []
@@ -6222,9 +6176,7 @@ target:
     process.handles:
       dashed_name: target-process-handles
       description: TODO
-      doc_values: false
       flat_name: target.process.handles
-      index: false
       level: custom
       name: handles
       normalize: []
@@ -6477,9 +6429,7 @@ target:
     process.memory_region:
       dashed_name: target-process-memory-region
       description: TODO
-      doc_values: false
       flat_name: target.process.memory_region
-      index: false
       level: custom
       name: memory_region
       normalize: []
@@ -6704,10 +6654,8 @@ target:
     process.modules:
       dashed_name: target-process-modules
       description: These fields contain information about a list of modules.
-      doc_values: false
       flat_name: target.process.modules
       group: 2
-      index: false
       level: custom
       name: modules
       normalize: []
@@ -6735,10 +6683,8 @@ target:
     process.modules.authenticode:
       dashed_name: target-process-modules-authenticode
       description: TODO
-      doc_values: false
       flat_name: target.process.modules.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -7688,10 +7634,8 @@ target:
     process.pe_info.authenticode:
       dashed_name: target-process-pe-info-authenticode
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.authenticode
       group: 2
-      index: false
       level: custom
       name: authenticode
       normalize: []
@@ -7977,9 +7921,7 @@ target:
     process.pe_info.pe_exports:
       dashed_name: target-process-pe-info-pe-exports
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.pe_exports
-      index: false
       level: custom
       name: pe_info.pe_exports
       normalize: []
@@ -8013,9 +7955,7 @@ target:
     process.pe_info.pe_imports:
       dashed_name: target-process-pe-info-pe-imports
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.pe_imports
-      index: false
       level: custom
       name: pe_info.pe_imports
       normalize: []
@@ -8050,9 +7990,7 @@ target:
     process.pe_info.resources:
       dashed_name: target-process-pe-info-resources
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.resources
-      index: false
       level: custom
       name: pe_info.resources
       normalize: []
@@ -8120,9 +8058,7 @@ target:
     process.pe_info.sections:
       dashed_name: target-process-pe-info-sections
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.sections
-      index: false
       level: custom
       name: pe_info.sections
       normalize: []
@@ -8228,9 +8164,7 @@ target:
     process.pe_info.version_info:
       dashed_name: target-process-pe-info-version-info
       description: TODO
-      doc_values: false
       flat_name: target.process.pe_info.version_info
-      index: false
       level: custom
       name: pe_info.version_info
       normalize: []
@@ -8446,9 +8380,7 @@ target:
     process.threads:
       dashed_name: target-process-threads
       description: TODO
-      doc_values: false
       flat_name: target.process.threads
-      index: false
       level: custom
       name: threads
       normalize: []
@@ -8582,9 +8514,7 @@ target:
     process.token.privileges:
       dashed_name: target-process-token-privileges
       description: Array describing the privileges associated with the token.
-      doc_values: false
       flat_name: target.process.token.privileges
-      index: false
       level: extended
       name: privileges
       normalize: []
@@ -8813,10 +8743,8 @@ target:
     thread.call_stack:
       dashed_name: target-thread-call-stack
       description: TODO
-      doc_values: false
       flat_name: target.thread.call_stack
       group: 2
-      index: false
       level: custom
       name: call_stack
       normalize: []
@@ -9051,9 +8979,7 @@ target:
     thread.token.privileges:
       dashed_name: target-thread-token-privileges
       description: Array describing the privileges associated with the token.
-      doc_values: false
       flat_name: target.thread.token.privileges
-      index: false
       level: extended
       name: privileges
       normalize: []
@@ -9147,10 +9073,8 @@ thread:
     call_stack:
       dashed_name: thread-call-stack
       description: TODO
-      doc_values: false
       flat_name: thread.call_stack
       group: 2
-      index: false
       level: custom
       name: call_stack
       normalize: []
@@ -9379,9 +9303,7 @@ thread:
     token.privileges:
       dashed_name: thread-token-privileges
       description: Array describing the privileges associated with the token.
-      doc_values: false
       flat_name: thread.token.privileges
-      index: false
       level: extended
       name: privileges
       normalize: []
