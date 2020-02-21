@@ -2753,49 +2753,49 @@ process.group:
   original_fieldset: process
   short: TODO
   type: keyword
-process.handle:
-  dashed_name: process-handle
+process.handles:
+  dashed_name: process-handles
   description: TODO
   doc_values: false
-  flat_name: process.handle
+  flat_name: process.handles
   index: false
   level: custom
-  name: handle
+  name: handles
   normalize: []
   order: 31
   original_fieldset: process
   short: TODO
   type: nested
-process.handle.handle_id:
-  dashed_name: process-handle-handle-id
+process.handles.handle_id:
+  dashed_name: process-handles-handle-id
   description: TODO
-  flat_name: process.handle.handle_id
+  flat_name: process.handles.handle_id
   level: custom
-  name: handle.handle_id
+  name: handles.handle_id
   normalize: []
   order: 32
   original_fieldset: process
   short: TODO
   type: long
-process.handle.handle_name:
-  dashed_name: process-handle-handle-name
+process.handles.handle_name:
+  dashed_name: process-handles-handle-name
   description: TODO
-  flat_name: process.handle.handle_name
+  flat_name: process.handles.handle_name
   ignore_above: 1024
   level: custom
-  name: handle.handle_name
+  name: handles.handle_name
   normalize: []
   order: 34
   original_fieldset: process
   short: TODO
   type: keyword
-process.handle.handle_type:
-  dashed_name: process-handle-handle-type
+process.handles.handle_type:
+  dashed_name: process-handles-handle-type
   description: TODO
-  flat_name: process.handle.handle_type
+  flat_name: process.handles.handle_type
   ignore_above: 1024
   level: custom
-  name: handle.handle_type
+  name: handles.handle_type
   normalize: []
   order: 33
   original_fieldset: process
@@ -6190,49 +6190,49 @@ target.process.group:
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.handle:
-  dashed_name: target-process-handle
+target.process.handles:
+  dashed_name: target-process-handles
   description: TODO
   doc_values: false
-  flat_name: target.process.handle
+  flat_name: target.process.handles
   index: false
   level: custom
-  name: handle
+  name: handles
   normalize: []
   order: 31
   original_fieldset: process
   short: TODO
   type: nested
-target.process.handle.handle_id:
-  dashed_name: target-process-handle-handle-id
+target.process.handles.handle_id:
+  dashed_name: target-process-handles-handle-id
   description: TODO
-  flat_name: target.process.handle.handle_id
+  flat_name: target.process.handles.handle_id
   level: custom
-  name: handle.handle_id
+  name: handles.handle_id
   normalize: []
   order: 32
   original_fieldset: process
   short: TODO
   type: long
-target.process.handle.handle_name:
-  dashed_name: target-process-handle-handle-name
+target.process.handles.handle_name:
+  dashed_name: target-process-handles-handle-name
   description: TODO
-  flat_name: target.process.handle.handle_name
+  flat_name: target.process.handles.handle_name
   ignore_above: 1024
   level: custom
-  name: handle.handle_name
+  name: handles.handle_name
   normalize: []
   order: 34
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.handle.handle_type:
-  dashed_name: target-process-handle-handle-type
+target.process.handles.handle_type:
+  dashed_name: target-process-handles-handle-type
   description: TODO
-  flat_name: target.process.handle.handle_type
+  flat_name: target.process.handles.handle_type
   ignore_above: 1024
   level: custom
-  name: handle.handle_type
+  name: handles.handle_type
   normalize: []
   order: 33
   original_fieldset: process

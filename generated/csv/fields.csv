@@ -196,10 +196,10 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.file_hash.sha512,keyword,custom,,,SHA512 hash.
 1.5.0-dev,true,process,process.gid,long,custom,,,TODO
 1.5.0-dev,true,process,process.group,keyword,custom,,,TODO
-1.5.0-dev,false,process,process.handle,nested,custom,,,TODO
-1.5.0-dev,true,process,process.handle.handle_id,long,custom,,,TODO
-1.5.0-dev,true,process,process.handle.handle_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.handle.handle_type,keyword,custom,,,TODO
+1.5.0-dev,false,process,process.handles,nested,custom,,,TODO
+1.5.0-dev,true,process,process.handles.handle_id,long,custom,,,TODO
+1.5.0-dev,true,process,process.handles.handle_name,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.handles.handle_type,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.has_unbacked_execute_memory,boolean,custom,,,TODO
 1.5.0-dev,true,process,process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,process,process.hash.md5,keyword,extended,,,MD5 hash.
@@ -478,10 +478,10 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.file_hash.sha512,keyword,custom,,,SHA512 hash.
 1.5.0-dev,true,target,target.process.gid,long,custom,,,TODO
 1.5.0-dev,true,target,target.process.group,keyword,custom,,,TODO
-1.5.0-dev,false,target,target.process.handle,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.handle.handle_id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.handle.handle_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.handle.handle_type,keyword,custom,,,TODO
+1.5.0-dev,false,target,target.process.handles,nested,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.handle_id,long,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.handle_name,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.handle_type,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.has_unbacked_execute_memory,boolean,custom,,,TODO
 1.5.0-dev,true,target,target.process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,target,target.process.hash.md5,keyword,extended,,,MD5 hash.

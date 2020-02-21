@@ -1407,23 +1407,23 @@
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: handle
+    - name: handles
       level: custom
       type: nested
       description: TODO
       default_field: false
-    - name: handle.handle_id
+    - name: handles.handle_id
       level: custom
       type: long
       description: TODO
       default_field: false
-    - name: handle.handle_name
+    - name: handles.handle_name
       level: custom
       type: keyword
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: handle.handle_type
+    - name: handles.handle_type
       level: custom
       type: keyword
       ignore_above: 1024
@@ -3149,23 +3149,23 @@
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: process.handle
+    - name: process.handles
       level: custom
       type: nested
       description: TODO
       default_field: false
-    - name: process.handle.handle_id
+    - name: process.handles.handle_id
       level: custom
       type: long
       description: TODO
       default_field: false
-    - name: process.handle.handle_name
+    - name: process.handles.handle_name
       level: custom
       type: keyword
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: process.handle.handle_type
+    - name: process.handles.handle_type
       level: custom
       type: keyword
       ignore_above: 1024

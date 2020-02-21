@@ -918,7 +918,7 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
-          "handle": {
+          "handles": {
             "doc_values": false,
             "index": false,
             "properties": {
@@ -2165,7 +2165,7 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
-              "handle": {
+              "handles": {
                 "doc_values": false,
                 "index": false,
                 "properties": {

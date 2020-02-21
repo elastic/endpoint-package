@@ -203,26 +203,26 @@
       description: >
         TODO
 
-    - name: handle
+    - name: handles
       level: custom
       type: nested
       description: >
         TODO
       index: False
 
-    - name: handle.handle_id
+    - name: handles.handle_id
       level: custom
       type: long
       description: >
         TODO
 
-    - name: handle.handle_type
+    - name: handles.handle_type
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: handle.handle_name
+    - name: handles.handle_name
       level: custom
       type: keyword
       description: >
