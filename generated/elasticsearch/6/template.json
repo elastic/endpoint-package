@@ -455,6 +455,9 @@
               "ignore_above": 1024,
               "type": "keyword"
             },
+            "user_blacklisted": {
+              "type": "boolean"
+            },
             "yara_hits": {
               "properties": {
                 "identifier": {

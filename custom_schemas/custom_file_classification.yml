@@ -55,6 +55,12 @@
       description: >
         TODO
 
+    - name: user_blacklisted
+      level: custom
+      type: boolean
+      description: >
+        TODO
+
     - name: macro_details.macro_collection
       level: custom
       type: object

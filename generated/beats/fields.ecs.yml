@@ -752,6 +752,11 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: user_blacklisted
+      level: custom
+      type: boolean
+      description: TODO
+      default_field: false
     - name: yara_hits
       level: custom
       type: nested

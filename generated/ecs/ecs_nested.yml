@@ -1162,7 +1162,7 @@ file_classification:
       level: custom
       name: macro_details.code_page
       normalize: []
-      order: 14
+      order: 15
       short: TODO
       type: long
     macro_details.errors:
@@ -1203,7 +1203,7 @@ file_classification:
       level: custom
       name: macro_details.file_extension
       normalize: []
-      order: 15
+      order: 16
       short: TODO
       type: long
     macro_details.macro_collection:
@@ -1214,7 +1214,7 @@ file_classification:
       name: macro_details.macro_collection
       normalize: []
       object_type: keyword
-      order: 8
+      order: 9
       short: TODO
       type: object
     macro_details.macro_collection.hash.imphash:
@@ -1285,7 +1285,7 @@ file_classification:
       name: macro_details.project_file
       normalize: []
       object_type: keyword
-      order: 9
+      order: 10
       short: TODO
       type: object
     macro_details.project_file.hash.imphash:
@@ -1355,7 +1355,7 @@ file_classification:
       level: custom
       name: macro_details.stream_data
       normalize: []
-      order: 10
+      order: 11
       short: TODO
       type: nested
     macro_details.stream_data.hash.imphash:
@@ -1426,7 +1426,7 @@ file_classification:
       level: custom
       name: macro_details.stream_data.name
       normalize: []
-      order: 11
+      order: 12
       short: TODO
       type: keyword
     macro_details.stream_data.raw_code:
@@ -1437,7 +1437,7 @@ file_classification:
       level: custom
       name: macro_details.stream_data.raw_code
       normalize: []
-      order: 12
+      order: 13
       short: TODO
       type: keyword
     macro_details.stream_data.raw_code_size:
@@ -1448,7 +1448,7 @@ file_classification:
       level: custom
       name: macro_details.stream_data.raw_code_size
       normalize: []
-      order: 13
+      order: 14
       short: TODO
       type: keyword
     malware_classification.compressed_malware_features.data_buffer:
@@ -1562,7 +1562,7 @@ file_classification:
       level: custom
       name: quarantine_result.alert_correlation_id
       normalize: []
-      order: 22
+      order: 23
       short: TODO
       type: keyword
     quarantine_result.quarantine_path:
@@ -1573,7 +1573,7 @@ file_classification:
       level: custom
       name: quarantine_result.quarantine_path
       normalize: []
-      order: 21
+      order: 22
       short: TODO
       type: keyword
     signature_signer:
@@ -1598,6 +1598,16 @@ file_classification:
       order: 4
       short: TODO
       type: keyword
+    user_blacklisted:
+      dashed_name: file-classification-user-blacklisted
+      description: TODO
+      flat_name: file_classification.user_blacklisted
+      level: custom
+      name: user_blacklisted
+      normalize: []
+      order: 8
+      short: TODO
+      type: boolean
     yara_hits:
       dashed_name: file-classification-yara-hits
       description: TODO
@@ -1605,7 +1615,7 @@ file_classification:
       level: custom
       name: yara_hits
       normalize: []
-      order: 16
+      order: 17
       short: TODO
       type: nested
     yara_hits.identifier:
@@ -1616,7 +1626,7 @@ file_classification:
       level: custom
       name: yara_hits.identifier
       normalize: []
-      order: 18
+      order: 19
       short: TODO
       type: keyword
     yara_hits.matched_data:
@@ -1627,7 +1637,7 @@ file_classification:
       level: custom
       name: yara_hits.matched_data
       normalize: []
-      order: 20
+      order: 21
       short: TODO
       type: keyword
     yara_hits.rule_name:
@@ -1638,7 +1648,7 @@ file_classification:
       level: custom
       name: yara_hits.rule_name
       normalize: []
-      order: 17
+      order: 18
       short: TODO
       type: keyword
     yara_hits.version:
@@ -1649,7 +1659,7 @@ file_classification:
       level: custom
       name: yara_hits.version
       normalize: []
-      order: 19
+      order: 20
       short: TODO
       type: keyword
   group: 2

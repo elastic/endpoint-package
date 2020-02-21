@@ -97,6 +97,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file_classification,file_classification.quarantine_result.quarantine_path,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.signature_signer,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.temp_file_path,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.user_blacklisted,boolean,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.yara_hits,nested,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.yara_hits.identifier,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.yara_hits.matched_data,keyword,custom,,,TODO
