@@ -98,6 +98,18 @@
         ECS versions -- this field lets integrations adjust to the schema version
         of the events.'
       example: 1.0.0
+  - name: endpoint
+    title: Endpoint
+    group: 2
+    description: TODO
+    type: group
+    fields:
+    - name: policy.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
   - name: event
     title: Event
     group: 2

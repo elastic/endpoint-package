@@ -110,6 +110,17 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+endpoint.policy.id:
+  dashed_name: endpoint-policy-id
+  description: TODO
+  flat_name: endpoint.policy.id
+  ignore_above: 1024
+  level: custom
+  name: policy.id
+  normalize: []
+  order: 0
+  short: TODO
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.

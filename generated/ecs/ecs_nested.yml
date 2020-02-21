@@ -149,6 +149,26 @@ ecs:
   short: Meta-information specific to ECS.
   title: ECS
   type: group
+endpoint:
+  description: TODO
+  fields:
+    policy.id:
+      dashed_name: endpoint-policy-id
+      description: TODO
+      flat_name: endpoint.policy.id
+      ignore_above: 1024
+      level: custom
+      name: policy.id
+      normalize: []
+      order: 0
+      short: TODO
+      type: keyword
+  group: 2
+  name: endpoint
+  prefix: endpoint.
+  short: TODO
+  title: Endpoint
+  type: group
 event:
   description: 'The event fields are used for context information about the log or
     metric event itself.

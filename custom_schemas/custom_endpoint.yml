@@ -1,0 +1,122 @@
+---
+- name: endpoint
+  title: Endpoint
+  group: 2
+  short: TODO
+  description: >
+    TODO
+  type: group
+  fields:
+    - name: policy.id
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: group.real.id
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: group.real.name
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: user.real.id
+      level: custom
+      type: keyword
+      description: >
+        TODO
+    
+    - name: user.real.name
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: process.entity_id
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: pe.original_file_name
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: pe.file_version
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: pe.product_version
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: signature.signer
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: signature.status
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.windows.zone_identifier
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.name
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.path
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.mode
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.uid
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.owner
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.gid
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: file.original.group
+      level: custom
+      type: keyword
+      description: >
+        TODO

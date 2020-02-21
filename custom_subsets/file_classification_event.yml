@@ -33,6 +33,10 @@ event:
       fields: "*"
     type: 
       fields: "*"
+endpoint:
+  fields:
+    policy:
+      fields: "*"
 rule: 
   fields: "*"
 threat: 
