@@ -37,7 +37,7 @@
       description: >
         TODO
 
-    - name: macro.macro_collection
+    - name: macro.collection
       level: custom
       type: object
       description: >
