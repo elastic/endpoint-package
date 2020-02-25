@@ -16,9 +16,9 @@
     expected:
       - file
       - process
-      - file_classification.macro_details.macro_collection
-      - file_classification.macro_details.project_file
-      - file_classification.macro_details.stream_data
+      - file_classification.macro.macro_collection
+      - file_classification.macro.project_file
+      - file_classification.macro.stream
       - modules
 
   fields:
