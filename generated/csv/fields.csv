@@ -5,6 +5,31 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,agent,agent.name,keyword,core,,foo,Custom name of the agent.
 1.5.0-dev,true,agent,agent.type,keyword,core,,filebeat,Type of the agent.
 1.5.0-dev,true,agent,agent.version,keyword,core,,6.0.0-rc2,Version of the agent.
+1.5.0-dev,true,dll,dll.code_signature.exists,boolean,core,,true,Boolean to capture if a signature is present.
+1.5.0-dev,true,dll,dll.code_signature.status,keyword,extended,,ERROR_UNTRUSTED_ROOT,Additional information about the certificate status.
+1.5.0-dev,true,dll,dll.code_signature.subject_name,keyword,core,,Microsoft Corporation,Subject name of the code signer
+1.5.0-dev,true,dll,dll.code_signature.trusted,boolean,extended,,true,Stores the trust status of the certificate chain.
+1.5.0-dev,true,dll,dll.code_signature.valid,boolean,extended,,true,Boolean to capture if the digital signature is verified against the binary content.
+1.5.0-dev,true,dll,dll.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,dll,dll.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,dll,dll.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,dll,dll.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,dll,dll.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,dll,dll.name,keyword,core,,kernel32.dll,Name of the library.
+1.5.0-dev,true,dll,dll.path,keyword,extended,,C:\Windows\System32\kernel32.dll,Full file path of the library.
+1.5.0-dev,true,dll,dll.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
+1.5.0-dev,true,dll,dll.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
+1.5.0-dev,true,dll,dll.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
+1.5.0-dev,true,dll,dll.pe.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.features.data.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.score,double,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.threshold,double,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.upx_packed,boolean,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.malware_classification.version,keyword,custom,,,TODO
+1.5.0-dev,true,dll,dll.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
+1.5.0-dev,true,dll,dll.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,ecs,ecs.version,keyword,core,,1.0.0,ECS version this event conforms to.
 1.5.0-dev,true,endpoint,endpoint.policy.id,keyword,custom,,,TODO
 1.5.0-dev,true,event,event.action,keyword,core,,user-password-change,The action captured by the event.
@@ -49,6 +74,14 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
+1.5.0-dev,true,file,file.pe.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.features.data.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.score,double,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.threshold,double,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.upx_packed,boolean,custom,,,TODO
+1.5.0-dev,true,file,file.pe.malware_classification.version,keyword,custom,,,TODO
 1.5.0-dev,true,file,file.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.size,long,extended,,16384,File size in bytes.
@@ -56,54 +89,47 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.target_path.text,text,extended,,,Target path for symlinks.
 1.5.0-dev,true,file,file.type,keyword,extended,,file,"File type (file, dir, or symlink)."
 1.5.0-dev,true,file,file.uid,keyword,extended,,1001,The user ID (UID) or security identifier (SID) of the file owner.
-1.5.0-dev,true,file_classification,file_classification.captured_file,boolean,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.entry_modified,double,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.is_signature_trusted,boolean,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.code_page,long,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.errors,nested,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.errors.count,long,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.errors.error_type,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.file_extension,long,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection,object,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection.hash.imphash,keyword,extended,,,Imphash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.macro_collection.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file,object,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file.hash.imphash,keyword,extended,,,Imphash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.project_file.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data,nested,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.hash.imphash,keyword,extended,,,Imphash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.name,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.raw_code,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro_details.stream_data.raw_code_size,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.code_page,long,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.errors,nested,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.errors.count,long,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.errors.error_type,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.file_extension,long,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection,object,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.project_file,object,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream,nested,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.stream.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.stream.name,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.stream.raw_code,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.stream.raw_code_size,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.malware_classification.features.data.encoding,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.malware_classification.prevention_threshold,double,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.score,double,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.threshold,double,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.upx_packed,boolean,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.version,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.quarantine_result.alert_correlation_id,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.quarantine_result.quarantine_path,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.signature_signer,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.temp_file_path,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.user_blacklisted,boolean,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara_hits,nested,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara_hits.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara_hits.matched_data,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara_hits.rule_name,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara_hits.version,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.yara,nested,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.yara.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.yara.matched,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.yara.rule.name,keyword,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.yara.version,keyword,custom,,,TODO
 1.5.0-dev,true,host,host.architecture,keyword,core,,x86_64,Operating system architecture.
 1.5.0-dev,true,host,host.domain,keyword,extended,,CONTOSO,Name of the directory the group is a member of.
 1.5.0-dev,true,host,host.geo.city_name,keyword,core,,Montreal,City name.
@@ -142,19 +168,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,host,host.user.name.text,text,core,,albert,Short name or login of the user.
 1.5.0-dev,true,process,process.args,keyword,extended,array,"['/usr/bin/ssh', '-l', 'user', '10.0.0.16']",Array of process arguments.
 1.5.0-dev,true,process,process.args_count,long,extended,,4,Length of the process.args array.
-1.5.0-dev,true,process,process.argv_list,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.code_signature.exists,boolean,core,,true,Boolean to capture if a signature is present.
 1.5.0-dev,true,process,process.code_signature.status,keyword,extended,,ERROR_UNTRUSTED_ROOT,Additional information about the certificate status.
 1.5.0-dev,true,process,process.code_signature.subject_name,keyword,core,,Microsoft Corporation,Subject name of the code signer
@@ -178,12 +191,12 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.defense_evasions.evasion_type,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.defense_evasions.instruction_pointer,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.defense_evasions.memory_sections,nested,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections.memory_size,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.defense_evasions.memory_sections.address,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.defense_evasions.memory_sections.protection,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.defense_evasions.memory_sections.size,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.defense_evasions.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.thread.thread_id,long,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.thread.thread_start_address,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.defense_evasions.thread.id,long,custom,,,TODO
+1.5.0-dev,true,process,process.defense_evasions.thread.start_address,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.defense_evasions.total_memory_size,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.domain,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.entity_id,keyword,extended,,c2c455d9f99375d,Unique identifier for the process.
@@ -196,25 +209,21 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.file_hash.sha1,keyword,custom,,,SHA1 hash.
 1.5.0-dev,true,process,process.file_hash.sha256,keyword,custom,,,SHA256 hash.
 1.5.0-dev,true,process,process.file_hash.sha512,keyword,custom,,,SHA512 hash.
-1.5.0-dev,true,process,process.gid,long,custom,,,TODO
 1.5.0-dev,true,process,process.group,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.handles,nested,custom,,,TODO
 1.5.0-dev,true,process,process.handles.handle_id,long,custom,,,TODO
 1.5.0-dev,true,process,process.handles.handle_name,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.handles.handle_type,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.has_unbacked_execute_memory,boolean,custom,,,TODO
 1.5.0-dev,true,process,process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,process,process.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,process,process.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,process,process.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,process,process.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,process,process.hash_matched_module,boolean,custom,,,TODO
-1.5.0-dev,true,process,process.is_endpoint,boolean,custom,,,Is this the Elastic Endpoint process or not.
-1.5.0-dev,true,process,process.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,process,process.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,process,process.malware_classification.features.data.encoding,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.malware_classification.prevention_threshold,double,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classification.score,double,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classification.threshold,double,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classification.upx_packed,boolean,custom,,,TODO
@@ -241,29 +250,16 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.memory_region.unbacked_on_disk,boolean,custom,,,TODO
 1.5.0-dev,true,process,process.modules,nested,custom,,,These fields contain information about a list of modules.
 1.5.0-dev,true,process,process.modules.architecture,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.modules.compile_time,date,custom,,,TODO
 1.5.0-dev,true,process,process.modules.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,process,process.modules.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,process,process.modules.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,process,process.modules.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,process,process.modules.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,process,process.modules.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.modules.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.modules.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,process,process.modules.malware_classification.features.data.encoding,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.modules.malware_classification.prevention_threshold,double,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.score,double,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.threshold,double,custom,,,TODO
 1.5.0-dev,true,process,process.modules.malware_classification.upx_packed,boolean,custom,,,TODO
@@ -316,59 +312,16 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
+1.5.0-dev,true,process,process.pe.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.features.data.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.score,double,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.threshold,double,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.upx_packed,boolean,custom,,,TODO
+1.5.0-dev,true,process,process.pe.malware_classification.version,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
-1.5.0-dev,true,process,process.pe_info.architecture,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.authenticode.publisher_link,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.compile_time,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.entry_point_address,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.is_dll,boolean,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.prevention_threshold,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.score,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.threshold,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.malware_classification.version,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_exports,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_exports.name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_exports.ordinal,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_imports,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_imports.dll_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.pe_imports.import_names,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources.resource_data.entropy,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources.resource_data.size,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources.resource_id,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources.resource_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.resources.resource_type,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.entropy,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.raw_offset,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.raw_size,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.virtual_address,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.sections.virtual_size,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.signature_signer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.signature_status,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.version_info,nested,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.version_info.code_page,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.version_info.key,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.version_info.language,long,custom,,,TODO
-1.5.0-dev,true,process,process.pe_info.version_info.value_string,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.pgid,long,extended,,,Identifier of the group of processes the process belongs to.
 1.5.0-dev,true,process,process.phys_memory_bytes,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.pid,long,core,,4242,Process id.
@@ -377,11 +330,31 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.session_id,long,custom,,,TODO
 1.5.0-dev,true,process,process.short_name,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.sid,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.signature_signer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.signature_status,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.start,date,extended,,2016-05-23T08:05:34.853Z,The time the process started.
-1.5.0-dev,true,process,process.thread.id,long,extended,,4242,Thread ID.
-1.5.0-dev,true,process,process.thread.name,keyword,extended,,thread-0,Thread name.
+1.5.0-dev,true,process,process.thread.call_stack,nested,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.instruction_pointer,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.memory_section.protection,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.module_path,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.rva,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.call_stack.symbol_info,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.service,keyword,extended,,VaultSvc,Service associated with the thread.
+1.5.0-dev,true,process,process.thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
+1.5.0-dev,true,process,process.thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
+1.5.0-dev,true,process,process.thread.start_address_module,keyword,extended,,C:\Program Files\VMware\VMware Tools\vmtoolsd.exe,TODO
+1.5.0-dev,true,process,process.thread.token.domain,keyword,extended,,,TODO
+1.5.0-dev,true,process,process.thread.token.impersonation_level,keyword,extended,,,Impersonation level. Only valid for impersonation tokens.
+1.5.0-dev,true,process,process.thread.token.integrity_level,long,extended,,,Numeric integrity level.
+1.5.0-dev,true,process,process.thread.token.integrity_level_name,keyword,extended,,,Human readable integrity level.
+1.5.0-dev,true,process,process.thread.token.is_appcontainer,boolean,extended,,,Whether or not this is an appcontainer token.
+1.5.0-dev,true,process,process.thread.token.privileges,nested,extended,,,Array describing the privileges associated with the token.
+1.5.0-dev,true,process,process.thread.token.privileges.description,keyword,extended,,,Description of the privilege.
+1.5.0-dev,true,process,process.thread.token.privileges.enabled,boolean,extended,,,Whether or not the privilege is enabled.
+1.5.0-dev,true,process,process.thread.token.privileges.name,keyword,extended,,,Name of the privilege.
+1.5.0-dev,true,process,process.thread.token.sid,keyword,extended,,,TODO
+1.5.0-dev,true,process,process.thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
+1.5.0-dev,true,process,process.thread.token.user,keyword,extended,,,Username of token owner.
 1.5.0-dev,true,process,process.threads,nested,custom,,,TODO
 1.5.0-dev,true,process,process.threads.entrypoint,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.threads.id,long,custom,,,TODO
@@ -401,14 +374,11 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.token.sid,keyword,extended,,,TODO
 1.5.0-dev,true,process,process.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
 1.5.0-dev,true,process,process.token.user,keyword,extended,,,Username of token owner.
-1.5.0-dev,true,process,process.tty_device_major_number,integer,custom,,,TODO
-1.5.0-dev,true,process,process.tty_device_minor_number,integer,custom,,,TODO
-1.5.0-dev,true,process,process.tty_device_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.uid,long,custom,,,TODO
+1.5.0-dev,true,process,process.tty_device.major_number,integer,custom,,,TODO
+1.5.0-dev,true,process,process.tty_device.minor_number,integer,custom,,,TODO
+1.5.0-dev,true,process,process.tty_device.name,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.unbacked_execute_byte_count,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.unbacked_execute_region_count,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.unique_pid,keyword,custom,,,Unique process id.
-1.5.0-dev,true,process,process.unique_ppid,keyword,custom,,,Unique parent process id.
 1.5.0-dev,true,process,process.uptime,long,extended,,1325,Seconds the process has been up.
 1.5.0-dev,true,process,process.user,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.virt_memory_bytes,keyword,custom,,,TODO
@@ -424,19 +394,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,rule,rule.version,keyword,extended,,1.1,Rule version
 1.5.0-dev,true,target,target.process.args,keyword,extended,array,"['/usr/bin/ssh', '-l', 'user', '10.0.0.16']",Array of process arguments.
 1.5.0-dev,true,target,target.process.args_count,long,extended,,4,Length of the process.args array.
-1.5.0-dev,true,target,target.process.argv_list,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.code_signature.exists,boolean,core,,true,Boolean to capture if a signature is present.
 1.5.0-dev,true,target,target.process.code_signature.status,keyword,extended,,ERROR_UNTRUSTED_ROOT,Additional information about the certificate status.
 1.5.0-dev,true,target,target.process.code_signature.subject_name,keyword,core,,Microsoft Corporation,Subject name of the code signer
@@ -460,12 +417,12 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.defense_evasions.evasion_type,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.defense_evasions.instruction_pointer,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.defense_evasions.memory_sections,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.memory_size,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.address,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.protection,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.size,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.defense_evasions.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.thread.thread_id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.thread.thread_start_address,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.defense_evasions.thread.id,long,custom,,,TODO
+1.5.0-dev,true,target,target.process.defense_evasions.thread.start_address,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.defense_evasions.total_memory_size,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.domain,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.entity_id,keyword,extended,,c2c455d9f99375d,Unique identifier for the process.
@@ -478,25 +435,21 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.file_hash.sha1,keyword,custom,,,SHA1 hash.
 1.5.0-dev,true,target,target.process.file_hash.sha256,keyword,custom,,,SHA256 hash.
 1.5.0-dev,true,target,target.process.file_hash.sha512,keyword,custom,,,SHA512 hash.
-1.5.0-dev,true,target,target.process.gid,long,custom,,,TODO
 1.5.0-dev,true,target,target.process.group,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles,nested,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles.handle_id,long,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles.handle_name,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles.handle_type,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.has_unbacked_execute_memory,boolean,custom,,,TODO
 1.5.0-dev,true,target,target.process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,target,target.process.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,target,target.process.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,target,target.process.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,target,target.process.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,target,target.process.hash_matched_module,boolean,custom,,,TODO
-1.5.0-dev,true,target,target.process.is_endpoint,boolean,custom,,,Is this the Elastic Endpoint process or not.
-1.5.0-dev,true,target,target.process.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,target,target.process.malware_classification.features.data.encoding,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.malware_classification.prevention_threshold,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classification.score,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classification.threshold,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classification.upx_packed,boolean,custom,,,TODO
@@ -523,29 +476,16 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.memory_region.unbacked_on_disk,boolean,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules,nested,custom,,,These fields contain information about a list of modules.
 1.5.0-dev,true,target,target.process.modules.architecture,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.authenticode.publisher_link,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.compile_time,date,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,target,target.process.modules.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,target,target.process.modules.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,target,target.process.modules.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,target,target.process.modules.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.modules.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.modules.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,target,target.process.modules.malware_classification.features.data.encoding,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.modules.malware_classification.prevention_threshold,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.score,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.threshold,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.modules.malware_classification.upx_packed,boolean,custom,,,TODO
@@ -598,59 +538,16 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
+1.5.0-dev,true,target,target.process.pe.malware_classification.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.features.data.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.score,double,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.threshold,double,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.upx_packed,boolean,custom,,,TODO
+1.5.0-dev,true,target,target.process.pe.malware_classification.version,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
-1.5.0-dev,true,target,target.process.pe_info.architecture,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_signer.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_signer.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_signer.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_signer.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_timestamp.issuer_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_timestamp.serial_number,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_timestamp.subject_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.cert_timestamp.timestamp_string,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.more_info_link,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.program_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.authenticode.publisher_link,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.compile_time,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.entry_point_address,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.is_dll,boolean,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.compressed_malware_features.data_buffer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.compressed_malware_features.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.compressed_malware_features.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.prevention_threshold,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.score,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.threshold,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.malware_classification.version,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_exports,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_exports.name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_exports.ordinal,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_imports,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_imports.dll_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.pe_imports.import_names,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources.resource_data.entropy,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources.resource_data.size,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources.resource_id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources.resource_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.resources.resource_type,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.entropy,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.raw_offset,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.raw_size,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.virtual_address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.sections.virtual_size,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.signature_signer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.signature_status,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.version_info,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.version_info.code_page,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.version_info.key,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.version_info.language,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe_info.version_info.value_string,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.pgid,long,extended,,,Identifier of the group of processes the process belongs to.
 1.5.0-dev,true,target,target.process.phys_memory_bytes,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.pid,long,core,,4242,Process id.
@@ -659,11 +556,31 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.session_id,long,custom,,,TODO
 1.5.0-dev,true,target,target.process.short_name,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.sid,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.signature_signer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.signature_status,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.start,date,extended,,2016-05-23T08:05:34.853Z,The time the process started.
-1.5.0-dev,true,target,target.process.thread.id,long,extended,,4242,Thread ID.
-1.5.0-dev,true,target,target.process.thread.name,keyword,extended,,thread-0,Thread name.
+1.5.0-dev,true,target,target.process.thread.call_stack,nested,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.instruction_pointer,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.memory_section.protection,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.module_path,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.rva,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.call_stack.symbol_info,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.service,keyword,extended,,VaultSvc,Service associated with the thread.
+1.5.0-dev,true,target,target.process.thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
+1.5.0-dev,true,target,target.process.thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
+1.5.0-dev,true,target,target.process.thread.start_address_module,keyword,extended,,C:\Program Files\VMware\VMware Tools\vmtoolsd.exe,TODO
+1.5.0-dev,true,target,target.process.thread.token.domain,keyword,extended,,,TODO
+1.5.0-dev,true,target,target.process.thread.token.impersonation_level,keyword,extended,,,Impersonation level. Only valid for impersonation tokens.
+1.5.0-dev,true,target,target.process.thread.token.integrity_level,long,extended,,,Numeric integrity level.
+1.5.0-dev,true,target,target.process.thread.token.integrity_level_name,keyword,extended,,,Human readable integrity level.
+1.5.0-dev,true,target,target.process.thread.token.is_appcontainer,boolean,extended,,,Whether or not this is an appcontainer token.
+1.5.0-dev,true,target,target.process.thread.token.privileges,nested,extended,,,Array describing the privileges associated with the token.
+1.5.0-dev,true,target,target.process.thread.token.privileges.description,keyword,extended,,,Description of the privilege.
+1.5.0-dev,true,target,target.process.thread.token.privileges.enabled,boolean,extended,,,Whether or not the privilege is enabled.
+1.5.0-dev,true,target,target.process.thread.token.privileges.name,keyword,extended,,,Name of the privilege.
+1.5.0-dev,true,target,target.process.thread.token.sid,keyword,extended,,,TODO
+1.5.0-dev,true,target,target.process.thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
+1.5.0-dev,true,target,target.process.thread.token.user,keyword,extended,,,Username of token owner.
 1.5.0-dev,true,target,target.process.threads,nested,custom,,,TODO
 1.5.0-dev,true,target,target.process.threads.entrypoint,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.threads.id,long,custom,,,TODO
@@ -683,71 +600,17 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.token.sid,keyword,extended,,,TODO
 1.5.0-dev,true,target,target.process.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
 1.5.0-dev,true,target,target.process.token.user,keyword,extended,,,Username of token owner.
-1.5.0-dev,true,target,target.process.tty_device_major_number,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.tty_device_minor_number,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.tty_device_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.uid,long,custom,,,TODO
+1.5.0-dev,true,target,target.process.tty_device.major_number,integer,custom,,,TODO
+1.5.0-dev,true,target,target.process.tty_device.minor_number,integer,custom,,,TODO
+1.5.0-dev,true,target,target.process.tty_device.name,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.unbacked_execute_byte_count,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.unbacked_execute_region_count,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.unique_pid,keyword,custom,,,Unique process id.
-1.5.0-dev,true,target,target.process.unique_ppid,keyword,custom,,,Unique parent process id.
 1.5.0-dev,true,target,target.process.uptime,long,extended,,1325,Seconds the process has been up.
 1.5.0-dev,true,target,target.process.user,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.virt_memory_bytes,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.working_directory,keyword,extended,,/home/alice,The working directory of the process.
 1.5.0-dev,true,target,target.process.working_directory.text,text,extended,,/home/alice,The working directory of the process.
-1.5.0-dev,true,target,target.thread.call_stack,nested,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.memory_section.protection,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.rva,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.call_stack.symbol_info,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.thread.id,long,core,,3147,Thread id.
-1.5.0-dev,true,target,target.thread.name,keyword,extended,,thread-0,Thread name.
-1.5.0-dev,true,target,target.thread.service_name,keyword,extended,,VaultSvc,Service associated with the thread.
-1.5.0-dev,true,target,target.thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
-1.5.0-dev,true,target,target.thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
-1.5.0-dev,true,target,target.thread.start_address_module,keyword,extended,,C:\Program Files\VMware\VMware Tools\vmtoolsd.exe,TODO
-1.5.0-dev,true,target,target.thread.token.domain,keyword,extended,,,TODO
-1.5.0-dev,true,target,target.thread.token.impersonation_level,keyword,extended,,,Impersonation level. Only valid for impersonation tokens.
-1.5.0-dev,true,target,target.thread.token.integrity_level,long,extended,,,Numeric integrity level.
-1.5.0-dev,true,target,target.thread.token.integrity_level_name,keyword,extended,,,Human readable integrity level.
-1.5.0-dev,true,target,target.thread.token.is_appcontainer,boolean,extended,,,Whether or not this is an appcontainer token.
-1.5.0-dev,true,target,target.thread.token.privileges,nested,extended,,,Array describing the privileges associated with the token.
-1.5.0-dev,true,target,target.thread.token.privileges.description,keyword,extended,,,Description of the privilege.
-1.5.0-dev,true,target,target.thread.token.privileges.enabled,boolean,extended,,,Whether or not the privilege is enabled.
-1.5.0-dev,true,target,target.thread.token.privileges.name,keyword,extended,,,Name of the privilege.
-1.5.0-dev,true,target,target.thread.token.sid,keyword,extended,,,TODO
-1.5.0-dev,true,target,target.thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
-1.5.0-dev,true,target,target.thread.token.user,keyword,extended,,,Username of token owner.
-1.5.0-dev,true,thread,thread.call_stack,nested,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.memory_section.protection,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.rva,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.call_stack.symbol_info,keyword,custom,,,TODO
-1.5.0-dev,true,thread,thread.id,long,core,,3147,Thread id.
-1.5.0-dev,true,thread,thread.name,keyword,extended,,thread-0,Thread name.
-1.5.0-dev,true,thread,thread.service_name,keyword,extended,,VaultSvc,Service associated with the thread.
-1.5.0-dev,true,thread,thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
-1.5.0-dev,true,thread,thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
-1.5.0-dev,true,thread,thread.start_address_module,keyword,extended,,C:\Program Files\VMware\VMware Tools\vmtoolsd.exe,TODO
-1.5.0-dev,true,thread,thread.token.domain,keyword,extended,,,TODO
-1.5.0-dev,true,thread,thread.token.impersonation_level,keyword,extended,,,Impersonation level. Only valid for impersonation tokens.
-1.5.0-dev,true,thread,thread.token.integrity_level,long,extended,,,Numeric integrity level.
-1.5.0-dev,true,thread,thread.token.integrity_level_name,keyword,extended,,,Human readable integrity level.
-1.5.0-dev,true,thread,thread.token.is_appcontainer,boolean,extended,,,Whether or not this is an appcontainer token.
-1.5.0-dev,true,thread,thread.token.privileges,nested,extended,,,Array describing the privileges associated with the token.
-1.5.0-dev,true,thread,thread.token.privileges.description,keyword,extended,,,Description of the privilege.
-1.5.0-dev,true,thread,thread.token.privileges.enabled,boolean,extended,,,Whether or not the privilege is enabled.
-1.5.0-dev,true,thread,thread.token.privileges.name,keyword,extended,,,Name of the privilege.
-1.5.0-dev,true,thread,thread.token.sid,keyword,extended,,,TODO
-1.5.0-dev,true,thread,thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
-1.5.0-dev,true,thread,thread.token.user,keyword,extended,,,Username of token owner.
+1.5.0-dev,true,target,target.thread,object,extended,,,Thread.
 1.5.0-dev,true,threat,threat.framework,keyword,extended,,MITRE ATT&CK,Threat classification framework.
 1.5.0-dev,true,threat,threat.tactic.id,keyword,extended,array,TA0040,Threat tactic id.
 1.5.0-dev,true,threat,threat.tactic.name,keyword,extended,array,impact,Threat tactic.

@@ -92,6 +92,322 @@ agent.version:
   order: 0
   short: Version of the agent.
   type: keyword
+dll.code_signature.exists:
+  dashed_name: dll-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: dll.code_signature.exists
+  level: core
+  name: exists
+  normalize: []
+  order: 0
+  original_fieldset: code_signature
+  short: Boolean to capture if a signature is present.
+  type: boolean
+dll.code_signature.status:
+  dashed_name: dll-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: dll.code_signature.status
+  ignore_above: 1024
+  level: extended
+  name: status
+  normalize: []
+  order: 4
+  original_fieldset: code_signature
+  short: Additional information about the certificate status.
+  type: keyword
+dll.code_signature.subject_name:
+  dashed_name: dll-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: dll.code_signature.subject_name
+  ignore_above: 1024
+  level: core
+  name: subject_name
+  normalize: []
+  order: 1
+  original_fieldset: code_signature
+  short: Subject name of the code signer
+  type: keyword
+dll.code_signature.trusted:
+  dashed_name: dll-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: dll.code_signature.trusted
+  level: extended
+  name: trusted
+  normalize: []
+  order: 3
+  original_fieldset: code_signature
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+dll.code_signature.valid:
+  dashed_name: dll-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: dll.code_signature.valid
+  level: extended
+  name: valid
+  normalize: []
+  order: 2
+  original_fieldset: code_signature
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+dll.hash.imphash:
+  dashed_name: dll-hash-imphash
+  description: Imphash.
+  flat_name: dll.hash.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: Imphash.
+  type: keyword
+dll.hash.md5:
+  dashed_name: dll-hash-md5
+  description: MD5 hash.
+  flat_name: dll.hash.md5
+  ignore_above: 1024
+  level: extended
+  name: md5
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: MD5 hash.
+  type: keyword
+dll.hash.sha1:
+  dashed_name: dll-hash-sha1
+  description: SHA1 hash.
+  flat_name: dll.hash.sha1
+  ignore_above: 1024
+  level: extended
+  name: sha1
+  normalize: []
+  order: 1
+  original_fieldset: hash
+  short: SHA1 hash.
+  type: keyword
+dll.hash.sha256:
+  dashed_name: dll-hash-sha256
+  description: SHA256 hash.
+  flat_name: dll.hash.sha256
+  ignore_above: 1024
+  level: extended
+  name: sha256
+  normalize: []
+  order: 2
+  original_fieldset: hash
+  short: SHA256 hash.
+  type: keyword
+dll.hash.sha512:
+  dashed_name: dll-hash-sha512
+  description: SHA512 hash.
+  flat_name: dll.hash.sha512
+  ignore_above: 1024
+  level: extended
+  name: sha512
+  normalize: []
+  order: 3
+  original_fieldset: hash
+  short: SHA512 hash.
+  type: keyword
+dll.name:
+  dashed_name: dll-name
+  description: 'Name of the library.
+
+    This generally maps to the name of the file on disk.'
+  example: kernel32.dll
+  flat_name: dll.name
+  ignore_above: 1024
+  level: core
+  name: name
+  normalize: []
+  order: 0
+  short: Name of the library.
+  type: keyword
+dll.path:
+  dashed_name: dll-path
+  description: Full file path of the library.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: dll.path
+  ignore_above: 1024
+  level: extended
+  name: path
+  normalize: []
+  order: 1
+  short: Full file path of the library.
+  type: keyword
+dll.pe.company:
+  dashed_name: dll-pe-company
+  description: Internal company name of the file, provided at compile-time.
+  example: Microsoft Corporation
+  flat_name: dll.pe.company
+  ignore_above: 1024
+  level: extended
+  name: company
+  normalize: []
+  order: 4
+  original_fieldset: pe
+  short: Internal company name of the file, provided at compile-time.
+  type: keyword
+dll.pe.description:
+  dashed_name: dll-pe-description
+  description: Internal description of the file, provided at compile-time.
+  example: Paint
+  flat_name: dll.pe.description
+  ignore_above: 1024
+  level: extended
+  name: description
+  normalize: []
+  order: 2
+  original_fieldset: pe
+  short: Internal description of the file, provided at compile-time.
+  type: keyword
+dll.pe.file_version:
+  dashed_name: dll-pe-file-version
+  description: Internal version of the file, provided at compile-time.
+  example: 6.3.9600.17415
+  flat_name: dll.pe.file_version
+  ignore_above: 1024
+  level: extended
+  name: file_version
+  normalize: []
+  order: 1
+  original_fieldset: pe
+  short: Process name.
+  type: keyword
+dll.pe.malware_classification.features.data.buffer:
+  dashed_name: dll-pe-malware-classification-features-data-buffer
+  description: TODO
+  flat_name: dll.pe.malware_classification.features.data.buffer
+  ignore_above: 1024
+  level: custom
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+dll.pe.malware_classification.features.data.decompressed_size:
+  dashed_name: dll-pe-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: dll.pe.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
+  normalize: []
+  order: 5
+  original_fieldset: malware_classification
+  short: TODO
+  type: integer
+dll.pe.malware_classification.features.data.encoding:
+  dashed_name: dll-pe-malware-classification-features-data-encoding
+  description: TODO
+  flat_name: dll.pe.malware_classification.features.data.encoding
+  ignore_above: 1024
+  level: custom
+  name: features.data.encoding
+  normalize: []
+  order: 6
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+dll.pe.malware_classification.identifier:
+  dashed_name: dll-pe-malware-classification-identifier
+  description: TODO
+  flat_name: dll.pe.malware_classification.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  order: 2
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+dll.pe.malware_classification.score:
+  dashed_name: dll-pe-malware-classification-score
+  description: TODO
+  flat_name: dll.pe.malware_classification.score
+  level: custom
+  name: score
+  normalize: []
+  order: 0
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+dll.pe.malware_classification.threshold:
+  dashed_name: dll-pe-malware-classification-threshold
+  description: TODO
+  flat_name: dll.pe.malware_classification.threshold
+  level: custom
+  name: threshold
+  normalize: []
+  order: 1
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+dll.pe.malware_classification.upx_packed:
+  dashed_name: dll-pe-malware-classification-upx-packed
+  description: TODO
+  flat_name: dll.pe.malware_classification.upx_packed
+  level: custom
+  name: upx_packed
+  normalize: []
+  order: 7
+  original_fieldset: malware_classification
+  short: TODO
+  type: boolean
+dll.pe.malware_classification.version:
+  dashed_name: dll-pe-malware-classification-version
+  description: TODO
+  flat_name: dll.pe.malware_classification.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  order: 3
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+dll.pe.original_file_name:
+  dashed_name: dll-pe-original-file-name
+  description: Internal name of the file, provided at compile-time.
+  example: MSPAINT.EXE
+  flat_name: dll.pe.original_file_name
+  ignore_above: 1024
+  level: extended
+  name: original_file_name
+  normalize: []
+  order: 0
+  original_fieldset: pe
+  short: Internal name of the file, provided at compile-time.
+  type: keyword
+dll.pe.product:
+  dashed_name: dll-pe-product
+  description: Internal product name of the file, provided at compile-time.
+  example: "Microsoft\xAE Windows\xAE Operating System"
+  flat_name: dll.pe.product
+  ignore_above: 1024
+  level: extended
+  name: product
+  normalize: []
+  order: 3
+  original_fieldset: pe
+  short: Internal product name of the file, provided at compile-time.
+  type: keyword
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
@@ -969,6 +1285,98 @@ file.pe.file_version:
   original_fieldset: pe
   short: Process name.
   type: keyword
+file.pe.malware_classification.features.data.buffer:
+  dashed_name: file-pe-malware-classification-features-data-buffer
+  description: TODO
+  flat_name: file.pe.malware_classification.features.data.buffer
+  ignore_above: 1024
+  level: custom
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+file.pe.malware_classification.features.data.decompressed_size:
+  dashed_name: file-pe-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: file.pe.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
+  normalize: []
+  order: 5
+  original_fieldset: malware_classification
+  short: TODO
+  type: integer
+file.pe.malware_classification.features.data.encoding:
+  dashed_name: file-pe-malware-classification-features-data-encoding
+  description: TODO
+  flat_name: file.pe.malware_classification.features.data.encoding
+  ignore_above: 1024
+  level: custom
+  name: features.data.encoding
+  normalize: []
+  order: 6
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+file.pe.malware_classification.identifier:
+  dashed_name: file-pe-malware-classification-identifier
+  description: TODO
+  flat_name: file.pe.malware_classification.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  order: 2
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+file.pe.malware_classification.score:
+  dashed_name: file-pe-malware-classification-score
+  description: TODO
+  flat_name: file.pe.malware_classification.score
+  level: custom
+  name: score
+  normalize: []
+  order: 0
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+file.pe.malware_classification.threshold:
+  dashed_name: file-pe-malware-classification-threshold
+  description: TODO
+  flat_name: file.pe.malware_classification.threshold
+  level: custom
+  name: threshold
+  normalize: []
+  order: 1
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+file.pe.malware_classification.upx_packed:
+  dashed_name: file-pe-malware-classification-upx-packed
+  description: TODO
+  flat_name: file.pe.malware_classification.upx_packed
+  level: custom
+  name: upx_packed
+  normalize: []
+  order: 7
+  original_fieldset: malware_classification
+  short: TODO
+  type: boolean
+file.pe.malware_classification.version:
+  dashed_name: file-pe-malware-classification-version
+  description: TODO
+  flat_name: file.pe.malware_classification.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  order: 3
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
 file.pe.original_file_name:
   dashed_name: file-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
@@ -1048,16 +1456,6 @@ file.uid:
   order: 10
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
-file_classification.captured_file:
-  dashed_name: file-classification-captured-file
-  description: TODO
-  flat_name: file_classification.captured_file
-  level: custom
-  name: captured_file
-  normalize: []
-  order: 0
-  short: TODO
-  type: boolean
 file_classification.entry_modified:
   dashed_name: file-classification-entry-modified
   description: TODO
@@ -1065,226 +1463,75 @@ file_classification.entry_modified:
   level: custom
   name: entry_modified
   normalize: []
-  order: 3
+  order: 0
   short: TODO
   type: double
-file_classification.is_signature_trusted:
-  dashed_name: file-classification-is-signature-trusted
+file_classification.macro.code_page:
+  dashed_name: file-classification-macro-code-page
   description: TODO
-  flat_name: file_classification.is_signature_trusted
+  flat_name: file_classification.macro.code_page
   level: custom
-  name: is_signature_trusted
-  normalize: []
-  order: 2
-  short: TODO
-  type: boolean
-file_classification.macro_details.code_page:
-  dashed_name: file-classification-macro-details-code-page
-  description: TODO
-  flat_name: file_classification.macro_details.code_page
-  level: custom
-  name: macro_details.code_page
-  normalize: []
-  order: 15
-  short: TODO
-  type: long
-file_classification.macro_details.errors:
-  dashed_name: file-classification-macro-details-errors
-  description: TODO
-  flat_name: file_classification.macro_details.errors
-  level: custom
-  name: macro_details.errors
-  normalize: []
-  order: 5
-  short: TODO
-  type: nested
-file_classification.macro_details.errors.count:
-  dashed_name: file-classification-macro-details-errors-count
-  description: TODO
-  flat_name: file_classification.macro_details.errors.count
-  level: custom
-  name: macro_details.errors.count
-  normalize: []
-  order: 6
-  short: TODO
-  type: long
-file_classification.macro_details.errors.error_type:
-  dashed_name: file-classification-macro-details-errors-error-type
-  description: TODO
-  flat_name: file_classification.macro_details.errors.error_type
-  ignore_above: 1024
-  level: custom
-  name: macro_details.errors.error_type
-  normalize: []
-  order: 7
-  short: TODO
-  type: keyword
-file_classification.macro_details.file_extension:
-  dashed_name: file-classification-macro-details-file-extension
-  description: TODO
-  flat_name: file_classification.macro_details.file_extension
-  level: custom
-  name: macro_details.file_extension
-  normalize: []
-  order: 16
-  short: TODO
-  type: long
-file_classification.macro_details.macro_collection:
-  dashed_name: file-classification-macro-details-macro-collection
-  description: TODO
-  flat_name: file_classification.macro_details.macro_collection
-  level: custom
-  name: macro_details.macro_collection
-  normalize: []
-  object_type: keyword
-  order: 9
-  short: TODO
-  type: object
-file_classification.macro_details.macro_collection.hash.imphash:
-  dashed_name: file-classification-macro-details-macro-collection-hash-imphash
-  description: Imphash.
-  flat_name: file_classification.macro_details.macro_collection.hash.imphash
-  ignore_above: 1024
-  level: extended
-  name: imphash
-  normalize: []
-  order: 0
-  original_fieldset: hash
-  short: Imphash.
-  type: keyword
-file_classification.macro_details.macro_collection.hash.md5:
-  dashed_name: file-classification-macro-details-macro-collection-hash-md5
-  description: MD5 hash.
-  flat_name: file_classification.macro_details.macro_collection.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  order: 0
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-file_classification.macro_details.macro_collection.hash.sha1:
-  dashed_name: file-classification-macro-details-macro-collection-hash-sha1
-  description: SHA1 hash.
-  flat_name: file_classification.macro_details.macro_collection.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  order: 1
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-file_classification.macro_details.macro_collection.hash.sha256:
-  dashed_name: file-classification-macro-details-macro-collection-hash-sha256
-  description: SHA256 hash.
-  flat_name: file_classification.macro_details.macro_collection.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  order: 2
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-file_classification.macro_details.macro_collection.hash.sha512:
-  dashed_name: file-classification-macro-details-macro-collection-hash-sha512
-  description: SHA512 hash.
-  flat_name: file_classification.macro_details.macro_collection.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  order: 3
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-file_classification.macro_details.project_file:
-  dashed_name: file-classification-macro-details-project-file
-  description: TODO
-  flat_name: file_classification.macro_details.project_file
-  level: custom
-  name: macro_details.project_file
-  normalize: []
-  object_type: keyword
-  order: 10
-  short: TODO
-  type: object
-file_classification.macro_details.project_file.hash.imphash:
-  dashed_name: file-classification-macro-details-project-file-hash-imphash
-  description: Imphash.
-  flat_name: file_classification.macro_details.project_file.hash.imphash
-  ignore_above: 1024
-  level: extended
-  name: imphash
-  normalize: []
-  order: 0
-  original_fieldset: hash
-  short: Imphash.
-  type: keyword
-file_classification.macro_details.project_file.hash.md5:
-  dashed_name: file-classification-macro-details-project-file-hash-md5
-  description: MD5 hash.
-  flat_name: file_classification.macro_details.project_file.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  order: 0
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-file_classification.macro_details.project_file.hash.sha1:
-  dashed_name: file-classification-macro-details-project-file-hash-sha1
-  description: SHA1 hash.
-  flat_name: file_classification.macro_details.project_file.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  order: 1
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-file_classification.macro_details.project_file.hash.sha256:
-  dashed_name: file-classification-macro-details-project-file-hash-sha256
-  description: SHA256 hash.
-  flat_name: file_classification.macro_details.project_file.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  order: 2
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-file_classification.macro_details.project_file.hash.sha512:
-  dashed_name: file-classification-macro-details-project-file-hash-sha512
-  description: SHA512 hash.
-  flat_name: file_classification.macro_details.project_file.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  order: 3
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-file_classification.macro_details.stream_data:
-  dashed_name: file-classification-macro-details-stream-data
-  description: TODO
-  flat_name: file_classification.macro_details.stream_data
-  level: custom
-  name: macro_details.stream_data
+  name: macro.code_page
   normalize: []
   order: 11
   short: TODO
+  type: long
+file_classification.macro.errors:
+  dashed_name: file-classification-macro-errors
+  description: TODO
+  flat_name: file_classification.macro.errors
+  level: custom
+  name: macro.errors
+  normalize: []
+  order: 2
+  short: TODO
   type: nested
-file_classification.macro_details.stream_data.hash.imphash:
-  dashed_name: file-classification-macro-details-stream-data-hash-imphash
+file_classification.macro.errors.count:
+  dashed_name: file-classification-macro-errors-count
+  description: TODO
+  flat_name: file_classification.macro.errors.count
+  level: custom
+  name: macro.errors.count
+  normalize: []
+  order: 3
+  short: TODO
+  type: long
+file_classification.macro.errors.error_type:
+  dashed_name: file-classification-macro-errors-error-type
+  description: TODO
+  flat_name: file_classification.macro.errors.error_type
+  ignore_above: 1024
+  level: custom
+  name: macro.errors.error_type
+  normalize: []
+  order: 4
+  short: TODO
+  type: keyword
+file_classification.macro.file_extension:
+  dashed_name: file-classification-macro-file-extension
+  description: TODO
+  flat_name: file_classification.macro.file_extension
+  level: custom
+  name: macro.file_extension
+  normalize: []
+  order: 12
+  short: TODO
+  type: long
+file_classification.macro.macro_collection:
+  dashed_name: file-classification-macro-macro-collection
+  description: TODO
+  flat_name: file_classification.macro.macro_collection
+  level: custom
+  name: macro.macro_collection
+  normalize: []
+  object_type: keyword
+  order: 5
+  short: TODO
+  type: object
+file_classification.macro.macro_collection.hash.imphash:
+  dashed_name: file-classification-macro-macro-collection-hash-imphash
   description: Imphash.
-  flat_name: file_classification.macro_details.stream_data.hash.imphash
+  flat_name: file_classification.macro.macro_collection.hash.imphash
   ignore_above: 1024
   level: extended
   name: imphash
@@ -1293,10 +1540,10 @@ file_classification.macro_details.stream_data.hash.imphash:
   original_fieldset: hash
   short: Imphash.
   type: keyword
-file_classification.macro_details.stream_data.hash.md5:
-  dashed_name: file-classification-macro-details-stream-data-hash-md5
+file_classification.macro.macro_collection.hash.md5:
+  dashed_name: file-classification-macro-macro-collection-hash-md5
   description: MD5 hash.
-  flat_name: file_classification.macro_details.stream_data.hash.md5
+  flat_name: file_classification.macro.macro_collection.hash.md5
   ignore_above: 1024
   level: extended
   name: md5
@@ -1305,10 +1552,10 @@ file_classification.macro_details.stream_data.hash.md5:
   original_fieldset: hash
   short: MD5 hash.
   type: keyword
-file_classification.macro_details.stream_data.hash.sha1:
-  dashed_name: file-classification-macro-details-stream-data-hash-sha1
+file_classification.macro.macro_collection.hash.sha1:
+  dashed_name: file-classification-macro-macro-collection-hash-sha1
   description: SHA1 hash.
-  flat_name: file_classification.macro_details.stream_data.hash.sha1
+  flat_name: file_classification.macro.macro_collection.hash.sha1
   ignore_above: 1024
   level: extended
   name: sha1
@@ -1317,10 +1564,10 @@ file_classification.macro_details.stream_data.hash.sha1:
   original_fieldset: hash
   short: SHA1 hash.
   type: keyword
-file_classification.macro_details.stream_data.hash.sha256:
-  dashed_name: file-classification-macro-details-stream-data-hash-sha256
+file_classification.macro.macro_collection.hash.sha256:
+  dashed_name: file-classification-macro-macro-collection-hash-sha256
   description: SHA256 hash.
-  flat_name: file_classification.macro_details.stream_data.hash.sha256
+  flat_name: file_classification.macro.macro_collection.hash.sha256
   ignore_above: 1024
   level: extended
   name: sha256
@@ -1329,10 +1576,10 @@ file_classification.macro_details.stream_data.hash.sha256:
   original_fieldset: hash
   short: SHA256 hash.
   type: keyword
-file_classification.macro_details.stream_data.hash.sha512:
-  dashed_name: file-classification-macro-details-stream-data-hash-sha512
+file_classification.macro.macro_collection.hash.sha512:
+  dashed_name: file-classification-macro-macro-collection-hash-sha512
   description: SHA512 hash.
-  flat_name: file_classification.macro_details.stream_data.hash.sha512
+  flat_name: file_classification.macro.macro_collection.hash.sha512
   ignore_above: 1024
   level: extended
   name: sha512
@@ -1341,71 +1588,212 @@ file_classification.macro_details.stream_data.hash.sha512:
   original_fieldset: hash
   short: SHA512 hash.
   type: keyword
-file_classification.macro_details.stream_data.name:
-  dashed_name: file-classification-macro-details-stream-data-name
+file_classification.macro.project_file:
+  dashed_name: file-classification-macro-project-file
   description: TODO
-  flat_name: file_classification.macro_details.stream_data.name
+  flat_name: file_classification.macro.project_file
+  level: custom
+  name: macro.project_file
+  normalize: []
+  object_type: keyword
+  order: 6
+  short: TODO
+  type: object
+file_classification.macro.project_file.hash.imphash:
+  dashed_name: file-classification-macro-project-file-hash-imphash
+  description: Imphash.
+  flat_name: file_classification.macro.project_file.hash.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: Imphash.
+  type: keyword
+file_classification.macro.project_file.hash.md5:
+  dashed_name: file-classification-macro-project-file-hash-md5
+  description: MD5 hash.
+  flat_name: file_classification.macro.project_file.hash.md5
+  ignore_above: 1024
+  level: extended
+  name: md5
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: MD5 hash.
+  type: keyword
+file_classification.macro.project_file.hash.sha1:
+  dashed_name: file-classification-macro-project-file-hash-sha1
+  description: SHA1 hash.
+  flat_name: file_classification.macro.project_file.hash.sha1
+  ignore_above: 1024
+  level: extended
+  name: sha1
+  normalize: []
+  order: 1
+  original_fieldset: hash
+  short: SHA1 hash.
+  type: keyword
+file_classification.macro.project_file.hash.sha256:
+  dashed_name: file-classification-macro-project-file-hash-sha256
+  description: SHA256 hash.
+  flat_name: file_classification.macro.project_file.hash.sha256
+  ignore_above: 1024
+  level: extended
+  name: sha256
+  normalize: []
+  order: 2
+  original_fieldset: hash
+  short: SHA256 hash.
+  type: keyword
+file_classification.macro.project_file.hash.sha512:
+  dashed_name: file-classification-macro-project-file-hash-sha512
+  description: SHA512 hash.
+  flat_name: file_classification.macro.project_file.hash.sha512
+  ignore_above: 1024
+  level: extended
+  name: sha512
+  normalize: []
+  order: 3
+  original_fieldset: hash
+  short: SHA512 hash.
+  type: keyword
+file_classification.macro.stream:
+  dashed_name: file-classification-macro-stream
+  description: TODO
+  flat_name: file_classification.macro.stream
+  level: custom
+  name: macro.stream
+  normalize: []
+  order: 7
+  short: TODO
+  type: nested
+file_classification.macro.stream.hash.imphash:
+  dashed_name: file-classification-macro-stream-hash-imphash
+  description: Imphash.
+  flat_name: file_classification.macro.stream.hash.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: Imphash.
+  type: keyword
+file_classification.macro.stream.hash.md5:
+  dashed_name: file-classification-macro-stream-hash-md5
+  description: MD5 hash.
+  flat_name: file_classification.macro.stream.hash.md5
+  ignore_above: 1024
+  level: extended
+  name: md5
+  normalize: []
+  order: 0
+  original_fieldset: hash
+  short: MD5 hash.
+  type: keyword
+file_classification.macro.stream.hash.sha1:
+  dashed_name: file-classification-macro-stream-hash-sha1
+  description: SHA1 hash.
+  flat_name: file_classification.macro.stream.hash.sha1
+  ignore_above: 1024
+  level: extended
+  name: sha1
+  normalize: []
+  order: 1
+  original_fieldset: hash
+  short: SHA1 hash.
+  type: keyword
+file_classification.macro.stream.hash.sha256:
+  dashed_name: file-classification-macro-stream-hash-sha256
+  description: SHA256 hash.
+  flat_name: file_classification.macro.stream.hash.sha256
+  ignore_above: 1024
+  level: extended
+  name: sha256
+  normalize: []
+  order: 2
+  original_fieldset: hash
+  short: SHA256 hash.
+  type: keyword
+file_classification.macro.stream.hash.sha512:
+  dashed_name: file-classification-macro-stream-hash-sha512
+  description: SHA512 hash.
+  flat_name: file_classification.macro.stream.hash.sha512
+  ignore_above: 1024
+  level: extended
+  name: sha512
+  normalize: []
+  order: 3
+  original_fieldset: hash
+  short: SHA512 hash.
+  type: keyword
+file_classification.macro.stream.name:
+  dashed_name: file-classification-macro-stream-name
+  description: TODO
+  flat_name: file_classification.macro.stream.name
   ignore_above: 1024
   level: custom
-  name: macro_details.stream_data.name
+  name: macro.stream.name
   normalize: []
-  order: 12
+  order: 8
   short: TODO
   type: keyword
-file_classification.macro_details.stream_data.raw_code:
-  dashed_name: file-classification-macro-details-stream-data-raw-code
+file_classification.macro.stream.raw_code:
+  dashed_name: file-classification-macro-stream-raw-code
   description: TODO
-  flat_name: file_classification.macro_details.stream_data.raw_code
+  flat_name: file_classification.macro.stream.raw_code
   ignore_above: 1024
   level: custom
-  name: macro_details.stream_data.raw_code
+  name: macro.stream.raw_code
   normalize: []
-  order: 13
+  order: 9
   short: TODO
   type: keyword
-file_classification.macro_details.stream_data.raw_code_size:
-  dashed_name: file-classification-macro-details-stream-data-raw-code-size
+file_classification.macro.stream.raw_code_size:
+  dashed_name: file-classification-macro-stream-raw-code-size
   description: TODO
-  flat_name: file_classification.macro_details.stream_data.raw_code_size
+  flat_name: file_classification.macro.stream.raw_code_size
   ignore_above: 1024
   level: custom
-  name: macro_details.stream_data.raw_code_size
+  name: macro.stream.raw_code_size
   normalize: []
-  order: 14
+  order: 10
   short: TODO
   type: keyword
-file_classification.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: file-classification-malware-classification-compressed-malware-features-data-buffer
+file_classification.malware_classification.features.data.buffer:
+  dashed_name: file-classification-malware-classification-features-data-buffer
   description: TODO
-  flat_name: file_classification.malware_classification.compressed_malware_features.data_buffer
+  flat_name: file_classification.malware_classification.features.data.buffer
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.data_buffer
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+file_classification.malware_classification.features.data.decompressed_size:
+  dashed_name: file-classification-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: file_classification.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
   normalize: []
   order: 5
   original_fieldset: malware_classification
   short: TODO
-  type: keyword
-file_classification.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: file-classification-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: file_classification.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
   type: integer
-file_classification.malware_classification.compressed_malware_features.encoding:
-  dashed_name: file-classification-malware-classification-compressed-malware-features-encoding
+file_classification.malware_classification.features.data.encoding:
+  dashed_name: file-classification-malware-classification-features-data-encoding
   description: TODO
-  flat_name: file_classification.malware_classification.compressed_malware_features.encoding
+  flat_name: file_classification.malware_classification.features.data.encoding
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.encoding
+  name: features.data.encoding
   normalize: []
-  order: 7
+  order: 6
   original_fieldset: malware_classification
   short: TODO
   type: keyword
@@ -1421,17 +1809,6 @@ file_classification.malware_classification.identifier:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-file_classification.malware_classification.prevention_threshold:
-  dashed_name: file-classification-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: file_classification.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
 file_classification.malware_classification.score:
   dashed_name: file-classification-malware-classification-score
   description: TODO
@@ -1461,7 +1838,7 @@ file_classification.malware_classification.upx_packed:
   level: custom
   name: upx_packed
   normalize: []
-  order: 8
+  order: 7
   original_fieldset: malware_classification
   short: TODO
   type: boolean
@@ -1477,39 +1854,6 @@ file_classification.malware_classification.version:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-file_classification.quarantine_result.alert_correlation_id:
-  dashed_name: file-classification-quarantine-result-alert-correlation-id
-  description: TODO
-  flat_name: file_classification.quarantine_result.alert_correlation_id
-  ignore_above: 1024
-  level: custom
-  name: quarantine_result.alert_correlation_id
-  normalize: []
-  order: 23
-  short: TODO
-  type: keyword
-file_classification.quarantine_result.quarantine_path:
-  dashed_name: file-classification-quarantine-result-quarantine-path
-  description: TODO
-  flat_name: file_classification.quarantine_result.quarantine_path
-  ignore_above: 1024
-  level: custom
-  name: quarantine_result.quarantine_path
-  normalize: []
-  order: 22
-  short: TODO
-  type: keyword
-file_classification.signature_signer:
-  dashed_name: file-classification-signature-signer
-  description: TODO
-  flat_name: file_classification.signature_signer
-  ignore_above: 1024
-  level: custom
-  name: signature_signer
-  normalize: []
-  order: 1
-  short: TODO
-  type: keyword
 file_classification.temp_file_path:
   dashed_name: file-classification-temp-file-path
   description: TODO
@@ -1518,71 +1862,61 @@ file_classification.temp_file_path:
   level: custom
   name: temp_file_path
   normalize: []
-  order: 4
+  order: 1
   short: TODO
   type: keyword
-file_classification.user_blacklisted:
-  dashed_name: file-classification-user-blacklisted
+file_classification.yara:
+  dashed_name: file-classification-yara
   description: TODO
-  flat_name: file_classification.user_blacklisted
+  flat_name: file_classification.yara
   level: custom
-  name: user_blacklisted
+  name: yara
   normalize: []
-  order: 8
+  order: 13
   short: TODO
-  type: boolean
-file_classification.yara_hits:
-  dashed_name: file-classification-yara-hits
+  type: nested
+file_classification.yara.identifier:
+  dashed_name: file-classification-yara-identifier
   description: TODO
-  flat_name: file_classification.yara_hits
+  flat_name: file_classification.yara.identifier
+  ignore_above: 1024
   level: custom
-  name: yara_hits
+  name: yara.identifier
+  normalize: []
+  order: 15
+  short: TODO
+  type: keyword
+file_classification.yara.matched:
+  dashed_name: file-classification-yara-matched
+  description: TODO
+  flat_name: file_classification.yara.matched
+  ignore_above: 1024
+  level: custom
+  name: yara.matched
   normalize: []
   order: 17
   short: TODO
-  type: nested
-file_classification.yara_hits.identifier:
-  dashed_name: file-classification-yara-hits-identifier
+  type: keyword
+file_classification.yara.rule.name:
+  dashed_name: file-classification-yara-rule-name
   description: TODO
-  flat_name: file_classification.yara_hits.identifier
+  flat_name: file_classification.yara.rule.name
   ignore_above: 1024
   level: custom
-  name: yara_hits.identifier
+  name: yara.rule.name
   normalize: []
-  order: 19
+  order: 14
   short: TODO
   type: keyword
-file_classification.yara_hits.matched_data:
-  dashed_name: file-classification-yara-hits-matched-data
+file_classification.yara.version:
+  dashed_name: file-classification-yara-version
   description: TODO
-  flat_name: file_classification.yara_hits.matched_data
+  flat_name: file_classification.yara.version
   ignore_above: 1024
   level: custom
-  name: yara_hits.matched_data
+  name: yara.version
   normalize: []
-  order: 21
-  short: TODO
-  type: keyword
-file_classification.yara_hits.rule_name:
-  dashed_name: file-classification-yara-hits-rule-name
-  description: TODO
-  flat_name: file_classification.yara_hits.rule_name
-  ignore_above: 1024
-  level: custom
-  name: yara_hits.rule_name
-  normalize: []
-  order: 18
-  short: TODO
-  type: keyword
-file_classification.yara_hits.version:
-  dashed_name: file-classification-yara-hits-version
-  description: TODO
-  flat_name: file_classification.yara_hits.version
-  ignore_above: 1024
-  level: custom
-  name: yara_hits.version
-  normalize: []
-  order: 20
+  order: 16
   short: TODO
   type: keyword
 host.architecture:
@@ -2064,169 +2398,6 @@ process.args_count:
   original_fieldset: process
   short: Length of the process.args array.
   type: long
-process.argv_list:
-  dashed_name: process-argv-list
-  description: TODO
-  flat_name: process.argv_list
-  ignore_above: 1024
-  level: custom
-  name: argv_list
-  normalize: []
-  order: 43
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.authenticode:
-  dashed_name: process-authenticode
-  description: TODO
-  flat_name: process.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-process.authenticode.cert_signer.issuer_name:
-  dashed_name: process-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: process.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_signer.serial_number:
-  dashed_name: process-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: process.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_signer.subject_name:
-  dashed_name: process-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: process.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_signer.timestamp_string:
-  dashed_name: process-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: process.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_timestamp.issuer_name:
-  dashed_name: process-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: process.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_timestamp.serial_number:
-  dashed_name: process-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: process.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_timestamp.subject_name:
-  dashed_name: process-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: process.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: process-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: process.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.more_info_link:
-  dashed_name: process-authenticode-more-info-link
-  description: TODO
-  flat_name: process.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.program_name:
-  dashed_name: process-authenticode-program-name
-  description: TODO
-  flat_name: process.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.authenticode.publisher_link:
-  dashed_name: process-authenticode-publisher-link
-  description: TODO
-  flat_name: process.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
 process.code_signature.exists:
   dashed_name: process-code-signature-exists
   description: Boolean to capture if a signature is present.
@@ -2328,7 +2499,7 @@ process.cpu_percent:
   level: custom
   name: cpu_percent
   normalize: []
-  order: 35
+  order: 31
   original_fieldset: process
   short: TODO
   type: double
@@ -2340,7 +2511,7 @@ process.cwd:
   level: custom
   name: cwd
   normalize: []
-  order: 40
+  order: 36
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2351,7 +2522,7 @@ process.defense_evasions:
   level: custom
   name: defense_evasions
   normalize: []
-  order: 85
+  order: 46
   original_fieldset: process
   short: TODO
   type: nested
@@ -2465,7 +2636,7 @@ process.defense_evasions.delta_count:
   level: custom
   name: defense_evasions.delta_count
   normalize: []
-  order: 96
+  order: 57
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2477,7 +2648,7 @@ process.defense_evasions.evasion_subtype:
   level: custom
   name: defense_evasions.evasion_subtype
   normalize: []
-  order: 87
+  order: 48
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2489,7 +2660,7 @@ process.defense_evasions.evasion_type:
   level: custom
   name: defense_evasions.evasion_type
   normalize: []
-  order: 86
+  order: 47
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2501,7 +2672,7 @@ process.defense_evasions.instruction_pointer:
   level: custom
   name: defense_evasions.instruction_pointer
   normalize: []
-  order: 97
+  order: 58
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2512,31 +2683,19 @@ process.defense_evasions.memory_sections:
   level: custom
   name: defense_evasions.memory_sections
   normalize: []
-  order: 90
+  order: 51
   original_fieldset: process
   short: TODO
   type: nested
-process.defense_evasions.memory_sections.memory_address:
-  dashed_name: process-defense-evasions-memory-sections-memory-address
+process.defense_evasions.memory_sections.address:
+  dashed_name: process-defense-evasions-memory-sections-address
   description: TODO
-  flat_name: process.defense_evasions.memory_sections.memory_address
+  flat_name: process.defense_evasions.memory_sections.address
   ignore_above: 1024
   level: custom
-  name: defense_evasions.memory_sections.memory_address
+  name: defense_evasions.memory_sections.address
   normalize: []
-  order: 91
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.defense_evasions.memory_sections.memory_size:
-  dashed_name: process-defense-evasions-memory-sections-memory-size
-  description: TODO
-  flat_name: process.defense_evasions.memory_sections.memory_size
-  ignore_above: 1024
-  level: custom
-  name: defense_evasions.memory_sections.memory_size
-  normalize: []
-  order: 92
+  order: 52
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2548,7 +2707,19 @@ process.defense_evasions.memory_sections.protection:
   level: custom
   name: defense_evasions.memory_sections.protection
   normalize: []
-  order: 93
+  order: 54
+  original_fieldset: process
+  short: TODO
+  type: keyword
+process.defense_evasions.memory_sections.size:
+  dashed_name: process-defense-evasions-memory-sections-size
+  description: TODO
+  flat_name: process.defense_evasions.memory_sections.size
+  ignore_above: 1024
+  level: custom
+  name: defense_evasions.memory_sections.size
+  normalize: []
+  order: 53
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2560,30 +2731,30 @@ process.defense_evasions.module_path:
   level: custom
   name: defense_evasions.module_path
   normalize: []
-  order: 88
+  order: 49
   original_fieldset: process
   short: TODO
   type: keyword
-process.defense_evasions.thread.thread_id:
-  dashed_name: process-defense-evasions-thread-thread-id
+process.defense_evasions.thread.id:
+  dashed_name: process-defense-evasions-thread-id
   description: TODO
-  flat_name: process.defense_evasions.thread.thread_id
+  flat_name: process.defense_evasions.thread.id
   level: custom
-  name: defense_evasions.thread.thread_id
+  name: defense_evasions.thread.id
   normalize: []
-  order: 94
+  order: 55
   original_fieldset: process
   short: TODO
   type: long
-process.defense_evasions.thread.thread_start_address:
-  dashed_name: process-defense-evasions-thread-thread-start-address
+process.defense_evasions.thread.start_address:
+  dashed_name: process-defense-evasions-thread-start-address
   description: TODO
-  flat_name: process.defense_evasions.thread.thread_start_address
+  flat_name: process.defense_evasions.thread.start_address
   ignore_above: 1024
   level: custom
-  name: defense_evasions.thread.thread_start_address
+  name: defense_evasions.thread.start_address
   normalize: []
-  order: 95
+  order: 56
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2595,7 +2766,7 @@ process.defense_evasions.total_memory_size:
   level: custom
   name: defense_evasions.total_memory_size
   normalize: []
-  order: 89
+  order: 50
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2607,7 +2778,7 @@ process.domain:
   level: custom
   name: domain
   normalize: []
-  order: 51
+  order: 44
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2640,7 +2811,7 @@ process.env_variables:
   level: custom
   name: env_variables
   normalize: []
-  order: 44
+  order: 39
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2685,7 +2856,7 @@ process.file_hash.imphash:
   level: custom
   name: file_hash.imphash
   normalize: []
-  order: 104
+  order: 65
   original_fieldset: process
   short: Imphash.
   type: keyword
@@ -2697,7 +2868,7 @@ process.file_hash.md5:
   level: custom
   name: file_hash.md5
   normalize: []
-  order: 100
+  order: 61
   original_fieldset: process
   short: MD5 hash.
   type: keyword
@@ -2709,7 +2880,7 @@ process.file_hash.sha1:
   level: custom
   name: file_hash.sha1
   normalize: []
-  order: 101
+  order: 62
   original_fieldset: process
   short: SHA1 hash.
   type: keyword
@@ -2721,7 +2892,7 @@ process.file_hash.sha256:
   level: custom
   name: file_hash.sha256
   normalize: []
-  order: 102
+  order: 63
   original_fieldset: process
   short: SHA256 hash.
   type: keyword
@@ -2733,21 +2904,10 @@ process.file_hash.sha512:
   level: custom
   name: file_hash.sha512
   normalize: []
-  order: 103
+  order: 64
   original_fieldset: process
   short: SHA512 hash.
   type: keyword
-process.gid:
-  dashed_name: process-gid
-  description: TODO
-  flat_name: process.gid
-  level: custom
-  name: gid
-  normalize: []
-  order: 46
-  original_fieldset: process
-  short: TODO
-  type: long
 process.group:
   dashed_name: process-group
   description: TODO
@@ -2756,7 +2916,7 @@ process.group:
   level: custom
   name: group
   normalize: []
-  order: 41
+  order: 37
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2767,7 +2927,7 @@ process.handles:
   level: custom
   name: handles
   normalize: []
-  order: 31
+  order: 27
   original_fieldset: process
   short: TODO
   type: nested
@@ -2778,7 +2938,7 @@ process.handles.handle_id:
   level: custom
   name: handles.handle_id
   normalize: []
-  order: 32
+  order: 28
   original_fieldset: process
   short: TODO
   type: long
@@ -2790,7 +2950,7 @@ process.handles.handle_name:
   level: custom
   name: handles.handle_name
   normalize: []
-  order: 34
+  order: 30
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2802,21 +2962,10 @@ process.handles.handle_type:
   level: custom
   name: handles.handle_type
   normalize: []
-  order: 33
+  order: 29
   original_fieldset: process
   short: TODO
   type: keyword
-process.has_unbacked_execute_memory:
-  dashed_name: process-has-unbacked-execute-memory
-  description: TODO
-  flat_name: process.has_unbacked_execute_memory
-  level: custom
-  name: has_unbacked_execute_memory
-  normalize: []
-  order: 4
-  original_fieldset: process
-  short: TODO
-  type: boolean
 process.hash.imphash:
   dashed_name: process-hash-imphash
   description: Imphash.
@@ -2884,53 +3033,42 @@ process.hash_matched_module:
   level: custom
   name: hash_matched_module
   normalize: []
-  order: 3
+  order: 0
   original_fieldset: process
   short: TODO
   type: boolean
-process.is_endpoint:
-  dashed_name: process-is-endpoint
-  description: Is this the Elastic Endpoint process or not.
-  flat_name: process.is_endpoint
-  level: custom
-  name: is_endpoint
-  normalize: []
-  order: 1
-  original_fieldset: process
-  short: Is this the Elastic Endpoint process or not.
-  type: boolean
-process.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: process-malware-classification-compressed-malware-features-data-buffer
+process.malware_classification.features.data.buffer:
+  dashed_name: process-malware-classification-features-data-buffer
   description: TODO
-  flat_name: process.malware_classification.compressed_malware_features.data_buffer
+  flat_name: process.malware_classification.features.data.buffer
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.data_buffer
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+process.malware_classification.features.data.decompressed_size:
+  dashed_name: process-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: process.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
   normalize: []
   order: 5
   original_fieldset: malware_classification
   short: TODO
-  type: keyword
-process.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: process-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: process.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
   type: integer
-process.malware_classification.compressed_malware_features.encoding:
-  dashed_name: process-malware-classification-compressed-malware-features-encoding
+process.malware_classification.features.data.encoding:
+  dashed_name: process-malware-classification-features-data-encoding
   description: TODO
-  flat_name: process.malware_classification.compressed_malware_features.encoding
+  flat_name: process.malware_classification.features.data.encoding
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.encoding
+  name: features.data.encoding
   normalize: []
-  order: 7
+  order: 6
   original_fieldset: malware_classification
   short: TODO
   type: keyword
@@ -2946,17 +3084,6 @@ process.malware_classification.identifier:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-process.malware_classification.prevention_threshold:
-  dashed_name: process-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: process.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
 process.malware_classification.score:
   dashed_name: process-malware-classification-score
   description: TODO
@@ -2986,7 +3113,7 @@ process.malware_classification.upx_packed:
   level: custom
   name: upx_packed
   normalize: []
-  order: 8
+  order: 7
   original_fieldset: malware_classification
   short: TODO
   type: boolean
@@ -3009,7 +3136,7 @@ process.memory_percent:
   level: custom
   name: memory_percent
   normalize: []
-  order: 36
+  order: 32
   original_fieldset: process
   short: TODO
   type: double
@@ -3020,7 +3147,7 @@ process.memory_region:
   level: custom
   name: memory_region
   normalize: []
-  order: 7
+  order: 3
   original_fieldset: process
   short: TODO
   type: nested
@@ -3032,7 +3159,7 @@ process.memory_region.allocation_base:
   level: custom
   name: memory_region.allocation_base
   normalize: []
-  order: 18
+  order: 14
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3044,7 +3171,7 @@ process.memory_region.allocation_protection:
   level: custom
   name: memory_region.allocation_protection
   normalize: []
-  order: 24
+  order: 20
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3056,7 +3183,7 @@ process.memory_region.bytes:
   level: custom
   name: memory_region.bytes
   normalize: []
-  order: 11
+  order: 7
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3067,7 +3194,7 @@ process.memory_region.histogram:
   level: custom
   name: memory_region.histogram
   normalize: []
-  order: 13
+  order: 9
   original_fieldset: process
   short: TODO
   type: nested
@@ -3079,7 +3206,7 @@ process.memory_region.histogram.histogram_array:
   level: custom
   name: memory_region.histogram.histogram_array
   normalize: []
-  order: 16
+  order: 12
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3091,7 +3218,7 @@ process.memory_region.histogram.histogram_flavor:
   level: custom
   name: memory_region.histogram.histogram_flavor
   normalize: []
-  order: 14
+  order: 10
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3103,7 +3230,7 @@ process.memory_region.histogram.histogram_resolution:
   level: custom
   name: memory_region.histogram.histogram_resolution
   normalize: []
-  order: 15
+  order: 11
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3115,7 +3242,7 @@ process.memory_region.length:
   level: custom
   name: memory_region.length
   normalize: []
-  order: 9
+  order: 5
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3127,7 +3254,7 @@ process.memory_region.memory:
   level: custom
   name: memory_region.memory
   normalize: []
-  order: 12
+  order: 8
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3139,7 +3266,7 @@ process.memory_region.memory_address:
   level: custom
   name: memory_region.memory_address
   normalize: []
-  order: 8
+  order: 4
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3151,7 +3278,7 @@ process.memory_region.module_path:
   level: custom
   name: memory_region.module_path
   normalize: []
-  order: 25
+  order: 21
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3163,7 +3290,7 @@ process.memory_region.permission:
   level: custom
   name: memory_region.permission
   normalize: []
-  order: 17
+  order: 13
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3175,7 +3302,7 @@ process.memory_region.protection:
   level: custom
   name: memory_region.protection
   normalize: []
-  order: 23
+  order: 19
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3187,7 +3314,7 @@ process.memory_region.region_base:
   level: custom
   name: memory_region.region_base
   normalize: []
-  order: 19
+  order: 15
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3199,7 +3326,7 @@ process.memory_region.region_size:
   level: custom
   name: memory_region.region_size
   normalize: []
-  order: 20
+  order: 16
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3211,7 +3338,7 @@ process.memory_region.region_tag:
   level: custom
   name: memory_region.region_tag
   normalize: []
-  order: 21
+  order: 17
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3223,7 +3350,7 @@ process.memory_region.type:
   level: custom
   name: memory_region.type
   normalize: []
-  order: 22
+  order: 18
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3234,7 +3361,7 @@ process.memory_region.unbacked_on_disk:
   level: custom
   name: memory_region.unbacked_on_disk
   normalize: []
-  order: 10
+  order: 6
   original_fieldset: process
   short: TODO
   type: boolean
@@ -3265,157 +3392,6 @@ process.modules.architecture:
   normalize: []
   order: 4
   original_fieldset: modules
-  short: TODO
-  type: keyword
-process.modules.authenticode:
-  dashed_name: process-modules-authenticode
-  description: TODO
-  flat_name: process.modules.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-process.modules.authenticode.cert_signer.issuer_name:
-  dashed_name: process-modules-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: process.modules.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_signer.serial_number:
-  dashed_name: process-modules-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: process.modules.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_signer.subject_name:
-  dashed_name: process-modules-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: process.modules.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_signer.timestamp_string:
-  dashed_name: process-modules-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: process.modules.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_timestamp.issuer_name:
-  dashed_name: process-modules-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: process.modules.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_timestamp.serial_number:
-  dashed_name: process-modules-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: process.modules.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_timestamp.subject_name:
-  dashed_name: process-modules-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: process.modules.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: process-modules-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: process.modules.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.more_info_link:
-  dashed_name: process-modules-authenticode-more-info-link
-  description: TODO
-  flat_name: process.modules.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.program_name:
-  dashed_name: process-modules-authenticode-program-name
-  description: TODO
-  flat_name: process.modules.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.modules.authenticode.publisher_link:
-  dashed_name: process-modules-authenticode-publisher-link
-  description: TODO
-  flat_name: process.modules.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
   short: TODO
   type: keyword
 process.modules.compile_time:
@@ -3489,38 +3465,38 @@ process.modules.hash.sha512:
   original_fieldset: hash
   short: SHA512 hash.
   type: keyword
-process.modules.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: process-modules-malware-classification-compressed-malware-features-data-buffer
+process.modules.malware_classification.features.data.buffer:
+  dashed_name: process-modules-malware-classification-features-data-buffer
   description: TODO
-  flat_name: process.modules.malware_classification.compressed_malware_features.data_buffer
+  flat_name: process.modules.malware_classification.features.data.buffer
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.data_buffer
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+process.modules.malware_classification.features.data.decompressed_size:
+  dashed_name: process-modules-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: process.modules.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
   normalize: []
   order: 5
   original_fieldset: malware_classification
   short: TODO
-  type: keyword
-process.modules.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: process-modules-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: process.modules.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
   type: integer
-process.modules.malware_classification.compressed_malware_features.encoding:
-  dashed_name: process-modules-malware-classification-compressed-malware-features-encoding
+process.modules.malware_classification.features.data.encoding:
+  dashed_name: process-modules-malware-classification-features-data-encoding
   description: TODO
-  flat_name: process.modules.malware_classification.compressed_malware_features.encoding
+  flat_name: process.modules.malware_classification.features.data.encoding
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.encoding
+  name: features.data.encoding
   normalize: []
-  order: 7
+  order: 6
   original_fieldset: malware_classification
   short: TODO
   type: keyword
@@ -3536,17 +3512,6 @@ process.modules.malware_classification.identifier:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-process.modules.malware_classification.prevention_threshold:
-  dashed_name: process-modules-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: process.modules.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
 process.modules.malware_classification.score:
   dashed_name: process-modules-malware-classification-score
   description: TODO
@@ -3576,7 +3541,7 @@ process.modules.malware_classification.upx_packed:
   level: custom
   name: upx_packed
   normalize: []
-  order: 8
+  order: 7
   original_fieldset: malware_classification
   short: TODO
   type: boolean
@@ -3747,7 +3712,7 @@ process.num_threads:
   level: custom
   name: num_threads
   normalize: []
-  order: 37
+  order: 33
   original_fieldset: process
   short: TODO
   type: long
@@ -4180,6 +4145,98 @@ process.pe.file_version:
   original_fieldset: pe
   short: Process name.
   type: keyword
+process.pe.malware_classification.features.data.buffer:
+  dashed_name: process-pe-malware-classification-features-data-buffer
+  description: TODO
+  flat_name: process.pe.malware_classification.features.data.buffer
+  ignore_above: 1024
+  level: custom
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+process.pe.malware_classification.features.data.decompressed_size:
+  dashed_name: process-pe-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: process.pe.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
+  normalize: []
+  order: 5
+  original_fieldset: malware_classification
+  short: TODO
+  type: integer
+process.pe.malware_classification.features.data.encoding:
+  dashed_name: process-pe-malware-classification-features-data-encoding
+  description: TODO
+  flat_name: process.pe.malware_classification.features.data.encoding
+  ignore_above: 1024
+  level: custom
+  name: features.data.encoding
+  normalize: []
+  order: 6
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+process.pe.malware_classification.identifier:
+  dashed_name: process-pe-malware-classification-identifier
+  description: TODO
+  flat_name: process.pe.malware_classification.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  order: 2
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+process.pe.malware_classification.score:
+  dashed_name: process-pe-malware-classification-score
+  description: TODO
+  flat_name: process.pe.malware_classification.score
+  level: custom
+  name: score
+  normalize: []
+  order: 0
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+process.pe.malware_classification.threshold:
+  dashed_name: process-pe-malware-classification-threshold
+  description: TODO
+  flat_name: process.pe.malware_classification.threshold
+  level: custom
+  name: threshold
+  normalize: []
+  order: 1
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+process.pe.malware_classification.upx_packed:
+  dashed_name: process-pe-malware-classification-upx-packed
+  description: TODO
+  flat_name: process.pe.malware_classification.upx_packed
+  level: custom
+  name: upx_packed
+  normalize: []
+  order: 7
+  original_fieldset: malware_classification
+  short: TODO
+  type: boolean
+process.pe.malware_classification.version:
+  dashed_name: process-pe-malware-classification-version
+  description: TODO
+  flat_name: process.pe.malware_classification.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  order: 3
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
 process.pe.original_file_name:
   dashed_name: process-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
@@ -4206,605 +4263,6 @@ process.pe.product:
   original_fieldset: pe
   short: Internal product name of the file, provided at compile-time.
   type: keyword
-process.pe_info.architecture:
-  dashed_name: process-pe-info-architecture
-  description: TODO
-  flat_name: process.pe_info.architecture
-  ignore_above: 1024
-  level: custom
-  name: pe_info.architecture
-  normalize: []
-  order: 80
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.authenticode:
-  dashed_name: process-pe-info-authenticode
-  description: TODO
-  flat_name: process.pe_info.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-process.pe_info.authenticode.cert_signer.issuer_name:
-  dashed_name: process-pe-info-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_signer.serial_number:
-  dashed_name: process-pe-info-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_signer.subject_name:
-  dashed_name: process-pe-info-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_signer.timestamp_string:
-  dashed_name: process-pe-info-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_timestamp.issuer_name:
-  dashed_name: process-pe-info-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_timestamp.serial_number:
-  dashed_name: process-pe-info-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_timestamp.subject_name:
-  dashed_name: process-pe-info-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: process-pe-info-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: process.pe_info.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.more_info_link:
-  dashed_name: process-pe-info-authenticode-more-info-link
-  description: TODO
-  flat_name: process.pe_info.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.program_name:
-  dashed_name: process-pe-info-authenticode-program-name
-  description: TODO
-  flat_name: process.pe_info.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.authenticode.publisher_link:
-  dashed_name: process-pe-info-authenticode-publisher-link
-  description: TODO
-  flat_name: process.pe_info.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-process.pe_info.compile_time:
-  dashed_name: process-pe-info-compile-time
-  description: TODO
-  flat_name: process.pe_info.compile_time
-  level: custom
-  name: pe_info.compile_time
-  normalize: []
-  order: 53
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.entry_point_address:
-  dashed_name: process-pe-info-entry-point-address
-  description: TODO
-  flat_name: process.pe_info.entry_point_address
-  level: custom
-  name: pe_info.entry_point_address
-  normalize: []
-  order: 54
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.is_dll:
-  dashed_name: process-pe-info-is-dll
-  description: TODO
-  flat_name: process.pe_info.is_dll
-  level: custom
-  name: pe_info.is_dll
-  normalize: []
-  order: 55
-  original_fieldset: process
-  short: TODO
-  type: boolean
-process.pe_info.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: process-pe-info-malware-classification-compressed-malware-features-data-buffer
-  description: TODO
-  flat_name: process.pe_info.malware_classification.compressed_malware_features.data_buffer
-  ignore_above: 1024
-  level: custom
-  name: compressed_malware_features.data_buffer
-  normalize: []
-  order: 5
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-process.pe_info.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: process-pe-info-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: process.pe_info.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
-  type: integer
-process.pe_info.malware_classification.compressed_malware_features.encoding:
-  dashed_name: process-pe-info-malware-classification-compressed-malware-features-encoding
-  description: TODO
-  flat_name: process.pe_info.malware_classification.compressed_malware_features.encoding
-  ignore_above: 1024
-  level: custom
-  name: compressed_malware_features.encoding
-  normalize: []
-  order: 7
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-process.pe_info.malware_classification.identifier:
-  dashed_name: process-pe-info-malware-classification-identifier
-  description: TODO
-  flat_name: process.pe_info.malware_classification.identifier
-  ignore_above: 1024
-  level: custom
-  name: identifier
-  normalize: []
-  order: 2
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-process.pe_info.malware_classification.prevention_threshold:
-  dashed_name: process-pe-info-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: process.pe_info.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-process.pe_info.malware_classification.score:
-  dashed_name: process-pe-info-malware-classification-score
-  description: TODO
-  flat_name: process.pe_info.malware_classification.score
-  level: custom
-  name: score
-  normalize: []
-  order: 0
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-process.pe_info.malware_classification.threshold:
-  dashed_name: process-pe-info-malware-classification-threshold
-  description: TODO
-  flat_name: process.pe_info.malware_classification.threshold
-  level: custom
-  name: threshold
-  normalize: []
-  order: 1
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-process.pe_info.malware_classification.upx_packed:
-  dashed_name: process-pe-info-malware-classification-upx-packed
-  description: TODO
-  flat_name: process.pe_info.malware_classification.upx_packed
-  level: custom
-  name: upx_packed
-  normalize: []
-  order: 8
-  original_fieldset: malware_classification
-  short: TODO
-  type: boolean
-process.pe_info.malware_classification.version:
-  dashed_name: process-pe-info-malware-classification-version
-  description: TODO
-  flat_name: process.pe_info.malware_classification.version
-  ignore_above: 1024
-  level: custom
-  name: version
-  normalize: []
-  order: 3
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-process.pe_info.pe_exports:
-  dashed_name: process-pe-info-pe-exports
-  description: TODO
-  flat_name: process.pe_info.pe_exports
-  level: custom
-  name: pe_info.pe_exports
-  normalize: []
-  order: 66
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.pe_info.pe_exports.name:
-  dashed_name: process-pe-info-pe-exports-name
-  description: TODO
-  flat_name: process.pe_info.pe_exports.name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_exports.name
-  normalize: []
-  order: 68
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.pe_exports.ordinal:
-  dashed_name: process-pe-info-pe-exports-ordinal
-  description: TODO
-  flat_name: process.pe_info.pe_exports.ordinal
-  level: custom
-  name: pe_info.pe_exports.ordinal
-  normalize: []
-  order: 67
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.pe_imports:
-  dashed_name: process-pe-info-pe-imports
-  description: TODO
-  flat_name: process.pe_info.pe_imports
-  level: custom
-  name: pe_info.pe_imports
-  normalize: []
-  order: 63
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.pe_info.pe_imports.dll_name:
-  dashed_name: process-pe-info-pe-imports-dll-name
-  description: TODO
-  flat_name: process.pe_info.pe_imports.dll_name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_imports.dll_name
-  normalize: []
-  order: 64
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.pe_imports.import_names:
-  dashed_name: process-pe-info-pe-imports-import-names
-  description: TODO
-  flat_name: process.pe_info.pe_imports.import_names
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_imports.import_names
-  normalize: []
-  order: 65
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.resources:
-  dashed_name: process-pe-info-resources
-  description: TODO
-  flat_name: process.pe_info.resources
-  level: custom
-  name: pe_info.resources
-  normalize: []
-  order: 69
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.pe_info.resources.resource_data.entropy:
-  dashed_name: process-pe-info-resources-resource-data-entropy
-  description: TODO
-  flat_name: process.pe_info.resources.resource_data.entropy
-  level: custom
-  name: pe_info.resources.resource_data.entropy
-  normalize: []
-  order: 73
-  original_fieldset: process
-  short: TODO
-  type: double
-process.pe_info.resources.resource_data.size:
-  dashed_name: process-pe-info-resources-resource-data-size
-  description: TODO
-  flat_name: process.pe_info.resources.resource_data.size
-  level: custom
-  name: pe_info.resources.resource_data.size
-  normalize: []
-  order: 72
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.resources.resource_id:
-  dashed_name: process-pe-info-resources-resource-id
-  description: TODO
-  flat_name: process.pe_info.resources.resource_id
-  level: custom
-  name: pe_info.resources.resource_id
-  normalize: []
-  order: 70
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.resources.resource_name:
-  dashed_name: process-pe-info-resources-resource-name
-  description: TODO
-  flat_name: process.pe_info.resources.resource_name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.resources.resource_name
-  normalize: []
-  order: 74
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.resources.resource_type:
-  dashed_name: process-pe-info-resources-resource-type
-  description: TODO
-  flat_name: process.pe_info.resources.resource_type
-  ignore_above: 1024
-  level: custom
-  name: pe_info.resources.resource_type
-  normalize: []
-  order: 71
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.sections:
-  dashed_name: process-pe-info-sections
-  description: TODO
-  flat_name: process.pe_info.sections
-  level: custom
-  name: pe_info.sections
-  normalize: []
-  order: 56
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.pe_info.sections.entropy:
-  dashed_name: process-pe-info-sections-entropy
-  description: TODO
-  flat_name: process.pe_info.sections.entropy
-  level: custom
-  name: pe_info.sections.entropy
-  normalize: []
-  order: 61
-  original_fieldset: process
-  short: TODO
-  type: double
-process.pe_info.sections.name:
-  dashed_name: process-pe-info-sections-name
-  description: TODO
-  flat_name: process.pe_info.sections.name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.name
-  normalize: []
-  order: 62
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.sections.raw_offset:
-  dashed_name: process-pe-info-sections-raw-offset
-  description: TODO
-  flat_name: process.pe_info.sections.raw_offset
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.raw_offset
-  normalize: []
-  order: 59
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.sections.raw_size:
-  dashed_name: process-pe-info-sections-raw-size
-  description: TODO
-  flat_name: process.pe_info.sections.raw_size
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.raw_size
-  normalize: []
-  order: 60
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.sections.virtual_address:
-  dashed_name: process-pe-info-sections-virtual-address
-  description: TODO
-  flat_name: process.pe_info.sections.virtual_address
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.virtual_address
-  normalize: []
-  order: 57
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.sections.virtual_size:
-  dashed_name: process-pe-info-sections-virtual-size
-  description: TODO
-  flat_name: process.pe_info.sections.virtual_size
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.virtual_size
-  normalize: []
-  order: 58
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.signature_signer:
-  dashed_name: process-pe-info-signature-signer
-  description: TODO
-  flat_name: process.pe_info.signature_signer
-  ignore_above: 1024
-  level: custom
-  name: pe_info.signature_signer
-  normalize: []
-  order: 81
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.signature_status:
-  dashed_name: process-pe-info-signature-status
-  description: TODO
-  flat_name: process.pe_info.signature_status
-  ignore_above: 1024
-  level: custom
-  name: pe_info.signature_status
-  normalize: []
-  order: 82
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.version_info:
-  dashed_name: process-pe-info-version-info
-  description: TODO
-  flat_name: process.pe_info.version_info
-  level: custom
-  name: pe_info.version_info
-  normalize: []
-  order: 75
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.pe_info.version_info.code_page:
-  dashed_name: process-pe-info-version-info-code-page
-  description: TODO
-  flat_name: process.pe_info.version_info.code_page
-  level: custom
-  name: pe_info.version_info.code_page
-  normalize: []
-  order: 77
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.version_info.key:
-  dashed_name: process-pe-info-version-info-key
-  description: TODO
-  flat_name: process.pe_info.version_info.key
-  ignore_above: 1024
-  level: custom
-  name: pe_info.version_info.key
-  normalize: []
-  order: 78
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.pe_info.version_info.language:
-  dashed_name: process-pe-info-version-info-language
-  description: TODO
-  flat_name: process.pe_info.version_info.language
-  level: custom
-  name: pe_info.version_info.language
-  normalize: []
-  order: 76
-  original_fieldset: process
-  short: TODO
-  type: long
-process.pe_info.version_info.value_string:
-  dashed_name: process-pe-info-version-info-value-string
-  description: TODO
-  flat_name: process.pe_info.version_info.value_string
-  ignore_above: 1024
-  level: custom
-  name: pe_info.version_info.value_string
-  normalize: []
-  order: 79
-  original_fieldset: process
-  short: TODO
-  type: keyword
 process.pgid:
   dashed_name: process-pgid
   description: Identifier of the group of processes the process belongs to.
@@ -4825,7 +4283,7 @@ process.phys_memory_bytes:
   level: custom
   name: phys_memory_bytes
   normalize: []
-  order: 39
+  order: 35
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4863,7 +4321,7 @@ process.services:
   level: custom
   name: services
   normalize: []
-  order: 98
+  order: 59
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4874,7 +4332,7 @@ process.session_id:
   level: custom
   name: session_id
   normalize: []
-  order: 50
+  order: 43
   original_fieldset: process
   short: TODO
   type: long
@@ -4886,7 +4344,7 @@ process.short_name:
   level: custom
   name: short_name
   normalize: []
-  order: 42
+  order: 38
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4898,31 +4356,7 @@ process.sid:
   level: custom
   name: sid
   normalize: []
-  order: 52
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.signature_signer:
-  dashed_name: process-signature-signer
-  description: TODO
-  flat_name: process.signature_signer
-  ignore_above: 1024
-  level: custom
-  name: signature_signer
-  normalize: []
-  order: 83
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.signature_status:
-  dashed_name: process-signature-status
-  description: TODO
-  flat_name: process.signature_status
-  ignore_above: 1024
-  level: custom
-  name: signature_status
-  normalize: []
-  order: 84
+  order: 45
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4938,31 +4372,298 @@ process.start:
   original_fieldset: process
   short: The time the process started.
   type: date
-process.thread.id:
-  dashed_name: process-thread-id
-  description: Thread ID.
-  example: 4242
-  flat_name: process.thread.id
-  format: string
-  level: extended
-  name: thread.id
+process.thread.call_stack:
+  dashed_name: process-thread-call-stack
+  description: TODO
+  flat_name: process.thread.call_stack
+  group: 2
+  level: custom
+  name: call_stack
   normalize: []
-  order: 20
-  original_fieldset: process
-  short: Thread ID.
-  type: long
-process.thread.name:
-  dashed_name: process-thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: process.thread.name
+  original_fieldset: call_stack
+  prefix: call_stack.
+  reusable:
+    expected:
+    - thread
+    - process.defense_evasions
+    top_level: false
+  short: TODO
+  title: Call Stack
+  type: nested
+process.thread.call_stack.instruction_pointer:
+  dashed_name: process-thread-call-stack-instruction-pointer
+  description: TODO
+  flat_name: process.thread.call_stack.instruction_pointer
+  ignore_above: 1024
+  level: custom
+  name: instruction_pointer
+  normalize: []
+  order: 1
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.memory_section.memory_address:
+  dashed_name: process-thread-call-stack-memory-section-memory-address
+  description: TODO
+  flat_name: process.thread.call_stack.memory_section.memory_address
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_address
+  normalize: []
+  order: 2
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.memory_section.memory_size:
+  dashed_name: process-thread-call-stack-memory-section-memory-size
+  description: TODO
+  flat_name: process.thread.call_stack.memory_section.memory_size
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  order: 3
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.memory_section.protection:
+  dashed_name: process-thread-call-stack-memory-section-protection
+  description: TODO
+  flat_name: process.thread.call_stack.memory_section.protection
+  ignore_above: 1024
+  level: custom
+  name: memory_section.protection
+  normalize: []
+  order: 4
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.module_path:
+  dashed_name: process-thread-call-stack-module-path
+  description: TODO
+  flat_name: process.thread.call_stack.module_path
+  ignore_above: 1024
+  level: custom
+  name: module_path
+  normalize: []
+  order: 0
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.rva:
+  dashed_name: process-thread-call-stack-rva
+  description: TODO
+  flat_name: process.thread.call_stack.rva
+  ignore_above: 1024
+  level: custom
+  name: rva
+  normalize: []
+  order: 6
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.call_stack.symbol_info:
+  dashed_name: process-thread-call-stack-symbol-info
+  description: TODO
+  flat_name: process.thread.call_stack.symbol_info
+  ignore_above: 1024
+  level: custom
+  name: symbol_info
+  normalize: []
+  order: 5
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.service:
+  dashed_name: process-thread-service
+  description: Service associated with the thread.
+  example: VaultSvc
+  flat_name: process.thread.service
   ignore_above: 1024
   level: extended
-  name: thread.name
+  name: service
   normalize: []
-  order: 22
-  original_fieldset: process
-  short: Thread name.
+  order: 3
+  original_fieldset: thread
+  short: Service associated with the thread.
+  type: keyword
+process.thread.start:
+  dashed_name: process-thread-start
+  description: The time the thread started.
+  example: '2016-05-23T08:05:34.853Z'
+  flat_name: process.thread.start
+  level: extended
+  name: start
+  normalize: []
+  order: 0
+  original_fieldset: thread
+  short: The time the thread started.
+  type: date
+process.thread.start_address:
+  dashed_name: process-thread-start-address
+  description: Memory address where the thread started.
+  example: 5442508
+  flat_name: process.thread.start_address
+  ignore_above: 1024
+  level: extended
+  name: start_address
+  normalize: []
+  order: 1
+  original_fieldset: thread
+  short: Memory address where the thread started.
+  type: keyword
+process.thread.start_address_module:
+  dashed_name: process-thread-start-address-module
+  description: TODO
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: process.thread.start_address_module
+  ignore_above: 1024
+  level: extended
+  name: start_address_module
+  normalize: []
+  order: 2
+  original_fieldset: thread
+  short: TODO
+  type: keyword
+process.thread.token.domain:
+  dashed_name: process-thread-token-domain
+  description: TODO
+  flat_name: process.thread.token.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  order: 1
+  original_fieldset: token
+  short: TODO
+  type: keyword
+process.thread.token.impersonation_level:
+  dashed_name: process-thread-token-impersonation-level
+  description: Impersonation level. Only valid for impersonation tokens.
+  flat_name: process.thread.token.impersonation_level
+  ignore_above: 1024
+  level: extended
+  name: impersonation_level
+  normalize: []
+  order: 4
+  original_fieldset: token
+  short: Impersonation level. Only valid for impersonation tokens.
+  type: keyword
+process.thread.token.integrity_level:
+  dashed_name: process-thread-token-integrity-level
+  description: Numeric integrity level.
+  flat_name: process.thread.token.integrity_level
+  level: extended
+  name: integrity_level
+  normalize: []
+  order: 5
+  original_fieldset: token
+  short: Numeric integrity level.
+  type: long
+process.thread.token.integrity_level_name:
+  dashed_name: process-thread-token-integrity-level-name
+  description: Human readable integrity level.
+  flat_name: process.thread.token.integrity_level_name
+  ignore_above: 1024
+  level: extended
+  name: integrity_level_name
+  normalize: []
+  order: 6
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
+process.thread.token.is_appcontainer:
+  dashed_name: process-thread-token-is-appcontainer
+  description: Whether or not this is an appcontainer token.
+  flat_name: process.thread.token.is_appcontainer
+  level: extended
+  name: is_appcontainer
+  normalize: []
+  order: 7
+  original_fieldset: token
+  short: Whether or not this is an appcontainer token.
+  type: boolean
+process.thread.token.privileges:
+  dashed_name: process-thread-token-privileges
+  description: Array describing the privileges associated with the token.
+  flat_name: process.thread.token.privileges
+  level: extended
+  name: privileges
+  normalize: []
+  order: 8
+  original_fieldset: token
+  short: Array describing the privileges associated with the token.
+  type: nested
+process.thread.token.privileges.description:
+  dashed_name: process-thread-token-privileges-description
+  description: Description of the privilege.
+  flat_name: process.thread.token.privileges.description
+  ignore_above: 1024
+  level: extended
+  name: privileges.description
+  normalize: []
+  order: 11
+  original_fieldset: token
+  short: Description of the privilege.
+  type: keyword
+process.thread.token.privileges.enabled:
+  dashed_name: process-thread-token-privileges-enabled
+  description: Whether or not the privilege is enabled.
+  flat_name: process.thread.token.privileges.enabled
+  level: extended
+  name: privileges.enabled
+  normalize: []
+  order: 10
+  original_fieldset: token
+  short: Whether or not the privilege is enabled.
+  type: boolean
+process.thread.token.privileges.name:
+  dashed_name: process-thread-token-privileges-name
+  description: Name of the privilege.
+  flat_name: process.thread.token.privileges.name
+  ignore_above: 1024
+  level: extended
+  name: privileges.name
+  normalize: []
+  order: 9
+  original_fieldset: token
+  short: Name of the privilege.
+  type: keyword
+process.thread.token.sid:
+  dashed_name: process-thread-token-sid
+  description: TODO
+  flat_name: process.thread.token.sid
+  ignore_above: 1024
+  level: extended
+  name: sid
+  normalize: []
+  order: 2
+  original_fieldset: token
+  short: TODO
+  type: keyword
+process.thread.token.type:
+  dashed_name: process-thread-token-type
+  description: Type of the token, either primary or impersonation.
+  flat_name: process.thread.token.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  order: 3
+  original_fieldset: token
+  short: Type of the token, either primary or impersonation.
+  type: keyword
+process.thread.token.user:
+  dashed_name: process-thread-token-user
+  description: Username of token owner.
+  flat_name: process.thread.token.user
+  ignore_above: 1024
+  level: extended
+  name: user
+  normalize: []
+  order: 0
+  original_fieldset: token
+  short: Username of token owner.
   type: keyword
 process.threads:
   dashed_name: process-threads
@@ -4971,7 +4672,7 @@ process.threads:
   level: custom
   name: threads
   normalize: []
-  order: 26
+  order: 22
   original_fieldset: process
   short: TODO
   type: nested
@@ -4983,7 +4684,7 @@ process.threads.entrypoint:
   level: custom
   name: threads.entrypoint
   normalize: []
-  order: 28
+  order: 24
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4994,7 +4695,7 @@ process.threads.id:
   level: custom
   name: threads.id
   normalize: []
-  order: 27
+  order: 23
   original_fieldset: process
   short: TODO
   type: long
@@ -5005,7 +4706,7 @@ process.threads.start:
   level: custom
   name: threads.start
   normalize: []
-  order: 29
+  order: 25
   original_fieldset: process
   short: TODO
   type: date
@@ -5016,7 +4717,7 @@ process.threads.uptime:
   level: custom
   name: threads.uptime
   normalize: []
-  order: 30
+  order: 26
   original_fieldset: process
   short: TODO
   type: long
@@ -5180,51 +4881,40 @@ process.token.user:
   original_fieldset: token
   short: Username of token owner.
   type: keyword
-process.tty_device_major_number:
+process.tty_device.major_number:
   dashed_name: process-tty-device-major-number
   description: TODO
-  flat_name: process.tty_device_major_number
+  flat_name: process.tty_device.major_number
   level: custom
-  name: tty_device_major_number
+  name: tty_device.major_number
   normalize: []
-  order: 47
+  order: 40
   original_fieldset: process
   short: TODO
   type: integer
-process.tty_device_minor_number:
+process.tty_device.minor_number:
   dashed_name: process-tty-device-minor-number
   description: TODO
-  flat_name: process.tty_device_minor_number
+  flat_name: process.tty_device.minor_number
   level: custom
-  name: tty_device_minor_number
+  name: tty_device.minor_number
   normalize: []
-  order: 48
+  order: 41
   original_fieldset: process
   short: TODO
   type: integer
-process.tty_device_name:
+process.tty_device.name:
   dashed_name: process-tty-device-name
   description: TODO
-  flat_name: process.tty_device_name
+  flat_name: process.tty_device.name
   ignore_above: 1024
   level: custom
-  name: tty_device_name
+  name: tty_device.name
   normalize: []
-  order: 49
+  order: 42
   original_fieldset: process
   short: TODO
   type: keyword
-process.uid:
-  dashed_name: process-uid
-  description: TODO
-  flat_name: process.uid
-  level: custom
-  name: uid
-  normalize: []
-  order: 45
-  original_fieldset: process
-  short: TODO
-  type: long
 process.unbacked_execute_byte_count:
   dashed_name: process-unbacked-execute-byte-count
   description: TODO
@@ -5233,7 +4923,7 @@ process.unbacked_execute_byte_count:
   level: custom
   name: unbacked_execute_byte_count
   normalize: []
-  order: 5
+  order: 1
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5245,33 +4935,9 @@ process.unbacked_execute_region_count:
   level: custom
   name: unbacked_execute_region_count
   normalize: []
-  order: 6
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.unique_pid:
-  dashed_name: process-unique-pid
-  description: Unique process id.
-  flat_name: process.unique_pid
-  ignore_above: 1024
-  level: custom
-  name: unique_pid
-  normalize: []
-  order: 0
-  original_fieldset: process
-  short: Unique process id.
-  type: keyword
-process.unique_ppid:
-  dashed_name: process-unique-ppid
-  description: Unique parent process id.
-  flat_name: process.unique_ppid
-  ignore_above: 1024
-  level: custom
-  name: unique_ppid
-  normalize: []
   order: 2
   original_fieldset: process
-  short: Unique parent process id.
+  short: TODO
   type: keyword
 process.uptime:
   dashed_name: process-uptime
@@ -5293,7 +4959,7 @@ process.user:
   level: custom
   name: user
   normalize: []
-  order: 99
+  order: 60
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5305,7 +4971,7 @@ process.virt_memory_bytes:
   level: custom
   name: virt_memory_bytes
   normalize: []
-  order: 38
+  order: 34
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5469,169 +5135,6 @@ target.process.args_count:
   original_fieldset: process
   short: Length of the process.args array.
   type: long
-target.process.argv_list:
-  dashed_name: target-process-argv-list
-  description: TODO
-  flat_name: target.process.argv_list
-  ignore_above: 1024
-  level: custom
-  name: argv_list
-  normalize: []
-  order: 43
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.authenticode:
-  dashed_name: target-process-authenticode
-  description: TODO
-  flat_name: target.process.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-target.process.authenticode.cert_signer.issuer_name:
-  dashed_name: target-process-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: target.process.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_signer.serial_number:
-  dashed_name: target-process-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: target.process.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_signer.subject_name:
-  dashed_name: target-process-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: target.process.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_signer.timestamp_string:
-  dashed_name: target-process-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: target.process.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_timestamp.issuer_name:
-  dashed_name: target-process-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: target.process.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_timestamp.serial_number:
-  dashed_name: target-process-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: target.process.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_timestamp.subject_name:
-  dashed_name: target-process-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: target.process.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: target-process-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: target.process.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.more_info_link:
-  dashed_name: target-process-authenticode-more-info-link
-  description: TODO
-  flat_name: target.process.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.program_name:
-  dashed_name: target-process-authenticode-program-name
-  description: TODO
-  flat_name: target.process.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.authenticode.publisher_link:
-  dashed_name: target-process-authenticode-publisher-link
-  description: TODO
-  flat_name: target.process.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
 target.process.code_signature.exists:
   dashed_name: target-process-code-signature-exists
   description: Boolean to capture if a signature is present.
@@ -5733,7 +5236,7 @@ target.process.cpu_percent:
   level: custom
   name: cpu_percent
   normalize: []
-  order: 35
+  order: 31
   original_fieldset: process
   short: TODO
   type: double
@@ -5745,7 +5248,7 @@ target.process.cwd:
   level: custom
   name: cwd
   normalize: []
-  order: 40
+  order: 36
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5756,7 +5259,7 @@ target.process.defense_evasions:
   level: custom
   name: defense_evasions
   normalize: []
-  order: 85
+  order: 46
   original_fieldset: process
   short: TODO
   type: nested
@@ -5870,7 +5373,7 @@ target.process.defense_evasions.delta_count:
   level: custom
   name: defense_evasions.delta_count
   normalize: []
-  order: 96
+  order: 57
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5882,7 +5385,7 @@ target.process.defense_evasions.evasion_subtype:
   level: custom
   name: defense_evasions.evasion_subtype
   normalize: []
-  order: 87
+  order: 48
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5894,7 +5397,7 @@ target.process.defense_evasions.evasion_type:
   level: custom
   name: defense_evasions.evasion_type
   normalize: []
-  order: 86
+  order: 47
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5906,7 +5409,7 @@ target.process.defense_evasions.instruction_pointer:
   level: custom
   name: defense_evasions.instruction_pointer
   normalize: []
-  order: 97
+  order: 58
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5917,31 +5420,19 @@ target.process.defense_evasions.memory_sections:
   level: custom
   name: defense_evasions.memory_sections
   normalize: []
-  order: 90
+  order: 51
   original_fieldset: process
   short: TODO
   type: nested
-target.process.defense_evasions.memory_sections.memory_address:
-  dashed_name: target-process-defense-evasions-memory-sections-memory-address
+target.process.defense_evasions.memory_sections.address:
+  dashed_name: target-process-defense-evasions-memory-sections-address
   description: TODO
-  flat_name: target.process.defense_evasions.memory_sections.memory_address
+  flat_name: target.process.defense_evasions.memory_sections.address
   ignore_above: 1024
   level: custom
-  name: defense_evasions.memory_sections.memory_address
+  name: defense_evasions.memory_sections.address
   normalize: []
-  order: 91
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.defense_evasions.memory_sections.memory_size:
-  dashed_name: target-process-defense-evasions-memory-sections-memory-size
-  description: TODO
-  flat_name: target.process.defense_evasions.memory_sections.memory_size
-  ignore_above: 1024
-  level: custom
-  name: defense_evasions.memory_sections.memory_size
-  normalize: []
-  order: 92
+  order: 52
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5953,7 +5444,19 @@ target.process.defense_evasions.memory_sections.protection:
   level: custom
   name: defense_evasions.memory_sections.protection
   normalize: []
-  order: 93
+  order: 54
+  original_fieldset: process
+  short: TODO
+  type: keyword
+target.process.defense_evasions.memory_sections.size:
+  dashed_name: target-process-defense-evasions-memory-sections-size
+  description: TODO
+  flat_name: target.process.defense_evasions.memory_sections.size
+  ignore_above: 1024
+  level: custom
+  name: defense_evasions.memory_sections.size
+  normalize: []
+  order: 53
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5965,30 +5468,30 @@ target.process.defense_evasions.module_path:
   level: custom
   name: defense_evasions.module_path
   normalize: []
-  order: 88
+  order: 49
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.defense_evasions.thread.thread_id:
-  dashed_name: target-process-defense-evasions-thread-thread-id
+target.process.defense_evasions.thread.id:
+  dashed_name: target-process-defense-evasions-thread-id
   description: TODO
-  flat_name: target.process.defense_evasions.thread.thread_id
+  flat_name: target.process.defense_evasions.thread.id
   level: custom
-  name: defense_evasions.thread.thread_id
+  name: defense_evasions.thread.id
   normalize: []
-  order: 94
+  order: 55
   original_fieldset: process
   short: TODO
   type: long
-target.process.defense_evasions.thread.thread_start_address:
-  dashed_name: target-process-defense-evasions-thread-thread-start-address
+target.process.defense_evasions.thread.start_address:
+  dashed_name: target-process-defense-evasions-thread-start-address
   description: TODO
-  flat_name: target.process.defense_evasions.thread.thread_start_address
+  flat_name: target.process.defense_evasions.thread.start_address
   ignore_above: 1024
   level: custom
-  name: defense_evasions.thread.thread_start_address
+  name: defense_evasions.thread.start_address
   normalize: []
-  order: 95
+  order: 56
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6000,7 +5503,7 @@ target.process.defense_evasions.total_memory_size:
   level: custom
   name: defense_evasions.total_memory_size
   normalize: []
-  order: 89
+  order: 50
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6012,7 +5515,7 @@ target.process.domain:
   level: custom
   name: domain
   normalize: []
-  order: 51
+  order: 44
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6045,7 +5548,7 @@ target.process.env_variables:
   level: custom
   name: env_variables
   normalize: []
-  order: 44
+  order: 39
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6090,7 +5593,7 @@ target.process.file_hash.imphash:
   level: custom
   name: file_hash.imphash
   normalize: []
-  order: 104
+  order: 65
   original_fieldset: process
   short: Imphash.
   type: keyword
@@ -6102,7 +5605,7 @@ target.process.file_hash.md5:
   level: custom
   name: file_hash.md5
   normalize: []
-  order: 100
+  order: 61
   original_fieldset: process
   short: MD5 hash.
   type: keyword
@@ -6114,7 +5617,7 @@ target.process.file_hash.sha1:
   level: custom
   name: file_hash.sha1
   normalize: []
-  order: 101
+  order: 62
   original_fieldset: process
   short: SHA1 hash.
   type: keyword
@@ -6126,7 +5629,7 @@ target.process.file_hash.sha256:
   level: custom
   name: file_hash.sha256
   normalize: []
-  order: 102
+  order: 63
   original_fieldset: process
   short: SHA256 hash.
   type: keyword
@@ -6138,21 +5641,10 @@ target.process.file_hash.sha512:
   level: custom
   name: file_hash.sha512
   normalize: []
-  order: 103
+  order: 64
   original_fieldset: process
   short: SHA512 hash.
   type: keyword
-target.process.gid:
-  dashed_name: target-process-gid
-  description: TODO
-  flat_name: target.process.gid
-  level: custom
-  name: gid
-  normalize: []
-  order: 46
-  original_fieldset: process
-  short: TODO
-  type: long
 target.process.group:
   dashed_name: target-process-group
   description: TODO
@@ -6161,7 +5653,7 @@ target.process.group:
   level: custom
   name: group
   normalize: []
-  order: 41
+  order: 37
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6172,7 +5664,7 @@ target.process.handles:
   level: custom
   name: handles
   normalize: []
-  order: 31
+  order: 27
   original_fieldset: process
   short: TODO
   type: nested
@@ -6183,7 +5675,7 @@ target.process.handles.handle_id:
   level: custom
   name: handles.handle_id
   normalize: []
-  order: 32
+  order: 28
   original_fieldset: process
   short: TODO
   type: long
@@ -6195,7 +5687,7 @@ target.process.handles.handle_name:
   level: custom
   name: handles.handle_name
   normalize: []
-  order: 34
+  order: 30
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6207,21 +5699,10 @@ target.process.handles.handle_type:
   level: custom
   name: handles.handle_type
   normalize: []
-  order: 33
+  order: 29
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.has_unbacked_execute_memory:
-  dashed_name: target-process-has-unbacked-execute-memory
-  description: TODO
-  flat_name: target.process.has_unbacked_execute_memory
-  level: custom
-  name: has_unbacked_execute_memory
-  normalize: []
-  order: 4
-  original_fieldset: process
-  short: TODO
-  type: boolean
 target.process.hash.imphash:
   dashed_name: target-process-hash-imphash
   description: Imphash.
@@ -6289,53 +5770,42 @@ target.process.hash_matched_module:
   level: custom
   name: hash_matched_module
   normalize: []
-  order: 3
+  order: 0
   original_fieldset: process
   short: TODO
   type: boolean
-target.process.is_endpoint:
-  dashed_name: target-process-is-endpoint
-  description: Is this the Elastic Endpoint process or not.
-  flat_name: target.process.is_endpoint
-  level: custom
-  name: is_endpoint
-  normalize: []
-  order: 1
-  original_fieldset: process
-  short: Is this the Elastic Endpoint process or not.
-  type: boolean
-target.process.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: target-process-malware-classification-compressed-malware-features-data-buffer
+target.process.malware_classification.features.data.buffer:
+  dashed_name: target-process-malware-classification-features-data-buffer
   description: TODO
-  flat_name: target.process.malware_classification.compressed_malware_features.data_buffer
+  flat_name: target.process.malware_classification.features.data.buffer
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.data_buffer
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+target.process.malware_classification.features.data.decompressed_size:
+  dashed_name: target-process-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: target.process.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
   normalize: []
   order: 5
   original_fieldset: malware_classification
   short: TODO
-  type: keyword
-target.process.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: target-process-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: target.process.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
   type: integer
-target.process.malware_classification.compressed_malware_features.encoding:
-  dashed_name: target-process-malware-classification-compressed-malware-features-encoding
+target.process.malware_classification.features.data.encoding:
+  dashed_name: target-process-malware-classification-features-data-encoding
   description: TODO
-  flat_name: target.process.malware_classification.compressed_malware_features.encoding
+  flat_name: target.process.malware_classification.features.data.encoding
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.encoding
+  name: features.data.encoding
   normalize: []
-  order: 7
+  order: 6
   original_fieldset: malware_classification
   short: TODO
   type: keyword
@@ -6351,17 +5821,6 @@ target.process.malware_classification.identifier:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-target.process.malware_classification.prevention_threshold:
-  dashed_name: target-process-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: target.process.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
 target.process.malware_classification.score:
   dashed_name: target-process-malware-classification-score
   description: TODO
@@ -6391,7 +5850,7 @@ target.process.malware_classification.upx_packed:
   level: custom
   name: upx_packed
   normalize: []
-  order: 8
+  order: 7
   original_fieldset: malware_classification
   short: TODO
   type: boolean
@@ -6414,7 +5873,7 @@ target.process.memory_percent:
   level: custom
   name: memory_percent
   normalize: []
-  order: 36
+  order: 32
   original_fieldset: process
   short: TODO
   type: double
@@ -6425,7 +5884,7 @@ target.process.memory_region:
   level: custom
   name: memory_region
   normalize: []
-  order: 7
+  order: 3
   original_fieldset: process
   short: TODO
   type: nested
@@ -6437,7 +5896,7 @@ target.process.memory_region.allocation_base:
   level: custom
   name: memory_region.allocation_base
   normalize: []
-  order: 18
+  order: 14
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6449,7 +5908,7 @@ target.process.memory_region.allocation_protection:
   level: custom
   name: memory_region.allocation_protection
   normalize: []
-  order: 24
+  order: 20
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6461,7 +5920,7 @@ target.process.memory_region.bytes:
   level: custom
   name: memory_region.bytes
   normalize: []
-  order: 11
+  order: 7
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6472,7 +5931,7 @@ target.process.memory_region.histogram:
   level: custom
   name: memory_region.histogram
   normalize: []
-  order: 13
+  order: 9
   original_fieldset: process
   short: TODO
   type: nested
@@ -6484,7 +5943,7 @@ target.process.memory_region.histogram.histogram_array:
   level: custom
   name: memory_region.histogram.histogram_array
   normalize: []
-  order: 16
+  order: 12
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6496,7 +5955,7 @@ target.process.memory_region.histogram.histogram_flavor:
   level: custom
   name: memory_region.histogram.histogram_flavor
   normalize: []
-  order: 14
+  order: 10
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6508,7 +5967,7 @@ target.process.memory_region.histogram.histogram_resolution:
   level: custom
   name: memory_region.histogram.histogram_resolution
   normalize: []
-  order: 15
+  order: 11
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6520,7 +5979,7 @@ target.process.memory_region.length:
   level: custom
   name: memory_region.length
   normalize: []
-  order: 9
+  order: 5
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6532,7 +5991,7 @@ target.process.memory_region.memory:
   level: custom
   name: memory_region.memory
   normalize: []
-  order: 12
+  order: 8
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6544,7 +6003,7 @@ target.process.memory_region.memory_address:
   level: custom
   name: memory_region.memory_address
   normalize: []
-  order: 8
+  order: 4
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6556,7 +6015,7 @@ target.process.memory_region.module_path:
   level: custom
   name: memory_region.module_path
   normalize: []
-  order: 25
+  order: 21
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6568,7 +6027,7 @@ target.process.memory_region.permission:
   level: custom
   name: memory_region.permission
   normalize: []
-  order: 17
+  order: 13
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6580,7 +6039,7 @@ target.process.memory_region.protection:
   level: custom
   name: memory_region.protection
   normalize: []
-  order: 23
+  order: 19
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6592,7 +6051,7 @@ target.process.memory_region.region_base:
   level: custom
   name: memory_region.region_base
   normalize: []
-  order: 19
+  order: 15
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6604,7 +6063,7 @@ target.process.memory_region.region_size:
   level: custom
   name: memory_region.region_size
   normalize: []
-  order: 20
+  order: 16
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6616,7 +6075,7 @@ target.process.memory_region.region_tag:
   level: custom
   name: memory_region.region_tag
   normalize: []
-  order: 21
+  order: 17
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6628,7 +6087,7 @@ target.process.memory_region.type:
   level: custom
   name: memory_region.type
   normalize: []
-  order: 22
+  order: 18
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6639,7 +6098,7 @@ target.process.memory_region.unbacked_on_disk:
   level: custom
   name: memory_region.unbacked_on_disk
   normalize: []
-  order: 10
+  order: 6
   original_fieldset: process
   short: TODO
   type: boolean
@@ -6670,157 +6129,6 @@ target.process.modules.architecture:
   normalize: []
   order: 4
   original_fieldset: modules
-  short: TODO
-  type: keyword
-target.process.modules.authenticode:
-  dashed_name: target-process-modules-authenticode
-  description: TODO
-  flat_name: target.process.modules.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-target.process.modules.authenticode.cert_signer.issuer_name:
-  dashed_name: target-process-modules-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_signer.serial_number:
-  dashed_name: target-process-modules-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_signer.subject_name:
-  dashed_name: target-process-modules-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_signer.timestamp_string:
-  dashed_name: target-process-modules-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_timestamp.issuer_name:
-  dashed_name: target-process-modules-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_timestamp.serial_number:
-  dashed_name: target-process-modules-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_timestamp.subject_name:
-  dashed_name: target-process-modules-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: target-process-modules-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: target.process.modules.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.more_info_link:
-  dashed_name: target-process-modules-authenticode-more-info-link
-  description: TODO
-  flat_name: target.process.modules.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.program_name:
-  dashed_name: target-process-modules-authenticode-program-name
-  description: TODO
-  flat_name: target.process.modules.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.modules.authenticode.publisher_link:
-  dashed_name: target-process-modules-authenticode-publisher-link
-  description: TODO
-  flat_name: target.process.modules.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
   short: TODO
   type: keyword
 target.process.modules.compile_time:
@@ -6894,38 +6202,38 @@ target.process.modules.hash.sha512:
   original_fieldset: hash
   short: SHA512 hash.
   type: keyword
-target.process.modules.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: target-process-modules-malware-classification-compressed-malware-features-data-buffer
+target.process.modules.malware_classification.features.data.buffer:
+  dashed_name: target-process-modules-malware-classification-features-data-buffer
   description: TODO
-  flat_name: target.process.modules.malware_classification.compressed_malware_features.data_buffer
+  flat_name: target.process.modules.malware_classification.features.data.buffer
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.data_buffer
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+target.process.modules.malware_classification.features.data.decompressed_size:
+  dashed_name: target-process-modules-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: target.process.modules.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
   normalize: []
   order: 5
   original_fieldset: malware_classification
   short: TODO
-  type: keyword
-target.process.modules.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: target-process-modules-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: target.process.modules.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
   type: integer
-target.process.modules.malware_classification.compressed_malware_features.encoding:
-  dashed_name: target-process-modules-malware-classification-compressed-malware-features-encoding
+target.process.modules.malware_classification.features.data.encoding:
+  dashed_name: target-process-modules-malware-classification-features-data-encoding
   description: TODO
-  flat_name: target.process.modules.malware_classification.compressed_malware_features.encoding
+  flat_name: target.process.modules.malware_classification.features.data.encoding
   ignore_above: 1024
   level: custom
-  name: compressed_malware_features.encoding
+  name: features.data.encoding
   normalize: []
-  order: 7
+  order: 6
   original_fieldset: malware_classification
   short: TODO
   type: keyword
@@ -6941,17 +6249,6 @@ target.process.modules.malware_classification.identifier:
   original_fieldset: malware_classification
   short: TODO
   type: keyword
-target.process.modules.malware_classification.prevention_threshold:
-  dashed_name: target-process-modules-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: target.process.modules.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
 target.process.modules.malware_classification.score:
   dashed_name: target-process-modules-malware-classification-score
   description: TODO
@@ -6981,7 +6278,7 @@ target.process.modules.malware_classification.upx_packed:
   level: custom
   name: upx_packed
   normalize: []
-  order: 8
+  order: 7
   original_fieldset: malware_classification
   short: TODO
   type: boolean
@@ -7152,7 +6449,7 @@ target.process.num_threads:
   level: custom
   name: num_threads
   normalize: []
-  order: 37
+  order: 33
   original_fieldset: process
   short: TODO
   type: long
@@ -7585,6 +6882,98 @@ target.process.pe.file_version:
   original_fieldset: pe
   short: Process name.
   type: keyword
+target.process.pe.malware_classification.features.data.buffer:
+  dashed_name: target-process-pe-malware-classification-features-data-buffer
+  description: TODO
+  flat_name: target.process.pe.malware_classification.features.data.buffer
+  ignore_above: 1024
+  level: custom
+  name: features.data.buffer
+  normalize: []
+  order: 4
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+target.process.pe.malware_classification.features.data.decompressed_size:
+  dashed_name: target-process-pe-malware-classification-features-data-decompressed-size
+  description: TODO
+  flat_name: target.process.pe.malware_classification.features.data.decompressed_size
+  level: custom
+  name: features.data.decompressed_size
+  normalize: []
+  order: 5
+  original_fieldset: malware_classification
+  short: TODO
+  type: integer
+target.process.pe.malware_classification.features.data.encoding:
+  dashed_name: target-process-pe-malware-classification-features-data-encoding
+  description: TODO
+  flat_name: target.process.pe.malware_classification.features.data.encoding
+  ignore_above: 1024
+  level: custom
+  name: features.data.encoding
+  normalize: []
+  order: 6
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+target.process.pe.malware_classification.identifier:
+  dashed_name: target-process-pe-malware-classification-identifier
+  description: TODO
+  flat_name: target.process.pe.malware_classification.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  order: 2
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
+target.process.pe.malware_classification.score:
+  dashed_name: target-process-pe-malware-classification-score
+  description: TODO
+  flat_name: target.process.pe.malware_classification.score
+  level: custom
+  name: score
+  normalize: []
+  order: 0
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+target.process.pe.malware_classification.threshold:
+  dashed_name: target-process-pe-malware-classification-threshold
+  description: TODO
+  flat_name: target.process.pe.malware_classification.threshold
+  level: custom
+  name: threshold
+  normalize: []
+  order: 1
+  original_fieldset: malware_classification
+  short: TODO
+  type: double
+target.process.pe.malware_classification.upx_packed:
+  dashed_name: target-process-pe-malware-classification-upx-packed
+  description: TODO
+  flat_name: target.process.pe.malware_classification.upx_packed
+  level: custom
+  name: upx_packed
+  normalize: []
+  order: 7
+  original_fieldset: malware_classification
+  short: TODO
+  type: boolean
+target.process.pe.malware_classification.version:
+  dashed_name: target-process-pe-malware-classification-version
+  description: TODO
+  flat_name: target.process.pe.malware_classification.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  order: 3
+  original_fieldset: malware_classification
+  short: TODO
+  type: keyword
 target.process.pe.original_file_name:
   dashed_name: target-process-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
@@ -7611,605 +7000,6 @@ target.process.pe.product:
   original_fieldset: pe
   short: Internal product name of the file, provided at compile-time.
   type: keyword
-target.process.pe_info.architecture:
-  dashed_name: target-process-pe-info-architecture
-  description: TODO
-  flat_name: target.process.pe_info.architecture
-  ignore_above: 1024
-  level: custom
-  name: pe_info.architecture
-  normalize: []
-  order: 80
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode:
-  dashed_name: target-process-pe-info-authenticode
-  description: TODO
-  flat_name: target.process.pe_info.authenticode
-  group: 2
-  level: custom
-  name: authenticode
-  normalize: []
-  original_fieldset: authenticode
-  prefix: authenticode.
-  reusable:
-    expected:
-    - modules
-    - process.pe_info
-    - process
-    top_level: false
-  short: TODO
-  title: Authenticode
-  type: nested
-target.process.pe_info.authenticode.cert_signer.issuer_name:
-  dashed_name: target-process-pe-info-authenticode-cert-signer-issuer-name
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_signer.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.issuer_name
-  normalize: []
-  order: 0
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_signer.serial_number:
-  dashed_name: target-process-pe-info-authenticode-cert-signer-serial-number
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_signer.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.serial_number
-  normalize: []
-  order: 2
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_signer.subject_name:
-  dashed_name: target-process-pe-info-authenticode-cert-signer-subject-name
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_signer.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.subject_name
-  normalize: []
-  order: 1
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_signer.timestamp_string:
-  dashed_name: target-process-pe-info-authenticode-cert-signer-timestamp-string
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_signer.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_signer.timestamp_string
-  normalize: []
-  order: 3
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_timestamp.issuer_name:
-  dashed_name: target-process-pe-info-authenticode-cert-timestamp-issuer-name
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_timestamp.issuer_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.issuer_name
-  normalize: []
-  order: 4
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_timestamp.serial_number:
-  dashed_name: target-process-pe-info-authenticode-cert-timestamp-serial-number
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_timestamp.serial_number
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.serial_number
-  normalize: []
-  order: 6
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_timestamp.subject_name:
-  dashed_name: target-process-pe-info-authenticode-cert-timestamp-subject-name
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_timestamp.subject_name
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.subject_name
-  normalize: []
-  order: 5
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.cert_timestamp.timestamp_string:
-  dashed_name: target-process-pe-info-authenticode-cert-timestamp-timestamp-string
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.cert_timestamp.timestamp_string
-  ignore_above: 1024
-  level: custom
-  name: cert_timestamp.timestamp_string
-  normalize: []
-  order: 7
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.more_info_link:
-  dashed_name: target-process-pe-info-authenticode-more-info-link
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.more_info_link
-  ignore_above: 1024
-  level: custom
-  name: more_info_link
-  normalize: []
-  order: 10
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.program_name:
-  dashed_name: target-process-pe-info-authenticode-program-name
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.program_name
-  ignore_above: 1024
-  level: custom
-  name: program_name
-  normalize: []
-  order: 8
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.authenticode.publisher_link:
-  dashed_name: target-process-pe-info-authenticode-publisher-link
-  description: TODO
-  flat_name: target.process.pe_info.authenticode.publisher_link
-  ignore_above: 1024
-  level: custom
-  name: publisher_link
-  normalize: []
-  order: 9
-  original_fieldset: authenticode
-  short: TODO
-  type: keyword
-target.process.pe_info.compile_time:
-  dashed_name: target-process-pe-info-compile-time
-  description: TODO
-  flat_name: target.process.pe_info.compile_time
-  level: custom
-  name: pe_info.compile_time
-  normalize: []
-  order: 53
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.entry_point_address:
-  dashed_name: target-process-pe-info-entry-point-address
-  description: TODO
-  flat_name: target.process.pe_info.entry_point_address
-  level: custom
-  name: pe_info.entry_point_address
-  normalize: []
-  order: 54
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.is_dll:
-  dashed_name: target-process-pe-info-is-dll
-  description: TODO
-  flat_name: target.process.pe_info.is_dll
-  level: custom
-  name: pe_info.is_dll
-  normalize: []
-  order: 55
-  original_fieldset: process
-  short: TODO
-  type: boolean
-target.process.pe_info.malware_classification.compressed_malware_features.data_buffer:
-  dashed_name: target-process-pe-info-malware-classification-compressed-malware-features-data-buffer
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.compressed_malware_features.data_buffer
-  ignore_above: 1024
-  level: custom
-  name: compressed_malware_features.data_buffer
-  normalize: []
-  order: 5
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-target.process.pe_info.malware_classification.compressed_malware_features.decompressed_size:
-  dashed_name: target-process-pe-info-malware-classification-compressed-malware-features-decompressed-size
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.compressed_malware_features.decompressed_size
-  level: custom
-  name: compressed_malware_features.decompressed_size
-  normalize: []
-  order: 6
-  original_fieldset: malware_classification
-  short: TODO
-  type: integer
-target.process.pe_info.malware_classification.compressed_malware_features.encoding:
-  dashed_name: target-process-pe-info-malware-classification-compressed-malware-features-encoding
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.compressed_malware_features.encoding
-  ignore_above: 1024
-  level: custom
-  name: compressed_malware_features.encoding
-  normalize: []
-  order: 7
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-target.process.pe_info.malware_classification.identifier:
-  dashed_name: target-process-pe-info-malware-classification-identifier
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.identifier
-  ignore_above: 1024
-  level: custom
-  name: identifier
-  normalize: []
-  order: 2
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-target.process.pe_info.malware_classification.prevention_threshold:
-  dashed_name: target-process-pe-info-malware-classification-prevention-threshold
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.prevention_threshold
-  level: custom
-  name: prevention_threshold
-  normalize: []
-  order: 4
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-target.process.pe_info.malware_classification.score:
-  dashed_name: target-process-pe-info-malware-classification-score
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.score
-  level: custom
-  name: score
-  normalize: []
-  order: 0
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-target.process.pe_info.malware_classification.threshold:
-  dashed_name: target-process-pe-info-malware-classification-threshold
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.threshold
-  level: custom
-  name: threshold
-  normalize: []
-  order: 1
-  original_fieldset: malware_classification
-  short: TODO
-  type: double
-target.process.pe_info.malware_classification.upx_packed:
-  dashed_name: target-process-pe-info-malware-classification-upx-packed
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.upx_packed
-  level: custom
-  name: upx_packed
-  normalize: []
-  order: 8
-  original_fieldset: malware_classification
-  short: TODO
-  type: boolean
-target.process.pe_info.malware_classification.version:
-  dashed_name: target-process-pe-info-malware-classification-version
-  description: TODO
-  flat_name: target.process.pe_info.malware_classification.version
-  ignore_above: 1024
-  level: custom
-  name: version
-  normalize: []
-  order: 3
-  original_fieldset: malware_classification
-  short: TODO
-  type: keyword
-target.process.pe_info.pe_exports:
-  dashed_name: target-process-pe-info-pe-exports
-  description: TODO
-  flat_name: target.process.pe_info.pe_exports
-  level: custom
-  name: pe_info.pe_exports
-  normalize: []
-  order: 66
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.pe_info.pe_exports.name:
-  dashed_name: target-process-pe-info-pe-exports-name
-  description: TODO
-  flat_name: target.process.pe_info.pe_exports.name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_exports.name
-  normalize: []
-  order: 68
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.pe_exports.ordinal:
-  dashed_name: target-process-pe-info-pe-exports-ordinal
-  description: TODO
-  flat_name: target.process.pe_info.pe_exports.ordinal
-  level: custom
-  name: pe_info.pe_exports.ordinal
-  normalize: []
-  order: 67
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.pe_imports:
-  dashed_name: target-process-pe-info-pe-imports
-  description: TODO
-  flat_name: target.process.pe_info.pe_imports
-  level: custom
-  name: pe_info.pe_imports
-  normalize: []
-  order: 63
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.pe_info.pe_imports.dll_name:
-  dashed_name: target-process-pe-info-pe-imports-dll-name
-  description: TODO
-  flat_name: target.process.pe_info.pe_imports.dll_name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_imports.dll_name
-  normalize: []
-  order: 64
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.pe_imports.import_names:
-  dashed_name: target-process-pe-info-pe-imports-import-names
-  description: TODO
-  flat_name: target.process.pe_info.pe_imports.import_names
-  ignore_above: 1024
-  level: custom
-  name: pe_info.pe_imports.import_names
-  normalize: []
-  order: 65
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.resources:
-  dashed_name: target-process-pe-info-resources
-  description: TODO
-  flat_name: target.process.pe_info.resources
-  level: custom
-  name: pe_info.resources
-  normalize: []
-  order: 69
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.pe_info.resources.resource_data.entropy:
-  dashed_name: target-process-pe-info-resources-resource-data-entropy
-  description: TODO
-  flat_name: target.process.pe_info.resources.resource_data.entropy
-  level: custom
-  name: pe_info.resources.resource_data.entropy
-  normalize: []
-  order: 73
-  original_fieldset: process
-  short: TODO
-  type: double
-target.process.pe_info.resources.resource_data.size:
-  dashed_name: target-process-pe-info-resources-resource-data-size
-  description: TODO
-  flat_name: target.process.pe_info.resources.resource_data.size
-  level: custom
-  name: pe_info.resources.resource_data.size
-  normalize: []
-  order: 72
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.resources.resource_id:
-  dashed_name: target-process-pe-info-resources-resource-id
-  description: TODO
-  flat_name: target.process.pe_info.resources.resource_id
-  level: custom
-  name: pe_info.resources.resource_id
-  normalize: []
-  order: 70
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.resources.resource_name:
-  dashed_name: target-process-pe-info-resources-resource-name
-  description: TODO
-  flat_name: target.process.pe_info.resources.resource_name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.resources.resource_name
-  normalize: []
-  order: 74
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.resources.resource_type:
-  dashed_name: target-process-pe-info-resources-resource-type
-  description: TODO
-  flat_name: target.process.pe_info.resources.resource_type
-  ignore_above: 1024
-  level: custom
-  name: pe_info.resources.resource_type
-  normalize: []
-  order: 71
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.sections:
-  dashed_name: target-process-pe-info-sections
-  description: TODO
-  flat_name: target.process.pe_info.sections
-  level: custom
-  name: pe_info.sections
-  normalize: []
-  order: 56
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.pe_info.sections.entropy:
-  dashed_name: target-process-pe-info-sections-entropy
-  description: TODO
-  flat_name: target.process.pe_info.sections.entropy
-  level: custom
-  name: pe_info.sections.entropy
-  normalize: []
-  order: 61
-  original_fieldset: process
-  short: TODO
-  type: double
-target.process.pe_info.sections.name:
-  dashed_name: target-process-pe-info-sections-name
-  description: TODO
-  flat_name: target.process.pe_info.sections.name
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.name
-  normalize: []
-  order: 62
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.sections.raw_offset:
-  dashed_name: target-process-pe-info-sections-raw-offset
-  description: TODO
-  flat_name: target.process.pe_info.sections.raw_offset
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.raw_offset
-  normalize: []
-  order: 59
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.sections.raw_size:
-  dashed_name: target-process-pe-info-sections-raw-size
-  description: TODO
-  flat_name: target.process.pe_info.sections.raw_size
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.raw_size
-  normalize: []
-  order: 60
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.sections.virtual_address:
-  dashed_name: target-process-pe-info-sections-virtual-address
-  description: TODO
-  flat_name: target.process.pe_info.sections.virtual_address
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.virtual_address
-  normalize: []
-  order: 57
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.sections.virtual_size:
-  dashed_name: target-process-pe-info-sections-virtual-size
-  description: TODO
-  flat_name: target.process.pe_info.sections.virtual_size
-  ignore_above: 1024
-  level: custom
-  name: pe_info.sections.virtual_size
-  normalize: []
-  order: 58
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.signature_signer:
-  dashed_name: target-process-pe-info-signature-signer
-  description: TODO
-  flat_name: target.process.pe_info.signature_signer
-  ignore_above: 1024
-  level: custom
-  name: pe_info.signature_signer
-  normalize: []
-  order: 81
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.signature_status:
-  dashed_name: target-process-pe-info-signature-status
-  description: TODO
-  flat_name: target.process.pe_info.signature_status
-  ignore_above: 1024
-  level: custom
-  name: pe_info.signature_status
-  normalize: []
-  order: 82
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.version_info:
-  dashed_name: target-process-pe-info-version-info
-  description: TODO
-  flat_name: target.process.pe_info.version_info
-  level: custom
-  name: pe_info.version_info
-  normalize: []
-  order: 75
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.pe_info.version_info.code_page:
-  dashed_name: target-process-pe-info-version-info-code-page
-  description: TODO
-  flat_name: target.process.pe_info.version_info.code_page
-  level: custom
-  name: pe_info.version_info.code_page
-  normalize: []
-  order: 77
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.version_info.key:
-  dashed_name: target-process-pe-info-version-info-key
-  description: TODO
-  flat_name: target.process.pe_info.version_info.key
-  ignore_above: 1024
-  level: custom
-  name: pe_info.version_info.key
-  normalize: []
-  order: 78
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.pe_info.version_info.language:
-  dashed_name: target-process-pe-info-version-info-language
-  description: TODO
-  flat_name: target.process.pe_info.version_info.language
-  level: custom
-  name: pe_info.version_info.language
-  normalize: []
-  order: 76
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.pe_info.version_info.value_string:
-  dashed_name: target-process-pe-info-version-info-value-string
-  description: TODO
-  flat_name: target.process.pe_info.version_info.value_string
-  ignore_above: 1024
-  level: custom
-  name: pe_info.version_info.value_string
-  normalize: []
-  order: 79
-  original_fieldset: process
-  short: TODO
-  type: keyword
 target.process.pgid:
   dashed_name: target-process-pgid
   description: Identifier of the group of processes the process belongs to.
@@ -8230,7 +7020,7 @@ target.process.phys_memory_bytes:
   level: custom
   name: phys_memory_bytes
   normalize: []
-  order: 39
+  order: 35
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8268,7 +7058,7 @@ target.process.services:
   level: custom
   name: services
   normalize: []
-  order: 98
+  order: 59
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8279,7 +7069,7 @@ target.process.session_id:
   level: custom
   name: session_id
   normalize: []
-  order: 50
+  order: 43
   original_fieldset: process
   short: TODO
   type: long
@@ -8291,7 +7081,7 @@ target.process.short_name:
   level: custom
   name: short_name
   normalize: []
-  order: 42
+  order: 38
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8303,31 +7093,7 @@ target.process.sid:
   level: custom
   name: sid
   normalize: []
-  order: 52
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.signature_signer:
-  dashed_name: target-process-signature-signer
-  description: TODO
-  flat_name: target.process.signature_signer
-  ignore_above: 1024
-  level: custom
-  name: signature_signer
-  normalize: []
-  order: 83
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.signature_status:
-  dashed_name: target-process-signature-status
-  description: TODO
-  flat_name: target.process.signature_status
-  ignore_above: 1024
-  level: custom
-  name: signature_status
-  normalize: []
-  order: 84
+  order: 45
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8343,31 +7109,298 @@ target.process.start:
   original_fieldset: process
   short: The time the process started.
   type: date
-target.process.thread.id:
-  dashed_name: target-process-thread-id
-  description: Thread ID.
-  example: 4242
-  flat_name: target.process.thread.id
-  format: string
-  level: extended
-  name: thread.id
+target.process.thread.call_stack:
+  dashed_name: target-process-thread-call-stack
+  description: TODO
+  flat_name: target.process.thread.call_stack
+  group: 2
+  level: custom
+  name: call_stack
   normalize: []
-  order: 20
-  original_fieldset: process
-  short: Thread ID.
-  type: long
-target.process.thread.name:
-  dashed_name: target-process-thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: target.process.thread.name
+  original_fieldset: call_stack
+  prefix: call_stack.
+  reusable:
+    expected:
+    - thread
+    - process.defense_evasions
+    top_level: false
+  short: TODO
+  title: Call Stack
+  type: nested
+target.process.thread.call_stack.instruction_pointer:
+  dashed_name: target-process-thread-call-stack-instruction-pointer
+  description: TODO
+  flat_name: target.process.thread.call_stack.instruction_pointer
+  ignore_above: 1024
+  level: custom
+  name: instruction_pointer
+  normalize: []
+  order: 1
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.memory_section.memory_address:
+  dashed_name: target-process-thread-call-stack-memory-section-memory-address
+  description: TODO
+  flat_name: target.process.thread.call_stack.memory_section.memory_address
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_address
+  normalize: []
+  order: 2
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.memory_section.memory_size:
+  dashed_name: target-process-thread-call-stack-memory-section-memory-size
+  description: TODO
+  flat_name: target.process.thread.call_stack.memory_section.memory_size
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  order: 3
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.memory_section.protection:
+  dashed_name: target-process-thread-call-stack-memory-section-protection
+  description: TODO
+  flat_name: target.process.thread.call_stack.memory_section.protection
+  ignore_above: 1024
+  level: custom
+  name: memory_section.protection
+  normalize: []
+  order: 4
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.module_path:
+  dashed_name: target-process-thread-call-stack-module-path
+  description: TODO
+  flat_name: target.process.thread.call_stack.module_path
+  ignore_above: 1024
+  level: custom
+  name: module_path
+  normalize: []
+  order: 0
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.rva:
+  dashed_name: target-process-thread-call-stack-rva
+  description: TODO
+  flat_name: target.process.thread.call_stack.rva
+  ignore_above: 1024
+  level: custom
+  name: rva
+  normalize: []
+  order: 6
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.call_stack.symbol_info:
+  dashed_name: target-process-thread-call-stack-symbol-info
+  description: TODO
+  flat_name: target.process.thread.call_stack.symbol_info
+  ignore_above: 1024
+  level: custom
+  name: symbol_info
+  normalize: []
+  order: 5
+  original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.service:
+  dashed_name: target-process-thread-service
+  description: Service associated with the thread.
+  example: VaultSvc
+  flat_name: target.process.thread.service
   ignore_above: 1024
   level: extended
-  name: thread.name
+  name: service
   normalize: []
-  order: 22
-  original_fieldset: process
-  short: Thread name.
+  order: 3
+  original_fieldset: thread
+  short: Service associated with the thread.
+  type: keyword
+target.process.thread.start:
+  dashed_name: target-process-thread-start
+  description: The time the thread started.
+  example: '2016-05-23T08:05:34.853Z'
+  flat_name: target.process.thread.start
+  level: extended
+  name: start
+  normalize: []
+  order: 0
+  original_fieldset: thread
+  short: The time the thread started.
+  type: date
+target.process.thread.start_address:
+  dashed_name: target-process-thread-start-address
+  description: Memory address where the thread started.
+  example: 5442508
+  flat_name: target.process.thread.start_address
+  ignore_above: 1024
+  level: extended
+  name: start_address
+  normalize: []
+  order: 1
+  original_fieldset: thread
+  short: Memory address where the thread started.
+  type: keyword
+target.process.thread.start_address_module:
+  dashed_name: target-process-thread-start-address-module
+  description: TODO
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: target.process.thread.start_address_module
+  ignore_above: 1024
+  level: extended
+  name: start_address_module
+  normalize: []
+  order: 2
+  original_fieldset: thread
+  short: TODO
+  type: keyword
+target.process.thread.token.domain:
+  dashed_name: target-process-thread-token-domain
+  description: TODO
+  flat_name: target.process.thread.token.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  order: 1
+  original_fieldset: token
+  short: TODO
+  type: keyword
+target.process.thread.token.impersonation_level:
+  dashed_name: target-process-thread-token-impersonation-level
+  description: Impersonation level. Only valid for impersonation tokens.
+  flat_name: target.process.thread.token.impersonation_level
+  ignore_above: 1024
+  level: extended
+  name: impersonation_level
+  normalize: []
+  order: 4
+  original_fieldset: token
+  short: Impersonation level. Only valid for impersonation tokens.
+  type: keyword
+target.process.thread.token.integrity_level:
+  dashed_name: target-process-thread-token-integrity-level
+  description: Numeric integrity level.
+  flat_name: target.process.thread.token.integrity_level
+  level: extended
+  name: integrity_level
+  normalize: []
+  order: 5
+  original_fieldset: token
+  short: Numeric integrity level.
+  type: long
+target.process.thread.token.integrity_level_name:
+  dashed_name: target-process-thread-token-integrity-level-name
+  description: Human readable integrity level.
+  flat_name: target.process.thread.token.integrity_level_name
+  ignore_above: 1024
+  level: extended
+  name: integrity_level_name
+  normalize: []
+  order: 6
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
+target.process.thread.token.is_appcontainer:
+  dashed_name: target-process-thread-token-is-appcontainer
+  description: Whether or not this is an appcontainer token.
+  flat_name: target.process.thread.token.is_appcontainer
+  level: extended
+  name: is_appcontainer
+  normalize: []
+  order: 7
+  original_fieldset: token
+  short: Whether or not this is an appcontainer token.
+  type: boolean
+target.process.thread.token.privileges:
+  dashed_name: target-process-thread-token-privileges
+  description: Array describing the privileges associated with the token.
+  flat_name: target.process.thread.token.privileges
+  level: extended
+  name: privileges
+  normalize: []
+  order: 8
+  original_fieldset: token
+  short: Array describing the privileges associated with the token.
+  type: nested
+target.process.thread.token.privileges.description:
+  dashed_name: target-process-thread-token-privileges-description
+  description: Description of the privilege.
+  flat_name: target.process.thread.token.privileges.description
+  ignore_above: 1024
+  level: extended
+  name: privileges.description
+  normalize: []
+  order: 11
+  original_fieldset: token
+  short: Description of the privilege.
+  type: keyword
+target.process.thread.token.privileges.enabled:
+  dashed_name: target-process-thread-token-privileges-enabled
+  description: Whether or not the privilege is enabled.
+  flat_name: target.process.thread.token.privileges.enabled
+  level: extended
+  name: privileges.enabled
+  normalize: []
+  order: 10
+  original_fieldset: token
+  short: Whether or not the privilege is enabled.
+  type: boolean
+target.process.thread.token.privileges.name:
+  dashed_name: target-process-thread-token-privileges-name
+  description: Name of the privilege.
+  flat_name: target.process.thread.token.privileges.name
+  ignore_above: 1024
+  level: extended
+  name: privileges.name
+  normalize: []
+  order: 9
+  original_fieldset: token
+  short: Name of the privilege.
+  type: keyword
+target.process.thread.token.sid:
+  dashed_name: target-process-thread-token-sid
+  description: TODO
+  flat_name: target.process.thread.token.sid
+  ignore_above: 1024
+  level: extended
+  name: sid
+  normalize: []
+  order: 2
+  original_fieldset: token
+  short: TODO
+  type: keyword
+target.process.thread.token.type:
+  dashed_name: target-process-thread-token-type
+  description: Type of the token, either primary or impersonation.
+  flat_name: target.process.thread.token.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  order: 3
+  original_fieldset: token
+  short: Type of the token, either primary or impersonation.
+  type: keyword
+target.process.thread.token.user:
+  dashed_name: target-process-thread-token-user
+  description: Username of token owner.
+  flat_name: target.process.thread.token.user
+  ignore_above: 1024
+  level: extended
+  name: user
+  normalize: []
+  order: 0
+  original_fieldset: token
+  short: Username of token owner.
   type: keyword
 target.process.threads:
   dashed_name: target-process-threads
@@ -8376,7 +7409,7 @@ target.process.threads:
   level: custom
   name: threads
   normalize: []
-  order: 26
+  order: 22
   original_fieldset: process
   short: TODO
   type: nested
@@ -8388,7 +7421,7 @@ target.process.threads.entrypoint:
   level: custom
   name: threads.entrypoint
   normalize: []
-  order: 28
+  order: 24
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8399,7 +7432,7 @@ target.process.threads.id:
   level: custom
   name: threads.id
   normalize: []
-  order: 27
+  order: 23
   original_fieldset: process
   short: TODO
   type: long
@@ -8410,7 +7443,7 @@ target.process.threads.start:
   level: custom
   name: threads.start
   normalize: []
-  order: 29
+  order: 25
   original_fieldset: process
   short: TODO
   type: date
@@ -8421,7 +7454,7 @@ target.process.threads.uptime:
   level: custom
   name: threads.uptime
   normalize: []
-  order: 30
+  order: 26
   original_fieldset: process
   short: TODO
   type: long
@@ -8585,51 +7618,40 @@ target.process.token.user:
   original_fieldset: token
   short: Username of token owner.
   type: keyword
-target.process.tty_device_major_number:
+target.process.tty_device.major_number:
   dashed_name: target-process-tty-device-major-number
   description: TODO
-  flat_name: target.process.tty_device_major_number
+  flat_name: target.process.tty_device.major_number
   level: custom
-  name: tty_device_major_number
+  name: tty_device.major_number
   normalize: []
-  order: 47
+  order: 40
   original_fieldset: process
   short: TODO
   type: integer
-target.process.tty_device_minor_number:
+target.process.tty_device.minor_number:
   dashed_name: target-process-tty-device-minor-number
   description: TODO
-  flat_name: target.process.tty_device_minor_number
+  flat_name: target.process.tty_device.minor_number
   level: custom
-  name: tty_device_minor_number
+  name: tty_device.minor_number
   normalize: []
-  order: 48
+  order: 41
   original_fieldset: process
   short: TODO
   type: integer
-target.process.tty_device_name:
+target.process.tty_device.name:
   dashed_name: target-process-tty-device-name
   description: TODO
-  flat_name: target.process.tty_device_name
+  flat_name: target.process.tty_device.name
   ignore_above: 1024
   level: custom
-  name: tty_device_name
+  name: tty_device.name
   normalize: []
-  order: 49
+  order: 42
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.uid:
-  dashed_name: target-process-uid
-  description: TODO
-  flat_name: target.process.uid
-  level: custom
-  name: uid
-  normalize: []
-  order: 45
-  original_fieldset: process
-  short: TODO
-  type: long
 target.process.unbacked_execute_byte_count:
   dashed_name: target-process-unbacked-execute-byte-count
   description: TODO
@@ -8638,7 +7660,7 @@ target.process.unbacked_execute_byte_count:
   level: custom
   name: unbacked_execute_byte_count
   normalize: []
-  order: 5
+  order: 1
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8650,33 +7672,9 @@ target.process.unbacked_execute_region_count:
   level: custom
   name: unbacked_execute_region_count
   normalize: []
-  order: 6
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.unique_pid:
-  dashed_name: target-process-unique-pid
-  description: Unique process id.
-  flat_name: target.process.unique_pid
-  ignore_above: 1024
-  level: custom
-  name: unique_pid
-  normalize: []
-  order: 0
-  original_fieldset: process
-  short: Unique process id.
-  type: keyword
-target.process.unique_ppid:
-  dashed_name: target-process-unique-ppid
-  description: Unique parent process id.
-  flat_name: target.process.unique_ppid
-  ignore_above: 1024
-  level: custom
-  name: unique_ppid
-  normalize: []
   order: 2
   original_fieldset: process
-  short: Unique parent process id.
+  short: TODO
   type: keyword
 target.process.uptime:
   dashed_name: target-process-uptime
@@ -8698,7 +7696,7 @@ target.process.user:
   level: custom
   name: user
   normalize: []
-  order: 99
+  order: 60
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8710,7 +7708,7 @@ target.process.virt_memory_bytes:
   level: custom
   name: virt_memory_bytes
   normalize: []
-  order: 38
+  order: 34
   original_fieldset: process
   short: TODO
   type: keyword
@@ -8732,642 +7730,17 @@ target.process.working_directory:
   original_fieldset: process
   short: The working directory of the process.
   type: keyword
-target.thread.call_stack:
-  dashed_name: target-thread-call-stack
-  description: TODO
-  flat_name: target.thread.call_stack
-  group: 2
-  level: custom
-  name: call_stack
+target.thread:
+  dashed_name: target-thread
+  description: Thread.
+  flat_name: target.thread
+  level: extended
+  name: thread
   normalize: []
-  original_fieldset: call_stack
-  prefix: call_stack.
-  reusable:
-    expected:
-    - thread
-    - process.defense_evasions
-    top_level: false
-  short: TODO
-  title: Call Stack
-  type: nested
-target.thread.call_stack.instruction_pointer:
-  dashed_name: target-thread-call-stack-instruction-pointer
-  description: TODO
-  flat_name: target.thread.call_stack.instruction_pointer
-  ignore_above: 1024
-  level: custom
-  name: instruction_pointer
-  normalize: []
+  object_type: keyword
   order: 1
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.memory_section.memory_address:
-  dashed_name: target-thread-call-stack-memory-section-memory-address
-  description: TODO
-  flat_name: target.thread.call_stack.memory_section.memory_address
-  ignore_above: 1024
-  level: custom
-  name: memory_section.memory_address
-  normalize: []
-  order: 2
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.memory_section.memory_size:
-  dashed_name: target-thread-call-stack-memory-section-memory-size
-  description: TODO
-  flat_name: target.thread.call_stack.memory_section.memory_size
-  ignore_above: 1024
-  level: custom
-  name: memory_section.memory_size
-  normalize: []
-  order: 3
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.memory_section.protection:
-  dashed_name: target-thread-call-stack-memory-section-protection
-  description: TODO
-  flat_name: target.thread.call_stack.memory_section.protection
-  ignore_above: 1024
-  level: custom
-  name: memory_section.protection
-  normalize: []
-  order: 4
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.module_path:
-  dashed_name: target-thread-call-stack-module-path
-  description: TODO
-  flat_name: target.thread.call_stack.module_path
-  ignore_above: 1024
-  level: custom
-  name: module_path
-  normalize: []
-  order: 0
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.rva:
-  dashed_name: target-thread-call-stack-rva
-  description: TODO
-  flat_name: target.thread.call_stack.rva
-  ignore_above: 1024
-  level: custom
-  name: rva
-  normalize: []
-  order: 6
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.call_stack.symbol_info:
-  dashed_name: target-thread-call-stack-symbol-info
-  description: TODO
-  flat_name: target.thread.call_stack.symbol_info
-  ignore_above: 1024
-  level: custom
-  name: symbol_info
-  normalize: []
-  order: 5
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-target.thread.id:
-  dashed_name: target-thread-id
-  description: Thread id.
-  example: 3147
-  flat_name: target.thread.id
-  level: core
-  name: id
-  normalize: []
-  order: 0
-  original_fieldset: thread
-  short: Thread id.
-  type: long
-target.thread.name:
-  dashed_name: target-thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: target.thread.name
-  ignore_above: 1024
-  level: extended
-  name: name
-  normalize: []
-  order: 1
-  original_fieldset: thread
-  short: Thread name.
-  type: keyword
-target.thread.service_name:
-  dashed_name: target-thread-service-name
-  description: Service associated with the thread.
-  example: VaultSvc
-  flat_name: target.thread.service_name
-  ignore_above: 1024
-  level: extended
-  name: service_name
-  normalize: []
-  order: 5
-  original_fieldset: thread
-  short: Service associated with the thread.
-  type: keyword
-target.thread.start:
-  dashed_name: target-thread-start
-  description: The time the thread started.
-  example: '2016-05-23T08:05:34.853Z'
-  flat_name: target.thread.start
-  level: extended
-  name: start
-  normalize: []
-  order: 2
-  original_fieldset: thread
-  short: The time the thread started.
-  type: date
-target.thread.start_address:
-  dashed_name: target-thread-start-address
-  description: Memory address where the thread started.
-  example: 5442508
-  flat_name: target.thread.start_address
-  ignore_above: 1024
-  level: extended
-  name: start_address
-  normalize: []
-  order: 3
-  original_fieldset: thread
-  short: Memory address where the thread started.
-  type: keyword
-target.thread.start_address_module:
-  dashed_name: target-thread-start-address-module
-  description: TODO
-  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-  flat_name: target.thread.start_address_module
-  ignore_above: 1024
-  level: extended
-  name: start_address_module
-  normalize: []
-  order: 4
-  original_fieldset: thread
-  short: TODO
-  type: keyword
-target.thread.token.domain:
-  dashed_name: target-thread-token-domain
-  description: TODO
-  flat_name: target.thread.token.domain
-  ignore_above: 1024
-  level: extended
-  name: domain
-  normalize: []
-  order: 1
-  original_fieldset: token
-  short: TODO
-  type: keyword
-target.thread.token.impersonation_level:
-  dashed_name: target-thread-token-impersonation-level
-  description: Impersonation level. Only valid for impersonation tokens.
-  flat_name: target.thread.token.impersonation_level
-  ignore_above: 1024
-  level: extended
-  name: impersonation_level
-  normalize: []
-  order: 4
-  original_fieldset: token
-  short: Impersonation level. Only valid for impersonation tokens.
-  type: keyword
-target.thread.token.integrity_level:
-  dashed_name: target-thread-token-integrity-level
-  description: Numeric integrity level.
-  flat_name: target.thread.token.integrity_level
-  level: extended
-  name: integrity_level
-  normalize: []
-  order: 5
-  original_fieldset: token
-  short: Numeric integrity level.
-  type: long
-target.thread.token.integrity_level_name:
-  dashed_name: target-thread-token-integrity-level-name
-  description: Human readable integrity level.
-  flat_name: target.thread.token.integrity_level_name
-  ignore_above: 1024
-  level: extended
-  name: integrity_level_name
-  normalize: []
-  order: 6
-  original_fieldset: token
-  short: Human readable integrity level.
-  type: keyword
-target.thread.token.is_appcontainer:
-  dashed_name: target-thread-token-is-appcontainer
-  description: Whether or not this is an appcontainer token.
-  flat_name: target.thread.token.is_appcontainer
-  level: extended
-  name: is_appcontainer
-  normalize: []
-  order: 7
-  original_fieldset: token
-  short: Whether or not this is an appcontainer token.
-  type: boolean
-target.thread.token.privileges:
-  dashed_name: target-thread-token-privileges
-  description: Array describing the privileges associated with the token.
-  flat_name: target.thread.token.privileges
-  level: extended
-  name: privileges
-  normalize: []
-  order: 8
-  original_fieldset: token
-  short: Array describing the privileges associated with the token.
-  type: nested
-target.thread.token.privileges.description:
-  dashed_name: target-thread-token-privileges-description
-  description: Description of the privilege.
-  flat_name: target.thread.token.privileges.description
-  ignore_above: 1024
-  level: extended
-  name: privileges.description
-  normalize: []
-  order: 11
-  original_fieldset: token
-  short: Description of the privilege.
-  type: keyword
-target.thread.token.privileges.enabled:
-  dashed_name: target-thread-token-privileges-enabled
-  description: Whether or not the privilege is enabled.
-  flat_name: target.thread.token.privileges.enabled
-  level: extended
-  name: privileges.enabled
-  normalize: []
-  order: 10
-  original_fieldset: token
-  short: Whether or not the privilege is enabled.
-  type: boolean
-target.thread.token.privileges.name:
-  dashed_name: target-thread-token-privileges-name
-  description: Name of the privilege.
-  flat_name: target.thread.token.privileges.name
-  ignore_above: 1024
-  level: extended
-  name: privileges.name
-  normalize: []
-  order: 9
-  original_fieldset: token
-  short: Name of the privilege.
-  type: keyword
-target.thread.token.sid:
-  dashed_name: target-thread-token-sid
-  description: TODO
-  flat_name: target.thread.token.sid
-  ignore_above: 1024
-  level: extended
-  name: sid
-  normalize: []
-  order: 2
-  original_fieldset: token
-  short: TODO
-  type: keyword
-target.thread.token.type:
-  dashed_name: target-thread-token-type
-  description: Type of the token, either primary or impersonation.
-  flat_name: target.thread.token.type
-  ignore_above: 1024
-  level: extended
-  name: type
-  normalize: []
-  order: 3
-  original_fieldset: token
-  short: Type of the token, either primary or impersonation.
-  type: keyword
-target.thread.token.user:
-  dashed_name: target-thread-token-user
-  description: Username of token owner.
-  flat_name: target.thread.token.user
-  ignore_above: 1024
-  level: extended
-  name: user
-  normalize: []
-  order: 0
-  original_fieldset: token
-  short: Username of token owner.
-  type: keyword
-thread.call_stack:
-  dashed_name: thread-call-stack
-  description: TODO
-  flat_name: thread.call_stack
-  group: 2
-  level: custom
-  name: call_stack
-  normalize: []
-  original_fieldset: call_stack
-  prefix: call_stack.
-  reusable:
-    expected:
-    - thread
-    - process.defense_evasions
-    top_level: false
-  short: TODO
-  title: Call Stack
-  type: nested
-thread.call_stack.instruction_pointer:
-  dashed_name: thread-call-stack-instruction-pointer
-  description: TODO
-  flat_name: thread.call_stack.instruction_pointer
-  ignore_above: 1024
-  level: custom
-  name: instruction_pointer
-  normalize: []
-  order: 1
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.memory_section.memory_address:
-  dashed_name: thread-call-stack-memory-section-memory-address
-  description: TODO
-  flat_name: thread.call_stack.memory_section.memory_address
-  ignore_above: 1024
-  level: custom
-  name: memory_section.memory_address
-  normalize: []
-  order: 2
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.memory_section.memory_size:
-  dashed_name: thread-call-stack-memory-section-memory-size
-  description: TODO
-  flat_name: thread.call_stack.memory_section.memory_size
-  ignore_above: 1024
-  level: custom
-  name: memory_section.memory_size
-  normalize: []
-  order: 3
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.memory_section.protection:
-  dashed_name: thread-call-stack-memory-section-protection
-  description: TODO
-  flat_name: thread.call_stack.memory_section.protection
-  ignore_above: 1024
-  level: custom
-  name: memory_section.protection
-  normalize: []
-  order: 4
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.module_path:
-  dashed_name: thread-call-stack-module-path
-  description: TODO
-  flat_name: thread.call_stack.module_path
-  ignore_above: 1024
-  level: custom
-  name: module_path
-  normalize: []
-  order: 0
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.rva:
-  dashed_name: thread-call-stack-rva
-  description: TODO
-  flat_name: thread.call_stack.rva
-  ignore_above: 1024
-  level: custom
-  name: rva
-  normalize: []
-  order: 6
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.call_stack.symbol_info:
-  dashed_name: thread-call-stack-symbol-info
-  description: TODO
-  flat_name: thread.call_stack.symbol_info
-  ignore_above: 1024
-  level: custom
-  name: symbol_info
-  normalize: []
-  order: 5
-  original_fieldset: call_stack
-  short: TODO
-  type: keyword
-thread.id:
-  dashed_name: thread-id
-  description: Thread id.
-  example: 3147
-  flat_name: thread.id
-  level: core
-  name: id
-  normalize: []
-  order: 0
-  original_fieldset: thread
-  short: Thread id.
-  type: long
-thread.name:
-  dashed_name: thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: thread.name
-  ignore_above: 1024
-  level: extended
-  name: name
-  normalize: []
-  order: 1
-  original_fieldset: thread
-  short: Thread name.
-  type: keyword
-thread.service_name:
-  dashed_name: thread-service-name
-  description: Service associated with the thread.
-  example: VaultSvc
-  flat_name: thread.service_name
-  ignore_above: 1024
-  level: extended
-  name: service_name
-  normalize: []
-  order: 5
-  original_fieldset: thread
-  short: Service associated with the thread.
-  type: keyword
-thread.start:
-  dashed_name: thread-start
-  description: The time the thread started.
-  example: '2016-05-23T08:05:34.853Z'
-  flat_name: thread.start
-  level: extended
-  name: start
-  normalize: []
-  order: 2
-  original_fieldset: thread
-  short: The time the thread started.
-  type: date
-thread.start_address:
-  dashed_name: thread-start-address
-  description: Memory address where the thread started.
-  example: 5442508
-  flat_name: thread.start_address
-  ignore_above: 1024
-  level: extended
-  name: start_address
-  normalize: []
-  order: 3
-  original_fieldset: thread
-  short: Memory address where the thread started.
-  type: keyword
-thread.start_address_module:
-  dashed_name: thread-start-address-module
-  description: TODO
-  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-  flat_name: thread.start_address_module
-  ignore_above: 1024
-  level: extended
-  name: start_address_module
-  normalize: []
-  order: 4
-  original_fieldset: thread
-  short: TODO
-  type: keyword
-thread.token.domain:
-  dashed_name: thread-token-domain
-  description: TODO
-  flat_name: thread.token.domain
-  ignore_above: 1024
-  level: extended
-  name: domain
-  normalize: []
-  order: 1
-  original_fieldset: token
-  short: TODO
-  type: keyword
-thread.token.impersonation_level:
-  dashed_name: thread-token-impersonation-level
-  description: Impersonation level. Only valid for impersonation tokens.
-  flat_name: thread.token.impersonation_level
-  ignore_above: 1024
-  level: extended
-  name: impersonation_level
-  normalize: []
-  order: 4
-  original_fieldset: token
-  short: Impersonation level. Only valid for impersonation tokens.
-  type: keyword
-thread.token.integrity_level:
-  dashed_name: thread-token-integrity-level
-  description: Numeric integrity level.
-  flat_name: thread.token.integrity_level
-  level: extended
-  name: integrity_level
-  normalize: []
-  order: 5
-  original_fieldset: token
-  short: Numeric integrity level.
-  type: long
-thread.token.integrity_level_name:
-  dashed_name: thread-token-integrity-level-name
-  description: Human readable integrity level.
-  flat_name: thread.token.integrity_level_name
-  ignore_above: 1024
-  level: extended
-  name: integrity_level_name
-  normalize: []
-  order: 6
-  original_fieldset: token
-  short: Human readable integrity level.
-  type: keyword
-thread.token.is_appcontainer:
-  dashed_name: thread-token-is-appcontainer
-  description: Whether or not this is an appcontainer token.
-  flat_name: thread.token.is_appcontainer
-  level: extended
-  name: is_appcontainer
-  normalize: []
-  order: 7
-  original_fieldset: token
-  short: Whether or not this is an appcontainer token.
-  type: boolean
-thread.token.privileges:
-  dashed_name: thread-token-privileges
-  description: Array describing the privileges associated with the token.
-  flat_name: thread.token.privileges
-  level: extended
-  name: privileges
-  normalize: []
-  order: 8
-  original_fieldset: token
-  short: Array describing the privileges associated with the token.
-  type: nested
-thread.token.privileges.description:
-  dashed_name: thread-token-privileges-description
-  description: Description of the privilege.
-  flat_name: thread.token.privileges.description
-  ignore_above: 1024
-  level: extended
-  name: privileges.description
-  normalize: []
-  order: 11
-  original_fieldset: token
-  short: Description of the privilege.
-  type: keyword
-thread.token.privileges.enabled:
-  dashed_name: thread-token-privileges-enabled
-  description: Whether or not the privilege is enabled.
-  flat_name: thread.token.privileges.enabled
-  level: extended
-  name: privileges.enabled
-  normalize: []
-  order: 10
-  original_fieldset: token
-  short: Whether or not the privilege is enabled.
-  type: boolean
-thread.token.privileges.name:
-  dashed_name: thread-token-privileges-name
-  description: Name of the privilege.
-  flat_name: thread.token.privileges.name
-  ignore_above: 1024
-  level: extended
-  name: privileges.name
-  normalize: []
-  order: 9
-  original_fieldset: token
-  short: Name of the privilege.
-  type: keyword
-thread.token.sid:
-  dashed_name: thread-token-sid
-  description: TODO
-  flat_name: thread.token.sid
-  ignore_above: 1024
-  level: extended
-  name: sid
-  normalize: []
-  order: 2
-  original_fieldset: token
-  short: TODO
-  type: keyword
-thread.token.type:
-  dashed_name: thread-token-type
-  description: Type of the token, either primary or impersonation.
-  flat_name: thread.token.type
-  ignore_above: 1024
-  level: extended
-  name: type
-  normalize: []
-  order: 3
-  original_fieldset: token
-  short: Type of the token, either primary or impersonation.
-  type: keyword
-thread.token.user:
-  dashed_name: thread-token-user
-  description: Username of token owner.
-  flat_name: thread.token.user
-  ignore_above: 1024
-  level: extended
-  name: user
-  normalize: []
-  order: 0
-  original_fieldset: token
-  short: Username of token owner.
-  type: keyword
+  short: Thread.
+  type: object
 threat.framework:
   dashed_name: threat-framework
   description: Name of the threat framework used to further categorize and classify
