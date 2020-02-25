@@ -1598,6 +1598,77 @@ file_classification:
       order: 11
       short: TODO
       type: long
+    macro.collection:
+      dashed_name: file-classification-macro-collection
+      description: TODO
+      flat_name: file_classification.macro.collection
+      level: custom
+      name: macro.collection
+      normalize: []
+      object_type: keyword
+      order: 5
+      short: TODO
+      type: object
+    macro.collection.hash.imphash:
+      dashed_name: file-classification-macro-collection-hash-imphash
+      description: Imphash.
+      flat_name: file_classification.macro.collection.hash.imphash
+      ignore_above: 1024
+      level: extended
+      name: imphash
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: Imphash.
+      type: keyword
+    macro.collection.hash.md5:
+      dashed_name: file-classification-macro-collection-hash-md5
+      description: MD5 hash.
+      flat_name: file_classification.macro.collection.hash.md5
+      ignore_above: 1024
+      level: extended
+      name: md5
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
+      type: keyword
+    macro.collection.hash.sha1:
+      dashed_name: file-classification-macro-collection-hash-sha1
+      description: SHA1 hash.
+      flat_name: file_classification.macro.collection.hash.sha1
+      ignore_above: 1024
+      level: extended
+      name: sha1
+      normalize: []
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
+      type: keyword
+    macro.collection.hash.sha256:
+      dashed_name: file-classification-macro-collection-hash-sha256
+      description: SHA256 hash.
+      flat_name: file_classification.macro.collection.hash.sha256
+      ignore_above: 1024
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    macro.collection.hash.sha512:
+      dashed_name: file-classification-macro-collection-hash-sha512
+      description: SHA512 hash.
+      flat_name: file_classification.macro.collection.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
+      normalize: []
+      order: 3
+      original_fieldset: hash
+      short: SHA512 hash.
+      type: keyword
     macro.errors:
       dashed_name: file-classification-macro-errors
       description: TODO
@@ -1639,77 +1710,6 @@ file_classification:
       order: 12
       short: TODO
       type: long
-    macro.macro_collection:
-      dashed_name: file-classification-macro-macro-collection
-      description: TODO
-      flat_name: file_classification.macro.macro_collection
-      level: custom
-      name: macro.macro_collection
-      normalize: []
-      object_type: keyword
-      order: 5
-      short: TODO
-      type: object
-    macro.macro_collection.hash.imphash:
-      dashed_name: file-classification-macro-macro-collection-hash-imphash
-      description: Imphash.
-      flat_name: file_classification.macro.macro_collection.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    macro.macro_collection.hash.md5:
-      dashed_name: file-classification-macro-macro-collection-hash-md5
-      description: MD5 hash.
-      flat_name: file_classification.macro.macro_collection.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    macro.macro_collection.hash.sha1:
-      dashed_name: file-classification-macro-macro-collection-hash-sha1
-      description: SHA1 hash.
-      flat_name: file_classification.macro.macro_collection.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    macro.macro_collection.hash.sha256:
-      dashed_name: file-classification-macro-macro-collection-hash-sha256
-      description: SHA256 hash.
-      flat_name: file_classification.macro.macro_collection.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    macro.macro_collection.hash.sha512:
-      dashed_name: file-classification-macro-macro-collection-hash-sha512
-      description: SHA512 hash.
-      flat_name: file_classification.macro.macro_collection.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
     macro.project_file:
       dashed_name: file-classification-macro-project-file
       description: TODO

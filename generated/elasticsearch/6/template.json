@@ -447,22 +447,7 @@
                 "code_page": {
                   "type": "long"
                 },
-                "errors": {
-                  "properties": {
-                    "count": {
-                      "type": "long"
-                    },
-                    "error_type": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "file_extension": {
-                  "type": "long"
-                },
-                "macro_collection": {
+                "collection": {
                   "properties": {
                     "hash": {
                       "properties": {
@@ -490,6 +475,21 @@
                     }
                   },
                   "type": "object"
+                },
+                "errors": {
+                  "properties": {
+                    "count": {
+                      "type": "long"
+                    },
+                    "error_type": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  },
+                  "type": "nested"
+                },
+                "file_extension": {
+                  "type": "long"
                 },
                 "project_file": {
                   "properties": {

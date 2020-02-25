@@ -91,16 +91,16 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.uid,keyword,extended,,1001,The user ID (UID) or security identifier (SID) of the file owner.
 1.5.0-dev,true,file_classification,file_classification.entry_modified,double,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.macro.code_page,long,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.collection,object,custom,,,TODO
+1.5.0-dev,true,file_classification,file_classification.macro.collection.hash.imphash,keyword,extended,,,Imphash.
+1.5.0-dev,true,file_classification,file_classification.macro.collection.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.collection.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.collection.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file_classification,file_classification.macro.collection.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,file_classification,file_classification.macro.errors,nested,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.macro.errors.count,long,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.macro.errors.error_type,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.macro.file_extension,long,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection,object,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.imphash,keyword,extended,,,Imphash.
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,file_classification,file_classification.macro.macro_collection.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,file_classification,file_classification.macro.project_file,object,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,file_classification,file_classification.macro.project_file.hash.md5,keyword,extended,,,MD5 hash.
