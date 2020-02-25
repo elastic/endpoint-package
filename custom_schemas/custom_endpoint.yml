@@ -37,42 +37,6 @@
       description: >
         TODO
 
-    - name: process.entity_id
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe.original_file_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe.file_version
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe.product_version
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature.signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature.status
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: file.windows.zone_identifier
       level: custom
       type: keyword

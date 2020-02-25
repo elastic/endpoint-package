@@ -15,31 +15,7 @@
       - target
   type: group
   fields:
-    - name: unique_pid
-      level: custom
-      type: keyword
-      description: >
-        Unique process id.
-
-    - name: is_endpoint
-      level: custom
-      type: boolean
-      description: >
-        Is this the Elastic Endpoint process or not.
-    
-    - name: unique_ppid
-      level: custom
-      type: keyword
-      description: >
-        Unique parent process id.
-
     - name: hash_matched_module
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: has_unbacked_execute_memory
       level: custom
       type: boolean
       description: >
@@ -273,43 +249,25 @@
       description: >
         TODO
 
-    - name: argv_list
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: env_variables
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: uid
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: gid
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: tty_device_major_number
+    - name: tty_device.major_number
       level: custom
       type: integer
       description: >
         TODO
 
-    - name: tty_device_minor_number
+    - name: tty_device.minor_number
       level: custom
       type: integer
       description: >
         TODO
 
-    - name: tty_device_name
+    - name: tty_device.name
       level: custom
       type: keyword
       description: >
@@ -328,198 +286,6 @@
         TODO
 
     - name: sid
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.compile_time
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.entry_point_address
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.is_dll
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: pe_info.sections
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.sections.virtual_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.virtual_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.raw_offset
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.raw_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.entropy
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: pe_info.sections.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports.dll_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports.import_names
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports.ordinal
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.resources
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_data.size
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_data.entropy
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.version_info
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.version_info.language
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.version_info.code_page
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.version_info.key
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.version_info.value_string
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.architecture
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.signature_signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.signature_status
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature_signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature_status
       level: custom
       type: keyword
       description: >
@@ -561,13 +327,13 @@
       description: >
         TODO
 
-    - name: defense_evasions.memory_sections.memory_address
+    - name: defense_evasions.memory_sections.address
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: defense_evasions.memory_sections.memory_size
+    - name: defense_evasions.memory_sections.size
       level: custom
       type: keyword
       description: >
@@ -579,13 +345,13 @@
       description: >
         TODO
 
-    - name: defense_evasions.thread.thread_id
+    - name: defense_evasions.thread.id
       level: custom
       type: long
       description: >
         TODO
 
-    - name: defense_evasions.thread.thread_start_address
+    - name: defense_evasions.thread.start_address
       level: custom
       type: keyword
       description: >

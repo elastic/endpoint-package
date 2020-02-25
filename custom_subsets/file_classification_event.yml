@@ -5,6 +5,8 @@ base:
       fields: "*"
 agent: 
   fields: "*"
+dll:
+  fields: "*"
 ecs: 
   fields: "*"
 event:
@@ -48,8 +50,6 @@ file:
 file_classification: 
   fields: "*"
 process: 
-  fields: "*"
-thread: 
   fields: "*"
 target: 
   fields: "*"

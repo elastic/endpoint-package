@@ -7,24 +7,6 @@
     TODO
   type: group
   fields:
-    - name: captured_file
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: signature_signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: is_signature_trusted
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
     - name: entry_modified
       level: custom
       type: double
@@ -37,118 +19,98 @@
       description: >
         TODO
 
-    - name: macro_details.errors
+    - name: macro.errors
       level: custom
       type: nested
       description: >
         TODO
 
-    - name: macro_details.errors.count
+    - name: macro.errors.count
       level: custom
       type: long
       description: >
         TODO
 
-    - name: macro_details.errors.error_type
+    - name: macro.errors.error_type
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: user_blacklisted
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: macro_details.macro_collection
+    - name: macro.macro_collection
       level: custom
       type: object
       description: >
         TODO
 
-    - name: macro_details.project_file
+    - name: macro.project_file
       level: custom
       type: object
       description: >
         TODO
 
-    - name: macro_details.stream_data
+    - name: macro.stream
       level: custom
       type: nested
       description: >
         TODO
 
-    - name: macro_details.stream_data.name
+    - name: macro.stream.name
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: macro_details.stream_data.raw_code
+    - name: macro.stream.raw_code
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: macro_details.stream_data.raw_code_size
+    - name: macro.stream.raw_code_size
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: macro_details.code_page
+    - name: macro.code_page
       level: custom
       type: long
       description: >
         TODO
 
-    - name: macro_details.file_extension
+    - name: macro.file_extension
       level: custom
       type: long
       description: >
         TODO
 
-    - name: yara_hits
+    - name: yara
       level: custom
       type: nested
       description: >
         TODO
 
-    - name: yara_hits.rule_name
+    - name: yara.rule.name
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: yara_hits.identifier
+    - name: yara.identifier
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: yara_hits.version
+    - name: yara.version
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: yara_hits.matched_data
+    - name: yara.matched
       level: custom
       type: keyword
       description: >
         TODO
-
-    - name: quarantine_result.quarantine_path
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: quarantine_result.alert_correlation_id
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    
