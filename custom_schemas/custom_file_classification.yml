@@ -84,33 +84,3 @@
       type: long
       description: >
         TODO
-
-    - name: yara
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: yara.rule.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: yara.identifier
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: yara.version
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: yara.matched
-      level: custom
-      type: keyword
-      description: >
-        TODO
