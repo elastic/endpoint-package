@@ -147,55 +147,25 @@
       description: >
         TODO
 
-    - name: threads
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: threads.id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: threads.entrypoint
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: threads.start
-      level: custom
-      type: date
-      description: >
-        TODO
-
-    - name: threads.uptime
-      level: custom
-      type: long
-      description: >
-        TODO
-
     - name: handles
       level: custom
       type: nested
       description: >
         TODO
 
-    - name: handles.handle_id
+    - name: handles.id
       level: custom
       type: long
       description: >
         TODO
 
-    - name: handles.handle_type
+    - name: handles.type
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: handles.handle_name
+    - name: handles.name
       level: custom
       type: keyword
       description: >

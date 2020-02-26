@@ -38,3 +38,15 @@
       example: VaultSvc
       description: >
         Service associated with the thread.
+
+    - name: entrypoint
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.
