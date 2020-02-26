@@ -1865,60 +1865,6 @@ file_classification.temp_file_path:
   order: 1
   short: TODO
   type: keyword
-file_classification.yara:
-  dashed_name: file-classification-yara
-  description: TODO
-  flat_name: file_classification.yara
-  level: custom
-  name: yara
-  normalize: []
-  order: 13
-  short: TODO
-  type: nested
-file_classification.yara.identifier:
-  dashed_name: file-classification-yara-identifier
-  description: TODO
-  flat_name: file_classification.yara.identifier
-  ignore_above: 1024
-  level: custom
-  name: yara.identifier
-  normalize: []
-  order: 15
-  short: TODO
-  type: keyword
-file_classification.yara.matched:
-  dashed_name: file-classification-yara-matched
-  description: TODO
-  flat_name: file_classification.yara.matched
-  ignore_above: 1024
-  level: custom
-  name: yara.matched
-  normalize: []
-  order: 17
-  short: TODO
-  type: keyword
-file_classification.yara.rule.name:
-  dashed_name: file-classification-yara-rule-name
-  description: TODO
-  flat_name: file_classification.yara.rule.name
-  ignore_above: 1024
-  level: custom
-  name: yara.rule.name
-  normalize: []
-  order: 14
-  short: TODO
-  type: keyword
-file_classification.yara.version:
-  dashed_name: file-classification-yara-version
-  description: TODO
-  flat_name: file_classification.yara.version
-  ignore_above: 1024
-  level: custom
-  name: yara.version
-  normalize: []
-  order: 16
-  short: TODO
-  type: keyword
 host.architecture:
   dashed_name: host-architecture
   description: Operating system architecture.
@@ -2499,7 +2445,7 @@ process.cpu_percent:
   level: custom
   name: cpu_percent
   normalize: []
-  order: 31
+  order: 26
   original_fieldset: process
   short: TODO
   type: double
@@ -2511,7 +2457,7 @@ process.cwd:
   level: custom
   name: cwd
   normalize: []
-  order: 36
+  order: 31
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2522,7 +2468,7 @@ process.defense_evasions:
   level: custom
   name: defense_evasions
   normalize: []
-  order: 46
+  order: 41
   original_fieldset: process
   short: TODO
   type: nested
@@ -2636,7 +2582,7 @@ process.defense_evasions.delta_count:
   level: custom
   name: defense_evasions.delta_count
   normalize: []
-  order: 57
+  order: 52
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2648,7 +2594,7 @@ process.defense_evasions.evasion_subtype:
   level: custom
   name: defense_evasions.evasion_subtype
   normalize: []
-  order: 48
+  order: 43
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2660,7 +2606,7 @@ process.defense_evasions.evasion_type:
   level: custom
   name: defense_evasions.evasion_type
   normalize: []
-  order: 47
+  order: 42
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2672,7 +2618,7 @@ process.defense_evasions.instruction_pointer:
   level: custom
   name: defense_evasions.instruction_pointer
   normalize: []
-  order: 58
+  order: 53
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2683,7 +2629,7 @@ process.defense_evasions.memory_sections:
   level: custom
   name: defense_evasions.memory_sections
   normalize: []
-  order: 51
+  order: 46
   original_fieldset: process
   short: TODO
   type: nested
@@ -2695,7 +2641,7 @@ process.defense_evasions.memory_sections.address:
   level: custom
   name: defense_evasions.memory_sections.address
   normalize: []
-  order: 52
+  order: 47
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2707,7 +2653,7 @@ process.defense_evasions.memory_sections.protection:
   level: custom
   name: defense_evasions.memory_sections.protection
   normalize: []
-  order: 54
+  order: 49
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2719,7 +2665,7 @@ process.defense_evasions.memory_sections.size:
   level: custom
   name: defense_evasions.memory_sections.size
   normalize: []
-  order: 53
+  order: 48
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2731,7 +2677,7 @@ process.defense_evasions.module_path:
   level: custom
   name: defense_evasions.module_path
   normalize: []
-  order: 49
+  order: 44
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2742,7 +2688,7 @@ process.defense_evasions.thread.id:
   level: custom
   name: defense_evasions.thread.id
   normalize: []
-  order: 55
+  order: 50
   original_fieldset: process
   short: TODO
   type: long
@@ -2754,7 +2700,7 @@ process.defense_evasions.thread.start_address:
   level: custom
   name: defense_evasions.thread.start_address
   normalize: []
-  order: 56
+  order: 51
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2766,7 +2712,7 @@ process.defense_evasions.total_memory_size:
   level: custom
   name: defense_evasions.total_memory_size
   normalize: []
-  order: 50
+  order: 45
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2778,7 +2724,7 @@ process.domain:
   level: custom
   name: domain
   normalize: []
-  order: 44
+  order: 39
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2811,7 +2757,7 @@ process.env_variables:
   level: custom
   name: env_variables
   normalize: []
-  order: 39
+  order: 34
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2856,7 +2802,7 @@ process.group:
   level: custom
   name: group
   normalize: []
-  order: 37
+  order: 32
   original_fieldset: process
   short: TODO
   type: keyword
@@ -2867,42 +2813,42 @@ process.handles:
   level: custom
   name: handles
   normalize: []
-  order: 27
+  order: 22
   original_fieldset: process
   short: TODO
   type: nested
-process.handles.handle_id:
-  dashed_name: process-handles-handle-id
+process.handles.id:
+  dashed_name: process-handles-id
   description: TODO
-  flat_name: process.handles.handle_id
+  flat_name: process.handles.id
   level: custom
-  name: handles.handle_id
+  name: handles.id
   normalize: []
-  order: 28
+  order: 23
   original_fieldset: process
   short: TODO
   type: long
-process.handles.handle_name:
-  dashed_name: process-handles-handle-name
+process.handles.name:
+  dashed_name: process-handles-name
   description: TODO
-  flat_name: process.handles.handle_name
+  flat_name: process.handles.name
   ignore_above: 1024
   level: custom
-  name: handles.handle_name
+  name: handles.name
   normalize: []
-  order: 30
+  order: 25
   original_fieldset: process
   short: TODO
   type: keyword
-process.handles.handle_type:
-  dashed_name: process-handles-handle-type
+process.handles.type:
+  dashed_name: process-handles-type
   description: TODO
-  flat_name: process.handles.handle_type
+  flat_name: process.handles.type
   ignore_above: 1024
   level: custom
-  name: handles.handle_type
+  name: handles.type
   normalize: []
-  order: 29
+  order: 24
   original_fieldset: process
   short: TODO
   type: keyword
@@ -3076,7 +3022,7 @@ process.memory_percent:
   level: custom
   name: memory_percent
   normalize: []
-  order: 32
+  order: 27
   original_fieldset: process
   short: TODO
   type: double
@@ -3652,7 +3598,7 @@ process.num_threads:
   level: custom
   name: num_threads
   normalize: []
-  order: 33
+  order: 28
   original_fieldset: process
   short: TODO
   type: long
@@ -4223,7 +4169,7 @@ process.phys_memory_bytes:
   level: custom
   name: phys_memory_bytes
   normalize: []
-  order: 35
+  order: 30
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4261,7 +4207,7 @@ process.services:
   level: custom
   name: services
   normalize: []
-  order: 59
+  order: 54
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4272,7 +4218,7 @@ process.session_id:
   level: custom
   name: session_id
   normalize: []
-  order: 43
+  order: 38
   original_fieldset: process
   short: TODO
   type: long
@@ -4284,7 +4230,7 @@ process.short_name:
   level: custom
   name: short_name
   normalize: []
-  order: 38
+  order: 33
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4296,7 +4242,7 @@ process.sid:
   level: custom
   name: sid
   normalize: []
-  order: 45
+  order: 40
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4412,6 +4358,18 @@ process.thread.call_stack.symbol_info:
   normalize: []
   order: 5
   original_fieldset: call_stack
+  short: TODO
+  type: keyword
+process.thread.entrypoint:
+  dashed_name: process-thread-entrypoint
+  description: TODO
+  flat_name: process.thread.entrypoint
+  ignore_above: 1024
+  level: custom
+  name: entrypoint
+  normalize: []
+  order: 4
+  original_fieldset: thread
   short: TODO
   type: keyword
 process.thread.service:
@@ -4605,61 +4563,16 @@ process.thread.token.user:
   original_fieldset: token
   short: Username of token owner.
   type: keyword
-process.threads:
-  dashed_name: process-threads
-  description: TODO
-  flat_name: process.threads
+process.thread.uptime:
+  dashed_name: process-thread-uptime
+  description: Seconds since thread started.
+  flat_name: process.thread.uptime
   level: custom
-  name: threads
+  name: uptime
   normalize: []
-  order: 22
-  original_fieldset: process
-  short: TODO
-  type: nested
-process.threads.entrypoint:
-  dashed_name: process-threads-entrypoint
-  description: TODO
-  flat_name: process.threads.entrypoint
-  ignore_above: 1024
-  level: custom
-  name: threads.entrypoint
-  normalize: []
-  order: 24
-  original_fieldset: process
-  short: TODO
-  type: keyword
-process.threads.id:
-  dashed_name: process-threads-id
-  description: TODO
-  flat_name: process.threads.id
-  level: custom
-  name: threads.id
-  normalize: []
-  order: 23
-  original_fieldset: process
-  short: TODO
-  type: long
-process.threads.start:
-  dashed_name: process-threads-start
-  description: TODO
-  flat_name: process.threads.start
-  level: custom
-  name: threads.start
-  normalize: []
-  order: 25
-  original_fieldset: process
-  short: TODO
-  type: date
-process.threads.uptime:
-  dashed_name: process-threads-uptime
-  description: TODO
-  flat_name: process.threads.uptime
-  level: custom
-  name: threads.uptime
-  normalize: []
-  order: 26
-  original_fieldset: process
-  short: TODO
+  order: 5
+  original_fieldset: thread
+  short: Seconds since thread started.
   type: long
 process.title:
   dashed_name: process-title
@@ -4828,7 +4741,7 @@ process.tty_device.major_number:
   level: custom
   name: tty_device.major_number
   normalize: []
-  order: 40
+  order: 35
   original_fieldset: process
   short: TODO
   type: integer
@@ -4839,7 +4752,7 @@ process.tty_device.minor_number:
   level: custom
   name: tty_device.minor_number
   normalize: []
-  order: 41
+  order: 36
   original_fieldset: process
   short: TODO
   type: integer
@@ -4851,7 +4764,7 @@ process.tty_device.name:
   level: custom
   name: tty_device.name
   normalize: []
-  order: 42
+  order: 37
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4899,7 +4812,7 @@ process.user:
   level: custom
   name: user
   normalize: []
-  order: 60
+  order: 55
   original_fieldset: process
   short: TODO
   type: keyword
@@ -4911,7 +4824,7 @@ process.virt_memory_bytes:
   level: custom
   name: virt_memory_bytes
   normalize: []
-  order: 34
+  order: 29
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5176,7 +5089,7 @@ target.process.cpu_percent:
   level: custom
   name: cpu_percent
   normalize: []
-  order: 31
+  order: 26
   original_fieldset: process
   short: TODO
   type: double
@@ -5188,7 +5101,7 @@ target.process.cwd:
   level: custom
   name: cwd
   normalize: []
-  order: 36
+  order: 31
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5199,7 +5112,7 @@ target.process.defense_evasions:
   level: custom
   name: defense_evasions
   normalize: []
-  order: 46
+  order: 41
   original_fieldset: process
   short: TODO
   type: nested
@@ -5313,7 +5226,7 @@ target.process.defense_evasions.delta_count:
   level: custom
   name: defense_evasions.delta_count
   normalize: []
-  order: 57
+  order: 52
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5325,7 +5238,7 @@ target.process.defense_evasions.evasion_subtype:
   level: custom
   name: defense_evasions.evasion_subtype
   normalize: []
-  order: 48
+  order: 43
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5337,7 +5250,7 @@ target.process.defense_evasions.evasion_type:
   level: custom
   name: defense_evasions.evasion_type
   normalize: []
-  order: 47
+  order: 42
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5349,7 +5262,7 @@ target.process.defense_evasions.instruction_pointer:
   level: custom
   name: defense_evasions.instruction_pointer
   normalize: []
-  order: 58
+  order: 53
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5360,7 +5273,7 @@ target.process.defense_evasions.memory_sections:
   level: custom
   name: defense_evasions.memory_sections
   normalize: []
-  order: 51
+  order: 46
   original_fieldset: process
   short: TODO
   type: nested
@@ -5372,7 +5285,7 @@ target.process.defense_evasions.memory_sections.address:
   level: custom
   name: defense_evasions.memory_sections.address
   normalize: []
-  order: 52
+  order: 47
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5384,7 +5297,7 @@ target.process.defense_evasions.memory_sections.protection:
   level: custom
   name: defense_evasions.memory_sections.protection
   normalize: []
-  order: 54
+  order: 49
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5396,7 +5309,7 @@ target.process.defense_evasions.memory_sections.size:
   level: custom
   name: defense_evasions.memory_sections.size
   normalize: []
-  order: 53
+  order: 48
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5408,7 +5321,7 @@ target.process.defense_evasions.module_path:
   level: custom
   name: defense_evasions.module_path
   normalize: []
-  order: 49
+  order: 44
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5419,7 +5332,7 @@ target.process.defense_evasions.thread.id:
   level: custom
   name: defense_evasions.thread.id
   normalize: []
-  order: 55
+  order: 50
   original_fieldset: process
   short: TODO
   type: long
@@ -5431,7 +5344,7 @@ target.process.defense_evasions.thread.start_address:
   level: custom
   name: defense_evasions.thread.start_address
   normalize: []
-  order: 56
+  order: 51
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5443,7 +5356,7 @@ target.process.defense_evasions.total_memory_size:
   level: custom
   name: defense_evasions.total_memory_size
   normalize: []
-  order: 50
+  order: 45
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5455,7 +5368,7 @@ target.process.domain:
   level: custom
   name: domain
   normalize: []
-  order: 44
+  order: 39
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5488,7 +5401,7 @@ target.process.env_variables:
   level: custom
   name: env_variables
   normalize: []
-  order: 39
+  order: 34
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5533,7 +5446,7 @@ target.process.group:
   level: custom
   name: group
   normalize: []
-  order: 37
+  order: 32
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5544,42 +5457,42 @@ target.process.handles:
   level: custom
   name: handles
   normalize: []
-  order: 27
+  order: 22
   original_fieldset: process
   short: TODO
   type: nested
-target.process.handles.handle_id:
-  dashed_name: target-process-handles-handle-id
+target.process.handles.id:
+  dashed_name: target-process-handles-id
   description: TODO
-  flat_name: target.process.handles.handle_id
+  flat_name: target.process.handles.id
   level: custom
-  name: handles.handle_id
+  name: handles.id
   normalize: []
-  order: 28
+  order: 23
   original_fieldset: process
   short: TODO
   type: long
-target.process.handles.handle_name:
-  dashed_name: target-process-handles-handle-name
+target.process.handles.name:
+  dashed_name: target-process-handles-name
   description: TODO
-  flat_name: target.process.handles.handle_name
+  flat_name: target.process.handles.name
   ignore_above: 1024
   level: custom
-  name: handles.handle_name
+  name: handles.name
   normalize: []
-  order: 30
+  order: 25
   original_fieldset: process
   short: TODO
   type: keyword
-target.process.handles.handle_type:
-  dashed_name: target-process-handles-handle-type
+target.process.handles.type:
+  dashed_name: target-process-handles-type
   description: TODO
-  flat_name: target.process.handles.handle_type
+  flat_name: target.process.handles.type
   ignore_above: 1024
   level: custom
-  name: handles.handle_type
+  name: handles.type
   normalize: []
-  order: 29
+  order: 24
   original_fieldset: process
   short: TODO
   type: keyword
@@ -5753,7 +5666,7 @@ target.process.memory_percent:
   level: custom
   name: memory_percent
   normalize: []
-  order: 32
+  order: 27
   original_fieldset: process
   short: TODO
   type: double
@@ -6329,7 +6242,7 @@ target.process.num_threads:
   level: custom
   name: num_threads
   normalize: []
-  order: 33
+  order: 28
   original_fieldset: process
   short: TODO
   type: long
@@ -6900,7 +6813,7 @@ target.process.phys_memory_bytes:
   level: custom
   name: phys_memory_bytes
   normalize: []
-  order: 35
+  order: 30
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6938,7 +6851,7 @@ target.process.services:
   level: custom
   name: services
   normalize: []
-  order: 59
+  order: 54
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6949,7 +6862,7 @@ target.process.session_id:
   level: custom
   name: session_id
   normalize: []
-  order: 43
+  order: 38
   original_fieldset: process
   short: TODO
   type: long
@@ -6961,7 +6874,7 @@ target.process.short_name:
   level: custom
   name: short_name
   normalize: []
-  order: 38
+  order: 33
   original_fieldset: process
   short: TODO
   type: keyword
@@ -6973,7 +6886,7 @@ target.process.sid:
   level: custom
   name: sid
   normalize: []
-  order: 45
+  order: 40
   original_fieldset: process
   short: TODO
   type: keyword
@@ -7089,6 +7002,18 @@ target.process.thread.call_stack.symbol_info:
   normalize: []
   order: 5
   original_fieldset: call_stack
+  short: TODO
+  type: keyword
+target.process.thread.entrypoint:
+  dashed_name: target-process-thread-entrypoint
+  description: TODO
+  flat_name: target.process.thread.entrypoint
+  ignore_above: 1024
+  level: custom
+  name: entrypoint
+  normalize: []
+  order: 4
+  original_fieldset: thread
   short: TODO
   type: keyword
 target.process.thread.service:
@@ -7282,61 +7207,16 @@ target.process.thread.token.user:
   original_fieldset: token
   short: Username of token owner.
   type: keyword
-target.process.threads:
-  dashed_name: target-process-threads
-  description: TODO
-  flat_name: target.process.threads
+target.process.thread.uptime:
+  dashed_name: target-process-thread-uptime
+  description: Seconds since thread started.
+  flat_name: target.process.thread.uptime
   level: custom
-  name: threads
+  name: uptime
   normalize: []
-  order: 22
-  original_fieldset: process
-  short: TODO
-  type: nested
-target.process.threads.entrypoint:
-  dashed_name: target-process-threads-entrypoint
-  description: TODO
-  flat_name: target.process.threads.entrypoint
-  ignore_above: 1024
-  level: custom
-  name: threads.entrypoint
-  normalize: []
-  order: 24
-  original_fieldset: process
-  short: TODO
-  type: keyword
-target.process.threads.id:
-  dashed_name: target-process-threads-id
-  description: TODO
-  flat_name: target.process.threads.id
-  level: custom
-  name: threads.id
-  normalize: []
-  order: 23
-  original_fieldset: process
-  short: TODO
-  type: long
-target.process.threads.start:
-  dashed_name: target-process-threads-start
-  description: TODO
-  flat_name: target.process.threads.start
-  level: custom
-  name: threads.start
-  normalize: []
-  order: 25
-  original_fieldset: process
-  short: TODO
-  type: date
-target.process.threads.uptime:
-  dashed_name: target-process-threads-uptime
-  description: TODO
-  flat_name: target.process.threads.uptime
-  level: custom
-  name: threads.uptime
-  normalize: []
-  order: 26
-  original_fieldset: process
-  short: TODO
+  order: 5
+  original_fieldset: thread
+  short: Seconds since thread started.
   type: long
 target.process.title:
   dashed_name: target-process-title
@@ -7505,7 +7385,7 @@ target.process.tty_device.major_number:
   level: custom
   name: tty_device.major_number
   normalize: []
-  order: 40
+  order: 35
   original_fieldset: process
   short: TODO
   type: integer
@@ -7516,7 +7396,7 @@ target.process.tty_device.minor_number:
   level: custom
   name: tty_device.minor_number
   normalize: []
-  order: 41
+  order: 36
   original_fieldset: process
   short: TODO
   type: integer
@@ -7528,7 +7408,7 @@ target.process.tty_device.name:
   level: custom
   name: tty_device.name
   normalize: []
-  order: 42
+  order: 37
   original_fieldset: process
   short: TODO
   type: keyword
@@ -7576,7 +7456,7 @@ target.process.user:
   level: custom
   name: user
   normalize: []
-  order: 60
+  order: 55
   original_fieldset: process
   short: TODO
   type: keyword
@@ -7588,7 +7468,7 @@ target.process.virt_memory_bytes:
   level: custom
   name: virt_memory_bytes
   normalize: []
-  order: 34
+  order: 29
   original_fieldset: process
   short: TODO
   type: keyword

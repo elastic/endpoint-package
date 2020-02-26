@@ -959,35 +959,6 @@
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: yara
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: yara.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: yara.matched
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: yara.rule.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: yara.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
   - name: host
     title: Host
     group: 2
@@ -1507,18 +1478,18 @@
       type: nested
       description: TODO
       default_field: false
-    - name: handles.handle_id
+    - name: handles.id
       level: custom
       type: long
       description: TODO
       default_field: false
-    - name: handles.handle_name
+    - name: handles.name
       level: custom
       type: keyword
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: handles.handle_type
+    - name: handles.type
       level: custom
       type: keyword
       ignore_above: 1024
@@ -2289,6 +2260,12 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: thread.entrypoint
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
     - name: thread.service
       level: extended
       type: keyword
@@ -2384,31 +2361,10 @@
       ignore_above: 1024
       description: Username of token owner.
       default_field: false
-    - name: threads
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: threads.entrypoint
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: threads.id
+    - name: thread.uptime
       level: custom
       type: long
-      description: TODO
-      default_field: false
-    - name: threads.start
-      level: custom
-      type: date
-      description: TODO
-      default_field: false
-    - name: threads.uptime
-      level: custom
-      type: long
-      description: TODO
+      description: Seconds since thread started.
       default_field: false
     - name: title
       level: extended
@@ -2906,18 +2862,18 @@
       type: nested
       description: TODO
       default_field: false
-    - name: process.handles.handle_id
+    - name: process.handles.id
       level: custom
       type: long
       description: TODO
       default_field: false
-    - name: process.handles.handle_name
+    - name: process.handles.name
       level: custom
       type: keyword
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: process.handles.handle_type
+    - name: process.handles.type
       level: custom
       type: keyword
       ignore_above: 1024
@@ -3696,6 +3652,12 @@
       ignore_above: 1024
       description: TODO
       default_field: false
+    - name: process.thread.entrypoint
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
     - name: process.thread.service
       level: extended
       type: keyword
@@ -3791,31 +3753,10 @@
       ignore_above: 1024
       description: Username of token owner.
       default_field: false
-    - name: process.threads
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: process.threads.entrypoint
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.threads.id
+    - name: process.thread.uptime
       level: custom
       type: long
-      description: TODO
-      default_field: false
-    - name: process.threads.start
-      level: custom
-      type: date
-      description: TODO
-      default_field: false
-    - name: process.threads.uptime
-      level: custom
-      type: long
-      description: TODO
+      description: Seconds since thread started.
       default_field: false
     - name: process.title
       level: extended

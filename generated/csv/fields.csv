@@ -125,11 +125,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file_classification,file_classification.malware_classification.upx_packed,boolean,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.malware_classification.version,keyword,custom,,,TODO
 1.5.0-dev,true,file_classification,file_classification.temp_file_path,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara,nested,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara.matched,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara.rule.name,keyword,custom,,,TODO
-1.5.0-dev,true,file_classification,file_classification.yara.version,keyword,custom,,,TODO
 1.5.0-dev,true,host,host.architecture,keyword,core,,x86_64,Operating system architecture.
 1.5.0-dev,true,host,host.domain,keyword,extended,,CONTOSO,Name of the directory the group is a member of.
 1.5.0-dev,true,host,host.geo.city_name,keyword,core,,Montreal,City name.
@@ -206,9 +201,9 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.exit_code,long,extended,,137,The exit code of the process.
 1.5.0-dev,true,process,process.group,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.handles,nested,custom,,,TODO
-1.5.0-dev,true,process,process.handles.handle_id,long,custom,,,TODO
-1.5.0-dev,true,process,process.handles.handle_name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.handles.handle_type,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.handles.id,long,custom,,,TODO
+1.5.0-dev,true,process,process.handles.name,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.handles.type,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,process,process.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,process,process.hash.sha1,keyword,extended,,,SHA1 hash.
@@ -334,6 +329,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.thread.call_stack.module_path,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.thread.call_stack.rva,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.thread.call_stack.symbol_info,keyword,custom,,,TODO
+1.5.0-dev,true,process,process.thread.entrypoint,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.thread.service,keyword,extended,,VaultSvc,Service associated with the thread.
 1.5.0-dev,true,process,process.thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
 1.5.0-dev,true,process,process.thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
@@ -350,11 +346,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.thread.token.sid,keyword,extended,,,TODO
 1.5.0-dev,true,process,process.thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
 1.5.0-dev,true,process,process.thread.token.user,keyword,extended,,,Username of token owner.
-1.5.0-dev,true,process,process.threads,nested,custom,,,TODO
-1.5.0-dev,true,process,process.threads.entrypoint,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.threads.id,long,custom,,,TODO
-1.5.0-dev,true,process,process.threads.start,date,custom,,,TODO
-1.5.0-dev,true,process,process.threads.uptime,long,custom,,,TODO
+1.5.0-dev,true,process,process.thread.uptime,long,custom,,,Seconds since thread started.
 1.5.0-dev,true,process,process.title,keyword,extended,,,Process title.
 1.5.0-dev,true,process,process.title.text,text,extended,,,Process title.
 1.5.0-dev,true,process,process.token.domain,keyword,extended,,,TODO
@@ -427,9 +419,9 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.exit_code,long,extended,,137,The exit code of the process.
 1.5.0-dev,true,target,target.process.group,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.handles.handle_id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.handles.handle_name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.handles.handle_type,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.id,long,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.name,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.handles.type,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.hash.imphash,keyword,extended,,,Imphash.
 1.5.0-dev,true,target,target.process.hash.md5,keyword,extended,,,MD5 hash.
 1.5.0-dev,true,target,target.process.hash.sha1,keyword,extended,,,SHA1 hash.
@@ -555,6 +547,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.thread.call_stack.module_path,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.call_stack.rva,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.call_stack.symbol_info,keyword,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.entrypoint,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.service,keyword,extended,,VaultSvc,Service associated with the thread.
 1.5.0-dev,true,target,target.process.thread.start,date,extended,,2016-05-23T08:05:34.853Z,The time the thread started.
 1.5.0-dev,true,target,target.process.thread.start_address,keyword,extended,,5442508,Memory address where the thread started.
@@ -571,11 +564,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.thread.token.sid,keyword,extended,,,TODO
 1.5.0-dev,true,target,target.process.thread.token.type,keyword,extended,,,"Type of the token, either primary or impersonation."
 1.5.0-dev,true,target,target.process.thread.token.user,keyword,extended,,,Username of token owner.
-1.5.0-dev,true,target,target.process.threads,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.threads.entrypoint,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.threads.id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.threads.start,date,custom,,,TODO
-1.5.0-dev,true,target,target.process.threads.uptime,long,custom,,,TODO
+1.5.0-dev,true,target,target.process.thread.uptime,long,custom,,,Seconds since thread started.
 1.5.0-dev,true,target,target.process.title,keyword,extended,,,Process title.
 1.5.0-dev,true,target,target.process.title.text,text,extended,,,Process title.
 1.5.0-dev,true,target,target.process.token.domain,keyword,extended,,,TODO

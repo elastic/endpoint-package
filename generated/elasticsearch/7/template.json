@@ -605,31 +605,6 @@
           "temp_file_path": {
             "ignore_above": 1024,
             "type": "keyword"
-          },
-          "yara": {
-            "properties": {
-              "identifier": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "matched": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "rule": {
-                "properties": {
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
-              "version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            },
-            "type": "nested"
           }
         }
       },
@@ -974,14 +949,14 @@
           },
           "handles": {
             "properties": {
-              "handle_id": {
+              "id": {
                 "type": "long"
               },
-              "handle_name": {
+              "name": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
-              "handle_type": {
+              "type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -1541,6 +1516,10 @@
                 },
                 "type": "nested"
               },
+              "entrypoint": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "service": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1605,26 +1584,11 @@
                     "type": "keyword"
                   }
                 }
-              }
-            }
-          },
-          "threads": {
-            "properties": {
-              "entrypoint": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "id": {
-                "type": "long"
-              },
-              "start": {
-                "type": "date"
               },
               "uptime": {
                 "type": "long"
               }
-            },
-            "type": "nested"
+            }
           },
           "title": {
             "fields": {
@@ -1941,14 +1905,14 @@
               },
               "handles": {
                 "properties": {
-                  "handle_id": {
+                  "id": {
                     "type": "long"
                   },
-                  "handle_name": {
+                  "name": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
-                  "handle_type": {
+                  "type": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
@@ -2508,6 +2472,10 @@
                     },
                     "type": "nested"
                   },
+                  "entrypoint": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "service": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -2572,26 +2540,11 @@
                         "type": "keyword"
                       }
                     }
-                  }
-                }
-              },
-              "threads": {
-                "properties": {
-                  "entrypoint": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "id": {
-                    "type": "long"
-                  },
-                  "start": {
-                    "type": "date"
                   },
                   "uptime": {
                     "type": "long"
                   }
-                },
-                "type": "nested"
+                }
               },
               "title": {
                 "fields": {
