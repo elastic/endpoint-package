@@ -234,6 +234,11 @@ fields:
     The process fields are used to describe by which process the event belongs to.
   fields:
 
+  - name: entity_id
+    type: keyword
+    description: >
+      The globally unique identifier for the process
+
   - name: pid
     type: long
     description: >
@@ -263,7 +268,44 @@ fields:
 
 - name: file
   description: >
+    TODO
   fields:
+
+  - name: pe
+    description: >
+      Extended "pe" field set
+    fields:
+
+    - name: original_file_name
+      type: keyword
+      description: >
+        Original file name hardcoded into the PE header
+
+    - name: file_version
+      type: keyword
+      description: >
+        Original file version hardcoded into the PE header
+
+    - name: product
+      type: keyword
+      description: >
+        Original product version hardcoded into the PE header
+
+  - name: code_signature
+    description: >
+      Fields describing either PE or package signing
+    fields:
+
+    - name: subject_name
+      type: keyword
+      description: >
+        The name of the package signer
+
+    - name: status
+      type: keyword
+      description: >
+        The status of the signed package
+
 
   - name: name
     type: keyword
@@ -341,47 +383,4 @@ fields:
           Short name or login of the user.
         example: albert
 
-  - name: process
-    description: >
-      Extended "process" field set
-    fields:
 
-    - name: entity_id
-      type: keyword
-      description: >
-        The globally unique identifier for the process
-
-  - name: pe
-    description: >
-      Extended "pe" field set
-    fields:
-
-    - name: original_file_name
-      type: keyword
-      description: >
-        Original file name hardcoded into the PE header
-
-    - name: file_version
-      type: keyword
-      description: >
-        Original file version hardcoded into the PE header
-
-    - name: product_version
-      type: keyword
-      description: >
-        Original product version hardcoded into the PE header
-
-    - name: signature
-      description: >
-        Fields describing either PE or package signing
-      fields:
-
-      - name: signer
-        type: keyword
-        description: >
-          The name of the package signer
-
-      - name: status
-        type: keyword
-        description: >
-          The status of the signed package
