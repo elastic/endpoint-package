@@ -279,21 +279,16 @@ fields:
     type: keyword
     description: >
       Absolute path to the process executable.
+  
+  - name: entity_id
+    type: keyword
+    description: >
+      The globally unique identifier for the process
 
 - name: endpoint
   description: >
     Endpoint custom fields.
   fields:
-
-  - name: process
-    description: >
-      Extended "process" field set
-    fields:
-
-    - name: entity_id
-      type: keyword
-      description: >
-        The globally unique identifier for the process
 
   - name: file
     description: >
