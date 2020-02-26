@@ -10,6 +10,10 @@
     * Shared Object (`.so`) commonly used on Unix-like operating systems
     * Dynamic library (`.dylib`) commonly used on macOS
   type: group
+  reusable:
+    top_level: true
+    expected: 
+      - target
   fields:
     - name: mapped_address
       level: custom
@@ -26,11 +30,5 @@
     - name: compile_time
       level: custom
       type: date
-      description: >
-        TODO
-
-    - name: architecture
-      level: custom
-      type: keyword
       description: >
         TODO
