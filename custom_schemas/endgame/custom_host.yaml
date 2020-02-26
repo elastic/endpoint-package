@@ -1,0 +1,33 @@
+---
+- name: host
+  title: Host
+  group: 2
+  short: Fields describing the relevant computing instance.
+  description: >
+    A host is defined as a general computing instance.
+
+    ECS host.* fields should be populated with details about the host on which
+    the event happened, or from which the measurement was taken.
+    Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.
+  type: group
+  fields:
+    - name: os.platform
+      type: keyword
+      level: custom
+      description: >
+        Currently we just try use the non-normalized "name" (i.e. macos). See https://www.elastic.co/guide/en/ecs/current/ecs-os.html for
+        how we should be mapping this
+      example: darwin
+    - name: os.name
+      type: keyword
+      level: custom
+      description: >
+        Currently we just normalize the name (i.e. macOS, Windows, Linux). See https://www.elastic.co/guide/en/ecs/current/ecs-os.html for
+        how we should be mapping this
+      example: Mac OS X
+    - name: os.version
+      type: keyword
+      level: custom
+      description: >
+        Operating system version as a raw string.
+      example: 10.14.1

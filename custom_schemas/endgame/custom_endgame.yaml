@@ -1,0 +1,434 @@
+---
+- name: endgame
+  title: Endgame
+  group: 2
+  short: TODO
+  description: >
+    TODO
+  type: group
+  fields:
+    - name: serial_event_id
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: opcode
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: event_type_full
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: event_subtype_full
+      level: custom
+      type: keyword
+      description: "TODO"
+    # GenericDataBuffer
+    - name: timestamp
+      level: custom
+      type: date # this is a uint64 right now
+      description: "TODO"
+    - name: timestamp_utc
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: event_message
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: unknown_properties
+      level: custom
+      type: keyword # this is a generic object right now, we should get rid of it
+      description: "TODO"
+    - name: pid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: process_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: process_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: unique_pid
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    # GenericDataBuffer: Windows
+    - name: user_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: user_domain
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: user_sid
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: tid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    # GenericDataBuffer: Posix
+    - name: real_user_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: effective_user_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: real_group_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: effective_group_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: real_uid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: effective_uid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: real_gid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: effective_gid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    # DnsDataBuffer
+    - name: query_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: event_id
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: query_type
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: query_status
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: query_options
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: query_results
+      level: custom
+      type: keyword
+      description: "TODO"
+      # FileDataBuffer
+    - name: file_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: file_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: md5
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: sha1
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: sha256
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: old_file_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: old_file_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    # FileDataBuffer: Windows
+    - name: create_disposition
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: desired_access
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: create_options
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: share_mode
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: file_attributes
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: zone_id
+      level: custom
+      type: integer
+      description: "TODO"
+    # FileDataBuffer: Posix
+    - name: other_file_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: fileid
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: parent_pid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: file_mode
+      level: custom
+      type: keyword
+      description: "TODO"
+    # ImageLoadDataBuffer
+    - name: image_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: image_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: signature_signer
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: signature_status
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: file_version
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: product_version
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: original_file_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    # NetworkDataBuffer
+    - name: protocol
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: connection_id
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: destination_address
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: destination_port
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: source_port
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: source_address
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: out_bytes
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: in_bytes
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: sequence_number
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: partial_flow
+      level: custom
+      type: boolean
+      description: "TODO"
+    - name: total_in_bytes
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: total_out_bytes
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: in_packet_count
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: out_packet_count
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: in_bytes_mean
+      level: custom
+      type: double
+      description: "TODO"
+    - name: out_bytes_mean
+      level: custom
+      type: double
+      description: "TODO"
+    - name: in_bytes_standard_deviation
+      level: custom
+      type: double
+      description: "TODO"
+    - name: out_bytes_standard_deviation
+      level: custom
+      type: double
+      description: "TODO"
+    - name: in_interval_mean
+      level: custom
+      type: double
+      description: "TODO"
+    - name: out_interval_mean
+      level: custom
+      type: double
+      description: "TODO"
+    - name: in_interval_standard_deviation
+      level: custom
+      type: double
+      description: "TODO"
+    - name: out_interval_standard_deviation
+      level: custom
+      type: double
+      description: "TODO"
+    - name: event_id
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: task
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: size
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: http_request
+      level: custom
+      type: text
+      description: "TODO"
+    # ProcessDataBuffer
+    - name: ppid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: exit_code
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: command_line
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: parent_process_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: parent_process_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: unique_ppid
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    # ProcessDataBuffer: Windows
+    - name: authentication_id
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    - name: package_name
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: integrity_level
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: elevated
+      level: custom
+      type: boolean
+      description: "TODO"
+    - name: elevation_type
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: true_ppid
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: unique_true_ppid
+      level: custom
+      type: long # this is a uint64 right now
+      description: "TODO"
+    # ProcessDataBuffer: Posix
+    - name: session_id
+      level: custom
+      type: integer
+      description: "TODO"
+    - name: exit_code_full
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    # RegistryDataBuffer
+    - name: key_path
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: key_type
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: bytes_written_count
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: bytes_written
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: bytes_written_u32
+      level: custom
+      type: integer # this is a uint32 right now
+      description: "TODO"
+    - name: bytes_written_u64
+      level: custom
+      type: long # this is a uint32 right now
+      description: "TODO"
+    - name: bytes_written_string
+      level: custom
+      type: keyword
+      description: "TODO"
+    - name: bytes_written_string_list
+      level: custom
+      type: keyword
+      description: "TODO"
