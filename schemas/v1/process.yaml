@@ -448,16 +448,16 @@ fields:
             The ppid of the process that actually spawned the current process, in case of
             ppid spoofing.
 
-    - name: integrity_level
-      type: keyword
-      description: >
-        Integrity level of the process.
-      example: one of "system", "high", "medium", "low", "untrusted"
-
     - name: token
       description: >
         TODO
       fields:
+
+      - name: integrity_level
+        type: keyword
+        description: >
+          Integrity level of the process.
+        example: one of "system", "high", "medium", "low", "untrusted"
 
       - name: elevation
         type: boolean
