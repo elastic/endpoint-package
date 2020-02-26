@@ -70,12 +70,11 @@
                 }
               }
             },
+            "compile_time": {
+              "type": "date"
+            },
             "hash": {
               "properties": {
-                "imphash": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
                 "md5": {
                   "ignore_above": 1024,
                   "type": "keyword"
@@ -93,6 +92,53 @@
                   "type": "keyword"
                 }
               }
+            },
+            "malware_classifier": {
+              "properties": {
+                "features": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "buffer": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "decompressed_size": {
+                          "type": "integer"
+                        },
+                        "encoding": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                  }
+                },
+                "identifier": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "score": {
+                  "type": "double"
+                },
+                "threshold": {
+                  "type": "double"
+                },
+                "upx_packed": {
+                  "type": "boolean"
+                },
+                "version": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            },
+            "mapped_address": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "mapped_size": {
+              "type": "long"
             },
             "name": {
               "ignore_above": 1024,
@@ -116,7 +162,7 @@
                   "ignore_above": 1024,
                   "type": "keyword"
                 },
-                "malware_classification": {
+                "malware_classifier": {
                   "properties": {
                     "features": {
                       "properties": {
@@ -299,10 +345,6 @@
             },
             "hash": {
               "properties": {
-                "imphash": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
                 "md5": {
                   "ignore_above": 1024,
                   "type": "keyword"
@@ -364,7 +406,7 @@
                   "ignore_above": 1024,
                   "type": "keyword"
                 },
-                "malware_classification": {
+                "malware_classifier": {
                   "properties": {
                     "features": {
                       "properties": {
@@ -432,178 +474,6 @@
               "type": "keyword"
             },
             "uid": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            }
-          }
-        },
-        "file_classification": {
-          "properties": {
-            "entry_modified": {
-              "type": "double"
-            },
-            "macro": {
-              "properties": {
-                "code_page": {
-                  "type": "long"
-                },
-                "collection": {
-                  "properties": {
-                    "hash": {
-                      "properties": {
-                        "imphash": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "md5": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha1": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha256": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha512": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    }
-                  },
-                  "type": "object"
-                },
-                "errors": {
-                  "properties": {
-                    "count": {
-                      "type": "long"
-                    },
-                    "error_type": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "file_extension": {
-                  "type": "long"
-                },
-                "project_file": {
-                  "properties": {
-                    "hash": {
-                      "properties": {
-                        "imphash": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "md5": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha1": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha256": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha512": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    }
-                  },
-                  "type": "object"
-                },
-                "stream": {
-                  "properties": {
-                    "hash": {
-                      "properties": {
-                        "imphash": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "md5": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha1": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha256": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha512": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    },
-                    "name": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "raw_code": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "raw_code_size": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  },
-                  "type": "nested"
-                }
-              }
-            },
-            "malware_classification": {
-              "properties": {
-                "features": {
-                  "properties": {
-                    "data": {
-                      "properties": {
-                        "buffer": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "decompressed_size": {
-                          "type": "integer"
-                        },
-                        "encoding": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    }
-                  }
-                },
-                "identifier": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "score": {
-                  "type": "double"
-                },
-                "threshold": {
-                  "type": "double"
-                },
-                "upx_packed": {
-                  "type": "boolean"
-                },
-                "version": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                }
-              }
-            },
-            "temp_file_path": {
               "ignore_above": 1024,
               "type": "keyword"
             }
@@ -775,6 +645,166 @@
                   "type": "keyword"
                 }
               }
+            }
+          }
+        },
+        "malware_event": {
+          "properties": {
+            "entry_modified": {
+              "type": "double"
+            },
+            "macro": {
+              "properties": {
+                "code_page": {
+                  "type": "long"
+                },
+                "collection": {
+                  "properties": {
+                    "hash": {
+                      "properties": {
+                        "md5": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha1": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha256": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha512": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "errors": {
+                  "properties": {
+                    "count": {
+                      "type": "long"
+                    },
+                    "error_type": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  },
+                  "type": "nested"
+                },
+                "file_extension": {
+                  "type": "long"
+                },
+                "project_file": {
+                  "properties": {
+                    "hash": {
+                      "properties": {
+                        "md5": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha1": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha256": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha512": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "stream": {
+                  "properties": {
+                    "hash": {
+                      "properties": {
+                        "md5": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha1": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha256": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "sha512": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "name": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "raw_code": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "raw_code_size": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  },
+                  "type": "nested"
+                }
+              }
+            },
+            "malware_classifier": {
+              "properties": {
+                "features": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "buffer": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "decompressed_size": {
+                          "type": "integer"
+                        },
+                        "encoding": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                  }
+                },
+                "identifier": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "score": {
+                  "type": "double"
+                },
+                "threshold": {
+                  "type": "double"
+                },
+                "upx_packed": {
+                  "type": "boolean"
+                },
+                "version": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            },
+            "temp_file_path": {
+              "ignore_above": 1024,
+              "type": "keyword"
             }
           }
         },
@@ -966,10 +996,6 @@
             },
             "hash": {
               "properties": {
-                "imphash": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
                 "md5": {
                   "ignore_above": 1024,
                   "type": "keyword"
@@ -991,7 +1017,7 @@
             "hash_matched_module": {
               "type": "boolean"
             },
-            "malware_classification": {
+            "malware_classifier": {
               "properties": {
                 "features": {
                   "properties": {
@@ -1111,126 +1137,6 @@
               },
               "type": "nested"
             },
-            "modules": {
-              "properties": {
-                "architecture": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "compile_time": {
-                  "type": "date"
-                },
-                "hash": {
-                  "properties": {
-                    "imphash": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "md5": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "sha1": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "sha256": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "sha512": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  }
-                },
-                "malware_classification": {
-                  "properties": {
-                    "features": {
-                      "properties": {
-                        "data": {
-                          "properties": {
-                            "buffer": {
-                              "ignore_above": 1024,
-                              "type": "keyword"
-                            },
-                            "decompressed_size": {
-                              "type": "integer"
-                            },
-                            "encoding": {
-                              "ignore_above": 1024,
-                              "type": "keyword"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "identifier": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "score": {
-                      "type": "double"
-                    },
-                    "threshold": {
-                      "type": "double"
-                    },
-                    "upx_packed": {
-                      "type": "boolean"
-                    },
-                    "version": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  }
-                },
-                "mapped_address": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "mapped_size": {
-                  "type": "long"
-                },
-                "path": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "pe_exports": {
-                  "properties": {
-                    "name": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "ordinal": {
-                      "type": "long"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "pe_imports": {
-                  "properties": {
-                    "dll_name": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "import_names": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "signature_signer": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "signature_status": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
-            },
             "name": {
               "fields": {
                 "text": {
@@ -1303,10 +1209,6 @@
                 },
                 "hash": {
                   "properties": {
-                    "imphash": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
                     "md5": {
                       "ignore_above": 1024,
                       "type": "keyword"
@@ -1397,7 +1299,7 @@
                   "ignore_above": 1024,
                   "type": "keyword"
                 },
-                "malware_classification": {
+                "malware_classifier": {
                   "properties": {
                     "features": {
                       "properties": {
@@ -1734,6 +1636,173 @@
         },
         "target": {
           "properties": {
+            "dll": {
+              "properties": {
+                "code_signature": {
+                  "properties": {
+                    "exists": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "subject_name": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "trusted": {
+                      "type": "boolean"
+                    },
+                    "valid": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "compile_time": {
+                  "type": "date"
+                },
+                "hash": {
+                  "properties": {
+                    "md5": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "sha1": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "sha256": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "sha512": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "malware_classifier": {
+                  "properties": {
+                    "features": {
+                      "properties": {
+                        "data": {
+                          "properties": {
+                            "buffer": {
+                              "ignore_above": 1024,
+                              "type": "keyword"
+                            },
+                            "decompressed_size": {
+                              "type": "integer"
+                            },
+                            "encoding": {
+                              "ignore_above": 1024,
+                              "type": "keyword"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "identifier": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "score": {
+                      "type": "double"
+                    },
+                    "threshold": {
+                      "type": "double"
+                    },
+                    "upx_packed": {
+                      "type": "boolean"
+                    },
+                    "version": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "mapped_address": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "mapped_size": {
+                  "type": "long"
+                },
+                "name": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "path": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "pe": {
+                  "properties": {
+                    "company": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "description": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "file_version": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "malware_classifier": {
+                      "properties": {
+                        "features": {
+                          "properties": {
+                            "data": {
+                              "properties": {
+                                "buffer": {
+                                  "ignore_above": 1024,
+                                  "type": "keyword"
+                                },
+                                "decompressed_size": {
+                                  "type": "integer"
+                                },
+                                "encoding": {
+                                  "ignore_above": 1024,
+                                  "type": "keyword"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "identifier": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        },
+                        "score": {
+                          "type": "double"
+                        },
+                        "threshold": {
+                          "type": "double"
+                        },
+                        "upx_packed": {
+                          "type": "boolean"
+                        },
+                        "version": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "original_file_name": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "product": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
             "process": {
               "properties": {
                 "args": {
@@ -1922,10 +1991,6 @@
                 },
                 "hash": {
                   "properties": {
-                    "imphash": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
                     "md5": {
                       "ignore_above": 1024,
                       "type": "keyword"
@@ -1947,7 +2012,7 @@
                 "hash_matched_module": {
                   "type": "boolean"
                 },
-                "malware_classification": {
+                "malware_classifier": {
                   "properties": {
                     "features": {
                       "properties": {
@@ -2067,126 +2132,6 @@
                   },
                   "type": "nested"
                 },
-                "modules": {
-                  "properties": {
-                    "architecture": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "compile_time": {
-                      "type": "date"
-                    },
-                    "hash": {
-                      "properties": {
-                        "imphash": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "md5": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha1": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha256": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "sha512": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    },
-                    "malware_classification": {
-                      "properties": {
-                        "features": {
-                          "properties": {
-                            "data": {
-                              "properties": {
-                                "buffer": {
-                                  "ignore_above": 1024,
-                                  "type": "keyword"
-                                },
-                                "decompressed_size": {
-                                  "type": "integer"
-                                },
-                                "encoding": {
-                                  "ignore_above": 1024,
-                                  "type": "keyword"
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "identifier": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "score": {
-                          "type": "double"
-                        },
-                        "threshold": {
-                          "type": "double"
-                        },
-                        "upx_packed": {
-                          "type": "boolean"
-                        },
-                        "version": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      }
-                    },
-                    "mapped_address": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "mapped_size": {
-                      "type": "long"
-                    },
-                    "path": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "pe_exports": {
-                      "properties": {
-                        "name": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "ordinal": {
-                          "type": "long"
-                        }
-                      },
-                      "type": "nested"
-                    },
-                    "pe_imports": {
-                      "properties": {
-                        "dll_name": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
-                        "import_names": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        }
-                      },
-                      "type": "nested"
-                    },
-                    "signature_signer": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    },
-                    "signature_status": {
-                      "ignore_above": 1024,
-                      "type": "keyword"
-                    }
-                  },
-                  "type": "nested"
-                },
                 "name": {
                   "fields": {
                     "text": {
@@ -2259,10 +2204,6 @@
                     },
                     "hash": {
                       "properties": {
-                        "imphash": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
-                        },
                         "md5": {
                           "ignore_above": 1024,
                           "type": "keyword"
@@ -2353,7 +2294,7 @@
                       "ignore_above": 1024,
                       "type": "keyword"
                     },
-                    "malware_classification": {
+                    "malware_classifier": {
                       "properties": {
                         "features": {
                           "properties": {

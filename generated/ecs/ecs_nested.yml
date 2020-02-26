@@ -209,18 +209,16 @@ dll:
       short: Boolean to capture if the digital signature is verified against the binary
         content.
       type: boolean
-    hash.imphash:
-      dashed_name: dll-hash-imphash
-      description: Imphash.
-      flat_name: dll.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
+    compile_time:
+      dashed_name: dll-compile-time
+      description: TODO
+      flat_name: dll.compile_time
+      level: custom
+      name: compile_time
       normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
+      order: 2
+      short: TODO
+      type: date
     hash.md5:
       dashed_name: dll-hash-md5
       description: MD5 hash.
@@ -269,6 +267,119 @@ dll:
       original_fieldset: hash
       short: SHA512 hash.
       type: keyword
+    malware_classifier.features.data.buffer:
+      dashed_name: dll-malware-classifier-features-data-buffer
+      description: TODO
+      flat_name: dll.malware_classifier.features.data.buffer
+      ignore_above: 1024
+      level: custom
+      name: features.data.buffer
+      normalize: []
+      order: 4
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.features.data.decompressed_size:
+      dashed_name: dll-malware-classifier-features-data-decompressed-size
+      description: TODO
+      flat_name: dll.malware_classifier.features.data.decompressed_size
+      level: custom
+      name: features.data.decompressed_size
+      normalize: []
+      order: 5
+      original_fieldset: malware_classifier
+      short: TODO
+      type: integer
+    malware_classifier.features.data.encoding:
+      dashed_name: dll-malware-classifier-features-data-encoding
+      description: TODO
+      flat_name: dll.malware_classifier.features.data.encoding
+      ignore_above: 1024
+      level: custom
+      name: features.data.encoding
+      normalize: []
+      order: 6
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.identifier:
+      dashed_name: dll-malware-classifier-identifier
+      description: TODO
+      flat_name: dll.malware_classifier.identifier
+      ignore_above: 1024
+      level: custom
+      name: identifier
+      normalize: []
+      order: 2
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.score:
+      dashed_name: dll-malware-classifier-score
+      description: TODO
+      flat_name: dll.malware_classifier.score
+      level: custom
+      name: score
+      normalize: []
+      order: 0
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    malware_classifier.threshold:
+      dashed_name: dll-malware-classifier-threshold
+      description: TODO
+      flat_name: dll.malware_classifier.threshold
+      level: custom
+      name: threshold
+      normalize: []
+      order: 1
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    malware_classifier.upx_packed:
+      dashed_name: dll-malware-classifier-upx-packed
+      description: TODO
+      flat_name: dll.malware_classifier.upx_packed
+      level: custom
+      name: upx_packed
+      normalize: []
+      order: 7
+      original_fieldset: malware_classifier
+      short: TODO
+      type: boolean
+    malware_classifier.version:
+      dashed_name: dll-malware-classifier-version
+      description: TODO
+      flat_name: dll.malware_classifier.version
+      ignore_above: 1024
+      level: custom
+      name: version
+      normalize: []
+      order: 3
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    mapped_address:
+      dashed_name: dll-mapped-address
+      description: TODO
+      flat_name: dll.mapped_address
+      ignore_above: 1024
+      level: custom
+      name: mapped_address
+      normalize: []
+      order: 0
+      short: TODO
+      type: keyword
+    mapped_size:
+      dashed_name: dll-mapped-size
+      description: TODO
+      flat_name: dll.mapped_size
+      level: custom
+      name: mapped_size
+      normalize: []
+      order: 1
+      short: TODO
+      type: long
     name:
       dashed_name: dll-name
       description: 'Name of the library.
@@ -334,96 +445,96 @@ dll:
       original_fieldset: pe
       short: Process name.
       type: keyword
-    pe.malware_classification.features.data.buffer:
-      dashed_name: dll-pe-malware-classification-features-data-buffer
+    pe.malware_classifier.features.data.buffer:
+      dashed_name: dll-pe-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: dll.pe.malware_classification.features.data.buffer
+      flat_name: dll.pe.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.features.data.decompressed_size:
-      dashed_name: dll-pe-malware-classification-features-data-decompressed-size
+    pe.malware_classifier.features.data.decompressed_size:
+      dashed_name: dll-pe-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: dll.pe.malware_classification.features.data.decompressed_size
+      flat_name: dll.pe.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    pe.malware_classification.features.data.encoding:
-      dashed_name: dll-pe-malware-classification-features-data-encoding
+    pe.malware_classifier.features.data.encoding:
+      dashed_name: dll-pe-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: dll.pe.malware_classification.features.data.encoding
+      flat_name: dll.pe.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.identifier:
-      dashed_name: dll-pe-malware-classification-identifier
+    pe.malware_classifier.identifier:
+      dashed_name: dll-pe-malware-classifier-identifier
       description: TODO
-      flat_name: dll.pe.malware_classification.identifier
+      flat_name: dll.pe.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.score:
-      dashed_name: dll-pe-malware-classification-score
+    pe.malware_classifier.score:
+      dashed_name: dll-pe-malware-classifier-score
       description: TODO
-      flat_name: dll.pe.malware_classification.score
+      flat_name: dll.pe.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.threshold:
-      dashed_name: dll-pe-malware-classification-threshold
+    pe.malware_classifier.threshold:
+      dashed_name: dll-pe-malware-classifier-threshold
       description: TODO
-      flat_name: dll.pe.malware_classification.threshold
+      flat_name: dll.pe.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.upx_packed:
-      dashed_name: dll-pe-malware-classification-upx-packed
+    pe.malware_classifier.upx_packed:
+      dashed_name: dll-pe-malware-classifier-upx-packed
       description: TODO
-      flat_name: dll.pe.malware_classification.upx_packed
+      flat_name: dll.pe.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    pe.malware_classification.version:
-      dashed_name: dll-pe-malware-classification-version
+    pe.malware_classifier.version:
+      dashed_name: dll-pe-malware-classifier-version
       description: TODO
-      flat_name: dll.pe.malware_classification.version
+      flat_name: dll.pe.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     pe.original_file_name:
@@ -457,8 +568,13 @@ dll:
   nestings:
   - code_signature
   - hash
+  - malware_classifier
   - pe
   prefix: dll.
+  reusable:
+    expected:
+    - target
+    top_level: true
   short: These fields contain information about code libraries dynamically loaded
     into processes.
   title: DLL
@@ -1219,18 +1335,6 @@ file:
       order: 13
       short: Primary group name of the file.
       type: keyword
-    hash.imphash:
-      dashed_name: file-hash-imphash
-      description: Imphash.
-      flat_name: file.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
     hash.md5:
       dashed_name: file-hash-md5
       description: MD5 hash.
@@ -1394,96 +1498,96 @@ file:
       original_fieldset: pe
       short: Process name.
       type: keyword
-    pe.malware_classification.features.data.buffer:
-      dashed_name: file-pe-malware-classification-features-data-buffer
+    pe.malware_classifier.features.data.buffer:
+      dashed_name: file-pe-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: file.pe.malware_classification.features.data.buffer
+      flat_name: file.pe.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.features.data.decompressed_size:
-      dashed_name: file-pe-malware-classification-features-data-decompressed-size
+    pe.malware_classifier.features.data.decompressed_size:
+      dashed_name: file-pe-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: file.pe.malware_classification.features.data.decompressed_size
+      flat_name: file.pe.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    pe.malware_classification.features.data.encoding:
-      dashed_name: file-pe-malware-classification-features-data-encoding
+    pe.malware_classifier.features.data.encoding:
+      dashed_name: file-pe-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: file.pe.malware_classification.features.data.encoding
+      flat_name: file.pe.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.identifier:
-      dashed_name: file-pe-malware-classification-identifier
+    pe.malware_classifier.identifier:
+      dashed_name: file-pe-malware-classifier-identifier
       description: TODO
-      flat_name: file.pe.malware_classification.identifier
+      flat_name: file.pe.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.score:
-      dashed_name: file-pe-malware-classification-score
+    pe.malware_classifier.score:
+      dashed_name: file-pe-malware-classifier-score
       description: TODO
-      flat_name: file.pe.malware_classification.score
+      flat_name: file.pe.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.threshold:
-      dashed_name: file-pe-malware-classification-threshold
+    pe.malware_classifier.threshold:
+      dashed_name: file-pe-malware-classifier-threshold
       description: TODO
-      flat_name: file.pe.malware_classification.threshold
+      flat_name: file.pe.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.upx_packed:
-      dashed_name: file-pe-malware-classification-upx-packed
+    pe.malware_classifier.upx_packed:
+      dashed_name: file-pe-malware-classifier-upx-packed
       description: TODO
-      flat_name: file.pe.malware_classification.upx_packed
+      flat_name: file.pe.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    pe.malware_classification.version:
-      dashed_name: file-pe-malware-classification-version
+    pe.malware_classifier.version:
+      dashed_name: file-pe-malware-classifier-version
       description: TODO
-      flat_name: file.pe.malware_classification.version
+      flat_name: file.pe.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     pe.original_file_name:
@@ -1574,427 +1678,6 @@ file:
   prefix: file.
   short: Fields describing files.
   title: File
-  type: group
-file_classification:
-  description: TODO
-  fields:
-    entry_modified:
-      dashed_name: file-classification-entry-modified
-      description: TODO
-      flat_name: file_classification.entry_modified
-      level: custom
-      name: entry_modified
-      normalize: []
-      order: 0
-      short: TODO
-      type: double
-    macro.code_page:
-      dashed_name: file-classification-macro-code-page
-      description: TODO
-      flat_name: file_classification.macro.code_page
-      level: custom
-      name: macro.code_page
-      normalize: []
-      order: 11
-      short: TODO
-      type: long
-    macro.collection:
-      dashed_name: file-classification-macro-collection
-      description: TODO
-      flat_name: file_classification.macro.collection
-      level: custom
-      name: macro.collection
-      normalize: []
-      object_type: keyword
-      order: 5
-      short: TODO
-      type: object
-    macro.collection.hash.imphash:
-      dashed_name: file-classification-macro-collection-hash-imphash
-      description: Imphash.
-      flat_name: file_classification.macro.collection.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    macro.collection.hash.md5:
-      dashed_name: file-classification-macro-collection-hash-md5
-      description: MD5 hash.
-      flat_name: file_classification.macro.collection.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    macro.collection.hash.sha1:
-      dashed_name: file-classification-macro-collection-hash-sha1
-      description: SHA1 hash.
-      flat_name: file_classification.macro.collection.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    macro.collection.hash.sha256:
-      dashed_name: file-classification-macro-collection-hash-sha256
-      description: SHA256 hash.
-      flat_name: file_classification.macro.collection.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    macro.collection.hash.sha512:
-      dashed_name: file-classification-macro-collection-hash-sha512
-      description: SHA512 hash.
-      flat_name: file_classification.macro.collection.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
-    macro.errors:
-      dashed_name: file-classification-macro-errors
-      description: TODO
-      flat_name: file_classification.macro.errors
-      level: custom
-      name: macro.errors
-      normalize: []
-      order: 2
-      short: TODO
-      type: nested
-    macro.errors.count:
-      dashed_name: file-classification-macro-errors-count
-      description: TODO
-      flat_name: file_classification.macro.errors.count
-      level: custom
-      name: macro.errors.count
-      normalize: []
-      order: 3
-      short: TODO
-      type: long
-    macro.errors.error_type:
-      dashed_name: file-classification-macro-errors-error-type
-      description: TODO
-      flat_name: file_classification.macro.errors.error_type
-      ignore_above: 1024
-      level: custom
-      name: macro.errors.error_type
-      normalize: []
-      order: 4
-      short: TODO
-      type: keyword
-    macro.file_extension:
-      dashed_name: file-classification-macro-file-extension
-      description: TODO
-      flat_name: file_classification.macro.file_extension
-      level: custom
-      name: macro.file_extension
-      normalize: []
-      order: 12
-      short: TODO
-      type: long
-    macro.project_file:
-      dashed_name: file-classification-macro-project-file
-      description: TODO
-      flat_name: file_classification.macro.project_file
-      level: custom
-      name: macro.project_file
-      normalize: []
-      object_type: keyword
-      order: 6
-      short: TODO
-      type: object
-    macro.project_file.hash.imphash:
-      dashed_name: file-classification-macro-project-file-hash-imphash
-      description: Imphash.
-      flat_name: file_classification.macro.project_file.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    macro.project_file.hash.md5:
-      dashed_name: file-classification-macro-project-file-hash-md5
-      description: MD5 hash.
-      flat_name: file_classification.macro.project_file.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    macro.project_file.hash.sha1:
-      dashed_name: file-classification-macro-project-file-hash-sha1
-      description: SHA1 hash.
-      flat_name: file_classification.macro.project_file.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    macro.project_file.hash.sha256:
-      dashed_name: file-classification-macro-project-file-hash-sha256
-      description: SHA256 hash.
-      flat_name: file_classification.macro.project_file.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    macro.project_file.hash.sha512:
-      dashed_name: file-classification-macro-project-file-hash-sha512
-      description: SHA512 hash.
-      flat_name: file_classification.macro.project_file.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
-    macro.stream:
-      dashed_name: file-classification-macro-stream
-      description: TODO
-      flat_name: file_classification.macro.stream
-      level: custom
-      name: macro.stream
-      normalize: []
-      order: 7
-      short: TODO
-      type: nested
-    macro.stream.hash.imphash:
-      dashed_name: file-classification-macro-stream-hash-imphash
-      description: Imphash.
-      flat_name: file_classification.macro.stream.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    macro.stream.hash.md5:
-      dashed_name: file-classification-macro-stream-hash-md5
-      description: MD5 hash.
-      flat_name: file_classification.macro.stream.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    macro.stream.hash.sha1:
-      dashed_name: file-classification-macro-stream-hash-sha1
-      description: SHA1 hash.
-      flat_name: file_classification.macro.stream.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    macro.stream.hash.sha256:
-      dashed_name: file-classification-macro-stream-hash-sha256
-      description: SHA256 hash.
-      flat_name: file_classification.macro.stream.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    macro.stream.hash.sha512:
-      dashed_name: file-classification-macro-stream-hash-sha512
-      description: SHA512 hash.
-      flat_name: file_classification.macro.stream.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
-    macro.stream.name:
-      dashed_name: file-classification-macro-stream-name
-      description: TODO
-      flat_name: file_classification.macro.stream.name
-      ignore_above: 1024
-      level: custom
-      name: macro.stream.name
-      normalize: []
-      order: 8
-      short: TODO
-      type: keyword
-    macro.stream.raw_code:
-      dashed_name: file-classification-macro-stream-raw-code
-      description: TODO
-      flat_name: file_classification.macro.stream.raw_code
-      ignore_above: 1024
-      level: custom
-      name: macro.stream.raw_code
-      normalize: []
-      order: 9
-      short: TODO
-      type: keyword
-    macro.stream.raw_code_size:
-      dashed_name: file-classification-macro-stream-raw-code-size
-      description: TODO
-      flat_name: file_classification.macro.stream.raw_code_size
-      ignore_above: 1024
-      level: custom
-      name: macro.stream.raw_code_size
-      normalize: []
-      order: 10
-      short: TODO
-      type: keyword
-    malware_classification.features.data.buffer:
-      dashed_name: file-classification-malware-classification-features-data-buffer
-      description: TODO
-      flat_name: file_classification.malware_classification.features.data.buffer
-      ignore_above: 1024
-      level: custom
-      name: features.data.buffer
-      normalize: []
-      order: 4
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    malware_classification.features.data.decompressed_size:
-      dashed_name: file-classification-malware-classification-features-data-decompressed-size
-      description: TODO
-      flat_name: file_classification.malware_classification.features.data.decompressed_size
-      level: custom
-      name: features.data.decompressed_size
-      normalize: []
-      order: 5
-      original_fieldset: malware_classification
-      short: TODO
-      type: integer
-    malware_classification.features.data.encoding:
-      dashed_name: file-classification-malware-classification-features-data-encoding
-      description: TODO
-      flat_name: file_classification.malware_classification.features.data.encoding
-      ignore_above: 1024
-      level: custom
-      name: features.data.encoding
-      normalize: []
-      order: 6
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    malware_classification.identifier:
-      dashed_name: file-classification-malware-classification-identifier
-      description: TODO
-      flat_name: file_classification.malware_classification.identifier
-      ignore_above: 1024
-      level: custom
-      name: identifier
-      normalize: []
-      order: 2
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    malware_classification.score:
-      dashed_name: file-classification-malware-classification-score
-      description: TODO
-      flat_name: file_classification.malware_classification.score
-      level: custom
-      name: score
-      normalize: []
-      order: 0
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    malware_classification.threshold:
-      dashed_name: file-classification-malware-classification-threshold
-      description: TODO
-      flat_name: file_classification.malware_classification.threshold
-      level: custom
-      name: threshold
-      normalize: []
-      order: 1
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    malware_classification.upx_packed:
-      dashed_name: file-classification-malware-classification-upx-packed
-      description: TODO
-      flat_name: file_classification.malware_classification.upx_packed
-      level: custom
-      name: upx_packed
-      normalize: []
-      order: 7
-      original_fieldset: malware_classification
-      short: TODO
-      type: boolean
-    malware_classification.version:
-      dashed_name: file-classification-malware-classification-version
-      description: TODO
-      flat_name: file_classification.malware_classification.version
-      ignore_above: 1024
-      level: custom
-      name: version
-      normalize: []
-      order: 3
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    temp_file_path:
-      dashed_name: file-classification-temp-file-path
-      description: TODO
-      flat_name: file_classification.temp_file_path
-      ignore_above: 1024
-      level: custom
-      name: temp_file_path
-      normalize: []
-      order: 1
-      short: TODO
-      type: keyword
-  group: 2
-  name: file_classification
-  nestings:
-  - hash
-  - malware_classification
-  prefix: file_classification.
-  short: TODO
-  title: File Classification
   type: group
 host:
   description: 'A host is defined as a general computing instance.
@@ -2457,6 +2140,391 @@ host:
   prefix: host.
   short: Fields describing the relevant computing instance.
   title: Host
+  type: group
+malware_event:
+  description: TODO
+  fields:
+    entry_modified:
+      dashed_name: malware-event-entry-modified
+      description: TODO
+      flat_name: malware_event.entry_modified
+      level: custom
+      name: entry_modified
+      normalize: []
+      order: 0
+      short: TODO
+      type: double
+    macro.code_page:
+      dashed_name: malware-event-macro-code-page
+      description: TODO
+      flat_name: malware_event.macro.code_page
+      level: custom
+      name: macro.code_page
+      normalize: []
+      order: 11
+      short: TODO
+      type: long
+    macro.collection:
+      dashed_name: malware-event-macro-collection
+      description: TODO
+      flat_name: malware_event.macro.collection
+      level: custom
+      name: macro.collection
+      normalize: []
+      object_type: keyword
+      order: 5
+      short: TODO
+      type: object
+    macro.collection.hash.md5:
+      dashed_name: malware-event-macro-collection-hash-md5
+      description: MD5 hash.
+      flat_name: malware_event.macro.collection.hash.md5
+      ignore_above: 1024
+      level: extended
+      name: md5
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
+      type: keyword
+    macro.collection.hash.sha1:
+      dashed_name: malware-event-macro-collection-hash-sha1
+      description: SHA1 hash.
+      flat_name: malware_event.macro.collection.hash.sha1
+      ignore_above: 1024
+      level: extended
+      name: sha1
+      normalize: []
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
+      type: keyword
+    macro.collection.hash.sha256:
+      dashed_name: malware-event-macro-collection-hash-sha256
+      description: SHA256 hash.
+      flat_name: malware_event.macro.collection.hash.sha256
+      ignore_above: 1024
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    macro.collection.hash.sha512:
+      dashed_name: malware-event-macro-collection-hash-sha512
+      description: SHA512 hash.
+      flat_name: malware_event.macro.collection.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
+      normalize: []
+      order: 3
+      original_fieldset: hash
+      short: SHA512 hash.
+      type: keyword
+    macro.errors:
+      dashed_name: malware-event-macro-errors
+      description: TODO
+      flat_name: malware_event.macro.errors
+      level: custom
+      name: macro.errors
+      normalize: []
+      order: 2
+      short: TODO
+      type: nested
+    macro.errors.count:
+      dashed_name: malware-event-macro-errors-count
+      description: TODO
+      flat_name: malware_event.macro.errors.count
+      level: custom
+      name: macro.errors.count
+      normalize: []
+      order: 3
+      short: TODO
+      type: long
+    macro.errors.error_type:
+      dashed_name: malware-event-macro-errors-error-type
+      description: TODO
+      flat_name: malware_event.macro.errors.error_type
+      ignore_above: 1024
+      level: custom
+      name: macro.errors.error_type
+      normalize: []
+      order: 4
+      short: TODO
+      type: keyword
+    macro.file_extension:
+      dashed_name: malware-event-macro-file-extension
+      description: TODO
+      flat_name: malware_event.macro.file_extension
+      level: custom
+      name: macro.file_extension
+      normalize: []
+      order: 12
+      short: TODO
+      type: long
+    macro.project_file:
+      dashed_name: malware-event-macro-project-file
+      description: TODO
+      flat_name: malware_event.macro.project_file
+      level: custom
+      name: macro.project_file
+      normalize: []
+      object_type: keyword
+      order: 6
+      short: TODO
+      type: object
+    macro.project_file.hash.md5:
+      dashed_name: malware-event-macro-project-file-hash-md5
+      description: MD5 hash.
+      flat_name: malware_event.macro.project_file.hash.md5
+      ignore_above: 1024
+      level: extended
+      name: md5
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
+      type: keyword
+    macro.project_file.hash.sha1:
+      dashed_name: malware-event-macro-project-file-hash-sha1
+      description: SHA1 hash.
+      flat_name: malware_event.macro.project_file.hash.sha1
+      ignore_above: 1024
+      level: extended
+      name: sha1
+      normalize: []
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
+      type: keyword
+    macro.project_file.hash.sha256:
+      dashed_name: malware-event-macro-project-file-hash-sha256
+      description: SHA256 hash.
+      flat_name: malware_event.macro.project_file.hash.sha256
+      ignore_above: 1024
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    macro.project_file.hash.sha512:
+      dashed_name: malware-event-macro-project-file-hash-sha512
+      description: SHA512 hash.
+      flat_name: malware_event.macro.project_file.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
+      normalize: []
+      order: 3
+      original_fieldset: hash
+      short: SHA512 hash.
+      type: keyword
+    macro.stream:
+      dashed_name: malware-event-macro-stream
+      description: TODO
+      flat_name: malware_event.macro.stream
+      level: custom
+      name: macro.stream
+      normalize: []
+      order: 7
+      short: TODO
+      type: nested
+    macro.stream.hash.md5:
+      dashed_name: malware-event-macro-stream-hash-md5
+      description: MD5 hash.
+      flat_name: malware_event.macro.stream.hash.md5
+      ignore_above: 1024
+      level: extended
+      name: md5
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
+      type: keyword
+    macro.stream.hash.sha1:
+      dashed_name: malware-event-macro-stream-hash-sha1
+      description: SHA1 hash.
+      flat_name: malware_event.macro.stream.hash.sha1
+      ignore_above: 1024
+      level: extended
+      name: sha1
+      normalize: []
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
+      type: keyword
+    macro.stream.hash.sha256:
+      dashed_name: malware-event-macro-stream-hash-sha256
+      description: SHA256 hash.
+      flat_name: malware_event.macro.stream.hash.sha256
+      ignore_above: 1024
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    macro.stream.hash.sha512:
+      dashed_name: malware-event-macro-stream-hash-sha512
+      description: SHA512 hash.
+      flat_name: malware_event.macro.stream.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
+      normalize: []
+      order: 3
+      original_fieldset: hash
+      short: SHA512 hash.
+      type: keyword
+    macro.stream.name:
+      dashed_name: malware-event-macro-stream-name
+      description: TODO
+      flat_name: malware_event.macro.stream.name
+      ignore_above: 1024
+      level: custom
+      name: macro.stream.name
+      normalize: []
+      order: 8
+      short: TODO
+      type: keyword
+    macro.stream.raw_code:
+      dashed_name: malware-event-macro-stream-raw-code
+      description: TODO
+      flat_name: malware_event.macro.stream.raw_code
+      ignore_above: 1024
+      level: custom
+      name: macro.stream.raw_code
+      normalize: []
+      order: 9
+      short: TODO
+      type: keyword
+    macro.stream.raw_code_size:
+      dashed_name: malware-event-macro-stream-raw-code-size
+      description: TODO
+      flat_name: malware_event.macro.stream.raw_code_size
+      ignore_above: 1024
+      level: custom
+      name: macro.stream.raw_code_size
+      normalize: []
+      order: 10
+      short: TODO
+      type: keyword
+    malware_classifier.features.data.buffer:
+      dashed_name: malware-event-malware-classifier-features-data-buffer
+      description: TODO
+      flat_name: malware_event.malware_classifier.features.data.buffer
+      ignore_above: 1024
+      level: custom
+      name: features.data.buffer
+      normalize: []
+      order: 4
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.features.data.decompressed_size:
+      dashed_name: malware-event-malware-classifier-features-data-decompressed-size
+      description: TODO
+      flat_name: malware_event.malware_classifier.features.data.decompressed_size
+      level: custom
+      name: features.data.decompressed_size
+      normalize: []
+      order: 5
+      original_fieldset: malware_classifier
+      short: TODO
+      type: integer
+    malware_classifier.features.data.encoding:
+      dashed_name: malware-event-malware-classifier-features-data-encoding
+      description: TODO
+      flat_name: malware_event.malware_classifier.features.data.encoding
+      ignore_above: 1024
+      level: custom
+      name: features.data.encoding
+      normalize: []
+      order: 6
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.identifier:
+      dashed_name: malware-event-malware-classifier-identifier
+      description: TODO
+      flat_name: malware_event.malware_classifier.identifier
+      ignore_above: 1024
+      level: custom
+      name: identifier
+      normalize: []
+      order: 2
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    malware_classifier.score:
+      dashed_name: malware-event-malware-classifier-score
+      description: TODO
+      flat_name: malware_event.malware_classifier.score
+      level: custom
+      name: score
+      normalize: []
+      order: 0
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    malware_classifier.threshold:
+      dashed_name: malware-event-malware-classifier-threshold
+      description: TODO
+      flat_name: malware_event.malware_classifier.threshold
+      level: custom
+      name: threshold
+      normalize: []
+      order: 1
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    malware_classifier.upx_packed:
+      dashed_name: malware-event-malware-classifier-upx-packed
+      description: TODO
+      flat_name: malware_event.malware_classifier.upx_packed
+      level: custom
+      name: upx_packed
+      normalize: []
+      order: 7
+      original_fieldset: malware_classifier
+      short: TODO
+      type: boolean
+    malware_classifier.version:
+      dashed_name: malware-event-malware-classifier-version
+      description: TODO
+      flat_name: malware_event.malware_classifier.version
+      ignore_above: 1024
+      level: custom
+      name: version
+      normalize: []
+      order: 3
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    temp_file_path:
+      dashed_name: malware-event-temp-file-path
+      description: TODO
+      flat_name: malware_event.temp_file_path
+      ignore_above: 1024
+      level: custom
+      name: temp_file_path
+      normalize: []
+      order: 1
+      short: TODO
+      type: keyword
+  group: 2
+  name: malware_event
+  nestings:
+  - hash
+  - malware_classifier
+  prefix: malware_event.
+  short: TODO
+  title: Malware Event
   type: group
 process:
   description: 'These fields contain information about a process.
@@ -2982,18 +3050,6 @@ process:
       order: 24
       short: TODO
       type: keyword
-    hash.imphash:
-      dashed_name: process-hash-imphash
-      description: Imphash.
-      flat_name: process.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
     hash.md5:
       dashed_name: process-hash-md5
       description: MD5 hash.
@@ -3052,96 +3108,96 @@ process:
       order: 0
       short: TODO
       type: boolean
-    malware_classification.features.data.buffer:
-      dashed_name: process-malware-classification-features-data-buffer
+    malware_classifier.features.data.buffer:
+      dashed_name: process-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: process.malware_classification.features.data.buffer
+      flat_name: process.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    malware_classification.features.data.decompressed_size:
-      dashed_name: process-malware-classification-features-data-decompressed-size
+    malware_classifier.features.data.decompressed_size:
+      dashed_name: process-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: process.malware_classification.features.data.decompressed_size
+      flat_name: process.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    malware_classification.features.data.encoding:
-      dashed_name: process-malware-classification-features-data-encoding
+    malware_classifier.features.data.encoding:
+      dashed_name: process-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: process.malware_classification.features.data.encoding
+      flat_name: process.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    malware_classification.identifier:
-      dashed_name: process-malware-classification-identifier
+    malware_classifier.identifier:
+      dashed_name: process-malware-classifier-identifier
       description: TODO
-      flat_name: process.malware_classification.identifier
+      flat_name: process.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    malware_classification.score:
-      dashed_name: process-malware-classification-score
+    malware_classifier.score:
+      dashed_name: process-malware-classifier-score
       description: TODO
-      flat_name: process.malware_classification.score
+      flat_name: process.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    malware_classification.threshold:
-      dashed_name: process-malware-classification-threshold
+    malware_classifier.threshold:
+      dashed_name: process-malware-classifier-threshold
       description: TODO
-      flat_name: process.malware_classification.threshold
+      flat_name: process.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    malware_classification.upx_packed:
-      dashed_name: process-malware-classification-upx-packed
+    malware_classifier.upx_packed:
+      dashed_name: process-malware-classifier-upx-packed
       description: TODO
-      flat_name: process.malware_classification.upx_packed
+      flat_name: process.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    malware_classification.version:
-      dashed_name: process-malware-classification-version
+    malware_classifier.version:
+      dashed_name: process-malware-classifier-version
       description: TODO
-      flat_name: process.malware_classification.version
+      flat_name: process.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     memory_percent:
@@ -3360,326 +3416,6 @@ process:
       order: 6
       short: TODO
       type: boolean
-    modules:
-      dashed_name: process-modules
-      description: These fields contain information about a list of modules.
-      flat_name: process.modules
-      group: 2
-      level: custom
-      name: modules
-      normalize: []
-      original_fieldset: modules
-      prefix: modules.
-      reusable:
-        expected:
-        - process
-        top_level: false
-      short: These fields contain information about a list of modules.
-      title: Modules
-      type: nested
-    modules.architecture:
-      dashed_name: process-modules-architecture
-      description: TODO
-      flat_name: process.modules.architecture
-      ignore_above: 1024
-      level: custom
-      name: architecture
-      normalize: []
-      order: 4
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.compile_time:
-      dashed_name: process-modules-compile-time
-      description: TODO
-      flat_name: process.modules.compile_time
-      level: custom
-      name: compile_time
-      normalize: []
-      order: 3
-      original_fieldset: modules
-      short: TODO
-      type: date
-    modules.hash.imphash:
-      dashed_name: process-modules-hash-imphash
-      description: Imphash.
-      flat_name: process.modules.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    modules.hash.md5:
-      dashed_name: process-modules-hash-md5
-      description: MD5 hash.
-      flat_name: process.modules.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    modules.hash.sha1:
-      dashed_name: process-modules-hash-sha1
-      description: SHA1 hash.
-      flat_name: process.modules.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    modules.hash.sha256:
-      dashed_name: process-modules-hash-sha256
-      description: SHA256 hash.
-      flat_name: process.modules.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    modules.hash.sha512:
-      dashed_name: process-modules-hash-sha512
-      description: SHA512 hash.
-      flat_name: process.modules.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
-    modules.malware_classification.features.data.buffer:
-      dashed_name: process-modules-malware-classification-features-data-buffer
-      description: TODO
-      flat_name: process.modules.malware_classification.features.data.buffer
-      ignore_above: 1024
-      level: custom
-      name: features.data.buffer
-      normalize: []
-      order: 4
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    modules.malware_classification.features.data.decompressed_size:
-      dashed_name: process-modules-malware-classification-features-data-decompressed-size
-      description: TODO
-      flat_name: process.modules.malware_classification.features.data.decompressed_size
-      level: custom
-      name: features.data.decompressed_size
-      normalize: []
-      order: 5
-      original_fieldset: malware_classification
-      short: TODO
-      type: integer
-    modules.malware_classification.features.data.encoding:
-      dashed_name: process-modules-malware-classification-features-data-encoding
-      description: TODO
-      flat_name: process.modules.malware_classification.features.data.encoding
-      ignore_above: 1024
-      level: custom
-      name: features.data.encoding
-      normalize: []
-      order: 6
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    modules.malware_classification.identifier:
-      dashed_name: process-modules-malware-classification-identifier
-      description: TODO
-      flat_name: process.modules.malware_classification.identifier
-      ignore_above: 1024
-      level: custom
-      name: identifier
-      normalize: []
-      order: 2
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    modules.malware_classification.score:
-      dashed_name: process-modules-malware-classification-score
-      description: TODO
-      flat_name: process.modules.malware_classification.score
-      level: custom
-      name: score
-      normalize: []
-      order: 0
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    modules.malware_classification.threshold:
-      dashed_name: process-modules-malware-classification-threshold
-      description: TODO
-      flat_name: process.modules.malware_classification.threshold
-      level: custom
-      name: threshold
-      normalize: []
-      order: 1
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    modules.malware_classification.upx_packed:
-      dashed_name: process-modules-malware-classification-upx-packed
-      description: TODO
-      flat_name: process.modules.malware_classification.upx_packed
-      level: custom
-      name: upx_packed
-      normalize: []
-      order: 7
-      original_fieldset: malware_classification
-      short: TODO
-      type: boolean
-    modules.malware_classification.version:
-      dashed_name: process-modules-malware-classification-version
-      description: TODO
-      flat_name: process.modules.malware_classification.version
-      ignore_above: 1024
-      level: custom
-      name: version
-      normalize: []
-      order: 3
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    modules.mapped_address:
-      dashed_name: process-modules-mapped-address
-      description: TODO
-      flat_name: process.modules.mapped_address
-      ignore_above: 1024
-      level: custom
-      name: mapped_address
-      normalize: []
-      order: 1
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.mapped_size:
-      dashed_name: process-modules-mapped-size
-      description: TODO
-      flat_name: process.modules.mapped_size
-      level: custom
-      name: mapped_size
-      normalize: []
-      order: 2
-      original_fieldset: modules
-      short: TODO
-      type: long
-    modules.path:
-      dashed_name: process-modules-path
-      description: TODO
-      flat_name: process.modules.path
-      ignore_above: 1024
-      level: custom
-      name: path
-      normalize: []
-      order: 0
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.pe_exports:
-      dashed_name: process-modules-pe-exports
-      description: TODO
-      flat_name: process.modules.pe_exports
-      level: custom
-      name: pe_exports
-      normalize: []
-      order: 8
-      original_fieldset: modules
-      short: TODO
-      type: nested
-    modules.pe_exports.name:
-      dashed_name: process-modules-pe-exports-name
-      description: TODO
-      flat_name: process.modules.pe_exports.name
-      ignore_above: 1024
-      level: custom
-      name: pe_exports.name
-      normalize: []
-      order: 10
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.pe_exports.ordinal:
-      dashed_name: process-modules-pe-exports-ordinal
-      description: TODO
-      flat_name: process.modules.pe_exports.ordinal
-      level: custom
-      name: pe_exports.ordinal
-      normalize: []
-      order: 9
-      original_fieldset: modules
-      short: TODO
-      type: long
-    modules.pe_imports:
-      dashed_name: process-modules-pe-imports
-      description: TODO
-      flat_name: process.modules.pe_imports
-      level: custom
-      name: pe_imports
-      normalize: []
-      order: 5
-      original_fieldset: modules
-      short: TODO
-      type: nested
-    modules.pe_imports.dll_name:
-      dashed_name: process-modules-pe-imports-dll-name
-      description: TODO
-      flat_name: process.modules.pe_imports.dll_name
-      ignore_above: 1024
-      level: custom
-      name: pe_imports.dll_name
-      normalize: []
-      order: 6
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.pe_imports.import_names:
-      dashed_name: process-modules-pe-imports-import-names
-      description: TODO
-      flat_name: process.modules.pe_imports.import_names
-      ignore_above: 1024
-      level: custom
-      name: pe_imports.import_names
-      normalize: []
-      order: 7
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.signature_signer:
-      dashed_name: process-modules-signature-signer
-      description: TODO
-      flat_name: process.modules.signature_signer
-      ignore_above: 1024
-      level: custom
-      name: signature_signer
-      normalize: []
-      order: 11
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    modules.signature_status:
-      dashed_name: process-modules-signature-status
-      description: TODO
-      flat_name: process.modules.signature_status
-      ignore_above: 1024
-      level: custom
-      name: signature_status
-      normalize: []
-      order: 12
-      original_fieldset: modules
-      short: TODO
-      type: keyword
     name:
       dashed_name: process-name
       description: 'Process name.
@@ -3887,18 +3623,6 @@ process:
       order: 31
       short: The exit code of the process.
       type: long
-    parent.hash.imphash:
-      dashed_name: process-parent-hash-imphash
-      description: Imphash.
-      flat_name: process.parent.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
     parent.hash.md5:
       dashed_name: process-parent-hash-md5
       description: MD5 hash.
@@ -4122,96 +3846,96 @@ process:
       original_fieldset: pe
       short: Process name.
       type: keyword
-    pe.malware_classification.features.data.buffer:
-      dashed_name: process-pe-malware-classification-features-data-buffer
+    pe.malware_classifier.features.data.buffer:
+      dashed_name: process-pe-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: process.pe.malware_classification.features.data.buffer
+      flat_name: process.pe.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.features.data.decompressed_size:
-      dashed_name: process-pe-malware-classification-features-data-decompressed-size
+    pe.malware_classifier.features.data.decompressed_size:
+      dashed_name: process-pe-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: process.pe.malware_classification.features.data.decompressed_size
+      flat_name: process.pe.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    pe.malware_classification.features.data.encoding:
-      dashed_name: process-pe-malware-classification-features-data-encoding
+    pe.malware_classifier.features.data.encoding:
+      dashed_name: process-pe-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: process.pe.malware_classification.features.data.encoding
+      flat_name: process.pe.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.identifier:
-      dashed_name: process-pe-malware-classification-identifier
+    pe.malware_classifier.identifier:
+      dashed_name: process-pe-malware-classifier-identifier
       description: TODO
-      flat_name: process.pe.malware_classification.identifier
+      flat_name: process.pe.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    pe.malware_classification.score:
-      dashed_name: process-pe-malware-classification-score
+    pe.malware_classifier.score:
+      dashed_name: process-pe-malware-classifier-score
       description: TODO
-      flat_name: process.pe.malware_classification.score
+      flat_name: process.pe.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.threshold:
-      dashed_name: process-pe-malware-classification-threshold
+    pe.malware_classifier.threshold:
+      dashed_name: process-pe-malware-classifier-threshold
       description: TODO
-      flat_name: process.pe.malware_classification.threshold
+      flat_name: process.pe.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    pe.malware_classification.upx_packed:
-      dashed_name: process-pe-malware-classification-upx-packed
+    pe.malware_classifier.upx_packed:
+      dashed_name: process-pe-malware-classifier-upx-packed
       description: TODO
-      flat_name: process.pe.malware_classification.upx_packed
+      flat_name: process.pe.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    pe.malware_classification.version:
-      dashed_name: process-pe-malware-classification-version
+    pe.malware_classifier.version:
+      dashed_name: process-pe-malware-classifier-version
       description: TODO
-      flat_name: process.pe.malware_classification.version
+      flat_name: process.pe.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     pe.original_file_name:
@@ -4924,8 +4648,7 @@ process:
   - call_stack
   - code_signature
   - hash
-  - malware_classification
-  - modules
+  - malware_classifier
   - pe
   - thread
   - token
@@ -5065,6 +4788,438 @@ target:
     related to the data in the document. Useful in a security context where a target
     process or thread may be acted on by another process or thread.'
   fields:
+    dll.code_signature.exists:
+      dashed_name: target-dll-code-signature-exists
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      flat_name: target.dll.code_signature.exists
+      level: core
+      name: exists
+      normalize: []
+      order: 0
+      original_fieldset: code_signature
+      short: Boolean to capture if a signature is present.
+      type: boolean
+    dll.code_signature.status:
+      dashed_name: target-dll-code-signature-status
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      flat_name: target.dll.code_signature.status
+      ignore_above: 1024
+      level: extended
+      name: status
+      normalize: []
+      order: 4
+      original_fieldset: code_signature
+      short: Additional information about the certificate status.
+      type: keyword
+    dll.code_signature.subject_name:
+      dashed_name: target-dll-code-signature-subject-name
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      flat_name: target.dll.code_signature.subject_name
+      ignore_above: 1024
+      level: core
+      name: subject_name
+      normalize: []
+      order: 1
+      original_fieldset: code_signature
+      short: Subject name of the code signer
+      type: keyword
+    dll.code_signature.trusted:
+      dashed_name: target-dll-code-signature-trusted
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      example: 'true'
+      flat_name: target.dll.code_signature.trusted
+      level: extended
+      name: trusted
+      normalize: []
+      order: 3
+      original_fieldset: code_signature
+      short: Stores the trust status of the certificate chain.
+      type: boolean
+    dll.code_signature.valid:
+      dashed_name: target-dll-code-signature-valid
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      flat_name: target.dll.code_signature.valid
+      level: extended
+      name: valid
+      normalize: []
+      order: 2
+      original_fieldset: code_signature
+      short: Boolean to capture if the digital signature is verified against the binary
+        content.
+      type: boolean
+    dll.compile_time:
+      dashed_name: target-dll-compile-time
+      description: TODO
+      flat_name: target.dll.compile_time
+      level: custom
+      name: compile_time
+      normalize: []
+      order: 2
+      original_fieldset: dll
+      short: TODO
+      type: date
+    dll.hash.md5:
+      dashed_name: target-dll-hash-md5
+      description: MD5 hash.
+      flat_name: target.dll.hash.md5
+      ignore_above: 1024
+      level: extended
+      name: md5
+      normalize: []
+      order: 0
+      original_fieldset: hash
+      short: MD5 hash.
+      type: keyword
+    dll.hash.sha1:
+      dashed_name: target-dll-hash-sha1
+      description: SHA1 hash.
+      flat_name: target.dll.hash.sha1
+      ignore_above: 1024
+      level: extended
+      name: sha1
+      normalize: []
+      order: 1
+      original_fieldset: hash
+      short: SHA1 hash.
+      type: keyword
+    dll.hash.sha256:
+      dashed_name: target-dll-hash-sha256
+      description: SHA256 hash.
+      flat_name: target.dll.hash.sha256
+      ignore_above: 1024
+      level: extended
+      name: sha256
+      normalize: []
+      order: 2
+      original_fieldset: hash
+      short: SHA256 hash.
+      type: keyword
+    dll.hash.sha512:
+      dashed_name: target-dll-hash-sha512
+      description: SHA512 hash.
+      flat_name: target.dll.hash.sha512
+      ignore_above: 1024
+      level: extended
+      name: sha512
+      normalize: []
+      order: 3
+      original_fieldset: hash
+      short: SHA512 hash.
+      type: keyword
+    dll.malware_classifier.features.data.buffer:
+      dashed_name: target-dll-malware-classifier-features-data-buffer
+      description: TODO
+      flat_name: target.dll.malware_classifier.features.data.buffer
+      ignore_above: 1024
+      level: custom
+      name: features.data.buffer
+      normalize: []
+      order: 4
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.malware_classifier.features.data.decompressed_size:
+      dashed_name: target-dll-malware-classifier-features-data-decompressed-size
+      description: TODO
+      flat_name: target.dll.malware_classifier.features.data.decompressed_size
+      level: custom
+      name: features.data.decompressed_size
+      normalize: []
+      order: 5
+      original_fieldset: malware_classifier
+      short: TODO
+      type: integer
+    dll.malware_classifier.features.data.encoding:
+      dashed_name: target-dll-malware-classifier-features-data-encoding
+      description: TODO
+      flat_name: target.dll.malware_classifier.features.data.encoding
+      ignore_above: 1024
+      level: custom
+      name: features.data.encoding
+      normalize: []
+      order: 6
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.malware_classifier.identifier:
+      dashed_name: target-dll-malware-classifier-identifier
+      description: TODO
+      flat_name: target.dll.malware_classifier.identifier
+      ignore_above: 1024
+      level: custom
+      name: identifier
+      normalize: []
+      order: 2
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.malware_classifier.score:
+      dashed_name: target-dll-malware-classifier-score
+      description: TODO
+      flat_name: target.dll.malware_classifier.score
+      level: custom
+      name: score
+      normalize: []
+      order: 0
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    dll.malware_classifier.threshold:
+      dashed_name: target-dll-malware-classifier-threshold
+      description: TODO
+      flat_name: target.dll.malware_classifier.threshold
+      level: custom
+      name: threshold
+      normalize: []
+      order: 1
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    dll.malware_classifier.upx_packed:
+      dashed_name: target-dll-malware-classifier-upx-packed
+      description: TODO
+      flat_name: target.dll.malware_classifier.upx_packed
+      level: custom
+      name: upx_packed
+      normalize: []
+      order: 7
+      original_fieldset: malware_classifier
+      short: TODO
+      type: boolean
+    dll.malware_classifier.version:
+      dashed_name: target-dll-malware-classifier-version
+      description: TODO
+      flat_name: target.dll.malware_classifier.version
+      ignore_above: 1024
+      level: custom
+      name: version
+      normalize: []
+      order: 3
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.mapped_address:
+      dashed_name: target-dll-mapped-address
+      description: TODO
+      flat_name: target.dll.mapped_address
+      ignore_above: 1024
+      level: custom
+      name: mapped_address
+      normalize: []
+      order: 0
+      original_fieldset: dll
+      short: TODO
+      type: keyword
+    dll.mapped_size:
+      dashed_name: target-dll-mapped-size
+      description: TODO
+      flat_name: target.dll.mapped_size
+      level: custom
+      name: mapped_size
+      normalize: []
+      order: 1
+      original_fieldset: dll
+      short: TODO
+      type: long
+    dll.name:
+      dashed_name: target-dll-name
+      description: 'Name of the library.
+
+        This generally maps to the name of the file on disk.'
+      example: kernel32.dll
+      flat_name: target.dll.name
+      ignore_above: 1024
+      level: core
+      name: name
+      normalize: []
+      order: 0
+      original_fieldset: dll
+      short: Name of the library.
+      type: keyword
+    dll.path:
+      dashed_name: target-dll-path
+      description: Full file path of the library.
+      example: C:\Windows\System32\kernel32.dll
+      flat_name: target.dll.path
+      ignore_above: 1024
+      level: extended
+      name: path
+      normalize: []
+      order: 1
+      original_fieldset: dll
+      short: Full file path of the library.
+      type: keyword
+    dll.pe.company:
+      dashed_name: target-dll-pe-company
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      flat_name: target.dll.pe.company
+      ignore_above: 1024
+      level: extended
+      name: company
+      normalize: []
+      order: 4
+      original_fieldset: pe
+      short: Internal company name of the file, provided at compile-time.
+      type: keyword
+    dll.pe.description:
+      dashed_name: target-dll-pe-description
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      flat_name: target.dll.pe.description
+      ignore_above: 1024
+      level: extended
+      name: description
+      normalize: []
+      order: 2
+      original_fieldset: pe
+      short: Internal description of the file, provided at compile-time.
+      type: keyword
+    dll.pe.file_version:
+      dashed_name: target-dll-pe-file-version
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      flat_name: target.dll.pe.file_version
+      ignore_above: 1024
+      level: extended
+      name: file_version
+      normalize: []
+      order: 1
+      original_fieldset: pe
+      short: Process name.
+      type: keyword
+    dll.pe.malware_classifier.features.data.buffer:
+      dashed_name: target-dll-pe-malware-classifier-features-data-buffer
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.features.data.buffer
+      ignore_above: 1024
+      level: custom
+      name: features.data.buffer
+      normalize: []
+      order: 4
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.pe.malware_classifier.features.data.decompressed_size:
+      dashed_name: target-dll-pe-malware-classifier-features-data-decompressed-size
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.features.data.decompressed_size
+      level: custom
+      name: features.data.decompressed_size
+      normalize: []
+      order: 5
+      original_fieldset: malware_classifier
+      short: TODO
+      type: integer
+    dll.pe.malware_classifier.features.data.encoding:
+      dashed_name: target-dll-pe-malware-classifier-features-data-encoding
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.features.data.encoding
+      ignore_above: 1024
+      level: custom
+      name: features.data.encoding
+      normalize: []
+      order: 6
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.pe.malware_classifier.identifier:
+      dashed_name: target-dll-pe-malware-classifier-identifier
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.identifier
+      ignore_above: 1024
+      level: custom
+      name: identifier
+      normalize: []
+      order: 2
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.pe.malware_classifier.score:
+      dashed_name: target-dll-pe-malware-classifier-score
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.score
+      level: custom
+      name: score
+      normalize: []
+      order: 0
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    dll.pe.malware_classifier.threshold:
+      dashed_name: target-dll-pe-malware-classifier-threshold
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.threshold
+      level: custom
+      name: threshold
+      normalize: []
+      order: 1
+      original_fieldset: malware_classifier
+      short: TODO
+      type: double
+    dll.pe.malware_classifier.upx_packed:
+      dashed_name: target-dll-pe-malware-classifier-upx-packed
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.upx_packed
+      level: custom
+      name: upx_packed
+      normalize: []
+      order: 7
+      original_fieldset: malware_classifier
+      short: TODO
+      type: boolean
+    dll.pe.malware_classifier.version:
+      dashed_name: target-dll-pe-malware-classifier-version
+      description: TODO
+      flat_name: target.dll.pe.malware_classifier.version
+      ignore_above: 1024
+      level: custom
+      name: version
+      normalize: []
+      order: 3
+      original_fieldset: malware_classifier
+      short: TODO
+      type: keyword
+    dll.pe.original_file_name:
+      dashed_name: target-dll-pe-original-file-name
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      flat_name: target.dll.pe.original_file_name
+      ignore_above: 1024
+      level: extended
+      name: original_file_name
+      normalize: []
+      order: 0
+      original_fieldset: pe
+      short: Internal name of the file, provided at compile-time.
+      type: keyword
+    dll.pe.product:
+      dashed_name: target-dll-pe-product
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft\xAE Windows\xAE Operating System"
+      flat_name: target.dll.pe.product
+      ignore_above: 1024
+      level: extended
+      name: product
+      normalize: []
+      order: 3
+      original_fieldset: pe
+      short: Internal product name of the file, provided at compile-time.
+      type: keyword
     process.args:
       dashed_name: target-process-args
       description: 'Array of process arguments, starting with the absolute path to
@@ -5610,18 +5765,6 @@ target:
       original_fieldset: process
       short: TODO
       type: keyword
-    process.hash.imphash:
-      dashed_name: target-process-hash-imphash
-      description: Imphash.
-      flat_name: target.process.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
     process.hash.md5:
       dashed_name: target-process-hash-md5
       description: MD5 hash.
@@ -5681,96 +5824,96 @@ target:
       original_fieldset: process
       short: TODO
       type: boolean
-    process.malware_classification.features.data.buffer:
-      dashed_name: target-process-malware-classification-features-data-buffer
+    process.malware_classifier.features.data.buffer:
+      dashed_name: target-process-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: target.process.malware_classification.features.data.buffer
+      flat_name: target.process.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.malware_classification.features.data.decompressed_size:
-      dashed_name: target-process-malware-classification-features-data-decompressed-size
+    process.malware_classifier.features.data.decompressed_size:
+      dashed_name: target-process-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: target.process.malware_classification.features.data.decompressed_size
+      flat_name: target.process.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    process.malware_classification.features.data.encoding:
-      dashed_name: target-process-malware-classification-features-data-encoding
+    process.malware_classifier.features.data.encoding:
+      dashed_name: target-process-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: target.process.malware_classification.features.data.encoding
+      flat_name: target.process.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.malware_classification.identifier:
-      dashed_name: target-process-malware-classification-identifier
+    process.malware_classifier.identifier:
+      dashed_name: target-process-malware-classifier-identifier
       description: TODO
-      flat_name: target.process.malware_classification.identifier
+      flat_name: target.process.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.malware_classification.score:
-      dashed_name: target-process-malware-classification-score
+    process.malware_classifier.score:
+      dashed_name: target-process-malware-classifier-score
       description: TODO
-      flat_name: target.process.malware_classification.score
+      flat_name: target.process.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    process.malware_classification.threshold:
-      dashed_name: target-process-malware-classification-threshold
+    process.malware_classifier.threshold:
+      dashed_name: target-process-malware-classifier-threshold
       description: TODO
-      flat_name: target.process.malware_classification.threshold
+      flat_name: target.process.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    process.malware_classification.upx_packed:
-      dashed_name: target-process-malware-classification-upx-packed
+    process.malware_classifier.upx_packed:
+      dashed_name: target-process-malware-classifier-upx-packed
       description: TODO
-      flat_name: target.process.malware_classification.upx_packed
+      flat_name: target.process.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    process.malware_classification.version:
-      dashed_name: target-process-malware-classification-version
+    process.malware_classifier.version:
+      dashed_name: target-process-malware-classifier-version
       description: TODO
-      flat_name: target.process.malware_classification.version
+      flat_name: target.process.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     process.memory_percent:
@@ -6009,326 +6152,6 @@ target:
       original_fieldset: process
       short: TODO
       type: boolean
-    process.modules:
-      dashed_name: target-process-modules
-      description: These fields contain information about a list of modules.
-      flat_name: target.process.modules
-      group: 2
-      level: custom
-      name: modules
-      normalize: []
-      original_fieldset: modules
-      prefix: modules.
-      reusable:
-        expected:
-        - process
-        top_level: false
-      short: These fields contain information about a list of modules.
-      title: Modules
-      type: nested
-    process.modules.architecture:
-      dashed_name: target-process-modules-architecture
-      description: TODO
-      flat_name: target.process.modules.architecture
-      ignore_above: 1024
-      level: custom
-      name: architecture
-      normalize: []
-      order: 4
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.compile_time:
-      dashed_name: target-process-modules-compile-time
-      description: TODO
-      flat_name: target.process.modules.compile_time
-      level: custom
-      name: compile_time
-      normalize: []
-      order: 3
-      original_fieldset: modules
-      short: TODO
-      type: date
-    process.modules.hash.imphash:
-      dashed_name: target-process-modules-hash-imphash
-      description: Imphash.
-      flat_name: target.process.modules.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
-    process.modules.hash.md5:
-      dashed_name: target-process-modules-hash-md5
-      description: MD5 hash.
-      flat_name: target.process.modules.hash.md5
-      ignore_above: 1024
-      level: extended
-      name: md5
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: MD5 hash.
-      type: keyword
-    process.modules.hash.sha1:
-      dashed_name: target-process-modules-hash-sha1
-      description: SHA1 hash.
-      flat_name: target.process.modules.hash.sha1
-      ignore_above: 1024
-      level: extended
-      name: sha1
-      normalize: []
-      order: 1
-      original_fieldset: hash
-      short: SHA1 hash.
-      type: keyword
-    process.modules.hash.sha256:
-      dashed_name: target-process-modules-hash-sha256
-      description: SHA256 hash.
-      flat_name: target.process.modules.hash.sha256
-      ignore_above: 1024
-      level: extended
-      name: sha256
-      normalize: []
-      order: 2
-      original_fieldset: hash
-      short: SHA256 hash.
-      type: keyword
-    process.modules.hash.sha512:
-      dashed_name: target-process-modules-hash-sha512
-      description: SHA512 hash.
-      flat_name: target.process.modules.hash.sha512
-      ignore_above: 1024
-      level: extended
-      name: sha512
-      normalize: []
-      order: 3
-      original_fieldset: hash
-      short: SHA512 hash.
-      type: keyword
-    process.modules.malware_classification.features.data.buffer:
-      dashed_name: target-process-modules-malware-classification-features-data-buffer
-      description: TODO
-      flat_name: target.process.modules.malware_classification.features.data.buffer
-      ignore_above: 1024
-      level: custom
-      name: features.data.buffer
-      normalize: []
-      order: 4
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    process.modules.malware_classification.features.data.decompressed_size:
-      dashed_name: target-process-modules-malware-classification-features-data-decompressed-size
-      description: TODO
-      flat_name: target.process.modules.malware_classification.features.data.decompressed_size
-      level: custom
-      name: features.data.decompressed_size
-      normalize: []
-      order: 5
-      original_fieldset: malware_classification
-      short: TODO
-      type: integer
-    process.modules.malware_classification.features.data.encoding:
-      dashed_name: target-process-modules-malware-classification-features-data-encoding
-      description: TODO
-      flat_name: target.process.modules.malware_classification.features.data.encoding
-      ignore_above: 1024
-      level: custom
-      name: features.data.encoding
-      normalize: []
-      order: 6
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    process.modules.malware_classification.identifier:
-      dashed_name: target-process-modules-malware-classification-identifier
-      description: TODO
-      flat_name: target.process.modules.malware_classification.identifier
-      ignore_above: 1024
-      level: custom
-      name: identifier
-      normalize: []
-      order: 2
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    process.modules.malware_classification.score:
-      dashed_name: target-process-modules-malware-classification-score
-      description: TODO
-      flat_name: target.process.modules.malware_classification.score
-      level: custom
-      name: score
-      normalize: []
-      order: 0
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    process.modules.malware_classification.threshold:
-      dashed_name: target-process-modules-malware-classification-threshold
-      description: TODO
-      flat_name: target.process.modules.malware_classification.threshold
-      level: custom
-      name: threshold
-      normalize: []
-      order: 1
-      original_fieldset: malware_classification
-      short: TODO
-      type: double
-    process.modules.malware_classification.upx_packed:
-      dashed_name: target-process-modules-malware-classification-upx-packed
-      description: TODO
-      flat_name: target.process.modules.malware_classification.upx_packed
-      level: custom
-      name: upx_packed
-      normalize: []
-      order: 7
-      original_fieldset: malware_classification
-      short: TODO
-      type: boolean
-    process.modules.malware_classification.version:
-      dashed_name: target-process-modules-malware-classification-version
-      description: TODO
-      flat_name: target.process.modules.malware_classification.version
-      ignore_above: 1024
-      level: custom
-      name: version
-      normalize: []
-      order: 3
-      original_fieldset: malware_classification
-      short: TODO
-      type: keyword
-    process.modules.mapped_address:
-      dashed_name: target-process-modules-mapped-address
-      description: TODO
-      flat_name: target.process.modules.mapped_address
-      ignore_above: 1024
-      level: custom
-      name: mapped_address
-      normalize: []
-      order: 1
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.mapped_size:
-      dashed_name: target-process-modules-mapped-size
-      description: TODO
-      flat_name: target.process.modules.mapped_size
-      level: custom
-      name: mapped_size
-      normalize: []
-      order: 2
-      original_fieldset: modules
-      short: TODO
-      type: long
-    process.modules.path:
-      dashed_name: target-process-modules-path
-      description: TODO
-      flat_name: target.process.modules.path
-      ignore_above: 1024
-      level: custom
-      name: path
-      normalize: []
-      order: 0
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.pe_exports:
-      dashed_name: target-process-modules-pe-exports
-      description: TODO
-      flat_name: target.process.modules.pe_exports
-      level: custom
-      name: pe_exports
-      normalize: []
-      order: 8
-      original_fieldset: modules
-      short: TODO
-      type: nested
-    process.modules.pe_exports.name:
-      dashed_name: target-process-modules-pe-exports-name
-      description: TODO
-      flat_name: target.process.modules.pe_exports.name
-      ignore_above: 1024
-      level: custom
-      name: pe_exports.name
-      normalize: []
-      order: 10
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.pe_exports.ordinal:
-      dashed_name: target-process-modules-pe-exports-ordinal
-      description: TODO
-      flat_name: target.process.modules.pe_exports.ordinal
-      level: custom
-      name: pe_exports.ordinal
-      normalize: []
-      order: 9
-      original_fieldset: modules
-      short: TODO
-      type: long
-    process.modules.pe_imports:
-      dashed_name: target-process-modules-pe-imports
-      description: TODO
-      flat_name: target.process.modules.pe_imports
-      level: custom
-      name: pe_imports
-      normalize: []
-      order: 5
-      original_fieldset: modules
-      short: TODO
-      type: nested
-    process.modules.pe_imports.dll_name:
-      dashed_name: target-process-modules-pe-imports-dll-name
-      description: TODO
-      flat_name: target.process.modules.pe_imports.dll_name
-      ignore_above: 1024
-      level: custom
-      name: pe_imports.dll_name
-      normalize: []
-      order: 6
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.pe_imports.import_names:
-      dashed_name: target-process-modules-pe-imports-import-names
-      description: TODO
-      flat_name: target.process.modules.pe_imports.import_names
-      ignore_above: 1024
-      level: custom
-      name: pe_imports.import_names
-      normalize: []
-      order: 7
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.signature_signer:
-      dashed_name: target-process-modules-signature-signer
-      description: TODO
-      flat_name: target.process.modules.signature_signer
-      ignore_above: 1024
-      level: custom
-      name: signature_signer
-      normalize: []
-      order: 11
-      original_fieldset: modules
-      short: TODO
-      type: keyword
-    process.modules.signature_status:
-      dashed_name: target-process-modules-signature-status
-      description: TODO
-      flat_name: target.process.modules.signature_status
-      ignore_above: 1024
-      level: custom
-      name: signature_status
-      normalize: []
-      order: 12
-      original_fieldset: modules
-      short: TODO
-      type: keyword
     process.name:
       dashed_name: target-process-name
       description: 'Process name.
@@ -6544,18 +6367,6 @@ target:
       original_fieldset: process
       short: The exit code of the process.
       type: long
-    process.parent.hash.imphash:
-      dashed_name: target-process-parent-hash-imphash
-      description: Imphash.
-      flat_name: target.process.parent.hash.imphash
-      ignore_above: 1024
-      level: extended
-      name: imphash
-      normalize: []
-      order: 0
-      original_fieldset: hash
-      short: Imphash.
-      type: keyword
     process.parent.hash.md5:
       dashed_name: target-process-parent-hash-md5
       description: MD5 hash.
@@ -6789,96 +6600,96 @@ target:
       original_fieldset: pe
       short: Process name.
       type: keyword
-    process.pe.malware_classification.features.data.buffer:
-      dashed_name: target-process-pe-malware-classification-features-data-buffer
+    process.pe.malware_classifier.features.data.buffer:
+      dashed_name: target-process-pe-malware-classifier-features-data-buffer
       description: TODO
-      flat_name: target.process.pe.malware_classification.features.data.buffer
+      flat_name: target.process.pe.malware_classifier.features.data.buffer
       ignore_above: 1024
       level: custom
       name: features.data.buffer
       normalize: []
       order: 4
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.pe.malware_classification.features.data.decompressed_size:
-      dashed_name: target-process-pe-malware-classification-features-data-decompressed-size
+    process.pe.malware_classifier.features.data.decompressed_size:
+      dashed_name: target-process-pe-malware-classifier-features-data-decompressed-size
       description: TODO
-      flat_name: target.process.pe.malware_classification.features.data.decompressed_size
+      flat_name: target.process.pe.malware_classifier.features.data.decompressed_size
       level: custom
       name: features.data.decompressed_size
       normalize: []
       order: 5
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: integer
-    process.pe.malware_classification.features.data.encoding:
-      dashed_name: target-process-pe-malware-classification-features-data-encoding
+    process.pe.malware_classifier.features.data.encoding:
+      dashed_name: target-process-pe-malware-classifier-features-data-encoding
       description: TODO
-      flat_name: target.process.pe.malware_classification.features.data.encoding
+      flat_name: target.process.pe.malware_classifier.features.data.encoding
       ignore_above: 1024
       level: custom
       name: features.data.encoding
       normalize: []
       order: 6
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.pe.malware_classification.identifier:
-      dashed_name: target-process-pe-malware-classification-identifier
+    process.pe.malware_classifier.identifier:
+      dashed_name: target-process-pe-malware-classifier-identifier
       description: TODO
-      flat_name: target.process.pe.malware_classification.identifier
+      flat_name: target.process.pe.malware_classifier.identifier
       ignore_above: 1024
       level: custom
       name: identifier
       normalize: []
       order: 2
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
-    process.pe.malware_classification.score:
-      dashed_name: target-process-pe-malware-classification-score
+    process.pe.malware_classifier.score:
+      dashed_name: target-process-pe-malware-classifier-score
       description: TODO
-      flat_name: target.process.pe.malware_classification.score
+      flat_name: target.process.pe.malware_classifier.score
       level: custom
       name: score
       normalize: []
       order: 0
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    process.pe.malware_classification.threshold:
-      dashed_name: target-process-pe-malware-classification-threshold
+    process.pe.malware_classifier.threshold:
+      dashed_name: target-process-pe-malware-classifier-threshold
       description: TODO
-      flat_name: target.process.pe.malware_classification.threshold
+      flat_name: target.process.pe.malware_classifier.threshold
       level: custom
       name: threshold
       normalize: []
       order: 1
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: double
-    process.pe.malware_classification.upx_packed:
-      dashed_name: target-process-pe-malware-classification-upx-packed
+    process.pe.malware_classifier.upx_packed:
+      dashed_name: target-process-pe-malware-classifier-upx-packed
       description: TODO
-      flat_name: target.process.pe.malware_classification.upx_packed
+      flat_name: target.process.pe.malware_classifier.upx_packed
       level: custom
       name: upx_packed
       normalize: []
       order: 7
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: boolean
-    process.pe.malware_classification.version:
-      dashed_name: target-process-pe-malware-classification-version
+    process.pe.malware_classifier.version:
+      dashed_name: target-process-pe-malware-classifier-version
       description: TODO
-      flat_name: target.process.pe.malware_classification.version
+      flat_name: target.process.pe.malware_classifier.version
       ignore_above: 1024
       level: custom
       name: version
       normalize: []
       order: 3
-      original_fieldset: malware_classification
+      original_fieldset: malware_classifier
       short: TODO
       type: keyword
     process.pe.original_file_name:
@@ -7618,6 +7429,7 @@ target:
   group: 2
   name: target
   nestings:
+  - dll
   - process
   prefix: target.
   short: These fields contain information about a target.
