@@ -968,30 +968,6 @@
           "exit_code": {
             "type": "long"
           },
-          "file_hash": {
-            "properties": {
-              "imphash": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "md5": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "sha1": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "sha256": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "sha512": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          },
           "group": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -1958,30 +1934,6 @@
               },
               "exit_code": {
                 "type": "long"
-              },
-              "file_hash": {
-                "properties": {
-                  "imphash": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "md5": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha1": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha256": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "sha512": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
               },
               "group": {
                 "ignore_above": 1024,

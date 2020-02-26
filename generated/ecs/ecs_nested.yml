@@ -2983,61 +2983,6 @@ process:
       order: 30
       short: The exit code of the process.
       type: long
-    file_hash.imphash:
-      dashed_name: process-file-hash-imphash
-      description: Imphash.
-      flat_name: process.file_hash.imphash
-      ignore_above: 1024
-      level: custom
-      name: file_hash.imphash
-      normalize: []
-      order: 65
-      short: Imphash.
-      type: keyword
-    file_hash.md5:
-      dashed_name: process-file-hash-md5
-      description: MD5 hash.
-      flat_name: process.file_hash.md5
-      ignore_above: 1024
-      level: custom
-      name: file_hash.md5
-      normalize: []
-      order: 61
-      short: MD5 hash.
-      type: keyword
-    file_hash.sha1:
-      dashed_name: process-file-hash-sha1
-      description: SHA1 hash.
-      flat_name: process.file_hash.sha1
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha1
-      normalize: []
-      order: 62
-      short: SHA1 hash.
-      type: keyword
-    file_hash.sha256:
-      dashed_name: process-file-hash-sha256
-      description: SHA256 hash.
-      flat_name: process.file_hash.sha256
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha256
-      normalize: []
-      order: 63
-      short: SHA256 hash.
-      type: keyword
-    file_hash.sha512:
-      dashed_name: process-file-hash-sha512
-      description: SHA512 hash.
-      flat_name: process.file_hash.sha512
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha512
-      normalize: []
-      order: 64
-      short: SHA512 hash.
-      type: keyword
     group:
       dashed_name: process-group
       description: TODO
@@ -5689,66 +5634,6 @@ target:
       original_fieldset: process
       short: The exit code of the process.
       type: long
-    process.file_hash.imphash:
-      dashed_name: target-process-file-hash-imphash
-      description: Imphash.
-      flat_name: target.process.file_hash.imphash
-      ignore_above: 1024
-      level: custom
-      name: file_hash.imphash
-      normalize: []
-      order: 65
-      original_fieldset: process
-      short: Imphash.
-      type: keyword
-    process.file_hash.md5:
-      dashed_name: target-process-file-hash-md5
-      description: MD5 hash.
-      flat_name: target.process.file_hash.md5
-      ignore_above: 1024
-      level: custom
-      name: file_hash.md5
-      normalize: []
-      order: 61
-      original_fieldset: process
-      short: MD5 hash.
-      type: keyword
-    process.file_hash.sha1:
-      dashed_name: target-process-file-hash-sha1
-      description: SHA1 hash.
-      flat_name: target.process.file_hash.sha1
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha1
-      normalize: []
-      order: 62
-      original_fieldset: process
-      short: SHA1 hash.
-      type: keyword
-    process.file_hash.sha256:
-      dashed_name: target-process-file-hash-sha256
-      description: SHA256 hash.
-      flat_name: target.process.file_hash.sha256
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha256
-      normalize: []
-      order: 63
-      original_fieldset: process
-      short: SHA256 hash.
-      type: keyword
-    process.file_hash.sha512:
-      dashed_name: target-process-file-hash-sha512
-      description: SHA512 hash.
-      flat_name: target.process.file_hash.sha512
-      ignore_above: 1024
-      level: custom
-      name: file_hash.sha512
-      normalize: []
-      order: 64
-      original_fieldset: process
-      short: SHA512 hash.
-      type: keyword
     process.group:
       dashed_name: target-process-group
       description: TODO

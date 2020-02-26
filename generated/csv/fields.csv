@@ -204,11 +204,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.executable,keyword,extended,,/usr/bin/ssh,Absolute path to the process executable.
 1.5.0-dev,true,process,process.executable.text,text,extended,,/usr/bin/ssh,Absolute path to the process executable.
 1.5.0-dev,true,process,process.exit_code,long,extended,,137,The exit code of the process.
-1.5.0-dev,true,process,process.file_hash.imphash,keyword,custom,,,Imphash.
-1.5.0-dev,true,process,process.file_hash.md5,keyword,custom,,,MD5 hash.
-1.5.0-dev,true,process,process.file_hash.sha1,keyword,custom,,,SHA1 hash.
-1.5.0-dev,true,process,process.file_hash.sha256,keyword,custom,,,SHA256 hash.
-1.5.0-dev,true,process,process.file_hash.sha512,keyword,custom,,,SHA512 hash.
 1.5.0-dev,true,process,process.group,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.handles,nested,custom,,,TODO
 1.5.0-dev,true,process,process.handles.handle_id,long,custom,,,TODO
@@ -430,11 +425,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.executable,keyword,extended,,/usr/bin/ssh,Absolute path to the process executable.
 1.5.0-dev,true,target,target.process.executable.text,text,extended,,/usr/bin/ssh,Absolute path to the process executable.
 1.5.0-dev,true,target,target.process.exit_code,long,extended,,137,The exit code of the process.
-1.5.0-dev,true,target,target.process.file_hash.imphash,keyword,custom,,,Imphash.
-1.5.0-dev,true,target,target.process.file_hash.md5,keyword,custom,,,MD5 hash.
-1.5.0-dev,true,target,target.process.file_hash.sha1,keyword,custom,,,SHA1 hash.
-1.5.0-dev,true,target,target.process.file_hash.sha256,keyword,custom,,,SHA256 hash.
-1.5.0-dev,true,target,target.process.file_hash.sha512,keyword,custom,,,SHA512 hash.
 1.5.0-dev,true,target,target.process.group,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles,nested,custom,,,TODO
 1.5.0-dev,true,target,target.process.handles.handle_id,long,custom,,,TODO
