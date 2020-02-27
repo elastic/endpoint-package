@@ -459,43 +459,43 @@ fields:
       description: >
         Total size in bytes of the response (body and headers).
 
-  - name: dns
-    description: >
-      Fields describing DNS queries and answers.
+- name: dns
+  description: >
+    Fields describing DNS queries and answers.
+  fields:
+
+  - name: question
     fields:
 
-    - name: question
-      fields:
-
-      - name: name
-        type: keyword
-        description: >
-          The name being queried.
-
-      - name: type
-        type: keyword
-        description: >
-          The type of record being queried.
-
-      - name: registered_domain
-        type: keyword
-        description: >
-          The highest registered domain, stripped of the subdomain.
-
-      - name: top_level_domain
-        type: keyword
-        description: >
-          The effective top level domain (com, org, net, co.uk).
-
-      - name: subdomain
-        type: keyword
-        description: >
-          The subdomain of the domain.
-
-    - name: resolved_ip
-      type: ip
+    - name: name
+      type: keyword
       description: >
-        Array containing all IPs.
+        The name being queried.
+
+    - name: type
+      type: keyword
+      description: >
+        The type of record being queried.
+
+    - name: registered_domain
+      type: keyword
+      description: >
+        The highest registered domain, stripped of the subdomain.
+
+    - name: top_level_domain
+      type: keyword
+      description: >
+        The effective top level domain (com, org, net, co.uk).
+
+    - name: subdomain
+      type: keyword
+      description: >
+        The subdomain of the domain.
+
+  - name: resolved_ip
+    type: ip
+    description: >
+      Array containing all IPs.
 
 - name: endpoint
   description: >
