@@ -139,6 +139,15 @@ ecs.version:
     ECS versions -- this field lets integrations adjust to the schema version of the
     events.'
   type: keyword
+endpoint.artifact.hash:
+  description: Hash of artifact in use by endpoint when event was created.
+  type: keyword
+endpoint.artifact.name:
+  description: Name of artifact in use by endpoint when event was created.
+  type: keyword
+endpoint.artifact.version:
+  description: Version of artifact in use by endpoint when event was created.
+  type: keyword
 endpoint.policy.id:
   description: TODO
   type: keyword
