@@ -14,6 +14,6 @@
   reusable:
     top_level: false
     expected:
-      - malware_event.macro.collection
-      - malware_event.macro.project_file
-      - malware_event.macro.stream
+      - macro.collection
+      - macro.project_file
+      - macro.stream
