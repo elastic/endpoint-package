@@ -1,6 +1,6 @@
 ---
-- name: malware_event
-  title: Malware Event
+- name: file
+  title: File
   group: 2
   short: TODO
   description: >
