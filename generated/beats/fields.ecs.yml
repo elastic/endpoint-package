@@ -260,50 +260,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: pe.malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: pe.original_file_name
       level: extended
       type: keyword
@@ -609,6 +565,11 @@
         The value should be uppercase, and not include the colon.'
       example: C
       default_field: false
+    - name: entry_modified
+      level: custom
+      type: double
+      description: TODO
+      default_field: false
     - name: extension
       level: extended
       type: keyword
@@ -653,6 +614,183 @@
       ignore_above: 1024
       description: Inode representing the file in the filesystem.
       example: '256383'
+    - name: macro.code_page
+      level: custom
+      type: long
+      description: TODO
+      default_field: false
+    - name: macro.collection
+      level: custom
+      type: object
+      object_type: keyword
+      description: TODO
+      default_field: false
+    - name: macro.collection.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: macro.collection.hash.sha1
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA1 hash.
+      default_field: false
+    - name: macro.collection.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: macro.collection.hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
+      default_field: false
+    - name: macro.errors
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
+    - name: macro.errors.count
+      level: custom
+      type: long
+      description: TODO
+      default_field: false
+    - name: macro.errors.error_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: macro.file_extension
+      level: custom
+      type: long
+      description: TODO
+      default_field: false
+    - name: macro.project_file
+      level: custom
+      type: object
+      object_type: keyword
+      description: TODO
+      default_field: false
+    - name: macro.project_file.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: macro.project_file.hash.sha1
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA1 hash.
+      default_field: false
+    - name: macro.project_file.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: macro.project_file.hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
+      default_field: false
+    - name: macro.stream
+      level: custom
+      type: nested
+      description: TODO
+      default_field: false
+    - name: macro.stream.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: macro.stream.hash.sha1
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA1 hash.
+      default_field: false
+    - name: macro.stream.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: macro.stream.hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
+      default_field: false
+    - name: macro.stream.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: macro.stream.raw_code
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: macro.stream.raw_code_size
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: malware_classifier.features.data.buffer
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: malware_classifier.features.data.decompressed_size
+      level: custom
+      type: integer
+      description: TODO
+      default_field: false
+    - name: malware_classifier.features.data.encoding
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: malware_classifier.identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
+    - name: malware_classifier.score
+      level: custom
+      type: double
+      description: TODO
+      default_field: false
+    - name: malware_classifier.threshold
+      level: custom
+      type: double
+      description: TODO
+      default_field: false
+    - name: malware_classifier.upx_packed
+      level: custom
+      type: boolean
+      description: TODO
+      default_field: false
+    - name: malware_classifier.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
     - name: mode
       level: extended
       type: keyword
@@ -708,50 +846,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: pe.malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: pe.original_file_name
       level: extended
       type: keyword
@@ -783,6 +877,12 @@
         norms: false
         default_field: false
       description: Target path for symlinks.
+    - name: temp_file_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: TODO
+      default_field: false
     - name: type
       level: extended
       type: keyword
@@ -1034,200 +1134,6 @@
         default_field: false
       description: Short name or login of the user.
       example: albert
-  - name: malware_event
-    title: Malware Event
-    group: 2
-    description: TODO
-    type: group
-    fields:
-    - name: entry_modified
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: macro.code_page
-      level: custom
-      type: long
-      description: TODO
-      default_field: false
-    - name: macro.collection
-      level: custom
-      type: object
-      object_type: keyword
-      description: TODO
-      default_field: false
-    - name: macro.collection.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: macro.collection.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: macro.collection.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: macro.collection.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: macro.errors
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: macro.errors.count
-      level: custom
-      type: long
-      description: TODO
-      default_field: false
-    - name: macro.errors.error_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: macro.file_extension
-      level: custom
-      type: long
-      description: TODO
-      default_field: false
-    - name: macro.project_file
-      level: custom
-      type: object
-      object_type: keyword
-      description: TODO
-      default_field: false
-    - name: macro.project_file.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: macro.project_file.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: macro.project_file.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: macro.project_file.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: macro.stream
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: macro.stream.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: macro.stream.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: macro.stream.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: macro.stream.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: macro.stream.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: macro.stream.raw_code
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: macro.stream.raw_code_size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: temp_file_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
   - name: process
     title: Process
     group: 2
@@ -1328,128 +1234,6 @@
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: defense_evasions
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.instruction_pointer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.memory_section.memory_address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.memory_section.memory_size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.memory_section.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.module_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.rva
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.call_stack.symbol_info
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.delta_count
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.evasion_subtype
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.evasion_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.instruction_pointer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.memory_sections
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: defense_evasions.memory_sections.address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.memory_sections.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.memory_sections.size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.module_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.thread.id
-      level: custom
-      type: long
-      description: TODO
-      default_field: false
-    - name: defense_evasions.thread.start_address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: defense_evasions.total_memory_size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: domain
       level: custom
       type: keyword
@@ -1545,11 +1329,6 @@
       type: keyword
       ignore_above: 1024
       description: SHA512 hash.
-    - name: hash_matched_module
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
     - name: malware_classifier.features.data.buffer
       level: custom
       type: keyword
@@ -1970,50 +1749,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: pe.malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: pe.malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: pe.original_file_name
       level: extended
       type: keyword
@@ -2079,11 +1814,6 @@
       type: date
       description: The time the process started.
       example: '2016-05-23T08:05:34.853Z'
-    - name: thread.call_stack
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
     - name: thread.call_stack.instruction_pointer
       level: custom
       type: keyword
@@ -2324,18 +2054,6 @@
       description: TODO
       default_field: false
     - name: tty_device.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: unbacked_execute_byte_count
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: unbacked_execute_region_count
       level: custom
       type: keyword
       ignore_above: 1024
@@ -2620,50 +2338,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: dll.pe.malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: dll.pe.malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: dll.pe.original_file_name
       level: extended
       type: keyword
@@ -2769,128 +2443,6 @@
       ignore_above: 1024
       description: TODO
       default_field: false
-    - name: process.defense_evasions
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.instruction_pointer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.memory_section.memory_address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.memory_section.memory_size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.memory_section.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.module_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.rva
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.call_stack.symbol_info
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.delta_count
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.evasion_subtype
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.evasion_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.instruction_pointer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.memory_sections
-      level: custom
-      type: nested
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.memory_sections.address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.memory_sections.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.memory_sections.size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.module_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.thread.id
-      level: custom
-      type: long
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.thread.start_address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.defense_evasions.total_memory_size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: process.domain
       level: custom
       type: keyword
@@ -2989,11 +2541,6 @@
       type: keyword
       ignore_above: 1024
       description: SHA512 hash.
-      default_field: false
-    - name: process.hash_matched_module
-      level: custom
-      type: boolean
-      description: TODO
       default_field: false
     - name: process.malware_classifier.features.data.buffer
       level: custom
@@ -3415,50 +2962,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: process.pe.malware_classifier.features.data.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.features.data.decompressed_size
-      level: custom
-      type: integer
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.features.data.encoding
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.score
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.threshold
-      level: custom
-      type: double
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.upx_packed
-      level: custom
-      type: boolean
-      description: TODO
-      default_field: false
-    - name: process.pe.malware_classifier.version
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
     - name: process.pe.original_file_name
       level: extended
       type: keyword
@@ -3527,11 +3030,6 @@
       type: date
       description: The time the process started.
       example: '2016-05-23T08:05:34.853Z'
-      default_field: false
-    - name: process.thread.call_stack
-      level: custom
-      type: nested
-      description: TODO
       default_field: false
     - name: process.thread.call_stack.instruction_pointer
       level: custom
@@ -3773,18 +3271,6 @@
       description: TODO
       default_field: false
     - name: process.tty_device.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.unbacked_execute_byte_count
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: TODO
-      default_field: false
-    - name: process.unbacked_execute_region_count
       level: custom
       type: keyword
       ignore_above: 1024

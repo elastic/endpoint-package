@@ -30,14 +30,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,dll,dll.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,dll,dll.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,dll,dll.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
-1.5.0-dev,true,dll,dll.pe.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,dll,dll.pe.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,dll,dll.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,dll,dll.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,ecs,ecs.version,keyword,core,,1.0.0,ECS version this event conforms to.
@@ -66,6 +58,7 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.device,keyword,extended,,sda,Device that is the source of the file.
 1.5.0-dev,true,file,file.directory,keyword,extended,,/home/alice,Directory where the file is located.
 1.5.0-dev,true,file,file.drive_letter,keyword,extended,,C,Drive letter where the file is located.
+1.5.0-dev,true,file,file.entry_modified,double,custom,,,TODO
 1.5.0-dev,true,file,file.extension,keyword,extended,,png,File extension.
 1.5.0-dev,true,file,file.gid,keyword,extended,,1001,Primary group ID (GID) of the file.
 1.5.0-dev,true,file,file.group,keyword,extended,,alice,Primary group name of the file.
@@ -74,6 +67,37 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,file,file.hash.sha512,keyword,extended,,,SHA512 hash.
 1.5.0-dev,true,file,file.inode,keyword,extended,,256383,Inode representing the file in the filesystem.
+1.5.0-dev,true,file,file.macro.code_page,long,custom,,,TODO
+1.5.0-dev,true,file,file.macro.collection,object,custom,,,TODO
+1.5.0-dev,true,file,file.macro.collection.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file,file.macro.collection.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file,file.macro.collection.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file,file.macro.collection.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file,file.macro.errors,nested,custom,,,TODO
+1.5.0-dev,true,file,file.macro.errors.count,long,custom,,,TODO
+1.5.0-dev,true,file,file.macro.errors.error_type,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.macro.file_extension,long,custom,,,TODO
+1.5.0-dev,true,file,file.macro.project_file,object,custom,,,TODO
+1.5.0-dev,true,file,file.macro.project_file.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file,file.macro.project_file.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file,file.macro.project_file.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file,file.macro.project_file.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file,file.macro.stream,nested,custom,,,TODO
+1.5.0-dev,true,file,file.macro.stream.hash.md5,keyword,extended,,,MD5 hash.
+1.5.0-dev,true,file,file.macro.stream.hash.sha1,keyword,extended,,,SHA1 hash.
+1.5.0-dev,true,file,file.macro.stream.hash.sha256,keyword,extended,,,SHA256 hash.
+1.5.0-dev,true,file,file.macro.stream.hash.sha512,keyword,extended,,,SHA512 hash.
+1.5.0-dev,true,file,file.macro.stream.name,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.macro.stream.raw_code,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.macro.stream.raw_code_size,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.features.data.buffer,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.features.data.encoding,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.identifier,keyword,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.score,double,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.threshold,double,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.upx_packed,boolean,custom,,,TODO
+1.5.0-dev,true,file,file.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,file,file.mode,keyword,extended,,0640,Mode of the file in octal representation.
 1.5.0-dev,true,file,file.mtime,date,extended,,,Last time the file content was modified.
 1.5.0-dev,true,file,file.name,keyword,extended,,example.png,"Name of the file including the extension, without the directory."
@@ -83,19 +107,12 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,file,file.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
-1.5.0-dev,true,file,file.pe.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,file,file.pe.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,file,file.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,file,file.size,long,extended,,16384,File size in bytes.
 1.5.0-dev,true,file,file.target_path,keyword,extended,,,Target path for symlinks.
 1.5.0-dev,true,file,file.target_path.text,text,extended,,,Target path for symlinks.
+1.5.0-dev,true,file,file.temp_file_path,keyword,custom,,,TODO
 1.5.0-dev,true,file,file.type,keyword,extended,,file,"File type (file, dir, or symlink)."
 1.5.0-dev,true,file,file.uid,keyword,extended,,1001,The user ID (UID) or security identifier (SID) of the file owner.
 1.5.0-dev,true,host,host.architecture,keyword,core,,x86_64,Operating system architecture.
@@ -134,39 +151,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,host,host.user.id,keyword,core,,,Unique identifiers of the user.
 1.5.0-dev,true,host,host.user.name,keyword,core,,albert,Short name or login of the user.
 1.5.0-dev,true,host,host.user.name.text,text,core,,albert,Short name or login of the user.
-1.5.0-dev,true,malware_event,malware_event.entry_modified,double,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.code_page,long,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.collection,object,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.collection.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.collection.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.collection.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.collection.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.errors,nested,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.errors.count,long,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.errors.error_type,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.file_extension,long,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.project_file,object,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.project_file.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.project_file.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.project_file.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.project_file.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.stream,nested,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.stream.hash.md5,keyword,extended,,,MD5 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.stream.hash.sha1,keyword,extended,,,SHA1 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.stream.hash.sha256,keyword,extended,,,SHA256 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.stream.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,malware_event,malware_event.macro.stream.name,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.stream.raw_code,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.macro.stream.raw_code_size,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.malware_classifier.version,keyword,custom,,,TODO
-1.5.0-dev,true,malware_event,malware_event.temp_file_path,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.args,keyword,extended,array,"['/usr/bin/ssh', '-l', 'user', '10.0.0.16']",Array of process arguments.
 1.5.0-dev,true,process,process.args_count,long,extended,,4,Length of the process.args array.
 1.5.0-dev,true,process,process.code_signature.exists,boolean,core,,true,Boolean to capture if a signature is present.
@@ -178,27 +162,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.command_line.text,text,extended,,/usr/bin/ssh -l user 10.0.0.16,Full command line that started the process.
 1.5.0-dev,true,process,process.cpu_percent,double,custom,,,TODO
 1.5.0-dev,true,process,process.cwd,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions,nested,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack,nested,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.memory_section.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.memory_section.memory_size,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.memory_section.protection,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.rva,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.call_stack.symbol_info,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.delta_count,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.evasion_subtype,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.evasion_type,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections,nested,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections.address,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections.protection,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.memory_sections.size,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.thread.id,long,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.thread.start_address,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.defense_evasions.total_memory_size,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.domain,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.entity_id,keyword,extended,,c2c455d9f99375d,Unique identifier for the process.
 1.5.0-dev,true,process,process.env_variables,keyword,custom,,,TODO
@@ -214,7 +177,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,process,process.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,process,process.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,process,process.hash_matched_module,boolean,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classifier.features.data.buffer,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
 1.5.0-dev,true,process,process.malware_classifier.features.data.encoding,keyword,custom,,,TODO
@@ -279,14 +241,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
-1.5.0-dev,true,process,process.pe.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,process,process.pe.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,process,process.pgid,long,extended,,,Identifier of the group of processes the process belongs to.
@@ -298,7 +252,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.short_name,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.sid,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.start,date,extended,,2016-05-23T08:05:34.853Z,The time the process started.
-1.5.0-dev,true,process,process.thread.call_stack,nested,custom,,,TODO
 1.5.0-dev,true,process,process.thread.call_stack.instruction_pointer,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
@@ -341,8 +294,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,process,process.tty_device.major_number,integer,custom,,,TODO
 1.5.0-dev,true,process,process.tty_device.minor_number,integer,custom,,,TODO
 1.5.0-dev,true,process,process.tty_device.name,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.unbacked_execute_byte_count,keyword,custom,,,TODO
-1.5.0-dev,true,process,process.unbacked_execute_region_count,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.uptime,long,extended,,1325,Seconds the process has been up.
 1.5.0-dev,true,process,process.user,keyword,custom,,,TODO
 1.5.0-dev,true,process,process.virt_memory_bytes,keyword,custom,,,TODO
@@ -381,14 +332,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.dll.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.dll.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,target,target.dll.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,target,target.dll.pe.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.dll.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.dll.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.args,keyword,extended,array,"['/usr/bin/ssh', '-l', 'user', '10.0.0.16']",Array of process arguments.
@@ -402,27 +345,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.command_line.text,text,extended,,/usr/bin/ssh -l user 10.0.0.16,Full command line that started the process.
 1.5.0-dev,true,target,target.process.cpu_percent,double,custom,,,TODO
 1.5.0-dev,true,target,target.process.cwd,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.memory_section.memory_address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.memory_section.memory_size,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.memory_section.protection,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.rva,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.call_stack.symbol_info,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.delta_count,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.evasion_subtype,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.evasion_type,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.instruction_pointer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections,nested,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.protection,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.memory_sections.size,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.module_path,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.thread.id,long,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.thread.start_address,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.defense_evasions.total_memory_size,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.domain,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.entity_id,keyword,extended,,c2c455d9f99375d,Unique identifier for the process.
 1.5.0-dev,true,target,target.process.env_variables,keyword,custom,,,TODO
@@ -438,7 +360,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.hash.sha1,keyword,extended,,,SHA1 hash.
 1.5.0-dev,true,target,target.process.hash.sha256,keyword,extended,,,SHA256 hash.
 1.5.0-dev,true,target,target.process.hash.sha512,keyword,extended,,,SHA512 hash.
-1.5.0-dev,true,target,target.process.hash_matched_module,boolean,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classifier.features.data.buffer,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
 1.5.0-dev,true,target,target.process.malware_classifier.features.data.encoding,keyword,custom,,,TODO
@@ -503,14 +424,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.pe.company,keyword,extended,,Microsoft Corporation,"Internal company name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.description,keyword,extended,,Paint,"Internal description of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.file_version,keyword,extended,,6.3.9600.17415,Process name.
-1.5.0-dev,true,target,target.process.pe.malware_classifier.features.data.buffer,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.features.data.decompressed_size,integer,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.features.data.encoding,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.identifier,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.score,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.threshold,double,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.upx_packed,boolean,custom,,,TODO
-1.5.0-dev,true,target,target.process.pe.malware_classifier.version,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.pe.original_file_name,keyword,extended,,MSPAINT.EXE,"Internal name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pe.product,keyword,extended,,Microsoft® Windows® Operating System,"Internal product name of the file, provided at compile-time."
 1.5.0-dev,true,target,target.process.pgid,long,extended,,,Identifier of the group of processes the process belongs to.
@@ -522,7 +435,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.short_name,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.sid,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.start,date,extended,,2016-05-23T08:05:34.853Z,The time the process started.
-1.5.0-dev,true,target,target.process.thread.call_stack,nested,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.call_stack.instruction_pointer,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.call_stack.memory_section.memory_address,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.thread.call_stack.memory_section.memory_size,keyword,custom,,,TODO
@@ -565,8 +477,6 @@ ECS_Version,Indexed,Field_Set,Field,Type,Level,Normalization,Example,Description
 1.5.0-dev,true,target,target.process.tty_device.major_number,integer,custom,,,TODO
 1.5.0-dev,true,target,target.process.tty_device.minor_number,integer,custom,,,TODO
 1.5.0-dev,true,target,target.process.tty_device.name,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.unbacked_execute_byte_count,keyword,custom,,,TODO
-1.5.0-dev,true,target,target.process.unbacked_execute_region_count,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.uptime,long,extended,,1325,Seconds the process has been up.
 1.5.0-dev,true,target,target.process.user,keyword,custom,,,TODO
 1.5.0-dev,true,target,target.process.virt_memory_bytes,keyword,custom,,,TODO
