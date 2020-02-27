@@ -23,3 +23,9 @@
       type: object
       description: >
         Thread.
+
+    - name: dll
+      level: core
+      type: object
+      description: >
+        Dll core fieldset reused here.
