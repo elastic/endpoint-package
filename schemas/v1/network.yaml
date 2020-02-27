@@ -234,6 +234,11 @@ fields:
     The process fields are used to describe by which process the event belongs to.
   fields:
 
+  - name: entity_id
+    type: keyword
+    description: >
+      The globally unique identifier for the process
+
   - name: pid
     type: long
     description: >
@@ -537,13 +542,3 @@ fields:
         description: >
           Short name or login of the user.
         example: albert
-
-  - name: process
-    description: >
-      Extended "process" field set
-    fields:
-
-    - name: entity_id
-      type: keyword
-      description: >
-        The globally unique identifier for the process
