@@ -1,0 +1,169 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs:
+  fields:
+    version:
+      fields: "*"
+host:
+  fields:
+    geo:
+      fields:
+        location:
+          fields: "*"
+        continent_name:
+          fields: "*"
+        country_name:
+          fields: "*"
+        region_name:
+          fields: "*"
+        city_name:
+          fields: "*"
+        country_iso_code:
+          fields: "*"
+        region_iso_code:
+          fields: "*"
+    os:
+      fields:
+        platform:
+          fields: "*"
+        name:
+          fields: "*"
+        version:
+          fields: "*"
+    ip:
+      fields: "*"
+    hostname:
+      fields: "*"
+    name:
+      fields: "*"
+event:
+  fields:
+    id:
+      fields: "*"
+    module:
+      fields: "*"
+    # note we don't include the dataset field but do in the legacy events so siem can display it
+    action:
+      fields: "*"
+    kind:
+      fields: "*"
+    category:
+      fields: "*"
+    type:
+      fields: "*"
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+process:
+  fields:
+    entity_id:
+      fields: "*"
+    pe:
+      fields:
+        original_file_name:
+          fields: "*"
+    code_signature:
+      fields:
+        subject_name:
+          fields: "*"
+        status:
+          fields: "*"
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    args:
+      fields: "*"
+    command_line:
+      fields: "*"
+    exit_code:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+    hash:
+      fields:
+        md5:
+          fields: "*"
+        sha1:
+          fields: "*"
+        sha256:
+          fields: "*"
+    parent:
+      fields:
+        entity_id:
+          fields: "*"
+        pid:
+          fields: "*"
+        name:
+          fields: "*"
+        executable:
+          fields: "*"
+package:
+  fields:
+    name:
+      fields: "*"
+endpoint:
+  fields:
+    group:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+    user:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+    process:
+      fields:
+        session:
+          fields: "*"
+        authentication_id:
+          fields: "*"
+        parent:
+          fields:
+            real:
+              fields:
+                pid:
+                  fields: "*"
+        token:
+          fields:
+            integrity_level:
+              fields: "*"
+            elevation:
+              fields: "*"
+            elevation_type:
+              fields: "*"
+                

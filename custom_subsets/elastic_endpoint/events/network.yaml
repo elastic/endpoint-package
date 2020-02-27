@@ -1,0 +1,197 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs:
+  fields:
+    version:
+      fields: "*"
+host:
+  fields:
+    geo:
+      fields:
+        location:
+          fields: "*"
+        continent_name:
+          fields: "*"
+        country_name:
+          fields: "*"
+        region_name:
+          fields: "*"
+        city_name:
+          fields: "*"
+        country_iso_code:
+          fields: "*"
+        region_iso_code:
+          fields: "*"
+    os:
+      fields:
+        platform:
+          fields: "*"
+        name:
+          fields: "*"
+        version:
+          fields: "*"
+    ip:
+      fields: "*"
+    hostname:
+      fields: "*"
+    name:
+      fields: "*"
+event:
+  fields:
+    id:
+      fields: "*"
+    module:
+      fields: "*"
+    # note we don't include the dataset field but do in the legacy events so siem can display it
+    action:
+      fields: "*"
+    kind:
+      fields: "*"
+    category:
+      fields: "*"
+    type:
+      fields: "*"
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+process:
+  fields:
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    entity_id:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+network:
+  fields:
+    type:
+      fields: "*"
+    iana_number:
+      fields: "*"
+    transport:
+      fields: "*"
+    protocol:
+      fields: "*"
+    direction:
+      fields: "*"
+    community_id:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+source:
+  fields:
+    address:
+      fields: "*"
+    ip:
+      fields: "*"
+    port:
+      fields: "*"
+    domain:
+      fields: "*"
+    registered_domain:
+      fields: "*"
+    top_level_domain:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+destination:
+  fields:
+    address:
+      fields: "*"
+    ip:
+      fields: "*"
+    port:
+      fields: "*"
+    domain:
+      fields: "*"
+    registered_domain:
+      fields: "*"
+    top_level_domain:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+http:
+  fields:
+    response:
+      fields:
+        status_code:
+          fields: "*"
+        body:
+          fields:
+            content:
+              fields: "*"
+            bytes:
+              fields: "*"
+        version:
+          fields: "*"
+        bytes:
+          fields: "*"
+dns:
+  fields:
+    question:
+      fields:
+        name:
+          fields: "*"
+        type:
+          fields: "*"
+        registered_domain:
+          fields: "*"
+        top_level_domain:
+          fields: "*"
+        subdomain:
+          fields: "*"
+    resolved_ip:
+      fields: "*"
+endpoint:
+  fields:
+    group:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+    user:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+

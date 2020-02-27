@@ -12,9 +12,29 @@ ecs:
 host:
   fields:
     geo:
-      fields: "*"
+      fields:
+        location:
+          fields: "*"
+        continent_name:
+          fields: "*"
+        country_name:
+          fields: "*"
+        region_name:
+          fields: "*"
+        city_name:
+          fields: "*"
+        country_iso_code:
+          fields: "*"
+        region_iso_code:
+          fields: "*"
     os:
-      fields: "*"
+      fields:
+        platform:
+          fields: "*"
+        name:
+          fields: "*"
+        version:
+          fields: "*"
     ip:
       fields: "*"
     hostname:
@@ -70,35 +90,21 @@ process:
       fields:
         id:
           fields: "*"
-file:
+registry:
   fields:
-    name:
+    hive:
+      fields: "*"
+    key:
       fields: "*"
     path:
       fields: "*"
-    hash:
+    value:
+      fields: "*"
+    data:
       fields:
-        md5:
+        bytes:
           fields: "*"
-        sha1:
-          fields: "*"
-        sha256:
-          fields: "*"
-dll:
-  fields:
-    pe:
-      fields:
-        original_file_name:
-          fields: "*"
-        file_version:
-          fields: "*"
-        product:
-          fields: "*"
-    code_signature:
-      fields:
-        subject_name:
-          fields: "*"
-        status:
+        strings:
           fields: "*"
 endpoint:
   fields:

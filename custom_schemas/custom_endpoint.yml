@@ -30,48 +30,51 @@
       type: keyword
       description: >
         TODO
-    
+
     - name: user.real.name
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: process.entity_id
+    - name: process.authentication_id
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: pe.original_file_name
+    - name: process.token.integrity_level
       level: custom
       type: keyword
       description: >
-        TODO
+        Integrity level of the process.
+      example: one of "system", "high", "medium", "low", "untrusted"
 
-    - name: pe.file_version
+    - name: process.token.elevation
       level: custom
       type: keyword
       description: >
-        TODO
+        Whether the token is elevated or not
 
-    - name: pe.product_version
+    - name: process.token.elevation_type
       level: custom
       type: keyword
       description: >
-        TODO
+        What level of elevation the token has
+      example: one of "default", "full", "limited"
 
-    - name: signature.signer
+    - name: process.session
       level: custom
       type: keyword
       description: >
-        TODO
+        Session information for the current process
 
-    - name: signature.status
+    - name: process.parent.real.pid
       level: custom
-      type: keyword
+      type: long
       description: >
-        TODO
+        The ppid of the process that actually spawned the current process, in case of
+        ppid spoofing.
 
     - name: file.windows.zone_identifier
       level: custom

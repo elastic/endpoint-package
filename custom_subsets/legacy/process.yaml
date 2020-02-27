@@ -77,7 +77,13 @@ process:
         id:
           fields: "*"
     hash:
-      fields: "*"
+      fields:
+        md5:
+          fields: "*"
+        sha1:
+          fields: "*"
+        sha256:
+          fields: "*"
 
 endgame:
   fields:

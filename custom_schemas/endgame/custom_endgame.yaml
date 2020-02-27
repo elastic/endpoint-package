@@ -7,6 +7,11 @@
     TODO
   type: group
   fields:
+    - name: data.alert_details.acting_process.unique_pid
+      level: custom
+      type: long
+      description: >
+        unique_pid of the process that generated the alert
     - name: serial_event_id
       level: custom
       type: long # this is a uint64 right now
