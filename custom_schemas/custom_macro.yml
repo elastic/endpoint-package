@@ -1,0 +1,78 @@
+---
+- name: macro
+  title: Macro
+  group: 2
+  short: TODO
+  description: >
+    TODO
+  type: group
+  reusable:
+    top_level: false
+    expected:
+      - malware_event
+  fields:
+    - name: errors
+      level: custom
+      type: nested
+      description: >
+        TODO
+
+    - name: errors.count
+      level: custom
+      type: long
+      description: >
+        TODO
+
+    - name: errors.error_type
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: collection
+      level: custom
+      type: object
+      description: >
+        TODO
+
+    - name: project_file
+      level: custom
+      type: object
+      description: >
+        TODO
+
+    - name: stream
+      level: custom
+      type: nested
+      description: >
+        TODO
+
+    - name: stream.name
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: stream.raw_code
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: stream.raw_code_size
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: code_page
+      level: custom
+      type: long
+      description: >
+        TODO
+
+    - name: file_extension
+      level: custom
+      type: long
+      description: >
+        TODO

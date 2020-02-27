@@ -15,24 +15,6 @@
       - target
   type: group
   fields:
-    - name: hash_matched_module
-      level: custom
-      type: boolean
-      description: >
-        TODO
-    
-    - name: unbacked_execute_byte_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: unbacked_execute_region_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: memory_region
       level: custom
       type: nested
@@ -256,84 +238,6 @@
         TODO
 
     - name: sid
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: defense_evasions.evasion_type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.evasion_subtype
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.module_path
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.total_memory_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.protection
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.thread.id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: defense_evasions.thread.start_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.delta_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.instruction_pointer
       level: custom
       type: keyword
       description: >
