@@ -894,12 +894,30 @@ process.parent.ppid:
 process.parent.start:
   description: The time the process started.
   type: date
+process.parent.thread.entrypoint:
+  description: TODO
+  type: keyword
 process.parent.thread.id:
   description: Thread ID.
   type: long
 process.parent.thread.name:
   description: Thread name.
   type: keyword
+process.parent.thread.service:
+  description: Service associated with the thread.
+  type: keyword
+process.parent.thread.start:
+  description: The time the thread started.
+  type: date
+process.parent.thread.start_address:
+  description: Memory address where the thread started.
+  type: keyword
+process.parent.thread.start_address_module:
+  description: TODO
+  type: keyword
+process.parent.thread.uptime:
+  description: Seconds since thread started.
+  type: long
 process.parent.title:
   description: 'Process title.
 
@@ -977,6 +995,12 @@ process.thread.call_stack.symbol_info:
   type: keyword
 process.thread.entrypoint:
   description: TODO
+  type: keyword
+process.thread.id:
+  description: Thread ID.
+  type: long
+process.thread.name:
+  description: Thread name.
   type: keyword
 process.thread.service:
   description: Service associated with the thread.
@@ -1505,12 +1529,30 @@ target.process.parent.ppid:
 target.process.parent.start:
   description: The time the process started.
   type: date
+target.process.parent.thread.entrypoint:
+  description: TODO
+  type: keyword
 target.process.parent.thread.id:
   description: Thread ID.
   type: long
 target.process.parent.thread.name:
   description: Thread name.
   type: keyword
+target.process.parent.thread.service:
+  description: Service associated with the thread.
+  type: keyword
+target.process.parent.thread.start:
+  description: The time the thread started.
+  type: date
+target.process.parent.thread.start_address:
+  description: Memory address where the thread started.
+  type: keyword
+target.process.parent.thread.start_address_module:
+  description: TODO
+  type: keyword
+target.process.parent.thread.uptime:
+  description: Seconds since thread started.
+  type: long
 target.process.parent.title:
   description: 'Process title.
 
@@ -1588,6 +1630,12 @@ target.process.thread.call_stack.symbol_info:
   type: keyword
 target.process.thread.entrypoint:
   description: TODO
+  type: keyword
+target.process.thread.id:
+  description: Thread ID.
+  type: long
+target.process.thread.name:
+  description: Thread name.
   type: keyword
 target.process.thread.service:
   description: Service associated with the thread.
@@ -1703,9 +1751,6 @@ target.process.virt_memory_bytes:
 target.process.working_directory:
   description: The working directory of the process.
   type: keyword
-target.thread:
-  description: Thread.
-  type: object
 threat.framework:
   description: Name of the threat framework used to further categorize and classify
     the tactic and technique of the reported threat. Framework classification can

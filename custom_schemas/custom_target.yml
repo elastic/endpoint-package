@@ -18,12 +18,6 @@
       description: >
         Process.
 
-    - name: thread
-      level: extended
-      type: object
-      description: >
-        Thread.
-
     - name: dll
       level: core
       type: object

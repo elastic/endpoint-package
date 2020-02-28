@@ -68,81 +68,6 @@ base:
   short: All fields defined directly at the top level
   title: Base
   type: group
-call_stack:
-  description: TODO
-  fields:
-    instruction_pointer:
-      description: TODO
-      type: keyword
-    memory_section.memory_address:
-      description: TODO
-      type: keyword
-    memory_section.memory_size:
-      description: TODO
-      type: keyword
-    memory_section.protection:
-      description: TODO
-      type: keyword
-    module_path:
-      description: TODO
-      type: keyword
-    rva:
-      description: TODO
-      type: keyword
-    symbol_info:
-      description: TODO
-      type: keyword
-  group: 2
-  name: call_stack
-  prefix: call_stack.
-  reusable:
-    expected:
-    - thread
-    top_level: false
-  short: TODO
-  title: Call Stack
-  type: group
-code_signature:
-  description: These fields contain information about binary code signatures.
-  fields:
-    exists:
-      description: Boolean to capture if a signature is present.
-      type: boolean
-    status:
-      description: 'Additional information about the certificate status.
-
-        This is useful for logging cryptographic errors with the certificate validity
-        or trust status. Leave unpopulated if the validity or trust of the certificate
-        was unchecked.'
-      type: keyword
-    subject_name:
-      description: Subject name of the code signer
-      type: keyword
-    trusted:
-      description: 'Stores the trust status of the certificate chain.
-
-        Validating the trust of the certificate chain may be complicated, and this
-        field should only be populated by tools that actively check the status.'
-      type: boolean
-    valid:
-      description: 'Boolean to capture if the digital signature is verified against
-        the binary content.
-
-        Leave unpopulated if a certificate was unchecked.'
-      type: boolean
-  group: 2
-  name: code_signature
-  prefix: code_signature.
-  reusable:
-    expected:
-    - file
-    - process
-    - process.parent
-    - dll
-    top_level: false
-  short: These fields contain information about binary code signatures.
-  title: Code Signature
-  type: group
 dll:
   description: 'These fields contain information about code libraries dynamically
     loaded into processes.
@@ -157,9 +82,70 @@ dll:
 
     * Dynamic library (`.dylib`) commonly used on macOS'
   fields:
+    code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
     compile_time:
       description: TODO
       type: date
+    hash.md5:
+      description: MD5 hash.
+      type: keyword
+    hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    malware_classifier.features.data.buffer:
+      description: TODO
+      type: keyword
+    malware_classifier.features.data.decompressed_size:
+      description: TODO
+      type: integer
+    malware_classifier.features.data.encoding:
+      description: TODO
+      type: keyword
+    malware_classifier.identifier:
+      description: TODO
+      type: keyword
+    malware_classifier.score:
+      description: TODO
+      type: double
+    malware_classifier.threshold:
+      description: TODO
+      type: double
+    malware_classifier.upx_packed:
+      description: TODO
+      type: boolean
+    malware_classifier.version:
+      description: TODO
+      type: keyword
     mapped_address:
       description: TODO
       type: keyword
@@ -173,6 +159,21 @@ dll:
       type: keyword
     path:
       description: Full file path of the library.
+      type: keyword
+    pe.company:
+      description: Internal company name of the file, provided at compile-time.
+      type: keyword
+    pe.description:
+      description: Internal description of the file, provided at compile-time.
+      type: keyword
+    pe.file_version:
+      description: Internal version of the file, provided at compile-time.
+      type: keyword
+    pe.original_file_name:
+      description: Internal name of the file, provided at compile-time.
+      type: keyword
+    pe.product:
+      description: Internal product name of the file, provided at compile-time.
       type: keyword
   group: 2
   name: dll
@@ -373,6 +374,31 @@ file:
         that are expected in this field: archive, compressed, directory, encrypted,
         execute, hidden, read, readonly, system, write.'
       type: keyword
+    code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
     created:
       description: 'File creation time.
 
@@ -409,8 +435,113 @@ file:
     group:
       description: Primary group name of the file.
       type: keyword
+    hash.md5:
+      description: MD5 hash.
+      type: keyword
+    hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    hash.sha512:
+      description: SHA512 hash.
+      type: keyword
     inode:
       description: Inode representing the file in the filesystem.
+      type: keyword
+    macro.code_page:
+      description: TODO
+      type: long
+    macro.collection:
+      description: TODO
+      type: object
+    macro.collection.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    macro.collection.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    macro.collection.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    macro.collection.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    macro.errors:
+      description: TODO
+      type: nested
+    macro.errors.count:
+      description: TODO
+      type: long
+    macro.errors.error_type:
+      description: TODO
+      type: keyword
+    macro.file_extension:
+      description: TODO
+      type: long
+    macro.project_file:
+      description: TODO
+      type: object
+    macro.project_file.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    macro.project_file.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    macro.project_file.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    macro.project_file.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    macro.stream:
+      description: TODO
+      type: nested
+    macro.stream.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    macro.stream.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    macro.stream.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    macro.stream.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    macro.stream.name:
+      description: TODO
+      type: keyword
+    macro.stream.raw_code:
+      description: TODO
+      type: keyword
+    macro.stream.raw_code_size:
+      description: TODO
+      type: keyword
+    malware_classifier.features.data.buffer:
+      description: TODO
+      type: keyword
+    malware_classifier.features.data.decompressed_size:
+      description: TODO
+      type: integer
+    malware_classifier.features.data.encoding:
+      description: TODO
+      type: keyword
+    malware_classifier.identifier:
+      description: TODO
+      type: keyword
+    malware_classifier.score:
+      description: TODO
+      type: double
+    malware_classifier.threshold:
+      description: TODO
+      type: double
+    malware_classifier.upx_packed:
+      description: TODO
+      type: boolean
+    malware_classifier.version:
+      description: TODO
       type: keyword
     mode:
       description: Mode of the file in octal representation.
@@ -427,6 +558,21 @@ file:
     path:
       description: Full path to the file, including the file name. It should include
         the drive letter, when appropriate.
+      type: keyword
+    pe.company:
+      description: Internal company name of the file, provided at compile-time.
+      type: keyword
+    pe.description:
+      description: Internal description of the file, provided at compile-time.
+      type: keyword
+    pe.file_version:
+      description: Internal version of the file, provided at compile-time.
+      type: keyword
+    pe.original_file_name:
+      description: Internal name of the file, provided at compile-time.
+      type: keyword
+    pe.product:
+      description: Internal product name of the file, provided at compile-time.
       type: keyword
     size:
       description: 'File size in bytes.
@@ -457,118 +603,6 @@ file:
   short: Fields describing files.
   title: File
   type: group
-geo:
-  description: 'Geo fields can carry data about a specific location related to an
-    event.
-
-    This geolocation information can be derived from techniques such as Geo IP, or
-    be user-supplied.'
-  fields:
-    city_name:
-      description: City name.
-      type: keyword
-    continent_name:
-      description: Name of the continent.
-      type: keyword
-    country_iso_code:
-      description: Country ISO code.
-      type: keyword
-    country_name:
-      description: Country name.
-      type: keyword
-    location:
-      description: Longitude and latitude.
-      type: geo_point
-    name:
-      description: 'User-defined description of a location, at the level of granularity
-        they care about.
-
-        Could be the name of their data centers, the floor number, if this describes
-        a local physical entity, city names.
-
-        Not typically used in automated geolocation.'
-      type: keyword
-    region_iso_code:
-      description: Region ISO code.
-      type: keyword
-    region_name:
-      description: Region name.
-      type: keyword
-  group: 2
-  name: geo
-  prefix: geo.
-  reusable:
-    expected:
-    - client
-    - destination
-    - observer
-    - host
-    - server
-    - source
-    top_level: false
-  short: Fields describing a location.
-  title: Geo
-  type: group
-group:
-  description: The group fields are meant to represent groups that are relevant to
-    the event.
-  fields:
-    domain:
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
-      type: keyword
-    id:
-      description: Unique identifier for the group on the system/platform.
-      type: keyword
-    name:
-      description: Name of the group.
-      type: keyword
-  group: 2
-  name: group
-  prefix: group.
-  reusable:
-    expected:
-    - user
-    top_level: false
-  short: User's group relevant to the event.
-  title: Group
-  type: group
-hash:
-  description: 'The hash fields represent different hash algorithms and their values.
-
-    Field names for common hashes (e.g. MD5, SHA1) are predefined. Add fields for
-    other hashes by lowercasing the hash algorithm name and using underscore separators
-    as appropriate (snake case, e.g. sha3_512).'
-  fields:
-    md5:
-      description: MD5 hash.
-      type: keyword
-    sha1:
-      description: SHA1 hash.
-      type: keyword
-    sha256:
-      description: SHA256 hash.
-      type: keyword
-    sha512:
-      description: SHA512 hash.
-      type: keyword
-  group: 2
-  name: hash
-  prefix: hash.
-  reusable:
-    expected:
-    - file
-    - process
-    - process.parent
-    - dll
-    - macro.collection
-    - macro.project_file
-    - macro.stream
-    top_level: false
-  short: Hashes, usually file hashes.
-  title: Hash
-  type: group
 host:
   description: 'A host is defined as a general computing instance.
 
@@ -585,6 +619,36 @@ host:
         For example, on Windows this could be the host''s Active Directory domain
         or NetBIOS domain name. For Linux this could be the domain of the host''s
         LDAP provider.'
+      type: keyword
+    geo.city_name:
+      description: City name.
+      type: keyword
+    geo.continent_name:
+      description: Name of the continent.
+      type: keyword
+    geo.country_iso_code:
+      description: Country ISO code.
+      type: keyword
+    geo.country_name:
+      description: Country name.
+      type: keyword
+    geo.location:
+      description: Longitude and latitude.
+      type: geo_point
+    geo.name:
+      description: 'User-defined description of a location, at the level of granularity
+        they care about.
+
+        Could be the name of their data centers, the floor number, if this describes
+        a local physical entity, city names.
+
+        Not typically used in automated geolocation.'
+      type: keyword
+    geo.region_iso_code:
+      description: Region ISO code.
+      type: keyword
+    geo.region_name:
+      description: Region name.
       type: keyword
     hostname:
       description: 'Hostname of the host.
@@ -611,6 +675,24 @@ host:
         domain name, or a name specified by the user. The sender decides which value
         to use.'
       type: keyword
+    os.family:
+      description: OS family (such as redhat, debian, freebsd, windows).
+      type: keyword
+    os.full:
+      description: Operating system name, including the version or code name.
+      type: keyword
+    os.kernel:
+      description: Operating system kernel version as a raw string.
+      type: keyword
+    os.name:
+      description: Operating system name, without the version.
+      type: keyword
+    os.platform:
+      description: Operating system platform (such centos, ubuntu, windows).
+      type: keyword
+    os.version:
+      description: Operating system version as a raw string.
+      type: keyword
     type:
       description: 'Type of host.
 
@@ -621,6 +703,41 @@ host:
     uptime:
       description: Seconds the host has been up.
       type: long
+    user.domain:
+      description: 'Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
+      type: keyword
+    user.email:
+      description: User email address.
+      type: keyword
+    user.full_name:
+      description: User's full name, if available.
+      type: keyword
+    user.group.domain:
+      description: 'Name of the directory the group is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
+      type: keyword
+    user.group.id:
+      description: Unique identifier for the group on the system/platform.
+      type: keyword
+    user.group.name:
+      description: Name of the group.
+      type: keyword
+    user.hash:
+      description: 'Unique user hash to correlate information for a user in anonymized
+        form.
+
+        Useful if `user.id` or `user.name` contain confidential information and cannot
+        be used.'
+      type: keyword
+    user.id:
+      description: Unique identifiers of the user.
+      type: keyword
+    user.name:
+      description: Short name or login of the user.
+      type: keyword
   group: 2
   name: host
   nestings:
@@ -630,156 +747,6 @@ host:
   prefix: host.
   short: Fields describing the relevant computing instance.
   title: Host
-  type: group
-macro:
-  description: TODO
-  fields:
-    code_page:
-      description: TODO
-      type: long
-    collection:
-      description: TODO
-      type: object
-    errors:
-      description: TODO
-      type: nested
-    errors.count:
-      description: TODO
-      type: long
-    errors.error_type:
-      description: TODO
-      type: keyword
-    file_extension:
-      description: TODO
-      type: long
-    project_file:
-      description: TODO
-      type: object
-    stream:
-      description: TODO
-      type: nested
-    stream.name:
-      description: TODO
-      type: keyword
-    stream.raw_code:
-      description: TODO
-      type: keyword
-    stream.raw_code_size:
-      description: TODO
-      type: keyword
-  group: 2
-  name: macro
-  nestings:
-  - hash
-  prefix: macro.
-  reusable:
-    expected:
-    - file
-    top_level: false
-  short: TODO
-  title: Macro
-  type: group
-malware_classifier:
-  description: These fields contain the malware classification.
-  fields:
-    features.data.buffer:
-      description: TODO
-      type: keyword
-    features.data.decompressed_size:
-      description: TODO
-      type: integer
-    features.data.encoding:
-      description: TODO
-      type: keyword
-    identifier:
-      description: TODO
-      type: keyword
-    score:
-      description: TODO
-      type: double
-    threshold:
-      description: TODO
-      type: double
-    upx_packed:
-      description: TODO
-      type: boolean
-    version:
-      description: TODO
-      type: keyword
-  group: 2
-  name: malware_classifier
-  prefix: malware_classifier.
-  reusable:
-    expected:
-    - dll
-    - process
-    - file
-    top_level: false
-  short: These fields contain the malware classification.
-  title: Malware Classifier
-  type: group
-os:
-  description: The OS fields contain information about the operating system.
-  fields:
-    family:
-      description: OS family (such as redhat, debian, freebsd, windows).
-      type: keyword
-    full:
-      description: Operating system name, including the version or code name.
-      type: keyword
-    kernel:
-      description: Operating system kernel version as a raw string.
-      type: keyword
-    name:
-      description: Operating system name, without the version.
-      type: keyword
-    platform:
-      description: Operating system platform (such centos, ubuntu, windows).
-      type: keyword
-    version:
-      description: Operating system version as a raw string.
-      type: keyword
-  group: 2
-  name: os
-  prefix: os.
-  reusable:
-    expected:
-    - observer
-    - host
-    - user_agent
-    top_level: false
-  short: OS fields contain information about the operating system.
-  title: Operating System
-  type: group
-pe:
-  description: These fields contain Windows Portable Executable (PE) metadata.
-  fields:
-    company:
-      description: Internal company name of the file, provided at compile-time.
-      type: keyword
-    description:
-      description: Internal description of the file, provided at compile-time.
-      type: keyword
-    file_version:
-      description: Internal version of the file, provided at compile-time.
-      type: keyword
-    original_file_name:
-      description: Internal name of the file, provided at compile-time.
-      type: keyword
-    product:
-      description: Internal product name of the file, provided at compile-time.
-      type: keyword
-  group: 2
-  name: pe
-  prefix: pe.
-  reusable:
-    expected:
-    - file
-    - dll
-    - process
-    top_level: false
-  short: These fields contain Windows Portable Executable (PE) metadata.
-  title: PE Header
   type: group
 process:
   description: 'These fields contain information about a process.
@@ -801,6 +768,31 @@ process:
         many arguments were provided to start a process. More arguments may be an
         indication of suspicious activity.'
       type: long
+    code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
     command_line:
       description: 'Full command line that started the process, including the absolute
         path to the executable, and all arguments.
@@ -852,6 +844,42 @@ process:
       description: TODO
       type: keyword
     handles.type:
+      description: TODO
+      type: keyword
+    hash.md5:
+      description: MD5 hash.
+      type: keyword
+    hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    malware_classifier.features.data.buffer:
+      description: TODO
+      type: keyword
+    malware_classifier.features.data.decompressed_size:
+      description: TODO
+      type: integer
+    malware_classifier.features.data.encoding:
+      description: TODO
+      type: keyword
+    malware_classifier.identifier:
+      description: TODO
+      type: keyword
+    malware_classifier.score:
+      description: TODO
+      type: double
+    malware_classifier.threshold:
+      description: TODO
+      type: double
+    malware_classifier.upx_packed:
+      description: TODO
+      type: boolean
+    malware_classifier.version:
       description: TODO
       type: keyword
     memory_percent:
@@ -934,6 +962,31 @@ process:
         many arguments were provided to start a process. More arguments may be an
         indication of suspicious activity.'
       type: long
+    parent.code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    parent.code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    parent.code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    parent.code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    parent.code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
     parent.command_line:
       description: 'Full command line that started the process, including the absolute
         path to the executable, and all arguments.
@@ -960,6 +1013,18 @@ process:
         The field should be absent if there is no exit code for the event (e.g. process
         start).'
       type: long
+    parent.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    parent.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    parent.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    parent.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
     parent.name:
       description: 'Process name.
 
@@ -977,12 +1042,30 @@ process:
     parent.start:
       description: The time the process started.
       type: date
+    parent.thread.entrypoint:
+      description: TODO
+      type: keyword
     parent.thread.id:
       description: Thread ID.
       type: long
     parent.thread.name:
       description: Thread name.
       type: keyword
+    parent.thread.service:
+      description: Service associated with the thread.
+      type: keyword
+    parent.thread.start:
+      description: The time the thread started.
+      type: date
+    parent.thread.start_address:
+      description: Memory address where the thread started.
+      type: keyword
+    parent.thread.start_address_module:
+      description: TODO
+      type: keyword
+    parent.thread.uptime:
+      description: Seconds since thread started.
+      type: long
     parent.title:
       description: 'Process title.
 
@@ -994,6 +1077,21 @@ process:
       type: long
     parent.working_directory:
       description: The working directory of the process.
+      type: keyword
+    pe.company:
+      description: Internal company name of the file, provided at compile-time.
+      type: keyword
+    pe.description:
+      description: Internal description of the file, provided at compile-time.
+      type: keyword
+    pe.file_version:
+      description: Internal version of the file, provided at compile-time.
+      type: keyword
+    pe.original_file_name:
+      description: Internal name of the file, provided at compile-time.
+      type: keyword
+    pe.product:
+      description: Internal product name of the file, provided at compile-time.
       type: keyword
     pgid:
       description: Identifier of the group of processes the process belongs to.
@@ -1022,11 +1120,128 @@ process:
     start:
       description: The time the process started.
       type: date
+    thread.call_stack.instruction_pointer:
+      description: TODO
+      type: keyword
+    thread.call_stack.memory_section.memory_address:
+      description: TODO
+      type: keyword
+    thread.call_stack.memory_section.memory_size:
+      description: TODO
+      type: keyword
+    thread.call_stack.memory_section.protection:
+      description: TODO
+      type: keyword
+    thread.call_stack.module_path:
+      description: TODO
+      type: keyword
+    thread.call_stack.rva:
+      description: TODO
+      type: keyword
+    thread.call_stack.symbol_info:
+      description: TODO
+      type: keyword
+    thread.entrypoint:
+      description: TODO
+      type: keyword
+    thread.id:
+      description: Thread ID.
+      type: long
+    thread.name:
+      description: Thread name.
+      type: keyword
+    thread.service:
+      description: Service associated with the thread.
+      type: keyword
+    thread.start:
+      description: The time the thread started.
+      type: date
+    thread.start_address:
+      description: Memory address where the thread started.
+      type: keyword
+    thread.start_address_module:
+      description: TODO
+      type: keyword
+    thread.token.domain:
+      description: TODO
+      type: keyword
+    thread.token.impersonation_level:
+      description: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    thread.token.integrity_level:
+      description: Numeric integrity level.
+      type: long
+    thread.token.integrity_level_name:
+      description: Human readable integrity level.
+      type: keyword
+    thread.token.is_appcontainer:
+      description: Whether or not this is an appcontainer token.
+      type: boolean
+    thread.token.privileges:
+      description: Array describing the privileges associated with the token.
+      type: nested
+    thread.token.privileges.description:
+      description: Description of the privilege.
+      type: keyword
+    thread.token.privileges.enabled:
+      description: Whether or not the privilege is enabled.
+      type: boolean
+    thread.token.privileges.name:
+      description: Name of the privilege.
+      type: keyword
+    thread.token.sid:
+      description: TODO
+      type: keyword
+    thread.token.type:
+      description: Type of the token, either primary or impersonation.
+      type: keyword
+    thread.token.user:
+      description: Username of token owner.
+      type: keyword
+    thread.uptime:
+      description: Seconds since thread started.
+      type: long
     title:
       description: 'Process title.
 
         The proctitle, some times the same as process name. Can also be different:
         for example a browser setting its title to the web page currently opened.'
+      type: keyword
+    token.domain:
+      description: TODO
+      type: keyword
+    token.impersonation_level:
+      description: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    token.integrity_level:
+      description: Numeric integrity level.
+      type: long
+    token.integrity_level_name:
+      description: Human readable integrity level.
+      type: keyword
+    token.is_appcontainer:
+      description: Whether or not this is an appcontainer token.
+      type: boolean
+    token.privileges:
+      description: Array describing the privileges associated with the token.
+      type: nested
+    token.privileges.description:
+      description: Description of the privilege.
+      type: keyword
+    token.privileges.enabled:
+      description: Whether or not the privilege is enabled.
+      type: boolean
+    token.privileges.name:
+      description: Name of the privilege.
+      type: keyword
+    token.sid:
+      description: TODO
+      type: keyword
+    token.type:
+      description: Type of the token, either primary or impersonation.
+      type: keyword
+    token.user:
+      description: Username of token owner.
       type: keyword
     tty_device.major_number:
       description: TODO
@@ -1052,11 +1267,11 @@ process:
   group: 2
   name: process
   nestings:
+  - call_stack
   - code_signature
   - hash
   - malware_classifier
   - pe
-  - thread
   - token
   prefix: process.
   reusable:
@@ -1122,9 +1337,608 @@ target:
     related to the data in the document. Useful in a security context where a target
     process or thread may be acted on by another process or thread.'
   fields:
-    thread:
-      description: Thread.
-      type: object
+    dll.code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    dll.code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    dll.code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    dll.code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    dll.code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
+    dll.compile_time:
+      description: TODO
+      type: date
+    dll.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    dll.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    dll.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    dll.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    dll.malware_classifier.features.data.buffer:
+      description: TODO
+      type: keyword
+    dll.malware_classifier.features.data.decompressed_size:
+      description: TODO
+      type: integer
+    dll.malware_classifier.features.data.encoding:
+      description: TODO
+      type: keyword
+    dll.malware_classifier.identifier:
+      description: TODO
+      type: keyword
+    dll.malware_classifier.score:
+      description: TODO
+      type: double
+    dll.malware_classifier.threshold:
+      description: TODO
+      type: double
+    dll.malware_classifier.upx_packed:
+      description: TODO
+      type: boolean
+    dll.malware_classifier.version:
+      description: TODO
+      type: keyword
+    dll.mapped_address:
+      description: TODO
+      type: keyword
+    dll.mapped_size:
+      description: TODO
+      type: long
+    dll.name:
+      description: 'Name of the library.
+
+        This generally maps to the name of the file on disk.'
+      type: keyword
+    dll.path:
+      description: Full file path of the library.
+      type: keyword
+    dll.pe.company:
+      description: Internal company name of the file, provided at compile-time.
+      type: keyword
+    dll.pe.description:
+      description: Internal description of the file, provided at compile-time.
+      type: keyword
+    dll.pe.file_version:
+      description: Internal version of the file, provided at compile-time.
+      type: keyword
+    dll.pe.original_file_name:
+      description: Internal name of the file, provided at compile-time.
+      type: keyword
+    dll.pe.product:
+      description: Internal product name of the file, provided at compile-time.
+      type: keyword
+    process.args:
+      description: 'Array of process arguments, starting with the absolute path to
+        the executable.
+
+        May be filtered to protect sensitive information.'
+      type: keyword
+    process.args_count:
+      description: 'Length of the process.args array.
+
+        This field can be useful for querying or performing bucket analysis on how
+        many arguments were provided to start a process. More arguments may be an
+        indication of suspicious activity.'
+      type: long
+    process.code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    process.code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    process.code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    process.code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    process.code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
+    process.command_line:
+      description: 'Full command line that started the process, including the absolute
+        path to the executable, and all arguments.
+
+        Some arguments may be filtered to protect sensitive information.'
+      type: keyword
+    process.cpu_percent:
+      description: TODO
+      type: double
+    process.cwd:
+      description: TODO
+      type: keyword
+    process.domain:
+      description: TODO
+      type: keyword
+    process.entity_id:
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples
+        of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+        or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate
+        PID reuse as well as to identify a specific process over time, across multiple
+        monitored hosts.'
+      type: keyword
+    process.env_variables:
+      description: TODO
+      type: keyword
+    process.executable:
+      description: Absolute path to the process executable.
+      type: keyword
+    process.exit_code:
+      description: 'The exit code of the process, if this is a termination event.
+
+        The field should be absent if there is no exit code for the event (e.g. process
+        start).'
+      type: long
+    process.group:
+      description: TODO
+      type: keyword
+    process.handles:
+      description: TODO
+      type: nested
+    process.handles.id:
+      description: TODO
+      type: long
+    process.handles.name:
+      description: TODO
+      type: keyword
+    process.handles.type:
+      description: TODO
+      type: keyword
+    process.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    process.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    process.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    process.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    process.malware_classifier.features.data.buffer:
+      description: TODO
+      type: keyword
+    process.malware_classifier.features.data.decompressed_size:
+      description: TODO
+      type: integer
+    process.malware_classifier.features.data.encoding:
+      description: TODO
+      type: keyword
+    process.malware_classifier.identifier:
+      description: TODO
+      type: keyword
+    process.malware_classifier.score:
+      description: TODO
+      type: double
+    process.malware_classifier.threshold:
+      description: TODO
+      type: double
+    process.malware_classifier.upx_packed:
+      description: TODO
+      type: boolean
+    process.malware_classifier.version:
+      description: TODO
+      type: keyword
+    process.memory_percent:
+      description: TODO
+      type: double
+    process.memory_region:
+      description: TODO
+      type: nested
+    process.memory_region.allocation_base:
+      description: TODO
+      type: keyword
+    process.memory_region.allocation_protection:
+      description: TODO
+      type: keyword
+    process.memory_region.bytes:
+      description: TODO
+      type: keyword
+    process.memory_region.histogram:
+      description: TODO
+      type: nested
+    process.memory_region.histogram.histogram_array:
+      description: TODO
+      type: keyword
+    process.memory_region.histogram.histogram_flavor:
+      description: TODO
+      type: keyword
+    process.memory_region.histogram.histogram_resolution:
+      description: TODO
+      type: keyword
+    process.memory_region.length:
+      description: TODO
+      type: keyword
+    process.memory_region.memory:
+      description: TODO
+      type: keyword
+    process.memory_region.memory_address:
+      description: TODO
+      type: keyword
+    process.memory_region.module_path:
+      description: TODO
+      type: keyword
+    process.memory_region.permission:
+      description: TODO
+      type: keyword
+    process.memory_region.protection:
+      description: TODO
+      type: keyword
+    process.memory_region.region_base:
+      description: TODO
+      type: keyword
+    process.memory_region.region_size:
+      description: TODO
+      type: keyword
+    process.memory_region.region_tag:
+      description: TODO
+      type: keyword
+    process.memory_region.type:
+      description: TODO
+      type: keyword
+    process.memory_region.unbacked_on_disk:
+      description: TODO
+      type: boolean
+    process.name:
+      description: 'Process name.
+
+        Sometimes called program name or similar.'
+      type: keyword
+    process.num_threads:
+      description: TODO
+      type: long
+    process.parent.args:
+      description: 'Array of process arguments.
+
+        May be filtered to protect sensitive information.'
+      type: keyword
+    process.parent.args_count:
+      description: 'Length of the process.args array.
+
+        This field can be useful for querying or performing bucket analysis on how
+        many arguments were provided to start a process. More arguments may be an
+        indication of suspicious activity.'
+      type: long
+    process.parent.code_signature.exists:
+      description: Boolean to capture if a signature is present.
+      type: boolean
+    process.parent.code_signature.status:
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      type: keyword
+    process.parent.code_signature.subject_name:
+      description: Subject name of the code signer
+      type: keyword
+    process.parent.code_signature.trusted:
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      type: boolean
+    process.parent.code_signature.valid:
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      type: boolean
+    process.parent.command_line:
+      description: 'Full command line that started the process, including the absolute
+        path to the executable, and all arguments.
+
+        Some arguments may be filtered to protect sensitive information.'
+      type: keyword
+    process.parent.entity_id:
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples
+        of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+        or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate
+        PID reuse as well as to identify a specific process over time, across multiple
+        monitored hosts.'
+      type: keyword
+    process.parent.executable:
+      description: Absolute path to the process executable.
+      type: keyword
+    process.parent.exit_code:
+      description: 'The exit code of the process, if this is a termination event.
+
+        The field should be absent if there is no exit code for the event (e.g. process
+        start).'
+      type: long
+    process.parent.hash.md5:
+      description: MD5 hash.
+      type: keyword
+    process.parent.hash.sha1:
+      description: SHA1 hash.
+      type: keyword
+    process.parent.hash.sha256:
+      description: SHA256 hash.
+      type: keyword
+    process.parent.hash.sha512:
+      description: SHA512 hash.
+      type: keyword
+    process.parent.name:
+      description: 'Process name.
+
+        Sometimes called program name or similar.'
+      type: keyword
+    process.parent.pgid:
+      description: Identifier of the group of processes the process belongs to.
+      type: long
+    process.parent.pid:
+      description: Process id.
+      type: long
+    process.parent.ppid:
+      description: Parent process' pid.
+      type: long
+    process.parent.start:
+      description: The time the process started.
+      type: date
+    process.parent.thread.entrypoint:
+      description: TODO
+      type: keyword
+    process.parent.thread.id:
+      description: Thread ID.
+      type: long
+    process.parent.thread.name:
+      description: Thread name.
+      type: keyword
+    process.parent.thread.service:
+      description: Service associated with the thread.
+      type: keyword
+    process.parent.thread.start:
+      description: The time the thread started.
+      type: date
+    process.parent.thread.start_address:
+      description: Memory address where the thread started.
+      type: keyword
+    process.parent.thread.start_address_module:
+      description: TODO
+      type: keyword
+    process.parent.thread.uptime:
+      description: Seconds since thread started.
+      type: long
+    process.parent.title:
+      description: 'Process title.
+
+        The proctitle, some times the same as process name. Can also be different:
+        for example a browser setting its title to the web page currently opened.'
+      type: keyword
+    process.parent.uptime:
+      description: Seconds the process has been up.
+      type: long
+    process.parent.working_directory:
+      description: The working directory of the process.
+      type: keyword
+    process.pe.company:
+      description: Internal company name of the file, provided at compile-time.
+      type: keyword
+    process.pe.description:
+      description: Internal description of the file, provided at compile-time.
+      type: keyword
+    process.pe.file_version:
+      description: Internal version of the file, provided at compile-time.
+      type: keyword
+    process.pe.original_file_name:
+      description: Internal name of the file, provided at compile-time.
+      type: keyword
+    process.pe.product:
+      description: Internal product name of the file, provided at compile-time.
+      type: keyword
+    process.pgid:
+      description: Identifier of the group of processes the process belongs to.
+      type: long
+    process.phys_memory_bytes:
+      description: TODO
+      type: keyword
+    process.pid:
+      description: Process id.
+      type: long
+    process.ppid:
+      description: Parent process' pid.
+      type: long
+    process.services:
+      description: TODO
+      type: keyword
+    process.session_id:
+      description: TODO
+      type: long
+    process.short_name:
+      description: TODO
+      type: keyword
+    process.sid:
+      description: TODO
+      type: keyword
+    process.start:
+      description: The time the process started.
+      type: date
+    process.thread.call_stack.instruction_pointer:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.memory_section.memory_address:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.memory_section.memory_size:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.memory_section.protection:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.module_path:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.rva:
+      description: TODO
+      type: keyword
+    process.thread.call_stack.symbol_info:
+      description: TODO
+      type: keyword
+    process.thread.entrypoint:
+      description: TODO
+      type: keyword
+    process.thread.id:
+      description: Thread ID.
+      type: long
+    process.thread.name:
+      description: Thread name.
+      type: keyword
+    process.thread.service:
+      description: Service associated with the thread.
+      type: keyword
+    process.thread.start:
+      description: The time the thread started.
+      type: date
+    process.thread.start_address:
+      description: Memory address where the thread started.
+      type: keyword
+    process.thread.start_address_module:
+      description: TODO
+      type: keyword
+    process.thread.token.domain:
+      description: TODO
+      type: keyword
+    process.thread.token.impersonation_level:
+      description: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    process.thread.token.integrity_level:
+      description: Numeric integrity level.
+      type: long
+    process.thread.token.integrity_level_name:
+      description: Human readable integrity level.
+      type: keyword
+    process.thread.token.is_appcontainer:
+      description: Whether or not this is an appcontainer token.
+      type: boolean
+    process.thread.token.privileges:
+      description: Array describing the privileges associated with the token.
+      type: nested
+    process.thread.token.privileges.description:
+      description: Description of the privilege.
+      type: keyword
+    process.thread.token.privileges.enabled:
+      description: Whether or not the privilege is enabled.
+      type: boolean
+    process.thread.token.privileges.name:
+      description: Name of the privilege.
+      type: keyword
+    process.thread.token.sid:
+      description: TODO
+      type: keyword
+    process.thread.token.type:
+      description: Type of the token, either primary or impersonation.
+      type: keyword
+    process.thread.token.user:
+      description: Username of token owner.
+      type: keyword
+    process.thread.uptime:
+      description: Seconds since thread started.
+      type: long
+    process.title:
+      description: 'Process title.
+
+        The proctitle, some times the same as process name. Can also be different:
+        for example a browser setting its title to the web page currently opened.'
+      type: keyword
+    process.token.domain:
+      description: TODO
+      type: keyword
+    process.token.impersonation_level:
+      description: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    process.token.integrity_level:
+      description: Numeric integrity level.
+      type: long
+    process.token.integrity_level_name:
+      description: Human readable integrity level.
+      type: keyword
+    process.token.is_appcontainer:
+      description: Whether or not this is an appcontainer token.
+      type: boolean
+    process.token.privileges:
+      description: Array describing the privileges associated with the token.
+      type: nested
+    process.token.privileges.description:
+      description: Description of the privilege.
+      type: keyword
+    process.token.privileges.enabled:
+      description: Whether or not the privilege is enabled.
+      type: boolean
+    process.token.privileges.name:
+      description: Name of the privilege.
+      type: keyword
+    process.token.sid:
+      description: TODO
+      type: keyword
+    process.token.type:
+      description: Type of the token, either primary or impersonation.
+      type: keyword
+    process.token.user:
+      description: Username of token owner.
+      type: keyword
+    process.tty_device.major_number:
+      description: TODO
+      type: integer
+    process.tty_device.minor_number:
+      description: TODO
+      type: integer
+    process.tty_device.name:
+      description: TODO
+      type: keyword
+    process.uptime:
+      description: Seconds the process has been up.
+      type: long
+    process.user:
+      description: TODO
+      type: keyword
+    process.virt_memory_bytes:
+      description: TODO
+      type: keyword
+    process.working_directory:
+      description: The working directory of the process.
+      type: keyword
   group: 2
   name: target
   nestings:
@@ -1133,40 +1947,6 @@ target:
   prefix: target.
   short: These fields contain information about a target.
   title: Target
-  type: group
-thread:
-  description: TODO
-  fields:
-    entrypoint:
-      description: TODO
-      type: keyword
-    service:
-      description: Service associated with the thread.
-      type: keyword
-    start:
-      description: The time the thread started.
-      type: date
-    start_address:
-      description: Memory address where the thread started.
-      type: keyword
-    start_address_module:
-      description: TODO
-      type: keyword
-    uptime:
-      description: Seconds since thread started.
-      type: long
-  group: 2
-  name: thread
-  nestings:
-  - call_stack
-  - token
-  prefix: thread.
-  reusable:
-    expected:
-    - process
-    top_level: false
-  short: TODO
-  title: Thread
   type: group
 threat:
   description: 'Fields to classify events and alerts according to a threat taxonomy
@@ -1220,60 +2000,6 @@ threat:
   short: Fields to classify events and alerts according to a threat taxonomy.
   title: Threat
   type: group
-token:
-  description: 'These fields contain information about a token.
-
-    These fields can help you correlate metrics information with a process id/name
-    from a log message.  The `process.pid` often stays in the metric itself and is
-    copied to the global field for correlation.'
-  fields:
-    domain:
-      description: TODO
-      type: keyword
-    impersonation_level:
-      description: Impersonation level. Only valid for impersonation tokens.
-      type: keyword
-    integrity_level:
-      description: Numeric integrity level.
-      type: long
-    integrity_level_name:
-      description: Human readable integrity level.
-      type: keyword
-    is_appcontainer:
-      description: Whether or not this is an appcontainer token.
-      type: boolean
-    privileges:
-      description: Array describing the privileges associated with the token.
-      type: nested
-    privileges.description:
-      description: Description of the privilege.
-      type: keyword
-    privileges.enabled:
-      description: Whether or not the privilege is enabled.
-      type: boolean
-    privileges.name:
-      description: Name of the privilege.
-      type: keyword
-    sid:
-      description: TODO
-      type: keyword
-    type:
-      description: Type of the token, either primary or impersonation.
-      type: keyword
-    user:
-      description: Username of token owner.
-      type: keyword
-  group: 2
-  name: token
-  prefix: token.
-  reusable:
-    expected:
-    - thread
-    - process
-    top_level: false
-  short: These fields contain information about a token.
-  title: Token
-  type: group
 user:
   description: 'The user fields describe information about the user that is relevant
     to the event.
@@ -1291,6 +2017,17 @@ user:
       type: keyword
     full_name:
       description: User's full name, if available.
+      type: keyword
+    group.domain:
+      description: 'Name of the directory the group is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
+      type: keyword
+    group.id:
+      description: Unique identifier for the group on the system/platform.
+      type: keyword
+    group.name:
+      description: Name of the group.
       type: keyword
     hash:
       description: 'Unique user hash to correlate information for a user in anonymized

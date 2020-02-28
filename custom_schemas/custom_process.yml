@@ -254,3 +254,83 @@
       type: keyword
       description: >
         TODO
+
+    - name: thread.start
+      level: extended
+      type: date
+      example: "2016-05-23T08:05:34.853Z"
+      description: >
+        The time the thread started.
+
+    - name: parent.thread.start
+      level: extended
+      type: date
+      example: "2016-05-23T08:05:34.853Z"
+      description: >
+        The time the thread started.
+
+    - name: thread.start_address
+      level: extended
+      type: keyword
+      example: 5442508
+      description: >
+        Memory address where the thread started.
+
+    - name: parent.thread.start_address
+      level: extended
+      type: keyword
+      example: 5442508
+      description: >
+        Memory address where the thread started.
+
+    - name: thread.start_address_module
+      level: extended
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        TODO
+
+    - name: parent.thread.start_address_module
+      level: extended
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        TODO
+
+    - name: thread.service
+      level: extended
+      type: keyword
+      example: VaultSvc
+      description: >
+        Service associated with the thread.
+
+    - name: parent.thread.service
+      level: extended
+      type: keyword
+      example: VaultSvc
+      description: >
+        Service associated with the thread.
+
+    - name: thread.entrypoint
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: parent.thread.entrypoint
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: thread.uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.
+
+    - name: parent.thread.uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.
