@@ -76,6 +76,8 @@ user:
       fields: "*"
     name:
       fields: "*"
+    domain:
+      fields: "*"
 process:
   fields:
     pid:
@@ -194,4 +196,3 @@ endpoint:
               fields: "*"
             name:
               fields: "*"
-

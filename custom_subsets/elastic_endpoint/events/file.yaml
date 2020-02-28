@@ -64,6 +64,14 @@ agent:
       fields: "*"
     id:
       fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    domain:
+      fields: "*"
 process:
   fields:
     pid:

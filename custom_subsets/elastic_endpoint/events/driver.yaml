@@ -76,6 +76,8 @@ user:
       fields: "*"
     name:
       fields: "*"
+    domain:
+      fields: "*"
 process:
   fields:
     entity_id:
