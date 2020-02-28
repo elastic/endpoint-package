@@ -229,6 +229,14 @@ fields:
       Short name or login of the user.
     example: albert
 
+  - name: domain
+    type: keyword
+    short: Name of the directory the user is a member of.
+    description: >
+        Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.
+
 - name: process
   description: >
     The process fields are used to describe by which process the event belongs to.
