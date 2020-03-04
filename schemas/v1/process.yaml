@@ -229,10 +229,48 @@ fields:
       Short name or login of the user.
     example: albert
 
+  - name: domain
+    type: keyword
+    short: Name of the directory the user is a member of.
+    description: >
+        Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.
+
 - name: process
   description: >
     The process fields are used to describe by which process the event belongs to.
   fields:
+
+  - name: entity_id
+    type: keyword
+    description: >
+      The globally unique identifier for the process
+
+  - name: pe
+    description: >
+      Extended "pe" field set
+    fields:
+
+    - name: original_file_name
+      type: keyword
+      description: >
+        Original file name hardcoded into the PE header
+
+  - name: code_signature
+    description: >
+      Fields describing either PE or package signing
+    fields:
+
+    - name: subject_name
+      type: keyword
+      description: >
+        The name of the package signer
+
+    - name: status
+      type: keyword
+      description: >
+        The status of the signed package
 
   - name: pid
     type: long
@@ -308,6 +346,11 @@ fields:
       The fields for parent process information
     fields:
 
+    - name: entity_id
+      type: keyword
+      description: >
+        The globally unique identifier for the parent process
+
     - name: pid
       type: long
       description: >
@@ -365,11 +408,6 @@ fields:
       Extended "user" field set
     fields:
 
-    - name: session
-      type: keyword
-      description: >
-        Session information for the current login session for the user
-
     - name: real
       description: >
         User info prior to any setuid operations.
@@ -391,20 +429,21 @@ fields:
       Extended "process" field set
     fields:
 
-    - name: entity_id
+    # is this right for session?
+    - name: session
       type: keyword
       description: >
-        The globally unique identifier for the process
+        Session information for the current process
+
+    - name: authentication_id
+      type: keyword
+      description: >
+        TODO
 
     - name: parent
       description: >
         Extended "process.parent" field set.
       fields:
-
-      - name: entity_id
-        type: keyword
-        description: >
-          The globally unique identifier for the parent process
 
       - name: real
         description: >
@@ -417,39 +456,26 @@ fields:
             The ppid of the process that actually spawned the current process, in case of
             ppid spoofing.
 
-    - name: integrity_level
-      type: keyword
+    - name: token
       description: >
-        Integrity level of the process.
-      example: one of "system", "high", "medium", "low", "untrusted"
-
-    - name: elevation_level
-      type: keyword
-      description: >
-        Whether the process is elevated or not and at what level
-      example: one of "none", "default", "full", "limited"
-
-  - name: pe
-    description: >
-      Extended "pe" field set
-    fields:
-
-    - name: original_file_name
-      type: keyword
-      description: >
-        Original file name hardcoded into the PE header
-
-    - name: signature
-      description: >
-        Fields describing either PE or package signing
+        TODO
       fields:
 
-      - name: signer
+      - name: integrity_level
         type: keyword
         description: >
-          The name of the package signer
+          Integrity level of the process.
+        example: one of "system", "high", "medium", "low", "untrusted"
 
-      - name: status
+      - name: elevation
+        type: boolean
+        description: >
+          Whether the token is elevated or not
+
+      - name: elevation_type
         type: keyword
         description: >
-          The status of the signed package
+          What level of elevation the token has
+        example: one of "default", "full", "limited"
+
+

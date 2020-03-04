@@ -192,8 +192,33 @@ fields:
       Unique sensor identifier.
     example: 8a4f500d
 
+- name: user
+  description: >
+    The user fields are used to describe by which user the event belongs to. In this case the "effective" user and group
+  fields:
+
+  - name: id
+    type: keyword
+    description: >
+      One or multiple unique identifiers of the user.
+
+  - name: name
+    type: keyword
+    description: >
+      Short name or login of the user.
+    example: albert
+
+  - name: domain
+    type: keyword
+    short: Name of the directory the user is a member of.
+    description: >
+        Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.
+
 - name: file
   description: >
+    TODO
   fields:
 
   - name: name
@@ -278,21 +303,16 @@ fields:
     type: keyword
     description: >
       Absolute path to the process executable.
+  
+  - name: entity_id
+    type: keyword
+    description: >
+      The globally unique identifier for the process
 
 - name: endpoint
   description: >
     Endpoint custom fields.
   fields:
-
-  - name: process
-    description: >
-      Extended "process" field set
-    fields:
-
-    - name: entity_id
-      type: keyword
-      description: >
-        The globally unique identifier for the process
 
   - name: file
     description: >
