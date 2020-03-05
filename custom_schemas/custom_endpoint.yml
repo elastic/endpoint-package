@@ -25,6 +25,11 @@
       description: >
         TODO
 
+    - name: user
+      level: custom
+      type: object
+      description: Extended "user" field set
+
     - name: user.real.id
       level: custom
       type: keyword
