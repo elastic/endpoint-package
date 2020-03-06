@@ -4,7 +4,7 @@
   group: 2
   short: TODO
   description: >
-    TODO
+    The thread fields are used to describe by which process thread the event belongs to.
   reusable:
     top_level: true
     expected:
@@ -21,7 +21,7 @@
     - name: name
       level: extended
       type: keyword
-      example: 'thread-0'
+      example: "thread-0"
       description: >
         Thread name.
 
