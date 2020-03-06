@@ -5,6 +5,7 @@ import os
 import yaml
 import re
 import shutil
+import sys
 
 ECS_SCRIPT = 'scripts/generator.py'
 GEN_ECS = 'generated/ecs/ecs_nested.yml'
@@ -207,6 +208,10 @@ def get_glob_files(paths):
 
 
 def main():
+    if sys.version_info[0] < 3 or sys.version_info[1] < 7:
+        raise Exception("Must be using Python 3.7.x or greater, your version: {}.{}".format(
+            sys.version_info[0], sys.version_info[1]))
+
     args = argument_parser()
 
     print('ecs: {}'.format(args.ecs))
