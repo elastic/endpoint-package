@@ -1,0 +1,34 @@
+---
+- name: dll
+  title: Dll
+  group: 2
+  short: These fields contain information about code libraries dynamically loaded into processes.
+  description: |-
+    These fields contain information about code libraries dynamically loaded into processes.
+    Many operating systems refer to "shared code libraries" with different names, but this field set refers to all of the following:
+    * Dynamic-link library (`.dll`) commonly used on Windows
+    * Shared Object (`.so`) commonly used on Unix-like operating systems
+    * Dynamic library (`.dylib`) commonly used on macOS
+  type: group
+  reusable:
+    top_level: true
+    expected: 
+      - target
+  fields:
+    - name: mapped_address
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: mapped_size
+      level: custom
+      type: long
+      description: >
+        TODO
+
+    - name: compile_time
+      level: custom
+      type: date
+      description: >
+        TODO

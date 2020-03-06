@@ -14,15 +14,6 @@
   reusable:
     top_level: false
     expected:
-      - file
-      - process
-      - file_classification.macro_details.macro_collection
-      - file_classification.macro_details.project_file
-      - file_classification.macro_details.stream_data
-      - modules
-
-  fields:
-    - name: imphash
-      level: extended
-      type: keyword
-      description: Imphash.
+      - macro.collection
+      - macro.project_file
+      - macro.stream

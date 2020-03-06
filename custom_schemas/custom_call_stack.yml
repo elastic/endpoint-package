@@ -8,10 +8,7 @@
   reusable:
     top_level: false
     expected:
-      - thread
-      - process.defense_evasions
-  type: nested
-  level: custom
+      - process.thread
   fields:
     - name: module_path
       level: custom

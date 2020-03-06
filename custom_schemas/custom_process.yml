@@ -15,48 +15,6 @@
       - target
   type: group
   fields:
-    - name: unique_pid
-      level: custom
-      type: keyword
-      description: >
-        Unique process id.
-
-    - name: is_endpoint
-      level: custom
-      type: boolean
-      description: >
-        Is this the Elastic Endpoint process or not.
-    
-    - name: unique_ppid
-      level: custom
-      type: keyword
-      description: >
-        Unique parent process id.
-
-    - name: hash_matched_module
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: has_unbacked_execute_memory
-      level: custom
-      type: boolean
-      description: >
-        TODO
-    
-    - name: unbacked_execute_byte_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: unbacked_execute_region_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: memory_region
       level: custom
       type: nested
@@ -171,55 +129,25 @@
       description: >
         TODO
 
-    - name: threads
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: threads.id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: threads.entrypoint
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: threads.start
-      level: custom
-      type: date
-      description: >
-        TODO
-
-    - name: threads.uptime
-      level: custom
-      type: long
-      description: >
-        TODO
-
     - name: handles
       level: custom
       type: nested
       description: >
         TODO
 
-    - name: handles.handle_id
+    - name: handles.id
       level: custom
       type: long
       description: >
         TODO
 
-    - name: handles.handle_type
+    - name: handles.type
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: handles.handle_name
+    - name: handles.name
       level: custom
       type: keyword
       description: >
@@ -273,43 +201,25 @@
       description: >
         TODO
 
-    - name: argv_list
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: env_variables
       level: custom
       type: keyword
       description: >
         TODO
 
-    - name: uid
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: gid
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: tty_device_major_number
+    - name: tty_device.major_number
       level: custom
       type: integer
       description: >
         TODO
 
-    - name: tty_device_minor_number
+    - name: tty_device.minor_number
       level: custom
       type: integer
       description: >
         TODO
 
-    - name: tty_device_name
+    - name: tty_device.name
       level: custom
       type: keyword
       description: >
@@ -333,276 +243,6 @@
       description: >
         TODO
 
-    - name: pe_info.compile_time
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.entry_point_address
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.is_dll
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: pe_info.sections
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.sections.virtual_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.virtual_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.raw_offset
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.raw_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.sections.entropy
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: pe_info.sections.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports.dll_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_imports.import_names
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports.ordinal
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.pe_exports.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.resources
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_data.size
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_data.entropy
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: pe_info.resources.resource_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.version_info
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: pe_info.version_info.language
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.version_info.code_page
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: pe_info.version_info.key
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.version_info.value_string
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.architecture
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.signature_signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: pe_info.signature_status
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature_signer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: signature_status
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: defense_evasions.evasion_type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.evasion_subtype
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.module_path
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.total_memory_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.memory_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.memory_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.memory_sections.protection
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.thread.thread_id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: defense_evasions.thread.thread_start_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.delta_count
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: defense_evasions.instruction_pointer
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: services
       level: custom
       type: keyword
@@ -615,27 +255,82 @@
       description: >
         TODO
 
-    - name: file_hash.md5
-      level: custom
-      type: keyword
-      description: MD5 hash.
+    - name: thread.start
+      level: extended
+      type: date
+      example: "2016-05-23T08:05:34.853Z"
+      description: >
+        The time the thread started.
 
-    - name: file_hash.sha1
-      level: custom
-      type: keyword
-      description: SHA1 hash.
+    - name: parent.thread.start
+      level: extended
+      type: date
+      example: "2016-05-23T08:05:34.853Z"
+      description: >
+        The time the thread started.
 
-    - name: file_hash.sha256
-      level: custom
+    - name: thread.start_address
+      level: extended
       type: keyword
-      description: SHA256 hash.
+      example: 5442508
+      description: >
+        Memory address where the thread started.
 
-    - name: file_hash.sha512
-      level: custom
+    - name: parent.thread.start_address
+      level: extended
       type: keyword
-      description: SHA512 hash.
+      example: 5442508
+      description: >
+        Memory address where the thread started.
 
-    - name: file_hash.imphash
+    - name: thread.start_address_module
+      level: extended
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        TODO
+
+    - name: parent.thread.start_address_module
+      level: extended
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        TODO
+
+    - name: thread.service
+      level: extended
+      type: keyword
+      example: VaultSvc
+      description: >
+        Service associated with the thread.
+
+    - name: parent.thread.service
+      level: extended
+      type: keyword
+      example: VaultSvc
+      description: >
+        Service associated with the thread.
+
+    - name: thread.entrypoint
       level: custom
       type: keyword
-      description: Imphash.
+      description: >
+        TODO
+
+    - name: parent.thread.entrypoint
+      level: custom
+      type: keyword
+      description: >
+        TODO
+
+    - name: thread.uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.
+
+    - name: parent.thread.uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.

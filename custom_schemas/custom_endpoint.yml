@@ -177,3 +177,21 @@
       description: >
         Primary group name of the file.
       example: alice
+
+    - name: artifact.name
+      level: custom
+      type: keyword
+      description: >
+        Name of artifact in use by endpoint when event was created.
+
+    - name: artifact.version
+      level: custom
+      type: keyword
+      description: >
+        Version of artifact in use by endpoint when event was created.
+
+    - name: artifact.hash
+      level: custom
+      type: keyword
+      description: >
+        Hash of artifact in use by endpoint when event was created.

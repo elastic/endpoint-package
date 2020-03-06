@@ -18,8 +18,8 @@
       description: >
         Process.
 
-    - name: thread
-      level: extended
+    - name: dll
+      level: core
       type: object
       description: >
-        Thread.
+        Dll core fieldset reused here.

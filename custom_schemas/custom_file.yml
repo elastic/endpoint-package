@@ -1,0 +1,20 @@
+---
+- name: file
+  title: File
+  group: 2
+  short: TODO
+  description: >
+    TODO
+  type: group
+  fields:
+    - name: entry_modified
+      level: custom
+      type: double
+      description: >
+        TODO
+
+    - name: temp_file_path
+      level: custom
+      type: keyword
+      description: >
+        TODO

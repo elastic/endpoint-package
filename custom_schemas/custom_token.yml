@@ -12,7 +12,7 @@
   reusable:
     top_level: false
     expected:
-      - thread
+      - process.thread
       - process
   type: group
   fields:
