@@ -1,0 +1,62 @@
+---
+- name: process
+  title: Process
+  group: 2
+  short: These fields contain information about a process.
+  description: >
+    These fields contain information about a process.
+
+    These fields can help you correlate metrics information with a process id/name
+    from a log message.  The `process.pid` often stays in the metric itself and is
+    copied to the global field for correlation.
+  reusable:
+    top_level: true
+    expected:
+      - target
+  type: group
+  fields:
+    - name: services
+      level: custom
+      type: keyword
+      description: >
+        Services running in this process.
+
+    - name: user
+      level: custom
+      type: keyword
+      description: >
+        User associated with the running process.
+
+    - name: thread.start
+      level: extended
+      type: date
+      example: "2016-05-23T08:05:34.853Z"
+      description: >
+        The time the thread started.
+
+    - name: thread.start_address
+      level: extended
+      type: keyword
+      example: 5442508
+      description: >
+        Memory address where the thread began execution.
+
+    - name: thread.start_address_module
+      level: extended
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        The dll/module where the thread began execution.
+
+    - name: thread.service
+      level: extended
+      type: keyword
+      example: VaultSvc
+      description: >
+        Service associated with the thread.
+
+    - name: thread.uptime
+      level: custom
+      type: long
+      description: >
+        Seconds since thread started.

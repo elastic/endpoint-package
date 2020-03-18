@@ -1,0 +1,78 @@
+---
+- name: macro
+  title: Macro
+  group: 2
+  short: Fields describing a Windows macro.
+  description: >
+    Fields describing a Windows macro.
+  type: group
+  reusable:
+    top_level: false
+    expected:
+      - file
+  fields:
+    - name: errors
+      level: custom
+      type: nested
+      description: >
+        Errors that occurred when parsing this document file.
+
+    - name: errors.count
+      level: custom
+      type: long
+      description: >
+        Number of times this error that occurred.
+
+    - name: errors.error_type
+      level: custom
+      type: keyword
+      description: >
+        The type of parsing error that occurred.
+
+    - name: collection
+      level: custom
+      type: object
+      description: >
+        Object containing hashes for the macro collection.
+
+    - name: project_file
+      level: custom
+      type: object
+      description: >
+        Metadata about the corresponding VBA project file
+
+    - name: stream
+      level: custom
+      type: nested
+      description: >
+        Streams associated with the document.
+
+    - name: stream.name
+      level: custom
+      type: keyword
+      description: >
+        Name of the stream.
+
+    - name: stream.raw_code
+      level: custom
+      type: keyword
+      description: >
+        First 100KB of raw stream binary.  Can be useful to analyze false positives and malicious payloads. 
+
+    - name: stream.raw_code_size
+      level: custom
+      type: keyword
+      description: >
+        The original stream size.  Indicates whether stream.raw_code was truncated.
+
+    - name: code_page
+      level: custom
+      type: long
+      description: >
+        Identifies the character encoding used for this macro.  https://docs.microsoft.com/en-us/windows/win32/intl/code-page-identifiers
+
+    - name: file_extension
+      level: custom
+      type: long
+      description: >
+        The extension of the file containing this macro (e.g. .docm)

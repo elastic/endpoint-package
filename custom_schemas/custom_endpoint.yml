@@ -1,0 +1,32 @@
+---
+- name: endpoint
+  title: Endpoint
+  group: 2
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
+  description: >
+    Fields describing the state of the Elastic Endpoint when an event occurs.
+  type: group
+  fields:
+    - name: policy.id
+      level: custom
+      type: keyword
+      description: >
+        ID of the policy that was active when the event was created.
+    
+    - name: artifact.name
+      level: custom
+      type: keyword
+      description: >
+        Name of artifact in use by endpoint when event was created.
+    
+    - name: artifact.version
+      level: custom
+      type: keyword
+      description: >
+        Version of artifact in use by endpoint when event was created.
+
+    - name: artifact.hash
+      level: custom
+      type: keyword
+      description: >
+        Hash of artifact in use by endpoint when event was created.

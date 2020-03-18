@@ -1,0 +1,53 @@
+---
+- name: call_stack
+  title: Call Stack
+  group: 2
+  short: Fields describing a stack frame.
+  description: >
+    Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+  reusable:
+    top_level: false
+    expected:
+      - process.thread
+  fields:
+    - name: module_path
+      level: custom
+      type: keyword
+      description: >
+        The DLL/module containing `instruction_pointer`.
+
+    - name: instruction_pointer
+      level: custom
+      type: keyword
+      description: >
+        The return address of this stack frame.
+
+    - name: memory_section.address
+      level: custom
+      type: keyword
+      description: >
+        Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+
+    - name: memory_section.size
+      level: custom
+      type: keyword
+      description: >
+        Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+
+    - name: memory_section.protection
+      level: custom
+      type: keyword
+      description: >
+        Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+
+    - name: symbol_info
+      level: custom
+      type: keyword
+      description: >
+        The nearest symbol for `instruction_pointer`.
+
+    - name: rva
+      level: custom
+      type: keyword
+      description: >
+        The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
