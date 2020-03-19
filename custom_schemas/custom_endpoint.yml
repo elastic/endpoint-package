@@ -7,11 +7,17 @@
     Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
   fields:
+    - name: policy
+      level: custom
+      type: object
+      description: The policy fields are used to hold information about applied policy.
+
     - name: policy.id
       level: custom
       type: keyword
       description: >
         ID of the policy that was active when the event was created.
+      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
 
     - name: group
       level: custom
