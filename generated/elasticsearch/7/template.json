@@ -92,7 +92,7 @@
               }
             }
           },
-          "malware_classifier": {
+          "malware_classification": {
             "properties": {
               "features": {
                 "properties": {
@@ -454,7 +454,7 @@
               }
             }
           },
-          "malware_classifier": {
+          "malware_classification": {
             "properties": {
               "features": {
                 "properties": {
@@ -779,22 +779,7 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
-          "cpu_percent": {
-            "type": "double"
-          },
-          "cwd": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "domain": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
           "entity_id": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "env_variables": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -810,26 +795,6 @@
           },
           "exit_code": {
             "type": "long"
-          },
-          "group": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "handles": {
-            "properties": {
-              "id": {
-                "type": "long"
-              },
-              "name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "type": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            },
-            "type": "nested"
           },
           "hash": {
             "properties": {
@@ -851,7 +816,7 @@
               }
             }
           },
-          "malware_classifier": {
+          "malware_classification": {
             "properties": {
               "features": {
                 "properties": {
@@ -891,86 +856,6 @@
               }
             }
           },
-          "memory_percent": {
-            "type": "double"
-          },
-          "memory_region": {
-            "properties": {
-              "allocation_base": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "allocation_protection": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "bytes": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "histogram": {
-                "properties": {
-                  "histogram_array": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "histogram_flavor": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "histogram_resolution": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "nested"
-              },
-              "length": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "memory": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "memory_address": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "module_path": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "permission": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "protection": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "region_base": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "region_size": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "region_tag": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "type": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "unbacked_on_disk": {
-                "type": "boolean"
-              }
-            },
-            "type": "nested"
-          },
           "name": {
             "fields": {
               "text": {
@@ -980,9 +865,6 @@
             },
             "ignore_above": 1024,
             "type": "keyword"
-          },
-          "num_threads": {
-            "type": "long"
           },
           "parent": {
             "properties": {
@@ -1085,34 +967,12 @@
               },
               "thread": {
                 "properties": {
-                  "entrypoint": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
                   "id": {
                     "type": "long"
                   },
                   "name": {
                     "ignore_above": 1024,
                     "type": "keyword"
-                  },
-                  "service": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "start": {
-                    "type": "date"
-                  },
-                  "start_address": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "start_address_module": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "uptime": {
-                    "type": "long"
                   }
                 }
               },
@@ -1168,10 +1028,6 @@
           "pgid": {
             "type": "long"
           },
-          "phys_memory_bytes": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
           "pid": {
             "type": "long"
           },
@@ -1179,17 +1035,6 @@
             "type": "long"
           },
           "services": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "session_id": {
-            "type": "long"
-          },
-          "short_name": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "sid": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -1206,15 +1051,15 @@
                   },
                   "memory_section": {
                     "properties": {
-                      "memory_address": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "memory_size": {
+                      "address": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
                       "protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "size": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       }
@@ -1233,10 +1078,6 @@
                     "type": "keyword"
                   }
                 }
-              },
-              "entrypoint": {
-                "ignore_above": 1024,
-                "type": "keyword"
               },
               "id": {
                 "type": "long"
@@ -1375,28 +1216,10 @@
               }
             }
           },
-          "tty_device": {
-            "properties": {
-              "major_number": {
-                "type": "integer"
-              },
-              "minor_number": {
-                "type": "integer"
-              },
-              "name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          },
           "uptime": {
             "type": "long"
           },
           "user": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "virt_memory_bytes": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -1496,7 +1319,7 @@
                   }
                 }
               },
-              "malware_classifier": {
+              "malware_classification": {
                 "properties": {
                   "features": {
                     "properties": {
@@ -1617,22 +1440,7 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
-              "cpu_percent": {
-                "type": "double"
-              },
-              "cwd": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "domain": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
               "entity_id": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "env_variables": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1648,26 +1456,6 @@
               },
               "exit_code": {
                 "type": "long"
-              },
-              "group": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "handles": {
-                "properties": {
-                  "id": {
-                    "type": "long"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "type": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "nested"
               },
               "hash": {
                 "properties": {
@@ -1689,7 +1477,7 @@
                   }
                 }
               },
-              "malware_classifier": {
+              "malware_classification": {
                 "properties": {
                   "features": {
                     "properties": {
@@ -1729,86 +1517,6 @@
                   }
                 }
               },
-              "memory_percent": {
-                "type": "double"
-              },
-              "memory_region": {
-                "properties": {
-                  "allocation_base": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "allocation_protection": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "bytes": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "histogram": {
-                    "properties": {
-                      "histogram_array": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "histogram_flavor": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "histogram_resolution": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      }
-                    },
-                    "type": "nested"
-                  },
-                  "length": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "memory": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "memory_address": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "module_path": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "permission": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "protection": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "region_base": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "region_size": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "region_tag": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "type": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "unbacked_on_disk": {
-                    "type": "boolean"
-                  }
-                },
-                "type": "nested"
-              },
               "name": {
                 "fields": {
                   "text": {
@@ -1818,9 +1526,6 @@
                 },
                 "ignore_above": 1024,
                 "type": "keyword"
-              },
-              "num_threads": {
-                "type": "long"
               },
               "parent": {
                 "properties": {
@@ -1923,34 +1628,12 @@
                   },
                   "thread": {
                     "properties": {
-                      "entrypoint": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
                       "id": {
                         "type": "long"
                       },
                       "name": {
                         "ignore_above": 1024,
                         "type": "keyword"
-                      },
-                      "service": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "start": {
-                        "type": "date"
-                      },
-                      "start_address": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "start_address_module": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "uptime": {
-                        "type": "long"
                       }
                     }
                   },
@@ -2006,10 +1689,6 @@
               "pgid": {
                 "type": "long"
               },
-              "phys_memory_bytes": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
               "pid": {
                 "type": "long"
               },
@@ -2017,17 +1696,6 @@
                 "type": "long"
               },
               "services": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "session_id": {
-                "type": "long"
-              },
-              "short_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "sid": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -2044,15 +1712,15 @@
                       },
                       "memory_section": {
                         "properties": {
-                          "memory_address": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "memory_size": {
+                          "address": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           },
                           "protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "size": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           }
@@ -2071,10 +1739,6 @@
                         "type": "keyword"
                       }
                     }
-                  },
-                  "entrypoint": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
                   },
                   "id": {
                     "type": "long"
@@ -2213,28 +1877,10 @@
                   }
                 }
               },
-              "tty_device": {
-                "properties": {
-                  "major_number": {
-                    "type": "integer"
-                  },
-                  "minor_number": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
               "uptime": {
                 "type": "long"
               },
               "user": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "virt_memory_bytes": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },

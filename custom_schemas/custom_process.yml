@@ -15,254 +15,19 @@
       - target
   type: group
   fields:
-    - name: memory_region
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: memory_region.memory_address
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.length
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.unbacked_on_disk
-      level: custom
-      type: boolean
-      description: >
-        TODO
-
-    - name: memory_region.bytes
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.memory
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.histogram
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: memory_region.histogram.histogram_flavor
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.histogram.histogram_resolution
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.histogram.histogram_array
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.permission
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.allocation_base
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.region_base
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.region_size
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.region_tag
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.protection
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.allocation_protection
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: memory_region.module_path
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: handles
-      level: custom
-      type: nested
-      description: >
-        TODO
-
-    - name: handles.id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: handles.type
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: handles.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: cpu_percent
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: memory_percent
-      level: custom
-      type: double
-      description: >
-        TODO
-
-    - name: num_threads
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: virt_memory_bytes
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: phys_memory_bytes
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: cwd
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: group
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: short_name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: env_variables
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: tty_device.major_number
-      level: custom
-      type: integer
-      description: >
-        TODO
-
-    - name: tty_device.minor_number
-      level: custom
-      type: integer
-      description: >
-        TODO
-
-    - name: tty_device.name
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: session_id
-      level: custom
-      type: long
-      description: >
-        TODO
-
-    - name: domain
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: sid
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: services
       level: custom
       type: keyword
       description: >
-        TODO
+        Services running in this process.
 
     - name: user
       level: custom
       type: keyword
       description: >
-        TODO
+        User associated with the running process.
 
     - name: thread.start
-      level: extended
-      type: date
-      example: "2016-05-23T08:05:34.853Z"
-      description: >
-        The time the thread started.
-
-    - name: parent.thread.start
       level: extended
       type: date
       example: "2016-05-23T08:05:34.853Z"
@@ -274,28 +39,14 @@
       type: keyword
       example: 5442508
       description: >
-        Memory address where the thread started.
-
-    - name: parent.thread.start_address
-      level: extended
-      type: keyword
-      example: 5442508
-      description: >
-        Memory address where the thread started.
+        Memory address where the thread began execution.
 
     - name: thread.start_address_module
       level: extended
       type: keyword
       example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
       description: >
-        TODO
-
-    - name: parent.thread.start_address_module
-      level: extended
-      type: keyword
-      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
-      description: >
-        TODO
+        The dll/module where the thread began execution.
 
     - name: thread.service
       level: extended
@@ -304,32 +55,7 @@
       description: >
         Service associated with the thread.
 
-    - name: parent.thread.service
-      level: extended
-      type: keyword
-      example: VaultSvc
-      description: >
-        Service associated with the thread.
-
-    - name: thread.entrypoint
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
-    - name: parent.thread.entrypoint
-      level: custom
-      type: keyword
-      description: >
-        TODO
-
     - name: thread.uptime
-      level: custom
-      type: long
-      description: >
-        Seconds since thread started.
-
-    - name: parent.thread.uptime
       level: custom
       type: long
       description: >

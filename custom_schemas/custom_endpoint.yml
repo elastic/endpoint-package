@@ -2,16 +2,16 @@
 - name: endpoint
   title: Endpoint
   group: 2
-  short: Endpoint custom fields.
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
   description: >
-    Endpoint custom fields.
+    Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
   fields:
     - name: policy.id
       level: custom
       type: keyword
       description: >
-        TODO
+        ID of the policy that was active when the event was created.
 
     - name: group
       level: custom

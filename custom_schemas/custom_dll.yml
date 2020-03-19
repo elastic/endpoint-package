@@ -12,23 +12,23 @@
   type: group
   reusable:
     top_level: true
-    expected: 
+    expected:
       - target
   fields:
     - name: mapped_address
       level: custom
       type: keyword
       description: >
-        TODO
+        The base address where this module is loaded.
 
     - name: mapped_size
       level: custom
       type: long
       description: >
-        TODO
+        The size of this module's memory mapping, in bytes.
 
     - name: compile_time
       level: custom
       type: date
       description: >
-        TODO
+        Timestamp from when the module was compiled.

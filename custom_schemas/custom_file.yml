@@ -2,19 +2,23 @@
 - name: file
   title: File
   group: 2
-  short: TODO
+  short: Fields describing files.
   description: >
-    TODO
+    A file is defined as a set of information that has been created on, or has existed on a filesystem.
+
+    File objects can be associated with host events, network events,
+    and/or file events (e.g., those produced by File Integrity Monitoring [FIM] products or services).
+    File fields provide details about the affected file associated with the event or metric.
   type: group
   fields:
     - name: entry_modified
       level: custom
       type: double
       description: >
-        TODO
+        Time of last status change.  See `st_ctim` member of `struct stat`.
 
     - name: temp_file_path
       level: custom
       type: keyword
       description: >
-        TODO
+        Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable.

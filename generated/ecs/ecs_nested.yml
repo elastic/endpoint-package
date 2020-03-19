@@ -108,7 +108,7 @@ dll:
         Leave unpopulated if a certificate was unchecked.'
       type: boolean
     compile_time:
-      description: TODO
+      description: Timestamp from when the module was compiled.
       type: date
     hash.md5:
       description: MD5 hash.
@@ -122,29 +122,31 @@ dll:
     hash.sha512:
       description: SHA512 hash.
       type: keyword
-    malware_classifier.features.data.buffer:
-      description: TODO
+    malware_classification.features.data.buffer:
+      description: The features extracted from this file and evaluated by the model.  Usually
+        an array of floats.  Likely zlib-encoded.
       type: keyword
-    malware_classifier.features.data.decompressed_size:
-      description: TODO
+    malware_classification.features.data.decompressed_size:
+      description: The decompressed size of buffer.
       type: integer
-    malware_classifier.features.data.encoding:
-      description: TODO
+    malware_classification.features.data.encoding:
+      description: The encoding of buffer (e.g. zlib).
       type: keyword
-    malware_classifier.identifier:
-      description: TODO
+    malware_classification.identifier:
+      description: The model's unique identifier.
       type: keyword
-    malware_classifier.score:
-      description: TODO
+    malware_classification.score:
+      description: The score produced by the classification model.
       type: double
-    malware_classifier.threshold:
-      description: TODO
+    malware_classification.threshold:
+      description: The score threshold for the model.  Files that score above this
+        threshold are considered malicious.
       type: double
-    malware_classifier.upx_packed:
-      description: TODO
+    malware_classification.upx_packed:
+      description: Whether UPX packing was detected.
       type: boolean
-    malware_classifier.version:
-      description: TODO
+    malware_classification.version:
+      description: The version of the model used.
       type: keyword
     mapped_address:
       description: TODO
@@ -180,7 +182,7 @@ dll:
   nestings:
   - code_signature
   - hash
-  - malware_classifier
+  - malware_classification
   - pe
   prefix: dll.
   reusable:
@@ -209,7 +211,7 @@ ecs:
   title: ECS
   type: group
 endpoint:
-  description: TODO
+  description: Fields describing the state of the Elastic Endpoint when an event occurs.
   fields:
     artifact.hash:
       description: Hash of artifact in use by endpoint when event was created.
@@ -221,12 +223,12 @@ endpoint:
       description: Version of artifact in use by endpoint when event was created.
       type: keyword
     policy.id:
-      description: TODO
+      description: ID of the policy that was active when the event was created.
       type: keyword
   group: 2
   name: endpoint
   prefix: endpoint.
-  short: TODO
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
   title: Endpoint
   type: group
 event:
@@ -424,7 +426,7 @@ file:
         The value should be uppercase, and not include the colon.'
       type: keyword
     entry_modified:
-      description: TODO
+      description: Time of last status change.  See `st_ctim` member of `struct stat`.
       type: double
     extension:
       description: File extension.
@@ -451,10 +453,10 @@ file:
       description: Inode representing the file in the filesystem.
       type: keyword
     macro.code_page:
-      description: TODO
+      description: Identifies the character encoding used for this macro.  https://docs.microsoft.com/en-us/windows/win32/intl/code-page-identifiers
       type: long
     macro.collection:
-      description: TODO
+      description: Object containing hashes for the macro collection.
       type: object
     macro.collection.hash.md5:
       description: MD5 hash.
@@ -469,19 +471,19 @@ file:
       description: SHA512 hash.
       type: keyword
     macro.errors:
-      description: TODO
+      description: Errors that occurred when parsing this document file.
       type: nested
     macro.errors.count:
-      description: TODO
+      description: Number of times this error that occurred.
       type: long
     macro.errors.error_type:
-      description: TODO
+      description: The type of parsing error that occurred.
       type: keyword
     macro.file_extension:
-      description: TODO
+      description: The extension of the file containing this macro (e.g. .docm)
       type: long
     macro.project_file:
-      description: TODO
+      description: Metadata about the corresponding VBA project file
       type: object
     macro.project_file.hash.md5:
       description: MD5 hash.
@@ -496,7 +498,7 @@ file:
       description: SHA512 hash.
       type: keyword
     macro.stream:
-      description: TODO
+      description: Streams associated with the document.
       type: nested
     macro.stream.hash.md5:
       description: MD5 hash.
@@ -511,37 +513,41 @@ file:
       description: SHA512 hash.
       type: keyword
     macro.stream.name:
-      description: TODO
+      description: Name of the stream.
       type: keyword
     macro.stream.raw_code:
-      description: TODO
+      description: First 100KB of raw stream binary.  Can be useful to analyze false
+        positives and malicious payloads.
       type: keyword
     macro.stream.raw_code_size:
-      description: TODO
+      description: The original stream size.  Indicates whether stream.raw_code was
+        truncated.
       type: keyword
-    malware_classifier.features.data.buffer:
-      description: TODO
+    malware_classification.features.data.buffer:
+      description: The features extracted from this file and evaluated by the model.  Usually
+        an array of floats.  Likely zlib-encoded.
       type: keyword
-    malware_classifier.features.data.decompressed_size:
-      description: TODO
+    malware_classification.features.data.decompressed_size:
+      description: The decompressed size of buffer.
       type: integer
-    malware_classifier.features.data.encoding:
-      description: TODO
+    malware_classification.features.data.encoding:
+      description: The encoding of buffer (e.g. zlib).
       type: keyword
-    malware_classifier.identifier:
-      description: TODO
+    malware_classification.identifier:
+      description: The model's unique identifier.
       type: keyword
-    malware_classifier.score:
-      description: TODO
+    malware_classification.score:
+      description: The score produced by the classification model.
       type: double
-    malware_classifier.threshold:
-      description: TODO
+    malware_classification.threshold:
+      description: The score threshold for the model.  Files that score above this
+        threshold are considered malicious.
       type: double
-    malware_classifier.upx_packed:
-      description: TODO
+    malware_classification.upx_packed:
+      description: Whether UPX packing was detected.
       type: boolean
-    malware_classifier.version:
-      description: TODO
+    malware_classification.version:
+      description: The version of the model used.
       type: keyword
     mode:
       description: Mode of the file in octal representation.
@@ -583,7 +589,8 @@ file:
       description: Target path for symlinks.
       type: keyword
     temp_file_path:
-      description: TODO
+      description: Path on endpoint where a copy of the file is being stored.  Used
+        to make ephemeral files retrievable.
       type: keyword
     type:
       description: File type (file, dir, or symlink).
@@ -597,7 +604,7 @@ file:
   - code_signature
   - hash
   - macro
-  - malware_classifier
+  - malware_classification
   - pe
   prefix: file.
   short: Fields describing files.
@@ -799,15 +806,6 @@ process:
 
         Some arguments may be filtered to protect sensitive information.'
       type: keyword
-    cpu_percent:
-      description: TODO
-      type: double
-    cwd:
-      description: TODO
-      type: keyword
-    domain:
-      description: TODO
-      type: keyword
     entity_id:
       description: 'Unique identifier for the process.
 
@@ -819,9 +817,6 @@ process:
         PID reuse as well as to identify a specific process over time, across multiple
         monitored hosts.'
       type: keyword
-    env_variables:
-      description: TODO
-      type: keyword
     executable:
       description: Absolute path to the process executable.
       type: keyword
@@ -831,21 +826,6 @@ process:
         The field should be absent if there is no exit code for the event (e.g. process
         start).'
       type: long
-    group:
-      description: TODO
-      type: keyword
-    handles:
-      description: TODO
-      type: nested
-    handles.id:
-      description: TODO
-      type: long
-    handles.name:
-      description: TODO
-      type: keyword
-    handles.type:
-      description: TODO
-      type: keyword
     hash.md5:
       description: MD5 hash.
       type: keyword
@@ -858,98 +838,37 @@ process:
     hash.sha512:
       description: SHA512 hash.
       type: keyword
-    malware_classifier.features.data.buffer:
-      description: TODO
+    malware_classification.features.data.buffer:
+      description: The features extracted from this file and evaluated by the model.  Usually
+        an array of floats.  Likely zlib-encoded.
       type: keyword
-    malware_classifier.features.data.decompressed_size:
-      description: TODO
+    malware_classification.features.data.decompressed_size:
+      description: The decompressed size of buffer.
       type: integer
-    malware_classifier.features.data.encoding:
-      description: TODO
+    malware_classification.features.data.encoding:
+      description: The encoding of buffer (e.g. zlib).
       type: keyword
-    malware_classifier.identifier:
-      description: TODO
+    malware_classification.identifier:
+      description: The model's unique identifier.
       type: keyword
-    malware_classifier.score:
-      description: TODO
+    malware_classification.score:
+      description: The score produced by the classification model.
       type: double
-    malware_classifier.threshold:
-      description: TODO
+    malware_classification.threshold:
+      description: The score threshold for the model.  Files that score above this
+        threshold are considered malicious.
       type: double
-    malware_classifier.upx_packed:
-      description: TODO
+    malware_classification.upx_packed:
+      description: Whether UPX packing was detected.
       type: boolean
-    malware_classifier.version:
-      description: TODO
+    malware_classification.version:
+      description: The version of the model used.
       type: keyword
-    memory_percent:
-      description: TODO
-      type: double
-    memory_region:
-      description: TODO
-      type: nested
-    memory_region.allocation_base:
-      description: TODO
-      type: keyword
-    memory_region.allocation_protection:
-      description: TODO
-      type: keyword
-    memory_region.bytes:
-      description: TODO
-      type: keyword
-    memory_region.histogram:
-      description: TODO
-      type: nested
-    memory_region.histogram.histogram_array:
-      description: TODO
-      type: keyword
-    memory_region.histogram.histogram_flavor:
-      description: TODO
-      type: keyword
-    memory_region.histogram.histogram_resolution:
-      description: TODO
-      type: keyword
-    memory_region.length:
-      description: TODO
-      type: keyword
-    memory_region.memory:
-      description: TODO
-      type: keyword
-    memory_region.memory_address:
-      description: TODO
-      type: keyword
-    memory_region.module_path:
-      description: TODO
-      type: keyword
-    memory_region.permission:
-      description: TODO
-      type: keyword
-    memory_region.protection:
-      description: TODO
-      type: keyword
-    memory_region.region_base:
-      description: TODO
-      type: keyword
-    memory_region.region_size:
-      description: TODO
-      type: keyword
-    memory_region.region_tag:
-      description: TODO
-      type: keyword
-    memory_region.type:
-      description: TODO
-      type: keyword
-    memory_region.unbacked_on_disk:
-      description: TODO
-      type: boolean
     name:
       description: 'Process name.
 
         Sometimes called program name or similar.'
       type: keyword
-    num_threads:
-      description: TODO
-      type: long
     parent.args:
       description: 'Array of process arguments.
 
@@ -1042,30 +961,12 @@ process:
     parent.start:
       description: The time the process started.
       type: date
-    parent.thread.entrypoint:
-      description: TODO
-      type: keyword
     parent.thread.id:
       description: Thread ID.
       type: long
     parent.thread.name:
       description: Thread name.
       type: keyword
-    parent.thread.service:
-      description: Service associated with the thread.
-      type: keyword
-    parent.thread.start:
-      description: The time the thread started.
-      type: date
-    parent.thread.start_address:
-      description: Memory address where the thread started.
-      type: keyword
-    parent.thread.start_address_module:
-      description: TODO
-      type: keyword
-    parent.thread.uptime:
-      description: Seconds since thread started.
-      type: long
     parent.title:
       description: 'Process title.
 
@@ -1096,9 +997,6 @@ process:
     pgid:
       description: Identifier of the group of processes the process belongs to.
       type: long
-    phys_memory_bytes:
-      description: TODO
-      type: keyword
     pid:
       description: Process id.
       type: long
@@ -1106,43 +1004,35 @@ process:
       description: Parent process' pid.
       type: long
     services:
-      description: TODO
-      type: keyword
-    session_id:
-      description: TODO
-      type: long
-    short_name:
-      description: TODO
-      type: keyword
-    sid:
-      description: TODO
+      description: Services running in this process.
       type: keyword
     start:
       description: The time the process started.
       type: date
     thread.call_stack.instruction_pointer:
-      description: TODO
+      description: The return address of this stack frame.
       type: keyword
-    thread.call_stack.memory_section.memory_address:
-      description: TODO
-      type: keyword
-    thread.call_stack.memory_section.memory_size:
-      description: TODO
+    thread.call_stack.memory_section.address:
+      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
       type: keyword
     thread.call_stack.memory_section.protection:
-      description: TODO
+      description: Memory protection flags of this memory region.  Corresponds to
+        `MEMORY_BASIC_INFORMATION.Protect`
+      type: keyword
+    thread.call_stack.memory_section.size:
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
       type: keyword
     thread.call_stack.module_path:
-      description: TODO
+      description: The DLL/module containing `instruction_pointer`.
       type: keyword
     thread.call_stack.rva:
-      description: TODO
+      description: The relative virtual address of `instruction_pointer`.  Computed
+        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
       type: keyword
     thread.call_stack.symbol_info:
-      description: TODO
-      type: keyword
-    thread.entrypoint:
-      description: TODO
+      description: The nearest symbol for `instruction_pointer`.
       type: keyword
     thread.id:
       description: Thread ID.
@@ -1160,10 +1050,10 @@ process:
       description: Memory address where the thread started.
       type: keyword
     thread.start_address_module:
-      description: TODO
+      description: The dll/module where the threat began execution.
       type: keyword
     thread.token.domain:
-      description: TODO
+      description: Domain of token user.
       type: keyword
     thread.token.impersonation_level:
       description: Impersonation level. Only valid for impersonation tokens.
@@ -1190,7 +1080,7 @@ process:
       description: Name of the privilege.
       type: keyword
     thread.token.sid:
-      description: TODO
+      description: Token user's Security Identifier (SID).
       type: keyword
     thread.token.type:
       description: Type of the token, either primary or impersonation.
@@ -1208,7 +1098,7 @@ process:
         for example a browser setting its title to the web page currently opened.'
       type: keyword
     token.domain:
-      description: TODO
+      description: Domain of token user.
       type: keyword
     token.impersonation_level:
       description: Impersonation level. Only valid for impersonation tokens.
@@ -1235,7 +1125,7 @@ process:
       description: Name of the privilege.
       type: keyword
     token.sid:
-      description: TODO
+      description: Token user's Security Identifier (SID).
       type: keyword
     token.type:
       description: Type of the token, either primary or impersonation.
@@ -1243,23 +1133,11 @@ process:
     token.user:
       description: Username of token owner.
       type: keyword
-    tty_device.major_number:
-      description: TODO
-      type: integer
-    tty_device.minor_number:
-      description: TODO
-      type: integer
-    tty_device.name:
-      description: TODO
-      type: keyword
     uptime:
       description: Seconds the process has been up.
       type: long
     user:
-      description: TODO
-      type: keyword
-    virt_memory_bytes:
-      description: TODO
+      description: User associated with the running process.
       type: keyword
     working_directory:
       description: The working directory of the process.
@@ -1270,7 +1148,7 @@ process:
   - call_stack
   - code_signature
   - hash
-  - malware_classifier
+  - malware_classification
   - pe
   - token
   prefix: process.
@@ -1363,7 +1241,7 @@ target:
         Leave unpopulated if a certificate was unchecked.'
       type: boolean
     dll.compile_time:
-      description: TODO
+      description: Timestamp from when the module was compiled.
       type: date
     dll.hash.md5:
       description: MD5 hash.
@@ -1377,29 +1255,31 @@ target:
     dll.hash.sha512:
       description: SHA512 hash.
       type: keyword
-    dll.malware_classifier.features.data.buffer:
-      description: TODO
+    dll.malware_classification.features.data.buffer:
+      description: The features extracted from this file and evaluated by the model.  Usually
+        an array of floats.  Likely zlib-encoded.
       type: keyword
-    dll.malware_classifier.features.data.decompressed_size:
-      description: TODO
+    dll.malware_classification.features.data.decompressed_size:
+      description: The decompressed size of buffer.
       type: integer
-    dll.malware_classifier.features.data.encoding:
-      description: TODO
+    dll.malware_classification.features.data.encoding:
+      description: The encoding of buffer (e.g. zlib).
       type: keyword
-    dll.malware_classifier.identifier:
-      description: TODO
+    dll.malware_classification.identifier:
+      description: The model's unique identifier.
       type: keyword
-    dll.malware_classifier.score:
-      description: TODO
+    dll.malware_classification.score:
+      description: The score produced by the classification model.
       type: double
-    dll.malware_classifier.threshold:
-      description: TODO
+    dll.malware_classification.threshold:
+      description: The score threshold for the model.  Files that score above this
+        threshold are considered malicious.
       type: double
-    dll.malware_classifier.upx_packed:
-      description: TODO
+    dll.malware_classification.upx_packed:
+      description: Whether UPX packing was detected.
       type: boolean
-    dll.malware_classifier.version:
-      description: TODO
+    dll.malware_classification.version:
+      description: The version of the model used.
       type: keyword
     dll.mapped_address:
       description: TODO
@@ -1474,15 +1354,6 @@ target:
 
         Some arguments may be filtered to protect sensitive information.'
       type: keyword
-    process.cpu_percent:
-      description: TODO
-      type: double
-    process.cwd:
-      description: TODO
-      type: keyword
-    process.domain:
-      description: TODO
-      type: keyword
     process.entity_id:
       description: 'Unique identifier for the process.
 
@@ -1494,9 +1365,6 @@ target:
         PID reuse as well as to identify a specific process over time, across multiple
         monitored hosts.'
       type: keyword
-    process.env_variables:
-      description: TODO
-      type: keyword
     process.executable:
       description: Absolute path to the process executable.
       type: keyword
@@ -1506,21 +1374,6 @@ target:
         The field should be absent if there is no exit code for the event (e.g. process
         start).'
       type: long
-    process.group:
-      description: TODO
-      type: keyword
-    process.handles:
-      description: TODO
-      type: nested
-    process.handles.id:
-      description: TODO
-      type: long
-    process.handles.name:
-      description: TODO
-      type: keyword
-    process.handles.type:
-      description: TODO
-      type: keyword
     process.hash.md5:
       description: MD5 hash.
       type: keyword
@@ -1533,98 +1386,37 @@ target:
     process.hash.sha512:
       description: SHA512 hash.
       type: keyword
-    process.malware_classifier.features.data.buffer:
-      description: TODO
+    process.malware_classification.features.data.buffer:
+      description: The features extracted from this file and evaluated by the model.  Usually
+        an array of floats.  Likely zlib-encoded.
       type: keyword
-    process.malware_classifier.features.data.decompressed_size:
-      description: TODO
+    process.malware_classification.features.data.decompressed_size:
+      description: The decompressed size of buffer.
       type: integer
-    process.malware_classifier.features.data.encoding:
-      description: TODO
+    process.malware_classification.features.data.encoding:
+      description: The encoding of buffer (e.g. zlib).
       type: keyword
-    process.malware_classifier.identifier:
-      description: TODO
+    process.malware_classification.identifier:
+      description: The model's unique identifier.
       type: keyword
-    process.malware_classifier.score:
-      description: TODO
+    process.malware_classification.score:
+      description: The score produced by the classification model.
       type: double
-    process.malware_classifier.threshold:
-      description: TODO
+    process.malware_classification.threshold:
+      description: The score threshold for the model.  Files that score above this
+        threshold are considered malicious.
       type: double
-    process.malware_classifier.upx_packed:
-      description: TODO
+    process.malware_classification.upx_packed:
+      description: Whether UPX packing was detected.
       type: boolean
-    process.malware_classifier.version:
-      description: TODO
+    process.malware_classification.version:
+      description: The version of the model used.
       type: keyword
-    process.memory_percent:
-      description: TODO
-      type: double
-    process.memory_region:
-      description: TODO
-      type: nested
-    process.memory_region.allocation_base:
-      description: TODO
-      type: keyword
-    process.memory_region.allocation_protection:
-      description: TODO
-      type: keyword
-    process.memory_region.bytes:
-      description: TODO
-      type: keyword
-    process.memory_region.histogram:
-      description: TODO
-      type: nested
-    process.memory_region.histogram.histogram_array:
-      description: TODO
-      type: keyword
-    process.memory_region.histogram.histogram_flavor:
-      description: TODO
-      type: keyword
-    process.memory_region.histogram.histogram_resolution:
-      description: TODO
-      type: keyword
-    process.memory_region.length:
-      description: TODO
-      type: keyword
-    process.memory_region.memory:
-      description: TODO
-      type: keyword
-    process.memory_region.memory_address:
-      description: TODO
-      type: keyword
-    process.memory_region.module_path:
-      description: TODO
-      type: keyword
-    process.memory_region.permission:
-      description: TODO
-      type: keyword
-    process.memory_region.protection:
-      description: TODO
-      type: keyword
-    process.memory_region.region_base:
-      description: TODO
-      type: keyword
-    process.memory_region.region_size:
-      description: TODO
-      type: keyword
-    process.memory_region.region_tag:
-      description: TODO
-      type: keyword
-    process.memory_region.type:
-      description: TODO
-      type: keyword
-    process.memory_region.unbacked_on_disk:
-      description: TODO
-      type: boolean
     process.name:
       description: 'Process name.
 
         Sometimes called program name or similar.'
       type: keyword
-    process.num_threads:
-      description: TODO
-      type: long
     process.parent.args:
       description: 'Array of process arguments.
 
@@ -1717,30 +1509,12 @@ target:
     process.parent.start:
       description: The time the process started.
       type: date
-    process.parent.thread.entrypoint:
-      description: TODO
-      type: keyword
     process.parent.thread.id:
       description: Thread ID.
       type: long
     process.parent.thread.name:
       description: Thread name.
       type: keyword
-    process.parent.thread.service:
-      description: Service associated with the thread.
-      type: keyword
-    process.parent.thread.start:
-      description: The time the thread started.
-      type: date
-    process.parent.thread.start_address:
-      description: Memory address where the thread started.
-      type: keyword
-    process.parent.thread.start_address_module:
-      description: TODO
-      type: keyword
-    process.parent.thread.uptime:
-      description: Seconds since thread started.
-      type: long
     process.parent.title:
       description: 'Process title.
 
@@ -1771,9 +1545,6 @@ target:
     process.pgid:
       description: Identifier of the group of processes the process belongs to.
       type: long
-    process.phys_memory_bytes:
-      description: TODO
-      type: keyword
     process.pid:
       description: Process id.
       type: long
@@ -1781,43 +1552,35 @@ target:
       description: Parent process' pid.
       type: long
     process.services:
-      description: TODO
-      type: keyword
-    process.session_id:
-      description: TODO
-      type: long
-    process.short_name:
-      description: TODO
-      type: keyword
-    process.sid:
-      description: TODO
+      description: Services running in this process.
       type: keyword
     process.start:
       description: The time the process started.
       type: date
     process.thread.call_stack.instruction_pointer:
-      description: TODO
+      description: The return address of this stack frame.
       type: keyword
-    process.thread.call_stack.memory_section.memory_address:
-      description: TODO
-      type: keyword
-    process.thread.call_stack.memory_section.memory_size:
-      description: TODO
+    process.thread.call_stack.memory_section.address:
+      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
       type: keyword
     process.thread.call_stack.memory_section.protection:
-      description: TODO
+      description: Memory protection flags of this memory region.  Corresponds to
+        `MEMORY_BASIC_INFORMATION.Protect`
+      type: keyword
+    process.thread.call_stack.memory_section.size:
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
       type: keyword
     process.thread.call_stack.module_path:
-      description: TODO
+      description: The DLL/module containing `instruction_pointer`.
       type: keyword
     process.thread.call_stack.rva:
-      description: TODO
+      description: The relative virtual address of `instruction_pointer`.  Computed
+        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
       type: keyword
     process.thread.call_stack.symbol_info:
-      description: TODO
-      type: keyword
-    process.thread.entrypoint:
-      description: TODO
+      description: The nearest symbol for `instruction_pointer`.
       type: keyword
     process.thread.id:
       description: Thread ID.
@@ -1835,10 +1598,10 @@ target:
       description: Memory address where the thread started.
       type: keyword
     process.thread.start_address_module:
-      description: TODO
+      description: The dll/module where the threat began execution.
       type: keyword
     process.thread.token.domain:
-      description: TODO
+      description: Domain of token user.
       type: keyword
     process.thread.token.impersonation_level:
       description: Impersonation level. Only valid for impersonation tokens.
@@ -1865,7 +1628,7 @@ target:
       description: Name of the privilege.
       type: keyword
     process.thread.token.sid:
-      description: TODO
+      description: Token user's Security Identifier (SID).
       type: keyword
     process.thread.token.type:
       description: Type of the token, either primary or impersonation.
@@ -1883,7 +1646,7 @@ target:
         for example a browser setting its title to the web page currently opened.'
       type: keyword
     process.token.domain:
-      description: TODO
+      description: Domain of token user.
       type: keyword
     process.token.impersonation_level:
       description: Impersonation level. Only valid for impersonation tokens.
@@ -1910,7 +1673,7 @@ target:
       description: Name of the privilege.
       type: keyword
     process.token.sid:
-      description: TODO
+      description: Token user's Security Identifier (SID).
       type: keyword
     process.token.type:
       description: Type of the token, either primary or impersonation.
@@ -1918,23 +1681,11 @@ target:
     process.token.user:
       description: Username of token owner.
       type: keyword
-    process.tty_device.major_number:
-      description: TODO
-      type: integer
-    process.tty_device.minor_number:
-      description: TODO
-      type: integer
-    process.tty_device.name:
-      description: TODO
-      type: keyword
     process.uptime:
       description: Seconds the process has been up.
       type: long
     process.user:
-      description: TODO
-      type: keyword
-    process.virt_memory_bytes:
-      description: TODO
+      description: User associated with the running process.
       type: keyword
     process.working_directory:
       description: The working directory of the process.
