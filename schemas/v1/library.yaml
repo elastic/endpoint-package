@@ -123,7 +123,7 @@ fields:
     example: 1.0.0
 
 - name: endpoint
-  description: Endpoint custom fields.
+  description: Fields describing the state of the Elastic Endpoint when an event occurs.
   fields:
 
   - name: group
