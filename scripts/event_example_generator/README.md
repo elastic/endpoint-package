@@ -7,7 +7,7 @@ This script takes the subset style files and outputs the full example of a given
 ### Setup
 
 Before generating the example files you'll need to clone the ecs repo. As of 3/19/20 there are some fixes that haven't been
-merged into the mainline repo so it's recommended to use this https://github.com/marshallmain/ecs/tree/future-master branch
+merged into the mainline repo so it's recommended to use this <https://github.com/jonathan-buttner/ecs/tree/sub-set-fixes> branch
 for the time being.
 
 Once you have that cloned, you'll need to install the python package `requirements.txt` under the `scripts` directory.
