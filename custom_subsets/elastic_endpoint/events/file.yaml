@@ -64,6 +64,12 @@ agent:
       fields: "*"
     id:
       fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
 user:
   fields:
     id:

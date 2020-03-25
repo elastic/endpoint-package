@@ -349,9 +349,11 @@
                       "pid": {
                         "type": "long"
                       }
-                    }
+                    },
+                    "type": "object"
                   }
-                }
+                },
+                "type": "object"
               },
               "session": {
                 "ignore_above": 1024,

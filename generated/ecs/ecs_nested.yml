@@ -324,6 +324,13 @@ endpoint:
     process.authentication_id:
       description: Process authentication ID
       type: keyword
+    process.parent:
+      description: Extended "process.parent" field set.
+      type: object
+    process.parent.real:
+      description: The field set containing parent process info in case of any ppid
+        spoofing.
+      type: object
     process.parent.real.pid:
       description: The ppid of the process that actually spawned the current process,
         in case of ppid spoofing.
