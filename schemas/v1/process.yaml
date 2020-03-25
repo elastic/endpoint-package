@@ -99,11 +99,12 @@ fields:
       description: Process authentication ID
 
     - name: parent
-      description: TODO
+      description: Extended "process.parent" field set.
       fields:
 
       - name: real
-        description: TODO
+        description: The field set containing parent process info in case of any ppid
+          spoofing.
         fields:
 
         - name: pid

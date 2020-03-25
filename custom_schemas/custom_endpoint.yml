@@ -110,6 +110,18 @@
       description: >
         Session information for the current process
 
+    - name: process.parent
+      level: custom
+      type: object
+      description: >
+        Extended "process.parent" field set.
+
+    - name: process.parent.real
+      level: custom
+      type: object
+      description: >
+        The field set containing parent process info in case of any ppid spoofing.
+
     - name: process.parent.real.pid
       level: custom
       type: long
