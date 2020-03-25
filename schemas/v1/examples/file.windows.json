@@ -18,11 +18,11 @@
   },
   "event": {
     "action": "modified",
-    "category": "file",
+    "category": ["file"],
     "id": "LZuf+05Wl/ji0z7y+++++++3",
     "kind": "event",
     "module": "endpoint",
-    "type": "change"
+    "type": ["change"]
   },
   "file": {
     "hash": {

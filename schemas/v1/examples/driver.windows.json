@@ -11,11 +11,11 @@
   },
   "event": {
     "action": "loaded",
-    "category": "driver",
+    "category": ["driver"],
     "id": "LZuf+05Wl/ji0z7y+++++++3",
     "kind": "event",
     "module": "endpoint",
-    "type": "start"
+    "type": ["start"]
   },
   "file": {
     "code_signature": {

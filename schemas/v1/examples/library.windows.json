@@ -22,11 +22,11 @@
   },
   "event": {
     "action": "loaded",
-    "category": "process",
+    "category": ["process"],
     "id": "LZuf+05Wl/ji0z7y+++++++3",
     "kind": "event",
     "module": "endpoint",
-    "type": "start"
+    "type": ["start"]
   },
   "file": {
     "hash": {
