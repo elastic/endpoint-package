@@ -120,6 +120,22 @@ file:
           fields: "*"
 endpoint:
   fields:
+    group:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+    user:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
     file:
       fields:
         windows:
