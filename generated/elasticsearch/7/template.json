@@ -1402,8 +1402,7 @@
                     "type": "keyword"
                   },
                   "elevation": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "type": "boolean"
                   },
                   "elevation_type": {
                     "ignore_above": 1024,
@@ -1476,8 +1475,7 @@
                 "type": "keyword"
               },
               "elevation": {
-                "ignore_above": 1024,
-                "type": "keyword"
+                "type": "boolean"
               },
               "elevation_type": {
                 "ignore_above": 1024,
@@ -2144,8 +2142,7 @@
                         "type": "keyword"
                       },
                       "elevation": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
+                        "type": "boolean"
                       },
                       "elevation_type": {
                         "ignore_above": 1024,
@@ -2218,8 +2215,7 @@
                     "type": "keyword"
                   },
                   "elevation": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "type": "boolean"
                   },
                   "elevation_type": {
                     "ignore_above": 1024,
