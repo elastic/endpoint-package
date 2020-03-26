@@ -42,7 +42,7 @@
 
     - name: elevation
       level: custom
-      type: keyword
+      type: boolean
       description: >
         Whether the token is elevated or not
 

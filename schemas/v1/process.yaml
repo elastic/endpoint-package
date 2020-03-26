@@ -741,7 +741,7 @@ fields:
         fields:
 
           - name: elevation
-            type: keyword
+            type: boolean
             description: Whether the token is elevated or not
 
           - name: elevation_type
