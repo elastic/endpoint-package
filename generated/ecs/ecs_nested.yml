@@ -338,22 +338,6 @@ endpoint:
     process.session:
       description: Session information for the current process
       type: keyword
-    process.token:
-      description: 'These fields contain information about a token.
-
-        These fields can help you correlate metrics information with a process id/name
-        from a log message.  The `process.pid` often stays in the metric itself and
-        is copied to the global field for correlation.'
-      type: object
-    process.token.elevation:
-      description: Whether the token is elevated or not
-      type: keyword
-    process.token.elevation_type:
-      description: What level of elevation the token has
-      type: keyword
-    process.token.integrity_level:
-      description: Integrity level of the process.
-      type: keyword
     user:
       description: Extended "user" field set
       type: object

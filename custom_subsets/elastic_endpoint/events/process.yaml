@@ -126,6 +126,14 @@ process:
           fields: "*"
         executable:
           fields: "*"
+    token:
+      fields:
+        elevation:
+          fields: "*"
+        elevation_type:
+          fields: "*"
+        integrity_level_name:
+          fields: "*"
 package:
   fields:
     name:
@@ -160,11 +168,3 @@ endpoint:
               fields:
                 pid:
                   fields: "*"
-        token:
-          fields:
-            integrity_level:
-              fields: "*"
-            elevation:
-              fields: "*"
-            elevation_type:
-              fields: "*"

@@ -117,28 +117,6 @@ fields:
             type: keyword
             description: Session information for the current process
 
-          - name: token
-            description: 'These fields contain information about a token.
-
-              These fields can help you correlate metrics information with a process
-              id/name from a log message.  The `process.pid` often stays in the metric
-              itself and is copied to the global field for correlation.'
-            fields:
-
-              - name: elevation
-                type: keyword
-                description: Whether the token is elevated or not
-
-              - name: elevation_type
-                type: keyword
-                description: What level of elevation the token has
-                example: one of "default", "full", "limited"
-
-              - name: integrity_level
-                type: keyword
-                description: Integrity level of the process.
-                example: one of "system", "high", "medium", "low", "untrusted"
-
       - name: user
         description: Extended "user" field set
         fields:
@@ -753,6 +731,28 @@ fields:
             type: long
             description: Thread ID.
             example: 4242
+
+      - name: token
+        description: 'These fields contain information about a token.
+
+          These fields can help you correlate metrics information with a process id/name
+          from a log message.  The `process.pid` often stays in the metric itself
+          and is copied to the global field for correlation.'
+        fields:
+
+          - name: elevation
+            type: keyword
+            description: Whether the token is elevated or not
+
+          - name: elevation_type
+            type: keyword
+            description: What level of elevation the token has
+            example: one of "default", "full", "limited"
+
+          - name: integrity_level_name
+            type: keyword
+            description: Human readable integrity level.
+            example: one of "system", "high", "medium", "low", "untrusted"
 
   - name: user
     description: 'The user fields describe information about the user that is relevant

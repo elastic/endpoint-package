@@ -74,36 +74,6 @@
       description: >
         Process authentication ID
 
-    - name: process.token
-      level: custom
-      type: object
-      short: These fields contain information about a token.
-      description: These fields contain information about a token.
-
-        These fields can help you correlate metrics information with a process id/name
-        from a log message.  The `process.pid` often stays in the metric itself and is
-        copied to the global field for correlation.
-
-    - name: process.token.integrity_level
-      level: custom
-      type: keyword
-      description: >
-        Integrity level of the process.
-      example: one of "system", "high", "medium", "low", "untrusted"
-
-    - name: process.token.elevation
-      level: custom
-      type: keyword
-      description: >
-        Whether the token is elevated or not
-
-    - name: process.token.elevation_type
-      level: custom
-      type: keyword
-      description: >
-        What level of elevation the token has
-      example: one of "default", "full", "limited"
-
     - name: process.session
       level: custom
       type: keyword
