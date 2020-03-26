@@ -32,10 +32,6 @@
     "type": ["start"]
   },
   "file": {
-    "code_signature": {
-      "status": "SSL_R_SSLV3_ALERT_CERTIFICATE_UNKNOWN",
-      "subject_name": "Microsoft Corporation"
-    },
     "hash": {
       "md5": "85ee35395b48c3e0816727818c7de3d1",
       "sha1": "28e923c48a8a8e93c00d34bde5bbf9a3fffea666",
