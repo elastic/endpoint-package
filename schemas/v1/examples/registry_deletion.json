@@ -1,40 +1,21 @@
 {
   "@timestamp": "2020-03-03T19:08:32.74626000Z",
-  "message": "DNS lookup failure for www.google.com",
+  "message": "Registry key deleted",
   "agent": {
     "id": "836977bf-9105-4667-9157-bd698e96c45d",
     "type": "endpoint",
     "version": "1.0.0-demo.20200229.4"
   },
-  "destination": {
-    "address": "www.google.com",
-    "bytes": 100,
-    "domain": "www.google.com",
-    "packets": 5,
-    "port": 53,
-    "registered_domain": "google.com",
-    "top_level_domain": "com"
-  },
-  "dns": {
-    "question": {
-      "name": "www.google.com",
-      "registered_domain": "google.com",
-      "subdomain": "www",
-      "top_level_domain": "com",
-      "type": "AAAA"
-    }
-  },
   "ecs": {
     "version": "1.0.0"
   },
   "event": {
-    "action": "request",
-    "category": ["network"],
+    "action": "deleted",
+    "category": ["registry"],
     "id": "LZuf+05Wl/ji0z7y+++++++3",
     "kind": "event",
     "module": "endpoint",
-    "outcome": "failure",
-    "type": ["protocol", "info"]
+    "type": ["deletion"]
   },
   "group": {
     "id": "S-1-5-18",
@@ -62,16 +43,6 @@
       "version": "10.0"
     }
   },
-  "network": {
-    "bytes": 200,
-    "community_id": "1:hO+sN4H+MG5MY/8hIrXPqc4ZQz0=",
-    "direction": "outbound",
-    "iana_number": 6,
-    "packets": 10,
-    "protocol": "dns",
-    "transport": "udp",
-    "type": "ipv4"
-  },
   "process": {
     "entity_id": "ODM2OTc3YmYtOTEwNS00NjY3LTkxNTctYmQ2OThlOTZjNDVkLTQtMTMyMjczOTE3OTIuOTcyMDYzMDA=",
     "executable": "C:\\Users\\default.win7x64devvm\\eclipse\\cpp-neon\\eclipse\\eclipse.exe",
@@ -81,12 +52,15 @@
       "id": 4242
     }
   },
-  "source": {
-    "address": "10.0.1.20",
-    "bytes": 100,
-    "ip": "10.0.1.20",
-    "packets": 5,
-    "port": 11123
+  "registry": {
+    "data": {
+      "bytes": "ZQBuAC0AVQBTAAAAZQBuAAAAAAA=",
+      "strings": ["C:\\rta\\red_ttp\\bin\\myapp.exe"]
+    },
+    "hive": "HKLM",
+    "key": "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\winword.exe",
+    "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\winword.exe\\Debugger",
+    "value": "Debugger"
   },
   "user": {
     "id": "S-1-5-18",
