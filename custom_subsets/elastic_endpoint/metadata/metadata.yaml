@@ -17,6 +17,12 @@ endpoint:
       fields:
         id:
           fields: "*"
+elastic:
+  fields:
+    agent:
+      fields:
+        id:
+          fields: "*"
 agent:
   fields:
     version:
