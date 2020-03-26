@@ -358,23 +358,6 @@
               "session": {
                 "ignore_above": 1024,
                 "type": "keyword"
-              },
-              "token": {
-                "properties": {
-                  "elevation": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "elevation_type": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "integrity_level": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
               }
             },
             "type": "object"
@@ -1418,6 +1401,14 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "elevation": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "elevation_type": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "impersonation_level": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -1481,6 +1472,14 @@
           "token": {
             "properties": {
               "domain": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "elevation": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "elevation_type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -2144,6 +2143,14 @@
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
+                      "elevation": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "elevation_type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "impersonation_level": {
                         "ignore_above": 1024,
                         "type": "keyword"
@@ -2207,6 +2214,14 @@
               "token": {
                 "properties": {
                   "domain": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "elevation": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "elevation_type": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
