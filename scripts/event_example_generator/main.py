@@ -10,6 +10,9 @@ import sys
 ECS_SCRIPT = 'scripts/generator.py'
 GEN_ECS = 'generated/ecs/ecs_nested.yml'
 
+class IndentArrays(yaml.Dumper):
+    def increase_indent(self, flow=False, indentless=False):
+        return super(IndentArrays, self).increase_indent(flow, False)
 
 def argument_parser():
     parser = argparse.ArgumentParser()
@@ -105,6 +108,8 @@ def gather_fields(key, schema):
         }
         if 'example' in schema:
             no_fields['example'] = schema['example']
+        if 'allowed_values' in schema:
+            no_fields['allowed_values'] = schema['allowed_values']
         return no_fields
 
 
@@ -191,7 +196,8 @@ def create_event_example(subset, out, ecs_path, custom_path, out_schema_dir):
     enrich_top_level_fields(event, ecs_path, custom_path)
 
     with open(example, 'w') as out_file:
-        stream = yaml.dump(event, default_flow_style=False, sort_keys=False)
+        stream = yaml.dump(event, Dumper=IndentArrays, default_flow_style=False, sort_keys=False)
+        # add newline before - name
         rep_stream = re.sub(r'\n( *)- name', r'\n\n\1- name', stream)
         out_file.write(rep_stream)
 
