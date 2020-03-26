@@ -688,6 +688,15 @@ http:
   description: Fields related to HTTP activity. Use the `url` field set to store the
     url of the request.
   fields:
+    request.body.bytes:
+      description: Size in bytes of the request body.
+      type: long
+    request.body.content:
+      description: The full HTTP request body.
+      type: keyword
+    request.bytes:
+      description: Total size in bytes of the request (body and headers).
+      type: long
     response.body.bytes:
       description: Size in bytes of the response body.
       type: long
