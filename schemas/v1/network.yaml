@@ -704,6 +704,29 @@ fields:
       the url of the request.
     fields:
 
+      - name: request
+        description: TODO
+        fields:
+
+          - name: body
+            description: TODO
+            fields:
+
+              - name: bytes
+                type: long
+                description: Size in bytes of the request body.
+                example: 887
+
+              - name: content
+                type: keyword
+                description: The full HTTP request body.
+                example: Hello world
+
+          - name: bytes
+            type: long
+            description: Total size in bytes of the request (body and headers).
+            example: 1437
+
       - name: response
         description: TODO
         fields:

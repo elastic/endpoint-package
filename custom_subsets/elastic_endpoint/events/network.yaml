@@ -164,6 +164,16 @@ http:
           fields: "*"
         bytes:
           fields: "*"
+    request:
+      fields:
+        body:
+          fields:
+            content:
+              fields: "*"
+            bytes:
+              fields: "*"
+        bytes:
+          fields: "*"
 dns:
   fields:
     question:
