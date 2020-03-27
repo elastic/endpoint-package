@@ -196,7 +196,9 @@ fields:
           that fall in multiple categories.'
         example: authentication
         allowed_values:
-          - description: 'Events in this category are related to the challenge and
+
+          - name: authentication
+            description: 'Events in this category are related to the challenge and
               response process in which credentials are supplied and verified to allow
               the creation of a session. Common sources for these logs are Windows
               event logs and ssh logs. Visualize and analyze events in this category
@@ -207,8 +209,9 @@ fields:
               - start
               - end
               - info
-            name: authentication
-          - description: 'The database category denotes events and metrics relating
+
+          - name: database
+            description: 'The database category denotes events and metrics relating
               to a data storage and retrieval system. Note that use of this category
               is not limited to relational database systems. Examples include event
               logs from MS SQL, MySQL, Elasticsearch, MongoDB, etc. Use this category
@@ -220,8 +223,9 @@ fields:
               - change
               - info
               - error
-            name: database
-          - description: 'Events in the driver category have to do with operating
+
+          - name: driver
+            description: 'Events in the driver category have to do with operating
               system device drivers and similar software entities such as Windows
               drivers, kernel extensions, kernel modules, etc.
 
@@ -234,8 +238,9 @@ fields:
               - end
               - info
               - start
-            name: driver
-          - description: 'Relating to a set of information that has been created on,
+
+          - name: file
+            description: 'Relating to a set of information that has been created on,
               or has existed on a filesystem. Use this category of events to visualize
               and analyze the creation, access, and deletions of files. Events in
               this category can come from both host-based and network-based sources.
@@ -248,8 +253,9 @@ fields:
               - creation
               - deletion
               - info
-            name: file
-          - description: 'Use this category to visualize and analyze information such
+
+          - name: host
+            description: 'Use this category to visualize and analyze information such
               as host inventory or host lifecycle events.
 
               Most of the events in this category can usually be observed from the
@@ -266,8 +272,9 @@ fields:
               - end
               - info
               - start
-            name: host
-          - description: 'Relating to intrusion detections from IDS/IPS systems and
+
+          - name: intrusion_detection
+            description: 'Relating to intrusion detections from IDS/IPS systems and
               functions, both network and host-based. Use this category to visualize
               and analyze intrusion detection alerts from systems such as Snort, Suricata,
               and Palo Alto threat detections.
@@ -275,8 +282,9 @@ fields:
               '
             expected_event_types:
               - info
-            name: intrusion_detection
-          - description: 'Malware detection events and alerts. Use this category to
+
+          - name: malware
+            description: 'Malware detection events and alerts. Use this category to
               visualize and analyze malware detections from EDR/EPP systems such as
               Elastic Endpoint Security, Symantec Endpoint Protection, Crowdstrike,
               and network IDS/IPS systems such as Suricata, or other sources of malware-related
@@ -285,8 +293,9 @@ fields:
               '
             expected_event_types:
               - info
-            name: malware
-          - description: 'Relating to software packages installed on hosts. Use this
+
+          - name: package
+            description: 'Relating to software packages installed on hosts. Use this
               category to visualize and analyze inventory of software installed on
               various hosts, or to determine host vulnerability in the absence of
               vulnerability scan data.
@@ -299,8 +308,9 @@ fields:
               - info
               - installation
               - start
-            name: package
-          - description: 'Use this category of events to visualize and analyze process-specific
+
+          - name: process
+            description: 'Use this category of events to visualize and analyze process-specific
               information such as lifecycle events or process ancestry.
 
               '
@@ -310,8 +320,9 @@ fields:
               - end
               - info
               - start
-            name: process
-          - description: 'Relating to web server access. Use this category to create
+
+          - name: web
+            description: 'Relating to web server access. Use this category to create
               a dashboard of web server/proxy activity from apache, IIS, nginx web
               servers, etc. Note: events from network observers such as Zeek http
               log may also be included in this category.
@@ -321,7 +332,6 @@ fields:
               - access
               - error
               - info
-            name: web
 
       - name: id
         type: keyword
@@ -343,7 +353,9 @@ fields:
           interval or not.'
         example: alert
         allowed_values:
-          - description: 'This value indicates an event that describes an alert or
+
+          - name: alert
+            description: 'This value indicates an event that describes an alert or
               notable event, triggered by a detection rule.
 
               `event.kind:alert` is often populated for events coming from firewalls,
@@ -351,14 +363,16 @@ fields:
               and so on.
 
               '
-            name: alert
-          - description: 'This value is the most general and most common value for
+
+          - name: event
+            description: 'This value is the most general and most common value for
               this field. It is used to represent events that indicate that something
               happened.
 
               '
-            name: event
-          - description: 'This value is used to indicate that this event that a numeric
+
+          - name: metric
+            description: 'This value is used to indicate that this event that a numeric
               measurement was taken at given point in time.
 
               Examples include CPU utilization, memory usage, or a vulnerability scan
@@ -368,23 +382,26 @@ fields:
               once every few seconds, or once a minute.
 
               '
-            name: metric
-          - description: 'This value is similar to metric, except that the entity
+
+          - name: state
+            description: 'This value is similar to metric, except that the entity
               being measured does not provide a numeric metric value, but rather one
               of a fixed set of conditions or states. For example a periodic event
               reporting a "fin_wait" state of a TCP connection on a host might use
               `event.type:state`.
 
               '
-            name: state
-          - description: 'This value indicates that an error occurred during the ingestion
+
+          - name: pipeline_error
+            description: 'This value indicates that an error occurred during the ingestion
               of this event, and that event data may be missing, inconsistent, or
               incorrect. `event.kind:pipeline_error` is often associated with parsing
               errors.
 
               '
-            name: pipeline_error
-          - description: 'This value is used by the Elastic SIEM app to denote an
+
+          - name: signal
+            description: 'This value is used by the Elastic SIEM app to denote an
               Elasticsearch document that was created by a SIEM detection engine rule.
 
               A signal will typically trigger a notification that something meaningful
@@ -394,7 +411,6 @@ fields:
               with the value "signal".
 
               '
-            name: signal
 
       - name: module
         type: keyword
@@ -417,7 +433,9 @@ fields:
           This field is an array. This will allow proper categorization of some events
           that fall in multiple event types.'
         allowed_values:
-          - description: 'The access event type is used for the subset of events within
+
+          - name: access
+            description: 'The access event type is used for the subset of events within
               a category that indicate that something was accessed. Common examples
               include `event.category:database AND event.type:access`, or `event.category:file
               AND event.type:access`. Note for file access, both directory listings
@@ -425,8 +443,9 @@ fields:
               distinguish access operations using the ECS `event.action` field.
 
               '
-            name: access
-          - description: 'The change event type is used for the subset of events within
+
+          - name: change
+            description: 'The change event type is used for the subset of events within
               a category that indicate that something has changed. If semantics best
               describe an event as modified, then include them in this subcategory.
               Common examples include `event.category:process AND event.type:change`,
@@ -434,35 +453,40 @@ fields:
               change operations using the ECS `event.action` field.
 
               '
-            name: change
-          - description: 'The "creation" event type is used for the subset of events
+
+          - name: creation
+            description: 'The "creation" event type is used for the subset of events
               within a category that indicate that something was created. A common
               example is `event.category:file AND event.type:creation`.
 
               '
-            name: creation
-          - description: 'The deletion event type is used for the subset of events
+
+          - name: deletion
+            description: 'The deletion event type is used for the subset of events
               within a category that indicate that something was deleted. A common
               example is `event.category:file AND event.type:deletion` to indicate
               that a file has been deleted.
 
               '
-            name: deletion
-          - description: 'The end event type is used for the subset of events within
+
+          - name: end
+            description: 'The end event type is used for the subset of events within
               a category that indicate something has ended. A common example is `event.category:process
               AND event.type:end`.
 
               '
-            name: end
-          - description: 'The error event type is used for the subset of events within
+
+          - name: error
+            description: 'The error event type is used for the subset of events within
               a category that indicate or describe an error. A common example is `event.category:database
               AND event.type:error`. Note that pipeline errors that occur during the
               event ingestion process should not use this `event.type` value. Instead,
               they should use `event.kind:pipeline_error`.
 
               '
-            name: error
-          - description: 'The info event type is used for the subset of events within
+
+          - name: info
+            description: 'The info event type is used for the subset of events within
               a category that indicate that they are purely informational, and don''t
               report a state change, or any type of action. For example, an initial
               run of a file integrity monitoring system (FIM), where an agent reports
@@ -473,19 +497,20 @@ fields:
               AND event.type:info`.
 
               '
-            name: info
-          - description: 'The installation event type is used for the subset of events
+
+          - name: installation
+            description: 'The installation event type is used for the subset of events
               within a category that indicate that something was installed. A common
               example is `event.category:package` AND `event.type:installation`.
 
               '
-            name: installation
-          - description: 'The start event type is used for the subset of events within
+
+          - name: start
+            description: 'The start event type is used for the subset of events within
               a category that indicate something has started. A common example is
               `event.category:process AND event.type:start`.
 
               '
-            name: start
 
   - name: file
     description: 'A file is defined as a set of information that has been created
