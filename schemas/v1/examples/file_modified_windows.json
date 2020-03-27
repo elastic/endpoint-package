@@ -11,6 +11,9 @@
   },
   "endpoint": {
     "file": {
+      "original": {
+        "uid": "S-1-5-19"
+      },
       "windows": {
         "zone_identifier": 3
       }
@@ -31,7 +34,9 @@
       "sha256": "322e939f9ebc92dcc55208bc2350625fd2f9501ac4d3bf72d882d00a9bf9bfcf"
     },
     "name": "driver.sys",
-    "path": "C:\\Windows\\System32\\driver.sys"
+    "owner": "alice",
+    "path": "C:\\Windows\\System32\\driver.sys",
+    "uid": "S-1-5-18"
   },
   "group": {
     "id": "S-1-5-18",
