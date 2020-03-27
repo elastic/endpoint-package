@@ -181,7 +181,7 @@ def enrich_top_level_fields(event, ecs_path, custom_path):
     recurse_fields(event['fields'], schema_to_path)
 
 
-def create_event_example(subset, out, ecs_path, custom_path, out_schema_dir):
+def create_event_schema(subset, out, ecs_path, custom_path, out_schema_dir):
     subset_basename = os.path.basename(subset)
     subset_no_ext = os.path.splitext(subset_basename)[0]
     abs_out = os.path.abspath(out)
@@ -247,7 +247,7 @@ def main():
 
     for s in subset_files:
         generate_subset(args.ecs, args.custom_schema, s, args.out)
-        create_event_example(s, args.out, args.ecs, args.custom_schema, args.out_schema_dir)
+        create_event_schema(s, args.out, args.ecs, args.custom_schema, args.out_schema_dir)
 
 
 if __name__ == '__main__':
