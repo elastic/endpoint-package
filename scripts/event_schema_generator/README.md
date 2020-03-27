@@ -21,7 +21,7 @@ usage: main.py [-h] [--out-schema-dir directory where example file will be copie
                <path to ecs repo> <path to custom_schema dir> subset [subset ...] <path to output directory used by ecs to generate temporary files>
 ```
 
-From the `endpoint-app-team/scripts/event_example_generator` directory
+From the `endpoint-app-team/scripts/event_schema_generator` directory
 
 ```bash
 python main.py --out-schema-dir ../../schemas/v1 ../../../ecs ../../custom_schemas ../../custom_subsets/elastic_endpoint/events/*.yaml test
