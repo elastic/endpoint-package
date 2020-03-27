@@ -20,6 +20,6 @@ python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_s
 
 The generated files will be in `../gen`
 
-### Generating the example schema files
+### Generating the schema files
 
-To generate the example schema files in [schemas](../schemas) follow the instructions in the [event_example_generator](../scripts/event_example_generator/README.md)
+To generate the event schema files in [schemas](../schemas) follow the instructions in the [event_schema_generator](../scripts/event_schema_generator/README.md)
