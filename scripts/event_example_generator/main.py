@@ -88,6 +88,21 @@ def expand_dots(nested_yaml):
     return merged
 
 
+def reorder_fields(fields):
+    new_fields_array = []
+    for f in fields:
+        import json
+        rerordered = {
+            'name': f['name'],
+            'description': f['description'],
+        }
+        if 'expected_event_types' in f:
+            rerordered['expected_event_types'] = f['expected_event_types']
+        new_fields_array.append(rerordered)
+
+    return new_fields_array
+
+
 def gather_fields(key, schema):
     if 'fields' in schema:
         fields = []
@@ -109,7 +124,7 @@ def gather_fields(key, schema):
         if 'example' in schema:
             no_fields['example'] = schema['example']
         if 'allowed_values' in schema:
-            no_fields['allowed_values'] = schema['allowed_values']
+            no_fields['allowed_values'] = reorder_fields(schema['allowed_values'])
         return no_fields
 
 
