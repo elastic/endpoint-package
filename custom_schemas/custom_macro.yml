@@ -73,6 +73,6 @@
 
     - name: file_extension
       level: custom
-      type: long
+      type: keyword
       description: >
         The extension of the file containing this macro (e.g. .docm)
