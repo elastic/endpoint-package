@@ -50,4 +50,4 @@ One tab:
 $  `yarn es snapshot`
 
 Another Tab:
-$ `npx yarn start --plugin-path x-pack/test/plugin_functional/plugins/resolver_test/ --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
+$ `yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
