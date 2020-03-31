@@ -68,3 +68,6 @@ Stop kibana and ES then run
 `$ rm -r .es`
 Then start kibana / Elasticsearch again with a fresh/clean environment. 
 
+## Updating Kibana / Elasticsearch
+
+To pull in the latest changes and pull requests - update kibana (do a `git pull` for master), rebuild (using steps above - clean kibana first with `yarn kbn clean`), and start up the services.
