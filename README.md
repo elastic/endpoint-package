@@ -47,7 +47,7 @@ yarn cache clean
 Once you have everything setup have  two tabs (one for Kibana, and one for Elasticsearch)
 
 One tab:
-$  `yarn es snapshot`
+$  `npx yarn es snapshot --license trial -E discovery.type="single-node" -E network.host="0.0.0.0"`
 
 Another Tab:
 $ `yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
