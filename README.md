@@ -47,7 +47,22 @@ yarn cache clean
 Once you have everything setup have  two tabs (one for Kibana, and one for Elasticsearch)
 
 One tab:
-$  `npx yarn es snapshot --license trial -E discovery.type="single-node" -E network.host="0.0.0.0"`
+
+`$ npx yarn es snapshot --license trial -E discovery.type="single-node" -E network.host="0.0.0.0"`
 
 Another Tab:
-$ `yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
+
+`$ yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
+
+##  Generating sample endpoint metadata documents, alerts, and associated resolver events
+In a new CLI tab, change directory to kibana/x-pack/plugins/endpoint, then run:
+
+`$ yarn test:generate --auth elastic:changeme`
+
+The default settings generate a single endpoint metadata document, a single alert, and a few associated events for the resolver tree.
+
+## Clearing out ES data (starting fresh)
+Stop kibana and ES then run
+`$ rm -r .es`
+Then start kibana / Elasticsearch again with a fresh/clean environment. 
+
