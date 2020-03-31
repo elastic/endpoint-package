@@ -54,6 +54,8 @@ Another Tab:
 
 `$ yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true`
 
+Elasticsearch will run on http://127.0.0.1:9200 and Kibana on http://127.0.0.1:5601
+
 ##  Generating sample endpoint metadata documents, alerts, and associated resolver events
 In a new CLI tab, change directory to kibana/x-pack/plugins/endpoint, then run:
 
