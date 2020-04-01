@@ -56,6 +56,9 @@ Another Tab:
 
 Elasticsearch will run on http://127.0.0.1:9200 and Kibana on http://127.0.0.1:5601
 
+##  Running and connecting an Elastic Endpoint
+https://github.com/elastic/endpoint-dev/blob/master/Documentation/ElasticEndpointCollaboration.md
+
 ##  Generating sample endpoint metadata documents, alerts, and associated resolver events
 In a new CLI tab, change directory to kibana/x-pack/plugins/endpoint, then run:
 
