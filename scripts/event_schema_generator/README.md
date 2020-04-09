@@ -6,13 +6,9 @@ This script takes the subset style files and outputs the full schema of a given 
 
 ### Setup
 
-Before generating the schema files you'll need to clone the ecs repo. As of 3/19/20 there are some fixes that haven't been
-merged into the mainline repo so it's recommended to use this <https://github.com/jonathan-buttner/ecs/tree/sub-set-fixes> branch
-for the time being.
-
-Once you have that cloned, you'll need to install the python package `requirements.txt` under the `scripts` directory.
-
-You'll also need python version 3.6 or greater
+Before generating the schema files you'll need to clone the ecs repo (master branch). This project relies on dictionaries being ordered
+so you'll need python 3.6 or greater and pyyaml installed. It's probably easiest to `brew install pipenv` and use
+the pipfile I've included. If you run into issues installing, it might be because of macOS Catalina, try `brew reinstall python` 
 
 ### Usage
 
