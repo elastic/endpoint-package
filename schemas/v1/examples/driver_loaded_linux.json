@@ -1,0 +1,82 @@
+{
+  "@timestamp": "2020-03-03T19:08:32.74626000Z",
+  "message": "The driver: driver was loaded",
+  "agent": {
+    "id": "836977bf-9105-4667-9157-bd698e96c45d",
+    "type": "endpoint",
+    "version": "1.0.0-demo.20200229.4"
+  },
+  "ecs": {
+    "version": "1.0.0"
+  },
+  "endpoint": {
+    "group": {
+      "real": {
+        "id": "0",
+        "name": "root"
+      }
+    },
+    "user": {
+      "real": {
+        "id": "0",
+        "name": "root"
+      }
+    }
+  },
+  "event": {
+    "action": "loaded",
+    "category": ["driver"],
+    "id": "LZuf+05Wl/ji0z7y+++++++3",
+    "kind": "event",
+    "module": "endpoint",
+    "type": ["start"]
+  },
+  "file": {
+    "hash": {
+      "md5": "85ee35395b48c3e0816727818c7de3d1",
+      "sha1": "28e923c48a8a8e93c00d34bde5bbf9a3fffea666",
+      "sha256": "322e939f9ebc92dcc55208bc2350625fd2f9501ac4d3bf72d882d00a9bf9bfcf"
+    },
+    "name": "driver",
+    "path": "/home/alice/driver"
+  },
+  "group": {
+    "id": "0",
+    "name": "root"
+  },
+  "host": {
+    "geo": {
+      "city_name": "Montreal",
+      "continent_name": "North America",
+      "country_iso_code": "CA",
+      "country_name": "Canada",
+      "location": {
+        "lon": -73.61483,
+        "lat": 45.505918
+      },
+      "region_iso_code": "CA-QC",
+      "region_name": "Quebec"
+    },
+    "hostname": "host1",
+    "ip": "10.0.1.20",
+    "name": "host1",
+    "os": {
+      "name": "Xenial Xerus",
+      "platform": "ubuntu",
+      "version": "16.04.1"
+    }
+  },
+  "process": {
+    "entity_id": "ODM2OTc3YmYtOTEwNS00NjY3LTkxNTctYmQ2OThlOTZjNDVkLTQtMTMyMjczOTE3OTIuOTcyMDYzMDA=",
+    "executable": "/usr/bin/ssh",
+    "name": "ssh",
+    "pid": 5,
+    "thread": {
+      "id": 4242
+    }
+  },
+  "user": {
+    "id": "0",
+    "name": "root"
+  }
+}

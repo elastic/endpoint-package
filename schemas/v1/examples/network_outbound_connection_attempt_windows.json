@@ -1,0 +1,84 @@
+{
+  "@timestamp": "2020-03-03T19:08:32.74626000Z",
+  "message": "Connection attempt to 192.168.10.100",
+  "agent": {
+    "id": "836977bf-9105-4667-9157-bd698e96c45d",
+    "type": "endpoint",
+    "version": "1.0.0-demo.20200229.4"
+  },
+  "destination": {
+    "address": "192.168.10.100",
+    "bytes": 100,
+    "packets": 5,
+    "ip": "192.168.10.100",
+    "port": 12345
+  },
+  "ecs": {
+    "version": "1.0.0"
+  },
+  "event": {
+    "action": "connection_attempted",
+    "category": ["network"],
+    "id": "LZuf+05Wl/ji0z7y+++++++3",
+    "kind": "event",
+    "module": "endpoint",
+    "outcome": "unknown",
+    "type": ["start"]
+  },
+  "group": {
+    "id": "S-1-5-18",
+    "name": "Hyper-V Administrators"
+  },
+  "host": {
+    "geo": {
+      "city_name": "Montreal",
+      "continent_name": "North America",
+      "country_iso_code": "CA",
+      "country_name": "Canada",
+      "location": {
+        "lon": -73.61483,
+        "lat": 45.505918
+      },
+      "region_iso_code": "CA-QC",
+      "region_name": "Quebec"
+    },
+    "hostname": "host1",
+    "ip": "10.0.1.20",
+    "name": "host1",
+    "os": {
+      "name": "Windows 10",
+      "platform": "windows",
+      "version": "10.0"
+    }
+  },
+  "network": {
+    "bytes": 200,
+    "community_id": "1:hO+sN4H+MG5MY/8hIrXPqc4ZQz0=",
+    "direction": "outbound",
+    "iana_number": 6,
+    "packets": 10,
+    "protocol": "lumberjack",
+    "transport": "tcp",
+    "type": "ipv4"
+  },
+  "process": {
+    "entity_id": "ODM2OTc3YmYtOTEwNS00NjY3LTkxNTctYmQ2OThlOTZjNDVkLTQtMTMyMjczOTE3OTIuOTcyMDYzMDA=",
+    "executable": "C:\\Users\\default.win7x64devvm\\eclipse\\cpp-neon\\eclipse\\eclipse.exe",
+    "name": "eclipse.exe",
+    "pid": 5,
+    "thread": {
+      "id": 4242
+    }
+  },
+  "source": {
+    "address": "10.0.1.20",
+    "bytes": 100,
+    "ip": "10.0.1.20",
+    "packets": 5,
+    "port": 11123
+  },
+  "user": {
+    "id": "S-1-5-18",
+    "name": "MINWINPC$"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "@timestamp": "2020-03-03T19:08:32.74626000Z",
+  "message": "Process ssh created",
+  "agent": {
+    "id": "836977bf-9105-4667-9157-bd698e96c45d",
+    "type": "endpoint",
+    "version": "1.0.0-demo.20200229.4"
+  },
+  "ecs": {
+    "version": "1.0.0"
+  },
+  "endpoint": {
+    "group": {
+      "real": {
+        "id": "0",
+        "name": "root"
+      }
+    },
+    "process": {
+      "parent": {
+        "real": {
+          "pid": 100
+        },
+        "session": "127857"
+      }
+    },
+    "user": {
+      "real": {
+        "id": "0",
+        "name": "root"
+      }
+    }
+  },
+  "event": {
+    "action": "creation",
+    "category": ["process"],
+    "id": "LZuf+05Wl/ji0z7y+++++++3",
+    "kind": "event",
+    "module": "endpoint",
+    "type": ["start"]
+  },
+  "group": {
+    "id": "0",
+    "name": "root"
+  },
+  "host": {
+    "geo": {
+      "city_name": "Montreal",
+      "continent_name": "North America",
+      "country_iso_code": "CA",
+      "country_name": "Canada",
+      "location": {
+        "lon": -73.61483,
+        "lat": 45.505918
+      },
+      "region_iso_code": "CA-QC",
+      "region_name": "Quebec"
+    },
+    "hostname": "host1",
+    "ip": "10.0.1.20",
+    "name": "host1",
+    "os": {
+      "name": "Xenial Xerus",
+      "platform": "ubuntu",
+      "version": "16.04.1"
+    }
+  },
+  "package": {
+    "name": "go"
+  },
+  "process": {
+    "args": ["/usr/bin/ssh", "-l", "user", "10.0.0.16"],
+    "command_line": "/usr/bin/ssh -l user 10.0.0.16",
+    "entity_id": "ODM2OTc3YmYtOTEwNS00NjY3LTkxNTctYmQ2OThlOTZjNDVkLTQtMTMyMjczOTE3OTIuOTcyMDYzMDA=",
+    "executable": "/usr/bin/ssh",
+    "hash": {
+      "md5": "85ee35395b48c3e0816727818c7de3d1",
+      "sha1": "28e923c48a8a8e93c00d34bde5bbf9a3fffea666",
+      "sha256": "322e939f9ebc92dcc55208bc2350625fd2f9501ac4d3bf72d882d00a9bf9bfcf"
+    },
+    "name": "ssh",
+    "parent": {
+      "entity_id": "ODM2OTc3YmYtOTEwNS00NjY3LTkxNTctYmQ2OThlOTZjNDVkLTM5NTItMTMyMjczOTE3OTkuNjg5NzgyMDA=",
+      "executable": "/usr/bin/bash",
+      "name": "bash",
+      "pid": 4242
+    },
+    "pid": 5,
+    "thread": {
+      "id": 4242
+    }
+  },
+  "user": {
+    "id": "0",
+    "name": "root"
+  }
+}
