@@ -1,10 +1,10 @@
 # Endpoint-app-team
-Internal issue and project tracking repo for Endpoint App team
 
+Internal issue and project tracking repo for Endpoint App team
 
 # Running Kibana with Endpoint App Enabled from Kibana.
 
-From https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md#setting-up-your-development-environment 
+From https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md#setting-up-your-development-environment
 
 ### Setting Up Your Development Environment
 
@@ -34,17 +34,20 @@ yarn kbn bootstrap
 (You can also run `yarn kbn` to see the other available commands. For more info about this tool, see https://github.com/elastic/kibana/tree/master/packages/kbn-pm.)
 
 When switching branches which use different versions of npm packages you may need to run;
+
 ```bash
 yarn kbn clean
 ```
 
 If you have failures during `yarn kbn bootstrap` you may have some corrupted packages in your yarn cache which you can clean with;
+
 ```bash
 yarn cache clean
 ```
 
-##  Running Kibana and  Elasticsearch
-Once you have everything setup have  two tabs (one for Kibana, and one for Elasticsearch)
+## Running Kibana and Elasticsearch
+
+Once you have everything setup have two tabs (one for Kibana, and one for Elasticsearch)
 
 One tab:
 
@@ -56,10 +59,12 @@ Another Tab:
 
 Elasticsearch will run on http://127.0.0.1:9200 and Kibana on http://127.0.0.1:5601
 
-##  Running and connecting an Elastic Endpoint
+## Running and connecting an Elastic Endpoint
+
 https://github.com/elastic/endpoint-dev/blob/master/Documentation/ElasticEndpointCollaboration.md
 
-##  Generating sample endpoint metadata documents, alerts, and associated resolver events
+## Generating sample endpoint metadata documents, alerts, and associated resolver events
+
 In a new CLI tab, change directory to kibana/x-pack/plugins/endpoint, then run:
 
 `$ yarn test:generate --auth elastic:changeme`
@@ -67,10 +72,15 @@ In a new CLI tab, change directory to kibana/x-pack/plugins/endpoint, then run:
 The default settings generate a single endpoint metadata document, a single alert, and a few associated events for the resolver tree.
 
 ## Clearing out ES data (starting fresh)
+
 Stop kibana and ES then run
 `$ rm -r .es`
-Then start kibana / Elasticsearch again with a fresh/clean environment. 
+Then start kibana / Elasticsearch again with a fresh/clean environment.
 
 ## Updating Kibana / Elasticsearch
 
 To pull in the latest changes and pull requests - update kibana (do a `git pull` for master), rebuild (using steps above - clean kibana first with `yarn kbn clean`), and start up the services.
+
+## The Endpoint Package and Generating the Endpoint Mapping
+
+Information on updating the Endpoint package and generating the Endpoint mapping can be found [here](./PACKAGE.md)

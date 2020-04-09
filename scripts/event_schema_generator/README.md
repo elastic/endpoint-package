@@ -6,9 +6,13 @@ This script takes the subset style files and outputs the full schema of a given 
 
 ### Setup
 
-Before generating the schema files you'll need to clone the ecs repo (master branch). This project relies on dictionaries being ordered
+Before generating the schema files you'll need to clone the [ecs repo](https://github.com/elastic/ecs) (master branch).
+Once you have that cloned, you'll need to install the python package `requirements.txt` under the `scripts` directory
+[here](https://github.com/elastic/ecs/blob/master/scripts/requirements.txt).
+
+This project relies on dictionaries being ordered
 so you'll need python 3.6 or greater and pyyaml installed. It's probably easiest to `brew install pipenv` and use
-the pipfile I've included. If you run into issues installing, it might be because of macOS Catalina, try `brew reinstall python` 
+the pipfile I've included. If you run into issues installing, it might be because of macOS Catalina, try `brew reinstall python`
 
 ### Usage
 
