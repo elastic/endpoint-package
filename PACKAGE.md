@@ -97,8 +97,5 @@ pull down the latest one (upgrading a package hasn't been implemented as of 4/9/
 ### Versioning
 
 Most of this section is still TODO but if we update the mapping in a way that is not a breaking change
-we'll probably need to update the version of the package. To update the package version update the package's directory
-name `endpoint-1.0.0` to `endpoint-1.0.1` here: <https://github.com/elastic/package-registry/tree/master/dev/packages/example>
-and the version specified here: <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/manifest.yml#L5>
-
-TODO confirm with ingest team
+we'll probably need to update the version of the package. To update the package version specified here:
+<https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/manifest.yml#L5>
