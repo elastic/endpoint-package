@@ -36,7 +36,9 @@ xpack.ingestManager.epm.enabled: true
 xpack.ingestManager.fleet.enabled: true
 ```
 
-The Ingest Manager will now use your locally running package registry for retrieving a package.
+The Ingest Manager will now use your locally running package registry for retrieving a package. The Ingest Manager
+within Kibana does some caching after it has downloaded a package, so if you are not seeing your changes you might
+need to restart Kibana and Elasticsearch.
 
 ## Updating the Endpoint Package Mapping
 
@@ -51,6 +53,23 @@ The essential steps are listed here:
 
 - Generate the mapping
 
+## Generating the files with the Makefile
+
+First create a file called `config.mk` with the location of your ecs repo. Here's an example:
+
+```makefile
+ECS_DIR := ../ecs
+```
+
+You will need pipenv installed: <https://pipenv-fork.readthedocs.io/en/latest/install.html>
+
+Then run `make`
+
+The created files will be in the directory `out`. The makefile takes care of formatting
+the file as described below.
+
+## Generating the files manually
+
 ```bash
 cd ecs
 python scripts/generator.py --out ../<some directory to write the generated files> --include ../endpoint-app-team/custom_schemas --subset ../endpoint-app-team/custom_subsets/<subset file(s) being used>
@@ -61,7 +80,7 @@ Here are some examples:
 ### Generating the events mapping
 
 ```bash
-python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_schemas --subset ../endpoint-app-team/custom_subsets/elastic_endpoint/events/* ../endpoint-app-team/custom_subsets/*.yml
+python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_schemas --subset ../endpoint-app-team/custom_subsets/elastic_endpoint/events/*
 ```
 
 ### Generating the metadata mapping
@@ -72,6 +91,8 @@ python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_s
 
 The generated files will be in `../gen` in the examples above. The file needed to update the mapping is in
 `../gen/generated/beats/fields.ecs.yml`
+
+### Formatting the file
 
 The file format needs to be updated slightly before being included in the package. To get the file in the right format
 remove these lines:
@@ -87,8 +108,10 @@ remove these lines:
   fields:
 ```
 
-Next, remove the indentation. Now copy this file to <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/events/fields/fields.yml>
-if you are updating the `events` mapping, the `metadata` file is here: <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/metadata/fields/fields.yml>
+Next, remove the indentation.
+
+Now copy this file to <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/events/fields/fields.yml>
+if you are updating the `events` mapping. If you are updating the `metadata`, the `metadata` file is here: <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/metadata/fields/fields.yml>
 
 Rerun `mage build` and `go run .` and the endpoint package should have the latest mapping changes in it. You will probably
 have to restart ES and Kibana because the Ingest Manager keeps the installed packages in a cache so it might not try to
@@ -97,5 +120,19 @@ pull down the latest one (upgrading a package hasn't been implemented as of 4/9/
 ### Versioning
 
 Most of this section is still TODO but if we update the mapping in a way that is not a breaking change
-we'll probably need to update the version of the package. To update the package version specified here:
+we'll probably need to update the version of the package. The package version is specified here:
 <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/manifest.yml#L5>
+
+## Updating the package in staging
+
+Once testing is complete, open a PR to the package registry against the `master` branch. Once the changes are merged
+into the `master` branch, a new docker image will automatically be built with the package changes. There is still a
+manual step of pushing the docker image to the staging environment that is currently done by the Ingest Management team.
+
+Once the Endpoint team is given access to push the docker image to staging, the steps will be outlined here.
+
+## Updating the schema
+
+After making the necessary changes to the mapping, generate the new [schema files](schema/v1) as outlined in this [README](scripts/event_schema_generator/README.md)
+
+Lastly, PR the changes to this repo.

@@ -44,7 +44,7 @@ the files. The scripts allows the flags:
 
 ```bash
 cd ecs
-python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_schemas --subset ../endpoint-app-team/custom_subsets/elastic_endpoint/events/* ../endpoint-app-team/custom_subsets/*.yml
+python scripts/generator.py --out ../gen --include ../endpoint-app-team/custom_schemas --subset ../endpoint-app-team/custom_subsets/elastic_endpoint/events/*
 ```
 
 The generated files will be in `../gen`

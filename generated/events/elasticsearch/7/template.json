@@ -4,7 +4,7 @@
   ],
   "mappings": {
     "_meta": {
-      "version": "1.5.0-dev"
+      "version": "1.6.0-dev"
     },
     "date_detection": false,
     "dynamic_templates": [
@@ -24,6 +24,14 @@
       },
       "agent": {
         "properties": {
+          "build": {
+            "properties": {
+              "original": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "ephemeral_id": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -181,6 +189,10 @@
           },
           "pe": {
             "properties": {
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -190,6 +202,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -668,6 +684,10 @@
               }
             }
           },
+          "mime_type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "mode": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -695,6 +715,10 @@
           },
           "pe": {
             "properties": {
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -704,6 +728,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1298,6 +1326,10 @@
           },
           "pe": {
             "properties": {
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1307,6 +1339,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1456,8 +1492,7 @@
               "uptime": {
                 "type": "long"
               }
-            },
-            "type": "object"
+            }
           },
           "title": {
             "fields": {
@@ -1579,6 +1614,10 @@
       },
       "rule": {
         "properties": {
+          "author": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "category": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -1588,6 +1627,10 @@
             "type": "keyword"
           },
           "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "license": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -1750,6 +1793,10 @@
               },
               "pe": {
                 "properties": {
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "company": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -1759,6 +1806,10 @@
                     "type": "keyword"
                   },
                   "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "imphash": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
@@ -2038,6 +2089,10 @@
               },
               "pe": {
                 "properties": {
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "company": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -2047,6 +2102,10 @@
                     "type": "keyword"
                   },
                   "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "imphash": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
@@ -2196,8 +2255,7 @@
                   "uptime": {
                     "type": "long"
                   }
-                },
-                "type": "object"
+                }
               },
               "title": {
                 "fields": {
