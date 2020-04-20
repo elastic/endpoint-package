@@ -10,9 +10,11 @@ import sys
 ECS_SCRIPT = 'scripts/generator.py'
 GEN_ECS = 'generated/ecs/ecs_nested.yml'
 
+
 class IndentArrays(yaml.Dumper):
     def increase_indent(self, flow=False, indentless=False):
         return super(IndentArrays, self).increase_indent(flow, False)
+
 
 def argument_parser():
     parser = argparse.ArgumentParser()
@@ -91,14 +93,13 @@ def expand_dots(nested_yaml):
 def reorder_fields(fields):
     new_fields_array = []
     for f in fields:
-        import json
-        rerordered = {
+        reordered = {
             'name': f['name'],
             'description': f['description'],
         }
         if 'expected_event_types' in f:
-            rerordered['expected_event_types'] = f['expected_event_types']
-        new_fields_array.append(rerordered)
+            reordered['expected_event_types'] = f['expected_event_types']
+        new_fields_array.append(reordered)
 
     return new_fields_array
 

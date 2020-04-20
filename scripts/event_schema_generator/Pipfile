@@ -7,7 +7,11 @@ verify_ssl = true
 
 [packages]
 pyyaml = "*"
+pytest = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.7"
 
+[scripts]
+tests = "pytest"
