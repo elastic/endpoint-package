@@ -1,0 +1,37 @@
+{
+  "@timestamp": "2020-03-03T19:08:32.74626000Z",
+  "agent": {
+    "id": "836977bf-9105-4667-9157-bd698e96c45d",
+    "name": "endpoint",
+    "version": "1.0.0-demo.20200229.4"
+  },
+  "elastic": {
+    "agent": {
+      "id": "c2a9093e-e289-4c0a-aa44-8c32a414fa7b"
+    }
+  },
+  "endpoint": {
+    "policy": {
+      "id": "c2a9093e-e289-4c0a-aa44-8c32a414fa7a"
+    }
+  },
+  "ecs": {
+    "version": "1.0.0"
+  },
+  "event": {
+    "created": "2020-03-03T19:08:32.74626000Z"
+  },
+  "host": {
+    "architecture": "x86_64",
+    "hostname": "host1",
+    "id": "836977bf-9999-4667-9157-bd698e96c45d",
+    "ip": ["10.0.1.20"],
+    "mac": ["00:0a:95:9d:68:16"],
+    "os": {
+      "full": "Windows 10 Pro",
+      "name": "Windows 10",
+      "variant": "Windows",
+      "version": "10.0"
+    }
+  }
+}

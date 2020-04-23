@@ -12,7 +12,7 @@
   type: group
   reusable:
     top_level: true
-    expected: 
+    expected:
       - target
   fields:
     - name: mapped_address

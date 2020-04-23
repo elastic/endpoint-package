@@ -1,0 +1,122 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    labels:
+      fields: "*"
+    message:
+      fields: "*"
+host:
+  fields:
+    os:
+      fields:
+        platform:
+          fields: "*"
+        name:
+          fields: "*"
+        version:
+          fields: "*"
+    ip:
+      fields: "*"
+    hostname:
+      fields: "*"
+    name:
+      fields: "*"
+event:
+  fields:
+    id:
+      fields: "*"
+    module:
+      fields: "*"
+    dataset:
+      fields: "*"
+    action:
+      fields: "*"
+    kind:
+      fields: "*"
+    category:
+      fields: "*"
+    type:
+      fields: "*"
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+
+endgame:
+  fields:
+    serial_event_id:
+      fields: "*"
+    opcode:
+      fields: "*"
+    event_type_full:
+      fields: "*"
+    event_subtype_full:
+      fields: "*"
+    timestamp:
+      fields: "*"
+    timestamp_utc:
+      fields: "*"
+    event_message:
+      fields: "*"
+    unknown_properties:
+      fields: "*"
+    pid:
+      fields: "*"
+    process_path:
+      fields: "*"
+    process_name:
+      fields: "*"
+    unique_pid:
+      fields: "*"
+    user_name:
+      fields: "*"
+    user_domain:
+      fields: "*"
+    user_sid:
+      fields: "*"
+    tid:
+      fields: "*"
+    real_user_name:
+      fields: "*"
+    effective_user_name:
+      fields: "*"
+    real_group_name:
+      fields: "*"
+    effective_group_name:
+      fields: "*"
+    real_uid:
+      fields: "*"
+    effective_uid:
+      fields: "*"
+    real_gid:
+      fields: "*"
+    effective_gid:
+      fields: "*"
+    # end of generic stuff
+
+    image_path:
+      fields: "*"
+    image_name:
+      fields: "*"
+    md5:
+      fields: "*"
+    sha1:
+      fields: "*"
+    sha256:
+      fields: "*"
+    signature_signer:
+      fields: "*"
+    signature_status:
+      fields: "*"
+    file_version:
+      fields: "*"
+    product_version:
+      fields: "*"
+    original_file_name:
+      fields: "*"

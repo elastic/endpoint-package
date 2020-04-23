@@ -5,6 +5,10 @@
   short: These fields contain information about a token.
   description: >
     These fields contain information about a token.
+
+    These fields can help you correlate metrics information with a process id/name
+    from a log message.  The `process.pid` often stays in the metric itself and is
+    copied to the global field for correlation.
   reusable:
     top_level: false
     expected:
@@ -17,13 +21,13 @@
       type: keyword
       description: >
         Username of token owner.
-      
+
     - name: domain
       level: extended
       type: keyword
       description: >
         Domain of token user.
-      
+
     - name: sid
       level: extended
       type: keyword
@@ -35,6 +39,19 @@
       type: keyword
       description: >
         Type of the token, either primary or impersonation.
+
+    - name: elevation
+      level: custom
+      type: boolean
+      description: >
+        Whether the token is elevated or not
+
+    - name: elevation_type
+      level: custom
+      type: keyword
+      description: >
+        What level of elevation the token has
+      example: one of "default", "full", "limited"
 
     - name: impersonation_level
       level: extended
@@ -53,6 +70,7 @@
       type: keyword
       description: >
         Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
 
     - name: is_appcontainer
       level: extended
@@ -65,7 +83,7 @@
       type: nested
       description: >
         Array describing the privileges associated with the token.
-    
+
     - name: privileges.name
       level: extended
       type: keyword

@@ -27,6 +27,13 @@
       description: >
         User associated with the running process.
 
+    - name: thread
+      level: extended
+      type: object
+      description:
+        The thread fields are used to describe by which process thread the
+        event belongs to.
+
     - name: thread.start
       level: extended
       type: date

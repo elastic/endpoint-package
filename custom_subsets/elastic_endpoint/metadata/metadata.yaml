@@ -1,0 +1,55 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+ecs:
+  fields:
+    version:
+      fields: "*"
+event:
+  fields:
+    created:
+      fields: "*"
+endpoint:
+  fields:
+    policy:
+      fields:
+        id:
+          fields: "*"
+elastic:
+  fields:
+    agent:
+      fields:
+        id:
+          fields: "*"
+agent:
+  fields:
+    version:
+      fields: "*"
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+host:
+  fields:
+    id:
+      fields: "*"
+    ip:
+      fields: "*"
+    hostname:
+      fields: "*"
+    mac:
+      fields: "*"
+    architecture:
+      fields: "*"
+    os:
+      fields:
+        name:
+          fields: "*"
+        full:
+          fields: "*"
+        version:
+          fields: "*"
+        variant:
+          fields: "*"

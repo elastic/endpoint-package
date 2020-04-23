@@ -7,18 +7,171 @@
     Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
   fields:
+    - name: policy
+      level: custom
+      type: object
+      description: The policy fields are used to hold information about applied policy.
+
     - name: policy.id
       level: custom
       type: keyword
       description: >
         ID of the policy that was active when the event was created.
-    
+      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+
+    - name: group
+      level: custom
+      type: object
+      description: Extended "group" field set
+
+    - name: group.real
+      level: custom
+      type: object
+      description: Group info prior to any setgid operations.
+
+    - name: group.real.id
+      level: custom
+      type: keyword
+      description: >
+        Unique identifier for the group on the system/platform.
+
+    - name: group.real.name
+      level: custom
+      type: keyword
+      description: >
+        Name of the group.
+
+    - name: user
+      level: custom
+      type: object
+      description: Extended "user" field set
+
+    - name: user.real
+      level: custom
+      type: object
+      description: User info prior to any setuid operations.
+
+    - name: user.real.id
+      level: custom
+      type: keyword
+      description: >
+        One or multiple unique identifiers of the user.
+
+    - name: user.real.name
+      level: custom
+      type: keyword
+      description: >
+        Short name or login of the user.
+
+    - name: process
+      level: custom
+      type: object
+      description: Extended "process" field set
+
+    - name: process.authentication_id
+      level: custom
+      type: keyword
+      description: >
+        Process authentication ID
+
+    - name: process.session
+      level: custom
+      type: keyword
+      description: >
+        Session information for the current process
+
+    - name: process.parent
+      level: custom
+      type: object
+      description: >
+        Extended "process.parent" field set.
+
+    - name: process.parent.real
+      level: custom
+      type: object
+      description: >
+        The field set containing parent process info in case of any ppid spoofing.
+
+    - name: process.parent.real.pid
+      level: custom
+      type: long
+      description: >
+        The ppid of the process that actually spawned the current process, in case of
+        ppid spoofing.
+
+    - name: file
+      level: custom
+      type: object
+      description: Extended "file" field set
+
+    - name: file.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+
+    - name: file.windows.zone_identifier
+      level: custom
+      type: keyword
+      description: >
+        Windows zone identifier for a file
+
+    - name: file.original
+      level: custom
+      type: object
+      description: Original file information during a modification event.
+
+    - name: file.original.name
+      level: custom
+      type: keyword
+      description: >
+        Original file name prior to a modification event
+
+    - name: file.original.path
+      level: custom
+      type: keyword
+      description: >
+        Original file path prior to a modification event
+
+    - name: file.original.mode
+      level: custom
+      type: keyword
+      description: >
+        Original file mode prior to a modification event
+
+    - name: file.original.uid
+      level: custom
+      type: keyword
+      description: >
+        The user ID (UID) or security identifier (SID) of the file owner.
+      example: "1001"
+
+    - name: file.original.owner
+      level: custom
+      type: keyword
+      description: >
+        File owner's username.
+      example: alice
+
+    - name: file.original.gid
+      level: custom
+      type: keyword
+      description: >
+        Primary group ID (GID) of the file.
+      example: "1001"
+
+    - name: file.original.group
+      level: custom
+      type: keyword
+      description: >
+        Primary group name of the file.
+      example: alice
+
     - name: artifact.name
       level: custom
       type: keyword
       description: >
         Name of artifact in use by endpoint when event was created.
-    
+
     - name: artifact.version
       level: custom
       type: keyword

@@ -57,7 +57,7 @@
       level: custom
       type: keyword
       description: >
-        First 100KB of raw stream binary.  Can be useful to analyze false positives and malicious payloads. 
+        First 100KB of raw stream binary.  Can be useful to analyze false positives and malicious payloads.
 
     - name: stream.raw_code_size
       level: custom
@@ -73,6 +73,6 @@
 
     - name: file_extension
       level: custom
-      type: long
+      type: keyword
       description: >
         The extension of the file containing this macro (e.g. .docm)
