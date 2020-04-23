@@ -77,6 +77,9 @@ The essential steps are listed here:
 
 - Update the subset files for the particular event that is being changed or create a new subset file
 
+- If a new type of document is being added that doesn't fit in the existing ones (e.g. events),
+  create a new directory in `custom_subsets/elastic_endpoint` to contain the subset files
+
 - Generate the mapping
 
 ## Generating the files with the Makefile
