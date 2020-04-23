@@ -24,13 +24,13 @@ An example of supplementing a top level field is the [custom_os.yml](custom_os.y
       level: custom
       type: keyword
       description: >
-        A string value or phrase that further aid to classify or qualify the operating system (OS). 
+        A string value or phrase that further aid to classify or qualify the operating system (OS).
         For example the distribution for a Linux OS will be entered in this field.
       example: Ubuntu
 ```
 
 The top level field `os` exists in ECS [here](https://github.com/elastic/ecs/blob/master/schemas/os.yml)
-but the`varient` field is not defined within ECS. This allows the metadata
+but the `variant` field is not defined within ECS. This allows the metadata
 mapping to include a definition for the `variant` field without having to change ECS.
 
 ## Creating new top level field

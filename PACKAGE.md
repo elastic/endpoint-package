@@ -7,6 +7,29 @@ The Endpoint package is located [here](https://github.com/elastic/package-regist
 
 To update the endpoint package clone the <https://github.com/elastic/package-registry> and make changes as needed
 
+## Tool Prerequisites
+
+This section includes a list of tools that should be installed before making changes to the Endpoint's mapping.
+The individual sections below will give more details about how each tool is used and setup.
+
+### Package Registry
+
+- Install go 1.13 from here: <https://golang.org/dl/>
+
+- Install [mage](https://github.com/magefile/mage#installation)
+
+### Mapping Generator Scripts
+
+If you're going to use the Makefile, install pipenv, python and the individual packages will be installed for you
+
+If you're planning on running the commands yourself:
+
+- Install Python 3.7+
+
+- Clone the ecs repo: <https://github.com/elastic/ecs>
+
+- Install the requirements.txt from here: <https://github.com/elastic/ecs/blob/master/scripts/requirements.txt>
+
 ## Testing Changes
 
 To test changes to the Endpoint package you will need to point your Kibana at a locally running package registry. To
@@ -35,6 +58,9 @@ xpack.ingestManager.epm.registryUrl: "http://127.0.0.1:8080"
 xpack.ingestManager.epm.enabled: true
 xpack.ingestManager.fleet.enabled: true
 ```
+
+The `xpack.ingestManager.epm.registryUrl` flag instructs Kibana to look for the package registry at the specified URL.
+By default Kibana uses the external package registry.
 
 The Ingest Manager will now use your locally running package registry for retrieving a package. The Ingest Manager
 within Kibana does some caching after it has downloaded a package, so if you are not seeing your changes you might
