@@ -208,3 +208,17 @@ endpoint:
               fields: "*"
             name:
               fields: "*"
+    dns:
+      fields:
+        status:
+          fields: "*"
+        options:
+          fields: "*"
+    event:
+      fields:
+        opcode:
+          fields: "*"
+        process:
+          fields:
+            ancestry:
+              fields: "*"

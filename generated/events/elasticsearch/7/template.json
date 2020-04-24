@@ -278,6 +278,37 @@
               }
             }
           },
+          "dns": {
+            "properties": {
+              "options": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "status": {
+                "type": "long"
+              }
+            },
+            "type": "object"
+          },
+          "event": {
+            "properties": {
+              "opcode": {
+                "doc_values": false,
+                "index": false,
+                "type": "long"
+              },
+              "process": {
+                "properties": {
+                  "ancestry": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
           "file": {
             "properties": {
               "original": {

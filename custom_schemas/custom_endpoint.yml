@@ -183,3 +183,40 @@
       type: keyword
       description: >
         Hash of artifact in use by endpoint when event was created.
+
+    - name: dns
+      level: custom
+      type: object
+      description: DNS fields that are not defined in core ECS
+
+    - name: dns.status
+      level: custom
+      type: long
+      description: DNS status field, uint32
+
+    - name: dns.options
+      level: custom
+      type: keyword
+      description: DNS options field, uint64, representing as a keyword to avoid overflows in ES
+
+    - name: event
+      level: custom
+      type: object
+      description: Custom fields relating to event information
+
+    - name: event.opcode
+      level: custom
+      type: long
+      description: Debug information from the endpoint describing the event
+      # since this is a debug field sent by the endpoint we don't need to index it
+      index: false
+
+    - name: event.process
+      level: custom
+      type: object
+      description: Custom process information relating to the event
+
+    - name: event.process.ancestry
+      level: custom
+      type: keyword
+      description: An array of entity_ids indicating the ancestors for this event

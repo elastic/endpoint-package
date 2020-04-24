@@ -793,6 +793,78 @@ endpoint:
       normalize: []
       short: Version of artifact in use by endpoint when event was created.
       type: keyword
+    dns:
+      dashed_name: endpoint-dns
+      description: DNS fields that are not defined in core ECS
+      flat_name: endpoint.dns
+      level: custom
+      name: dns
+      normalize: []
+      object_type: keyword
+      short: DNS fields that are not defined in core ECS
+      type: object
+    dns.options:
+      dashed_name: endpoint-dns-options
+      description: DNS options field, uint64, representing as a keyword to avoid overflows
+        in ES
+      flat_name: endpoint.dns.options
+      ignore_above: 1024
+      level: custom
+      name: dns.options
+      normalize: []
+      short: DNS options field, uint64, representing as a keyword to avoid overflows
+        in ES
+      type: keyword
+    dns.status:
+      dashed_name: endpoint-dns-status
+      description: DNS status field, uint32
+      flat_name: endpoint.dns.status
+      level: custom
+      name: dns.status
+      normalize: []
+      short: DNS status field, uint32
+      type: long
+    event:
+      dashed_name: endpoint-event
+      description: Custom fields relating to event information
+      flat_name: endpoint.event
+      level: custom
+      name: event
+      normalize: []
+      object_type: keyword
+      short: Custom fields relating to event information
+      type: object
+    event.opcode:
+      dashed_name: endpoint-event-opcode
+      description: Debug information from the endpoint describing the event
+      doc_values: false
+      flat_name: endpoint.event.opcode
+      index: false
+      level: custom
+      name: event.opcode
+      normalize: []
+      short: Debug information from the endpoint describing the event
+      type: long
+    event.process:
+      dashed_name: endpoint-event-process
+      description: Custom process information relating to the event
+      flat_name: endpoint.event.process
+      level: custom
+      name: event.process
+      normalize: []
+      object_type: keyword
+      short: Custom process information relating to the event
+      type: object
+    event.process.ancestry:
+      dashed_name: endpoint-event-process-ancestry
+      description: An array of entity_ids indicating the ancestors for this event
+      flat_name: endpoint.event.process.ancestry
+      ignore_above: 1024
+      level: custom
+      name: event.process.ancestry
+      normalize: []
+      short: An array of entity_ids indicating the ancestors for this event
+      type: keyword
     file:
       dashed_name: endpoint-file
       description: Extended "file" field set
