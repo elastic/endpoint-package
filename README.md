@@ -51,7 +51,7 @@ Once you have everything setup have two tabs (one for Kibana, and one for Elasti
 
 One tab:
 
-`$ npx yarn es snapshot --license trial -E discovery.type="single-node" -E network.host="0.0.0.0"`
+`$ yarn es snapshot --license trial -E discovery.type="single-node" -E network.host="0.0.0.0"`
 
 Another Tab:
 
