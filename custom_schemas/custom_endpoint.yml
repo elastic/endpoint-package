@@ -204,13 +204,6 @@
       type: object
       description: Custom fields relating to event information
 
-    - name: event.opcode
-      level: custom
-      type: long
-      description: Debug information from the endpoint describing the event
-      # since this is a debug field sent by the endpoint we don't need to index it
-      index: false
-
     - name: event.process
       level: custom
       type: object

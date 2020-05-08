@@ -834,17 +834,6 @@ endpoint:
       object_type: keyword
       short: Custom fields relating to event information
       type: object
-    event.opcode:
-      dashed_name: endpoint-event-opcode
-      description: Debug information from the endpoint describing the event
-      doc_values: false
-      flat_name: endpoint.event.opcode
-      index: false
-      level: custom
-      name: event.opcode
-      normalize: []
-      short: Debug information from the endpoint describing the event
-      type: long
     event.process:
       dashed_name: endpoint-event-process
       description: Custom process information relating to the event

@@ -515,12 +515,6 @@
     object_type: keyword
     description: Custom fields relating to event information
     default_field: false
-  - name: event.opcode
-    level: custom
-    type: long
-    description: Debug information from the endpoint describing the event
-    index: false
-    default_field: false
   - name: event.process
     level: custom
     type: object

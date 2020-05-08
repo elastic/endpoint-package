@@ -292,11 +292,6 @@
           },
           "event": {
             "properties": {
-              "opcode": {
-                "doc_values": false,
-                "index": false,
-                "type": "long"
-              },
               "process": {
                 "properties": {
                   "ancestry": {

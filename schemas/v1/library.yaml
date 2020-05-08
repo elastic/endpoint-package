@@ -131,10 +131,6 @@ fields:
         description: Custom fields relating to event information
         fields:
 
-          - name: opcode
-            type: long
-            description: Debug information from the endpoint describing the event
-
           - name: process
             description: Custom process information relating to the event
             fields:

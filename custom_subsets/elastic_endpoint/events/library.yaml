@@ -142,8 +142,6 @@ endpoint:
               fields: "*"
     event:
       fields:
-        opcode:
-          fields: "*"
         process:
           fields:
             ancestry:
