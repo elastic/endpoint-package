@@ -22,3 +22,15 @@
       type: keyword
       description: >
         Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable.
+
+    - name: quarantine_result
+      level: custom
+      type: boolean
+      description: >
+        Boolean representing whether or not file quarantine succeeded.
+
+    - name: quarantine_path
+      level: custom
+      type: keyword
+      description: >
+        Path on endpoint the quarantined file was originally.
