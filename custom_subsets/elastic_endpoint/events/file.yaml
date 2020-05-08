@@ -158,3 +158,9 @@ endpoint:
               fields: "*"
             group:
               fields: "*"
+    event:
+      fields:
+        process:
+          fields:
+            ancestry:
+              fields: "*"

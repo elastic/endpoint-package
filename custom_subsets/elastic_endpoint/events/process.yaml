@@ -168,3 +168,9 @@ endpoint:
               fields:
                 pid:
                   fields: "*"
+    event:
+      fields:
+        process:
+          fields:
+            ancestry:
+              fields: "*"

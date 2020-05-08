@@ -126,3 +126,9 @@ endpoint:
               fields: "*"
             name:
               fields: "*"
+    event:
+      fields:
+        process:
+          fields:
+            ancestry:
+              fields: "*"

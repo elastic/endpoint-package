@@ -127,6 +127,19 @@ fields:
       occurs.
     fields:
 
+      - name: event
+        description: Custom fields relating to event information
+        fields:
+
+          - name: process
+            description: Custom process information relating to the event
+            fields:
+
+              - name: ancestry
+                type: keyword
+                description: An array of entity_ids indicating the ancestors for this
+                  event
+
       - name: group
         description: Extended "group" field set
         fields:
