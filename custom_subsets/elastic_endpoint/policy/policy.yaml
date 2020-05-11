@@ -1,0 +1,41 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+
+ecs:
+  fields:
+    version:
+      fields: "*"
+endpoint:
+  fields:
+    policy:
+      fields:
+        applied:
+          fields: "*"
+event:
+  fields:
+    id:
+      fields: "*"
+    kind:
+      fields: "*"
+    created:
+      fields: "*"
+    category:
+      fields: "*"
+    type:
+      fields: "*"
+    module:
+      fields: "*"
+    action:
+      fields: "*"
+    dataset:
+      fields: "*"
+      
+host:
+  fields:
+    id:
+      fields: "*"

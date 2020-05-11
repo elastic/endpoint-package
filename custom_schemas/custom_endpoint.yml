@@ -19,6 +19,200 @@
         ID of the policy that was active when the event was created.
       example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
 
+    - name: policy.applied
+      level: custom
+      type:  object
+      description: information about the policy that is applied
+  
+    - name: policy.applied.actions
+      level: custom
+      type: nested 
+      enabled: false
+      description: actions applied during the application of the policy 
+
+    - name: policy.applied.actions.name
+      level: custom
+      type: keyword
+      description: name of the action that was applied
+
+    - name: policy.applied.actions.message
+      level: custom
+      type: keyword
+      description: message about the application of the action to further qualify the status of the action 
+
+    - name: policy.applied.actions.status
+      level: custom
+      type: keyword
+      description: the status of the action
+    
+    - name: policy.applied.id
+      level: custom
+      type: keyword 
+      description: the id of the applied policy
+
+    - name: policy.applied.policy
+      level: custom
+      type: object 
+      description: info of the applied policy
+
+    - name: policy.applied.policy.id
+      level: custom
+      type: keyword 
+      description: the id of the applied policy 
+
+    - name: policy.applied.policy.version
+      level: custom
+      type: keyword 
+      description: the version of the applied policy 
+
+    - name: policy.applied.status
+      level: custom
+      type: keyword 
+      description: the status of the applied policy 
+
+    - name: policy.applied.version
+      level: custom
+      type: keyword 
+      description: the version of this policy application
+
+    - name: policy.applied.response
+      level: custom
+      type: object 
+      enabled: false
+      description: the response of actions that failed in the applied policy 
+
+    - name: policy.applied.configurations
+      level: custom
+      type: object 
+      enabled: false
+      description: the configurations of the applied policy 
+
+    - name: policy.applied.configurations.events
+      level: custom
+      type: object 
+      description: overall event collection configuration and status of the applied policy
+ 
+
+    - name: policy.applied.configurations.events.concerned_actions
+      level: custom
+      type: keyword 
+      description: all actions that were taken for event collection 
+    
+    - name: policy.applied.configurations.events.status
+      level: custom
+      type: keyword 
+      description: >
+         the overall status of event collection, this is correlated to the status of concerned actions 
+         but not a simple sum of the actions
+
+    - name: policy.applied.configurations.logging
+      level: custom
+      type: object 
+      description: overall logging configuration and status of the applied policy
+
+    - name: policy.applied.configurations.logging.concerned_actions
+      level: custom
+      type: keyword 
+      description: all actions that were taken for logging
+    
+    - name: policy.applied.configurations.logging.status
+      level: custom
+      type: keyword 
+      description: >
+         the overall status of logging, this is correlated to the status of concerned actions but 
+         not a simple sum of the actions 
+
+    - name: policy.applied.configurations.malware
+      level: custom
+      type: object 
+      description: overall malware configuration and status of the applied policy
+
+    - name: policy.applied.configurations.malware.concerned_actions
+      level: custom
+      type: keyword 
+      description: all actions that were taken for malware 
+    
+    - name: policy.applied.configurations.malware.status
+      level: custom
+      type: keyword 
+      description: >
+         the overall status of malware, this is correlated to the status of concerned actions 
+         but not a simple sum of the actions 
+
+    - name: policy.applied.configurations.streaming
+      level: custom
+      type: object 
+      description: overall data streaming configuration and status of the applied policy 
+
+    - name: policy.applied.configurations.streaming.concerned_actions
+      level: custom
+      type: keyword 
+      description: all actions that were taken for data streaming 
+    
+    - name: policy.applied.configurations.streaming.status
+      level: custom
+      type: keyword 
+      description: >
+         the overall status of data streaming, this is correlated to the status of concerned actions 
+         but not a simple sum of the actions
+    
+    - name: policy.applied.artifacts
+      level: custom
+      type: object 
+      enabled: false
+      description: information about protection artifacts applied.
+
+    - name: policy.applied.artifacts.global
+      level: custom
+      type: object 
+      description: information about global protection artifacts applied.
+
+    - name: policy.applied.artifacts.global.version
+      level: custom
+      type: keyword 
+      description: the version of global artifacts applied.
+    
+    - name: policy.applied.artifacts.global.identifiers
+      level: custom
+      type: nested 
+      description: the identifiers of global artifacts applied.
+
+    - name: policy.applied.artifacts.global.identifiers.name
+      level: custom
+      type: keyword 
+      description: the name of global artifact applied.
+
+    - name: policy.applied.artifacts.global.identifiers.sha256
+      level: custom
+      type: keyword
+      description: the sha256 of global artifacts applied.
+
+
+    - name: policy.applied.artifacts.user
+      level: custom
+      type: object 
+      description: information about user protection artifacts applied.
+
+    - name: policy.applied.artifacts.user.version
+      level: custom
+      type: keyword 
+      description: the version of user artifacts applied.
+    
+    - name: policy.applied.artifacts.user.identifiers
+      level: custom
+      type: nested 
+      description: the identifiers of user artifacts applied.
+
+    - name: policy.applied.artifacts.user.identifiers.name
+      level: custom
+      type: keyword 
+      description: the name of user artifact applied.
+
+    - name: policy.applied.artifacts.user.identifiers.sha256
+      level: custom
+      type: keyword
+      description: the sha256 of user artifacts applied.
+
     - name: group
       level: custom
       type: object
