@@ -35,6 +35,8 @@
 
 - If you want do any Elasticsearch training classes for free https://wiki.elastic.co/pages/viewpage.action?spaceKey=Edu&title=Employee+requests+for+Elastic+Training+Courses
 
+- [Watch Shay discuss SIEM + Endpoint Security](https://youtu.be/flKVDE33Q44)
+
 ##### Endgame phases and references
 - [Endgame Sensor Management Platform (SMP) knowledge base](https://wiki.elastic.co/pages/viewpage.action?spaceKey=CC&title=SMP+Knowledge+Base+-+Endpoint+Security+Support)
 
