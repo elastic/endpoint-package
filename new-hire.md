@@ -17,8 +17,9 @@
 
 ### First week & resources
 - Compliance training
+- Adding the new team member to the github group
 - Getting setup with Kibana dev / understanding CI / committing to Kibana
-- Deploying a Endpoint
+- Deploying an Endpoint
 - Where we keep issues/our data schema for Endpoint [here](https://github.com/elastic/endpoint-app-team) which is in [Elastic Common Schema - ECS](https://www.elastic.co/guide/en/ecs/current/index.html)
     
 
@@ -35,7 +36,7 @@
 
 - If you want do any Elasticsearch training classes for free https://wiki.elastic.co/pages/viewpage.action?spaceKey=Edu&title=Employee+requests+for+Elastic+Training+Courses
 
-- [Watch Shay discuss SIEM + Endpoint Security](https://youtu.be/flKVDE33Q44)
+- [Watch Shay discuss SIEM + Endpoint Security](https://youtu.be/flKVDE33Q44)q
 
 ##### Endgame phases and references
 - [Endgame Sensor Management Platform (SMP) knowledge base](https://wiki.elastic.co/pages/viewpage.action?spaceKey=CC&title=SMP+Knowledge+Base+-+Endpoint+Security+Support)
@@ -110,8 +111,7 @@ Config: https://github.com/elastic/kibana/blob/master/.backportrc.json
 
 EUI (Elastic Component Library) https://elastic.github.io/eui/#/
 
-Elastic Training (Employees get it for free!): https://training.elastic.co/
-	Demo’s: (More for sales, but gives you an idea of how the product is being marketed to help your understanding)
+Demo’s: (More for sales, but gives you an idea of how the product is being marketed to help your understanding)
 		Dev:	https://eden.elastic.dev/
                 Prod: https://eden.elastic.co/
                 
