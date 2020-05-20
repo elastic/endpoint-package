@@ -22,17 +22,19 @@ def argument_parser():
     parser.add_argument('custom_schema', help='path to custom schema directory')
     parser.add_argument('subset', nargs='+', help='one or more glob style directories of subset definitions')
     parser.add_argument('out', help='directory to store the generated files')
+    parser.add_argument('--ecs_git_ref', help='github reference tag or hash version')
     parser.add_argument('--out-schema-dir', help='directory to copy the generated example files')
+
 
     return parser.parse_args()
 
 
-def generate_subset(ecs_path, custom_schema, subset_file, out):
+def generate_subset(ecs_path, custom_schema, subset_file, out, ecs_git_ref):
     subset_out = os.path.join(os.path.abspath(out), os.path.splitext(os.path.basename(subset_file))[0])
     print('Generating subset fields for: {}'.format(subset_file))
     ret = subprocess.run(['python', ECS_SCRIPT, '--include', os.path.abspath(custom_schema),
                           '--subset', os.path.abspath(subset_file),
-                          '--out', subset_out], stdout=subprocess.PIPE, check=True,
+                          '--out', subset_out, '--ref', ecs_git_ref], stdout=subprocess.PIPE, check=True,
                          cwd=ecs_path, universal_newlines=True)
     print('Generation output-----------------')
     for line in ret.stdout.splitlines():
@@ -240,6 +242,7 @@ def main():
     print('custom_schema: {}'.format(args.custom_schema))
     print('subset: {}'.format(args.subset))
     print('out: {}'.format(args.out))
+    print(f'ecs_git_ref: {args.ecs_git_ref}')
     args.out_schema_dir = args.out_schema_dir or args.out
     print('out_schema_dir: {}'.format(args.out_schema_dir))
 
@@ -247,7 +250,7 @@ def main():
     print('Found subset files: {}'.format(subset_files))
 
     for s in subset_files:
-        generate_subset(args.ecs, args.custom_schema, s, args.out)
+        generate_subset(args.ecs, args.custom_schema, s, args.out, args.ecs_git_ref)
         create_event_schema(s, args.out, args.ecs, args.custom_schema, args.out_schema_dir)
 
 

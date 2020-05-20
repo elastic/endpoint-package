@@ -1,4 +1,7 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+# we are intentionally pinning the ECS version here, when ecs releases a new version 
+# we'll discuss whether we need to release a new package and bump the version here
+ECS_GIT_REF ?= v1.5.0
 
 ifeq (, $(shell which pipenv))
 	$(error No pipenv in $(PATH), please install pipenv (brew install pipenv))
@@ -11,8 +14,12 @@ ifeq (,$(wildcard $(ROOT_DIR)/config.mk))
 endif
 
 include $(ROOT_DIR)/config.mk
+ifeq ($(ECS_DIR),)
+  $(error ECS_DIR not defined by config config.mk)
+endif
 REAL_ECS_DIR := $(realpath $(ECS_DIR))
 $(info ecs dir: $(REAL_ECS_DIR))
+$(info ecs git ref: $(ECS_GIT_REF))
 
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
 SUB_TOP_DIR := $(ROOT_DIR)/custom_subsets
@@ -33,6 +40,7 @@ define gen_mapping_files
 	cd $(REAL_ECS_DIR) && pipenv run python scripts/generator.py \
 		--out $(ROOT_DIR)/out/$(1) \
 		--include $(CUST_SCHEMA_DIR) \
+		--ref $(ECS_GIT_REF) \
 		--subset $(SUB_ROOT_DIR)/$(1)/*
 	# remove the first 8 lines
 	sed -i '' -e '1,8d' $(call package_file,$(1))
@@ -53,6 +61,7 @@ endef
 define gen_schema_files
 	cd $(EVENT_SCHEMA_GEN) && pipenv run python main.py \
 		--out-schema-dir $(ROOT_DIR)/schemas/v1 \
+		--ecs_git_ref $(ECS_GIT_REF) \
 		$(REAL_ECS_DIR) \
 		$(CUST_SCHEMA_DIR) \
 		$(SUB_ROOT_DIR)/$(1)/*.yaml \
@@ -73,3 +82,7 @@ gen_files: $(TARGETS)
 %_target:
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
+
+test:
+	cd $(EVENT_SCHEMA_GEN) && pipenv install; pipenv install --dev; \
+	pipenv run python -m pytest test_main.py

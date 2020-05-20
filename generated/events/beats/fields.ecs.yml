@@ -39,17 +39,6 @@
     systems such as Logstash or APM Server.'
   type: group
   fields:
-  - name: build.original
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: 'Extended build information for the agent.
-
-      This field is intended to contain any build information that a data source
-      may provide, no specific formatting is required.'
-    example: metricbeat version 7.6.0 (amd64), libbeat 7.6.0 [6a23e8f8f30f5001ba344e4e54d8d9cb82cb107c
-      built 2020-02-05 23:10:10 +0000 UTC]
-    default_field: false
   - name: ephemeral_id
     level: extended
     type: keyword
@@ -84,7 +73,7 @@
     ignore_above: 1024
     description: 'Type of the agent.
 
-      The agent type always stays the same and should be given by the agent used.
+      The agent type stays always the same and should be given by the agent used.
       In case of Filebeat the agent would always be Filebeat also if two Filebeat
       instances are run on the same machine.'
     example: filebeat
@@ -126,7 +115,9 @@
   - name: ip
     level: core
     type: ip
-    description: IP address of the destination (IPv4 or IPv6).
+    description: 'IP address of the destination.
+
+      Can be one or multiple IPv4 or IPv6 addresses.'
   - name: packets
     level: core
     type: long
@@ -322,13 +313,6 @@
     description: Full file path of the library.
     example: C:\Windows\System32\kernel32.dll
     default_field: false
-  - name: pe.architecture
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: CPU architecture target for the file.
-    example: x64
-    default_field: false
   - name: pe.company
     level: extended
     type: keyword
@@ -349,17 +333,6 @@
     ignore_above: 1024
     description: Internal version of the file, provided at compile-time.
     example: 6.3.9600.17415
-    default_field: false
-  - name: pe.imphash
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'A hash of the imports in a PE file. An imphash -- or import hash
-      -- can be used to fingerprint binaries even after recompilation or other code-level
-      transformations have occurred, which would change more traditional hash values.
-
-      Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-    example: 0c6803c4e922103c4dca5963aad36ddf
     default_field: false
   - name: pe.original_file_name
     level: extended
@@ -1243,13 +1216,6 @@
     description: Full path to the file, including the file name. It should include
       the drive letter, when appropriate.
     example: /home/alice/example.png
-  - name: pe.architecture
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: CPU architecture target for the file.
-    example: x64
-    default_field: false
   - name: pe.company
     level: extended
     type: keyword
@@ -1270,17 +1236,6 @@
     ignore_above: 1024
     description: Internal version of the file, provided at compile-time.
     example: 6.3.9600.17415
-    default_field: false
-  - name: pe.imphash
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'A hash of the imports in a PE file. An imphash -- or import hash
-      -- can be used to fingerprint binaries even after recompilation or other code-level
-      transformations have occurred, which would change more traditional hash values.
-
-      Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-    example: 0c6803c4e922103c4dca5963aad36ddf
     default_field: false
   - name: pe.original_file_name
     level: extended
@@ -1343,176 +1298,6 @@
     ignore_above: 1024
     description: The user ID (UID) or security identifier (SID) of the file owner.
     example: '1001'
-  - name: x509.alternative_names
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of subject alternative names (SAN). Name types vary by certificate
-      authority and certificate type but commonly contain IP addresses, DNS names
-      (and wildcards), and email addresses.
-    example: '*.elastic.co'
-    default_field: false
-  - name: x509.issuer.common_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of common name (CN) of issuing certificate authority.
-    example: DigiCert SHA2 High Assurance Server CA
-    default_field: false
-  - name: x509.issuer.country
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of country (C) codes
-    example: US
-    default_field: false
-  - name: x509.issuer.distinguished_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Distinguished name (DN) of issuing certificate authority.
-    example: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance
-      Server CA
-    default_field: false
-  - name: x509.issuer.locality
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of locality names (L)
-    example: Mountain View
-    default_field: false
-  - name: x509.issuer.organization
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of organizations (O) of issuing certificate authority.
-    example: DigiCert Inc
-    default_field: false
-  - name: x509.issuer.organizational_unit
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of organizational units (OU) of issuing certificate authority.
-    example: www.digicert.com
-    default_field: false
-  - name: x509.issuer.state_or_province
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of state or province names (ST, S, or P)
-    example: California
-    default_field: false
-  - name: x509.not_after
-    level: extended
-    type: date
-    description: Time at which the certificate is no longer considered valid.
-    example: 2020-07-16 03:15:39
-    default_field: false
-  - name: x509.not_before
-    level: extended
-    type: date
-    description: Time at which the certificate is first considered valid.
-    example: 2019-08-16 01:40:25
-    default_field: false
-  - name: x509.public_key_algorithm
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Algorithm used to generate the public key.
-    example: RSA
-    default_field: false
-  - name: x509.public_key_curve
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: The curve used by the elliptic curve public key algorithm. This
-      is algorithm specific.
-    example: nistp521
-    default_field: false
-  - name: x509.public_key_exponent
-    level: extended
-    type: long
-    description: Exponent used to derive the public key. This is algorithm specific.
-    example: 65537
-    default_field: false
-  - name: x509.public_key_size
-    level: extended
-    type: long
-    description: The size of the public key space in bits.
-    example: 2048
-    default_field: false
-  - name: x509.serial_number
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Unique serial number issued by the certificate authority. For consistency,
-      if this value is alphanumeric, it should be formatted without colons and uppercase
-      characters.
-    example: 55FBB9C7DEBF09809D12CCAA
-    default_field: false
-  - name: x509.signature_algorithm
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Identifier for certificate signature algorithm. Recommend using
-      names found in Go Lang Crypto library (See https://github.com/golang/go/blob/go1.14/src/crypto/x509/x509.go#L337-L353).
-    example: SHA256-RSA
-    default_field: false
-  - name: x509.subject.common_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of common names (CN) of subject.
-    example: r2.shared.global.fastly.net
-    default_field: false
-  - name: x509.subject.country
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of country (C) code
-    example: US
-    default_field: false
-  - name: x509.subject.distinguished_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Distinguished name (DN) of the certificate subject entity.
-    example: C=US, ST=California, L=San Francisco, O=Fastly, Inc., CN=r2.shared.global.fastly.net
-    default_field: false
-  - name: x509.subject.locality
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of locality names (L)
-    example: San Francisco
-    default_field: false
-  - name: x509.subject.organization
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of organizations (O) of subject.
-    example: Fastly, Inc.
-    default_field: false
-  - name: x509.subject.organizational_unit
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of organizational units (OU) of subject.
-    default_field: false
-  - name: x509.subject.state_or_province
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: List of state or province names (ST, S, or P)
-    example: California
-    default_field: false
-  - name: x509.version_number
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Version of x509 format.
-    example: 3
-    default_field: false
 - name: group
   title: Group
   group: 2
@@ -1766,7 +1551,7 @@
     level: core
     type: keyword
     ignore_above: 1024
-    description: Unique identifier of the user.
+    description: Unique identifiers of the user.
   - name: user.name
     level: core
     type: keyword
@@ -2366,13 +2151,6 @@
     description: The working directory of the process.
     example: /home/alice
     default_field: false
-  - name: pe.architecture
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: CPU architecture target for the file.
-    example: x64
-    default_field: false
   - name: pe.company
     level: extended
     type: keyword
@@ -2393,17 +2171,6 @@
     ignore_above: 1024
     description: Internal version of the file, provided at compile-time.
     example: 6.3.9600.17415
-    default_field: false
-  - name: pe.imphash
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'A hash of the imports in a PE file. An imphash -- or import hash
-      -- can be used to fingerprint binaries even after recompilation or other code-level
-      transformations have occurred, which would change more traditional hash values.
-
-      Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-    example: 0c6803c4e922103c4dca5963aad36ddf
     default_field: false
   - name: pe.original_file_name
     level: extended
@@ -2920,7 +2687,9 @@
   - name: ip
     level: core
     type: ip
-    description: IP address of the source (IPv4 or IPv6).
+    description: 'IP address of the source.
+
+      Can be one or multiple IPv4 or IPv6 addresses.'
   - name: packets
     level: core
     type: long
@@ -3109,13 +2878,6 @@
     description: Full file path of the library.
     example: C:\Windows\System32\kernel32.dll
     default_field: false
-  - name: dll.pe.architecture
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: CPU architecture target for the file.
-    example: x64
-    default_field: false
   - name: dll.pe.company
     level: extended
     type: keyword
@@ -3136,17 +2898,6 @@
     ignore_above: 1024
     description: Internal version of the file, provided at compile-time.
     example: 6.3.9600.17415
-    default_field: false
-  - name: dll.pe.imphash
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'A hash of the imports in a PE file. An imphash -- or import hash
-      -- can be used to fingerprint binaries even after recompilation or other code-level
-      transformations have occurred, which would change more traditional hash values.
-
-      Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-    example: 0c6803c4e922103c4dca5963aad36ddf
     default_field: false
   - name: dll.pe.original_file_name
     level: extended
@@ -3581,13 +3332,6 @@
     description: The working directory of the process.
     example: /home/alice
     default_field: false
-  - name: process.pe.architecture
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: CPU architecture target for the file.
-    example: x64
-    default_field: false
   - name: process.pe.company
     level: extended
     type: keyword
@@ -3608,17 +3352,6 @@
     ignore_above: 1024
     description: Internal version of the file, provided at compile-time.
     example: 6.3.9600.17415
-    default_field: false
-  - name: process.pe.imphash
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'A hash of the imports in a PE file. An imphash -- or import hash
-      -- can be used to fingerprint binaries even after recompilation or other code-level
-      transformations have occurred, which would change more traditional hash values.
-
-      Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-    example: 0c6803c4e922103c4dca5963aad36ddf
     default_field: false
   - name: process.pe.original_file_name
     level: extended
@@ -4094,7 +3827,7 @@
     level: core
     type: keyword
     ignore_above: 1024
-    description: Unique identifier of the user.
+    description: Unique identifiers of the user.
   - name: name
     level: core
     type: keyword

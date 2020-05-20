@@ -905,7 +905,7 @@ fields:
 
       - name: id
         type: keyword
-        description: Unique identifier of the user.
+        description: Unique identifiers of the user.
 
       - name: name
         type: keyword

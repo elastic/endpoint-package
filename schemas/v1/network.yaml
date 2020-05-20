@@ -82,7 +82,9 @@ fields:
 
       - name: ip
         type: ip
-        description: IP address of the destination (IPv4 or IPv6).
+        description: 'IP address of the destination.
+
+          Can be one or multiple IPv4 or IPv6 addresses.'
 
       - name: packets
         type: long
@@ -1121,7 +1123,9 @@ fields:
 
       - name: ip
         type: ip
-        description: IP address of the source (IPv4 or IPv6).
+        description: 'IP address of the source.
+
+          Can be one or multiple IPv4 or IPv6 addresses.'
 
       - name: packets
         type: long
@@ -1170,7 +1174,7 @@ fields:
 
       - name: id
         type: keyword
-        description: Unique identifier of the user.
+        description: Unique identifiers of the user.
 
       - name: name
         type: keyword

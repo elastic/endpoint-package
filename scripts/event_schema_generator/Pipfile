@@ -4,11 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest-mock = "==3.1.0"
+pytest = "==5.4.2"
 
 [packages]
-pyyaml = "*"
-pytest = "*"
-pytest-mock = "*"
+pyyaml = "==5.3.1"
+gitpython = "==3.1.2"
+
 
 [requires]
 python_version = "3.7"

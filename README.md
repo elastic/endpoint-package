@@ -85,3 +85,10 @@ To pull in the latest changes and pull requests - update kibana (do a `git pull`
 ## The Endpoint Package and Generating the Endpoint Mapping
 
 Information on updating the Endpoint package and generating the Endpoint mapping can be found [here](./PACKAGE.md)
+
+## ECS Version
+
+The generated files are dependent on the github version of ECS used. To use a more recent version 
+of ECS to pick up new definition chance the `ECS_GIT_REF` in the **Makefile**. You can also 
+make a temporary change command line `make ECS_GIT_REF=v1.6.0`. But be sure to commit this to the 
+**Makefile** when you are done and satisfied with your change. 

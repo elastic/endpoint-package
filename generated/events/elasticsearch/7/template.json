@@ -4,7 +4,7 @@
   ],
   "mappings": {
     "_meta": {
-      "version": "1.6.0-dev"
+      "version": "1.5.0"
     },
     "date_detection": false,
     "dynamic_templates": [
@@ -24,14 +24,6 @@
       },
       "agent": {
         "properties": {
-          "build": {
-            "properties": {
-              "original": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          },
           "ephemeral_id": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -189,10 +181,6 @@
           },
           "pe": {
             "properties": {
-              "architecture": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -202,10 +190,6 @@
                 "type": "keyword"
               },
               "file_version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -741,10 +725,6 @@
           },
           "pe": {
             "properties": {
-              "architecture": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -754,10 +734,6 @@
                 "type": "keyword"
               },
               "file_version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -802,112 +778,6 @@
           "uid": {
             "ignore_above": 1024,
             "type": "keyword"
-          },
-          "x509": {
-            "properties": {
-              "alternative_names": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "issuer": {
-                "properties": {
-                  "common_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "country": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "distinguished_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "locality": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "organization": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "organizational_unit": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "state_or_province": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
-              "not_after": {
-                "type": "date"
-              },
-              "not_before": {
-                "type": "date"
-              },
-              "public_key_algorithm": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "public_key_curve": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "public_key_exponent": {
-                "doc_values": false,
-                "index": false,
-                "type": "long"
-              },
-              "public_key_size": {
-                "type": "long"
-              },
-              "serial_number": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "signature_algorithm": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "subject": {
-                "properties": {
-                  "common_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "country": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "distinguished_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "locality": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "organization": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "organizational_unit": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "state_or_province": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
-              "version_number": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
           }
         }
       },
@@ -1465,10 +1335,6 @@
           },
           "pe": {
             "properties": {
-              "architecture": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
               "company": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1478,10 +1344,6 @@
                 "type": "keyword"
               },
               "file_version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1932,10 +1794,6 @@
               },
               "pe": {
                 "properties": {
-                  "architecture": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
                   "company": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -1945,10 +1803,6 @@
                     "type": "keyword"
                   },
                   "file_version": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "imphash": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
@@ -2228,10 +2082,6 @@
               },
               "pe": {
                 "properties": {
-                  "architecture": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
                   "company": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -2241,10 +2091,6 @@
                     "type": "keyword"
                   },
                   "file_version": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "imphash": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
