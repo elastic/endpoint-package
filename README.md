@@ -55,7 +55,7 @@ One tab:
 
 Another Tab:
 
-`$ yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.endpoint.enabled=true --xpack.ingestManager.enabled=true --xpack.ingestManager.epm.enabled=true --xpack.ingestManager.fleet.enabled=true`
+`$ yarn start --verbose --host=0.0.0.0 --csp.strict=false --xpack.ingestManager.enabled=true --xpack.ingestManager.epm.enabled=true --xpack.ingestManager.fleet.enabled=true`
 
 
 Elasticsearch will run on http://127.0.0.1:9200 and Kibana on http://127.0.0.1:5601
