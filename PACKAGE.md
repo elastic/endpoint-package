@@ -3,9 +3,9 @@
 The Endpoint package handles installing mapping templates, ILM policies, ingest pipelines, and other functionality
 that should be done prior to the Endpoint streaming data to ES and using the Endpoint app in Kibana.
 
-The Endpoint package is located [here](https://github.com/elastic/package-registry/tree/master/dev/packages/example/endpoint-1.0.0)
+The Endpoint package is located [locally here](./package/endpoint) and [remotely here](https://github.com/elastic/package-storage/tree/master/packages/endpoint)
 
-To update the endpoint package clone the <https://github.com/elastic/package-registry> and make changes as needed
+To update the endpoint package clone this repo and make changes as needed
 
 ## Tool Prerequisites
 
@@ -39,16 +39,7 @@ Here are the distilled steps:
 
 - Install go 1.13 from here: <https://golang.org/dl/>
 
-- Install [mage](https://github.com/magefile/mage#installation)
-
-From the root directory
-
-```bash
-mage build
-go run .
-```
-
-Note: You will need to rerun `mage build` after making additional changes to a package.
+Use the `make run-registry` command to quickly run a package registry locally once you have go installed.
 
 Add the follow flags to your `kibana.dev.yaml` file
 
@@ -139,26 +130,37 @@ remove these lines:
 
 Next, remove the indentation.
 
-Now copy this file to <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/events/fields/fields.yml>
-if you are updating the `events` mapping. If you are updating the `metadata`, the `metadata` file is here: <https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/dataset/metadata/fields/fields.yml>
+Now copy this file to <./package/endpoint/dataset/events/fields/fields.yml>
+if you are updating the `events` mapping. If you are updating the `metadata`, the `metadata` file is here: <./package/endpoint/dataset/metadata/fields/fields.yml>
 
-Rerun `mage build` and `go run .` and the endpoint package should have the latest mapping changes in it. You will probably
+Rerun `mage build` and `go run .` (or just `make run-registry`) and the endpoint package should have the latest mapping changes in it. You will probably
 have to restart ES and Kibana because the Ingest Manager keeps the installed packages in a cache so it might not try to
 pull down the latest one (upgrading a package hasn't been implemented as of 4/9/20 when writing this README).
 
-### Versioning
-
-Most of this section is still TODO but if we update the mapping in a way that is not a breaking change
-we'll probably need to update the version of the package. The package version is specified here:
-<https://github.com/elastic/package-registry/blob/master/dev/packages/example/endpoint-1.0.0/manifest.yml#L5>
-
 ## Updating the package in staging
 
-Once testing is complete, open a PR to the package registry against the `master` branch. Once the changes are merged
-into the `master` branch, a new docker image will automatically be built with the package changes. There is still a
-manual step of pushing the docker image to the staging environment that is currently done by the Ingest Management team.
+Once testing is complete, PR and merge your schema changes to the package to this repo.
+To release a new endpoint package a PR will be opened against the package-storage repo <https://github.com/elastic/package-storage> with
+the contents of the new endpoint package. A new version number directory should be created here: <https://github.com/elastic/package-storage/tree/master/packages/endpoint> with the appropriate version number for this release. Once this PR is merged a docker image will be built containing
+the new endpoint package. There is still a manual step of pushing the docker image to the staging environment that is currently done
+by the Ingest Management team.
 
 Once the Endpoint team is given access to push the docker image to staging, the steps will be outlined here.
+
+The endpoint-app-team repository should be tagged with the same version number that is being released to the package-storage repo and
+the contents of <./package/endpoint> and the package-storage repo should be equivalent.
+
+The Makefile can be used to automate this process.
+
+First install `hub` tool via `brew install hub`
+
+Run `make release-package`
+
+The `release-package` target will create a PR to package-storage. The `hub` tool will prompt for your github credentials and generate an
+Oauth token. Once the token is created it will likely fail because SSO needs to be enabled. Browse to your github account and enable SSO on the token and
+rerun the `make release-package` command.
+
+The package version will be bumped once the command succeeds. Lastly, PR the version bump changes to this repo.
 
 ## Updating the schema
 
