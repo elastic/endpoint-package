@@ -49,22 +49,7 @@
       level: custom
       type: keyword
       description: the id of the applied policy
-
-    - name: policy.applied.policy
-      level: custom
-      type: object
-      description: info of the applied policy
-
-    - name: policy.applied.policy.id
-      level: custom
-      type: keyword
-      description: the id of the applied policy
-
-    - name: policy.applied.policy.version
-      level: custom
-      type: keyword
-      description: the version of the applied policy
-
+      
     - name: policy.applied.status
       level: custom
       type: keyword

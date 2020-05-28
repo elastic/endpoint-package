@@ -182,18 +182,6 @@ fields:
                 type: keyword
                 description: the id of the applied policy
 
-              - name: policy
-                description: info of the applied policy
-                fields:
-
-                  - name: id
-                    type: keyword
-                    description: the id of the applied policy
-
-                  - name: version
-                    type: keyword
-                    description: the version of the applied policy
-
               - name: response
                 type: object
                 description: the response of actions that failed in the applied policy

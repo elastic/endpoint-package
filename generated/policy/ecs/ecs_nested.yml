@@ -396,36 +396,6 @@ endpoint:
       normalize: []
       short: the id of the applied policy
       type: keyword
-    policy.applied.policy:
-      dashed_name: endpoint-policy-applied-policy
-      description: info of the applied policy
-      flat_name: endpoint.policy.applied.policy
-      level: custom
-      name: policy.applied.policy
-      normalize: []
-      object_type: keyword
-      short: info of the applied policy
-      type: object
-    policy.applied.policy.id:
-      dashed_name: endpoint-policy-applied-policy-id
-      description: the id of the applied policy
-      flat_name: endpoint.policy.applied.policy.id
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.policy.id
-      normalize: []
-      short: the id of the applied policy
-      type: keyword
-    policy.applied.policy.version:
-      dashed_name: endpoint-policy-applied-policy-version
-      description: the version of the applied policy
-      flat_name: endpoint.policy.applied.policy.version
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.policy.version
-      normalize: []
-      short: the version of the applied policy
-      type: keyword
     policy.applied.response:
       dashed_name: endpoint-policy-applied-response
       description: the response of actions that failed in the applied policy
