@@ -1,0 +1,67 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs:
+  fields:
+    version:
+      fields: "*"
+event:
+  fields:
+    created:
+      fields: "*"
+    id:
+      fields: "*"
+    module:
+      fields: "*"
+    action:
+      fields: "*"
+    kind:
+      fields: "*"
+    category:
+      fields: "*"
+    type:
+      fields: "*"
+    start:
+      fields: "*"
+    end:
+      fields: "*"
+endpoint:
+  fields:
+    system: {}
+host:
+  fields:
+    geo:
+      fields:
+        location:
+          fields: "*"
+        continent_name:
+          fields: "*"
+        country_name:
+          fields: "*"
+        region_name:
+          fields: "*"
+        city_name:
+          fields: "*"
+        country_iso_code:
+          fields: "*"
+        region_iso_code:
+          fields: "*"
+    os:
+      fields:
+        platform: {}
+        name: {}
+        version: {}
+        family: {}
+        kernel: {}
+        full: {}
+        variant: {}
+    ip: {}
+    hostname: {}
+    name: {}
+    mac: {}
+    architecture: {}
+    id: {}

@@ -21,14 +21,14 @@
 
     - name: policy.applied
       level: custom
-      type:  object
+      type: object
       description: information about the policy that is applied
-  
+
     - name: policy.applied.actions
       level: custom
-      type: nested 
+      type: nested
       enabled: false
-      description: actions applied during the application of the policy 
+      description: actions applied during the application of the policy
 
     - name: policy.applied.actions.name
       level: custom
@@ -38,148 +38,147 @@
     - name: policy.applied.actions.message
       level: custom
       type: keyword
-      description: message about the application of the action to further qualify the status of the action 
+      description: message about the application of the action to further qualify the status of the action
 
     - name: policy.applied.actions.status
       level: custom
       type: keyword
       description: the status of the action
-    
+
     - name: policy.applied.id
       level: custom
-      type: keyword 
+      type: keyword
       description: the id of the applied policy
 
     - name: policy.applied.policy
       level: custom
-      type: object 
+      type: object
       description: info of the applied policy
 
     - name: policy.applied.policy.id
       level: custom
-      type: keyword 
-      description: the id of the applied policy 
+      type: keyword
+      description: the id of the applied policy
 
     - name: policy.applied.policy.version
       level: custom
-      type: keyword 
-      description: the version of the applied policy 
+      type: keyword
+      description: the version of the applied policy
 
     - name: policy.applied.status
       level: custom
-      type: keyword 
-      description: the status of the applied policy 
+      type: keyword
+      description: the status of the applied policy
 
     - name: policy.applied.version
       level: custom
-      type: keyword 
+      type: keyword
       description: the version of this policy application
 
     - name: policy.applied.response
       level: custom
-      type: object 
+      type: object
       enabled: false
-      description: the response of actions that failed in the applied policy 
+      description: the response of actions that failed in the applied policy
 
     - name: policy.applied.configurations
       level: custom
-      type: object 
+      type: object
       enabled: false
-      description: the configurations of the applied policy 
+      description: the configurations of the applied policy
 
     - name: policy.applied.configurations.events
       level: custom
-      type: object 
+      type: object
       description: overall event collection configuration and status of the applied policy
- 
 
     - name: policy.applied.configurations.events.concerned_actions
       level: custom
-      type: keyword 
-      description: all actions that were taken for event collection 
-    
+      type: keyword
+      description: all actions that were taken for event collection
+
     - name: policy.applied.configurations.events.status
       level: custom
-      type: keyword 
+      type: keyword
       description: >
-         the overall status of event collection, this is correlated to the status of concerned actions 
-         but not a simple sum of the actions
+        the overall status of event collection, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
 
     - name: policy.applied.configurations.logging
       level: custom
-      type: object 
+      type: object
       description: overall logging configuration and status of the applied policy
 
     - name: policy.applied.configurations.logging.concerned_actions
       level: custom
-      type: keyword 
+      type: keyword
       description: all actions that were taken for logging
-    
+
     - name: policy.applied.configurations.logging.status
       level: custom
-      type: keyword 
+      type: keyword
       description: >
-         the overall status of logging, this is correlated to the status of concerned actions but 
-         not a simple sum of the actions 
+        the overall status of logging, this is correlated to the status of concerned actions but 
+        not a simple sum of the actions
 
     - name: policy.applied.configurations.malware
       level: custom
-      type: object 
+      type: object
       description: overall malware configuration and status of the applied policy
 
     - name: policy.applied.configurations.malware.concerned_actions
       level: custom
-      type: keyword 
-      description: all actions that were taken for malware 
-    
+      type: keyword
+      description: all actions that were taken for malware
+
     - name: policy.applied.configurations.malware.status
       level: custom
-      type: keyword 
+      type: keyword
       description: >
-         the overall status of malware, this is correlated to the status of concerned actions 
-         but not a simple sum of the actions 
+        the overall status of malware, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
 
     - name: policy.applied.configurations.streaming
       level: custom
-      type: object 
-      description: overall data streaming configuration and status of the applied policy 
+      type: object
+      description: overall data streaming configuration and status of the applied policy
 
     - name: policy.applied.configurations.streaming.concerned_actions
       level: custom
-      type: keyword 
-      description: all actions that were taken for data streaming 
-    
+      type: keyword
+      description: all actions that were taken for data streaming
+
     - name: policy.applied.configurations.streaming.status
       level: custom
-      type: keyword 
+      type: keyword
       description: >
-         the overall status of data streaming, this is correlated to the status of concerned actions 
-         but not a simple sum of the actions
-    
+        the overall status of data streaming, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
+
     - name: policy.applied.artifacts
       level: custom
-      type: object 
+      type: object
       enabled: false
       description: information about protection artifacts applied.
 
     - name: policy.applied.artifacts.global
       level: custom
-      type: object 
+      type: object
       description: information about global protection artifacts applied.
 
     - name: policy.applied.artifacts.global.version
       level: custom
-      type: keyword 
+      type: keyword
       description: the version of global artifacts applied.
-    
+
     - name: policy.applied.artifacts.global.identifiers
       level: custom
-      type: nested 
+      type: nested
       description: the identifiers of global artifacts applied.
 
     - name: policy.applied.artifacts.global.identifiers.name
       level: custom
-      type: keyword 
+      type: keyword
       description: the name of global artifact applied.
 
     - name: policy.applied.artifacts.global.identifiers.sha256
@@ -187,25 +186,24 @@
       type: keyword
       description: the sha256 of global artifacts applied.
 
-
     - name: policy.applied.artifacts.user
       level: custom
-      type: object 
+      type: object
       description: information about user protection artifacts applied.
 
     - name: policy.applied.artifacts.user.version
       level: custom
-      type: keyword 
+      type: keyword
       description: the version of user artifacts applied.
-    
+
     - name: policy.applied.artifacts.user.identifiers
       level: custom
-      type: nested 
+      type: nested
       description: the identifiers of user artifacts applied.
 
     - name: policy.applied.artifacts.user.identifiers.name
       level: custom
-      type: keyword 
+      type: keyword
       description: the name of user artifact applied.
 
     - name: policy.applied.artifacts.user.identifiers.sha256
@@ -377,6 +375,107 @@
       type: keyword
       description: >
         Hash of artifact in use by endpoint when event was created.
+
+    - name: system
+      level: custom
+      type: object
+      description: System fields hold the endpoint and system's performance metrics
+
+    - name: system.uptime
+      level: custom
+      type: object
+      description: Number of seconds since boot
+
+    - name: system.uptime.endpoint
+      level: custom
+      type: long
+      description: Number of seconds since the endpoint was started
+
+    - name: system.uptime.system
+      level: custom
+      type: long
+      description: Number of seconds since the system was started
+
+    - name: system.cpu
+      level: custom
+      type: object
+      description: CPU statistics
+
+    - name: system.cpu.endpoint
+      level: custom
+      type: object
+      description: CPU metrics for the endpoint
+
+    - name: system.cpu.endpoint.mean
+      level: custom
+      type: half_float
+      description: Average CPU load used by the endpoint
+
+    - name: system.cpu.endpoint.latest
+      level: custom
+      type: half_float
+      description: Average CPU over the last sample interval
+
+    - name: system.cpu.endpoint.histogram
+      level: custom
+      type: histogram
+      description:
+        This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
+        The values field includes 20 buckets (each bucket is 5%) representing the cpu usage
+        The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket
+
+    - name: system.memory
+      level: custom
+      type: object
+      description: Memory statistics
+
+    - name: system.memory.endpoint
+      level: custom
+      type: object
+      description: Endpoint memory utilization
+
+    - name: system.memory.endpoint.private
+      level: custom
+      type: object
+      description: The memory private to the endpoint
+
+    - name: system.memory.endpoint.private.mean
+      level: custom
+      type: long
+      description: Average memory usage by the endpoint since its start
+
+    - name: system.memory.endpoint.private.latest
+      level: custom
+      type: long
+      description: The memory usage by the endpoint for the last sample interval
+
+    - name: system.disks
+      level: custom
+      type: nested
+      description: An array of disk information for the host
+
+    - name: system.disks.mount
+      level: custom
+      type: keyword
+      description: The disks mount location
+
+    - name: system.disks.free
+      level: custom
+      type: long
+      description: The number of bytes marked as free on the disk
+
+    - name: system.disks.total
+      level: custom
+      type: long
+      description: The size of the disk in bytes
+
+    - name: system.threads
+      level: custom
+      # using an object here even though it is actually an array because you can only have a limited number
+      # of nested fields
+      type: object
+      enabled: false
+      description: Statistics about the individual threads of the system (array)
 
     - name: dns
       level: custom
