@@ -2,8 +2,6 @@ title: Endpoint Metadata
 
 type: metrics
 
-id: endpoint
-
 # If set to true, this will be enabled by default in the input selection
 default: true
 
