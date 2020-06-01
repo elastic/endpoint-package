@@ -276,6 +276,106 @@
         The ppid of the process that actually spawned the current process, in case of
         ppid spoofing.
 
+    - name: process.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: process.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: process.code_signature.subject_name
+      level: core
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: process.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: process.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: process.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: process.parent.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: process.parent.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: process.parent.code_signature.subject_name
+      level: core
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: process.parent.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: process.parent.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: process.parent.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
     - name: file
       level: custom
       type: object
@@ -342,6 +442,56 @@
       description: >
         Primary group name of the file.
       example: alice
+
+    - name: file.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: file.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: file.code_signature.subject_name
+      level: core
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: file.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: file.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: file.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
 
     - name: artifact.name
       level: custom
@@ -491,3 +641,53 @@
       level: custom
       type: keyword
       description: An array of entity_ids indicating the ancestors for this event
+
+    - name: dll.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: dll.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: dll.code_signature.subject_name
+      level: core
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: dll.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: dll.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: dll.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT

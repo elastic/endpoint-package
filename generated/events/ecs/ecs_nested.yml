@@ -752,6 +752,78 @@ endpoint:
       normalize: []
       short: Version of artifact in use by endpoint when event was created.
       type: keyword
+    dll.code_signature:
+      dashed_name: endpoint-dll-code-signature
+      description: Nested version of ECS code_signature fieldset.
+      flat_name: endpoint.dll.code_signature
+      level: custom
+      name: dll.code_signature
+      normalize: []
+      short: Nested version of ECS code_signature fieldset.
+      type: nested
+    dll.code_signature.exists:
+      dashed_name: endpoint-dll-code-signature-exists
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      flat_name: endpoint.dll.code_signature.exists
+      level: core
+      name: dll.code_signature.exists
+      normalize: []
+      short: Boolean to capture if a signature is present.
+      type: boolean
+    dll.code_signature.status:
+      dashed_name: endpoint-dll-code-signature-status
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      flat_name: endpoint.dll.code_signature.status
+      ignore_above: 1024
+      level: extended
+      name: dll.code_signature.status
+      normalize: []
+      short: Additional information about the certificate status.
+      type: keyword
+    dll.code_signature.subject_name:
+      dashed_name: endpoint-dll-code-signature-subject-name
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      flat_name: endpoint.dll.code_signature.subject_name
+      ignore_above: 1024
+      level: core
+      name: dll.code_signature.subject_name
+      normalize: []
+      short: Subject name of the code signer
+      type: keyword
+    dll.code_signature.trusted:
+      dashed_name: endpoint-dll-code-signature-trusted
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      example: 'true'
+      flat_name: endpoint.dll.code_signature.trusted
+      level: extended
+      name: dll.code_signature.trusted
+      normalize: []
+      short: Stores the trust status of the certificate chain.
+      type: boolean
+    dll.code_signature.valid:
+      dashed_name: endpoint-dll-code-signature-valid
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      flat_name: endpoint.dll.code_signature.valid
+      level: extended
+      name: dll.code_signature.valid
+      normalize: []
+      short: Boolean to capture if the digital signature is verified against the binary
+        content.
+      type: boolean
     dns:
       dashed_name: endpoint-dns
       description: DNS fields that are not defined in core ECS
@@ -823,6 +895,78 @@ endpoint:
       object_type: keyword
       short: Extended "file" field set
       type: object
+    file.code_signature:
+      dashed_name: endpoint-file-code-signature
+      description: Nested version of ECS code_signature fieldset.
+      flat_name: endpoint.file.code_signature
+      level: custom
+      name: file.code_signature
+      normalize: []
+      short: Nested version of ECS code_signature fieldset.
+      type: nested
+    file.code_signature.exists:
+      dashed_name: endpoint-file-code-signature-exists
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      flat_name: endpoint.file.code_signature.exists
+      level: core
+      name: file.code_signature.exists
+      normalize: []
+      short: Boolean to capture if a signature is present.
+      type: boolean
+    file.code_signature.status:
+      dashed_name: endpoint-file-code-signature-status
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      flat_name: endpoint.file.code_signature.status
+      ignore_above: 1024
+      level: extended
+      name: file.code_signature.status
+      normalize: []
+      short: Additional information about the certificate status.
+      type: keyword
+    file.code_signature.subject_name:
+      dashed_name: endpoint-file-code-signature-subject-name
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      flat_name: endpoint.file.code_signature.subject_name
+      ignore_above: 1024
+      level: core
+      name: file.code_signature.subject_name
+      normalize: []
+      short: Subject name of the code signer
+      type: keyword
+    file.code_signature.trusted:
+      dashed_name: endpoint-file-code-signature-trusted
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      example: 'true'
+      flat_name: endpoint.file.code_signature.trusted
+      level: extended
+      name: file.code_signature.trusted
+      normalize: []
+      short: Stores the trust status of the certificate chain.
+      type: boolean
+    file.code_signature.valid:
+      dashed_name: endpoint-file-code-signature-valid
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      flat_name: endpoint.file.code_signature.valid
+      level: extended
+      name: file.code_signature.valid
+      normalize: []
+      short: Boolean to capture if the digital signature is verified against the binary
+        content.
+      type: boolean
     file.original:
       dashed_name: endpoint-file-original
       description: Original file information during a modification event.
@@ -1008,6 +1152,78 @@ endpoint:
       normalize: []
       short: Process authentication ID
       type: keyword
+    process.code_signature:
+      dashed_name: endpoint-process-code-signature
+      description: Nested version of ECS code_signature fieldset.
+      flat_name: endpoint.process.code_signature
+      level: custom
+      name: process.code_signature
+      normalize: []
+      short: Nested version of ECS code_signature fieldset.
+      type: nested
+    process.code_signature.exists:
+      dashed_name: endpoint-process-code-signature-exists
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      flat_name: endpoint.process.code_signature.exists
+      level: core
+      name: process.code_signature.exists
+      normalize: []
+      short: Boolean to capture if a signature is present.
+      type: boolean
+    process.code_signature.status:
+      dashed_name: endpoint-process-code-signature-status
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      flat_name: endpoint.process.code_signature.status
+      ignore_above: 1024
+      level: extended
+      name: process.code_signature.status
+      normalize: []
+      short: Additional information about the certificate status.
+      type: keyword
+    process.code_signature.subject_name:
+      dashed_name: endpoint-process-code-signature-subject-name
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      flat_name: endpoint.process.code_signature.subject_name
+      ignore_above: 1024
+      level: core
+      name: process.code_signature.subject_name
+      normalize: []
+      short: Subject name of the code signer
+      type: keyword
+    process.code_signature.trusted:
+      dashed_name: endpoint-process-code-signature-trusted
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      example: 'true'
+      flat_name: endpoint.process.code_signature.trusted
+      level: extended
+      name: process.code_signature.trusted
+      normalize: []
+      short: Stores the trust status of the certificate chain.
+      type: boolean
+    process.code_signature.valid:
+      dashed_name: endpoint-process-code-signature-valid
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      flat_name: endpoint.process.code_signature.valid
+      level: extended
+      name: process.code_signature.valid
+      normalize: []
+      short: Boolean to capture if the digital signature is verified against the binary
+        content.
+      type: boolean
     process.parent:
       dashed_name: endpoint-process-parent
       description: Extended "process.parent" field set.
@@ -1018,6 +1234,78 @@ endpoint:
       object_type: keyword
       short: Extended "process.parent" field set.
       type: object
+    process.parent.code_signature:
+      dashed_name: endpoint-process-parent-code-signature
+      description: Nested version of ECS code_signature fieldset.
+      flat_name: endpoint.process.parent.code_signature
+      level: custom
+      name: process.parent.code_signature
+      normalize: []
+      short: Nested version of ECS code_signature fieldset.
+      type: nested
+    process.parent.code_signature.exists:
+      dashed_name: endpoint-process-parent-code-signature-exists
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      flat_name: endpoint.process.parent.code_signature.exists
+      level: core
+      name: process.parent.code_signature.exists
+      normalize: []
+      short: Boolean to capture if a signature is present.
+      type: boolean
+    process.parent.code_signature.status:
+      dashed_name: endpoint-process-parent-code-signature-status
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity
+        or trust status. Leave unpopulated if the validity or trust of the certificate
+        was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      flat_name: endpoint.process.parent.code_signature.status
+      ignore_above: 1024
+      level: extended
+      name: process.parent.code_signature.status
+      normalize: []
+      short: Additional information about the certificate status.
+      type: keyword
+    process.parent.code_signature.subject_name:
+      dashed_name: endpoint-process-parent-code-signature-subject-name
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      flat_name: endpoint.process.parent.code_signature.subject_name
+      ignore_above: 1024
+      level: core
+      name: process.parent.code_signature.subject_name
+      normalize: []
+      short: Subject name of the code signer
+      type: keyword
+    process.parent.code_signature.trusted:
+      dashed_name: endpoint-process-parent-code-signature-trusted
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this
+        field should only be populated by tools that actively check the status.'
+      example: 'true'
+      flat_name: endpoint.process.parent.code_signature.trusted
+      level: extended
+      name: process.parent.code_signature.trusted
+      normalize: []
+      short: Stores the trust status of the certificate chain.
+      type: boolean
+    process.parent.code_signature.valid:
+      dashed_name: endpoint-process-parent-code-signature-valid
+      description: 'Boolean to capture if the digital signature is verified against
+        the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      flat_name: endpoint.process.parent.code_signature.valid
+      level: extended
+      name: process.parent.code_signature.valid
+      normalize: []
+      short: Boolean to capture if the digital signature is verified against the binary
+        content.
+      type: boolean
     process.parent.real:
       dashed_name: endpoint-process-parent-real
       description: The field set containing parent process info in case of any ppid

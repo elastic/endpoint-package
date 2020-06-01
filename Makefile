@@ -9,7 +9,7 @@ ECS_GIT_REF ?= v1.5.0
 PACKAGE_STORAGE_REPO ?= $(ROOT_DIR)/../package-storage
 
 ifeq (, $(shell which pipenv))
-	$(error No pipenv in $(PATH), please install pipenv (brew install pipenv))
+    $(error No pipenv in $(PATH), please install pipenv (brew install pipenv))
 endif
 
 # This needs to be created, and include the following:
@@ -26,6 +26,7 @@ REAL_ECS_DIR := $(realpath $(ECS_DIR))
 $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
+SED := sed
 # set mage binary path based on whether the gopath is set
 ifeq ($(GOPATH),)
 	MAGE_BIN := $(HOME)/go/bin/mage
@@ -64,9 +65,9 @@ define gen_mapping_files
 		--ref $(ECS_GIT_REF) \
 		--subset $(SUB_ROOT_DIR)/$(1)/*
 	# remove the first 8 lines
-	sed -i '' -e '1,8d' $(call package_file,$(1))
+	$(SED) -i $(call package_file,$(1)) -e '1,8d'
 	# remove indentation
-	sed -i '' -e 's/^  //g' $(call package_file,$(1))
+	$(SED) -i $(call package_file,$(1)) -e 's/^  //g'
 	mkdir -p $(ROOT_DIR)/generated/$(1)
 	cp -r $(ROOT_DIR)/out/$(1)/generated/beats $(ROOT_DIR)/generated/$(1)
 	cp -r $(ROOT_DIR)/out/$(1)/generated/ecs $(ROOT_DIR)/generated/$(1)
@@ -90,8 +91,23 @@ define gen_schema_files
 		$(ROOT_DIR)/out/schema/$(1)
 endef
 
+ifeq ($(shell uname -s), Darwin)
+ifeq (, $(shell which gsed))
+# add mac gsed install target
+# mac's freebsd sed command doesn't accept the same parameters as linux
+all: mac-deps
+endif
+SED := gsed
+endif
+
 .PHONY: all
 all: install_pipfile gen_files
+
+
+.PHONY: mac-deps
+mac-deps:
+	@echo Installing gsed for mac
+	brew install gnu-sed
 
 .PHONY: clean
 clean:
