@@ -12,17 +12,15 @@ ifeq (, $(shell which pipenv))
     $(error No pipenv in $(PATH), please install pipenv (brew install pipenv))
 endif
 
-# This needs to be created, and include the following:
-# ECS_DIR := <path to the ecs repo>
-ifeq (,$(wildcard $(ROOT_DIR)/config.mk))
-    $(error config.mk file does not exist, please create it)
+# the config.mk file can be used to override variables in the Makefile
+ifneq (,$(wildcard $(ROOT_DIR)/config.mk))
+    $(info loading $(ROOT_DIR)/config.mk file)
+    include $(ROOT_DIR)/config.mk
 endif
 
-include $(ROOT_DIR)/config.mk
-ifeq ($(ECS_DIR),)
-  $(error ECS_DIR not defined by config config.mk)
-endif
-REAL_ECS_DIR := $(realpath $(ECS_DIR))
+# the ecs repo will be cloned in the out directory unless this is already set and exists at the specified path
+ECS_DIR ?= $(ROOT_DIR)/out/ecs
+REAL_ECS_DIR := $(abspath $(ECS_DIR))
 $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
@@ -35,7 +33,7 @@ else
 endif
 
 MAGE_DIR := $(ROOT_DIR)/out/mage
-REG_DIR := $(ROOT_DIR)/out/package-registry
+REG_DIR ?= $(ROOT_DIR)/out/package-registry
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
 DEF_PACKAGES_DIR := $(REG_DIR)/build/package-storage/packages
@@ -54,7 +52,7 @@ TAG_NAME := v$(PACKAGE_VERSION)
 # Given a path this returns the directory (e.g. events, metadata)
 schema_name = $(shell basename $(1))
 package_file = $(ROOT_DIR)/out/$(1)/generated/beats/fields.ecs.yml
-TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))_target)
+TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-target)
 
 # Parameters
 # 1: schema name (e.g. events, metadata)
@@ -101,7 +99,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: install_pipfile gen_files
+all: $(REAL_ECS_DIR) install-pipfile gen-files
 
 
 .PHONY: mac-deps
@@ -113,14 +111,20 @@ mac-deps:
 clean:
 	rm -rf $(ROOT_DIR)/out
 
-.PHONY: install_pipfile
-install_pipfile:
-	cd $(EVENT_SCHEMA_GEN) && pipenv install
-	cd $(REAL_ECS_DIR) && pipenv --python 3.7 install -r scripts/requirements.txt
+# I'm pinning this to my repo so that we can use the `enabled` and `index` fields once my PR here:
+# https://github.com/elastic/ecs/pull/824 is merged I'll move this back to the upstream ecs repo on the master branch
+$(REAL_ECS_DIR):
+	git clone --branch add-enabled-support https://github.com/jonathan-buttner/ecs.git $(REAL_ECS_DIR)
 
-gen_files: $(TARGETS)
 
-%_target:
+.PHONY: install-pipfile
+install-pipfile:
+	cd $(EVENT_SCHEMA_GEN) && PIPENV_NO_INHERIT=1 pipenv install
+	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
+
+gen-files: $(TARGETS)
+
+%-target:
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
 
@@ -150,7 +154,7 @@ build-package:
 .PHONY: run-registry
 run-registry: check-go $(ROOT_DIR)/out $(MAGE_BIN) $(REG_DIR) build-package
 	cd $(REG_DIR) && git pull
-	cd $(ROOT_DIR)/out/package-registry && PACKAGE_PATHS="$(PACKAGES_DIR),$(DEF_PACKAGES_DIR)" mage build && go run .
+	cd $(REG_DIR) && PACKAGE_PATHS="$(PACKAGES_DIR),$(DEF_PACKAGES_DIR)" mage build && go run .
 
 # This target uses the hub tool to create a PR to the package-storage repo with the contents of the
 # modified endpoint package in this repo
@@ -176,7 +180,6 @@ create-storage-pr:
 
 .PHONY: tag-version
 tag-version:
-	-git remote add upstream git@github.com:elastic/endpoint-app-team.git
 	-git tag $(TAG_NAME)
 	-git push upstream $(TAG_NAME)
 
@@ -184,10 +187,20 @@ tag-version:
 bump-version:
 	pipenv install
 	pipenv run bump2version minor
+	git push upstream bump-version-$(PACKAGE_VERSION):master
+
+.PHONY: switch-to-bump-branch
+switch-to-bump-branch:
+	-git remote add upstream git@github.com:elastic/endpoint-app-team.git
+	-git checkout master; \
+		git branch -D bump-version-$(PACKAGE_VERSION); \
+		git push -d origin bump-version-$(PACKAGE_VERSION);
+	git fetch upstream; \
+		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/master
 
 # Use this target to tag and release
 .PHONY: release-package
-release-package: tag-version create-storage-pr bump-version
+release-package: switch-to-bump-branch tag-version create-storage-pr bump-version
 
 test:
 	cd $(EVENT_SCHEMA_GEN) && pipenv install; pipenv install --dev; \
