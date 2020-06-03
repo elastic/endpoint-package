@@ -191,7 +191,7 @@ bump-version:
 
 .PHONY: switch-to-bump-branch
 switch-to-bump-branch:
-	-git remote add upstream git@github.com:elastic/endpoint-app-team.git
+	-git remote add upstream git@github.com:elastic/endpoint-package.git
 	-git checkout master; \
 		git branch -D bump-version-$(PACKAGE_VERSION); \
 		git push -d origin bump-version-$(PACKAGE_VERSION);
