@@ -90,6 +90,7 @@
                 "type": "object"
               },
               "threads": {
+                "enabled": false,
                 "type": "object"
               },
               "uptime": {
