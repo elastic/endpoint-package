@@ -88,10 +88,21 @@ fields:
           policy.
         fields:
 
-          - name: id
-            type: keyword
-            description: ID of the policy that was active when the event was created.
-            example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+          - name: applied
+            description: information about the policy that is applied
+            fields:
+
+              - name: id
+                type: keyword
+                description: the id of the applied policy
+
+              - name: name
+                type: keyword
+                description: the name of this applied policy
+
+              - name: status
+                type: keyword
+                description: the status of the applied policy
 
   - name: event
     description: 'The event fields are used for context information about the log

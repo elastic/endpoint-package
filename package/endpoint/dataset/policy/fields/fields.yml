@@ -241,6 +241,12 @@
     ignore_above: 1024
     description: the id of the applied policy
     default_field: false
+  - name: policy.applied.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the name of this applied policy
+    default_field: false
   - name: policy.applied.response
     level: custom
     type: object
@@ -258,7 +264,7 @@
     level: custom
     type: keyword
     ignore_above: 1024
-    description: the version of this policy application
+    description: the version of this applied policy
     default_field: false
 - name: event
   title: Event
