@@ -138,6 +138,7 @@
     type: object
     object_type: keyword
     description: Statistics about the individual threads of the system (array)
+    enabled: false
     default_field: false
   - name: system.uptime
     level: custom
