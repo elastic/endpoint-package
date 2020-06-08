@@ -37,6 +37,7 @@
               "applied": {
                 "properties": {
                   "actions": {
+                    "enabled": false,
                     "properties": {
                       "message": {
                         "ignore_above": 1024,
@@ -54,6 +55,7 @@
                     "type": "nested"
                   },
                   "artifacts": {
+                    "enabled": false,
                     "properties": {
                       "global": {
                         "properties": {
@@ -103,6 +105,7 @@
                     "type": "object"
                   },
                   "configurations": {
+                    "enabled": false,
                     "properties": {
                       "events": {
                         "properties": {
@@ -168,6 +171,7 @@
                     "type": "keyword"
                   },
                   "response": {
+                    "enabled": false,
                     "type": "object"
                   },
                   "status": {
