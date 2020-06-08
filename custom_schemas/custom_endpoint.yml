@@ -58,7 +58,12 @@
     - name: policy.applied.version
       level: custom
       type: keyword
-      description: the version of this policy application
+      description: the version of this applied policy
+    
+    - name: policy.applied.name
+      level: custom
+      type: keyword
+      description: the name of this applied policy
 
     - name: policy.applied.response
       level: custom
