@@ -49,7 +49,7 @@
       level: custom
       type: keyword
       description: the id of the applied policy
-      
+
     - name: policy.applied.status
       level: custom
       type: keyword
@@ -314,7 +314,6 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
-
     - name: process.code_signature.status
       level: extended
       type: keyword
@@ -363,7 +362,6 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
-
 
     - name: process.parent.code_signature.status
       level: extended
@@ -481,7 +479,6 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
-
     - name: file.code_signature.status
       level: extended
       type: keyword
@@ -511,47 +508,47 @@
       description: >
         Hash of artifact in use by endpoint when event was created.
 
-    - name: system
+    - name: metrics
       level: custom
       type: object
-      description: System fields hold the endpoint and system's performance metrics
+      description: Metrics fields hold the endpoint and system's performance metrics
 
-    - name: system.uptime
+    - name: metrics.uptime
       level: custom
       type: object
       description: Number of seconds since boot
 
-    - name: system.uptime.endpoint
+    - name: metrics.uptime.endpoint
       level: custom
       type: long
       description: Number of seconds since the endpoint was started
 
-    - name: system.uptime.system
+    - name: metrics.uptime.system
       level: custom
       type: long
       description: Number of seconds since the system was started
 
-    - name: system.cpu
+    - name: metrics.cpu
       level: custom
       type: object
       description: CPU statistics
 
-    - name: system.cpu.endpoint
+    - name: metrics.cpu.endpoint
       level: custom
       type: object
       description: CPU metrics for the endpoint
 
-    - name: system.cpu.endpoint.mean
+    - name: metrics.cpu.endpoint.mean
       level: custom
       type: half_float
       description: Average CPU load used by the endpoint
 
-    - name: system.cpu.endpoint.latest
+    - name: metrics.cpu.endpoint.latest
       level: custom
       type: half_float
       description: Average CPU over the last sample interval
 
-    - name: system.cpu.endpoint.histogram
+    - name: metrics.cpu.endpoint.histogram
       level: custom
       type: histogram
       description:
@@ -559,52 +556,68 @@
         The values field includes 20 buckets (each bucket is 5%) representing the cpu usage
         The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket
 
-    - name: system.memory
+    - name: metrics.memory
       level: custom
       type: object
       description: Memory statistics
 
-    - name: system.memory.endpoint
+    - name: metrics.memory.endpoint
       level: custom
       type: object
       description: Endpoint memory utilization
 
-    - name: system.memory.endpoint.private
+    - name: metrics.memory.endpoint.private
       level: custom
       type: object
       description: The memory private to the endpoint
 
-    - name: system.memory.endpoint.private.mean
+    - name: metrics.memory.endpoint.private.mean
       level: custom
       type: long
       description: Average memory usage by the endpoint since its start
 
-    - name: system.memory.endpoint.private.latest
+    - name: metrics.memory.endpoint.private.latest
       level: custom
       type: long
       description: The memory usage by the endpoint for the last sample interval
 
-    - name: system.disks
+    - name: metrics.disks
       level: custom
-      type: nested
+      type: object
+      enabled: false
       description: An array of disk information for the host
 
-    - name: system.disks.mount
+    - name: metrics.disks.device
+      level: custom
+      type: keyword
+      description: Device name
+
+    - name: metrics.disks.endpoint_drive
+      level: custom
+      type: boolean
+      description: This field will be present and set to true only for the drive that holds the installed endpoint
+
+    - name: metrics.disks.fstype
+      level: custom
+      type: keyword
+      description: The file system type for the drive
+
+    - name: metrics.disks.mount
       level: custom
       type: keyword
       description: The disks mount location
 
-    - name: system.disks.free
+    - name: metrics.disks.free
       level: custom
       type: long
       description: The number of bytes marked as free on the disk
 
-    - name: system.disks.total
+    - name: metrics.disks.total
       level: custom
       type: long
       description: The size of the disk in bytes
 
-    - name: system.threads
+    - name: metrics.threads
       level: custom
       # using an object here even though it is actually an array because you can only have a limited number
       # of nested fields
@@ -679,7 +692,6 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
-
 
     - name: dll.code_signature.status
       level: extended

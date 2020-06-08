@@ -31,7 +31,7 @@ event:
       fields: "*"
 endpoint:
   fields:
-    system: {}
+    metrics: {}
 host:
   fields:
     geo:

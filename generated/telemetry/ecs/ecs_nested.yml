@@ -74,190 +74,223 @@ ecs:
 endpoint:
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   fields:
-    system:
-      dashed_name: endpoint-system
-      description: System fields hold the endpoint and system's performance metrics
-      flat_name: endpoint.system
+    metrics:
+      dashed_name: endpoint-metrics
+      description: Metrics fields hold the endpoint and system's performance metrics
+      flat_name: endpoint.metrics
       level: custom
-      name: system
+      name: metrics
       normalize: []
       object_type: keyword
-      short: System fields hold the endpoint and system's performance metrics
+      short: Metrics fields hold the endpoint and system's performance metrics
       type: object
-    system.cpu:
-      dashed_name: endpoint-system-cpu
+    metrics.cpu:
+      dashed_name: endpoint-metrics-cpu
       description: CPU statistics
-      flat_name: endpoint.system.cpu
+      flat_name: endpoint.metrics.cpu
       level: custom
-      name: system.cpu
+      name: metrics.cpu
       normalize: []
       object_type: keyword
       short: CPU statistics
       type: object
-    system.cpu.endpoint:
-      dashed_name: endpoint-system-cpu-endpoint
+    metrics.cpu.endpoint:
+      dashed_name: endpoint-metrics-cpu-endpoint
       description: CPU metrics for the endpoint
-      flat_name: endpoint.system.cpu.endpoint
+      flat_name: endpoint.metrics.cpu.endpoint
       level: custom
-      name: system.cpu.endpoint
+      name: metrics.cpu.endpoint
       normalize: []
       object_type: keyword
       short: CPU metrics for the endpoint
       type: object
-    system.cpu.endpoint.histogram:
-      dashed_name: endpoint-system-cpu-endpoint-histogram
+    metrics.cpu.endpoint.histogram:
+      dashed_name: endpoint-metrics-cpu-endpoint-histogram
       description: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
         The values field includes 20 buckets (each bucket is 5%) representing the
         cpu usage The counts field includes 20 buckets of how many times the endpoint's
         cpu usage fell into each bucket
-      flat_name: endpoint.system.cpu.endpoint.histogram
+      flat_name: endpoint.metrics.cpu.endpoint.histogram
       level: custom
-      name: system.cpu.endpoint.histogram
+      name: metrics.cpu.endpoint.histogram
       normalize: []
       short: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
         The values field includes 20 buckets (each bucket is 5%) representing the
         cpu usage The counts field includes 20 buckets of how many times the endpoint's
         cpu usage fell into each bucket
       type: histogram
-    system.cpu.endpoint.latest:
-      dashed_name: endpoint-system-cpu-endpoint-latest
+    metrics.cpu.endpoint.latest:
+      dashed_name: endpoint-metrics-cpu-endpoint-latest
       description: Average CPU over the last sample interval
-      flat_name: endpoint.system.cpu.endpoint.latest
+      flat_name: endpoint.metrics.cpu.endpoint.latest
       level: custom
-      name: system.cpu.endpoint.latest
+      name: metrics.cpu.endpoint.latest
       normalize: []
       short: Average CPU over the last sample interval
       type: half_float
-    system.cpu.endpoint.mean:
-      dashed_name: endpoint-system-cpu-endpoint-mean
+    metrics.cpu.endpoint.mean:
+      dashed_name: endpoint-metrics-cpu-endpoint-mean
       description: Average CPU load used by the endpoint
-      flat_name: endpoint.system.cpu.endpoint.mean
+      flat_name: endpoint.metrics.cpu.endpoint.mean
       level: custom
-      name: system.cpu.endpoint.mean
+      name: metrics.cpu.endpoint.mean
       normalize: []
       short: Average CPU load used by the endpoint
       type: half_float
-    system.disks:
-      dashed_name: endpoint-system-disks
+    metrics.disks:
+      dashed_name: endpoint-metrics-disks
       description: An array of disk information for the host
-      flat_name: endpoint.system.disks
+      enabled: false
+      flat_name: endpoint.metrics.disks
       level: custom
-      name: system.disks
+      name: metrics.disks
       normalize: []
+      object_type: keyword
       short: An array of disk information for the host
-      type: nested
-    system.disks.free:
-      dashed_name: endpoint-system-disks-free
-      description: The number of bytes marked as free on the disk
-      flat_name: endpoint.system.disks.free
+      type: object
+    metrics.disks.device:
+      dashed_name: endpoint-metrics-disks-device
+      description: Device name
+      flat_name: endpoint.metrics.disks.device
+      ignore_above: 1024
       level: custom
-      name: system.disks.free
+      name: metrics.disks.device
+      normalize: []
+      short: Device name
+      type: keyword
+    metrics.disks.endpoint_drive:
+      dashed_name: endpoint-metrics-disks-endpoint-drive
+      description: This field will be present and set to true only for the drive that
+        holds the installed endpoint
+      flat_name: endpoint.metrics.disks.endpoint_drive
+      level: custom
+      name: metrics.disks.endpoint_drive
+      normalize: []
+      short: This field will be present and set to true only for the drive that holds
+        the installed endpoint
+      type: boolean
+    metrics.disks.free:
+      dashed_name: endpoint-metrics-disks-free
+      description: The number of bytes marked as free on the disk
+      flat_name: endpoint.metrics.disks.free
+      level: custom
+      name: metrics.disks.free
       normalize: []
       short: The number of bytes marked as free on the disk
       type: long
-    system.disks.mount:
-      dashed_name: endpoint-system-disks-mount
-      description: The disks mount location
-      flat_name: endpoint.system.disks.mount
+    metrics.disks.fstype:
+      dashed_name: endpoint-metrics-disks-fstype
+      description: The file system type for the drive
+      flat_name: endpoint.metrics.disks.fstype
       ignore_above: 1024
       level: custom
-      name: system.disks.mount
+      name: metrics.disks.fstype
+      normalize: []
+      short: The file system type for the drive
+      type: keyword
+    metrics.disks.mount:
+      dashed_name: endpoint-metrics-disks-mount
+      description: The disks mount location
+      flat_name: endpoint.metrics.disks.mount
+      ignore_above: 1024
+      level: custom
+      name: metrics.disks.mount
       normalize: []
       short: The disks mount location
       type: keyword
-    system.disks.total:
-      dashed_name: endpoint-system-disks-total
+    metrics.disks.total:
+      dashed_name: endpoint-metrics-disks-total
       description: The size of the disk in bytes
-      flat_name: endpoint.system.disks.total
+      flat_name: endpoint.metrics.disks.total
       level: custom
-      name: system.disks.total
+      name: metrics.disks.total
       normalize: []
       short: The size of the disk in bytes
       type: long
-    system.memory:
-      dashed_name: endpoint-system-memory
+    metrics.memory:
+      dashed_name: endpoint-metrics-memory
       description: Memory statistics
-      flat_name: endpoint.system.memory
+      flat_name: endpoint.metrics.memory
       level: custom
-      name: system.memory
+      name: metrics.memory
       normalize: []
       object_type: keyword
       short: Memory statistics
       type: object
-    system.memory.endpoint:
-      dashed_name: endpoint-system-memory-endpoint
+    metrics.memory.endpoint:
+      dashed_name: endpoint-metrics-memory-endpoint
       description: Endpoint memory utilization
-      flat_name: endpoint.system.memory.endpoint
+      flat_name: endpoint.metrics.memory.endpoint
       level: custom
-      name: system.memory.endpoint
+      name: metrics.memory.endpoint
       normalize: []
       object_type: keyword
       short: Endpoint memory utilization
       type: object
-    system.memory.endpoint.private:
-      dashed_name: endpoint-system-memory-endpoint-private
+    metrics.memory.endpoint.private:
+      dashed_name: endpoint-metrics-memory-endpoint-private
       description: The memory private to the endpoint
-      flat_name: endpoint.system.memory.endpoint.private
+      flat_name: endpoint.metrics.memory.endpoint.private
       level: custom
-      name: system.memory.endpoint.private
+      name: metrics.memory.endpoint.private
       normalize: []
       object_type: keyword
       short: The memory private to the endpoint
       type: object
-    system.memory.endpoint.private.latest:
-      dashed_name: endpoint-system-memory-endpoint-private-latest
+    metrics.memory.endpoint.private.latest:
+      dashed_name: endpoint-metrics-memory-endpoint-private-latest
       description: The memory usage by the endpoint for the last sample interval
-      flat_name: endpoint.system.memory.endpoint.private.latest
+      flat_name: endpoint.metrics.memory.endpoint.private.latest
       level: custom
-      name: system.memory.endpoint.private.latest
+      name: metrics.memory.endpoint.private.latest
       normalize: []
       short: The memory usage by the endpoint for the last sample interval
       type: long
-    system.memory.endpoint.private.mean:
-      dashed_name: endpoint-system-memory-endpoint-private-mean
+    metrics.memory.endpoint.private.mean:
+      dashed_name: endpoint-metrics-memory-endpoint-private-mean
       description: Average memory usage by the endpoint since its start
-      flat_name: endpoint.system.memory.endpoint.private.mean
+      flat_name: endpoint.metrics.memory.endpoint.private.mean
       level: custom
-      name: system.memory.endpoint.private.mean
+      name: metrics.memory.endpoint.private.mean
       normalize: []
       short: Average memory usage by the endpoint since its start
       type: long
-    system.threads:
-      dashed_name: endpoint-system-threads
+    metrics.threads:
+      dashed_name: endpoint-metrics-threads
       description: Statistics about the individual threads of the system (array)
       enabled: false
-      flat_name: endpoint.system.threads
+      flat_name: endpoint.metrics.threads
       level: custom
-      name: system.threads
+      name: metrics.threads
       normalize: []
       object_type: keyword
       short: Statistics about the individual threads of the system (array)
       type: object
-    system.uptime:
-      dashed_name: endpoint-system-uptime
+    metrics.uptime:
+      dashed_name: endpoint-metrics-uptime
       description: Number of seconds since boot
-      flat_name: endpoint.system.uptime
+      flat_name: endpoint.metrics.uptime
       level: custom
-      name: system.uptime
+      name: metrics.uptime
       normalize: []
       object_type: keyword
       short: Number of seconds since boot
       type: object
-    system.uptime.endpoint:
-      dashed_name: endpoint-system-uptime-endpoint
+    metrics.uptime.endpoint:
+      dashed_name: endpoint-metrics-uptime-endpoint
       description: Number of seconds since the endpoint was started
-      flat_name: endpoint.system.uptime.endpoint
+      flat_name: endpoint.metrics.uptime.endpoint
       level: custom
-      name: system.uptime.endpoint
+      name: metrics.uptime.endpoint
       normalize: []
       short: Number of seconds since the endpoint was started
       type: long
-    system.uptime.system:
-      dashed_name: endpoint-system-uptime-system
+    metrics.uptime.system:
+      dashed_name: endpoint-metrics-uptime-system
       description: Number of seconds since the system was started
-      flat_name: endpoint.system.uptime.system
+      flat_name: endpoint.metrics.uptime.system
       level: custom
-      name: system.uptime.system
+      name: metrics.uptime.system
       normalize: []
       short: Number of seconds since the system was started
       type: long
