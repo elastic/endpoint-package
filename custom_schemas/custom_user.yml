@@ -1,0 +1,25 @@
+---
+- name: user_ext
+  title: User
+  group: 2
+  short: Fields describing user relevant to the event.
+  description: >
+    Fields describing user relevant to the event.
+  type: group
+  fields:
+    - name: real
+      level: custom
+      type: object
+      description: User info prior to any setuid operations.
+
+    - name: real.id
+      level: custom
+      type: keyword
+      description: >
+        One or multiple unique identifiers of the user.
+
+    - name: real.name
+      level: custom
+      type: keyword
+      description: >
+        Short name or login of the user.

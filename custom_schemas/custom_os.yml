@@ -1,11 +1,15 @@
 ---
-- name: os
+- name: os_ext
   title: Custom OS
   group: 2
   short: TODO
   description: >
     TODO
   type: group
+  reusable:
+    top_level: false
+    expected:
+      - host_ext
   fields:
     # this is temporary until variant is included in ecs core https://github.com/elastic/ecs/issues/744
     - name: variant

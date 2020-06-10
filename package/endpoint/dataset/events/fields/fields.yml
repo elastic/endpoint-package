@@ -211,11 +211,6 @@
       Leave unpopulated if a certificate was unchecked.'
     example: 'true'
     default_field: false
-  - name: compile_time
-    level: custom
-    type: date
-    description: Timestamp from when the module was compiled.
-    default_field: false
   - name: hash.md5
     level: extended
     type: keyword
@@ -239,6 +234,125 @@
     type: keyword
     ignore_above: 1024
     description: SHA512 hash.
+    default_field: false
+  - name: name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Name of the library.
+
+      This generally maps to the name of the file on disk.'
+    example: kernel32.dll
+    default_field: false
+  - name: path
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Full file path of the library.
+    example: C:\Windows\System32\kernel32.dll
+    default_field: false
+  - name: pe.company
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal company name of the file, provided at compile-time.
+    example: Microsoft Corporation
+    default_field: false
+  - name: pe.description
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal description of the file, provided at compile-time.
+    example: Paint
+    default_field: false
+  - name: pe.file_version
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal version of the file, provided at compile-time.
+    example: 6.3.9600.17415
+    default_field: false
+  - name: pe.original_file_name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal name of the file, provided at compile-time.
+    example: MSPAINT.EXE
+    default_field: false
+  - name: pe.product
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal product name of the file, provided at compile-time.
+    example: "Microsoft\xAE Windows\xAE Operating System"
+    default_field: false
+- name: dll_ext
+  title: Dll
+  group: 2
+  description: 'These fields contain information about code libraries dynamically
+    loaded into processes.
+
+    Many operating systems refer to "shared code libraries" with different names,
+    but this field set refers to all of the following:
+
+    * Dynamic-link library (`.dll`) commonly used on Windows
+
+    * Shared Object (`.so`) commonly used on Unix-like operating systems
+
+    * Dynamic library (`.dylib`) commonly used on macOS'
+  type: group
+  fields:
+  - name: code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: compile_time
+    level: custom
+    type: date
+    description: Timestamp from when the module was compiled.
     default_field: false
   - name: malware_classification.features.data.buffer
     level: custom
@@ -296,57 +410,6 @@
     level: custom
     type: long
     description: The size of this module's memory mapping, in bytes.
-    default_field: false
-  - name: name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: 'Name of the library.
-
-      This generally maps to the name of the file on disk.'
-    example: kernel32.dll
-    default_field: false
-  - name: path
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Full file path of the library.
-    example: C:\Windows\System32\kernel32.dll
-    default_field: false
-  - name: pe.company
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal company name of the file, provided at compile-time.
-    example: Microsoft Corporation
-    default_field: false
-  - name: pe.description
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal description of the file, provided at compile-time.
-    example: Paint
-    default_field: false
-  - name: pe.file_version
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal version of the file, provided at compile-time.
-    example: 6.3.9600.17415
-    default_field: false
-  - name: pe.original_file_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal name of the file, provided at compile-time.
-    example: MSPAINT.EXE
-    default_field: false
-  - name: pe.product
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal product name of the file, provided at compile-time.
-    example: "Microsoft\xAE Windows\xAE Operating System"
     default_field: false
 - name: dns
   title: DNS
@@ -421,6 +484,24 @@
     example:
     - 10.10.10.10
     - 10.10.10.11
+- name: dns_ext
+  title: Dns
+  group: 2
+  description: Fields describing dns relevant to the event.
+  type: group
+  fields:
+  - name: options
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: DNS options field, uint64, representing as a keyword to avoid overflows
+      in ES
+    default_field: false
+  - name: status
+    level: custom
+    type: long
+    description: DNS status field, uint32
+    default_field: false
 - name: ecs
   title: ECS
   group: 2
@@ -439,422 +520,135 @@
       ECS versions -- this field lets integrations adjust to the schema version
       of the events.'
     example: 1.0.0
-- name: endpoint
+- name: elastic_ext
+  title: Elastic
+  group: 2
+  description: Holds fields and properties of data points and concepts in the elastic
+    domain or namespace.
+  type: group
+  fields:
+  - name: agent
+    level: custom
+    type: object
+    object_type: keyword
+    description: The agent fields contain data about the Elastic Agent. The Elastic
+      Agent is the management agent that manages other agents or process on the
+      host.
+    default_field: false
+  - name: agent.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Unique identifier of this elastic agent (if one exists).
+    example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+    default_field: false
+- name: endpoint_ext
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event
     occurs.
   type: group
   fields:
-  - name: artifact.hash
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Hash of artifact in use by endpoint when event was created.
-    default_field: false
-  - name: artifact.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Name of artifact in use by endpoint when event was created.
-    default_field: false
-  - name: artifact.version
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Version of artifact in use by endpoint when event was created.
-    default_field: false
-  - name: dll.code_signature
-    level: custom
-    type: nested
-    description: Nested version of ECS code_signature fieldset.
-    default_field: false
-  - name: dll.code_signature.exists
-    level: core
-    type: boolean
-    description: Boolean to capture if a signature is present.
-    example: 'true'
-    default_field: false
-  - name: dll.code_signature.status
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'Additional information about the certificate status.
-
-      This is useful for logging cryptographic errors with the certificate validity
-      or trust status. Leave unpopulated if the validity or trust of the certificate
-      was unchecked.'
-    example: ERROR_UNTRUSTED_ROOT
-    default_field: false
-  - name: dll.code_signature.subject_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Subject name of the code signer
-    example: Microsoft Corporation
-    default_field: false
-  - name: dll.code_signature.trusted
-    level: extended
-    type: boolean
-    description: 'Stores the trust status of the certificate chain.
-
-      Validating the trust of the certificate chain may be complicated, and this
-      field should only be populated by tools that actively check the status.'
-    example: 'true'
-    default_field: false
-  - name: dll.code_signature.valid
-    level: extended
-    type: boolean
-    description: 'Boolean to capture if the digital signature is verified against
-      the binary content.
-
-      Leave unpopulated if a certificate was unchecked.'
-    example: 'true'
-    default_field: false
-  - name: dns
-    level: custom
-    type: object
-    object_type: keyword
-    description: DNS fields that are not defined in core ECS
-    default_field: false
-  - name: dns.options
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: DNS options field, uint64, representing as a keyword to avoid overflows
-      in ES
-    default_field: false
-  - name: dns.status
-    level: custom
-    type: long
-    description: DNS status field, uint32
-    default_field: false
-  - name: event
-    level: custom
-    type: object
-    object_type: keyword
-    description: Custom fields relating to event information
-    default_field: false
-  - name: event.process
-    level: custom
-    type: object
-    object_type: keyword
-    description: Custom process information relating to the event
-    default_field: false
-  - name: event.process.ancestry
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: An array of entity_ids indicating the ancestors for this event
-    default_field: false
-  - name: file
-    level: custom
-    type: object
-    object_type: keyword
-    description: Extended "file" field set
-    default_field: false
-  - name: file.code_signature
-    level: custom
-    type: nested
-    description: Nested version of ECS code_signature fieldset.
-    default_field: false
-  - name: file.code_signature.exists
-    level: core
-    type: boolean
-    description: Boolean to capture if a signature is present.
-    example: 'true'
-    default_field: false
-  - name: file.code_signature.status
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'Additional information about the certificate status.
-
-      This is useful for logging cryptographic errors with the certificate validity
-      or trust status. Leave unpopulated if the validity or trust of the certificate
-      was unchecked.'
-    example: ERROR_UNTRUSTED_ROOT
-    default_field: false
-  - name: file.code_signature.subject_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Subject name of the code signer
-    example: Microsoft Corporation
-    default_field: false
-  - name: file.code_signature.trusted
-    level: extended
-    type: boolean
-    description: 'Stores the trust status of the certificate chain.
-
-      Validating the trust of the certificate chain may be complicated, and this
-      field should only be populated by tools that actively check the status.'
-    example: 'true'
-    default_field: false
-  - name: file.code_signature.valid
-    level: extended
-    type: boolean
-    description: 'Boolean to capture if the digital signature is verified against
-      the binary content.
-
-      Leave unpopulated if a certificate was unchecked.'
-    example: 'true'
-    default_field: false
-  - name: file.original
-    level: custom
-    type: object
-    object_type: keyword
-    description: Original file information during a modification event.
-    default_field: false
-  - name: file.original.gid
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Primary group ID (GID) of the file.
-    example: '1001'
-    default_field: false
-  - name: file.original.group
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Primary group name of the file.
-    example: alice
-    default_field: false
-  - name: file.original.mode
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Original file mode prior to a modification event
-    default_field: false
-  - name: file.original.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Original file name prior to a modification event
-    default_field: false
-  - name: file.original.owner
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: File owner's username.
-    example: alice
-    default_field: false
-  - name: file.original.path
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Original file path prior to a modification event
-    default_field: false
-  - name: file.original.uid
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The user ID (UID) or security identifier (SID) of the file owner.
-    example: '1001'
-    default_field: false
-  - name: file.windows
-    level: custom
-    type: object
-    object_type: keyword
-    description: Platform-specific Windows fields
-    default_field: false
-  - name: file.windows.zone_identifier
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Windows zone identifier for a file
-    default_field: false
-  - name: group
-    level: custom
-    type: object
-    object_type: keyword
-    description: Extended "group" field set
-    default_field: false
-  - name: group.real
-    level: custom
-    type: object
-    object_type: keyword
-    description: Group info prior to any setgid operations.
-    default_field: false
-  - name: group.real.id
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Unique identifier for the group on the system/platform.
-    default_field: false
-  - name: group.real.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Name of the group.
-    default_field: false
   - name: policy
     level: custom
     type: object
     object_type: keyword
     description: The policy fields are used to hold information about applied policy.
     default_field: false
-  - name: policy.id
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: ID of the policy that was active when the event was created.
-    example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-    default_field: false
-  - name: process
+  - name: policy.applied
     level: custom
     type: object
     object_type: keyword
-    description: Extended "process" field set
+    description: information about the policy that is applied
     default_field: false
-  - name: process.authentication_id
+  - name: policy.applied.artifacts
     level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Process authentication ID
+    type: object
+    object_type: keyword
+    description: information about protection artifacts applied.
+    enabled: false
     default_field: false
-  - name: process.code_signature
+  - name: policy.applied.artifacts.global
+    level: custom
+    type: object
+    object_type: keyword
+    description: information about global protection artifacts applied.
+    default_field: false
+  - name: policy.applied.artifacts.global.identifiers
     level: custom
     type: nested
-    description: Nested version of ECS code_signature fieldset.
+    description: the identifiers of global artifacts applied.
     default_field: false
-  - name: process.code_signature.exists
-    level: core
-    type: boolean
-    description: Boolean to capture if a signature is present.
-    example: 'true'
-    default_field: false
-  - name: process.code_signature.status
-    level: extended
+  - name: policy.applied.artifacts.global.identifiers.name
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: 'Additional information about the certificate status.
-
-      This is useful for logging cryptographic errors with the certificate validity
-      or trust status. Leave unpopulated if the validity or trust of the certificate
-      was unchecked.'
-    example: ERROR_UNTRUSTED_ROOT
+    description: the name of global artifact applied.
     default_field: false
-  - name: process.code_signature.subject_name
-    level: core
+  - name: policy.applied.artifacts.global.identifiers.sha256
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: Subject name of the code signer
-    example: Microsoft Corporation
+    description: the sha256 of global artifacts applied.
     default_field: false
-  - name: process.code_signature.trusted
-    level: extended
-    type: boolean
-    description: 'Stores the trust status of the certificate chain.
-
-      Validating the trust of the certificate chain may be complicated, and this
-      field should only be populated by tools that actively check the status.'
-    example: 'true'
+  - name: policy.applied.artifacts.global.version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the version of global artifacts applied.
     default_field: false
-  - name: process.code_signature.valid
-    level: extended
-    type: boolean
-    description: 'Boolean to capture if the digital signature is verified against
-      the binary content.
-
-      Leave unpopulated if a certificate was unchecked.'
-    example: 'true'
-    default_field: false
-  - name: process.parent
+  - name: policy.applied.artifacts.user
     level: custom
     type: object
     object_type: keyword
-    description: Extended "process.parent" field set.
+    description: information about user protection artifacts applied.
     default_field: false
-  - name: process.parent.code_signature
+  - name: policy.applied.artifacts.user.identifiers
     level: custom
     type: nested
-    description: Nested version of ECS code_signature fieldset.
+    description: the identifiers of user artifacts applied.
     default_field: false
-  - name: process.parent.code_signature.exists
-    level: core
-    type: boolean
-    description: Boolean to capture if a signature is present.
-    example: 'true'
-    default_field: false
-  - name: process.parent.code_signature.status
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'Additional information about the certificate status.
-
-      This is useful for logging cryptographic errors with the certificate validity
-      or trust status. Leave unpopulated if the validity or trust of the certificate
-      was unchecked.'
-    example: ERROR_UNTRUSTED_ROOT
-    default_field: false
-  - name: process.parent.code_signature.subject_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Subject name of the code signer
-    example: Microsoft Corporation
-    default_field: false
-  - name: process.parent.code_signature.trusted
-    level: extended
-    type: boolean
-    description: 'Stores the trust status of the certificate chain.
-
-      Validating the trust of the certificate chain may be complicated, and this
-      field should only be populated by tools that actively check the status.'
-    example: 'true'
-    default_field: false
-  - name: process.parent.code_signature.valid
-    level: extended
-    type: boolean
-    description: 'Boolean to capture if the digital signature is verified against
-      the binary content.
-
-      Leave unpopulated if a certificate was unchecked.'
-    example: 'true'
-    default_field: false
-  - name: process.parent.real
-    level: custom
-    type: object
-    object_type: keyword
-    description: The field set containing parent process info in case of any ppid
-      spoofing.
-    default_field: false
-  - name: process.parent.real.pid
-    level: custom
-    type: long
-    description: The ppid of the process that actually spawned the current process,
-      in case of ppid spoofing.
-    default_field: false
-  - name: process.session
+  - name: policy.applied.artifacts.user.identifiers.name
     level: custom
     type: keyword
     ignore_above: 1024
-    description: Session information for the current process
+    description: the name of user artifact applied.
     default_field: false
-  - name: user
-    level: custom
-    type: object
-    object_type: keyword
-    description: Extended "user" field set
-    default_field: false
-  - name: user.real
-    level: custom
-    type: object
-    object_type: keyword
-    description: User info prior to any setuid operations.
-    default_field: false
-  - name: user.real.id
+  - name: policy.applied.artifacts.user.identifiers.sha256
     level: custom
     type: keyword
     ignore_above: 1024
-    description: One or multiple unique identifiers of the user.
+    description: the sha256 of user artifacts applied.
     default_field: false
-  - name: user.real.name
+  - name: policy.applied.artifacts.user.version
     level: custom
     type: keyword
     ignore_above: 1024
-    description: Short name or login of the user.
+    description: the version of user artifacts applied.
+    default_field: false
+  - name: policy.applied.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the id of the applied policy
+    default_field: false
+  - name: policy.applied.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the name of this applied policy
+    default_field: false
+  - name: policy.applied.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the status of the applied policy
+    default_field: false
+  - name: policy.applied.version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the version of this applied policy
     default_field: false
 - name: event
   title: Event
@@ -1010,6 +804,21 @@
 
       The sequence number is a value published by some event sources, to make the
       exact ordering of events unambiguous, regardless of the timestamp precision.'
+  - name: severity
+    level: core
+    type: long
+    format: string
+    description: 'The numeric severity of the event according to your event source.
+
+      What the different severity values mean can be different between sources and
+      use cases. It''s up to the implementer to make sure severities are consistent
+      across events from the same source.
+
+      The Syslog severity belongs in `log.syslog.severity.code`. `event.severity`
+      is meant to represent the severity according to the event source (e.g. firewall,
+      IDS). If the event source does not publish its own severity, you may optionally
+      copy the `log.syslog.severity.code` to `event.severity`.'
+    example: 7
   - name: type
     level: core
     type: keyword
@@ -1130,11 +939,6 @@
       The value should be uppercase, and not include the colon.'
     example: C
     default_field: false
-  - name: entry_modified
-    level: custom
-    type: double
-    description: Time of last status change.  See `st_ctim` member of `struct stat`.
-    default_field: false
   - name: extension
     level: extended
     type: keyword
@@ -1179,6 +983,177 @@
     ignore_above: 1024
     description: Inode representing the file in the filesystem.
     example: '256383'
+  - name: mime_type
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: MIME type should identify the format of the file or stream of bytes
+      using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA
+      official types], where possible. When more than one type is applicable, the
+      most specific type should be used.
+    default_field: false
+  - name: mode
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Mode of the file in octal representation.
+    example: '0640'
+  - name: mtime
+    level: extended
+    type: date
+    description: Last time the file content was modified.
+  - name: name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Name of the file including the extension, without the directory.
+    example: example.png
+  - name: owner
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: File owner's username.
+    example: alice
+  - name: path
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    multi_fields:
+    - name: text
+      type: text
+      norms: false
+      default_field: false
+    description: Full path to the file, including the file name. It should include
+      the drive letter, when appropriate.
+    example: /home/alice/example.png
+  - name: pe.company
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal company name of the file, provided at compile-time.
+    example: Microsoft Corporation
+    default_field: false
+  - name: pe.description
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal description of the file, provided at compile-time.
+    example: Paint
+    default_field: false
+  - name: pe.file_version
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal version of the file, provided at compile-time.
+    example: 6.3.9600.17415
+    default_field: false
+  - name: pe.original_file_name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal name of the file, provided at compile-time.
+    example: MSPAINT.EXE
+    default_field: false
+  - name: pe.product
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Internal product name of the file, provided at compile-time.
+    example: "Microsoft\xAE Windows\xAE Operating System"
+    default_field: false
+  - name: size
+    level: extended
+    type: long
+    description: 'File size in bytes.
+
+      Only relevant when `file.type` is "file".'
+    example: 16384
+  - name: target_path
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    multi_fields:
+    - name: text
+      type: text
+      norms: false
+      default_field: false
+    description: Target path for symlinks.
+  - name: type
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: File type (file, dir, or symlink).
+    example: file
+  - name: uid
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: The user ID (UID) or security identifier (SID) of the file owner.
+    example: '1001'
+- name: file_ext
+  title: File
+  group: 2
+  description: 'A file is defined as a set of information that has been created
+    on, or has existed on a filesystem.
+
+    File objects can be associated with host events, network events, and/or file
+    events (e.g., those produced by File Integrity Monitoring [FIM] products or
+    services). File fields provide details about the affected file associated with
+    the event or metric.'
+  type: group
+  fields:
+  - name: code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: code_signature.exists
+    level: core
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: code_signature.subject_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: entry_modified
+    level: custom
+    type: double
+    description: Time of last status change.  See `st_ctim` member of `struct stat`.
+    default_field: false
   - name: macro.code_page
     level: custom
     type: long
@@ -1361,83 +1336,57 @@
     ignore_above: 1024
     description: The version of the model used.
     default_field: false
-  - name: mime_type
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: MIME type should identify the format of the file or stream of bytes
-      using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA
-      official types], where possible. When more than one type is applicable, the
-      most specific type should be used.
+  - name: original
+    level: custom
+    type: object
+    object_type: keyword
+    description: Original file information during a modification event.
     default_field: false
-  - name: mode
-    level: extended
+  - name: original.gid
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: Mode of the file in octal representation.
-    example: '0640'
-  - name: mtime
-    level: extended
-    type: date
-    description: Last time the file content was modified.
-  - name: name
-    level: extended
+    description: Primary group ID (GID) of the file.
+    example: '1001'
+    default_field: false
+  - name: original.group
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: Name of the file including the extension, without the directory.
-    example: example.png
-  - name: owner
-    level: extended
+    description: Primary group name of the file.
+    example: alice
+    default_field: false
+  - name: original.mode
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Original file mode prior to a modification event
+    default_field: false
+  - name: original.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Original file name prior to a modification event
+    default_field: false
+  - name: original.owner
+    level: custom
     type: keyword
     ignore_above: 1024
     description: File owner's username.
     example: alice
-  - name: path
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    multi_fields:
-    - name: text
-      type: text
-      norms: false
-      default_field: false
-    description: Full path to the file, including the file name. It should include
-      the drive letter, when appropriate.
-    example: /home/alice/example.png
-  - name: pe.company
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal company name of the file, provided at compile-time.
-    example: Microsoft Corporation
     default_field: false
-  - name: pe.description
-    level: extended
+  - name: original.path
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: Internal description of the file, provided at compile-time.
-    example: Paint
+    description: Original file path prior to a modification event
     default_field: false
-  - name: pe.file_version
-    level: extended
+  - name: original.uid
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: Internal version of the file, provided at compile-time.
-    example: 6.3.9600.17415
-    default_field: false
-  - name: pe.original_file_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal name of the file, provided at compile-time.
-    example: MSPAINT.EXE
-    default_field: false
-  - name: pe.product
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Internal product name of the file, provided at compile-time.
-    example: "Microsoft\xAE Windows\xAE Operating System"
+    description: The user ID (UID) or security identifier (SID) of the file owner.
+    example: '1001'
     default_field: false
   - name: quarantine_path
     level: custom
@@ -1450,23 +1399,6 @@
     type: boolean
     description: Boolean representing whether or not file quarantine succeeded.
     default_field: false
-  - name: size
-    level: extended
-    type: long
-    description: 'File size in bytes.
-
-      Only relevant when `file.type` is "file".'
-    example: 16384
-  - name: target_path
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    multi_fields:
-    - name: text
-      type: text
-      norms: false
-      default_field: false
-    description: Target path for symlinks.
   - name: temp_file_path
     level: custom
     type: keyword
@@ -1474,18 +1406,12 @@
     description: Path on endpoint where a copy of the file is being stored.  Used
       to make ephemeral files retrievable.
     default_field: false
-  - name: type
-    level: extended
+  - name: windows.zone_identifier
+    level: custom
     type: keyword
     ignore_above: 1024
-    description: File type (file, dir, or symlink).
-    example: file
-  - name: uid
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: The user ID (UID) or security identifier (SID) of the file owner.
-    example: '1001'
+    description: Windows zone identifier for a file
+    default_field: false
 - name: group
   title: Group
   group: 2
@@ -1493,6 +1419,13 @@
     to the event.
   type: group
   fields:
+  - name: domain
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: 'Name of the directory the group is a member of.
+
+      For example, an LDAP or Active Directory domain name.'
   - name: id
     level: extended
     type: keyword
@@ -1503,6 +1436,30 @@
     type: keyword
     ignore_above: 1024
     description: Name of the group.
+- name: group_ext
+  title: Group
+  group: 2
+  description: Fields describing groups relevant to the event.
+  type: group
+  fields:
+  - name: real
+    level: custom
+    type: object
+    object_type: keyword
+    description: Group info prior to any setgid operations.
+    default_field: false
+  - name: real.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Unique identifier for the group on the system/platform.
+    default_field: false
+  - name: real.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Name of the group.
+    default_field: false
 - name: host
   title: Host
   group: 2
@@ -1657,15 +1614,6 @@
     ignore_above: 1024
     description: Operating system platform (such centos, ubuntu, windows).
     example: darwin
-  - name: os.variant
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: A string value or phrase that further aid to classify or qualify
-      the operating system (OS).  For example the distribution for a Linux OS will
-      be entered in this field.
-    example: Ubuntu
-    default_field: false
   - name: os.version
     level: extended
     type: keyword
@@ -1810,6 +1758,13 @@
     format: string
     description: HTTP response status code.
     example: 404
+- name: http_ext
+  title: HTTP
+  group: 2
+  description: Fields related to HTTP activity. Use the `url` field set to store
+    the url of the request.
+  type: group
+  fields:
   - name: response.version
     level: custom
     type: keyword
@@ -2059,52 +2014,6 @@
     type: keyword
     ignore_above: 1024
     description: SHA512 hash.
-  - name: malware_classification.features.data.buffer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The features extracted from this file and evaluated by the model.  Usually
-      an array of floats.  Likely zlib-encoded.
-    default_field: false
-  - name: malware_classification.features.data.decompressed_size
-    level: custom
-    type: integer
-    description: The decompressed size of buffer.
-    default_field: false
-  - name: malware_classification.features.data.encoding
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The encoding of buffer (e.g. zlib).
-    default_field: false
-  - name: malware_classification.identifier
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The model's unique identifier.
-    default_field: false
-  - name: malware_classification.score
-    level: custom
-    type: double
-    description: The score produced by the classification model.
-    default_field: false
-  - name: malware_classification.threshold
-    level: custom
-    type: double
-    description: The score threshold for the model.  Files that score above this
-      threshold are considered malicious.
-    default_field: false
-  - name: malware_classification.upx_packed
-    level: custom
-    type: boolean
-    description: Whether UPX packing was detected.
-    default_field: false
-  - name: malware_classification.version
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The version of the model used.
-    default_field: false
   - name: name
     level: extended
     type: keyword
@@ -2391,17 +2300,246 @@
     format: string
     description: Parent process' pid.
     example: 4241
+  - name: start
+    level: extended
+    type: date
+    description: The time the process started.
+    example: '2016-05-23T08:05:34.853Z'
+  - name: thread.id
+    level: extended
+    type: long
+    format: string
+    description: Thread ID.
+    example: 4242
+  - name: thread.name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Thread name.
+    example: thread-0
+  - name: title
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    multi_fields:
+    - name: text
+      type: text
+      norms: false
+      default_field: false
+    description: 'Process title.
+
+      The proctitle, some times the same as process name. Can also be different:
+      for example a browser setting its title to the web page currently opened.'
+  - name: uptime
+    level: extended
+    type: long
+    description: Seconds the process has been up.
+    example: 1325
+  - name: working_directory
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    multi_fields:
+    - name: text
+      type: text
+      norms: false
+      default_field: false
+    description: The working directory of the process.
+    example: /home/alice
+- name: process_ext
+  title: Process
+  group: 2
+  description: 'These fields contain information about a process.
+
+    These fields can help you correlate metrics information with a process id/name
+    from a log message.  The `process.pid` often stays in the metric itself and
+    is copied to the global field for correlation.'
+  type: group
+  fields:
+  - name: ancestry
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: An array of entity_ids indicating the ancestors for this event
+    default_field: false
+  - name: authentication_id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Process authentication ID
+    default_field: false
+  - name: code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: malware_classification.features.data.buffer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The features extracted from this file and evaluated by the model.  Usually
+      an array of floats.  Likely zlib-encoded.
+    default_field: false
+  - name: malware_classification.features.data.decompressed_size
+    level: custom
+    type: integer
+    description: The decompressed size of buffer.
+    default_field: false
+  - name: malware_classification.features.data.encoding
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The encoding of buffer (e.g. zlib).
+    default_field: false
+  - name: malware_classification.identifier
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The model's unique identifier.
+    default_field: false
+  - name: malware_classification.score
+    level: custom
+    type: double
+    description: The score produced by the classification model.
+    default_field: false
+  - name: malware_classification.threshold
+    level: custom
+    type: double
+    description: The score threshold for the model.  Files that score above this
+      threshold are considered malicious.
+    default_field: false
+  - name: malware_classification.upx_packed
+    level: custom
+    type: boolean
+    description: Whether UPX packing was detected.
+    default_field: false
+  - name: malware_classification.version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The version of the model used.
+    default_field: false
+  - name: parent.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: parent.code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: parent.code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: parent.code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: parent.code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: parent.code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: parent.real
+    level: custom
+    type: object
+    object_type: keyword
+    description: The field set containing parent process info in case of any ppid
+      spoofing.
+    default_field: false
+  - name: parent.real.pid
+    level: custom
+    type: long
+    description: The ppid of the process that actually spawned the current process,
+      in case of ppid spoofing.
+    default_field: false
   - name: services
     level: custom
     type: keyword
     ignore_above: 1024
     description: Services running in this process.
     default_field: false
-  - name: start
-    level: extended
-    type: date
-    description: The time the process started.
-    example: '2016-05-23T08:05:34.853Z'
+  - name: session
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Session information for the current process
+    default_field: false
+  - name: thread
+    level: custom
+    type: object
+    object_type: keyword
+    description: The thread fields are used to describe by which process thread
+      the event belongs to.
+    default_field: false
   - name: thread.call_stack.instruction_pointer
     level: custom
     type: keyword
@@ -2448,47 +2586,35 @@
     ignore_above: 1024
     description: The nearest symbol for `instruction_pointer`.
     default_field: false
-  - name: thread.id
-    level: extended
-    type: long
-    format: string
-    description: Thread ID.
-    example: 4242
-  - name: thread.name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Thread name.
-    example: thread-0
   - name: thread.service
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Service associated with the thread.
     example: VaultSvc
     default_field: false
   - name: thread.start
-    level: extended
+    level: custom
     type: date
     description: The time the thread started.
     example: '2016-05-23T08:05:34.853Z'
     default_field: false
   - name: thread.start_address
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Memory address where the thread began execution.
     example: 5442508
     default_field: false
   - name: thread.start_address_module
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: The dll/module where the thread began execution.
     example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
     default_field: false
   - name: thread.token.domain
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Domain of token user.
@@ -2506,64 +2632,64 @@
     example: one of "default", "full", "limited"
     default_field: false
   - name: thread.token.impersonation_level
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Impersonation level. Only valid for impersonation tokens.
     default_field: false
   - name: thread.token.integrity_level
-    level: extended
+    level: custom
     type: long
     description: Numeric integrity level.
     default_field: false
   - name: thread.token.integrity_level_name
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Human readable integrity level.
     example: one of "system", "high", "medium", "low", "untrusted"
     default_field: false
   - name: thread.token.is_appcontainer
-    level: extended
+    level: custom
     type: boolean
     description: Whether or not this is an appcontainer token.
     default_field: false
   - name: thread.token.privileges
-    level: extended
+    level: custom
     type: nested
     description: Array describing the privileges associated with the token.
     default_field: false
   - name: thread.token.privileges.description
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Description of the privilege.
     default_field: false
   - name: thread.token.privileges.enabled
-    level: extended
+    level: custom
     type: boolean
     description: Whether or not the privilege is enabled.
     default_field: false
   - name: thread.token.privileges.name
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Name of the privilege.
     default_field: false
   - name: thread.token.sid
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Token user's Security Identifier (SID).
     default_field: false
   - name: thread.token.type
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Type of the token, either primary or impersonation.
     default_field: false
   - name: thread.token.user
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Username of token owner.
@@ -2573,21 +2699,8 @@
     type: long
     description: Seconds since thread started.
     default_field: false
-  - name: title
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    multi_fields:
-    - name: text
-      type: text
-      norms: false
-      default_field: false
-    description: 'Process title.
-
-      The proctitle, some times the same as process name. Can also be different:
-      for example a browser setting its title to the web page currently opened.'
   - name: token.domain
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Domain of token user.
@@ -2605,90 +2718,74 @@
     example: one of "default", "full", "limited"
     default_field: false
   - name: token.impersonation_level
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Impersonation level. Only valid for impersonation tokens.
     default_field: false
   - name: token.integrity_level
-    level: extended
+    level: custom
     type: long
     description: Numeric integrity level.
     default_field: false
   - name: token.integrity_level_name
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Human readable integrity level.
     example: one of "system", "high", "medium", "low", "untrusted"
     default_field: false
   - name: token.is_appcontainer
-    level: extended
+    level: custom
     type: boolean
     description: Whether or not this is an appcontainer token.
     default_field: false
   - name: token.privileges
-    level: extended
+    level: custom
     type: nested
     description: Array describing the privileges associated with the token.
     default_field: false
   - name: token.privileges.description
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Description of the privilege.
     default_field: false
   - name: token.privileges.enabled
-    level: extended
+    level: custom
     type: boolean
     description: Whether or not the privilege is enabled.
     default_field: false
   - name: token.privileges.name
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Name of the privilege.
     default_field: false
   - name: token.sid
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Token user's Security Identifier (SID).
     default_field: false
   - name: token.type
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Type of the token, either primary or impersonation.
     default_field: false
   - name: token.user
-    level: extended
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Username of token owner.
     default_field: false
-  - name: uptime
-    level: extended
-    type: long
-    description: Seconds the process has been up.
-    example: 1325
   - name: user
     level: custom
     type: keyword
     ignore_above: 1024
     description: User associated with the running process.
     default_field: false
-  - name: working_directory
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    multi_fields:
-    - name: text
-      type: text
-      norms: false
-      default_field: false
-    description: The working directory of the process.
-    example: /home/alice
 - name: registry
   title: Registry
   group: 2
@@ -2912,7 +3009,7 @@
       list (http://publicsuffix.org). Trying to approximate this by simply taking
       the last label will not work well for effective TLDs such as "co.uk".'
     example: co.uk
-- name: target
+- name: target_ext
   title: Target
   group: 2
   description: 'These fields contain information about a target.
@@ -2964,11 +3061,6 @@
       Leave unpopulated if a certificate was unchecked.'
     example: 'true'
     default_field: false
-  - name: dll.compile_time
-    level: custom
-    type: date
-    description: Timestamp from when the module was compiled.
-    default_field: false
   - name: dll.hash.md5
     level: extended
     type: keyword
@@ -2992,63 +3084,6 @@
     type: keyword
     ignore_above: 1024
     description: SHA512 hash.
-    default_field: false
-  - name: dll.malware_classification.features.data.buffer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The features extracted from this file and evaluated by the model.  Usually
-      an array of floats.  Likely zlib-encoded.
-    default_field: false
-  - name: dll.malware_classification.features.data.decompressed_size
-    level: custom
-    type: integer
-    description: The decompressed size of buffer.
-    default_field: false
-  - name: dll.malware_classification.features.data.encoding
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The encoding of buffer (e.g. zlib).
-    default_field: false
-  - name: dll.malware_classification.identifier
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The model's unique identifier.
-    default_field: false
-  - name: dll.malware_classification.score
-    level: custom
-    type: double
-    description: The score produced by the classification model.
-    default_field: false
-  - name: dll.malware_classification.threshold
-    level: custom
-    type: double
-    description: The score threshold for the model.  Files that score above this
-      threshold are considered malicious.
-    default_field: false
-  - name: dll.malware_classification.upx_packed
-    level: custom
-    type: boolean
-    description: Whether UPX packing was detected.
-    default_field: false
-  - name: dll.malware_classification.version
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The version of the model used.
-    default_field: false
-  - name: dll.mapped_address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The base address where this module is loaded.
-    default_field: false
-  - name: dll.mapped_size
-    level: custom
-    type: long
-    description: The size of this module's memory mapping, in bytes.
     default_field: false
   - name: dll.name
     level: core
@@ -3100,6 +3135,115 @@
     ignore_above: 1024
     description: Internal product name of the file, provided at compile-time.
     example: "Microsoft\xAE Windows\xAE Operating System"
+    default_field: false
+  - name: dll_ext.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: dll_ext.code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: dll_ext.code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: dll_ext.code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: dll_ext.code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: dll_ext.code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: dll_ext.compile_time
+    level: custom
+    type: date
+    description: Timestamp from when the module was compiled.
+    default_field: false
+  - name: dll_ext.malware_classification.features.data.buffer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The features extracted from this file and evaluated by the model.  Usually
+      an array of floats.  Likely zlib-encoded.
+    default_field: false
+  - name: dll_ext.malware_classification.features.data.decompressed_size
+    level: custom
+    type: integer
+    description: The decompressed size of buffer.
+    default_field: false
+  - name: dll_ext.malware_classification.features.data.encoding
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The encoding of buffer (e.g. zlib).
+    default_field: false
+  - name: dll_ext.malware_classification.identifier
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The model's unique identifier.
+    default_field: false
+  - name: dll_ext.malware_classification.score
+    level: custom
+    type: double
+    description: The score produced by the classification model.
+    default_field: false
+  - name: dll_ext.malware_classification.threshold
+    level: custom
+    type: double
+    description: The score threshold for the model.  Files that score above this
+      threshold are considered malicious.
+    default_field: false
+  - name: dll_ext.malware_classification.upx_packed
+    level: custom
+    type: boolean
+    description: Whether UPX packing was detected.
+    default_field: false
+  - name: dll_ext.malware_classification.version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The version of the model used.
+    default_field: false
+  - name: dll_ext.mapped_address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The base address where this module is loaded.
+    default_field: false
+  - name: dll_ext.mapped_size
+    level: custom
+    type: long
+    description: The size of this module's memory mapping, in bytes.
     default_field: false
   - name: process.args
     level: extended
@@ -3239,52 +3383,6 @@
     type: keyword
     ignore_above: 1024
     description: SHA512 hash.
-    default_field: false
-  - name: process.malware_classification.features.data.buffer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The features extracted from this file and evaluated by the model.  Usually
-      an array of floats.  Likely zlib-encoded.
-    default_field: false
-  - name: process.malware_classification.features.data.decompressed_size
-    level: custom
-    type: integer
-    description: The decompressed size of buffer.
-    default_field: false
-  - name: process.malware_classification.features.data.encoding
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The encoding of buffer (e.g. zlib).
-    default_field: false
-  - name: process.malware_classification.identifier
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The model's unique identifier.
-    default_field: false
-  - name: process.malware_classification.score
-    level: custom
-    type: double
-    description: The score produced by the classification model.
-    default_field: false
-  - name: process.malware_classification.threshold
-    level: custom
-    type: double
-    description: The score threshold for the model.  Files that score above this
-      threshold are considered malicious.
-    default_field: false
-  - name: process.malware_classification.upx_packed
-    level: custom
-    type: boolean
-    description: Whether UPX packing was detected.
-    default_field: false
-  - name: process.malware_classification.version
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The version of the model used.
     default_field: false
   - name: process.name
     level: extended
@@ -3575,63 +3673,11 @@
     description: Parent process' pid.
     example: 4241
     default_field: false
-  - name: process.services
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Services running in this process.
-    default_field: false
   - name: process.start
     level: extended
     type: date
     description: The time the process started.
     example: '2016-05-23T08:05:34.853Z'
-    default_field: false
-  - name: process.thread.call_stack.instruction_pointer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The return address of this stack frame.
-    default_field: false
-  - name: process.thread.call_stack.memory_section.address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.BaseAddress`
-    default_field: false
-  - name: process.thread.call_stack.memory_section.protection
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Memory protection flags of this memory region.  Corresponds to
-      `MEMORY_BASIC_INFORMATION.Protect`
-    default_field: false
-  - name: process.thread.call_stack.memory_section.size
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Size of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.RegionSize`
-    default_field: false
-  - name: process.thread.call_stack.module_path
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The DLL/module containing `instruction_pointer`.
-    default_field: false
-  - name: process.thread.call_stack.rva
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The relative virtual address of `instruction_pointer`.  Computed
-      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-    default_field: false
-  - name: process.thread.call_stack.symbol_info
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The nearest symbol for `instruction_pointer`.
     default_field: false
   - name: process.thread.id
     level: extended
@@ -3647,119 +3693,6 @@
     description: Thread name.
     example: thread-0
     default_field: false
-  - name: process.thread.service
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Service associated with the thread.
-    example: VaultSvc
-    default_field: false
-  - name: process.thread.start
-    level: extended
-    type: date
-    description: The time the thread started.
-    example: '2016-05-23T08:05:34.853Z'
-    default_field: false
-  - name: process.thread.start_address
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Memory address where the thread began execution.
-    example: 5442508
-    default_field: false
-  - name: process.thread.start_address_module
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: The dll/module where the thread began execution.
-    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-    default_field: false
-  - name: process.thread.token.domain
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Domain of token user.
-    default_field: false
-  - name: process.thread.token.elevation
-    level: custom
-    type: boolean
-    description: Whether the token is elevated or not
-    default_field: false
-  - name: process.thread.token.elevation_type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: What level of elevation the token has
-    example: one of "default", "full", "limited"
-    default_field: false
-  - name: process.thread.token.impersonation_level
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Impersonation level. Only valid for impersonation tokens.
-    default_field: false
-  - name: process.thread.token.integrity_level
-    level: extended
-    type: long
-    description: Numeric integrity level.
-    default_field: false
-  - name: process.thread.token.integrity_level_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Human readable integrity level.
-    example: one of "system", "high", "medium", "low", "untrusted"
-    default_field: false
-  - name: process.thread.token.is_appcontainer
-    level: extended
-    type: boolean
-    description: Whether or not this is an appcontainer token.
-    default_field: false
-  - name: process.thread.token.privileges
-    level: extended
-    type: nested
-    description: Array describing the privileges associated with the token.
-    default_field: false
-  - name: process.thread.token.privileges.description
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Description of the privilege.
-    default_field: false
-  - name: process.thread.token.privileges.enabled
-    level: extended
-    type: boolean
-    description: Whether or not the privilege is enabled.
-    default_field: false
-  - name: process.thread.token.privileges.name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Name of the privilege.
-    default_field: false
-  - name: process.thread.token.sid
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Token user's Security Identifier (SID).
-    default_field: false
-  - name: process.thread.token.type
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Type of the token, either primary or impersonation.
-    default_field: false
-  - name: process.thread.token.user
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Username of token owner.
-    default_field: false
-  - name: process.thread.uptime
-    level: custom
-    type: long
-    description: Seconds since thread started.
-    default_field: false
   - name: process.title
     level: extended
     type: keyword
@@ -3773,98 +3706,11 @@
       The proctitle, some times the same as process name. Can also be different:
       for example a browser setting its title to the web page currently opened.'
     default_field: false
-  - name: process.token.domain
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Domain of token user.
-    default_field: false
-  - name: process.token.elevation
-    level: custom
-    type: boolean
-    description: Whether the token is elevated or not
-    default_field: false
-  - name: process.token.elevation_type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: What level of elevation the token has
-    example: one of "default", "full", "limited"
-    default_field: false
-  - name: process.token.impersonation_level
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Impersonation level. Only valid for impersonation tokens.
-    default_field: false
-  - name: process.token.integrity_level
-    level: extended
-    type: long
-    description: Numeric integrity level.
-    default_field: false
-  - name: process.token.integrity_level_name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Human readable integrity level.
-    example: one of "system", "high", "medium", "low", "untrusted"
-    default_field: false
-  - name: process.token.is_appcontainer
-    level: extended
-    type: boolean
-    description: Whether or not this is an appcontainer token.
-    default_field: false
-  - name: process.token.privileges
-    level: extended
-    type: nested
-    description: Array describing the privileges associated with the token.
-    default_field: false
-  - name: process.token.privileges.description
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Description of the privilege.
-    default_field: false
-  - name: process.token.privileges.enabled
-    level: extended
-    type: boolean
-    description: Whether or not the privilege is enabled.
-    default_field: false
-  - name: process.token.privileges.name
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Name of the privilege.
-    default_field: false
-  - name: process.token.sid
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Token user's Security Identifier (SID).
-    default_field: false
-  - name: process.token.type
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Type of the token, either primary or impersonation.
-    default_field: false
-  - name: process.token.user
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Username of token owner.
-    default_field: false
   - name: process.uptime
     level: extended
     type: long
     description: Seconds the process has been up.
     example: 1325
-    default_field: false
-  - name: process.user
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: User associated with the running process.
     default_field: false
   - name: process.working_directory
     level: extended
@@ -3876,6 +3722,436 @@
       norms: false
     description: The working directory of the process.
     example: /home/alice
+    default_field: false
+  - name: process_ext.ancestry
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: An array of entity_ids indicating the ancestors for this event
+    default_field: false
+  - name: process_ext.authentication_id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Process authentication ID
+    default_field: false
+  - name: process_ext.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: process_ext.code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: process_ext.code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: process_ext.code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: process_ext.code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: process_ext.code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: process_ext.malware_classification.features.data.buffer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The features extracted from this file and evaluated by the model.  Usually
+      an array of floats.  Likely zlib-encoded.
+    default_field: false
+  - name: process_ext.malware_classification.features.data.decompressed_size
+    level: custom
+    type: integer
+    description: The decompressed size of buffer.
+    default_field: false
+  - name: process_ext.malware_classification.features.data.encoding
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The encoding of buffer (e.g. zlib).
+    default_field: false
+  - name: process_ext.malware_classification.identifier
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The model's unique identifier.
+    default_field: false
+  - name: process_ext.malware_classification.score
+    level: custom
+    type: double
+    description: The score produced by the classification model.
+    default_field: false
+  - name: process_ext.malware_classification.threshold
+    level: custom
+    type: double
+    description: The score threshold for the model.  Files that score above this
+      threshold are considered malicious.
+    default_field: false
+  - name: process_ext.malware_classification.upx_packed
+    level: custom
+    type: boolean
+    description: Whether UPX packing was detected.
+    default_field: false
+  - name: process_ext.malware_classification.version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The version of the model used.
+    default_field: false
+  - name: process_ext.parent.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: process_ext.parent.code_signature.exists
+    level: custom
+    type: boolean
+    description: Boolean to capture if a signature is present.
+    example: 'true'
+    default_field: false
+  - name: process_ext.parent.code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: process_ext.parent.code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
+  - name: process_ext.parent.code_signature.trusted
+    level: custom
+    type: boolean
+    description: 'Stores the trust status of the certificate chain.
+
+      Validating the trust of the certificate chain may be complicated, and this
+      field should only be populated by tools that actively check the status.'
+    example: 'true'
+    default_field: false
+  - name: process_ext.parent.code_signature.valid
+    level: custom
+    type: boolean
+    description: 'Boolean to capture if the digital signature is verified against
+      the binary content.
+
+      Leave unpopulated if a certificate was unchecked.'
+    example: 'true'
+    default_field: false
+  - name: process_ext.parent.real
+    level: custom
+    type: object
+    object_type: keyword
+    description: The field set containing parent process info in case of any ppid
+      spoofing.
+    default_field: false
+  - name: process_ext.parent.real.pid
+    level: custom
+    type: long
+    description: The ppid of the process that actually spawned the current process,
+      in case of ppid spoofing.
+    default_field: false
+  - name: process_ext.services
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Services running in this process.
+    default_field: false
+  - name: process_ext.session
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Session information for the current process
+    default_field: false
+  - name: process_ext.thread
+    level: custom
+    type: object
+    object_type: keyword
+    description: The thread fields are used to describe by which process thread
+      the event belongs to.
+    default_field: false
+  - name: process_ext.thread.call_stack.instruction_pointer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The return address of this stack frame.
+    default_field: false
+  - name: process_ext.thread.call_stack.memory_section.address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.BaseAddress`
+    default_field: false
+  - name: process_ext.thread.call_stack.memory_section.protection
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory protection flags of this memory region.  Corresponds to
+      `MEMORY_BASIC_INFORMATION.Protect`
+    default_field: false
+  - name: process_ext.thread.call_stack.memory_section.size
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Size of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.RegionSize`
+    default_field: false
+  - name: process_ext.thread.call_stack.module_path
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The DLL/module containing `instruction_pointer`.
+    default_field: false
+  - name: process_ext.thread.call_stack.rva
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The relative virtual address of `instruction_pointer`.  Computed
+      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+    default_field: false
+  - name: process_ext.thread.call_stack.symbol_info
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The nearest symbol for `instruction_pointer`.
+    default_field: false
+  - name: process_ext.thread.service
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Service associated with the thread.
+    example: VaultSvc
+    default_field: false
+  - name: process_ext.thread.start
+    level: custom
+    type: date
+    description: The time the thread started.
+    example: '2016-05-23T08:05:34.853Z'
+    default_field: false
+  - name: process_ext.thread.start_address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory address where the thread began execution.
+    example: 5442508
+    default_field: false
+  - name: process_ext.thread.start_address_module
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The dll/module where the thread began execution.
+    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+    default_field: false
+  - name: process_ext.thread.token.domain
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Domain of token user.
+    default_field: false
+  - name: process_ext.thread.token.elevation
+    level: custom
+    type: boolean
+    description: Whether the token is elevated or not
+    default_field: false
+  - name: process_ext.thread.token.elevation_type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: What level of elevation the token has
+    example: one of "default", "full", "limited"
+    default_field: false
+  - name: process_ext.thread.token.impersonation_level
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Impersonation level. Only valid for impersonation tokens.
+    default_field: false
+  - name: process_ext.thread.token.integrity_level
+    level: custom
+    type: long
+    description: Numeric integrity level.
+    default_field: false
+  - name: process_ext.thread.token.integrity_level_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Human readable integrity level.
+    example: one of "system", "high", "medium", "low", "untrusted"
+    default_field: false
+  - name: process_ext.thread.token.is_appcontainer
+    level: custom
+    type: boolean
+    description: Whether or not this is an appcontainer token.
+    default_field: false
+  - name: process_ext.thread.token.privileges
+    level: custom
+    type: nested
+    description: Array describing the privileges associated with the token.
+    default_field: false
+  - name: process_ext.thread.token.privileges.description
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Description of the privilege.
+    default_field: false
+  - name: process_ext.thread.token.privileges.enabled
+    level: custom
+    type: boolean
+    description: Whether or not the privilege is enabled.
+    default_field: false
+  - name: process_ext.thread.token.privileges.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Name of the privilege.
+    default_field: false
+  - name: process_ext.thread.token.sid
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Token user's Security Identifier (SID).
+    default_field: false
+  - name: process_ext.thread.token.type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Type of the token, either primary or impersonation.
+    default_field: false
+  - name: process_ext.thread.token.user
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Username of token owner.
+    default_field: false
+  - name: process_ext.thread.uptime
+    level: custom
+    type: long
+    description: Seconds since thread started.
+    default_field: false
+  - name: process_ext.token.domain
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Domain of token user.
+    default_field: false
+  - name: process_ext.token.elevation
+    level: custom
+    type: boolean
+    description: Whether the token is elevated or not
+    default_field: false
+  - name: process_ext.token.elevation_type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: What level of elevation the token has
+    example: one of "default", "full", "limited"
+    default_field: false
+  - name: process_ext.token.impersonation_level
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Impersonation level. Only valid for impersonation tokens.
+    default_field: false
+  - name: process_ext.token.integrity_level
+    level: custom
+    type: long
+    description: Numeric integrity level.
+    default_field: false
+  - name: process_ext.token.integrity_level_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Human readable integrity level.
+    example: one of "system", "high", "medium", "low", "untrusted"
+    default_field: false
+  - name: process_ext.token.is_appcontainer
+    level: custom
+    type: boolean
+    description: Whether or not this is an appcontainer token.
+    default_field: false
+  - name: process_ext.token.privileges
+    level: custom
+    type: nested
+    description: Array describing the privileges associated with the token.
+    default_field: false
+  - name: process_ext.token.privileges.description
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Description of the privilege.
+    default_field: false
+  - name: process_ext.token.privileges.enabled
+    level: custom
+    type: boolean
+    description: Whether or not the privilege is enabled.
+    default_field: false
+  - name: process_ext.token.privileges.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Name of the privilege.
+    default_field: false
+  - name: process_ext.token.sid
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Token user's Security Identifier (SID).
+    default_field: false
+  - name: process_ext.token.type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Type of the token, either primary or impersonation.
+    default_field: false
+  - name: process_ext.token.user
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Username of token owner.
+    default_field: false
+  - name: process_ext.user
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: User associated with the running process.
     default_field: false
 - name: threat
   title: Threat
@@ -4027,3 +4303,27 @@
       default_field: false
     description: Short name or login of the user.
     example: albert
+- name: user_ext
+  title: User
+  group: 2
+  description: Fields describing user relevant to the event.
+  type: group
+  fields:
+  - name: real
+    level: custom
+    type: object
+    object_type: keyword
+    description: User info prior to any setuid operations.
+    default_field: false
+  - name: real.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: One or multiple unique identifiers of the user.
+    default_field: false
+  - name: real.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Short name or login of the user.
+    default_field: false

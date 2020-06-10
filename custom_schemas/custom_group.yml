@@ -1,0 +1,25 @@
+---
+- name: group_ext
+  title: Group
+  group: 2
+  short: Fields describing groups relevant to the event.
+  description: >
+    Fields describing groups relevant to the event.
+  type: group
+  fields:
+    - name: real
+      level: custom
+      type: object
+      description: Group info prior to any setgid operations.
+
+    - name: real.id
+      level: custom
+      type: keyword
+      description: >
+        Unique identifier for the group on the system/platform.
+
+    - name: real.name
+      level: custom
+      type: keyword
+      description: >
+        Name of the group.

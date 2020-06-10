@@ -30,7 +30,7 @@
           }
         }
       },
-      "endpoint": {
+      "endpoint_ext": {
         "properties": {
           "policy": {
             "properties": {

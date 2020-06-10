@@ -41,7 +41,7 @@
       ECS versions -- this field lets integrations adjust to the schema version
       of the events.'
     example: 1.0.0
-- name: endpoint
+- name: endpoint_ext
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event

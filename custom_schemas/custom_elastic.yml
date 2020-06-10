@@ -1,5 +1,5 @@
 ---
-- name: elastic
+- name: elastic_ext
   title: Elastic
   group: 2
   description: >

@@ -12,30 +12,30 @@
   reusable:
     top_level: false
     expected:
-      - process.thread
-      - process
+      - process_ext.thread
+      - process_ext
   type: group
   fields:
     - name: user
-      level: extended
+      level: custom
       type: keyword
       description: >
         Username of token owner.
 
     - name: domain
-      level: extended
+      level: custom
       type: keyword
       description: >
         Domain of token user.
 
     - name: sid
-      level: extended
+      level: custom
       type: keyword
       description: >
         Token user's Security Identifier (SID).
 
     - name: type
-      level: extended
+      level: custom
       type: keyword
       description: >
         Type of the token, either primary or impersonation.
@@ -54,50 +54,50 @@
       example: one of "default", "full", "limited"
 
     - name: impersonation_level
-      level: extended
+      level: custom
       type: keyword
       description: >
         Impersonation level. Only valid for impersonation tokens.
 
     - name: integrity_level
-      level: extended
+      level: custom
       type: long
       description: >
         Numeric integrity level.
 
     - name: integrity_level_name
-      level: extended
+      level: custom
       type: keyword
       description: >
         Human readable integrity level.
       example: one of "system", "high", "medium", "low", "untrusted"
 
     - name: is_appcontainer
-      level: extended
+      level: custom
       type: boolean
       description: >
         Whether or not this is an appcontainer token.
 
     - name: privileges
-      level: extended
+      level: custom
       type: nested
       description: >
         Array describing the privileges associated with the token.
 
     - name: privileges.name
-      level: extended
+      level: custom
       type: keyword
       description: >
         Name of the privilege.
 
     - name: privileges.enabled
-      level: extended
+      level: custom
       type: boolean
       description: >
         Whether or not the privilege is enabled.
 
     - name: privileges.description
-      level: extended
+      level: custom
       type: keyword
       description: >
         Description of the privilege.

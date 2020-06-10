@@ -9,7 +9,7 @@
   reusable:
     top_level: false
     expected:
-      - file
+      - file_ext
   fields:
     - name: errors
       level: custom

@@ -10,7 +10,7 @@ ecs:
   fields:
     version:
       fields: "*"
-endpoint:
+endpoint_ext:
   fields:
     policy:
       fields:

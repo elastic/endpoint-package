@@ -101,9 +101,6 @@
               }
             }
           },
-          "compile_time": {
-            "type": "date"
-          },
           "hash": {
             "properties": {
               "md5": {
@@ -123,6 +120,67 @@
                 "type": "keyword"
               }
             }
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "path": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "dll_ext": {
+        "properties": {
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            },
+            "type": "nested"
+          },
+          "compile_time": {
+            "type": "date"
           },
           "malware_classification": {
             "properties": {
@@ -170,38 +228,6 @@
           },
           "mapped_size": {
             "type": "long"
-          },
-          "name": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "path": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "pe": {
-            "properties": {
-              "company": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "description": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "file_version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "original_file_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "product": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
           }
         }
       },
@@ -236,6 +262,17 @@
           }
         }
       },
+      "dns_ext": {
+        "properties": {
+          "options": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "status": {
+            "type": "long"
+          }
+        }
+      },
       "ecs": {
         "properties": {
           "version": {
@@ -244,164 +281,9 @@
           }
         }
       },
-      "endpoint": {
+      "elastic_ext": {
         "properties": {
-          "artifact": {
-            "properties": {
-              "hash": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          },
-          "dll": {
-            "properties": {
-              "code_signature": {
-                "properties": {
-                  "exists": {
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "subject_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "trusted": {
-                    "type": "boolean"
-                  },
-                  "valid": {
-                    "type": "boolean"
-                  }
-                },
-                "type": "nested"
-              }
-            }
-          },
-          "dns": {
-            "properties": {
-              "options": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "status": {
-                "type": "long"
-              }
-            },
-            "type": "object"
-          },
-          "event": {
-            "properties": {
-              "process": {
-                "properties": {
-                  "ancestry": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "file": {
-            "properties": {
-              "code_signature": {
-                "properties": {
-                  "exists": {
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "subject_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "trusted": {
-                    "type": "boolean"
-                  },
-                  "valid": {
-                    "type": "boolean"
-                  }
-                },
-                "type": "nested"
-              },
-              "original": {
-                "properties": {
-                  "gid": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "group": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "mode": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "owner": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "path": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "uid": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
-              },
-              "windows": {
-                "properties": {
-                  "zone_identifier": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "group": {
-            "properties": {
-              "real": {
-                "properties": {
-                  "id": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "policy": {
+          "agent": {
             "properties": {
               "id": {
                 "ignore_above": 1024,
@@ -409,86 +291,78 @@
               }
             },
             "type": "object"
-          },
-          "process": {
+          }
+        }
+      },
+      "endpoint_ext": {
+        "properties": {
+          "policy": {
             "properties": {
-              "authentication_id": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "code_signature": {
+              "applied": {
                 "properties": {
-                  "exists": {
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "subject_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "trusted": {
-                    "type": "boolean"
-                  },
-                  "valid": {
-                    "type": "boolean"
-                  }
-                },
-                "type": "nested"
-              },
-              "parent": {
-                "properties": {
-                  "code_signature": {
+                  "artifacts": {
+                    "enabled": false,
                     "properties": {
-                      "exists": {
-                        "type": "boolean"
+                      "global": {
+                        "properties": {
+                          "identifiers": {
+                            "properties": {
+                              "name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "object"
                       },
-                      "status": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "subject_name": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "trusted": {
-                        "type": "boolean"
-                      },
-                      "valid": {
-                        "type": "boolean"
-                      }
-                    },
-                    "type": "nested"
-                  },
-                  "real": {
-                    "properties": {
-                      "pid": {
-                        "type": "long"
+                      "user": {
+                        "properties": {
+                          "identifiers": {
+                            "properties": {
+                              "name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "object"
                       }
                     },
                     "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "session": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            },
-            "type": "object"
-          },
-          "user": {
-            "properties": {
-              "real": {
-                "properties": {
+                  },
                   "id": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "version": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
@@ -541,6 +415,9 @@
             "type": "keyword"
           },
           "sequence": {
+            "type": "long"
+          },
+          "severity": {
             "type": "long"
           },
           "type": {
@@ -597,9 +474,6 @@
             "ignore_above": 1,
             "type": "keyword"
           },
-          "entry_modified": {
-            "type": "double"
-          },
           "extension": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -635,6 +509,109 @@
           "inode": {
             "ignore_above": 1024,
             "type": "keyword"
+          },
+          "mime_type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "mode": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "mtime": {
+            "type": "date"
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "owner": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "path": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "size": {
+            "type": "long"
+          },
+          "target_path": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uid": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "file_ext": {
+        "properties": {
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            },
+            "type": "nested"
+          },
+          "entry_modified": {
+            "type": "double"
           },
           "macro": {
             "properties": {
@@ -786,58 +763,38 @@
               }
             }
           },
-          "mime_type": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "mode": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "mtime": {
-            "type": "date"
-          },
-          "name": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "owner": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "path": {
-            "fields": {
-              "text": {
-                "norms": false,
-                "type": "text"
+          "original": {
+            "properties": {
+              "gid": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "group": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "mode": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "owner": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "path": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "uid": {
+                "ignore_above": 1024,
+                "type": "keyword"
               }
             },
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "pe": {
-            "properties": {
-              "company": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "description": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "file_version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "original_file_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "product": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
+            "type": "object"
           },
           "quarantine_path": {
             "ignore_above": 1024,
@@ -846,35 +803,26 @@
           "quarantine_result": {
             "type": "boolean"
           },
-          "size": {
-            "type": "long"
-          },
-          "target_path": {
-            "fields": {
-              "text": {
-                "norms": false,
-                "type": "text"
-              }
-            },
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
           "temp_file_path": {
             "ignore_above": 1024,
             "type": "keyword"
           },
-          "type": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "uid": {
-            "ignore_above": 1024,
-            "type": "keyword"
+          "windows": {
+            "properties": {
+              "zone_identifier": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
           }
         }
       },
       "group": {
         "properties": {
+          "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "id": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -882,6 +830,23 @@
           "name": {
             "ignore_above": 1024,
             "type": "keyword"
+          }
+        }
+      },
+      "group_ext": {
+        "properties": {
+          "real": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            },
+            "type": "object"
           }
         }
       },
@@ -980,10 +945,6 @@
                 "type": "keyword"
               },
               "platform": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "variant": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1108,7 +1069,15 @@
               },
               "status_code": {
                 "type": "long"
-              },
+              }
+            }
+          }
+        }
+      },
+      "http_ext": {
+        "properties": {
+          "response": {
+            "properties": {
               "version": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1235,46 +1204,6 @@
                 "type": "keyword"
               },
               "sha512": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          },
-          "malware_classification": {
-            "properties": {
-              "features": {
-                "properties": {
-                  "data": {
-                    "properties": {
-                      "buffer": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "decompressed_size": {
-                        "type": "integer"
-                      },
-                      "encoding": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      }
-                    }
-                  }
-                }
-              },
-              "identifier": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "score": {
-                "type": "double"
-              },
-              "threshold": {
-                "type": "double"
-              },
-              "upx_packed": {
-                "type": "boolean"
-              },
-              "version": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -1458,12 +1387,158 @@
           "ppid": {
             "type": "long"
           },
+          "start": {
+            "type": "date"
+          },
+          "thread": {
+            "properties": {
+              "id": {
+                "type": "long"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "title": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uptime": {
+            "type": "long"
+          },
+          "working_directory": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "process_ext": {
+        "properties": {
+          "ancestry": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "authentication_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            },
+            "type": "nested"
+          },
+          "malware_classification": {
+            "properties": {
+              "features": {
+                "properties": {
+                  "data": {
+                    "properties": {
+                      "buffer": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "decompressed_size": {
+                        "type": "integer"
+                      },
+                      "encoding": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "identifier": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "score": {
+                "type": "double"
+              },
+              "threshold": {
+                "type": "double"
+              },
+              "upx_packed": {
+                "type": "boolean"
+              },
+              "version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "parent": {
+            "properties": {
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "nested"
+              },
+              "real": {
+                "properties": {
+                  "pid": {
+                    "type": "long"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
           "services": {
             "ignore_above": 1024,
             "type": "keyword"
           },
-          "start": {
-            "type": "date"
+          "session": {
+            "ignore_above": 1024,
+            "type": "keyword"
           },
           "thread": {
             "properties": {
@@ -1502,13 +1577,6 @@
                     "type": "keyword"
                   }
                 }
-              },
-              "id": {
-                "type": "long"
-              },
-              "name": {
-                "ignore_above": 1024,
-                "type": "keyword"
               },
               "service": {
                 "ignore_above": 1024,
@@ -1585,17 +1653,8 @@
               "uptime": {
                 "type": "long"
               }
-            }
-          },
-          "title": {
-            "fields": {
-              "text": {
-                "norms": false,
-                "type": "text"
-              }
             },
-            "ignore_above": 1024,
-            "type": "keyword"
+            "type": "object"
           },
           "token": {
             "properties": {
@@ -1654,20 +1713,7 @@
               }
             }
           },
-          "uptime": {
-            "type": "long"
-          },
           "user": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "working_directory": {
-            "fields": {
-              "text": {
-                "norms": false,
-                "type": "text"
-              }
-            },
             "ignore_above": 1024,
             "type": "keyword"
           }
@@ -1781,7 +1827,7 @@
           }
         }
       },
-      "target": {
+      "target_ext": {
         "properties": {
           "dll": {
             "properties": {
@@ -1806,9 +1852,6 @@
                   }
                 }
               },
-              "compile_time": {
-                "type": "date"
-              },
               "hash": {
                 "properties": {
                   "md5": {
@@ -1828,6 +1871,67 @@
                     "type": "keyword"
                   }
                 }
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "path": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "pe": {
+                "properties": {
+                  "company": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "description": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "original_file_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          },
+          "dll_ext": {
+            "properties": {
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "nested"
+              },
+              "compile_time": {
+                "type": "date"
               },
               "malware_classification": {
                 "properties": {
@@ -1875,38 +1979,6 @@
               },
               "mapped_size": {
                 "type": "long"
-              },
-              "name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "path": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "pe": {
-                "properties": {
-                  "company": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "description": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "file_version": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "original_file_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "product": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
               }
             }
           },
@@ -1982,46 +2054,6 @@
                     "type": "keyword"
                   },
                   "sha512": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
-              "malware_classification": {
-                "properties": {
-                  "features": {
-                    "properties": {
-                      "data": {
-                        "properties": {
-                          "buffer": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "decompressed_size": {
-                            "type": "integer"
-                          },
-                          "encoding": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "identifier": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "score": {
-                    "type": "double"
-                  },
-                  "threshold": {
-                    "type": "double"
-                  },
-                  "upx_packed": {
-                    "type": "boolean"
-                  },
-                  "version": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
@@ -2205,12 +2237,158 @@
               "ppid": {
                 "type": "long"
               },
+              "start": {
+                "type": "date"
+              },
+              "thread": {
+                "properties": {
+                  "id": {
+                    "type": "long"
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "title": {
+                "fields": {
+                  "text": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "uptime": {
+                "type": "long"
+              },
+              "working_directory": {
+                "fields": {
+                  "text": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "process_ext": {
+            "properties": {
+              "ancestry": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "authentication_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "nested"
+              },
+              "malware_classification": {
+                "properties": {
+                  "features": {
+                    "properties": {
+                      "data": {
+                        "properties": {
+                          "buffer": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "decompressed_size": {
+                            "type": "integer"
+                          },
+                          "encoding": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "identifier": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "score": {
+                    "type": "double"
+                  },
+                  "threshold": {
+                    "type": "double"
+                  },
+                  "upx_packed": {
+                    "type": "boolean"
+                  },
+                  "version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "parent": {
+                "properties": {
+                  "code_signature": {
+                    "properties": {
+                      "exists": {
+                        "type": "boolean"
+                      },
+                      "status": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "subject_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "trusted": {
+                        "type": "boolean"
+                      },
+                      "valid": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "nested"
+                  },
+                  "real": {
+                    "properties": {
+                      "pid": {
+                        "type": "long"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
               "services": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
-              "start": {
-                "type": "date"
+              "session": {
+                "ignore_above": 1024,
+                "type": "keyword"
               },
               "thread": {
                 "properties": {
@@ -2249,13 +2427,6 @@
                         "type": "keyword"
                       }
                     }
-                  },
-                  "id": {
-                    "type": "long"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
                   },
                   "service": {
                     "ignore_above": 1024,
@@ -2332,17 +2503,8 @@
                   "uptime": {
                     "type": "long"
                   }
-                }
-              },
-              "title": {
-                "fields": {
-                  "text": {
-                    "norms": false,
-                    "type": "text"
-                  }
                 },
-                "ignore_above": 1024,
-                "type": "keyword"
+                "type": "object"
               },
               "token": {
                 "properties": {
@@ -2401,20 +2563,7 @@
                   }
                 }
               },
-              "uptime": {
-                "type": "long"
-              },
               "user": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "working_directory": {
-                "fields": {
-                  "text": {
-                    "norms": false,
-                    "type": "text"
-                  }
-                },
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -2521,6 +2670,23 @@
             },
             "ignore_above": 1024,
             "type": "keyword"
+          }
+        }
+      },
+      "user_ext": {
+        "properties": {
+          "real": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            },
+            "type": "object"
           }
         }
       }

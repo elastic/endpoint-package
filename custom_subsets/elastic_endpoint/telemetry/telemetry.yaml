@@ -29,7 +29,7 @@ event:
       fields: "*"
     end:
       fields: "*"
-endpoint:
+endpoint_ext:
   fields:
     system: {}
 host:
@@ -58,10 +58,14 @@ host:
         family: {}
         kernel: {}
         full: {}
-        variant: {}
     ip: {}
     hostname: {}
     name: {}
     mac: {}
     architecture: {}
     id: {}
+host_ext:
+  fields:
+    os_ext:
+      fields:
+        variant: {}

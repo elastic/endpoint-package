@@ -39,7 +39,7 @@ fields:
           of the events.'
         example: 1.0.0
 
-  - name: endpoint
+  - name: endpoint_ext
     description: Fields describing the state of the Elastic Endpoint when an event
       occurs.
     fields:

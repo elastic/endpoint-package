@@ -72,7 +72,7 @@
       ECS versions -- this field lets integrations adjust to the schema version
       of the events.'
     example: 1.0.0
-- name: elastic
+- name: elastic_ext
   title: Elastic
   group: 2
   description: Holds fields and properties of data points and concepts in the elastic
@@ -94,7 +94,7 @@
     description: Unique identifier of this elastic agent (if one exists).
     example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
     default_field: false
-- name: endpoint
+- name: endpoint_ext
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event
@@ -227,7 +227,23 @@
       default_field: false
     description: Operating system name, without the version.
     example: Mac OS X
-  - name: os.variant
+  - name: os.version
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: Operating system version as a raw string.
+    example: 10.14.1
+- name: host_ext
+  title: Host
+  group: 2
+  description: 'A host is defined as a general computing instance.
+
+    ECS host.* fields should be populated with details about the host on which the
+    event happened, or from which the measurement was taken. Host types include
+    hardware, virtual machines, Docker containers, and Kubernetes nodes.'
+  type: group
+  fields:
+  - name: os_ext.variant
     level: custom
     type: keyword
     ignore_above: 1024
@@ -236,9 +252,3 @@
       be entered in this field.
     example: Ubuntu
     default_field: false
-  - name: os.version
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: Operating system version as a raw string.
-    example: 10.14.1

@@ -188,6 +188,19 @@ fields:
           - 10.10.10.10
           - 10.10.10.11
 
+  - name: dns_ext
+    description: Fields describing dns relevant to the event.
+    fields:
+
+      - name: options
+        type: keyword
+        description: DNS options field, uint64, representing as a keyword to avoid
+          overflows in ES
+
+      - name: status
+        type: long
+        description: DNS status field, uint32
+
   - name: ecs
     description: Meta-information specific to ECS.
     fields:
@@ -201,69 +214,6 @@ fields:
           ECS versions -- this field lets integrations adjust to the schema version
           of the events.'
         example: 1.0.0
-
-  - name: endpoint
-    description: Fields describing the state of the Elastic Endpoint when an event
-      occurs.
-    fields:
-
-      - name: dns
-        description: DNS fields that are not defined in core ECS
-        fields:
-
-          - name: options
-            type: keyword
-            description: DNS options field, uint64, representing as a keyword to avoid
-              overflows in ES
-
-          - name: status
-            type: long
-            description: DNS status field, uint32
-
-      - name: event
-        description: Custom fields relating to event information
-        fields:
-
-          - name: process
-            description: Custom process information relating to the event
-            fields:
-
-              - name: ancestry
-                type: keyword
-                description: An array of entity_ids indicating the ancestors for this
-                  event
-
-      - name: group
-        description: Extended "group" field set
-        fields:
-
-          - name: real
-            description: Group info prior to any setgid operations.
-            fields:
-
-              - name: id
-                type: keyword
-                description: Unique identifier for the group on the system/platform.
-
-              - name: name
-                type: keyword
-                description: Name of the group.
-
-      - name: user
-        description: Extended "user" field set
-        fields:
-
-          - name: real
-            description: User info prior to any setuid operations.
-            fields:
-
-              - name: id
-                type: keyword
-                description: One or multiple unique identifiers of the user.
-
-              - name: name
-                type: keyword
-                description: Short name or login of the user.
 
   - name: event
     description: 'The event fields are used for context information about the log
@@ -826,6 +776,22 @@ fields:
         type: keyword
         description: Name of the group.
 
+  - name: group_ext
+    description: Fields describing groups relevant to the event.
+    fields:
+
+      - name: real
+        description: Group info prior to any setgid operations.
+        fields:
+
+          - name: id
+            type: keyword
+            description: Unique identifier for the group on the system/platform.
+
+          - name: name
+            type: keyword
+            description: Name of the group.
+
   - name: host
     description: 'A host is defined as a general computing instance.
 
@@ -970,6 +936,15 @@ fields:
             description: HTTP response status code.
             example: 404
 
+  - name: http_ext
+    description: Fields related to HTTP activity. Use the `url` field set to store
+      the url of the request.
+    fields:
+
+      - name: response
+        description: TODO
+        fields:
+
           - name: version
             type: keyword
             description: HTTP version
@@ -1097,6 +1072,18 @@ fields:
             description: Thread ID.
             example: 4242
 
+  - name: process_ext
+    description: 'These fields contain information about a process.
+
+      These fields can help you correlate metrics information with a process id/name
+      from a log message.  The `process.pid` often stays in the metric itself and
+      is copied to the global field for correlation.'
+    fields:
+
+      - name: ancestry
+        type: keyword
+        description: An array of entity_ids indicating the ancestors for this event
+
   - name: source
     description: 'Source fields describe details about the source of a packet/event.
 
@@ -1180,3 +1167,19 @@ fields:
         type: keyword
         description: Short name or login of the user.
         example: albert
+
+  - name: user_ext
+    description: Fields describing user relevant to the event.
+    fields:
+
+      - name: real
+        description: User info prior to any setuid operations.
+        fields:
+
+          - name: id
+            type: keyword
+            description: One or multiple unique identifiers of the user.
+
+          - name: name
+            type: keyword
+            description: Short name or login of the user.

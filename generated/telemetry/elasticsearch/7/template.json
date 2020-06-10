@@ -30,7 +30,7 @@
           }
         }
       },
-      "endpoint": {
+      "endpoint_ext": {
         "properties": {
           "system": {
             "properties": {
@@ -236,11 +236,19 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
-              "variant": {
+              "version": {
                 "ignore_above": 1024,
                 "type": "keyword"
-              },
-              "version": {
+              }
+            }
+          }
+        }
+      },
+      "host_ext": {
+        "properties": {
+          "os_ext": {
+            "properties": {
+              "variant": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }

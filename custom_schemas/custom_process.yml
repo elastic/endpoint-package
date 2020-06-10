@@ -1,5 +1,5 @@
 ---
-- name: process
+- name: process_ext
   title: Process
   group: 2
   short: These fields contain information about a process.
@@ -12,7 +12,7 @@
   reusable:
     top_level: true
     expected:
-      - target
+      - target_ext
   type: group
   fields:
     - name: services
@@ -28,35 +28,35 @@
         User associated with the running process.
 
     - name: thread
-      level: extended
+      level: custom
       type: object
       description:
         The thread fields are used to describe by which process thread the
         event belongs to.
 
     - name: thread.start
-      level: extended
+      level: custom
       type: date
       example: "2016-05-23T08:05:34.853Z"
       description: >
         The time the thread started.
 
     - name: thread.start_address
-      level: extended
+      level: custom
       type: keyword
       example: 5442508
       description: >
         Memory address where the thread began execution.
 
     - name: thread.start_address_module
-      level: extended
+      level: custom
       type: keyword
       example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
       description: >
         The dll/module where the thread began execution.
 
     - name: thread.service
-      level: extended
+      level: custom
       type: keyword
       example: VaultSvc
       description: >
@@ -67,3 +67,133 @@
       type: long
       description: >
         Seconds since thread started.
+
+    - name: authentication_id
+      level: custom
+      type: keyword
+      description: >
+        Process authentication ID
+
+    - name: session
+      level: custom
+      type: keyword
+      description: >
+        Session information for the current process
+
+    - name: parent.real
+      level: custom
+      type: object
+      description: >
+        The field set containing parent process info in case of any ppid spoofing.
+
+    - name: parent.real.pid
+      level: custom
+      type: long
+      description: >
+        The ppid of the process that actually spawned the current process, in case of
+        ppid spoofing.
+
+    - name: code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: code_signature.subject_name
+      level: custom
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: code_signature.valid
+      level: custom
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: code_signature.trusted
+      level: custom
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: code_signature.status
+      level: custom
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: parent.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+
+    - name: parent.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: parent.code_signature.subject_name
+      level: custom
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: parent.code_signature.valid
+      level: custom
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: parent.code_signature.trusted
+      level: custom
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: parent.code_signature.status
+      level: custom
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: ancestry
+      level: custom
+      type: keyword
+      description: An array of entity_ids indicating the ancestors for this event

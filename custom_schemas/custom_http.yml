@@ -1,5 +1,5 @@
 ---
-- name: http
+- name: http_ext
   title: HTTP
   group: 2
   short: Fields describing an HTTP request.
