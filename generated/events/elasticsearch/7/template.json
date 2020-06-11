@@ -813,7 +813,8 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               }
-            }
+            },
+            "type": "object"
           }
         }
       },
@@ -1530,7 +1531,8 @@
                 },
                 "type": "object"
               }
-            }
+            },
+            "type": "object"
           },
           "services": {
             "ignore_above": 1024,
@@ -2380,7 +2382,8 @@
                     },
                     "type": "object"
                   }
-                }
+                },
+                "type": "object"
               },
               "services": {
                 "ignore_above": 1024,

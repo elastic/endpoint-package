@@ -873,7 +873,7 @@ fields:
         description: Process authentication ID
 
       - name: parent
-        description: TODO
+        description: Extended "process.parent" field set.
         fields:
 
           - name: real

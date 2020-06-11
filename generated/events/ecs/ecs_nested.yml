@@ -2705,6 +2705,16 @@ file_ext:
       short: Path on endpoint where a copy of the file is being stored.  Used to make
         ephemeral files retrievable.
       type: keyword
+    windows:
+      dashed_name: file-ext-windows
+      description: Platform-specific Windows fields
+      flat_name: file_ext.windows
+      level: custom
+      name: windows
+      normalize: []
+      object_type: keyword
+      short: Platform-specific Windows fields
+      type: object
     windows.zone_identifier:
       dashed_name: file-ext-windows-zone-identifier
       description: Windows zone identifier for a file
@@ -4456,6 +4466,16 @@ process_ext:
       original_fieldset: malware_classification
       short: The version of the model used.
       type: keyword
+    parent:
+      dashed_name: process-ext-parent
+      description: Extended "process.parent" field set.
+      flat_name: process_ext.parent
+      level: custom
+      name: parent
+      normalize: []
+      object_type: keyword
+      short: Extended "process.parent" field set.
+      type: object
     parent.code_signature:
       dashed_name: process-ext-parent-code-signature
       description: Nested version of ECS code_signature fieldset.
@@ -6739,6 +6759,17 @@ target_ext:
       original_fieldset: malware_classification
       short: The version of the model used.
       type: keyword
+    process_ext.parent:
+      dashed_name: target-ext-process-ext-parent
+      description: Extended "process.parent" field set.
+      flat_name: target_ext.process_ext.parent
+      level: custom
+      name: parent
+      normalize: []
+      object_type: keyword
+      original_fieldset: process_ext
+      short: Extended "process.parent" field set.
+      type: object
     process_ext.parent.code_signature:
       dashed_name: target-ext-process-ext-parent-code-signature
       description: Nested version of ECS code_signature fieldset.

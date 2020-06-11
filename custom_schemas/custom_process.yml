@@ -143,6 +143,12 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
+    - name: parent
+      level: custom
+      type: object
+      description: >
+        Extended "process.parent" field set.
+
     - name: parent.code_signature
       level: custom
       type: nested

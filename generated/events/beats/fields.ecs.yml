@@ -1406,6 +1406,12 @@
     description: Path on endpoint where a copy of the file is being stored.  Used
       to make ephemeral files retrievable.
     default_field: false
+  - name: windows
+    level: custom
+    type: object
+    object_type: keyword
+    description: Platform-specific Windows fields
+    default_field: false
   - name: windows.zone_identifier
     level: custom
     type: keyword
@@ -2460,6 +2466,12 @@
     type: keyword
     ignore_above: 1024
     description: The version of the model used.
+    default_field: false
+  - name: parent
+    level: custom
+    type: object
+    object_type: keyword
+    description: Extended "process.parent" field set.
     default_field: false
   - name: parent.code_signature
     level: custom
@@ -3827,6 +3839,12 @@
     type: keyword
     ignore_above: 1024
     description: The version of the model used.
+    default_field: false
+  - name: process_ext.parent
+    level: custom
+    type: object
+    object_type: keyword
+    description: Extended "process.parent" field set.
     default_field: false
   - name: process_ext.parent.code_signature
     level: custom

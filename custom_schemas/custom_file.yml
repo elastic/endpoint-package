@@ -35,6 +35,11 @@
       description: >
         Path on endpoint the quarantined file was originally.
 
+    - name: windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+
     - name: windows.zone_identifier
       level: custom
       type: keyword

@@ -690,7 +690,7 @@ fields:
             example: '1001'
 
       - name: windows
-        description: TODO
+        description: Platform-specific Windows fields
         fields:
 
           - name: zone_identifier
