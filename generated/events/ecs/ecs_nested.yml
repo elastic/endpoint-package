@@ -767,311 +767,6 @@ Target:
       original_fieldset: process
       short: Session information for the current process
       type: keyword
-    process.Ext.thread:
-      dashed_name: Target-process-Ext-thread
-      description: The thread fields are used to describe by which process thread
-        the event belongs to.
-      flat_name: Target.process.Ext.thread
-      level: custom
-      name: Ext.thread
-      normalize: []
-      object_type: keyword
-      original_fieldset: process
-      short: The thread fields are used to describe by which process thread the event
-        belongs to.
-      type: object
-    process.Ext.thread.call_stack.instruction_pointer:
-      dashed_name: Target-process-Ext-thread-call-stack-instruction-pointer
-      description: The return address of this stack frame.
-      flat_name: Target.process.Ext.thread.call_stack.instruction_pointer
-      ignore_above: 1024
-      level: custom
-      name: instruction_pointer
-      normalize: []
-      original_fieldset: call_stack
-      short: The return address of this stack frame.
-      type: keyword
-    process.Ext.thread.call_stack.memory_section.address:
-      dashed_name: Target-process-Ext-thread-call-stack-memory-section-address
-      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      flat_name: Target.process.Ext.thread.call_stack.memory_section.address
-      ignore_above: 1024
-      level: custom
-      name: memory_section.address
-      normalize: []
-      original_fieldset: call_stack
-      short: Base address of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      type: keyword
-    process.Ext.thread.call_stack.memory_section.protection:
-      dashed_name: Target-process-Ext-thread-call-stack-memory-section-protection
-      description: Memory protection flags of this memory region.  Corresponds to
-        `MEMORY_BASIC_INFORMATION.Protect`
-      flat_name: Target.process.Ext.thread.call_stack.memory_section.protection
-      ignore_above: 1024
-      level: custom
-      name: memory_section.protection
-      normalize: []
-      original_fieldset: call_stack
-      short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      type: keyword
-    process.Ext.thread.call_stack.memory_section.size:
-      dashed_name: Target-process-Ext-thread-call-stack-memory-section-size
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.RegionSize`
-      flat_name: Target.process.Ext.thread.call_stack.memory_section.size
-      ignore_above: 1024
-      level: custom
-      name: memory_section.size
-      normalize: []
-      original_fieldset: call_stack
-      short: Size of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.RegionSize`
-      type: keyword
-    process.Ext.thread.call_stack.module_path:
-      dashed_name: Target-process-Ext-thread-call-stack-module-path
-      description: The DLL/module containing `instruction_pointer`.
-      flat_name: Target.process.Ext.thread.call_stack.module_path
-      ignore_above: 1024
-      level: custom
-      name: module_path
-      normalize: []
-      original_fieldset: call_stack
-      short: The DLL/module containing `instruction_pointer`.
-      type: keyword
-    process.Ext.thread.call_stack.rva:
-      dashed_name: Target-process-Ext-thread-call-stack-rva
-      description: The relative virtual address of `instruction_pointer`.  Computed
-        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-      flat_name: Target.process.Ext.thread.call_stack.rva
-      ignore_above: 1024
-      level: custom
-      name: rva
-      normalize: []
-      original_fieldset: call_stack
-      short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
-        - MEMORY_BASIC_INFORMATION.AllocationBase`.
-      type: keyword
-    process.Ext.thread.call_stack.symbol_info:
-      dashed_name: Target-process-Ext-thread-call-stack-symbol-info
-      description: The nearest symbol for `instruction_pointer`.
-      flat_name: Target.process.Ext.thread.call_stack.symbol_info
-      ignore_above: 1024
-      level: custom
-      name: symbol_info
-      normalize: []
-      original_fieldset: call_stack
-      short: The nearest symbol for `instruction_pointer`.
-      type: keyword
-    process.Ext.thread.service:
-      dashed_name: Target-process-Ext-thread-service
-      description: Service associated with the thread.
-      example: VaultSvc
-      flat_name: Target.process.Ext.thread.service
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.service
-      normalize: []
-      original_fieldset: process
-      short: Service associated with the thread.
-      type: keyword
-    process.Ext.thread.start:
-      dashed_name: Target-process-Ext-thread-start
-      description: The time the thread started.
-      example: '2016-05-23T08:05:34.853Z'
-      flat_name: Target.process.Ext.thread.start
-      level: custom
-      name: Ext.thread.start
-      normalize: []
-      original_fieldset: process
-      short: The time the thread started.
-      type: date
-    process.Ext.thread.start_address:
-      dashed_name: Target-process-Ext-thread-start-address
-      description: Memory address where the thread began execution.
-      example: 5442508
-      flat_name: Target.process.Ext.thread.start_address
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.start_address
-      normalize: []
-      original_fieldset: process
-      short: Memory address where the thread began execution.
-      type: keyword
-    process.Ext.thread.start_address_module:
-      dashed_name: Target-process-Ext-thread-start-address-module
-      description: The dll/module where the thread began execution.
-      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-      flat_name: Target.process.Ext.thread.start_address_module
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.start_address_module
-      normalize: []
-      original_fieldset: process
-      short: The dll/module where the thread began execution.
-      type: keyword
-    process.Ext.thread.token.domain:
-      dashed_name: Target-process-Ext-thread-token-domain
-      description: Domain of token user.
-      flat_name: Target.process.Ext.thread.token.domain
-      ignore_above: 1024
-      level: custom
-      name: domain
-      normalize: []
-      original_fieldset: token
-      short: Domain of token user.
-      type: keyword
-    process.Ext.thread.token.elevation:
-      dashed_name: Target-process-Ext-thread-token-elevation
-      description: Whether the token is elevated or not
-      flat_name: Target.process.Ext.thread.token.elevation
-      level: custom
-      name: elevation
-      normalize: []
-      original_fieldset: token
-      short: Whether the token is elevated or not
-      type: boolean
-    process.Ext.thread.token.elevation_type:
-      dashed_name: Target-process-Ext-thread-token-elevation-type
-      description: What level of elevation the token has
-      example: one of "default", "full", "limited"
-      flat_name: Target.process.Ext.thread.token.elevation_type
-      ignore_above: 1024
-      level: custom
-      name: elevation_type
-      normalize: []
-      original_fieldset: token
-      short: What level of elevation the token has
-      type: keyword
-    process.Ext.thread.token.impersonation_level:
-      dashed_name: Target-process-Ext-thread-token-impersonation-level
-      description: Impersonation level. Only valid for impersonation tokens.
-      flat_name: Target.process.Ext.thread.token.impersonation_level
-      ignore_above: 1024
-      level: custom
-      name: impersonation_level
-      normalize: []
-      original_fieldset: token
-      short: Impersonation level. Only valid for impersonation tokens.
-      type: keyword
-    process.Ext.thread.token.integrity_level:
-      dashed_name: Target-process-Ext-thread-token-integrity-level
-      description: Numeric integrity level.
-      flat_name: Target.process.Ext.thread.token.integrity_level
-      level: custom
-      name: integrity_level
-      normalize: []
-      original_fieldset: token
-      short: Numeric integrity level.
-      type: long
-    process.Ext.thread.token.integrity_level_name:
-      dashed_name: Target-process-Ext-thread-token-integrity-level-name
-      description: Human readable integrity level.
-      example: one of "system", "high", "medium", "low", "untrusted"
-      flat_name: Target.process.Ext.thread.token.integrity_level_name
-      ignore_above: 1024
-      level: custom
-      name: integrity_level_name
-      normalize: []
-      original_fieldset: token
-      short: Human readable integrity level.
-      type: keyword
-    process.Ext.thread.token.is_appcontainer:
-      dashed_name: Target-process-Ext-thread-token-is-appcontainer
-      description: Whether or not this is an appcontainer token.
-      flat_name: Target.process.Ext.thread.token.is_appcontainer
-      level: custom
-      name: is_appcontainer
-      normalize: []
-      original_fieldset: token
-      short: Whether or not this is an appcontainer token.
-      type: boolean
-    process.Ext.thread.token.privileges:
-      dashed_name: Target-process-Ext-thread-token-privileges
-      description: Array describing the privileges associated with the token.
-      flat_name: Target.process.Ext.thread.token.privileges
-      level: custom
-      name: privileges
-      normalize: []
-      original_fieldset: token
-      short: Array describing the privileges associated with the token.
-      type: nested
-    process.Ext.thread.token.privileges.description:
-      dashed_name: Target-process-Ext-thread-token-privileges-description
-      description: Description of the privilege.
-      flat_name: Target.process.Ext.thread.token.privileges.description
-      ignore_above: 1024
-      level: custom
-      name: privileges.description
-      normalize: []
-      original_fieldset: token
-      short: Description of the privilege.
-      type: keyword
-    process.Ext.thread.token.privileges.enabled:
-      dashed_name: Target-process-Ext-thread-token-privileges-enabled
-      description: Whether or not the privilege is enabled.
-      flat_name: Target.process.Ext.thread.token.privileges.enabled
-      level: custom
-      name: privileges.enabled
-      normalize: []
-      original_fieldset: token
-      short: Whether or not the privilege is enabled.
-      type: boolean
-    process.Ext.thread.token.privileges.name:
-      dashed_name: Target-process-Ext-thread-token-privileges-name
-      description: Name of the privilege.
-      flat_name: Target.process.Ext.thread.token.privileges.name
-      ignore_above: 1024
-      level: custom
-      name: privileges.name
-      normalize: []
-      original_fieldset: token
-      short: Name of the privilege.
-      type: keyword
-    process.Ext.thread.token.sid:
-      dashed_name: Target-process-Ext-thread-token-sid
-      description: Token user's Security Identifier (SID).
-      flat_name: Target.process.Ext.thread.token.sid
-      ignore_above: 1024
-      level: custom
-      name: sid
-      normalize: []
-      original_fieldset: token
-      short: Token user's Security Identifier (SID).
-      type: keyword
-    process.Ext.thread.token.type:
-      dashed_name: Target-process-Ext-thread-token-type
-      description: Type of the token, either primary or impersonation.
-      flat_name: Target.process.Ext.thread.token.type
-      ignore_above: 1024
-      level: custom
-      name: type
-      normalize: []
-      original_fieldset: token
-      short: Type of the token, either primary or impersonation.
-      type: keyword
-    process.Ext.thread.token.user:
-      dashed_name: Target-process-Ext-thread-token-user
-      description: Username of token owner.
-      flat_name: Target.process.Ext.thread.token.user
-      ignore_above: 1024
-      level: custom
-      name: user
-      normalize: []
-      original_fieldset: token
-      short: Username of token owner.
-      type: keyword
-    process.Ext.thread.uptime:
-      dashed_name: Target-process-Ext-thread-uptime
-      description: Seconds since thread started.
-      flat_name: Target.process.Ext.thread.uptime
-      level: custom
-      name: Ext.thread.uptime
-      normalize: []
-      original_fieldset: process
-      short: Seconds since thread started.
-      type: long
     process.Ext.token.domain:
       dashed_name: Target-process-Ext-token-domain
       description: Domain of token user.
@@ -2043,6 +1738,309 @@ Target:
       original_fieldset: process
       short: The time the process started.
       type: date
+    process.thread.Ext:
+      dashed_name: Target-process-thread-Ext
+      description: Object for all custom defined fields to live in.
+      flat_name: Target.process.thread.Ext
+      level: custom
+      name: thread.Ext
+      normalize: []
+      object_type: keyword
+      original_fieldset: process
+      short: Object for all custom defined fields to live in.
+      type: object
+    process.thread.Ext.call_stack.instruction_pointer:
+      dashed_name: Target-process-thread-Ext-call-stack-instruction-pointer
+      description: The return address of this stack frame.
+      flat_name: Target.process.thread.Ext.call_stack.instruction_pointer
+      ignore_above: 1024
+      level: custom
+      name: instruction_pointer
+      normalize: []
+      original_fieldset: call_stack
+      short: The return address of this stack frame.
+      type: keyword
+    process.thread.Ext.call_stack.memory_section.address:
+      dashed_name: Target-process-thread-Ext-call-stack-memory-section-address
+      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      flat_name: Target.process.thread.Ext.call_stack.memory_section.address
+      ignore_above: 1024
+      level: custom
+      name: memory_section.address
+      normalize: []
+      original_fieldset: call_stack
+      short: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      type: keyword
+    process.thread.Ext.call_stack.memory_section.protection:
+      dashed_name: Target-process-thread-Ext-call-stack-memory-section-protection
+      description: Memory protection flags of this memory region.  Corresponds to
+        `MEMORY_BASIC_INFORMATION.Protect`
+      flat_name: Target.process.thread.Ext.call_stack.memory_section.protection
+      ignore_above: 1024
+      level: custom
+      name: memory_section.protection
+      normalize: []
+      original_fieldset: call_stack
+      short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      type: keyword
+    process.thread.Ext.call_stack.memory_section.size:
+      dashed_name: Target-process-thread-Ext-call-stack-memory-section-size
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
+      flat_name: Target.process.thread.Ext.call_stack.memory_section.size
+      ignore_above: 1024
+      level: custom
+      name: memory_section.size
+      normalize: []
+      original_fieldset: call_stack
+      short: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
+      type: keyword
+    process.thread.Ext.call_stack.module_path:
+      dashed_name: Target-process-thread-Ext-call-stack-module-path
+      description: The DLL/module containing `instruction_pointer`.
+      flat_name: Target.process.thread.Ext.call_stack.module_path
+      ignore_above: 1024
+      level: custom
+      name: module_path
+      normalize: []
+      original_fieldset: call_stack
+      short: The DLL/module containing `instruction_pointer`.
+      type: keyword
+    process.thread.Ext.call_stack.rva:
+      dashed_name: Target-process-thread-Ext-call-stack-rva
+      description: The relative virtual address of `instruction_pointer`.  Computed
+        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      flat_name: Target.process.thread.Ext.call_stack.rva
+      ignore_above: 1024
+      level: custom
+      name: rva
+      normalize: []
+      original_fieldset: call_stack
+      short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
+        - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      type: keyword
+    process.thread.Ext.call_stack.symbol_info:
+      dashed_name: Target-process-thread-Ext-call-stack-symbol-info
+      description: The nearest symbol for `instruction_pointer`.
+      flat_name: Target.process.thread.Ext.call_stack.symbol_info
+      ignore_above: 1024
+      level: custom
+      name: symbol_info
+      normalize: []
+      original_fieldset: call_stack
+      short: The nearest symbol for `instruction_pointer`.
+      type: keyword
+    process.thread.Ext.service:
+      dashed_name: Target-process-thread-Ext-service
+      description: Service associated with the thread.
+      example: VaultSvc
+      flat_name: Target.process.thread.Ext.service
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.service
+      normalize: []
+      original_fieldset: process
+      short: Service associated with the thread.
+      type: keyword
+    process.thread.Ext.start:
+      dashed_name: Target-process-thread-Ext-start
+      description: The time the thread started.
+      example: '2016-05-23T08:05:34.853Z'
+      flat_name: Target.process.thread.Ext.start
+      level: custom
+      name: thread.Ext.start
+      normalize: []
+      original_fieldset: process
+      short: The time the thread started.
+      type: date
+    process.thread.Ext.start_address:
+      dashed_name: Target-process-thread-Ext-start-address
+      description: Memory address where the thread began execution.
+      example: 5442508
+      flat_name: Target.process.thread.Ext.start_address
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.start_address
+      normalize: []
+      original_fieldset: process
+      short: Memory address where the thread began execution.
+      type: keyword
+    process.thread.Ext.start_address_module:
+      dashed_name: Target-process-thread-Ext-start-address-module
+      description: The dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+      flat_name: Target.process.thread.Ext.start_address_module
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.start_address_module
+      normalize: []
+      original_fieldset: process
+      short: The dll/module where the thread began execution.
+      type: keyword
+    process.thread.Ext.token.domain:
+      dashed_name: Target-process-thread-Ext-token-domain
+      description: Domain of token user.
+      flat_name: Target.process.thread.Ext.token.domain
+      ignore_above: 1024
+      level: custom
+      name: domain
+      normalize: []
+      original_fieldset: token
+      short: Domain of token user.
+      type: keyword
+    process.thread.Ext.token.elevation:
+      dashed_name: Target-process-thread-Ext-token-elevation
+      description: Whether the token is elevated or not
+      flat_name: Target.process.thread.Ext.token.elevation
+      level: custom
+      name: elevation
+      normalize: []
+      original_fieldset: token
+      short: Whether the token is elevated or not
+      type: boolean
+    process.thread.Ext.token.elevation_type:
+      dashed_name: Target-process-thread-Ext-token-elevation-type
+      description: What level of elevation the token has
+      example: one of "default", "full", "limited"
+      flat_name: Target.process.thread.Ext.token.elevation_type
+      ignore_above: 1024
+      level: custom
+      name: elevation_type
+      normalize: []
+      original_fieldset: token
+      short: What level of elevation the token has
+      type: keyword
+    process.thread.Ext.token.impersonation_level:
+      dashed_name: Target-process-thread-Ext-token-impersonation-level
+      description: Impersonation level. Only valid for impersonation tokens.
+      flat_name: Target.process.thread.Ext.token.impersonation_level
+      ignore_above: 1024
+      level: custom
+      name: impersonation_level
+      normalize: []
+      original_fieldset: token
+      short: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    process.thread.Ext.token.integrity_level:
+      dashed_name: Target-process-thread-Ext-token-integrity-level
+      description: Numeric integrity level.
+      flat_name: Target.process.thread.Ext.token.integrity_level
+      level: custom
+      name: integrity_level
+      normalize: []
+      original_fieldset: token
+      short: Numeric integrity level.
+      type: long
+    process.thread.Ext.token.integrity_level_name:
+      dashed_name: Target-process-thread-Ext-token-integrity-level-name
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
+      flat_name: Target.process.thread.Ext.token.integrity_level_name
+      ignore_above: 1024
+      level: custom
+      name: integrity_level_name
+      normalize: []
+      original_fieldset: token
+      short: Human readable integrity level.
+      type: keyword
+    process.thread.Ext.token.is_appcontainer:
+      dashed_name: Target-process-thread-Ext-token-is-appcontainer
+      description: Whether or not this is an appcontainer token.
+      flat_name: Target.process.thread.Ext.token.is_appcontainer
+      level: custom
+      name: is_appcontainer
+      normalize: []
+      original_fieldset: token
+      short: Whether or not this is an appcontainer token.
+      type: boolean
+    process.thread.Ext.token.privileges:
+      dashed_name: Target-process-thread-Ext-token-privileges
+      description: Array describing the privileges associated with the token.
+      flat_name: Target.process.thread.Ext.token.privileges
+      level: custom
+      name: privileges
+      normalize: []
+      original_fieldset: token
+      short: Array describing the privileges associated with the token.
+      type: nested
+    process.thread.Ext.token.privileges.description:
+      dashed_name: Target-process-thread-Ext-token-privileges-description
+      description: Description of the privilege.
+      flat_name: Target.process.thread.Ext.token.privileges.description
+      ignore_above: 1024
+      level: custom
+      name: privileges.description
+      normalize: []
+      original_fieldset: token
+      short: Description of the privilege.
+      type: keyword
+    process.thread.Ext.token.privileges.enabled:
+      dashed_name: Target-process-thread-Ext-token-privileges-enabled
+      description: Whether or not the privilege is enabled.
+      flat_name: Target.process.thread.Ext.token.privileges.enabled
+      level: custom
+      name: privileges.enabled
+      normalize: []
+      original_fieldset: token
+      short: Whether or not the privilege is enabled.
+      type: boolean
+    process.thread.Ext.token.privileges.name:
+      dashed_name: Target-process-thread-Ext-token-privileges-name
+      description: Name of the privilege.
+      flat_name: Target.process.thread.Ext.token.privileges.name
+      ignore_above: 1024
+      level: custom
+      name: privileges.name
+      normalize: []
+      original_fieldset: token
+      short: Name of the privilege.
+      type: keyword
+    process.thread.Ext.token.sid:
+      dashed_name: Target-process-thread-Ext-token-sid
+      description: Token user's Security Identifier (SID).
+      flat_name: Target.process.thread.Ext.token.sid
+      ignore_above: 1024
+      level: custom
+      name: sid
+      normalize: []
+      original_fieldset: token
+      short: Token user's Security Identifier (SID).
+      type: keyword
+    process.thread.Ext.token.type:
+      dashed_name: Target-process-thread-Ext-token-type
+      description: Type of the token, either primary or impersonation.
+      flat_name: Target.process.thread.Ext.token.type
+      ignore_above: 1024
+      level: custom
+      name: type
+      normalize: []
+      original_fieldset: token
+      short: Type of the token, either primary or impersonation.
+      type: keyword
+    process.thread.Ext.token.user:
+      dashed_name: Target-process-thread-Ext-token-user
+      description: Username of token owner.
+      flat_name: Target.process.thread.Ext.token.user
+      ignore_above: 1024
+      level: custom
+      name: user
+      normalize: []
+      original_fieldset: token
+      short: Username of token owner.
+      type: keyword
+    process.thread.Ext.uptime:
+      dashed_name: Target-process-thread-Ext-uptime
+      description: Seconds since thread started.
+      flat_name: Target.process.thread.Ext.uptime
+      level: custom
+      name: thread.Ext.uptime
+      normalize: []
+      original_fieldset: process
+      short: Seconds since thread started.
+      type: long
     process.thread.id:
       dashed_name: Target-process-thread-id
       description: Thread ID.
@@ -2124,14 +2122,14 @@ Target:
   - Target.dll.pe
   - Target.process
   - Target.process.Ext.malware_classification
-  - Target.process.Ext.thread.call_stack
-  - Target.process.Ext.thread.token
   - Target.process.Ext.token
   - Target.process.code_signature
   - Target.process.hash
   - Target.process.parent.code_signature
   - Target.process.parent.hash
   - Target.process.pe
+  - Target.process.thread.Ext.call_stack
+  - Target.process.thread.Ext.token
   prefix: Target.
   short: These fields contain information about a target.
   title: Target
@@ -5687,305 +5685,6 @@ process:
       normalize: []
       short: Session information for the current process
       type: keyword
-    Ext.thread:
-      dashed_name: process-Ext-thread
-      description: The thread fields are used to describe by which process thread
-        the event belongs to.
-      flat_name: process.Ext.thread
-      level: custom
-      name: Ext.thread
-      normalize: []
-      object_type: keyword
-      short: The thread fields are used to describe by which process thread the event
-        belongs to.
-      type: object
-    Ext.thread.call_stack.instruction_pointer:
-      dashed_name: process-Ext-thread-call-stack-instruction-pointer
-      description: The return address of this stack frame.
-      flat_name: process.Ext.thread.call_stack.instruction_pointer
-      ignore_above: 1024
-      level: custom
-      name: instruction_pointer
-      normalize: []
-      original_fieldset: call_stack
-      short: The return address of this stack frame.
-      type: keyword
-    Ext.thread.call_stack.memory_section.address:
-      dashed_name: process-Ext-thread-call-stack-memory-section-address
-      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      flat_name: process.Ext.thread.call_stack.memory_section.address
-      ignore_above: 1024
-      level: custom
-      name: memory_section.address
-      normalize: []
-      original_fieldset: call_stack
-      short: Base address of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      type: keyword
-    Ext.thread.call_stack.memory_section.protection:
-      dashed_name: process-Ext-thread-call-stack-memory-section-protection
-      description: Memory protection flags of this memory region.  Corresponds to
-        `MEMORY_BASIC_INFORMATION.Protect`
-      flat_name: process.Ext.thread.call_stack.memory_section.protection
-      ignore_above: 1024
-      level: custom
-      name: memory_section.protection
-      normalize: []
-      original_fieldset: call_stack
-      short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      type: keyword
-    Ext.thread.call_stack.memory_section.size:
-      dashed_name: process-Ext-thread-call-stack-memory-section-size
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.RegionSize`
-      flat_name: process.Ext.thread.call_stack.memory_section.size
-      ignore_above: 1024
-      level: custom
-      name: memory_section.size
-      normalize: []
-      original_fieldset: call_stack
-      short: Size of the memory region containing `instruction_pointer`.  Corresponds
-        to `MEMORY_BASIC_INFORMATION.RegionSize`
-      type: keyword
-    Ext.thread.call_stack.module_path:
-      dashed_name: process-Ext-thread-call-stack-module-path
-      description: The DLL/module containing `instruction_pointer`.
-      flat_name: process.Ext.thread.call_stack.module_path
-      ignore_above: 1024
-      level: custom
-      name: module_path
-      normalize: []
-      original_fieldset: call_stack
-      short: The DLL/module containing `instruction_pointer`.
-      type: keyword
-    Ext.thread.call_stack.rva:
-      dashed_name: process-Ext-thread-call-stack-rva
-      description: The relative virtual address of `instruction_pointer`.  Computed
-        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-      flat_name: process.Ext.thread.call_stack.rva
-      ignore_above: 1024
-      level: custom
-      name: rva
-      normalize: []
-      original_fieldset: call_stack
-      short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
-        - MEMORY_BASIC_INFORMATION.AllocationBase`.
-      type: keyword
-    Ext.thread.call_stack.symbol_info:
-      dashed_name: process-Ext-thread-call-stack-symbol-info
-      description: The nearest symbol for `instruction_pointer`.
-      flat_name: process.Ext.thread.call_stack.symbol_info
-      ignore_above: 1024
-      level: custom
-      name: symbol_info
-      normalize: []
-      original_fieldset: call_stack
-      short: The nearest symbol for `instruction_pointer`.
-      type: keyword
-    Ext.thread.service:
-      dashed_name: process-Ext-thread-service
-      description: Service associated with the thread.
-      example: VaultSvc
-      flat_name: process.Ext.thread.service
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.service
-      normalize: []
-      short: Service associated with the thread.
-      type: keyword
-    Ext.thread.start:
-      dashed_name: process-Ext-thread-start
-      description: The time the thread started.
-      example: '2016-05-23T08:05:34.853Z'
-      flat_name: process.Ext.thread.start
-      level: custom
-      name: Ext.thread.start
-      normalize: []
-      short: The time the thread started.
-      type: date
-    Ext.thread.start_address:
-      dashed_name: process-Ext-thread-start-address
-      description: Memory address where the thread began execution.
-      example: 5442508
-      flat_name: process.Ext.thread.start_address
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.start_address
-      normalize: []
-      short: Memory address where the thread began execution.
-      type: keyword
-    Ext.thread.start_address_module:
-      dashed_name: process-Ext-thread-start-address-module
-      description: The dll/module where the thread began execution.
-      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-      flat_name: process.Ext.thread.start_address_module
-      ignore_above: 1024
-      level: custom
-      name: Ext.thread.start_address_module
-      normalize: []
-      short: The dll/module where the thread began execution.
-      type: keyword
-    Ext.thread.token.domain:
-      dashed_name: process-Ext-thread-token-domain
-      description: Domain of token user.
-      flat_name: process.Ext.thread.token.domain
-      ignore_above: 1024
-      level: custom
-      name: domain
-      normalize: []
-      original_fieldset: token
-      short: Domain of token user.
-      type: keyword
-    Ext.thread.token.elevation:
-      dashed_name: process-Ext-thread-token-elevation
-      description: Whether the token is elevated or not
-      flat_name: process.Ext.thread.token.elevation
-      level: custom
-      name: elevation
-      normalize: []
-      original_fieldset: token
-      short: Whether the token is elevated or not
-      type: boolean
-    Ext.thread.token.elevation_type:
-      dashed_name: process-Ext-thread-token-elevation-type
-      description: What level of elevation the token has
-      example: one of "default", "full", "limited"
-      flat_name: process.Ext.thread.token.elevation_type
-      ignore_above: 1024
-      level: custom
-      name: elevation_type
-      normalize: []
-      original_fieldset: token
-      short: What level of elevation the token has
-      type: keyword
-    Ext.thread.token.impersonation_level:
-      dashed_name: process-Ext-thread-token-impersonation-level
-      description: Impersonation level. Only valid for impersonation tokens.
-      flat_name: process.Ext.thread.token.impersonation_level
-      ignore_above: 1024
-      level: custom
-      name: impersonation_level
-      normalize: []
-      original_fieldset: token
-      short: Impersonation level. Only valid for impersonation tokens.
-      type: keyword
-    Ext.thread.token.integrity_level:
-      dashed_name: process-Ext-thread-token-integrity-level
-      description: Numeric integrity level.
-      flat_name: process.Ext.thread.token.integrity_level
-      level: custom
-      name: integrity_level
-      normalize: []
-      original_fieldset: token
-      short: Numeric integrity level.
-      type: long
-    Ext.thread.token.integrity_level_name:
-      dashed_name: process-Ext-thread-token-integrity-level-name
-      description: Human readable integrity level.
-      example: one of "system", "high", "medium", "low", "untrusted"
-      flat_name: process.Ext.thread.token.integrity_level_name
-      ignore_above: 1024
-      level: custom
-      name: integrity_level_name
-      normalize: []
-      original_fieldset: token
-      short: Human readable integrity level.
-      type: keyword
-    Ext.thread.token.is_appcontainer:
-      dashed_name: process-Ext-thread-token-is-appcontainer
-      description: Whether or not this is an appcontainer token.
-      flat_name: process.Ext.thread.token.is_appcontainer
-      level: custom
-      name: is_appcontainer
-      normalize: []
-      original_fieldset: token
-      short: Whether or not this is an appcontainer token.
-      type: boolean
-    Ext.thread.token.privileges:
-      dashed_name: process-Ext-thread-token-privileges
-      description: Array describing the privileges associated with the token.
-      flat_name: process.Ext.thread.token.privileges
-      level: custom
-      name: privileges
-      normalize: []
-      original_fieldset: token
-      short: Array describing the privileges associated with the token.
-      type: nested
-    Ext.thread.token.privileges.description:
-      dashed_name: process-Ext-thread-token-privileges-description
-      description: Description of the privilege.
-      flat_name: process.Ext.thread.token.privileges.description
-      ignore_above: 1024
-      level: custom
-      name: privileges.description
-      normalize: []
-      original_fieldset: token
-      short: Description of the privilege.
-      type: keyword
-    Ext.thread.token.privileges.enabled:
-      dashed_name: process-Ext-thread-token-privileges-enabled
-      description: Whether or not the privilege is enabled.
-      flat_name: process.Ext.thread.token.privileges.enabled
-      level: custom
-      name: privileges.enabled
-      normalize: []
-      original_fieldset: token
-      short: Whether or not the privilege is enabled.
-      type: boolean
-    Ext.thread.token.privileges.name:
-      dashed_name: process-Ext-thread-token-privileges-name
-      description: Name of the privilege.
-      flat_name: process.Ext.thread.token.privileges.name
-      ignore_above: 1024
-      level: custom
-      name: privileges.name
-      normalize: []
-      original_fieldset: token
-      short: Name of the privilege.
-      type: keyword
-    Ext.thread.token.sid:
-      dashed_name: process-Ext-thread-token-sid
-      description: Token user's Security Identifier (SID).
-      flat_name: process.Ext.thread.token.sid
-      ignore_above: 1024
-      level: custom
-      name: sid
-      normalize: []
-      original_fieldset: token
-      short: Token user's Security Identifier (SID).
-      type: keyword
-    Ext.thread.token.type:
-      dashed_name: process-Ext-thread-token-type
-      description: Type of the token, either primary or impersonation.
-      flat_name: process.Ext.thread.token.type
-      ignore_above: 1024
-      level: custom
-      name: type
-      normalize: []
-      original_fieldset: token
-      short: Type of the token, either primary or impersonation.
-      type: keyword
-    Ext.thread.token.user:
-      dashed_name: process-Ext-thread-token-user
-      description: Username of token owner.
-      flat_name: process.Ext.thread.token.user
-      ignore_above: 1024
-      level: custom
-      name: user
-      normalize: []
-      original_fieldset: token
-      short: Username of token owner.
-      type: keyword
-    Ext.thread.uptime:
-      dashed_name: process-Ext-thread-uptime
-      description: Seconds since thread started.
-      flat_name: process.Ext.thread.uptime
-      level: custom
-      name: Ext.thread.uptime
-      normalize: []
-      short: Seconds since thread started.
-      type: long
     Ext.token.domain:
       dashed_name: process-Ext-token-domain
       description: Domain of token user.
@@ -6920,6 +6619,303 @@ process:
       normalize: []
       short: The time the process started.
       type: date
+    thread.Ext:
+      dashed_name: process-thread-Ext
+      description: Object for all custom defined fields to live in.
+      flat_name: process.thread.Ext
+      level: custom
+      name: thread.Ext
+      normalize: []
+      object_type: keyword
+      short: Object for all custom defined fields to live in.
+      type: object
+    thread.Ext.call_stack.instruction_pointer:
+      dashed_name: process-thread-Ext-call-stack-instruction-pointer
+      description: The return address of this stack frame.
+      flat_name: process.thread.Ext.call_stack.instruction_pointer
+      ignore_above: 1024
+      level: custom
+      name: instruction_pointer
+      normalize: []
+      original_fieldset: call_stack
+      short: The return address of this stack frame.
+      type: keyword
+    thread.Ext.call_stack.memory_section.address:
+      dashed_name: process-thread-Ext-call-stack-memory-section-address
+      description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      flat_name: process.thread.Ext.call_stack.memory_section.address
+      ignore_above: 1024
+      level: custom
+      name: memory_section.address
+      normalize: []
+      original_fieldset: call_stack
+      short: Base address of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      type: keyword
+    thread.Ext.call_stack.memory_section.protection:
+      dashed_name: process-thread-Ext-call-stack-memory-section-protection
+      description: Memory protection flags of this memory region.  Corresponds to
+        `MEMORY_BASIC_INFORMATION.Protect`
+      flat_name: process.thread.Ext.call_stack.memory_section.protection
+      ignore_above: 1024
+      level: custom
+      name: memory_section.protection
+      normalize: []
+      original_fieldset: call_stack
+      short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      type: keyword
+    thread.Ext.call_stack.memory_section.size:
+      dashed_name: process-thread-Ext-call-stack-memory-section-size
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
+      flat_name: process.thread.Ext.call_stack.memory_section.size
+      ignore_above: 1024
+      level: custom
+      name: memory_section.size
+      normalize: []
+      original_fieldset: call_stack
+      short: Size of the memory region containing `instruction_pointer`.  Corresponds
+        to `MEMORY_BASIC_INFORMATION.RegionSize`
+      type: keyword
+    thread.Ext.call_stack.module_path:
+      dashed_name: process-thread-Ext-call-stack-module-path
+      description: The DLL/module containing `instruction_pointer`.
+      flat_name: process.thread.Ext.call_stack.module_path
+      ignore_above: 1024
+      level: custom
+      name: module_path
+      normalize: []
+      original_fieldset: call_stack
+      short: The DLL/module containing `instruction_pointer`.
+      type: keyword
+    thread.Ext.call_stack.rva:
+      dashed_name: process-thread-Ext-call-stack-rva
+      description: The relative virtual address of `instruction_pointer`.  Computed
+        as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      flat_name: process.thread.Ext.call_stack.rva
+      ignore_above: 1024
+      level: custom
+      name: rva
+      normalize: []
+      original_fieldset: call_stack
+      short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
+        - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      type: keyword
+    thread.Ext.call_stack.symbol_info:
+      dashed_name: process-thread-Ext-call-stack-symbol-info
+      description: The nearest symbol for `instruction_pointer`.
+      flat_name: process.thread.Ext.call_stack.symbol_info
+      ignore_above: 1024
+      level: custom
+      name: symbol_info
+      normalize: []
+      original_fieldset: call_stack
+      short: The nearest symbol for `instruction_pointer`.
+      type: keyword
+    thread.Ext.service:
+      dashed_name: process-thread-Ext-service
+      description: Service associated with the thread.
+      example: VaultSvc
+      flat_name: process.thread.Ext.service
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.service
+      normalize: []
+      short: Service associated with the thread.
+      type: keyword
+    thread.Ext.start:
+      dashed_name: process-thread-Ext-start
+      description: The time the thread started.
+      example: '2016-05-23T08:05:34.853Z'
+      flat_name: process.thread.Ext.start
+      level: custom
+      name: thread.Ext.start
+      normalize: []
+      short: The time the thread started.
+      type: date
+    thread.Ext.start_address:
+      dashed_name: process-thread-Ext-start-address
+      description: Memory address where the thread began execution.
+      example: 5442508
+      flat_name: process.thread.Ext.start_address
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.start_address
+      normalize: []
+      short: Memory address where the thread began execution.
+      type: keyword
+    thread.Ext.start_address_module:
+      dashed_name: process-thread-Ext-start-address-module
+      description: The dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+      flat_name: process.thread.Ext.start_address_module
+      ignore_above: 1024
+      level: custom
+      name: thread.Ext.start_address_module
+      normalize: []
+      short: The dll/module where the thread began execution.
+      type: keyword
+    thread.Ext.token.domain:
+      dashed_name: process-thread-Ext-token-domain
+      description: Domain of token user.
+      flat_name: process.thread.Ext.token.domain
+      ignore_above: 1024
+      level: custom
+      name: domain
+      normalize: []
+      original_fieldset: token
+      short: Domain of token user.
+      type: keyword
+    thread.Ext.token.elevation:
+      dashed_name: process-thread-Ext-token-elevation
+      description: Whether the token is elevated or not
+      flat_name: process.thread.Ext.token.elevation
+      level: custom
+      name: elevation
+      normalize: []
+      original_fieldset: token
+      short: Whether the token is elevated or not
+      type: boolean
+    thread.Ext.token.elevation_type:
+      dashed_name: process-thread-Ext-token-elevation-type
+      description: What level of elevation the token has
+      example: one of "default", "full", "limited"
+      flat_name: process.thread.Ext.token.elevation_type
+      ignore_above: 1024
+      level: custom
+      name: elevation_type
+      normalize: []
+      original_fieldset: token
+      short: What level of elevation the token has
+      type: keyword
+    thread.Ext.token.impersonation_level:
+      dashed_name: process-thread-Ext-token-impersonation-level
+      description: Impersonation level. Only valid for impersonation tokens.
+      flat_name: process.thread.Ext.token.impersonation_level
+      ignore_above: 1024
+      level: custom
+      name: impersonation_level
+      normalize: []
+      original_fieldset: token
+      short: Impersonation level. Only valid for impersonation tokens.
+      type: keyword
+    thread.Ext.token.integrity_level:
+      dashed_name: process-thread-Ext-token-integrity-level
+      description: Numeric integrity level.
+      flat_name: process.thread.Ext.token.integrity_level
+      level: custom
+      name: integrity_level
+      normalize: []
+      original_fieldset: token
+      short: Numeric integrity level.
+      type: long
+    thread.Ext.token.integrity_level_name:
+      dashed_name: process-thread-Ext-token-integrity-level-name
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
+      flat_name: process.thread.Ext.token.integrity_level_name
+      ignore_above: 1024
+      level: custom
+      name: integrity_level_name
+      normalize: []
+      original_fieldset: token
+      short: Human readable integrity level.
+      type: keyword
+    thread.Ext.token.is_appcontainer:
+      dashed_name: process-thread-Ext-token-is-appcontainer
+      description: Whether or not this is an appcontainer token.
+      flat_name: process.thread.Ext.token.is_appcontainer
+      level: custom
+      name: is_appcontainer
+      normalize: []
+      original_fieldset: token
+      short: Whether or not this is an appcontainer token.
+      type: boolean
+    thread.Ext.token.privileges:
+      dashed_name: process-thread-Ext-token-privileges
+      description: Array describing the privileges associated with the token.
+      flat_name: process.thread.Ext.token.privileges
+      level: custom
+      name: privileges
+      normalize: []
+      original_fieldset: token
+      short: Array describing the privileges associated with the token.
+      type: nested
+    thread.Ext.token.privileges.description:
+      dashed_name: process-thread-Ext-token-privileges-description
+      description: Description of the privilege.
+      flat_name: process.thread.Ext.token.privileges.description
+      ignore_above: 1024
+      level: custom
+      name: privileges.description
+      normalize: []
+      original_fieldset: token
+      short: Description of the privilege.
+      type: keyword
+    thread.Ext.token.privileges.enabled:
+      dashed_name: process-thread-Ext-token-privileges-enabled
+      description: Whether or not the privilege is enabled.
+      flat_name: process.thread.Ext.token.privileges.enabled
+      level: custom
+      name: privileges.enabled
+      normalize: []
+      original_fieldset: token
+      short: Whether or not the privilege is enabled.
+      type: boolean
+    thread.Ext.token.privileges.name:
+      dashed_name: process-thread-Ext-token-privileges-name
+      description: Name of the privilege.
+      flat_name: process.thread.Ext.token.privileges.name
+      ignore_above: 1024
+      level: custom
+      name: privileges.name
+      normalize: []
+      original_fieldset: token
+      short: Name of the privilege.
+      type: keyword
+    thread.Ext.token.sid:
+      dashed_name: process-thread-Ext-token-sid
+      description: Token user's Security Identifier (SID).
+      flat_name: process.thread.Ext.token.sid
+      ignore_above: 1024
+      level: custom
+      name: sid
+      normalize: []
+      original_fieldset: token
+      short: Token user's Security Identifier (SID).
+      type: keyword
+    thread.Ext.token.type:
+      dashed_name: process-thread-Ext-token-type
+      description: Type of the token, either primary or impersonation.
+      flat_name: process.thread.Ext.token.type
+      ignore_above: 1024
+      level: custom
+      name: type
+      normalize: []
+      original_fieldset: token
+      short: Type of the token, either primary or impersonation.
+      type: keyword
+    thread.Ext.token.user:
+      dashed_name: process-thread-Ext-token-user
+      description: Username of token owner.
+      flat_name: process.thread.Ext.token.user
+      ignore_above: 1024
+      level: custom
+      name: user
+      normalize: []
+      original_fieldset: token
+      short: Username of token owner.
+      type: keyword
+    thread.Ext.uptime:
+      dashed_name: process-thread-Ext-uptime
+      description: Seconds since thread started.
+      flat_name: process.thread.Ext.uptime
+      level: custom
+      name: thread.Ext.uptime
+      normalize: []
+      short: Seconds since thread started.
+      type: long
     thread.id:
       dashed_name: process-thread-id
       description: Thread ID.
@@ -6990,14 +6986,14 @@ process:
   name: process
   nestings:
   - process.Ext.malware_classification
-  - process.Ext.thread.call_stack
-  - process.Ext.thread.token
   - process.Ext.token
   - process.code_signature
   - process.hash
   - process.parent.code_signature
   - process.parent.hash
   - process.pe
+  - process.thread.Ext.call_stack
+  - process.thread.Ext.token
   prefix: process.
   reusable:
     expected:

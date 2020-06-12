@@ -471,172 +471,6 @@
     ignore_above: 1024
     description: Session information for the current process
     default_field: false
-  - name: process.Ext.thread
-    level: custom
-    type: object
-    object_type: keyword
-    description: The thread fields are used to describe by which process thread
-      the event belongs to.
-    default_field: false
-  - name: process.Ext.thread.call_stack.instruction_pointer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The return address of this stack frame.
-    default_field: false
-  - name: process.Ext.thread.call_stack.memory_section.address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.BaseAddress`
-    default_field: false
-  - name: process.Ext.thread.call_stack.memory_section.protection
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Memory protection flags of this memory region.  Corresponds to
-      `MEMORY_BASIC_INFORMATION.Protect`
-    default_field: false
-  - name: process.Ext.thread.call_stack.memory_section.size
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Size of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.RegionSize`
-    default_field: false
-  - name: process.Ext.thread.call_stack.module_path
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The DLL/module containing `instruction_pointer`.
-    default_field: false
-  - name: process.Ext.thread.call_stack.rva
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The relative virtual address of `instruction_pointer`.  Computed
-      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-    default_field: false
-  - name: process.Ext.thread.call_stack.symbol_info
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The nearest symbol for `instruction_pointer`.
-    default_field: false
-  - name: process.Ext.thread.service
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Service associated with the thread.
-    example: VaultSvc
-    default_field: false
-  - name: process.Ext.thread.start
-    level: custom
-    type: date
-    description: The time the thread started.
-    example: '2016-05-23T08:05:34.853Z'
-    default_field: false
-  - name: process.Ext.thread.start_address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Memory address where the thread began execution.
-    example: 5442508
-    default_field: false
-  - name: process.Ext.thread.start_address_module
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The dll/module where the thread began execution.
-    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-    default_field: false
-  - name: process.Ext.thread.token.domain
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Domain of token user.
-    default_field: false
-  - name: process.Ext.thread.token.elevation
-    level: custom
-    type: boolean
-    description: Whether the token is elevated or not
-    default_field: false
-  - name: process.Ext.thread.token.elevation_type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: What level of elevation the token has
-    example: one of "default", "full", "limited"
-    default_field: false
-  - name: process.Ext.thread.token.impersonation_level
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Impersonation level. Only valid for impersonation tokens.
-    default_field: false
-  - name: process.Ext.thread.token.integrity_level
-    level: custom
-    type: long
-    description: Numeric integrity level.
-    default_field: false
-  - name: process.Ext.thread.token.integrity_level_name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Human readable integrity level.
-    example: one of "system", "high", "medium", "low", "untrusted"
-    default_field: false
-  - name: process.Ext.thread.token.is_appcontainer
-    level: custom
-    type: boolean
-    description: Whether or not this is an appcontainer token.
-    default_field: false
-  - name: process.Ext.thread.token.privileges
-    level: custom
-    type: nested
-    description: Array describing the privileges associated with the token.
-    default_field: false
-  - name: process.Ext.thread.token.privileges.description
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Description of the privilege.
-    default_field: false
-  - name: process.Ext.thread.token.privileges.enabled
-    level: custom
-    type: boolean
-    description: Whether or not the privilege is enabled.
-    default_field: false
-  - name: process.Ext.thread.token.privileges.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Name of the privilege.
-    default_field: false
-  - name: process.Ext.thread.token.sid
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Token user's Security Identifier (SID).
-    default_field: false
-  - name: process.Ext.thread.token.type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Type of the token, either primary or impersonation.
-    default_field: false
-  - name: process.Ext.thread.token.user
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Username of token owner.
-    default_field: false
-  - name: process.Ext.thread.uptime
-    level: custom
-    type: long
-    description: Seconds since thread started.
-    default_field: false
   - name: process.Ext.token.domain
     level: custom
     type: keyword
@@ -1223,6 +1057,171 @@
     type: date
     description: The time the process started.
     example: '2016-05-23T08:05:34.853Z'
+    default_field: false
+  - name: process.thread.Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: process.thread.Ext.call_stack.instruction_pointer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The return address of this stack frame.
+    default_field: false
+  - name: process.thread.Ext.call_stack.memory_section.address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.BaseAddress`
+    default_field: false
+  - name: process.thread.Ext.call_stack.memory_section.protection
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory protection flags of this memory region.  Corresponds to
+      `MEMORY_BASIC_INFORMATION.Protect`
+    default_field: false
+  - name: process.thread.Ext.call_stack.memory_section.size
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Size of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.RegionSize`
+    default_field: false
+  - name: process.thread.Ext.call_stack.module_path
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The DLL/module containing `instruction_pointer`.
+    default_field: false
+  - name: process.thread.Ext.call_stack.rva
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The relative virtual address of `instruction_pointer`.  Computed
+      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+    default_field: false
+  - name: process.thread.Ext.call_stack.symbol_info
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The nearest symbol for `instruction_pointer`.
+    default_field: false
+  - name: process.thread.Ext.service
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Service associated with the thread.
+    example: VaultSvc
+    default_field: false
+  - name: process.thread.Ext.start
+    level: custom
+    type: date
+    description: The time the thread started.
+    example: '2016-05-23T08:05:34.853Z'
+    default_field: false
+  - name: process.thread.Ext.start_address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory address where the thread began execution.
+    example: 5442508
+    default_field: false
+  - name: process.thread.Ext.start_address_module
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The dll/module where the thread began execution.
+    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+    default_field: false
+  - name: process.thread.Ext.token.domain
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Domain of token user.
+    default_field: false
+  - name: process.thread.Ext.token.elevation
+    level: custom
+    type: boolean
+    description: Whether the token is elevated or not
+    default_field: false
+  - name: process.thread.Ext.token.elevation_type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: What level of elevation the token has
+    example: one of "default", "full", "limited"
+    default_field: false
+  - name: process.thread.Ext.token.impersonation_level
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Impersonation level. Only valid for impersonation tokens.
+    default_field: false
+  - name: process.thread.Ext.token.integrity_level
+    level: custom
+    type: long
+    description: Numeric integrity level.
+    default_field: false
+  - name: process.thread.Ext.token.integrity_level_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Human readable integrity level.
+    example: one of "system", "high", "medium", "low", "untrusted"
+    default_field: false
+  - name: process.thread.Ext.token.is_appcontainer
+    level: custom
+    type: boolean
+    description: Whether or not this is an appcontainer token.
+    default_field: false
+  - name: process.thread.Ext.token.privileges
+    level: custom
+    type: nested
+    description: Array describing the privileges associated with the token.
+    default_field: false
+  - name: process.thread.Ext.token.privileges.description
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Description of the privilege.
+    default_field: false
+  - name: process.thread.Ext.token.privileges.enabled
+    level: custom
+    type: boolean
+    description: Whether or not the privilege is enabled.
+    default_field: false
+  - name: process.thread.Ext.token.privileges.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Name of the privilege.
+    default_field: false
+  - name: process.thread.Ext.token.sid
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Token user's Security Identifier (SID).
+    default_field: false
+  - name: process.thread.Ext.token.type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Type of the token, either primary or impersonation.
+    default_field: false
+  - name: process.thread.Ext.token.user
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Username of token owner.
+    default_field: false
+  - name: process.thread.Ext.uptime
+    level: custom
+    type: long
+    description: Seconds since thread started.
     default_field: false
   - name: process.thread.id
     level: extended
@@ -3123,172 +3122,6 @@
     ignore_above: 1024
     description: Session information for the current process
     default_field: false
-  - name: Ext.thread
-    level: custom
-    type: object
-    object_type: keyword
-    description: The thread fields are used to describe by which process thread
-      the event belongs to.
-    default_field: false
-  - name: Ext.thread.call_stack.instruction_pointer
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The return address of this stack frame.
-    default_field: false
-  - name: Ext.thread.call_stack.memory_section.address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.BaseAddress`
-    default_field: false
-  - name: Ext.thread.call_stack.memory_section.protection
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Memory protection flags of this memory region.  Corresponds to
-      `MEMORY_BASIC_INFORMATION.Protect`
-    default_field: false
-  - name: Ext.thread.call_stack.memory_section.size
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Size of the memory region containing `instruction_pointer`.  Corresponds
-      to `MEMORY_BASIC_INFORMATION.RegionSize`
-    default_field: false
-  - name: Ext.thread.call_stack.module_path
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The DLL/module containing `instruction_pointer`.
-    default_field: false
-  - name: Ext.thread.call_stack.rva
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The relative virtual address of `instruction_pointer`.  Computed
-      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-    default_field: false
-  - name: Ext.thread.call_stack.symbol_info
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The nearest symbol for `instruction_pointer`.
-    default_field: false
-  - name: Ext.thread.service
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Service associated with the thread.
-    example: VaultSvc
-    default_field: false
-  - name: Ext.thread.start
-    level: custom
-    type: date
-    description: The time the thread started.
-    example: '2016-05-23T08:05:34.853Z'
-    default_field: false
-  - name: Ext.thread.start_address
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Memory address where the thread began execution.
-    example: 5442508
-    default_field: false
-  - name: Ext.thread.start_address_module
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: The dll/module where the thread began execution.
-    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-    default_field: false
-  - name: Ext.thread.token.domain
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Domain of token user.
-    default_field: false
-  - name: Ext.thread.token.elevation
-    level: custom
-    type: boolean
-    description: Whether the token is elevated or not
-    default_field: false
-  - name: Ext.thread.token.elevation_type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: What level of elevation the token has
-    example: one of "default", "full", "limited"
-    default_field: false
-  - name: Ext.thread.token.impersonation_level
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Impersonation level. Only valid for impersonation tokens.
-    default_field: false
-  - name: Ext.thread.token.integrity_level
-    level: custom
-    type: long
-    description: Numeric integrity level.
-    default_field: false
-  - name: Ext.thread.token.integrity_level_name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Human readable integrity level.
-    example: one of "system", "high", "medium", "low", "untrusted"
-    default_field: false
-  - name: Ext.thread.token.is_appcontainer
-    level: custom
-    type: boolean
-    description: Whether or not this is an appcontainer token.
-    default_field: false
-  - name: Ext.thread.token.privileges
-    level: custom
-    type: nested
-    description: Array describing the privileges associated with the token.
-    default_field: false
-  - name: Ext.thread.token.privileges.description
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Description of the privilege.
-    default_field: false
-  - name: Ext.thread.token.privileges.enabled
-    level: custom
-    type: boolean
-    description: Whether or not the privilege is enabled.
-    default_field: false
-  - name: Ext.thread.token.privileges.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Name of the privilege.
-    default_field: false
-  - name: Ext.thread.token.sid
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Token user's Security Identifier (SID).
-    default_field: false
-  - name: Ext.thread.token.type
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Type of the token, either primary or impersonation.
-    default_field: false
-  - name: Ext.thread.token.user
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Username of token owner.
-    default_field: false
-  - name: Ext.thread.uptime
-    level: custom
-    type: long
-    description: Seconds since thread started.
-    default_field: false
   - name: Ext.token.domain
     level: custom
     type: keyword
@@ -3867,6 +3700,171 @@
     type: date
     description: The time the process started.
     example: '2016-05-23T08:05:34.853Z'
+  - name: thread.Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: thread.Ext.call_stack.instruction_pointer
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The return address of this stack frame.
+    default_field: false
+  - name: thread.Ext.call_stack.memory_section.address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.BaseAddress`
+    default_field: false
+  - name: thread.Ext.call_stack.memory_section.protection
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory protection flags of this memory region.  Corresponds to
+      `MEMORY_BASIC_INFORMATION.Protect`
+    default_field: false
+  - name: thread.Ext.call_stack.memory_section.size
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Size of the memory region containing `instruction_pointer`.  Corresponds
+      to `MEMORY_BASIC_INFORMATION.RegionSize`
+    default_field: false
+  - name: thread.Ext.call_stack.module_path
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The DLL/module containing `instruction_pointer`.
+    default_field: false
+  - name: thread.Ext.call_stack.rva
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The relative virtual address of `instruction_pointer`.  Computed
+      as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+    default_field: false
+  - name: thread.Ext.call_stack.symbol_info
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The nearest symbol for `instruction_pointer`.
+    default_field: false
+  - name: thread.Ext.service
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Service associated with the thread.
+    example: VaultSvc
+    default_field: false
+  - name: thread.Ext.start
+    level: custom
+    type: date
+    description: The time the thread started.
+    example: '2016-05-23T08:05:34.853Z'
+    default_field: false
+  - name: thread.Ext.start_address
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Memory address where the thread began execution.
+    example: 5442508
+    default_field: false
+  - name: thread.Ext.start_address_module
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The dll/module where the thread began execution.
+    example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+    default_field: false
+  - name: thread.Ext.token.domain
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Domain of token user.
+    default_field: false
+  - name: thread.Ext.token.elevation
+    level: custom
+    type: boolean
+    description: Whether the token is elevated or not
+    default_field: false
+  - name: thread.Ext.token.elevation_type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: What level of elevation the token has
+    example: one of "default", "full", "limited"
+    default_field: false
+  - name: thread.Ext.token.impersonation_level
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Impersonation level. Only valid for impersonation tokens.
+    default_field: false
+  - name: thread.Ext.token.integrity_level
+    level: custom
+    type: long
+    description: Numeric integrity level.
+    default_field: false
+  - name: thread.Ext.token.integrity_level_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Human readable integrity level.
+    example: one of "system", "high", "medium", "low", "untrusted"
+    default_field: false
+  - name: thread.Ext.token.is_appcontainer
+    level: custom
+    type: boolean
+    description: Whether or not this is an appcontainer token.
+    default_field: false
+  - name: thread.Ext.token.privileges
+    level: custom
+    type: nested
+    description: Array describing the privileges associated with the token.
+    default_field: false
+  - name: thread.Ext.token.privileges.description
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Description of the privilege.
+    default_field: false
+  - name: thread.Ext.token.privileges.enabled
+    level: custom
+    type: boolean
+    description: Whether or not the privilege is enabled.
+    default_field: false
+  - name: thread.Ext.token.privileges.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Name of the privilege.
+    default_field: false
+  - name: thread.Ext.token.sid
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Token user's Security Identifier (SID).
+    default_field: false
+  - name: thread.Ext.token.type
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Type of the token, either primary or impersonation.
+    default_field: false
+  - name: thread.Ext.token.user
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Username of token owner.
+    default_field: false
+  - name: thread.Ext.uptime
+    level: custom
+    type: long
+    description: Seconds since thread started.
+    default_field: false
   - name: thread.id
     level: extended
     type: long
