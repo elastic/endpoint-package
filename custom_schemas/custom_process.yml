@@ -37,42 +37,40 @@
       description: >
         User associated with the running process.
 
-    - name: Ext.thread
+    - name: thread.Ext
       level: custom
       type: object
-      description:
-        The thread fields are used to describe by which process thread the
-        event belongs to.
+      description: Object for all custom defined fields to live in.
 
-    - name: Ext.thread.start
+    - name: thread.Ext.start
       level: custom
       type: date
       example: "2016-05-23T08:05:34.853Z"
       description: >
         The time the thread started.
 
-    - name: Ext.thread.start_address
+    - name: thread.Ext.start_address
       level: custom
       type: keyword
       example: 5442508
       description: >
         Memory address where the thread began execution.
 
-    - name: Ext.thread.start_address_module
+    - name: thread.Ext.start_address_module
       level: custom
       type: keyword
       example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
       description: >
         The dll/module where the thread began execution.
 
-    - name: Ext.thread.service
+    - name: thread.Ext.service
       level: custom
       type: keyword
       example: VaultSvc
       description: >
         Service associated with the thread.
 
-    - name: Ext.thread.uptime
+    - name: thread.Ext.uptime
       level: custom
       type: long
       description: >

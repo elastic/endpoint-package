@@ -12,7 +12,7 @@
   reusable:
     top_level: false
     expected:
-      - process.Ext.thread
+      - process.thread.Ext
       - process.Ext
   type: group
   fields:
