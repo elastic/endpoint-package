@@ -1121,16 +1121,45 @@ endpoint:
       object_type: keyword
       short: The policy fields are used to hold information about applied policy.
       type: object
-    policy.id:
-      dashed_name: endpoint-policy-id
-      description: ID of the policy that was active when the event was created.
-      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-      flat_name: endpoint.policy.id
+    policy.applied:
+      dashed_name: endpoint-policy-applied
+      description: information about the policy that is applied
+      flat_name: endpoint.policy.applied
+      level: custom
+      name: policy.applied
+      normalize: []
+      object_type: keyword
+      short: information about the policy that is applied
+      type: object
+    policy.applied.id:
+      dashed_name: endpoint-policy-applied-id
+      description: the id of the applied policy
+      flat_name: endpoint.policy.applied.id
       ignore_above: 1024
       level: custom
-      name: policy.id
+      name: policy.applied.id
       normalize: []
-      short: ID of the policy that was active when the event was created.
+      short: the id of the applied policy
+      type: keyword
+    policy.applied.name:
+      dashed_name: endpoint-policy-applied-name
+      description: the name of this applied policy
+      flat_name: endpoint.policy.applied.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.name
+      normalize: []
+      short: the name of this applied policy
+      type: keyword
+    policy.applied.status:
+      dashed_name: endpoint-policy-applied-status
+      description: the status of the applied policy
+      flat_name: endpoint.policy.applied.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.status
+      normalize: []
+      short: the status of the applied policy
       type: keyword
     process:
       dashed_name: endpoint-process
