@@ -694,12 +694,17 @@
     object_type: keyword
     description: The policy fields are used to hold information about applied policy.
     default_field: false
-  - name: policy.id
+  - name: policy.applied
+    level: custom
+    type: object
+    object_type: keyword
+    description: information about the policy that is applied
+    default_field: false
+  - name: policy.applied.id
     level: custom
     type: keyword
     ignore_above: 1024
-    description: ID of the policy that was active when the event was created.
-    example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+    description: the id of the applied policy
     default_field: false
   - name: process
     level: custom
