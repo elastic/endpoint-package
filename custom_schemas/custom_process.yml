@@ -1,5 +1,5 @@
 ---
-- name: process_ext
+- name: process
   title: Process
   group: 2
   short: These fields contain information about a process.
@@ -12,105 +12,102 @@
   reusable:
     top_level: true
     expected:
-      - target_ext
+      - Target
   type: group
   fields:
-    - name: services
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.ancestry
+      level: custom
+      type: keyword
+      description: An array of entity_ids indicating the ancestors for this event
+
+    - name: Ext.services
       level: custom
       type: keyword
       description: >
         Services running in this process.
 
-    - name: user
+    - name: Ext.user
       level: custom
       type: keyword
       description: >
         User associated with the running process.
 
-    - name: thread
+    - name: Ext.thread
       level: custom
       type: object
       description:
         The thread fields are used to describe by which process thread the
         event belongs to.
 
-    - name: thread.start
+    - name: Ext.thread.start
       level: custom
       type: date
       example: "2016-05-23T08:05:34.853Z"
       description: >
         The time the thread started.
 
-    - name: thread.start_address
+    - name: Ext.thread.start_address
       level: custom
       type: keyword
       example: 5442508
       description: >
         Memory address where the thread began execution.
 
-    - name: thread.start_address_module
+    - name: Ext.thread.start_address_module
       level: custom
       type: keyword
       example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
       description: >
         The dll/module where the thread began execution.
 
-    - name: thread.service
+    - name: Ext.thread.service
       level: custom
       type: keyword
       example: VaultSvc
       description: >
         Service associated with the thread.
 
-    - name: thread.uptime
+    - name: Ext.thread.uptime
       level: custom
       type: long
       description: >
         Seconds since thread started.
 
-    - name: authentication_id
+    - name: Ext.authentication_id
       level: custom
       type: keyword
       description: >
         Process authentication ID
 
-    - name: session
+    - name: Ext.session
       level: custom
       type: keyword
       description: >
         Session information for the current process
 
-    - name: parent.real
-      level: custom
-      type: object
-      description: >
-        The field set containing parent process info in case of any ppid spoofing.
-
-    - name: parent.real.pid
-      level: custom
-      type: long
-      description: >
-        The ppid of the process that actually spawned the current process, in case of
-        ppid spoofing.
-
-    - name: code_signature
+    - name: Ext.code_signature
       level: custom
       type: nested
       description: Nested version of ECS code_signature fieldset.
 
-    - name: code_signature.exists
+    - name: Ext.code_signature.exists
       level: custom
       type: boolean
       description: Boolean to capture if a signature is present.
       example: "true"
 
-    - name: code_signature.subject_name
+    - name: Ext.code_signature.subject_name
       level: custom
       type: keyword
       description: Subject name of the code signer
       example: Microsoft Corporation
 
-    - name: code_signature.valid
+    - name: Ext.code_signature.valid
       level: custom
       type: boolean
       short: Boolean to capture if the digital signature is verified against the binary content.
@@ -120,7 +117,7 @@
 
         Leave unpopulated if a certificate was unchecked.
 
-    - name: code_signature.trusted
+    - name: Ext.code_signature.trusted
       level: custom
       type: boolean
       short: Stores the trust status of the certificate chain.
@@ -132,7 +129,7 @@
         by tools that actively check the status.
 
 
-    - name: code_signature.status
+    - name: Ext.code_signature.status
       level: custom
       type: keyword
       short: Additional information about the certificate status.
@@ -149,24 +146,29 @@
       description: >
         Extended "process.parent" field set.
 
-    - name: parent.code_signature
+    - name: parent.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: parent.Ext.code_signature
       level: custom
       type: nested
       description: Nested version of ECS code_signature fieldset.
 
-    - name: parent.code_signature.exists
+    - name: parent.Ext.code_signature.exists
       level: custom
       type: boolean
       description: Boolean to capture if a signature is present.
       example: "true"
 
-    - name: parent.code_signature.subject_name
+    - name: parent.Ext.code_signature.subject_name
       level: custom
       type: keyword
       description: Subject name of the code signer
       example: Microsoft Corporation
 
-    - name: parent.code_signature.valid
+    - name: parent.Ext.code_signature.valid
       level: custom
       type: boolean
       short: Boolean to capture if the digital signature is verified against the binary content.
@@ -176,7 +178,7 @@
 
         Leave unpopulated if a certificate was unchecked.
 
-    - name: parent.code_signature.trusted
+    - name: parent.Ext.code_signature.trusted
       level: custom
       type: boolean
       short: Stores the trust status of the certificate chain.
@@ -188,7 +190,7 @@
         by tools that actively check the status.
 
 
-    - name: parent.code_signature.status
+    - name: parent.Ext.code_signature.status
       level: custom
       type: keyword
       short: Additional information about the certificate status.
@@ -199,7 +201,15 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
-    - name: ancestry
+    - name: parent.Ext.real
       level: custom
-      type: keyword
-      description: An array of entity_ids indicating the ancestors for this event
+      type: object
+      description: >
+        The field set containing parent process info in case of any ppid spoofing.
+
+    - name: parent.Ext.real.pid
+      level: custom
+      type: long
+      description: >
+        The ppid of the process that actually spawned the current process, in case of
+        ppid spoofing.

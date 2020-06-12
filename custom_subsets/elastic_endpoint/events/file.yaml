@@ -70,14 +70,14 @@ group:
       fields: "*"
     name:
       fields: "*"
-group_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 user:
   fields:
     id:
@@ -86,14 +86,14 @@ user:
       fields: "*"
     domain:
       fields: "*"
-user_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 process:
   fields:
     pid:
@@ -108,10 +108,10 @@ process:
       fields:
         id:
           fields: "*"
-process_ext:
-  fields:
-    ancestry:
-      fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
 file:
   fields:
     name:
@@ -138,25 +138,25 @@ file:
           fields: "*"
         sha256:
           fields: "*"
-file_ext:
-  fields:
-    windows:
+    Ext:
       fields:
-        zone_identifier:
-          fields: "*"
-    original:
-      fields:
-        name:
-          fields: "*"
-        path:
-          fields: "*"
-        mode:
-          fields: "*"
-        uid:
-          fields: "*"
-        owner:
-          fields: "*"
-        gid:
-          fields: "*"
-        group:
-          fields: "*"
+        windows:
+          fields:
+            zone_identifier:
+              fields: "*"
+        original:
+          fields:
+            name:
+              fields: "*"
+            path:
+              fields: "*"
+            mode:
+              fields: "*"
+            uid:
+              fields: "*"
+            owner:
+              fields: "*"
+            gid:
+              fields: "*"
+            group:
+              fields: "*"

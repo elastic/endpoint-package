@@ -70,14 +70,14 @@ group:
       fields: "*"
     name:
       fields: "*"
-group_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 user:
   fields:
     id:
@@ -86,14 +86,14 @@ user:
       fields: "*"
     domain:
       fields: "*"
-user_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 process:
   fields:
     entity_id:
@@ -142,27 +142,27 @@ process:
           fields: "*"
         executable:
           fields: "*"
-process_ext:
-  fields:
-    ancestry:
-      fields: "*"
-    authentication_id:
-      fields: "*"
-    session:
-      fields: "*"
-    token:
-      fields:
-        elevation:
-          fields: "*"
-        elevation_type:
-          fields: "*"
-        integrity_level_name:
-          fields: "*"
-    parent:
-      fields:
-        real:
+        Ext:
           fields:
-            pid:
+            real:
+              fields:
+                pid:
+                  fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
+        authentication_id:
+          fields: "*"
+        session:
+          fields: "*"
+        token:
+          fields:
+            elevation:
+              fields: "*"
+            elevation_type:
+              fields: "*"
+            integrity_level_name:
               fields: "*"
 package:
   fields:

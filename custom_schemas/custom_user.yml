@@ -1,5 +1,5 @@
 ---
-- name: user_ext
+- name: user
   title: User
   group: 2
   short: Fields describing user relevant to the event.
@@ -7,18 +7,23 @@
     Fields describing user relevant to the event.
   type: group
   fields:
-    - name: real
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.real
       level: custom
       type: object
       description: User info prior to any setuid operations.
 
-    - name: real.id
+    - name: Ext.real.id
       level: custom
       type: keyword
       description: >
         One or multiple unique identifiers of the user.
 
-    - name: real.name
+    - name: Ext.real.name
       level: custom
       type: keyword
       description: >

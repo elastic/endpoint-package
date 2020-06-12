@@ -1,5 +1,5 @@
 ---
-- name: dns_ext
+- name: dns
   title: Dns
   group: 2
   short: Fields describing dns relevant to the event.
@@ -7,12 +7,17 @@
     Fields describing dns relevant to the event.
   type: group
   fields:
-    - name: status
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.status
       level: custom
       type: long
       description: DNS status field, uint32
 
-    - name: options
+    - name: Ext.options
       level: custom
       type: keyword
       description: DNS options field, uint64, representing as a keyword to avoid overflows in ES

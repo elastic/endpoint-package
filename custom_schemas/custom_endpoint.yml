@@ -1,5 +1,5 @@
 ---
-- name: endpoint_ext
+- name: Endpoint
   title: Endpoint
   group: 2
   short: Fields describing the state of the Elastic Endpoint when an event occurs.

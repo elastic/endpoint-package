@@ -8,7 +8,7 @@
   reusable:
     top_level: false
     expected:
-      - process_ext.thread
+      - process.Ext.thread
   fields:
     - name: module_path
       level: custom

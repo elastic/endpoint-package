@@ -11,7 +11,7 @@ event:
   fields:
     created:
       fields: "*"
-endpoint_ext:
+Endpoint:
   fields:
     policy:
       fields:
@@ -23,7 +23,7 @@ endpoint_ext:
               fields: "*"
             name:
               fields: "*"
-elastic_ext:
+Elastic:
   fields:
     agent:
       fields:
@@ -57,9 +57,7 @@ host:
           fields: "*"
         version:
           fields: "*"
-host_ext:
-  fields:
-    os_ext:
-      fields:
-        variant:
-          fields: "*"
+        Ext:
+          fields:
+            variant:
+              fields: "*"

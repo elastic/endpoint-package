@@ -12,8 +12,8 @@
   reusable:
     top_level: false
     expected:
-      - process_ext.thread
-      - process_ext
+      - process.Ext.thread
+      - process.Ext
   type: group
   fields:
     - name: user

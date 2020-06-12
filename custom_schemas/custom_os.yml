@@ -1,5 +1,5 @@
 ---
-- name: os_ext
+- name: os
   title: Custom OS
   group: 2
   short: TODO
@@ -9,10 +9,15 @@
   reusable:
     top_level: false
     expected:
-      - host_ext
+      - host
   fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
     # this is temporary until variant is included in ecs core https://github.com/elastic/ecs/issues/744
-    - name: variant
+    - name: Ext.variant
       level: custom
       type: keyword
       description: >

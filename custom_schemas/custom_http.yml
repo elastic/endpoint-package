@@ -1,5 +1,5 @@
 ---
-- name: http_ext
+- name: http
   title: HTTP
   group: 2
   short: Fields describing an HTTP request.
@@ -7,7 +7,12 @@
     Fields related to HTTP activity. Use the `url` field set to store the url of the request.
   type: group
   fields:
-    - name: response.version
+    - name: response.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: response.Ext.version
       level: custom
       type: keyword
       description: >

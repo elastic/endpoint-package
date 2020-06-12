@@ -72,14 +72,14 @@ group:
       fields: "*"
     name:
       fields: "*"
-group_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 user:
   fields:
     id:
@@ -88,14 +88,14 @@ user:
       fields: "*"
     domain:
       fields: "*"
-user_ext:
-  fields:
-    real:
+    Ext:
       fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 process:
   fields:
     pid:
@@ -110,10 +110,10 @@ process:
       fields:
         id:
           fields: "*"
-process_ext:
-  fields:
-    ancestry:
-      fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
 network:
   fields:
     type:
@@ -182,6 +182,10 @@ http:
               fields: "*"
         bytes:
           fields: "*"
+        Ext:
+          fields:
+            version:
+              fields: "*"
     request:
       fields:
         body:
@@ -191,12 +195,6 @@ http:
             bytes:
               fields: "*"
         bytes:
-          fields: "*"
-http_ext:
-  fields:
-    response:
-      fields:
-        version:
           fields: "*"
 dns:
   fields:
@@ -214,9 +212,9 @@ dns:
           fields: "*"
     resolved_ip:
       fields: "*"
-dns_ext:
-  fields:
-    status:
-      fields: "*"
-    options:
-      fields: "*"      
+    Ext:
+      fields:
+        status:
+          fields: "*"
+        options:
+          fields: "*"      

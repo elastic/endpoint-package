@@ -9,7 +9,7 @@
   reusable:
     top_level: false
     expected:
-      - file_ext
+      - file.Ext
   fields:
     - name: errors
       level: custom

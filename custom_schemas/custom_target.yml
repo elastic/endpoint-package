@@ -1,5 +1,5 @@
 ---
-- name: target_ext
+- name: Target
   title: Target
   group: 2
   short: These fields contain information about a target.
@@ -12,13 +12,13 @@
     may be acted on by another process or thread.
   type: group
   fields:
-    - name: process_ext
+    - name: process
       level: custom
       type: object
       description: >
         Process.
 
-    - name: dll_ext
+    - name: dll
       level: custom
       type: object
       description: >

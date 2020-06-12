@@ -1,5 +1,5 @@
 ---
-- name: file_ext
+- name: file
   title: File
   group: 2
   short: Fields describing files.
@@ -11,110 +11,115 @@
     File fields provide details about the affected file associated with the event or metric.
   type: group
   fields:
-    - name: entry_modified
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.entry_modified
       level: custom
       type: double
       description: >
         Time of last status change.  See `st_ctim` member of `struct stat`.
 
-    - name: temp_file_path
+    - name: Ext.temp_file_path
       level: custom
       type: keyword
       description: >
         Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable.
 
-    - name: quarantine_result
+    - name: Ext.quarantine_result
       level: custom
       type: boolean
       description: >
         Boolean representing whether or not file quarantine succeeded.
 
-    - name: quarantine_path
+    - name: Ext.quarantine_path
       level: custom
       type: keyword
       description: >
         Path on endpoint the quarantined file was originally.
 
-    - name: windows
+    - name: Ext.windows
       level: custom
       type: object
       description: Platform-specific Windows fields
 
-    - name: windows.zone_identifier
+    - name: Ext.windows.zone_identifier
       level: custom
       type: keyword
       description: >
         Windows zone identifier for a file
 
-    - name: original
+    - name: Ext.original
       level: custom
       type: object
       description: Original file information during a modification event.
 
-    - name: original.name
+    - name: Ext.original.name
       level: custom
       type: keyword
       description: >
         Original file name prior to a modification event
 
-    - name: original.path
+    - name: Ext.original.path
       level: custom
       type: keyword
       description: >
         Original file path prior to a modification event
 
-    - name: original.mode
+    - name: Ext.original.mode
       level: custom
       type: keyword
       description: >
         Original file mode prior to a modification event
 
-    - name: original.uid
+    - name: Ext.original.uid
       level: custom
       type: keyword
       description: >
         The user ID (UID) or security identifier (SID) of the file owner.
       example: "1001"
 
-    - name: original.owner
+    - name: Ext.original.owner
       level: custom
       type: keyword
       description: >
         File owner's username.
       example: alice
 
-    - name: original.gid
+    - name: Ext.original.gid
       level: custom
       type: keyword
       description: >
         Primary group ID (GID) of the file.
       example: "1001"
 
-    - name: original.group
+    - name: Ext.original.group
       level: custom
       type: keyword
       description: >
         Primary group name of the file.
       example: alice
 
-    - name: code_signature
+    - name: Ext.code_signature
       level: custom
       type: nested
       description: Nested version of ECS code_signature fieldset.
 
-    - name: code_signature.exists
+    - name: Ext.code_signature.exists
       level: core
       type: boolean
       description: Boolean to capture if a signature is present.
       example: "true"
 
-    - name: code_signature.subject_name
+    - name: Ext.code_signature.subject_name
       level: core
       type: keyword
       description: Subject name of the code signer
       example: Microsoft Corporation
 
-    - name: code_signature.valid
+    - name: Ext.code_signature.valid
       level: custom
       type: boolean
       short: Boolean to capture if the digital signature is verified against the binary content.
@@ -124,7 +129,7 @@
 
         Leave unpopulated if a certificate was unchecked.
 
-    - name: code_signature.trusted
+    - name: Ext.code_signature.trusted
       level: custom
       type: boolean
       short: Stores the trust status of the certificate chain.
@@ -136,7 +141,7 @@
         by tools that actively check the status.
 
 
-    - name: code_signature.status
+    - name: Ext.code_signature.status
       level: custom
       type: keyword
       short: Additional information about the certificate status.
