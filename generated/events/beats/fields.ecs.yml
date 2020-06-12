@@ -706,6 +706,18 @@
     ignore_above: 1024
     description: the id of the applied policy
     default_field: false
+  - name: policy.applied.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the name of this applied policy
+    default_field: false
+  - name: policy.applied.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the status of the applied policy
+    default_field: false
   - name: process
     level: custom
     type: object

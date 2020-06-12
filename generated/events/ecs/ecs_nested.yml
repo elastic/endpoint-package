@@ -1141,6 +1141,26 @@ endpoint:
       normalize: []
       short: the id of the applied policy
       type: keyword
+    policy.applied.name:
+      dashed_name: endpoint-policy-applied-name
+      description: the name of this applied policy
+      flat_name: endpoint.policy.applied.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.name
+      normalize: []
+      short: the name of this applied policy
+      type: keyword
+    policy.applied.status:
+      dashed_name: endpoint-policy-applied-status
+      description: the status of the applied policy
+      flat_name: endpoint.policy.applied.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.status
+      normalize: []
+      short: the status of the applied policy
+      type: keyword
     process:
       dashed_name: endpoint-process
       description: Extended "process" field set
