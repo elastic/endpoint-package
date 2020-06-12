@@ -1,22 +1,6 @@
 title: metadata
 fields:
 
-  - name: Elastic
-    description: Holds fields and properties of data points and concepts in the elastic
-      domain or namespace.
-    fields:
-
-      - name: agent
-        description: The agent fields contain data about the Elastic Agent. The Elastic
-          Agent is the management agent that manages other agents or process on the
-          host.
-        fields:
-
-          - name: id
-            type: keyword
-            description: Unique identifier of this elastic agent (if one exists).
-            example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-
   - name: Endpoint
     description: Fields describing the state of the Elastic Endpoint when an event
       occurs.
@@ -103,6 +87,22 @@ fields:
           ECS versions -- this field lets integrations adjust to the schema version
           of the events.'
         example: 1.0.0
+
+  - name: elastic
+    description: Holds fields and properties of data points and concepts in the elastic
+      domain or namespace.
+    fields:
+
+      - name: agent
+        description: The agent fields contain data about the Elastic Agent. The Elastic
+          Agent is the management agent that manages other agents or process on the
+          host.
+        fields:
+
+          - name: id
+            type: keyword
+            description: Unique identifier of this elastic agent (if one exists).
+            example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
 
   - name: event
     description: 'The event fields are used for context information about the log

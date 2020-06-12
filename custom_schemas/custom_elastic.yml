@@ -1,5 +1,5 @@
 ---
-- name: Elastic
+- name: elastic
   title: Elastic
   group: 2
   description: >

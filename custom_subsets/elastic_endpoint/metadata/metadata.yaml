@@ -23,7 +23,7 @@ Endpoint:
               fields: "*"
             name:
               fields: "*"
-Elastic:
+elastic:
   fields:
     agent:
       fields:

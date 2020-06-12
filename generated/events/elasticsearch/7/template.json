@@ -22,19 +22,6 @@
       "@timestamp": {
         "type": "date"
       },
-      "Elastic": {
-        "properties": {
-          "agent": {
-            "properties": {
-              "id": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            },
-            "type": "object"
-          }
-        }
-      },
       "Endpoint": {
         "properties": {
           "policy": {
@@ -1076,6 +1063,19 @@
           "version": {
             "ignore_above": 1024,
             "type": "keyword"
+          }
+        }
+      },
+      "elastic": {
+        "properties": {
+          "agent": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            },
+            "type": "object"
           }
         }
       },

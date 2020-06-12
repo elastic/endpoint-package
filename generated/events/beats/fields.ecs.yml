@@ -23,28 +23,6 @@
 
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
-- name: Elastic
-  title: Elastic
-  group: 2
-  description: Holds fields and properties of data points and concepts in the elastic
-    domain or namespace.
-  type: group
-  fields:
-  - name: agent
-    level: custom
-    type: object
-    object_type: keyword
-    description: The agent fields contain data about the Elastic Agent. The Elastic
-      Agent is the management agent that manages other agents or process on the
-      host.
-    default_field: false
-  - name: agent.id
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: Unique identifier of this elastic agent (if one exists).
-    example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-    default_field: false
 - name: Endpoint
   title: Endpoint
   group: 2
@@ -1707,6 +1685,28 @@
       ECS versions -- this field lets integrations adjust to the schema version
       of the events.'
     example: 1.0.0
+- name: elastic
+  title: Elastic
+  group: 2
+  description: Holds fields and properties of data points and concepts in the elastic
+    domain or namespace.
+  type: group
+  fields:
+  - name: agent
+    level: custom
+    type: object
+    object_type: keyword
+    description: The agent fields contain data about the Elastic Agent. The Elastic
+      Agent is the management agent that manages other agents or process on the
+      host.
+    default_field: false
+  - name: agent.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Unique identifier of this elastic agent (if one exists).
+    example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+    default_field: false
 - name: event
   title: Event
   group: 2

@@ -1,38 +1,3 @@
-Elastic:
-  description: Holds fields and properties of data points and concepts in the elastic
-    domain or namespace.
-  fields:
-    agent:
-      dashed_name: Elastic-agent
-      description: The agent fields contain data about the Elastic Agent. The Elastic
-        Agent is the management agent that manages other agents or process on the
-        host.
-      flat_name: Elastic.agent
-      level: custom
-      name: agent
-      normalize: []
-      object_type: keyword
-      short: The agent fields contain data about the Elastic Agent. The Elastic Agent
-        is the management agent that manages other agents or process on the host.
-      type: object
-    agent.id:
-      dashed_name: Elastic-agent-id
-      description: Unique identifier of this elastic agent (if one exists).
-      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-      flat_name: Elastic.agent.id
-      ignore_above: 1024
-      level: custom
-      name: agent.id
-      normalize: []
-      short: Unique identifier of this elastic agent (if one exists).
-      type: keyword
-  group: 2
-  name: Elastic
-  prefix: Elastic.
-  short: Holds fields and properties of data points and concepts in the elastic domain
-    or namespace.
-  title: Elastic
-  type: group
 Endpoint:
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   fields:
@@ -2895,6 +2860,41 @@ ecs:
   prefix: ecs.
   short: Meta-information specific to ECS.
   title: ECS
+  type: group
+elastic:
+  description: Holds fields and properties of data points and concepts in the elastic
+    domain or namespace.
+  fields:
+    agent:
+      dashed_name: elastic-agent
+      description: The agent fields contain data about the Elastic Agent. The Elastic
+        Agent is the management agent that manages other agents or process on the
+        host.
+      flat_name: elastic.agent
+      level: custom
+      name: agent
+      normalize: []
+      object_type: keyword
+      short: The agent fields contain data about the Elastic Agent. The Elastic Agent
+        is the management agent that manages other agents or process on the host.
+      type: object
+    agent.id:
+      dashed_name: elastic-agent-id
+      description: Unique identifier of this elastic agent (if one exists).
+      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+      flat_name: elastic.agent.id
+      ignore_above: 1024
+      level: custom
+      name: agent.id
+      normalize: []
+      short: Unique identifier of this elastic agent (if one exists).
+      type: keyword
+  group: 2
+  name: elastic
+  prefix: elastic.
+  short: Holds fields and properties of data points and concepts in the elastic domain
+    or namespace.
+  title: Elastic
   type: group
 event:
   description: 'The event fields are used for context information about the log or
