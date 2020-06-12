@@ -126,6 +126,19 @@ fields:
       (`dns.type:answer`).'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: options
+            type: keyword
+            description: DNS options field, uint64, representing as a keyword to avoid
+              overflows in ES
+
+          - name: status
+            type: long
+            description: DNS status field, uint32
+
       - name: question
         description: TODO
         fields:
@@ -187,19 +200,6 @@ fields:
         example:
           - 10.10.10.10
           - 10.10.10.11
-
-  - name: dns_ext
-    description: Fields describing dns relevant to the event.
-    fields:
-
-      - name: options
-        type: keyword
-        description: DNS options field, uint64, representing as a keyword to avoid
-          overflows in ES
-
-      - name: status
-        type: long
-        description: DNS status field, uint32
 
   - name: ecs
     description: Meta-information specific to ECS.
@@ -768,6 +768,22 @@ fields:
       to the event.
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: Group info prior to any setgid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: Unique identifier for the group on the system/platform.
+
+              - name: name
+                type: keyword
+                description: Name of the group.
+
       - name: id
         type: keyword
         description: Unique identifier for the group on the system/platform.
@@ -775,22 +791,6 @@ fields:
       - name: name
         type: keyword
         description: Name of the group.
-
-  - name: group_ext
-    description: Fields describing groups relevant to the event.
-    fields:
-
-      - name: real
-        description: Group info prior to any setgid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: Unique identifier for the group on the system/platform.
-
-          - name: name
-            type: keyword
-            description: Name of the group.
 
   - name: host
     description: 'A host is defined as a general computing instance.
@@ -912,6 +912,14 @@ fields:
         description: TODO
         fields:
 
+          - name: Ext
+            description: Object for all custom defined fields to live in.
+            fields:
+
+              - name: version
+                type: keyword
+                description: HTTP version
+
           - name: body
             description: TODO
             fields:
@@ -935,19 +943,6 @@ fields:
             type: long
             description: HTTP response status code.
             example: 404
-
-  - name: http_ext
-    description: Fields related to HTTP activity. Use the `url` field set to store
-      the url of the request.
-    fields:
-
-      - name: response
-        description: TODO
-        fields:
-
-          - name: version
-            type: keyword
-            description: HTTP version
 
   - name: network
     description: 'The network is defined as the communication path over which a host
@@ -1033,6 +1028,15 @@ fields:
       is copied to the global field for correlation.'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: ancestry
+            type: keyword
+            description: An array of entity_ids indicating the ancestors for this
+              event
+
       - name: entity_id
         type: keyword
         description: 'Unique identifier for the process.
@@ -1071,18 +1075,6 @@ fields:
             type: long
             description: Thread ID.
             example: 4242
-
-  - name: process_ext
-    description: 'These fields contain information about a process.
-
-      These fields can help you correlate metrics information with a process id/name
-      from a log message.  The `process.pid` often stays in the metric itself and
-      is copied to the global field for correlation.'
-    fields:
-
-      - name: ancestry
-        type: keyword
-        description: An array of entity_ids indicating the ancestors for this event
 
   - name: source
     description: 'Source fields describe details about the source of a packet/event.
@@ -1153,6 +1145,22 @@ fields:
       provide an array that includes all of them.'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: User info prior to any setuid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: One or multiple unique identifiers of the user.
+
+              - name: name
+                type: keyword
+                description: Short name or login of the user.
+
       - name: domain
         type: keyword
         description: 'Name of the directory the user is a member of.
@@ -1167,19 +1175,3 @@ fields:
         type: keyword
         description: Short name or login of the user.
         example: albert
-
-  - name: user_ext
-    description: Fields describing user relevant to the event.
-    fields:
-
-      - name: real
-        description: User info prior to any setuid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: One or multiple unique identifiers of the user.
-
-          - name: name
-            type: keyword
-            description: Short name or login of the user.

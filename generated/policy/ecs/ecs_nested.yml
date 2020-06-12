@@ -1,3 +1,375 @@
+Endpoint:
+  description: Fields describing the state of the Elastic Endpoint when an event occurs.
+  fields:
+    policy:
+      dashed_name: Endpoint-policy
+      description: The policy fields are used to hold information about applied policy.
+      flat_name: Endpoint.policy
+      level: custom
+      name: policy
+      normalize: []
+      object_type: keyword
+      short: The policy fields are used to hold information about applied policy.
+      type: object
+    policy.applied:
+      dashed_name: Endpoint-policy-applied
+      description: information about the policy that is applied
+      flat_name: Endpoint.policy.applied
+      level: custom
+      name: policy.applied
+      normalize: []
+      object_type: keyword
+      short: information about the policy that is applied
+      type: object
+    policy.applied.actions:
+      dashed_name: Endpoint-policy-applied-actions
+      description: actions applied during the application of the policy
+      enabled: false
+      flat_name: Endpoint.policy.applied.actions
+      level: custom
+      name: policy.applied.actions
+      normalize: []
+      short: actions applied during the application of the policy
+      type: nested
+    policy.applied.actions.message:
+      dashed_name: Endpoint-policy-applied-actions-message
+      description: message about the application of the action to further qualify
+        the status of the action
+      flat_name: Endpoint.policy.applied.actions.message
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.actions.message
+      normalize: []
+      short: message about the application of the action to further qualify the status
+        of the action
+      type: keyword
+    policy.applied.actions.name:
+      dashed_name: Endpoint-policy-applied-actions-name
+      description: name of the action that was applied
+      flat_name: Endpoint.policy.applied.actions.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.actions.name
+      normalize: []
+      short: name of the action that was applied
+      type: keyword
+    policy.applied.actions.status:
+      dashed_name: Endpoint-policy-applied-actions-status
+      description: the status of the action
+      flat_name: Endpoint.policy.applied.actions.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.actions.status
+      normalize: []
+      short: the status of the action
+      type: keyword
+    policy.applied.artifacts:
+      dashed_name: Endpoint-policy-applied-artifacts
+      description: information about protection artifacts applied.
+      enabled: false
+      flat_name: Endpoint.policy.applied.artifacts
+      level: custom
+      name: policy.applied.artifacts
+      normalize: []
+      object_type: keyword
+      short: information about protection artifacts applied.
+      type: object
+    policy.applied.artifacts.global:
+      dashed_name: Endpoint-policy-applied-artifacts-global
+      description: information about global protection artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.global
+      level: custom
+      name: policy.applied.artifacts.global
+      normalize: []
+      object_type: keyword
+      short: information about global protection artifacts applied.
+      type: object
+    policy.applied.artifacts.global.identifiers:
+      dashed_name: Endpoint-policy-applied-artifacts-global-identifiers
+      description: the identifiers of global artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.global.identifiers
+      level: custom
+      name: policy.applied.artifacts.global.identifiers
+      normalize: []
+      short: the identifiers of global artifacts applied.
+      type: nested
+    policy.applied.artifacts.global.identifiers.name:
+      dashed_name: Endpoint-policy-applied-artifacts-global-identifiers-name
+      description: the name of global artifact applied.
+      flat_name: Endpoint.policy.applied.artifacts.global.identifiers.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.global.identifiers.name
+      normalize: []
+      short: the name of global artifact applied.
+      type: keyword
+    policy.applied.artifacts.global.identifiers.sha256:
+      dashed_name: Endpoint-policy-applied-artifacts-global-identifiers-sha256
+      description: the sha256 of global artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.global.identifiers.sha256
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.global.identifiers.sha256
+      normalize: []
+      short: the sha256 of global artifacts applied.
+      type: keyword
+    policy.applied.artifacts.global.version:
+      dashed_name: Endpoint-policy-applied-artifacts-global-version
+      description: the version of global artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.global.version
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.global.version
+      normalize: []
+      short: the version of global artifacts applied.
+      type: keyword
+    policy.applied.artifacts.user:
+      dashed_name: Endpoint-policy-applied-artifacts-user
+      description: information about user protection artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.user
+      level: custom
+      name: policy.applied.artifacts.user
+      normalize: []
+      object_type: keyword
+      short: information about user protection artifacts applied.
+      type: object
+    policy.applied.artifacts.user.identifiers:
+      dashed_name: Endpoint-policy-applied-artifacts-user-identifiers
+      description: the identifiers of user artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.user.identifiers
+      level: custom
+      name: policy.applied.artifacts.user.identifiers
+      normalize: []
+      short: the identifiers of user artifacts applied.
+      type: nested
+    policy.applied.artifacts.user.identifiers.name:
+      dashed_name: Endpoint-policy-applied-artifacts-user-identifiers-name
+      description: the name of user artifact applied.
+      flat_name: Endpoint.policy.applied.artifacts.user.identifiers.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.user.identifiers.name
+      normalize: []
+      short: the name of user artifact applied.
+      type: keyword
+    policy.applied.artifacts.user.identifiers.sha256:
+      dashed_name: Endpoint-policy-applied-artifacts-user-identifiers-sha256
+      description: the sha256 of user artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.user.identifiers.sha256
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.user.identifiers.sha256
+      normalize: []
+      short: the sha256 of user artifacts applied.
+      type: keyword
+    policy.applied.artifacts.user.version:
+      dashed_name: Endpoint-policy-applied-artifacts-user-version
+      description: the version of user artifacts applied.
+      flat_name: Endpoint.policy.applied.artifacts.user.version
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.artifacts.user.version
+      normalize: []
+      short: the version of user artifacts applied.
+      type: keyword
+    policy.applied.configurations:
+      dashed_name: Endpoint-policy-applied-configurations
+      description: the configurations of the applied policy
+      enabled: false
+      flat_name: Endpoint.policy.applied.configurations
+      level: custom
+      name: policy.applied.configurations
+      normalize: []
+      object_type: keyword
+      short: the configurations of the applied policy
+      type: object
+    policy.applied.configurations.events:
+      dashed_name: Endpoint-policy-applied-configurations-events
+      description: overall event collection configuration and status of the applied
+        policy
+      flat_name: Endpoint.policy.applied.configurations.events
+      level: custom
+      name: policy.applied.configurations.events
+      normalize: []
+      object_type: keyword
+      short: overall event collection configuration and status of the applied policy
+      type: object
+    policy.applied.configurations.events.concerned_actions:
+      dashed_name: Endpoint-policy-applied-configurations-events-concerned-actions
+      description: all actions that were taken for event collection
+      flat_name: Endpoint.policy.applied.configurations.events.concerned_actions
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.events.concerned_actions
+      normalize: []
+      short: all actions that were taken for event collection
+      type: keyword
+    policy.applied.configurations.events.status:
+      dashed_name: Endpoint-policy-applied-configurations-events-status
+      description: the overall status of event collection, this is correlated to the
+        status of concerned actions  but not a simple sum of the actions
+      flat_name: Endpoint.policy.applied.configurations.events.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.events.status
+      normalize: []
+      short: the overall status of event collection, this is correlated to the status
+        of concerned actions  but not a simple sum of the actions
+      type: keyword
+    policy.applied.configurations.logging:
+      dashed_name: Endpoint-policy-applied-configurations-logging
+      description: overall logging configuration and status of the applied policy
+      flat_name: Endpoint.policy.applied.configurations.logging
+      level: custom
+      name: policy.applied.configurations.logging
+      normalize: []
+      object_type: keyword
+      short: overall logging configuration and status of the applied policy
+      type: object
+    policy.applied.configurations.logging.concerned_actions:
+      dashed_name: Endpoint-policy-applied-configurations-logging-concerned-actions
+      description: all actions that were taken for logging
+      flat_name: Endpoint.policy.applied.configurations.logging.concerned_actions
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.logging.concerned_actions
+      normalize: []
+      short: all actions that were taken for logging
+      type: keyword
+    policy.applied.configurations.logging.status:
+      dashed_name: Endpoint-policy-applied-configurations-logging-status
+      description: the overall status of logging, this is correlated to the status
+        of concerned actions but  not a simple sum of the actions
+      flat_name: Endpoint.policy.applied.configurations.logging.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.logging.status
+      normalize: []
+      short: the overall status of logging, this is correlated to the status of concerned
+        actions but  not a simple sum of the actions
+      type: keyword
+    policy.applied.configurations.malware:
+      dashed_name: Endpoint-policy-applied-configurations-malware
+      description: overall malware configuration and status of the applied policy
+      flat_name: Endpoint.policy.applied.configurations.malware
+      level: custom
+      name: policy.applied.configurations.malware
+      normalize: []
+      object_type: keyword
+      short: overall malware configuration and status of the applied policy
+      type: object
+    policy.applied.configurations.malware.concerned_actions:
+      dashed_name: Endpoint-policy-applied-configurations-malware-concerned-actions
+      description: all actions that were taken for malware
+      flat_name: Endpoint.policy.applied.configurations.malware.concerned_actions
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.malware.concerned_actions
+      normalize: []
+      short: all actions that were taken for malware
+      type: keyword
+    policy.applied.configurations.malware.status:
+      dashed_name: Endpoint-policy-applied-configurations-malware-status
+      description: the overall status of malware, this is correlated to the status
+        of concerned actions  but not a simple sum of the actions
+      flat_name: Endpoint.policy.applied.configurations.malware.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.malware.status
+      normalize: []
+      short: the overall status of malware, this is correlated to the status of concerned
+        actions  but not a simple sum of the actions
+      type: keyword
+    policy.applied.configurations.streaming:
+      dashed_name: Endpoint-policy-applied-configurations-streaming
+      description: overall data streaming configuration and status of the applied
+        policy
+      flat_name: Endpoint.policy.applied.configurations.streaming
+      level: custom
+      name: policy.applied.configurations.streaming
+      normalize: []
+      object_type: keyword
+      short: overall data streaming configuration and status of the applied policy
+      type: object
+    policy.applied.configurations.streaming.concerned_actions:
+      dashed_name: Endpoint-policy-applied-configurations-streaming-concerned-actions
+      description: all actions that were taken for data streaming
+      flat_name: Endpoint.policy.applied.configurations.streaming.concerned_actions
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.streaming.concerned_actions
+      normalize: []
+      short: all actions that were taken for data streaming
+      type: keyword
+    policy.applied.configurations.streaming.status:
+      dashed_name: Endpoint-policy-applied-configurations-streaming-status
+      description: the overall status of data streaming, this is correlated to the
+        status of concerned actions  but not a simple sum of the actions
+      flat_name: Endpoint.policy.applied.configurations.streaming.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.configurations.streaming.status
+      normalize: []
+      short: the overall status of data streaming, this is correlated to the status
+        of concerned actions  but not a simple sum of the actions
+      type: keyword
+    policy.applied.id:
+      dashed_name: Endpoint-policy-applied-id
+      description: the id of the applied policy
+      flat_name: Endpoint.policy.applied.id
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.id
+      normalize: []
+      short: the id of the applied policy
+      type: keyword
+    policy.applied.name:
+      dashed_name: Endpoint-policy-applied-name
+      description: the name of this applied policy
+      flat_name: Endpoint.policy.applied.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.name
+      normalize: []
+      short: the name of this applied policy
+      type: keyword
+    policy.applied.response:
+      dashed_name: Endpoint-policy-applied-response
+      description: the response of actions that failed in the applied policy
+      enabled: false
+      flat_name: Endpoint.policy.applied.response
+      level: custom
+      name: policy.applied.response
+      normalize: []
+      object_type: keyword
+      short: the response of actions that failed in the applied policy
+      type: object
+    policy.applied.status:
+      dashed_name: Endpoint-policy-applied-status
+      description: the status of the applied policy
+      flat_name: Endpoint.policy.applied.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.status
+      normalize: []
+      short: the status of the applied policy
+      type: keyword
+    policy.applied.version:
+      dashed_name: Endpoint-policy-applied-version
+      description: the version of this applied policy
+      flat_name: Endpoint.policy.applied.version
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.version
+      normalize: []
+      short: the version of this applied policy
+      type: keyword
+  group: 2
+  name: Endpoint
+  prefix: Endpoint.
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
+  title: Endpoint
+  type: group
 base:
   description: The `base` field set contains all fields which are on the top level.
     These fields are common across all types of events.
@@ -70,378 +442,6 @@ ecs:
   prefix: ecs.
   short: Meta-information specific to ECS.
   title: ECS
-  type: group
-endpoint_ext:
-  description: Fields describing the state of the Elastic Endpoint when an event occurs.
-  fields:
-    policy:
-      dashed_name: endpoint-ext-policy
-      description: The policy fields are used to hold information about applied policy.
-      flat_name: endpoint_ext.policy
-      level: custom
-      name: policy
-      normalize: []
-      object_type: keyword
-      short: The policy fields are used to hold information about applied policy.
-      type: object
-    policy.applied:
-      dashed_name: endpoint-ext-policy-applied
-      description: information about the policy that is applied
-      flat_name: endpoint_ext.policy.applied
-      level: custom
-      name: policy.applied
-      normalize: []
-      object_type: keyword
-      short: information about the policy that is applied
-      type: object
-    policy.applied.actions:
-      dashed_name: endpoint-ext-policy-applied-actions
-      description: actions applied during the application of the policy
-      enabled: false
-      flat_name: endpoint_ext.policy.applied.actions
-      level: custom
-      name: policy.applied.actions
-      normalize: []
-      short: actions applied during the application of the policy
-      type: nested
-    policy.applied.actions.message:
-      dashed_name: endpoint-ext-policy-applied-actions-message
-      description: message about the application of the action to further qualify
-        the status of the action
-      flat_name: endpoint_ext.policy.applied.actions.message
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.actions.message
-      normalize: []
-      short: message about the application of the action to further qualify the status
-        of the action
-      type: keyword
-    policy.applied.actions.name:
-      dashed_name: endpoint-ext-policy-applied-actions-name
-      description: name of the action that was applied
-      flat_name: endpoint_ext.policy.applied.actions.name
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.actions.name
-      normalize: []
-      short: name of the action that was applied
-      type: keyword
-    policy.applied.actions.status:
-      dashed_name: endpoint-ext-policy-applied-actions-status
-      description: the status of the action
-      flat_name: endpoint_ext.policy.applied.actions.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.actions.status
-      normalize: []
-      short: the status of the action
-      type: keyword
-    policy.applied.artifacts:
-      dashed_name: endpoint-ext-policy-applied-artifacts
-      description: information about protection artifacts applied.
-      enabled: false
-      flat_name: endpoint_ext.policy.applied.artifacts
-      level: custom
-      name: policy.applied.artifacts
-      normalize: []
-      object_type: keyword
-      short: information about protection artifacts applied.
-      type: object
-    policy.applied.artifacts.global:
-      dashed_name: endpoint-ext-policy-applied-artifacts-global
-      description: information about global protection artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.global
-      level: custom
-      name: policy.applied.artifacts.global
-      normalize: []
-      object_type: keyword
-      short: information about global protection artifacts applied.
-      type: object
-    policy.applied.artifacts.global.identifiers:
-      dashed_name: endpoint-ext-policy-applied-artifacts-global-identifiers
-      description: the identifiers of global artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.global.identifiers
-      level: custom
-      name: policy.applied.artifacts.global.identifiers
-      normalize: []
-      short: the identifiers of global artifacts applied.
-      type: nested
-    policy.applied.artifacts.global.identifiers.name:
-      dashed_name: endpoint-ext-policy-applied-artifacts-global-identifiers-name
-      description: the name of global artifact applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.global.identifiers.name
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.global.identifiers.name
-      normalize: []
-      short: the name of global artifact applied.
-      type: keyword
-    policy.applied.artifacts.global.identifiers.sha256:
-      dashed_name: endpoint-ext-policy-applied-artifacts-global-identifiers-sha256
-      description: the sha256 of global artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.global.identifiers.sha256
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.global.identifiers.sha256
-      normalize: []
-      short: the sha256 of global artifacts applied.
-      type: keyword
-    policy.applied.artifacts.global.version:
-      dashed_name: endpoint-ext-policy-applied-artifacts-global-version
-      description: the version of global artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.global.version
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.global.version
-      normalize: []
-      short: the version of global artifacts applied.
-      type: keyword
-    policy.applied.artifacts.user:
-      dashed_name: endpoint-ext-policy-applied-artifacts-user
-      description: information about user protection artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.user
-      level: custom
-      name: policy.applied.artifacts.user
-      normalize: []
-      object_type: keyword
-      short: information about user protection artifacts applied.
-      type: object
-    policy.applied.artifacts.user.identifiers:
-      dashed_name: endpoint-ext-policy-applied-artifacts-user-identifiers
-      description: the identifiers of user artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.user.identifiers
-      level: custom
-      name: policy.applied.artifacts.user.identifiers
-      normalize: []
-      short: the identifiers of user artifacts applied.
-      type: nested
-    policy.applied.artifacts.user.identifiers.name:
-      dashed_name: endpoint-ext-policy-applied-artifacts-user-identifiers-name
-      description: the name of user artifact applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.user.identifiers.name
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.user.identifiers.name
-      normalize: []
-      short: the name of user artifact applied.
-      type: keyword
-    policy.applied.artifacts.user.identifiers.sha256:
-      dashed_name: endpoint-ext-policy-applied-artifacts-user-identifiers-sha256
-      description: the sha256 of user artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.user.identifiers.sha256
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.user.identifiers.sha256
-      normalize: []
-      short: the sha256 of user artifacts applied.
-      type: keyword
-    policy.applied.artifacts.user.version:
-      dashed_name: endpoint-ext-policy-applied-artifacts-user-version
-      description: the version of user artifacts applied.
-      flat_name: endpoint_ext.policy.applied.artifacts.user.version
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.artifacts.user.version
-      normalize: []
-      short: the version of user artifacts applied.
-      type: keyword
-    policy.applied.configurations:
-      dashed_name: endpoint-ext-policy-applied-configurations
-      description: the configurations of the applied policy
-      enabled: false
-      flat_name: endpoint_ext.policy.applied.configurations
-      level: custom
-      name: policy.applied.configurations
-      normalize: []
-      object_type: keyword
-      short: the configurations of the applied policy
-      type: object
-    policy.applied.configurations.events:
-      dashed_name: endpoint-ext-policy-applied-configurations-events
-      description: overall event collection configuration and status of the applied
-        policy
-      flat_name: endpoint_ext.policy.applied.configurations.events
-      level: custom
-      name: policy.applied.configurations.events
-      normalize: []
-      object_type: keyword
-      short: overall event collection configuration and status of the applied policy
-      type: object
-    policy.applied.configurations.events.concerned_actions:
-      dashed_name: endpoint-ext-policy-applied-configurations-events-concerned-actions
-      description: all actions that were taken for event collection
-      flat_name: endpoint_ext.policy.applied.configurations.events.concerned_actions
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.events.concerned_actions
-      normalize: []
-      short: all actions that were taken for event collection
-      type: keyword
-    policy.applied.configurations.events.status:
-      dashed_name: endpoint-ext-policy-applied-configurations-events-status
-      description: the overall status of event collection, this is correlated to the
-        status of concerned actions  but not a simple sum of the actions
-      flat_name: endpoint_ext.policy.applied.configurations.events.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.events.status
-      normalize: []
-      short: the overall status of event collection, this is correlated to the status
-        of concerned actions  but not a simple sum of the actions
-      type: keyword
-    policy.applied.configurations.logging:
-      dashed_name: endpoint-ext-policy-applied-configurations-logging
-      description: overall logging configuration and status of the applied policy
-      flat_name: endpoint_ext.policy.applied.configurations.logging
-      level: custom
-      name: policy.applied.configurations.logging
-      normalize: []
-      object_type: keyword
-      short: overall logging configuration and status of the applied policy
-      type: object
-    policy.applied.configurations.logging.concerned_actions:
-      dashed_name: endpoint-ext-policy-applied-configurations-logging-concerned-actions
-      description: all actions that were taken for logging
-      flat_name: endpoint_ext.policy.applied.configurations.logging.concerned_actions
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.logging.concerned_actions
-      normalize: []
-      short: all actions that were taken for logging
-      type: keyword
-    policy.applied.configurations.logging.status:
-      dashed_name: endpoint-ext-policy-applied-configurations-logging-status
-      description: the overall status of logging, this is correlated to the status
-        of concerned actions but  not a simple sum of the actions
-      flat_name: endpoint_ext.policy.applied.configurations.logging.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.logging.status
-      normalize: []
-      short: the overall status of logging, this is correlated to the status of concerned
-        actions but  not a simple sum of the actions
-      type: keyword
-    policy.applied.configurations.malware:
-      dashed_name: endpoint-ext-policy-applied-configurations-malware
-      description: overall malware configuration and status of the applied policy
-      flat_name: endpoint_ext.policy.applied.configurations.malware
-      level: custom
-      name: policy.applied.configurations.malware
-      normalize: []
-      object_type: keyword
-      short: overall malware configuration and status of the applied policy
-      type: object
-    policy.applied.configurations.malware.concerned_actions:
-      dashed_name: endpoint-ext-policy-applied-configurations-malware-concerned-actions
-      description: all actions that were taken for malware
-      flat_name: endpoint_ext.policy.applied.configurations.malware.concerned_actions
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.malware.concerned_actions
-      normalize: []
-      short: all actions that were taken for malware
-      type: keyword
-    policy.applied.configurations.malware.status:
-      dashed_name: endpoint-ext-policy-applied-configurations-malware-status
-      description: the overall status of malware, this is correlated to the status
-        of concerned actions  but not a simple sum of the actions
-      flat_name: endpoint_ext.policy.applied.configurations.malware.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.malware.status
-      normalize: []
-      short: the overall status of malware, this is correlated to the status of concerned
-        actions  but not a simple sum of the actions
-      type: keyword
-    policy.applied.configurations.streaming:
-      dashed_name: endpoint-ext-policy-applied-configurations-streaming
-      description: overall data streaming configuration and status of the applied
-        policy
-      flat_name: endpoint_ext.policy.applied.configurations.streaming
-      level: custom
-      name: policy.applied.configurations.streaming
-      normalize: []
-      object_type: keyword
-      short: overall data streaming configuration and status of the applied policy
-      type: object
-    policy.applied.configurations.streaming.concerned_actions:
-      dashed_name: endpoint-ext-policy-applied-configurations-streaming-concerned-actions
-      description: all actions that were taken for data streaming
-      flat_name: endpoint_ext.policy.applied.configurations.streaming.concerned_actions
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.streaming.concerned_actions
-      normalize: []
-      short: all actions that were taken for data streaming
-      type: keyword
-    policy.applied.configurations.streaming.status:
-      dashed_name: endpoint-ext-policy-applied-configurations-streaming-status
-      description: the overall status of data streaming, this is correlated to the
-        status of concerned actions  but not a simple sum of the actions
-      flat_name: endpoint_ext.policy.applied.configurations.streaming.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.configurations.streaming.status
-      normalize: []
-      short: the overall status of data streaming, this is correlated to the status
-        of concerned actions  but not a simple sum of the actions
-      type: keyword
-    policy.applied.id:
-      dashed_name: endpoint-ext-policy-applied-id
-      description: the id of the applied policy
-      flat_name: endpoint_ext.policy.applied.id
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.id
-      normalize: []
-      short: the id of the applied policy
-      type: keyword
-    policy.applied.name:
-      dashed_name: endpoint-ext-policy-applied-name
-      description: the name of this applied policy
-      flat_name: endpoint_ext.policy.applied.name
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.name
-      normalize: []
-      short: the name of this applied policy
-      type: keyword
-    policy.applied.response:
-      dashed_name: endpoint-ext-policy-applied-response
-      description: the response of actions that failed in the applied policy
-      enabled: false
-      flat_name: endpoint_ext.policy.applied.response
-      level: custom
-      name: policy.applied.response
-      normalize: []
-      object_type: keyword
-      short: the response of actions that failed in the applied policy
-      type: object
-    policy.applied.status:
-      dashed_name: endpoint-ext-policy-applied-status
-      description: the status of the applied policy
-      flat_name: endpoint_ext.policy.applied.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.status
-      normalize: []
-      short: the status of the applied policy
-      type: keyword
-    policy.applied.version:
-      dashed_name: endpoint-ext-policy-applied-version
-      description: the version of this applied policy
-      flat_name: endpoint_ext.policy.applied.version
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.version
-      normalize: []
-      short: the version of this applied policy
-      type: keyword
-  group: 2
-  name: endpoint_ext
-  prefix: endpoint_ext.
-  short: Fields describing the state of the Elastic Endpoint when an event occurs.
-  title: Endpoint
   type: group
 event:
   description: 'The event fields are used for context information about the log or

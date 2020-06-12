@@ -1,3 +1,97 @@
+Elastic:
+  description: Holds fields and properties of data points and concepts in the elastic
+    domain or namespace.
+  fields:
+    agent:
+      dashed_name: Elastic-agent
+      description: The agent fields contain data about the Elastic Agent. The Elastic
+        Agent is the management agent that manages other agents or process on the
+        host.
+      flat_name: Elastic.agent
+      level: custom
+      name: agent
+      normalize: []
+      object_type: keyword
+      short: The agent fields contain data about the Elastic Agent. The Elastic Agent
+        is the management agent that manages other agents or process on the host.
+      type: object
+    agent.id:
+      dashed_name: Elastic-agent-id
+      description: Unique identifier of this elastic agent (if one exists).
+      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+      flat_name: Elastic.agent.id
+      ignore_above: 1024
+      level: custom
+      name: agent.id
+      normalize: []
+      short: Unique identifier of this elastic agent (if one exists).
+      type: keyword
+  group: 2
+  name: Elastic
+  prefix: Elastic.
+  short: Holds fields and properties of data points and concepts in the elastic domain
+    or namespace.
+  title: Elastic
+  type: group
+Endpoint:
+  description: Fields describing the state of the Elastic Endpoint when an event occurs.
+  fields:
+    policy:
+      dashed_name: Endpoint-policy
+      description: The policy fields are used to hold information about applied policy.
+      flat_name: Endpoint.policy
+      level: custom
+      name: policy
+      normalize: []
+      object_type: keyword
+      short: The policy fields are used to hold information about applied policy.
+      type: object
+    policy.applied:
+      dashed_name: Endpoint-policy-applied
+      description: information about the policy that is applied
+      flat_name: Endpoint.policy.applied
+      level: custom
+      name: policy.applied
+      normalize: []
+      object_type: keyword
+      short: information about the policy that is applied
+      type: object
+    policy.applied.id:
+      dashed_name: Endpoint-policy-applied-id
+      description: the id of the applied policy
+      flat_name: Endpoint.policy.applied.id
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.id
+      normalize: []
+      short: the id of the applied policy
+      type: keyword
+    policy.applied.name:
+      dashed_name: Endpoint-policy-applied-name
+      description: the name of this applied policy
+      flat_name: Endpoint.policy.applied.name
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.name
+      normalize: []
+      short: the name of this applied policy
+      type: keyword
+    policy.applied.status:
+      dashed_name: Endpoint-policy-applied-status
+      description: the status of the applied policy
+      flat_name: Endpoint.policy.applied.status
+      ignore_above: 1024
+      level: custom
+      name: policy.applied.status
+      normalize: []
+      short: the status of the applied policy
+      type: keyword
+  group: 2
+  name: Endpoint
+  prefix: Endpoint.
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
+  title: Endpoint
+  type: group
 agent:
   description: 'The agent fields contain the data about the software entity, if any,
     that collects, detects, or observes events on a host, or takes measurements on
@@ -114,100 +208,6 @@ ecs:
   short: Meta-information specific to ECS.
   title: ECS
   type: group
-elastic_ext:
-  description: Holds fields and properties of data points and concepts in the elastic
-    domain or namespace.
-  fields:
-    agent:
-      dashed_name: elastic-ext-agent
-      description: The agent fields contain data about the Elastic Agent. The Elastic
-        Agent is the management agent that manages other agents or process on the
-        host.
-      flat_name: elastic_ext.agent
-      level: custom
-      name: agent
-      normalize: []
-      object_type: keyword
-      short: The agent fields contain data about the Elastic Agent. The Elastic Agent
-        is the management agent that manages other agents or process on the host.
-      type: object
-    agent.id:
-      dashed_name: elastic-ext-agent-id
-      description: Unique identifier of this elastic agent (if one exists).
-      example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-      flat_name: elastic_ext.agent.id
-      ignore_above: 1024
-      level: custom
-      name: agent.id
-      normalize: []
-      short: Unique identifier of this elastic agent (if one exists).
-      type: keyword
-  group: 2
-  name: elastic_ext
-  prefix: elastic_ext.
-  short: Holds fields and properties of data points and concepts in the elastic domain
-    or namespace.
-  title: Elastic
-  type: group
-endpoint_ext:
-  description: Fields describing the state of the Elastic Endpoint when an event occurs.
-  fields:
-    policy:
-      dashed_name: endpoint-ext-policy
-      description: The policy fields are used to hold information about applied policy.
-      flat_name: endpoint_ext.policy
-      level: custom
-      name: policy
-      normalize: []
-      object_type: keyword
-      short: The policy fields are used to hold information about applied policy.
-      type: object
-    policy.applied:
-      dashed_name: endpoint-ext-policy-applied
-      description: information about the policy that is applied
-      flat_name: endpoint_ext.policy.applied
-      level: custom
-      name: policy.applied
-      normalize: []
-      object_type: keyword
-      short: information about the policy that is applied
-      type: object
-    policy.applied.id:
-      dashed_name: endpoint-ext-policy-applied-id
-      description: the id of the applied policy
-      flat_name: endpoint_ext.policy.applied.id
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.id
-      normalize: []
-      short: the id of the applied policy
-      type: keyword
-    policy.applied.name:
-      dashed_name: endpoint-ext-policy-applied-name
-      description: the name of this applied policy
-      flat_name: endpoint_ext.policy.applied.name
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.name
-      normalize: []
-      short: the name of this applied policy
-      type: keyword
-    policy.applied.status:
-      dashed_name: endpoint-ext-policy-applied-status
-      description: the status of the applied policy
-      flat_name: endpoint_ext.policy.applied.status
-      ignore_above: 1024
-      level: custom
-      name: policy.applied.status
-      normalize: []
-      short: the status of the applied policy
-      type: keyword
-  group: 2
-  name: endpoint_ext
-  prefix: endpoint_ext.
-  short: Fields describing the state of the Elastic Endpoint when an event occurs.
-  title: Endpoint
-  type: group
 event:
   description: 'The event fields are used for context information about the log or
     metric event itself.
@@ -314,6 +314,33 @@ host:
       - array
       short: Host mac addresses.
       type: keyword
+    os.Ext:
+      dashed_name: host-os-Ext
+      description: Object for all custom defined fields to live in.
+      flat_name: host.os.Ext
+      level: custom
+      name: Ext
+      normalize: []
+      object_type: keyword
+      original_fieldset: os
+      short: Object for all custom defined fields to live in.
+      type: object
+    os.Ext.variant:
+      dashed_name: host-os-Ext-variant
+      description: A string value or phrase that further aid to classify or qualify
+        the operating system (OS).  For example the distribution for a Linux OS will
+        be entered in this field.
+      example: Ubuntu
+      flat_name: host.os.Ext.variant
+      ignore_above: 1024
+      level: custom
+      name: Ext.variant
+      normalize: []
+      original_fieldset: os
+      short: A string value or phrase that further aid to classify or qualify the
+        operating system (OS).  For example the distribution for a Linux OS will be
+        entered in this field.
+      type: keyword
     os.full:
       dashed_name: host-os-full
       description: Operating system name, including the version or code name.
@@ -365,37 +392,6 @@ host:
   nestings:
   - host.os
   prefix: host.
-  short: Fields describing the relevant computing instance.
-  title: Host
-  type: group
-host_ext:
-  description: 'A host is defined as a general computing instance.
-
-    ECS host.* fields should be populated with details about the host on which the
-    event happened, or from which the measurement was taken. Host types include hardware,
-    virtual machines, Docker containers, and Kubernetes nodes.'
-  fields:
-    os_ext.variant:
-      dashed_name: host-ext-os-ext-variant
-      description: A string value or phrase that further aid to classify or qualify
-        the operating system (OS).  For example the distribution for a Linux OS will
-        be entered in this field.
-      example: Ubuntu
-      flat_name: host_ext.os_ext.variant
-      ignore_above: 1024
-      level: custom
-      name: variant
-      normalize: []
-      original_fieldset: os_ext
-      short: A string value or phrase that further aid to classify or qualify the
-        operating system (OS).  For example the distribution for a Linux OS will be
-        entered in this field.
-      type: keyword
-  group: 2
-  name: host_ext
-  nestings:
-  - host_ext.os_ext
-  prefix: host_ext.
   short: Fields describing the relevant computing instance.
   title: Host
   type: group

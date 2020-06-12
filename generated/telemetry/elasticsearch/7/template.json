@@ -22,15 +22,7 @@
       "@timestamp": {
         "type": "date"
       },
-      "ecs": {
-        "properties": {
-          "version": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          }
-        }
-      },
-      "endpoint_ext": {
+      "Endpoint": {
         "properties": {
           "system": {
             "properties": {
@@ -106,6 +98,14 @@
               }
             },
             "type": "object"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
           }
         }
       },
@@ -204,6 +204,15 @@
           },
           "os": {
             "properties": {
+              "Ext": {
+                "properties": {
+                  "variant": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              },
               "family": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -237,18 +246,6 @@
                 "type": "keyword"
               },
               "version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          }
-        }
-      },
-      "host_ext": {
-        "properties": {
-          "os_ext": {
-            "properties": {
-              "variant": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }

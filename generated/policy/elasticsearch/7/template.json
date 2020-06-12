@@ -22,15 +22,7 @@
       "@timestamp": {
         "type": "date"
       },
-      "ecs": {
-        "properties": {
-          "version": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          }
-        }
-      },
-      "endpoint_ext": {
+      "Endpoint": {
         "properties": {
           "policy": {
             "properties": {
@@ -187,6 +179,14 @@
               }
             },
             "type": "object"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
           }
         }
       },

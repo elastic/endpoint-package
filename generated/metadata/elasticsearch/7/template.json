@@ -22,31 +22,7 @@
       "@timestamp": {
         "type": "date"
       },
-      "agent": {
-        "properties": {
-          "id": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "name": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "version": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          }
-        }
-      },
-      "ecs": {
-        "properties": {
-          "version": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          }
-        }
-      },
-      "elastic_ext": {
+      "Elastic": {
         "properties": {
           "agent": {
             "properties": {
@@ -59,7 +35,7 @@
           }
         }
       },
-      "endpoint_ext": {
+      "Endpoint": {
         "properties": {
           "policy": {
             "properties": {
@@ -82,6 +58,30 @@
               }
             },
             "type": "object"
+          }
+        }
+      },
+      "agent": {
+        "properties": {
+          "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
           }
         }
       },
@@ -115,6 +115,15 @@
           },
           "os": {
             "properties": {
+              "Ext": {
+                "properties": {
+                  "variant": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              },
               "full": {
                 "fields": {
                   "text": {
@@ -136,18 +145,6 @@
                 "type": "keyword"
               },
               "version": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
-          }
-        }
-      },
-      "host_ext": {
-        "properties": {
-          "os_ext": {
-            "properties": {
-              "variant": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }

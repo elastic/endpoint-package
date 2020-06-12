@@ -575,6 +575,22 @@ fields:
       to the event.
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: Group info prior to any setgid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: Unique identifier for the group on the system/platform.
+
+              - name: name
+                type: keyword
+                description: Name of the group.
+
       - name: id
         type: keyword
         description: Unique identifier for the group on the system/platform.
@@ -582,22 +598,6 @@ fields:
       - name: name
         type: keyword
         description: Name of the group.
-
-  - name: group_ext
-    description: Fields describing groups relevant to the event.
-    fields:
-
-      - name: real
-        description: Group info prior to any setgid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: Unique identifier for the group on the system/platform.
-
-          - name: name
-            type: keyword
-            description: Name of the group.
 
   - name: host
     description: 'A host is defined as a general computing instance.
@@ -695,6 +695,15 @@ fields:
       is copied to the global field for correlation.'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: ancestry
+            type: keyword
+            description: An array of entity_ids indicating the ancestors for this
+              event
+
       - name: entity_id
         type: keyword
         description: 'Unique identifier for the process.
@@ -733,18 +742,6 @@ fields:
             type: long
             description: Thread ID.
             example: 4242
-
-  - name: process_ext
-    description: 'These fields contain information about a process.
-
-      These fields can help you correlate metrics information with a process id/name
-      from a log message.  The `process.pid` often stays in the metric itself and
-      is copied to the global field for correlation.'
-    fields:
-
-      - name: ancestry
-        type: keyword
-        description: An array of entity_ids indicating the ancestors for this event
 
   - name: registry
     description: Fields related to Windows Registry operations.
@@ -806,6 +803,22 @@ fields:
       provide an array that includes all of them.'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: User info prior to any setuid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: One or multiple unique identifiers of the user.
+
+              - name: name
+                type: keyword
+                description: Short name or login of the user.
+
       - name: domain
         type: keyword
         description: 'Name of the directory the user is a member of.
@@ -820,19 +833,3 @@ fields:
         type: keyword
         description: Short name or login of the user.
         example: albert
-
-  - name: user_ext
-    description: Fields describing user relevant to the event.
-    fields:
-
-      - name: real
-        description: User info prior to any setuid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: One or multiple unique identifiers of the user.
-
-          - name: name
-            type: keyword
-            description: Short name or login of the user.

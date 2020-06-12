@@ -1,6 +1,48 @@
 title: metadata
 fields:
 
+  - name: Elastic
+    description: Holds fields and properties of data points and concepts in the elastic
+      domain or namespace.
+    fields:
+
+      - name: agent
+        description: The agent fields contain data about the Elastic Agent. The Elastic
+          Agent is the management agent that manages other agents or process on the
+          host.
+        fields:
+
+          - name: id
+            type: keyword
+            description: Unique identifier of this elastic agent (if one exists).
+            example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+
+  - name: Endpoint
+    description: Fields describing the state of the Elastic Endpoint when an event
+      occurs.
+    fields:
+
+      - name: policy
+        description: The policy fields are used to hold information about applied
+          policy.
+        fields:
+
+          - name: applied
+            description: information about the policy that is applied
+            fields:
+
+              - name: id
+                type: keyword
+                description: the id of the applied policy
+
+              - name: name
+                type: keyword
+                description: the name of this applied policy
+
+              - name: status
+                type: keyword
+                description: the status of the applied policy
+
   - name: agent
     description: 'The agent fields contain the data about the software entity, if
       any, that collects, detects, or observes events on a host, or takes measurements
@@ -61,48 +103,6 @@ fields:
           ECS versions -- this field lets integrations adjust to the schema version
           of the events.'
         example: 1.0.0
-
-  - name: elastic_ext
-    description: Holds fields and properties of data points and concepts in the elastic
-      domain or namespace.
-    fields:
-
-      - name: agent
-        description: The agent fields contain data about the Elastic Agent. The Elastic
-          Agent is the management agent that manages other agents or process on the
-          host.
-        fields:
-
-          - name: id
-            type: keyword
-            description: Unique identifier of this elastic agent (if one exists).
-            example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
-
-  - name: endpoint_ext
-    description: Fields describing the state of the Elastic Endpoint when an event
-      occurs.
-    fields:
-
-      - name: policy
-        description: The policy fields are used to hold information about applied
-          policy.
-        fields:
-
-          - name: applied
-            description: information about the policy that is applied
-            fields:
-
-              - name: id
-                type: keyword
-                description: the id of the applied policy
-
-              - name: name
-                type: keyword
-                description: the name of this applied policy
-
-              - name: status
-                type: keyword
-                description: the status of the applied policy
 
   - name: event
     description: 'The event fields are used for context information about the log
@@ -176,6 +176,17 @@ fields:
         description: The OS fields contain information about the operating system.
         fields:
 
+          - name: Ext
+            description: Object for all custom defined fields to live in.
+            fields:
+
+              - name: variant
+                type: keyword
+                description: A string value or phrase that further aid to classify
+                  or qualify the operating system (OS).  For example the distribution
+                  for a Linux OS will be entered in this field.
+                example: Ubuntu
+
           - name: full
             type: keyword
             description: Operating system name, including the version or code name.
@@ -190,22 +201,3 @@ fields:
             type: keyword
             description: Operating system version as a raw string.
             example: 10.14.1
-
-  - name: host_ext
-    description: 'A host is defined as a general computing instance.
-
-      ECS host.* fields should be populated with details about the host on which the
-      event happened, or from which the measurement was taken. Host types include
-      hardware, virtual machines, Docker containers, and Kubernetes nodes.'
-    fields:
-
-      - name: os_ext
-        description: TODO
-        fields:
-
-          - name: variant
-            type: keyword
-            description: A string value or phrase that further aid to classify or
-              qualify the operating system (OS).  For example the distribution for
-              a Linux OS will be entered in this field.
-            example: Ubuntu

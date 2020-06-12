@@ -575,6 +575,22 @@ fields:
       to the event.
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: Group info prior to any setgid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: Unique identifier for the group on the system/platform.
+
+              - name: name
+                type: keyword
+                description: Name of the group.
+
       - name: id
         type: keyword
         description: Unique identifier for the group on the system/platform.
@@ -582,22 +598,6 @@ fields:
       - name: name
         type: keyword
         description: Name of the group.
-
-  - name: group_ext
-    description: Fields describing groups relevant to the event.
-    fields:
-
-      - name: real
-        description: Group info prior to any setgid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: Unique identifier for the group on the system/platform.
-
-          - name: name
-            type: keyword
-            description: Name of the group.
 
   - name: host
     description: 'A host is defined as a general computing instance.
@@ -706,6 +706,45 @@ fields:
       is copied to the global field for correlation.'
     fields:
 
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: ancestry
+            type: keyword
+            description: An array of entity_ids indicating the ancestors for this
+              event
+
+          - name: authentication_id
+            type: keyword
+            description: Process authentication ID
+
+          - name: session
+            type: keyword
+            description: Session information for the current process
+
+          - name: token
+            description: 'These fields contain information about a token.
+
+              These fields can help you correlate metrics information with a process
+              id/name from a log message.  The `process.pid` often stays in the metric
+              itself and is copied to the global field for correlation.'
+            fields:
+
+              - name: elevation
+                type: boolean
+                description: Whether the token is elevated or not
+
+              - name: elevation_type
+                type: keyword
+                description: What level of elevation the token has
+                example: one of "default", "full", "limited"
+
+              - name: integrity_level_name
+                type: keyword
+                description: Human readable integrity level.
+                example: one of "system", "high", "medium", "low", "untrusted"
+
       - name: args
         type: keyword
         description: 'Array of process arguments, starting with the absolute path
@@ -802,6 +841,20 @@ fields:
         description: TODO
         fields:
 
+          - name: Ext
+            description: Object for all custom defined fields to live in.
+            fields:
+
+              - name: real
+                description: The field set containing parent process info in case
+                  of any ppid spoofing.
+                fields:
+
+                  - name: pid
+                    type: long
+                    description: The ppid of the process that actually spawned the
+                      current process, in case of ppid spoofing.
+
           - name: entity_id
             type: keyword
             description: 'Unique identifier for the process.
@@ -856,62 +909,6 @@ fields:
             description: Thread ID.
             example: 4242
 
-  - name: process_ext
-    description: 'These fields contain information about a process.
-
-      These fields can help you correlate metrics information with a process id/name
-      from a log message.  The `process.pid` often stays in the metric itself and
-      is copied to the global field for correlation.'
-    fields:
-
-      - name: ancestry
-        type: keyword
-        description: An array of entity_ids indicating the ancestors for this event
-
-      - name: authentication_id
-        type: keyword
-        description: Process authentication ID
-
-      - name: parent
-        description: Extended "process.parent" field set.
-        fields:
-
-          - name: real
-            description: The field set containing parent process info in case of any
-              ppid spoofing.
-            fields:
-
-              - name: pid
-                type: long
-                description: The ppid of the process that actually spawned the current
-                  process, in case of ppid spoofing.
-
-      - name: session
-        type: keyword
-        description: Session information for the current process
-
-      - name: token
-        description: 'These fields contain information about a token.
-
-          These fields can help you correlate metrics information with a process id/name
-          from a log message.  The `process.pid` often stays in the metric itself
-          and is copied to the global field for correlation.'
-        fields:
-
-          - name: elevation
-            type: boolean
-            description: Whether the token is elevated or not
-
-          - name: elevation_type
-            type: keyword
-            description: What level of elevation the token has
-            example: one of "default", "full", "limited"
-
-          - name: integrity_level_name
-            type: keyword
-            description: Human readable integrity level.
-            example: one of "system", "high", "medium", "low", "untrusted"
-
   - name: user
     description: 'The user fields describe information about the user that is relevant
       to the event.
@@ -919,6 +916,22 @@ fields:
       Fields can have one entry or multiple entries. If a user has more than one id,
       provide an array that includes all of them.'
     fields:
+
+      - name: Ext
+        description: Object for all custom defined fields to live in.
+        fields:
+
+          - name: real
+            description: User info prior to any setuid operations.
+            fields:
+
+              - name: id
+                type: keyword
+                description: One or multiple unique identifiers of the user.
+
+              - name: name
+                type: keyword
+                description: Short name or login of the user.
 
       - name: domain
         type: keyword
@@ -934,19 +947,3 @@ fields:
         type: keyword
         description: Short name or login of the user.
         example: albert
-
-  - name: user_ext
-    description: Fields describing user relevant to the event.
-    fields:
-
-      - name: real
-        description: User info prior to any setuid operations.
-        fields:
-
-          - name: id
-            type: keyword
-            description: One or multiple unique identifiers of the user.
-
-          - name: name
-            type: keyword
-            description: Short name or login of the user.

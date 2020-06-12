@@ -23,25 +23,7 @@
 
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
-- name: ecs
-  title: ECS
-  group: 2
-  description: Meta-information specific to ECS.
-  type: group
-  fields:
-  - name: version
-    level: core
-    required: true
-    type: keyword
-    ignore_above: 1024
-    description: 'ECS version this event conforms to. `ecs.version` is a required
-      field and must exist in all events.
-
-      When querying across multiple indices -- which may conform to slightly different
-      ECS versions -- this field lets integrations adjust to the schema version
-      of the events.'
-    example: 1.0.0
-- name: endpoint_ext
+- name: Endpoint
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event
@@ -156,6 +138,24 @@
     type: long
     description: Number of seconds since the system was started
     default_field: false
+- name: ecs
+  title: ECS
+  group: 2
+  description: Meta-information specific to ECS.
+  type: group
+  fields:
+  - name: version
+    level: core
+    required: true
+    type: keyword
+    ignore_above: 1024
+    description: 'ECS version this event conforms to. `ecs.version` is a required
+      field and must exist in all events.
+
+      When querying across multiple indices -- which may conform to slightly different
+      ECS versions -- this field lets integrations adjust to the schema version
+      of the events.'
+    example: 1.0.0
 - name: event
   title: Event
   group: 2
@@ -360,6 +360,21 @@
       It can contain what `hostname` returns on Unix systems, the fully qualified
       domain name, or a name specified by the user. The sender decides which value
       to use.'
+  - name: os.Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: os.Ext.variant
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: A string value or phrase that further aid to classify or qualify
+      the operating system (OS).  For example the distribution for a Linux OS will
+      be entered in this field.
+    example: Ubuntu
+    default_field: false
   - name: os.family
     level: extended
     type: keyword
@@ -406,22 +421,3 @@
     ignore_above: 1024
     description: Operating system version as a raw string.
     example: 10.14.1
-- name: host_ext
-  title: Host
-  group: 2
-  description: 'A host is defined as a general computing instance.
-
-    ECS host.* fields should be populated with details about the host on which the
-    event happened, or from which the measurement was taken. Host types include
-    hardware, virtual machines, Docker containers, and Kubernetes nodes.'
-  type: group
-  fields:
-  - name: os_ext.variant
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: A string value or phrase that further aid to classify or qualify
-      the operating system (OS).  For example the distribution for a Linux OS will
-      be entered in this field.
-    example: Ubuntu
-    default_field: false
