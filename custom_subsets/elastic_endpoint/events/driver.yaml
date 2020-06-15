@@ -70,6 +70,14 @@ group:
       fields: "*"
     name:
       fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 user:
   fields:
     id:
@@ -78,6 +86,14 @@ user:
       fields: "*"
     domain:
       fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
 process:
   fields:
     entity_id:
@@ -91,6 +107,10 @@ process:
     thread:
       fields:
         id:
+          fields: "*"
+    Ext:
+      fields:
+        ancestry:
           fields: "*"
 file:
   fields:
@@ -120,27 +140,3 @@ file:
           fields: "*"
         sha256:
           fields: "*"
-endpoint:
-  fields:
-    group:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-    user:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-    event:
-      fields:
-        process:
-          fields:
-            ancestry:
-              fields: "*"

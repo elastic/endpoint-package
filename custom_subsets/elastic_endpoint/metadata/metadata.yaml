@@ -11,7 +11,7 @@ event:
   fields:
     created:
       fields: "*"
-endpoint:
+Endpoint:
   fields:
     policy:
       fields:
@@ -57,5 +57,7 @@ host:
           fields: "*"
         version:
           fields: "*"
-        variant:
-          fields: "*"
+        Ext:
+          fields:
+            variant:
+              fields: "*"

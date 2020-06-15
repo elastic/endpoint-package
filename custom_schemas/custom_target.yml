@@ -1,5 +1,5 @@
 ---
-- name: target
+- name: Target
   title: Target
   group: 2
   short: These fields contain information about a target.
@@ -13,13 +13,13 @@
   type: group
   fields:
     - name: process
-      level: extended
+      level: custom
       type: object
       description: >
         Process.
 
     - name: dll
-      level: core
+      level: custom
       type: object
       description: >
         Dll core fieldset reused here.

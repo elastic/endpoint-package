@@ -22,6 +22,32 @@
       "@timestamp": {
         "type": "date"
       },
+      "Endpoint": {
+        "properties": {
+          "policy": {
+            "properties": {
+              "applied": {
+                "properties": {
+                  "id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
       "agent": {
         "properties": {
           "id": {
@@ -59,32 +85,6 @@
           }
         }
       },
-      "endpoint": {
-        "properties": {
-          "policy": {
-            "properties": {
-              "applied": {
-                "properties": {
-                  "id": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          }
-        }
-      },
       "event": {
         "properties": {
           "created": {
@@ -115,6 +115,15 @@
           },
           "os": {
             "properties": {
+              "Ext": {
+                "properties": {
+                  "variant": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              },
               "full": {
                 "fields": {
                   "text": {
@@ -132,10 +141,6 @@
                     "type": "text"
                   }
                 },
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "variant": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },

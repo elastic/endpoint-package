@@ -12,6 +12,43 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+- name: Endpoint
+  title: Endpoint
+  group: 2
+  description: Fields describing the state of the Elastic Endpoint when an event
+    occurs.
+  type: group
+  fields:
+  - name: policy
+    level: custom
+    type: object
+    object_type: keyword
+    description: The policy fields are used to hold information about applied policy.
+    default_field: false
+  - name: policy.applied
+    level: custom
+    type: object
+    object_type: keyword
+    description: information about the policy that is applied
+    default_field: false
+  - name: policy.applied.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the id of the applied policy
+    default_field: false
+  - name: policy.applied.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the name of this applied policy
+    default_field: false
+  - name: policy.applied.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the status of the applied policy
+    default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -94,43 +131,6 @@
     description: Unique identifier of this elastic agent (if one exists).
     example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
     default_field: false
-- name: endpoint
-  title: Endpoint
-  group: 2
-  description: Fields describing the state of the Elastic Endpoint when an event
-    occurs.
-  type: group
-  fields:
-  - name: policy
-    level: custom
-    type: object
-    object_type: keyword
-    description: The policy fields are used to hold information about applied policy.
-    default_field: false
-  - name: policy.applied
-    level: custom
-    type: object
-    object_type: keyword
-    description: information about the policy that is applied
-    default_field: false
-  - name: policy.applied.id
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: the id of the applied policy
-    default_field: false
-  - name: policy.applied.name
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: the name of this applied policy
-    default_field: false
-  - name: policy.applied.status
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: the status of the applied policy
-    default_field: false
 - name: event
   title: Event
   group: 2
@@ -205,6 +205,21 @@
     type: keyword
     ignore_above: 1024
     description: Host mac addresses.
+  - name: os.Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: os.Ext.variant
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: A string value or phrase that further aid to classify or qualify
+      the operating system (OS).  For example the distribution for a Linux OS will
+      be entered in this field.
+    example: Ubuntu
+    default_field: false
   - name: os.full
     level: extended
     type: keyword
@@ -227,15 +242,6 @@
       default_field: false
     description: Operating system name, without the version.
     example: Mac OS X
-  - name: os.variant
-    level: custom
-    type: keyword
-    ignore_above: 1024
-    description: A string value or phrase that further aid to classify or qualify
-      the operating system (OS).  For example the distribution for a Linux OS will
-      be entered in this field.
-    example: Ubuntu
-    default_field: false
   - name: os.version
     level: extended
     type: keyword
