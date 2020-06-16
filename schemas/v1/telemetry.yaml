@@ -6,8 +6,8 @@ fields:
       occurs.
     fields:
 
-      - name: system
-        description: System fields hold the endpoint and system's performance metrics
+      - name: metrics
+        description: Metrics fields hold the endpoint and system's performance metrics
         fields:
 
           - name: cpu
@@ -38,9 +38,22 @@ fields:
             description: An array of disk information for the host
             fields:
 
+              - name: device
+                type: keyword
+                description: Device name
+
+              - name: endpoint_drive
+                type: boolean
+                description: This field will be present and set to true only for the
+                  drive that holds the installed endpoint
+
               - name: free
                 type: long
                 description: The number of bytes marked as free on the disk
+
+              - name: fstype
+                type: keyword
+                description: The file system type for the drive
 
               - name: mount
                 type: keyword

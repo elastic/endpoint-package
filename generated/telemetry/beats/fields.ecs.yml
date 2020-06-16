@@ -30,25 +30,25 @@
     occurs.
   type: group
   fields:
-  - name: system
+  - name: metrics
     level: custom
     type: object
     object_type: keyword
-    description: System fields hold the endpoint and system's performance metrics
+    description: Metrics fields hold the endpoint and system's performance metrics
     default_field: false
-  - name: system.cpu
+  - name: metrics.cpu
     level: custom
     type: object
     object_type: keyword
     description: CPU statistics
     default_field: false
-  - name: system.cpu.endpoint
+  - name: metrics.cpu.endpoint
     level: custom
     type: object
     object_type: keyword
     description: CPU metrics for the endpoint
     default_field: false
-  - name: system.cpu.endpoint.histogram
+  - name: metrics.cpu.endpoint.histogram
     level: custom
     type: histogram
     description: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
@@ -56,84 +56,104 @@
       cpu usage The counts field includes 20 buckets of how many times the endpoint's
       cpu usage fell into each bucket
     default_field: false
-  - name: system.cpu.endpoint.latest
+  - name: metrics.cpu.endpoint.latest
     level: custom
     type: half_float
     description: Average CPU over the last sample interval
     default_field: false
-  - name: system.cpu.endpoint.mean
+  - name: metrics.cpu.endpoint.mean
     level: custom
     type: half_float
     description: Average CPU load used by the endpoint
     default_field: false
-  - name: system.disks
+  - name: metrics.disks
     level: custom
-    type: nested
+    type: object
+    object_type: keyword
     description: An array of disk information for the host
+    enabled: false
     default_field: false
-  - name: system.disks.free
+  - name: metrics.disks.device
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Device name
+    default_field: false
+  - name: metrics.disks.endpoint_drive
+    level: custom
+    type: boolean
+    description: This field will be present and set to true only for the drive that
+      holds the installed endpoint
+    default_field: false
+  - name: metrics.disks.free
     level: custom
     type: long
     description: The number of bytes marked as free on the disk
     default_field: false
-  - name: system.disks.mount
+  - name: metrics.disks.fstype
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: The file system type for the drive
+    default_field: false
+  - name: metrics.disks.mount
     level: custom
     type: keyword
     ignore_above: 1024
     description: The disks mount location
     default_field: false
-  - name: system.disks.total
+  - name: metrics.disks.total
     level: custom
     type: long
     description: The size of the disk in bytes
     default_field: false
-  - name: system.memory
+  - name: metrics.memory
     level: custom
     type: object
     object_type: keyword
     description: Memory statistics
     default_field: false
-  - name: system.memory.endpoint
+  - name: metrics.memory.endpoint
     level: custom
     type: object
     object_type: keyword
     description: Endpoint memory utilization
     default_field: false
-  - name: system.memory.endpoint.private
+  - name: metrics.memory.endpoint.private
     level: custom
     type: object
     object_type: keyword
     description: The memory private to the endpoint
     default_field: false
-  - name: system.memory.endpoint.private.latest
+  - name: metrics.memory.endpoint.private.latest
     level: custom
     type: long
     description: The memory usage by the endpoint for the last sample interval
     default_field: false
-  - name: system.memory.endpoint.private.mean
+  - name: metrics.memory.endpoint.private.mean
     level: custom
     type: long
     description: Average memory usage by the endpoint since its start
     default_field: false
-  - name: system.threads
+  - name: metrics.threads
     level: custom
     type: object
     object_type: keyword
     description: Statistics about the individual threads of the system (array)
     enabled: false
     default_field: false
-  - name: system.uptime
+  - name: metrics.uptime
     level: custom
     type: object
     object_type: keyword
     description: Number of seconds since boot
     default_field: false
-  - name: system.uptime.endpoint
+  - name: metrics.uptime.endpoint
     level: custom
     type: long
     description: Number of seconds since the endpoint was started
     default_field: false
-  - name: system.uptime.system
+  - name: metrics.uptime.system
     level: custom
     type: long
     description: Number of seconds since the system was started
