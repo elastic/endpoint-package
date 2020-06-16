@@ -29,7 +29,7 @@ event:
       fields: "*"
     end:
       fields: "*"
-endpoint:
+Endpoint:
   fields:
     metrics: {}
 host:
@@ -58,7 +58,9 @@ host:
         family: {}
         kernel: {}
         full: {}
-        variant: {}
+        Ext:
+          fields:
+            variant: {}
     ip: {}
     hostname: {}
     name: {}

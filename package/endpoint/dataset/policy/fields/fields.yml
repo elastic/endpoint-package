@@ -23,25 +23,7 @@
 
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
-- name: ecs
-  title: ECS
-  group: 2
-  description: Meta-information specific to ECS.
-  type: group
-  fields:
-  - name: version
-    level: core
-    required: true
-    type: keyword
-    ignore_above: 1024
-    description: 'ECS version this event conforms to. `ecs.version` is a required
-      field and must exist in all events.
-
-      When querying across multiple indices -- which may conform to slightly different
-      ECS versions -- this field lets integrations adjust to the schema version
-      of the events.'
-    example: 1.0.0
-- name: endpoint
+- name: Endpoint
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event
@@ -241,6 +223,12 @@
     ignore_above: 1024
     description: the id of the applied policy
     default_field: false
+  - name: policy.applied.name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: the name of this applied policy
+    default_field: false
   - name: policy.applied.response
     level: custom
     type: object
@@ -258,8 +246,26 @@
     level: custom
     type: keyword
     ignore_above: 1024
-    description: the version of this policy application
+    description: the version of this applied policy
     default_field: false
+- name: ecs
+  title: ECS
+  group: 2
+  description: Meta-information specific to ECS.
+  type: group
+  fields:
+  - name: version
+    level: core
+    required: true
+    type: keyword
+    ignore_above: 1024
+    description: 'ECS version this event conforms to. `ecs.version` is a required
+      field and must exist in all events.
+
+      When querying across multiple indices -- which may conform to slightly different
+      ECS versions -- this field lets integrations adjust to the schema version
+      of the events.'
+    example: 1.0.0
 - name: event
   title: Event
   group: 2

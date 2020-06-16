@@ -11,12 +11,18 @@ event:
   fields:
     created:
       fields: "*"
-endpoint:
+Endpoint:
   fields:
     policy:
       fields:
-        id:
-          fields: "*"
+        applied:
+          fields: 
+            id:
+              fields: "*"
+            status:
+              fields: "*"
+            name:
+              fields: "*"
 elastic:
   fields:
     agent:
@@ -51,5 +57,7 @@ host:
           fields: "*"
         version:
           fields: "*"
-        variant:
-          fields: "*"
+        Ext:
+          fields:
+            variant:
+              fields: "*"

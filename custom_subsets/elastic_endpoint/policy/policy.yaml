@@ -10,7 +10,7 @@ ecs:
   fields:
     version:
       fields: "*"
-endpoint:
+Endpoint:
   fields:
     policy:
       fields:
@@ -34,7 +34,6 @@ event:
       fields: "*"
     dataset:
       fields: "*"
-      
 host:
   fields:
     id:

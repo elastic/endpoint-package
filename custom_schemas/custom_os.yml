@@ -6,9 +6,18 @@
   description: >
     TODO
   type: group
+  reusable:
+    top_level: false
+    expected:
+      - host
   fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
     # this is temporary until variant is included in ecs core https://github.com/elastic/ecs/issues/744
-    - name: variant
+    - name: Ext.variant
       level: custom
       type: keyword
       description: >

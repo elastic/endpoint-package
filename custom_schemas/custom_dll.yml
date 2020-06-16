@@ -13,21 +13,26 @@
   reusable:
     top_level: true
     expected:
-      - target
+      - Target
   fields:
-    - name: mapped_address
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.mapped_address
       level: custom
       type: keyword
       description: >
         The base address where this module is loaded.
 
-    - name: mapped_size
+    - name: Ext.mapped_size
       level: custom
       type: long
       description: >
         The size of this module's memory mapping, in bytes.
 
-    - name: compile_time
+    - name: Ext.compile_time
       level: custom
       type: date
       description: >
