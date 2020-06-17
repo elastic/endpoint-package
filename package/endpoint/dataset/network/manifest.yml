@@ -1,0 +1,5 @@
+title: Endpoint Network Events
+
+type: logs
+
+id: endpoint.events.network

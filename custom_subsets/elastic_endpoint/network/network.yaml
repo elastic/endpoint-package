@@ -1,0 +1,183 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs: {}
+host: {}
+event:
+  fields:
+    action: {}
+    category: {}
+    created: {}
+    dataset: {}
+    hash: {}
+    id: {}
+    ingested: {}
+    kind: {}
+    module: {}
+    outcome: {}
+    sequence: {}
+    type: {}
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    domain:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+process:
+  fields:
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    entity_id:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
+network:
+  fields:
+    type:
+      fields: "*"
+    iana_number:
+      fields: "*"
+    transport:
+      fields: "*"
+    protocol:
+      fields: "*"
+    direction:
+      fields: "*"
+    community_id:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+source:
+  fields:
+    address:
+      fields: "*"
+    ip:
+      fields: "*"
+    port:
+      fields: "*"
+    domain:
+      fields: "*"
+    registered_domain:
+      fields: "*"
+    top_level_domain:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+destination:
+  fields:
+    address:
+      fields: "*"
+    ip:
+      fields: "*"
+    port:
+      fields: "*"
+    domain:
+      fields: "*"
+    registered_domain:
+      fields: "*"
+    top_level_domain:
+      fields: "*"
+    bytes:
+      fields: "*"
+    packets:
+      fields: "*"
+http:
+  fields:
+    response:
+      fields:
+        status_code:
+          fields: "*"
+        body:
+          fields:
+            content:
+              fields: "*"
+            bytes:
+              fields: "*"
+        bytes:
+          fields: "*"
+        Ext:
+          fields:
+            version:
+              fields: "*"
+    request:
+      fields:
+        body:
+          fields:
+            content:
+              fields: "*"
+            bytes:
+              fields: "*"
+        bytes:
+          fields: "*"
+dns:
+  fields:
+    question:
+      fields:
+        name:
+          fields: "*"
+        type:
+          fields: "*"
+        registered_domain:
+          fields: "*"
+        top_level_domain:
+          fields: "*"
+        subdomain:
+          fields: "*"
+    resolved_ip:
+      fields: "*"
+    Ext:
+      fields:
+        status:
+          fields: "*"
+        options:
+          fields: "*"
