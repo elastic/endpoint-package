@@ -5,20 +5,37 @@ base:
       fields: "*"
     message:
       fields: "*"
-ecs: {}
-host: {}
+ecs:
+  fields:
+    version: {}
+host:
+  fields:
+    name: {}
+    hostname: {}
+    ip: {}
+    mac: {}
+    architecture: {}
+    id: {}
+    os:
+      fields:
+        platform: {}
+        version: {}
+        family: {}
+        name: {}
+        kernel: {}
+        full: {}
+        Ext:
+          fields:
+            variant: {}
 event:
   fields:
     action: {}
     category: {}
     created: {}
     dataset: {}
-    hash: {}
     id: {}
-    ingested: {}
     kind: {}
     module: {}
-    outcome: {}
     sequence: {}
     type: {}
 agent:

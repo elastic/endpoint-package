@@ -531,6 +531,24 @@ event:
       normalize: []
       short: Time when the event was first read by an agent or by your pipeline.
       type: date
+    dataset:
+      dashed_name: event-dataset
+      description: 'Name of the dataset.
+
+        If an event source publishes more than one type of log or events (e.g. access
+        log, error log), the dataset is used to specify which one the event comes
+        from.
+
+        It''s recommended but not required to start the dataset name with the module
+        name, followed by a dot, then the dataset name.'
+      example: apache.access
+      flat_name: event.dataset
+      ignore_above: 1024
+      level: core
+      name: dataset
+      normalize: []
+      short: Name of the dataset.
+      type: keyword
     end:
       dashed_name: event-end
       description: event.end contains the date when the event ended or when the activity
@@ -653,6 +671,19 @@ event:
       normalize: []
       short: Name of the module this data is coming from.
       type: keyword
+    sequence:
+      dashed_name: event-sequence
+      description: 'Sequence number of the event.
+
+        The sequence number is a value published by some event sources, to make the
+        exact ordering of events unambiguous, regardless of the timestamp precision.'
+      flat_name: event.sequence
+      format: string
+      level: extended
+      name: sequence
+      normalize: []
+      short: Sequence number of the event.
+      type: long
     start:
       dashed_name: event-start
       description: event.start contains the date when the event started or when the
@@ -865,89 +896,6 @@ host:
       normalize: []
       short: Operating system architecture.
       type: keyword
-    geo.city_name:
-      dashed_name: host-geo-city-name
-      description: City name.
-      example: Montreal
-      flat_name: host.geo.city_name
-      ignore_above: 1024
-      level: core
-      name: city_name
-      normalize: []
-      original_fieldset: geo
-      short: City name.
-      type: keyword
-    geo.continent_name:
-      dashed_name: host-geo-continent-name
-      description: Name of the continent.
-      example: North America
-      flat_name: host.geo.continent_name
-      ignore_above: 1024
-      level: core
-      name: continent_name
-      normalize: []
-      original_fieldset: geo
-      short: Name of the continent.
-      type: keyword
-    geo.country_iso_code:
-      dashed_name: host-geo-country-iso-code
-      description: Country ISO code.
-      example: CA
-      flat_name: host.geo.country_iso_code
-      ignore_above: 1024
-      level: core
-      name: country_iso_code
-      normalize: []
-      original_fieldset: geo
-      short: Country ISO code.
-      type: keyword
-    geo.country_name:
-      dashed_name: host-geo-country-name
-      description: Country name.
-      example: Canada
-      flat_name: host.geo.country_name
-      ignore_above: 1024
-      level: core
-      name: country_name
-      normalize: []
-      original_fieldset: geo
-      short: Country name.
-      type: keyword
-    geo.location:
-      dashed_name: host-geo-location
-      description: Longitude and latitude.
-      example: '{ "lon": -73.614830, "lat": 45.505918 }'
-      flat_name: host.geo.location
-      level: core
-      name: location
-      normalize: []
-      original_fieldset: geo
-      short: Longitude and latitude.
-      type: geo_point
-    geo.region_iso_code:
-      dashed_name: host-geo-region-iso-code
-      description: Region ISO code.
-      example: CA-QC
-      flat_name: host.geo.region_iso_code
-      ignore_above: 1024
-      level: core
-      name: region_iso_code
-      normalize: []
-      original_fieldset: geo
-      short: Region ISO code.
-      type: keyword
-    geo.region_name:
-      dashed_name: host-geo-region-name
-      description: Region name.
-      example: Quebec
-      flat_name: host.geo.region_name
-      ignore_above: 1024
-      level: core
-      name: region_name
-      normalize: []
-      original_fieldset: geo
-      short: Region name.
-      type: keyword
     hostname:
       dashed_name: host-hostname
       description: 'Hostname of the host.
@@ -1121,7 +1069,6 @@ host:
   group: 2
   name: host
   nestings:
-  - host.geo
   - host.os
   prefix: host.
   short: Fields describing the relevant computing instance.

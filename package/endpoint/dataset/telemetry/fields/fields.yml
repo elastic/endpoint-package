@@ -234,6 +234,19 @@
 
       In case the two timestamps are identical, @timestamp should be used.'
     example: '2016-05-23T08:05:34.857Z'
+  - name: dataset
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Name of the dataset.
+
+      If an event source publishes more than one type of log or events (e.g. access
+      log, error log), the dataset is used to specify which one the event comes
+      from.
+
+      It''s recommended but not required to start the dataset name with the module
+      name, followed by a dot, then the dataset name.'
+    example: apache.access
   - name: end
     level: extended
     type: date
@@ -271,6 +284,14 @@
       events of a given source (e.g. Apache logs), `event.module` should contain
       the name of this module.'
     example: apache
+  - name: sequence
+    level: extended
+    type: long
+    format: string
+    description: 'Sequence number of the event.
+
+      The sequence number is a value published by some event sources, to make the
+      exact ordering of events unambiguous, regardless of the timestamp precision.'
   - name: start
     level: extended
     type: date
@@ -305,47 +326,6 @@
     ignore_above: 1024
     description: Operating system architecture.
     example: x86_64
-  - name: geo.city_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: City name.
-    example: Montreal
-  - name: geo.continent_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Name of the continent.
-    example: North America
-  - name: geo.country_iso_code
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Country ISO code.
-    example: CA
-  - name: geo.country_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Country name.
-    example: Canada
-  - name: geo.location
-    level: core
-    type: geo_point
-    description: Longitude and latitude.
-    example: '{ "lon": -73.614830, "lat": 45.505918 }'
-  - name: geo.region_iso_code
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Region ISO code.
-    example: CA-QC
-  - name: geo.region_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Region name.
-    example: Quebec
   - name: hostname
     level: core
     type: keyword
