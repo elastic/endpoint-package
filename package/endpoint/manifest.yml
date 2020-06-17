@@ -24,10 +24,8 @@ datasources:
     multiple: false
 
 requirement:
-  elasticsearch:
-    versions: ">7.4.0"
   kibana:
-    versions: ">7.4.0"
+    versions: ">=7.9.0"
 
 icons:
   - src: "/img/logo-endpoint-64-color.svg"
