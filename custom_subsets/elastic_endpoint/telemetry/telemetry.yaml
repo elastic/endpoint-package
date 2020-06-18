@@ -5,6 +5,7 @@ base:
       fields: "*"
     message:
       fields: "*"
+dataset: {}
 ecs:
   fields:
     version:

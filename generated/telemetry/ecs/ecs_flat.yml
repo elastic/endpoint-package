@@ -237,6 +237,33 @@ Endpoint.metrics.uptime.system:
   normalize: []
   short: Number of seconds since the system was started
   type: long
+dataset.name:
+  dashed_name: dataset-name
+  description: Dataset name.
+  flat_name: dataset.name
+  level: custom
+  name: name
+  normalize: []
+  short: Dataset name.
+  type: constant_keyword
+dataset.namespace:
+  dashed_name: dataset-namespace
+  description: Dataset namespace.
+  flat_name: dataset.namespace
+  level: custom
+  name: namespace
+  normalize: []
+  short: Dataset namespace.
+  type: constant_keyword
+dataset.type:
+  dashed_name: dataset-type
+  description: Dataset type.
+  flat_name: dataset.type
+  level: custom
+  name: type
+  normalize: []
+  short: Dataset type.
+  type: constant_keyword
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
