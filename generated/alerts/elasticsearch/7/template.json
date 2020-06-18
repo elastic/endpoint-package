@@ -851,6 +851,19 @@
           }
         }
       },
+      "dataset": {
+        "properties": {
+          "name": {
+            "type": "constant_keyword"
+          },
+          "namespace": {
+            "type": "constant_keyword"
+          },
+          "type": {
+            "type": "constant_keyword"
+          }
+        }
+      },
       "dll": {
         "properties": {
           "Ext": {
