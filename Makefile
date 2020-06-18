@@ -71,19 +71,21 @@ define gen_mapping_files
 	cp -r $(ROOT_DIR)/out/$(1)/generated/ecs $(ROOT_DIR)/generated/$(1)
 	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
 
-	# copy the generated ecs file directly to the package
-	cp $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	# move the generated ecs file directly to the package
+	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	rm -r $(ROOT_DIR)/generated/$(1)/beats
 
 	# remove unused files
 	rm -r $(ROOT_DIR)/generated/$(1)/elasticsearch/6
-	rm $(ROOT_DIR)/generated/$(1)/ecs/ecs_flat.yml
+	rm $(ROOT_DIR)/generated/$(1)/ecs/ecs_nested.yml
 endef
 
 # Parameters
 # 1: schema name (e.g. events, metadata)
 define gen_schema_files
+	mkdir -p $(ROOT_DIR)/schemas/v1/$(1)
 	cd $(EVENT_SCHEMA_GEN) && pipenv run python main.py \
-		--out-schema-dir $(ROOT_DIR)/schemas/v1 \
+		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(1) \
 		--ecs_git_ref $(ECS_GIT_REF) \
 		$(REAL_ECS_DIR) \
 		$(CUST_SCHEMA_DIR) \
@@ -205,6 +207,3 @@ switch-to-bump-branch:
 .PHONY: release-package
 release-package: switch-to-bump-branch tag-version create-storage-pr bump-version
 
-test:
-	cd $(EVENT_SCHEMA_GEN) && pipenv install; pipenv install --dev; \
-	pipenv run python -m pytest test_main.py

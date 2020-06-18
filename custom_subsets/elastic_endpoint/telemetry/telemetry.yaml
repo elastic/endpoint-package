@@ -9,61 +9,38 @@ ecs:
   fields:
     version:
       fields: "*"
-event:
-  fields:
-    created:
-      fields: "*"
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-    start:
-      fields: "*"
-    end:
-      fields: "*"
 Endpoint:
   fields:
     metrics: {}
 host:
   fields:
-    geo:
-      fields:
-        location:
-          fields: "*"
-        continent_name:
-          fields: "*"
-        country_name:
-          fields: "*"
-        region_name:
-          fields: "*"
-        city_name:
-          fields: "*"
-        country_iso_code:
-          fields: "*"
-        region_iso_code:
-          fields: "*"
+    name: {}
+    hostname: {}
+    ip: {}
+    mac: {}
+    architecture: {}
+    id: {}
     os:
       fields:
         platform: {}
-        name: {}
         version: {}
         family: {}
+        name: {}
         kernel: {}
         full: {}
         Ext:
           fields:
             variant: {}
-    ip: {}
-    hostname: {}
-    name: {}
-    mac: {}
-    architecture: {}
+event:
+  fields:
+    start: {}
+    end: {}
+    action: {}
+    category: {}
+    created: {}
+    dataset: {}
     id: {}
+    kind: {}
+    module: {}
+    sequence: {}
+    type: {}

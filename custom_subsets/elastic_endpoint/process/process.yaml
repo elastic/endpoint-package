@@ -1,0 +1,152 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs:
+  fields:
+    version: {}
+host:
+  fields:
+    name: {}
+    hostname: {}
+    ip: {}
+    mac: {}
+    architecture: {}
+    id: {}
+    os:
+      fields:
+        platform: {}
+        version: {}
+        family: {}
+        name: {}
+        kernel: {}
+        full: {}
+        Ext:
+          fields:
+            variant: {}
+event:
+  fields:
+    action: {}
+    category: {}
+    created: {}
+    dataset: {}
+    id: {}
+    kind: {}
+    module: {}
+    sequence: {}
+    type: {}
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    domain:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+process:
+  fields:
+    entity_id:
+      fields: "*"
+    pe:
+      fields:
+        original_file_name:
+          fields: "*"
+    code_signature:
+      fields:
+        subject_name:
+          fields: "*"
+        status:
+          fields: "*"
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    args:
+      fields: "*"
+    command_line:
+      fields: "*"
+    exit_code:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+    hash:
+      fields:
+        md5:
+          fields: "*"
+        sha1:
+          fields: "*"
+        sha256:
+          fields: "*"
+    parent:
+      fields:
+        entity_id:
+          fields: "*"
+        pid:
+          fields: "*"
+        name:
+          fields: "*"
+        executable:
+          fields: "*"
+        Ext:
+          fields:
+            real:
+              fields:
+                pid:
+                  fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
+        authentication_id:
+          fields: "*"
+        session:
+          fields: "*"
+        token:
+          fields:
+            elevation:
+              fields: "*"
+            elevation_type:
+              fields: "*"
+            integrity_level_name:
+              fields: "*"
+package:
+  fields:
+    name:
+      fields: "*"

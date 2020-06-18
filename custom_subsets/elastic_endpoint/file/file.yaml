@@ -1,0 +1,144 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+ecs:
+  fields:
+    version: {}
+host:
+  fields:
+    name: {}
+    hostname: {}
+    ip: {}
+    mac: {}
+    architecture: {}
+    id: {}
+    os:
+      fields:
+        platform: {}
+        version: {}
+        family: {}
+        name: {}
+        kernel: {}
+        full: {}
+        Ext:
+          fields:
+            variant: {}
+event:
+  fields:
+    action: {}
+    category: {}
+    created: {}
+    dataset: {}
+    id: {}
+    kind: {}
+    module: {}
+    sequence: {}
+    type: {}
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    domain:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+process:
+  fields:
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    entity_id:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
+file:
+  fields:
+    name:
+      fields: "*"
+    path:
+      fields: "*"
+    mode:
+      fields: "*"
+    inode:
+      fields: "*"
+    uid:
+      fields: "*"
+    owner:
+      fields: "*"
+    gid:
+      fields: "*"
+    group:
+      fields: "*"
+    hash:
+      fields:
+        md5:
+          fields: "*"
+        sha1:
+          fields: "*"
+        sha256:
+          fields: "*"
+    Ext:
+      fields:
+        windows:
+          fields:
+            zone_identifier:
+              fields: "*"
+        original:
+          fields:
+            name:
+              fields: "*"
+            path:
+              fields: "*"
+            mode:
+              fields: "*"
+            uid:
+              fields: "*"
+            owner:
+              fields: "*"
+            gid:
+              fields: "*"
+            group:
+              fields: "*"
