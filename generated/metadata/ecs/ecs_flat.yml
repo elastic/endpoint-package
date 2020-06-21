@@ -67,6 +67,16 @@ Endpoint.policy.applied.status:
   normalize: []
   short: the status of the applied policy
   type: keyword
+Endpoint.status:
+  dashed_name: Endpoint-status
+  description: The current status of the endpoint e.g. enrolled, unenrolled.
+  flat_name: Endpoint.status
+  ignore_above: 1024
+  level: custom
+  name: status
+  normalize: []
+  short: The current status of the endpoint e.g. enrolled, unenrolled.
+  type: keyword
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
