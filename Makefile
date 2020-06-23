@@ -117,7 +117,7 @@ clean:
 # I'm pinning this to my repo so that we can use the `enabled` and `index` fields once my PR here:
 # https://github.com/elastic/ecs/pull/824 is merged I'll move this back to the upstream ecs repo on the master branch
 $(REAL_ECS_DIR):
-	git clone --branch add-enabled-support https://github.com/jonathan-buttner/ecs.git $(REAL_ECS_DIR)
+	git clone --branch subset-format-update https://github.com/marshallmain/ecs.git $(REAL_ECS_DIR)
 
 
 .PHONY: install-pipfile
@@ -157,7 +157,7 @@ build-package:
 .PHONY: run-registry
 run-registry: check-go $(ROOT_DIR)/out $(MAGE_BIN) $(REG_DIR) build-package
 	cd $(REG_DIR) && git pull
-	cd $(REG_DIR) && PACKAGE_PATHS="$(PACKAGES_DIR),$(DEF_PACKAGES_DIR)" mage build && go run .
+	cd $(REG_DIR) && PACKAGE_PATHS="$(PACKAGES_DIR),$(DEF_PACKAGES_DIR)" $(MAGE_BIN) build && go run .
 
 # This target uses the hub tool to create a PR to the package-storage repo with the contents of the
 # modified endpoint package in this repo
