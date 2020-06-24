@@ -1,0 +1,142 @@
+---
+base:
+  fields:
+    "@timestamp":
+      fields: "*"
+    message:
+      fields: "*"
+dataset: {}
+ecs:
+  fields:
+    version: {}
+host:
+  fields:
+    name: {}
+    hostname: {}
+    ip: {}
+    mac: {}
+    architecture: {}
+    id: {}
+    os:
+      fields:
+        platform: {}
+        version: {}
+        family: {}
+        name: {}
+        kernel: {}
+        full: {}
+        Ext:
+          fields:
+            variant: {}
+event:
+  fields:
+    action: {}
+    category: {}
+    created: {}
+    dataset: {}
+    id: {}
+    kind: {}
+    module: {}
+    sequence: {}
+    type: {}
+agent:
+  fields:
+    version:
+      fields: "*"
+    type:
+      fields: "*"
+    id:
+      fields: "*"
+group:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+user:
+  fields:
+    id:
+      fields: "*"
+    name:
+      fields: "*"
+    domain:
+      fields: "*"
+    Ext:
+      fields:
+        real:
+          fields:
+            id:
+              fields: "*"
+            name:
+              fields: "*"
+process:
+  fields:
+    entity_id:
+      fields: "*"
+    pid:
+      fields: "*"
+    name:
+      fields: "*"
+    executable:
+      fields: "*"
+    thread:
+      fields:
+        id:
+          fields: "*"
+    Ext:
+      fields:
+        ancestry:
+          fields: "*"
+file:
+  fields:
+    code_signature:
+      fields:
+        subject_name:
+          fields: "*"
+        status:
+          fields: "*"
+    pe:
+      fields:
+        original_file_name:
+          fields: "*"
+        file_version:
+          fields: "*"
+        product:
+          fields: "*"
+    name:
+      fields: "*"
+    path:
+      fields: "*"
+    hash:
+      fields:
+        md5:
+          fields: "*"
+        sha1:
+          fields: "*"
+        sha256:
+          fields: "*"
+
+dll:
+  fields:
+    pe:
+      fields:
+        original_file_name:
+          fields: "*"
+        file_version:
+          fields: "*"
+        product:
+          fields: "*"
+    code_signature:
+      fields:
+        subject_name:
+          fields: "*"
+        status:
+          fields: "*"

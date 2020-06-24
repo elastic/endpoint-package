@@ -24,7 +24,7 @@
       },
       "Endpoint": {
         "properties": {
-          "system": {
+          "metrics": {
             "properties": {
               "cpu": {
                 "properties": {
@@ -46,9 +46,21 @@
                 "type": "object"
               },
               "disks": {
+                "enabled": false,
                 "properties": {
+                  "device": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "endpoint_drive": {
+                    "type": "boolean"
+                  },
                   "free": {
                     "type": "long"
+                  },
+                  "fstype": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "mount": {
                     "ignore_above": 1024,
@@ -58,7 +70,7 @@
                     "type": "long"
                   }
                 },
-                "type": "nested"
+                "type": "object"
               },
               "memory": {
                 "properties": {
@@ -101,6 +113,19 @@
           }
         }
       },
+      "dataset": {
+        "properties": {
+          "name": {
+            "type": "constant_keyword"
+          },
+          "namespace": {
+            "type": "constant_keyword"
+          },
+          "type": {
+            "type": "constant_keyword"
+          }
+        }
+      },
       "ecs": {
         "properties": {
           "version": {
@@ -122,6 +147,10 @@
           "created": {
             "type": "date"
           },
+          "dataset": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "end": {
             "type": "date"
           },
@@ -137,6 +166,9 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "sequence": {
+            "type": "long"
+          },
           "start": {
             "type": "date"
           },
@@ -151,37 +183,6 @@
           "architecture": {
             "ignore_above": 1024,
             "type": "keyword"
-          },
-          "geo": {
-            "properties": {
-              "city_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "continent_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "country_iso_code": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "country_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "location": {
-                "type": "geo_point"
-              },
-              "region_iso_code": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "region_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              }
-            }
           },
           "hostname": {
             "ignore_above": 1024,

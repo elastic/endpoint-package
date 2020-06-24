@@ -3,6 +3,7 @@ base:
   fields:
     "@timestamp":
       fields: "*"
+dataset: {}
 ecs:
   fields:
     version:
@@ -13,10 +14,12 @@ event:
       fields: "*"
 Endpoint:
   fields:
+    status:
+      fields: "*"
     policy:
       fields:
         applied:
-          fields: 
+          fields:
             id:
               fields: "*"
             status:

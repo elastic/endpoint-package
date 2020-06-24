@@ -1,0 +1,27 @@
+---
+# NOTE this file is temporary and once ECS merges in the dataset fields into core we should remove these
+- name: dataset
+  title: dataset
+  group: 2
+  short: Fields describing the new indexing strategy
+  description: >
+    Fields describing the new indexing strategy <type>-<name>-<namespace>
+  type: group
+  fields:
+    - name: type
+      level: custom
+      type: constant_keyword
+      description: >
+        Dataset type.
+
+    - name: name
+      level: custom
+      type: constant_keyword
+      description: >
+        Dataset name.
+
+    - name: namespace
+      level: custom
+      type: constant_keyword
+      description: >
+        Dataset namespace.
