@@ -39,6 +39,11 @@ event:
     module: {}
     sequence: {}
     type: {}
+    Ext:
+      fields:
+        correlation:
+          fields:
+            id: {}
 agent:
   fields:
     version:

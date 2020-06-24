@@ -100,6 +100,38 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+event.Ext:
+  dashed_name: event-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: event.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  object_type: keyword
+  short: Object for all custom defined fields to live in.
+  type: object
+event.Ext.correlation:
+  dashed_name: event-Ext-correlation
+  description: Information about event this should be correlated with.
+  flat_name: event.Ext.correlation
+  level: custom
+  name: Ext.correlation
+  normalize: []
+  object_type: keyword
+  short: Information about event this should be correlated with.
+  type: object
+event.Ext.correlation.id:
+  dashed_name: event-Ext-correlation-id
+  description: ID of event that this event is correlated to, e.g. quarantine event
+    associated with an unquarantine event
+  flat_name: event.Ext.correlation.id
+  ignore_above: 1024
+  level: custom
+  name: Ext.correlation.id
+  normalize: []
+  short: ID of event that this event is correlated to, e.g. quarantine event associated
+    with an unquarantine event
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.
