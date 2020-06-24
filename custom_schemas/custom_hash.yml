@@ -12,6 +12,7 @@
     (snake case, e.g. sha3_512).
 
   reusable:
+    order: 1
     top_level: false
     expected:
       - macro.collection

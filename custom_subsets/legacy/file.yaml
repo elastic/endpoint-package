@@ -1,136 +1,77 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    labels:
-      fields: "*"
-    message:
-      fields: "*"
-host:
-  fields:
-    os:
-      fields:
-        platform:
-          fields: "*"
-        name:
-          fields: "*"
-        version:
-          fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    dataset:
-      fields: "*"
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
+name: file
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      labels: {}
+      message: {}
+  host:
+    fields:
+      os:
+        fields:
+          platform: {}
+          name: {}
+          version: {}
+      ip: {}
+      hostname: {}
+      name: {}
+  event:
+    fields:
+      id: {}
+      module: {}
+      dataset: {}
+      action: {}
+      kind: {}
+      category: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
 
-endgame:
-  fields:
-    serial_event_id:
-      fields: "*"
-    opcode:
-      fields: "*"
-    event_type_full:
-      fields: "*"
-    event_subtype_full:
-      fields: "*"
-    timestamp:
-      fields: "*"
-    timestamp_utc:
-      fields: "*"
-    event_message:
-      fields: "*"
-    unknown_properties:
-      fields: "*"
-    pid:
-      fields: "*"
-    process_path:
-      fields: "*"
-    process_name:
-      fields: "*"
-    unique_pid:
-      fields: "*"
-    user_name:
-      fields: "*"
-    user_domain:
-      fields: "*"
-    user_sid:
-      fields: "*"
-    tid:
-      fields: "*"
-    real_user_name:
-      fields: "*"
-    effective_user_name:
-      fields: "*"
-    real_group_name:
-      fields: "*"
-    effective_group_name:
-      fields: "*"
-    real_uid:
-      fields: "*"
-    effective_uid:
-      fields: "*"
-    real_gid:
-      fields: "*"
-    effective_gid:
-      fields: "*"
-    # end of generic stuff
-
-    file_path:
-      fields: "*"
-    file_name:
-      fields: "*"
-    md5:
-      fields: "*"
-    sha1:
-      fields: "*"
-    sha256:
-      fields: "*"
-    old_file_path:
-      fields: "*"
-    old_file_name:
-      fields: "*"
-    create_disposition:
-      fields: "*"
-    desired_access:
-      fields: "*"
-    create_options:
-      fields: "*"
-    share_mode:
-      fields: "*"
-    file_attributes:
-      fields: "*"
-    zone_id:
-      fields: "*"
-    other_file_path:
-      fields: "*"
-    fileid:
-      fields: "*"
-    parent_pid:
-      fields: "*"
-    file_mode:
-      fields: "*"
+  endgame:
+    fields:
+      serial_event_id: {}
+      opcode: {}
+      event_type_full: {}
+      event_subtype_full: {}
+      timestamp: {}
+      timestamp_utc: {}
+      event_message: {}
+      unknown_properties: {}
+      pid: {}
+      process_path: {}
+      process_name: {}
+      unique_pid: {}
+      user_name: {}
+      user_domain: {}
+      user_sid: {}
+      tid: {}
+      real_user_name: {}
+      effective_user_name: {}
+      real_group_name: {}
+      effective_group_name: {}
+      real_uid: {}
+      effective_uid: {}
+      real_gid: {}
+      effective_gid: {}
+      # end of generic stuff
+      file_path: {}
+      file_name: {}
+      md5: {}
+      sha1: {}
+      sha256: {}
+      old_file_path: {}
+      old_file_name: {}
+      create_disposition: {}
+      desired_access: {}
+      create_options: {}
+      share_mode: {}
+      file_attributes: {}
+      zone_id: {}
+      other_file_path: {}
+      fileid: {}
+      parent_pid: {}
+      file_mode: {}

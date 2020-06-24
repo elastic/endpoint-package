@@ -1,144 +1,96 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    message:
-      fields: "*"
-ecs:
-  fields:
-    version:
-      fields: "*"
-host:
-  fields:
-    geo:
-      fields:
-        location:
-          fields: "*"
-        continent_name:
-          fields: "*"
-        country_name:
-          fields: "*"
-        region_name:
-          fields: "*"
-        city_name:
-          fields: "*"
-        country_iso_code:
-          fields: "*"
-        region_iso_code:
-          fields: "*"
-    os:
-      fields:
-        platform:
-          fields: "*"
-        name:
-          fields: "*"
-        version:
-          fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    # note we don't include the dataset field but do in the legacy events so siem can display it
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
-group:
-  fields:
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-    Ext:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-user:
-  fields:
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-    domain:
-      fields: "*"
-    Ext:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-process:
-  fields:
-    pid:
-      fields: "*"
-    name:
-      fields: "*"
-    executable:
-      fields: "*"
-    entity_id:
-      fields: "*"
-    thread:
-      fields:
-        id:
-          fields: "*"
-    Ext:
-      fields:
-        ancestry:
-          fields: "*"
-file:
-  fields:
-    name:
-      fields: "*"
-    path:
-      fields: "*"
-    hash:
-      fields:
-        md5:
-          fields: "*"
-        sha1:
-          fields: "*"
-        sha256:
-          fields: "*"
-dll:
-  fields:
-    pe:
-      fields:
-        original_file_name:
-          fields: "*"
-        file_version:
-          fields: "*"
-        product:
-          fields: "*"
-    code_signature:
-      fields:
-        subject_name:
-          fields: "*"
-        status:
-          fields: "*"
+name: library
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  ecs:
+    fields:
+      version: {}
+  host:
+    fields:
+      geo:
+        fields:
+          location: {}
+          continent_name: {}
+          country_name: {}
+          region_name: {}
+          city_name: {}
+          country_iso_code: {}
+          region_iso_code: {}
+      os:
+        fields:
+          platform: {}
+          name: {}
+          version: {}
+      ip: {}
+      hostname: {}
+      name: {}
+  event:
+    fields:
+      id: {}
+      module: {}
+      # note we don't include the dataset field but do in the legacy events so siem can display it
+      action: {}
+      kind: {}
+      category: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  group:
+    fields:
+      id: {}
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  user:
+    fields:
+      id: {}
+      name: {}
+      domain: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      thread:
+        fields:
+          id: {}
+      Ext:
+        fields:
+          ancestry: {}
+  file:
+    fields:
+      name: {}
+      path: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+  dll:
+    fields:
+      pe:
+        fields:
+          original_file_name: {}
+          file_version: {}
+          product: {}
+      code_signature:
+        fields:
+          subject_name: {}
+          status: {}

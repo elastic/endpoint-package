@@ -10,6 +10,7 @@
     from a log message.  The `process.pid` often stays in the metric itself and is
     copied to the global field for correlation.
   reusable:
+    order: 1
     top_level: false
     expected:
       - process.thread.Ext

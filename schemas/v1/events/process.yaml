@@ -1032,6 +1032,16 @@ process.name:
   normalize: []
   short: Process name.
   type: keyword
+process.parent:
+  dashed_name: process-parent
+  description: Extended "process.parent" field set.
+  flat_name: process.parent
+  level: custom
+  name: parent
+  normalize: []
+  object_type: keyword
+  short: Extended "process.parent" field set.
+  type: object
 process.parent.Ext:
   dashed_name: process-parent-Ext
   description: Object for all custom defined fields to live in.

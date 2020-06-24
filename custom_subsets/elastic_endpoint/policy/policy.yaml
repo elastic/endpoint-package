@@ -1,40 +1,31 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    message:
-      fields: "*"
-dataset: {}
-ecs:
-  fields:
-    version:
-      fields: "*"
-Endpoint:
-  fields:
-    policy:
-      fields:
-        applied:
-          fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    kind:
-      fields: "*"
-    created:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-    module:
-      fields: "*"
-    action:
-      fields: "*"
-    dataset:
-      fields: "*"
-host:
-  fields:
-    id:
-      fields: "*"
+name: policy
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  Endpoint:
+    fields:
+      policy:
+        fields:
+          applied:
+            fields: "*"
+  event:
+    fields:
+      id: {}
+      kind: {}
+      created: {}
+      category: {}
+      type: {}
+      module: {}
+      action: {}
+      dataset: {}
+  host:
+    fields:
+      id: {}

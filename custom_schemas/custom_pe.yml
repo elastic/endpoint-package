@@ -1,0 +1,9 @@
+---
+- name: pe
+  title: PE Header
+  group: 2
+  description: These fields contain Windows Portable Executable (PE) metadata.
+  type: group
+  reusable:
+    order: 1
+    expected: []

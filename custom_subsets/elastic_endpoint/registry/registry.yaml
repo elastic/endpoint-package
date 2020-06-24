@@ -1,113 +1,90 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    message:
-      fields: "*"
-dataset: {}
-ecs:
-  fields:
-    version: {}
-host:
-  fields:
-    name: {}
-    hostname: {}
-    ip: {}
-    mac: {}
-    architecture: {}
-    id: {}
-    os:
-      fields:
-        platform: {}
-        version: {}
-        family: {}
-        name: {}
-        kernel: {}
-        full: {}
-        Ext:
-          fields:
-            variant: {}
-event:
-  fields:
-    action: {}
-    category: {}
-    created: {}
-    dataset: {}
-    id: {}
-    kind: {}
-    module: {}
-    sequence: {}
-    type: {}
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
-group:
-  fields:
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-    Ext:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-user:
-  fields:
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-    domain:
-      fields: "*"
-    Ext:
-      fields:
-        real:
-          fields:
-            id:
-              fields: "*"
-            name:
-              fields: "*"
-process:
-  fields:
-    pid:
-      fields: "*"
-    name:
-      fields: "*"
-    executable:
-      fields: "*"
-    entity_id:
-      fields: "*"
-    thread:
-      fields:
-        id:
-          fields: "*"
-    Ext:
-      fields:
-        ancestry:
-          fields: "*"
-registry:
-  fields:
-    hive:
-      fields: "*"
-    key:
-      fields: "*"
-    path:
-      fields: "*"
-    value:
-      fields: "*"
-    data:
-      fields:
-        bytes:
-          fields: "*"
-        strings:
-          fields: "*"
+name: registry
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  host:
+    fields:
+      name: {}
+      hostname: {}
+      ip: {}
+      mac: {}
+      architecture: {}
+      id: {}
+      os:
+        fields:
+          platform: {}
+          version: {}
+          family: {}
+          name: {}
+          kernel: {}
+          full: {}
+          Ext:
+            fields:
+              variant: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      dataset: {}
+      id: {}
+      kind: {}
+      module: {}
+      sequence: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  group:
+    fields:
+      id: {}
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  user:
+    fields:
+      id: {}
+      name: {}
+      domain: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      thread:
+        fields:
+          id: {}
+      Ext:
+        fields:
+          ancestry: {}
+  registry:
+    fields:
+      hive: {}
+      key: {}
+      path: {}
+      value: {}
+      data:
+        fields:
+          bytes: {}
+          strings: {}

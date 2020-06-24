@@ -688,6 +688,12 @@
       Sometimes called program name or similar.'
     example: ssh
     default_field: false
+  - name: process.parent
+    level: custom
+    type: object
+    object_type: keyword
+    description: Extended "process.parent" field set.
+    default_field: false
   - name: process.parent.Ext
     level: custom
     type: object
@@ -3047,6 +3053,12 @@
 
       Sometimes called program name or similar.'
     example: ssh
+  - name: parent
+    level: custom
+    type: object
+    object_type: keyword
+    description: Extended "process.parent" field set.
+    default_field: false
   - name: parent.Ext
     level: custom
     type: object

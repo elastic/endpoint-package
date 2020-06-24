@@ -2,9 +2,10 @@
 - name: group
   title: Group
   group: 2
-  short: Fields describing groups relevant to the event.
+  short: User's group relevant to the event.
   description: >
-    Fields describing groups relevant to the event.
+    The group fields are meant to represent groups that are relevant to the
+    event.
   type: group
   fields:
     - name: Ext

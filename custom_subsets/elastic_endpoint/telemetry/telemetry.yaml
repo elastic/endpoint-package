@@ -1,47 +1,48 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    message:
-      fields: "*"
-dataset: {}
-ecs:
-  fields:
-    version:
-      fields: "*"
-Endpoint:
-  fields:
-    metrics: {}
-host:
-  fields:
-    name: {}
-    hostname: {}
-    ip: {}
-    mac: {}
-    architecture: {}
-    id: {}
-    os:
-      fields:
-        platform: {}
-        version: {}
-        family: {}
-        name: {}
-        kernel: {}
-        full: {}
-        Ext:
-          fields:
-            variant: {}
-event:
-  fields:
-    start: {}
-    end: {}
-    action: {}
-    category: {}
-    created: {}
-    dataset: {}
-    id: {}
-    kind: {}
-    module: {}
-    sequence: {}
-    type: {}
+name: telemetry
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  Endpoint:
+    fields:
+      metrics:
+        fields: "*"
+  host:
+    fields:
+      name: {}
+      hostname: {}
+      ip: {}
+      mac: {}
+      architecture: {}
+      id: {}
+      os:
+        fields:
+          platform: {}
+          version: {}
+          family: {}
+          name: {}
+          kernel: {}
+          full: {}
+          Ext:
+            fields:
+              variant: {}
+  event:
+    fields:
+      start: {}
+      end: {}
+      action: {}
+      category: {}
+      created: {}
+      dataset: {}
+      id: {}
+      kind: {}
+      module: {}
+      sequence: {}
+      type: {}

@@ -1,66 +1,49 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-dataset: {}
-ecs:
-  fields:
-    version:
-      fields: "*"
-event:
-  fields:
-    created:
-      fields: "*"
-Endpoint:
-  fields:
-    status:
-      fields: "*"
-    policy:
-      fields:
-        applied:
-          fields:
-            id:
-              fields: "*"
-            status:
-              fields: "*"
-            name:
-              fields: "*"
-elastic:
-  fields:
-    agent:
-      fields:
-        id:
-          fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-host:
-  fields:
-    id:
-      fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    mac:
-      fields: "*"
-    architecture:
-      fields: "*"
-    os:
-      fields:
-        name:
-          fields: "*"
-        full:
-          fields: "*"
-        version:
-          fields: "*"
-        Ext:
-          fields:
-            variant:
-              fields: "*"
+name: metadata
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  event:
+    fields:
+      created: {}
+  Endpoint:
+    fields:
+      status: {}
+      policy:
+        fields:
+          applied:
+            fields:
+              id: {}
+              status: {}
+              name: {}
+  elastic:
+    fields:
+      agent:
+        fields:
+          id: {}
+  agent:
+    fields:
+      version: {}
+      id: {}
+      name: {}
+  host:
+    fields:
+      id: {}
+      ip: {}
+      hostname: {}
+      mac: {}
+      architecture: {}
+      os:
+        fields:
+          name: {}
+          full: {}
+          version: {}
+          Ext:
+            fields:
+              variant: {}
