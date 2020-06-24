@@ -37,6 +37,7 @@ event:
     id: {}
     kind: {}
     module: {}
+    outcome: {}
     sequence: {}
     type: {}
     Ext:
