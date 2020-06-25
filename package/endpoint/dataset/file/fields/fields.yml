@@ -119,6 +119,25 @@
     details about metric and state events.'
   type: group
   fields:
+  - name: Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: Ext.correlation
+    level: custom
+    type: object
+    object_type: keyword
+    description: Information about event this should be correlated with.
+    default_field: false
+  - name: Ext.correlation.id
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: ID of event that this event is correlated to, e.g. quarantine event
+      associated with an unquarantine event
+    default_field: false
   - name: action
     level: core
     type: keyword
@@ -205,6 +224,29 @@
       events of a given source (e.g. Apache logs), `event.module` should contain
       the name of this module.'
     example: apache
+  - name: outcome
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'This is one of four ECS Categorization Fields, and indicates the
+      lowest level in the ECS category hierarchy.
+
+      `event.outcome` simply denotes whether the event represents a success or a
+      failure from the perspective of the entity that produced the event.
+
+      Note that when a single transaction is described in multiple events, each
+      event may populate different values of `event.outcome`, according to their
+      perspective.
+
+      Also note that in the case of a compound event (a single event that contains
+      multiple logical events), this field should be populated with the value that
+      best captures the overall success or failure from the perspective of the event
+      producer.
+
+      Further note that not all events will have an associated outcome. For example,
+      this field is generally not populated for metric events, events with `event.type:info`,
+      or any events for which an outcome does not make logical sense.'
+    example: success
   - name: sequence
     level: extended
     type: long
