@@ -28,7 +28,7 @@ datasources:
         linux:
           logging:
             file: info
-            stdout: debug
+            stdout: off
           events:
             process: true
             file: true
@@ -38,7 +38,7 @@ datasources:
             mode: prevent
           logging:
             file: info
-            stdout: debug
+            stdout: off
           events:
             registry: true
             process: true
@@ -52,7 +52,7 @@ datasources:
             mode: detect
           logging:
             file: info
-            stdout: debug
+            stdout: off
           events:
             process: true
             file: true
