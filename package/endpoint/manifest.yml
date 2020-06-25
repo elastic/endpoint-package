@@ -20,6 +20,43 @@ datasources:
     # Only solution packages can contain this field.
     solution: endpoint
     multiple: false
+    inputs:
+    - type: endpoint
+      enabled: true
+      streams: []
+      policy:
+        linux:
+          logging:
+            file: info
+            stdout: debug
+          events:
+            process: true
+            file: true
+            network: true
+        windows:
+          malware:
+            mode: prevent
+          logging:
+            file: info
+            stdout: debug
+          events:
+            registry: true
+            process: true
+            security: true
+            file: true
+            dns: false
+            dll_and_driver_load: false
+            network: true
+        mac:
+          malware:
+            mode: detect
+          logging:
+            file: info
+            stdout: debug
+          events:
+            process: true
+            file: true
+            network: true
 
 requirement:
   kibana:
