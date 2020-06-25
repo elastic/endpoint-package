@@ -2,7 +2,7 @@ format_version: 1.0.0
 name: endpoint
 title: Elastic Endpoint
 description: This is the Elastic Endpoint package.
-version: 0.6.0
+version: 0.7.0
 categories: ["security"]
 # Options are experimental, beta, ga
 release: beta
@@ -10,8 +10,6 @@ release: beta
 # The default type is integration and will be set if empty.
 type: solution
 license: basic
-# The endpoint package cannot be removed
-removable: false
 
 datasources:
   - name: endpoint
