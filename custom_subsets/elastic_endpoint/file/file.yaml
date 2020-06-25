@@ -38,6 +38,7 @@ fields:
       id: {}
       kind: {}
       module: {}
+      outcome: {}
       sequence: {}
       type: {}
   agent:
