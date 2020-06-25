@@ -100,6 +100,38 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+event.Ext:
+  dashed_name: event-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: event.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  object_type: keyword
+  short: Object for all custom defined fields to live in.
+  type: object
+event.Ext.correlation:
+  dashed_name: event-Ext-correlation
+  description: Information about event this should be correlated with.
+  flat_name: event.Ext.correlation
+  level: custom
+  name: Ext.correlation
+  normalize: []
+  object_type: keyword
+  short: Information about event this should be correlated with.
+  type: object
+event.Ext.correlation.id:
+  dashed_name: event-Ext-correlation-id
+  description: ID of event that this event is correlated to, e.g. quarantine event
+    associated with an unquarantine event
+  flat_name: event.Ext.correlation.id
+  ignore_above: 1024
+  level: custom
+  name: Ext.correlation.id
+  normalize: []
+  short: ID of event that this event is correlated to, e.g. quarantine event associated
+    with an unquarantine event
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.
@@ -693,59 +725,6 @@ file.Ext.original:
   object_type: keyword
   short: Original file information during a modification event.
   type: object
-file.Ext.original.gid:
-  dashed_name: file-Ext-original-gid
-  description: Primary group ID (GID) of the file.
-  example: '1001'
-  flat_name: file.Ext.original.gid
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.gid
-  normalize: []
-  short: Primary group ID (GID) of the file.
-  type: keyword
-file.Ext.original.group:
-  dashed_name: file-Ext-original-group
-  description: Primary group name of the file.
-  example: alice
-  flat_name: file.Ext.original.group
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.group
-  normalize: []
-  short: Primary group name of the file.
-  type: keyword
-file.Ext.original.mode:
-  dashed_name: file-Ext-original-mode
-  description: Original file mode prior to a modification event
-  flat_name: file.Ext.original.mode
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.mode
-  normalize: []
-  short: Original file mode prior to a modification event
-  type: keyword
-file.Ext.original.name:
-  dashed_name: file-Ext-original-name
-  description: Original file name prior to a modification event
-  flat_name: file.Ext.original.name
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.name
-  normalize: []
-  short: Original file name prior to a modification event
-  type: keyword
-file.Ext.original.owner:
-  dashed_name: file-Ext-original-owner
-  description: File owner's username.
-  example: alice
-  flat_name: file.Ext.original.owner
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.owner
-  normalize: []
-  short: File owner's username.
-  type: keyword
 file.Ext.original.path:
   dashed_name: file-Ext-original-path
   description: Original file path prior to a modification event
@@ -755,59 +734,6 @@ file.Ext.original.path:
   name: Ext.original.path
   normalize: []
   short: Original file path prior to a modification event
-  type: keyword
-file.Ext.original.uid:
-  dashed_name: file-Ext-original-uid
-  description: The user ID (UID) or security identifier (SID) of the file owner.
-  example: '1001'
-  flat_name: file.Ext.original.uid
-  ignore_above: 1024
-  level: custom
-  name: Ext.original.uid
-  normalize: []
-  short: The user ID (UID) or security identifier (SID) of the file owner.
-  type: keyword
-file.Ext.windows:
-  dashed_name: file-Ext-windows
-  description: Platform-specific Windows fields
-  flat_name: file.Ext.windows
-  level: custom
-  name: Ext.windows
-  normalize: []
-  object_type: keyword
-  short: Platform-specific Windows fields
-  type: object
-file.Ext.windows.zone_identifier:
-  dashed_name: file-Ext-windows-zone-identifier
-  description: Windows zone identifier for a file
-  flat_name: file.Ext.windows.zone_identifier
-  ignore_above: 1024
-  level: custom
-  name: Ext.windows.zone_identifier
-  normalize: []
-  short: Windows zone identifier for a file
-  type: keyword
-file.gid:
-  dashed_name: file-gid
-  description: Primary group ID (GID) of the file.
-  example: '1001'
-  flat_name: file.gid
-  ignore_above: 1024
-  level: extended
-  name: gid
-  normalize: []
-  short: Primary group ID (GID) of the file.
-  type: keyword
-file.group:
-  dashed_name: file-group
-  description: Primary group name of the file.
-  example: alice
-  flat_name: file.group
-  ignore_above: 1024
-  level: extended
-  name: group
-  normalize: []
-  short: Primary group name of the file.
   type: keyword
 file.hash.md5:
   dashed_name: file-hash-md5
@@ -842,28 +768,6 @@ file.hash.sha256:
   original_fieldset: hash
   short: SHA256 hash.
   type: keyword
-file.inode:
-  dashed_name: file-inode
-  description: Inode representing the file in the filesystem.
-  example: '256383'
-  flat_name: file.inode
-  ignore_above: 1024
-  level: extended
-  name: inode
-  normalize: []
-  short: Inode representing the file in the filesystem.
-  type: keyword
-file.mode:
-  dashed_name: file-mode
-  description: Mode of the file in octal representation.
-  example: '0640'
-  flat_name: file.mode
-  ignore_above: 1024
-  level: extended
-  name: mode
-  normalize: []
-  short: Mode of the file in octal representation.
-  type: keyword
 file.name:
   dashed_name: file-name
   description: Name of the file including the extension, without the directory.
@@ -874,17 +778,6 @@ file.name:
   name: name
   normalize: []
   short: Name of the file including the extension, without the directory.
-  type: keyword
-file.owner:
-  dashed_name: file-owner
-  description: File owner's username.
-  example: alice
-  flat_name: file.owner
-  ignore_above: 1024
-  level: extended
-  name: owner
-  normalize: []
-  short: File owner's username.
   type: keyword
 file.path:
   dashed_name: file-path
@@ -902,77 +795,6 @@ file.path:
   name: path
   normalize: []
   short: Full path to the file, including the file name.
-  type: keyword
-file.uid:
-  dashed_name: file-uid
-  description: The user ID (UID) or security identifier (SID) of the file owner.
-  example: '1001'
-  flat_name: file.uid
-  ignore_above: 1024
-  level: extended
-  name: uid
-  normalize: []
-  short: The user ID (UID) or security identifier (SID) of the file owner.
-  type: keyword
-group.Ext:
-  dashed_name: group-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: group.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  object_type: keyword
-  short: Object for all custom defined fields to live in.
-  type: object
-group.Ext.real:
-  dashed_name: group-Ext-real
-  description: Group info prior to any setgid operations.
-  flat_name: group.Ext.real
-  level: custom
-  name: Ext.real
-  normalize: []
-  object_type: keyword
-  short: Group info prior to any setgid operations.
-  type: object
-group.Ext.real.id:
-  dashed_name: group-Ext-real-id
-  description: Unique identifier for the group on the system/platform.
-  flat_name: group.Ext.real.id
-  ignore_above: 1024
-  level: custom
-  name: Ext.real.id
-  normalize: []
-  short: Unique identifier for the group on the system/platform.
-  type: keyword
-group.Ext.real.name:
-  dashed_name: group-Ext-real-name
-  description: Name of the group.
-  flat_name: group.Ext.real.name
-  ignore_above: 1024
-  level: custom
-  name: Ext.real.name
-  normalize: []
-  short: Name of the group.
-  type: keyword
-group.id:
-  dashed_name: group-id
-  description: Unique identifier for the group on the system/platform.
-  flat_name: group.id
-  ignore_above: 1024
-  level: extended
-  name: id
-  normalize: []
-  short: Unique identifier for the group on the system/platform.
-  type: keyword
-group.name:
-  dashed_name: group-name
-  description: Name of the group.
-  flat_name: group.name
-  ignore_above: 1024
-  level: extended
-  name: name
-  normalize: []
-  short: Name of the group.
   type: keyword
 host.architecture:
   dashed_name: host-architecture
@@ -1153,194 +975,4 @@ host.os.version:
   normalize: []
   original_fieldset: os
   short: Operating system version as a raw string.
-  type: keyword
-message:
-  dashed_name: message
-  description: 'For log events the message field contains the log message, optimized
-    for viewing in a log viewer.
-
-    For structured logs without an original message field, other fields can be concatenated
-    to form a human-readable summary of the event.
-
-    If multiple messages exist, they can be combined into one message.'
-  example: Hello World
-  flat_name: message
-  level: core
-  name: message
-  normalize: []
-  norms: false
-  short: Log message optimized for viewing in a log viewer.
-  type: text
-process.Ext:
-  dashed_name: process-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: process.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  object_type: keyword
-  short: Object for all custom defined fields to live in.
-  type: object
-process.Ext.ancestry:
-  dashed_name: process-Ext-ancestry
-  description: An array of entity_ids indicating the ancestors for this event
-  flat_name: process.Ext.ancestry
-  ignore_above: 1024
-  level: custom
-  name: Ext.ancestry
-  normalize: []
-  short: An array of entity_ids indicating the ancestors for this event
-  type: keyword
-process.entity_id:
-  dashed_name: process-entity-id
-  description: 'Unique identifier for the process.
-
-    The implementation of this is specified by the data source, but some examples
-    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
-    or a hash of some uniquely identifying components of a process.
-
-    Constructing a globally unique identifier is a common practice to mitigate PID
-    reuse as well as to identify a specific process over time, across multiple monitored
-    hosts.'
-  example: c2c455d9f99375d
-  flat_name: process.entity_id
-  ignore_above: 1024
-  level: extended
-  name: entity_id
-  normalize: []
-  short: Unique identifier for the process.
-  type: keyword
-process.executable:
-  dashed_name: process-executable
-  description: Absolute path to the process executable.
-  example: /usr/bin/ssh
-  flat_name: process.executable
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: process.executable.text
-    name: text
-    norms: false
-    type: text
-  name: executable
-  normalize: []
-  short: Absolute path to the process executable.
-  type: keyword
-process.name:
-  dashed_name: process-name
-  description: 'Process name.
-
-    Sometimes called program name or similar.'
-  example: ssh
-  flat_name: process.name
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: process.name.text
-    name: text
-    norms: false
-    type: text
-  name: name
-  normalize: []
-  short: Process name.
-  type: keyword
-process.pid:
-  dashed_name: process-pid
-  description: Process id.
-  example: 4242
-  flat_name: process.pid
-  format: string
-  level: core
-  name: pid
-  normalize: []
-  short: Process id.
-  type: long
-process.thread.id:
-  dashed_name: process-thread-id
-  description: Thread ID.
-  example: 4242
-  flat_name: process.thread.id
-  format: string
-  level: extended
-  name: thread.id
-  normalize: []
-  short: Thread ID.
-  type: long
-user.Ext:
-  dashed_name: user-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: user.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  object_type: keyword
-  short: Object for all custom defined fields to live in.
-  type: object
-user.Ext.real:
-  dashed_name: user-Ext-real
-  description: User info prior to any setuid operations.
-  flat_name: user.Ext.real
-  level: custom
-  name: Ext.real
-  normalize: []
-  object_type: keyword
-  short: User info prior to any setuid operations.
-  type: object
-user.Ext.real.id:
-  dashed_name: user-Ext-real-id
-  description: One or multiple unique identifiers of the user.
-  flat_name: user.Ext.real.id
-  ignore_above: 1024
-  level: custom
-  name: Ext.real.id
-  normalize: []
-  short: One or multiple unique identifiers of the user.
-  type: keyword
-user.Ext.real.name:
-  dashed_name: user-Ext-real-name
-  description: Short name or login of the user.
-  flat_name: user.Ext.real.name
-  ignore_above: 1024
-  level: custom
-  name: Ext.real.name
-  normalize: []
-  short: Short name or login of the user.
-  type: keyword
-user.domain:
-  dashed_name: user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
-  flat_name: user.domain
-  ignore_above: 1024
-  level: extended
-  name: domain
-  normalize: []
-  short: Name of the directory the user is a member of.
-  type: keyword
-user.id:
-  dashed_name: user-id
-  description: Unique identifiers of the user.
-  flat_name: user.id
-  ignore_above: 1024
-  level: core
-  name: id
-  normalize: []
-  short: Unique identifiers of the user.
-  type: keyword
-user.name:
-  dashed_name: user-name
-  description: Short name or login of the user.
-  example: albert
-  flat_name: user.name
-  ignore_above: 1024
-  level: core
-  multi_fields:
-  - flat_name: user.name.text
-    name: text
-    norms: false
-    type: text
-  name: name
-  normalize: []
-  short: Short name or login of the user.
   type: keyword

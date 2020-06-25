@@ -1,0 +1,23 @@
+---
+- name: event
+  title: Event
+  group: 2
+  short: Fields describing the state of the Elastic Endpoint when an event occurs.
+  description: >
+    Fields describing the state of the Elastic Endpoint when an event occurs.
+  type: group
+  fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.correlation
+      level: custom
+      type: object
+      description: Information about event this should be correlated with.
+    
+    - name: Ext.correlation.id
+      level: custom
+      type: keyword
+      description: ID of event that this event is correlated to, e.g. quarantine event associated with an unquarantine event

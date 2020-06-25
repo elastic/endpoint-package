@@ -100,6 +100,38 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+event.Ext:
+  dashed_name: event-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: event.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  object_type: keyword
+  short: Object for all custom defined fields to live in.
+  type: object
+event.Ext.correlation:
+  dashed_name: event-Ext-correlation
+  description: Information about event this should be correlated with.
+  flat_name: event.Ext.correlation
+  level: custom
+  name: Ext.correlation
+  normalize: []
+  object_type: keyword
+  short: Information about event this should be correlated with.
+  type: object
+event.Ext.correlation.id:
+  dashed_name: event-Ext-correlation-id
+  description: ID of event that this event is correlated to, e.g. quarantine event
+    associated with an unquarantine event
+  flat_name: event.Ext.correlation.id
+  ignore_above: 1024
+  level: custom
+  name: Ext.correlation.id
+  normalize: []
+  short: ID of event that this event is correlated to, e.g. quarantine event associated
+    with an unquarantine event
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.
@@ -439,6 +471,55 @@ event.module:
   name: module
   normalize: []
   short: Name of the module this data is coming from.
+  type: keyword
+event.outcome:
+  allowed_values:
+  - description: 'Indicates that this event describes a failed result. A common example
+      is `event.category:file AND event.type:access AND event.outcome:failure` to
+      indicate that a file access was attempted, but was not successful.
+
+      '
+    name: failure
+  - description: 'Indicates that this event describes a successful result. A common
+      example is `event.category:file AND event.type:create AND event.outcome:success`
+      to indicate that a file was successfully created.
+
+      '
+    name: success
+  - description: 'Indicates that this event describes only an attempt for which the
+      result is unknown from the perspective of the event producer. For example, if
+      the event contains information only about the request side of a transaction
+      that results in a response, populating `event.outcome:unknown` in the request
+      event is appropriate. The unknown value should not be used when an outcome doesn''t
+      make logical sense for the event. In such cases `event.outcome` should not be
+      populated.
+
+      '
+    name: unknown
+  dashed_name: event-outcome
+  description: 'This is one of four ECS Categorization Fields, and indicates the lowest
+    level in the ECS category hierarchy.
+
+    `event.outcome` simply denotes whether the event represents a success or a failure
+    from the perspective of the entity that produced the event.
+
+    Note that when a single transaction is described in multiple events, each event
+    may populate different values of `event.outcome`, according to their perspective.
+
+    Also note that in the case of a compound event (a single event that contains multiple
+    logical events), this field should be populated with the value that best captures
+    the overall success or failure from the perspective of the event producer.
+
+    Further note that not all events will have an associated outcome. For example,
+    this field is generally not populated for metric events, events with `event.type:info`,
+    or any events for which an outcome does not make logical sense.'
+  example: success
+  flat_name: event.outcome
+  ignore_above: 1024
+  level: core
+  name: outcome
+  normalize: []
+  short: The outcome of the event. The lowest level categorization field in the hierarchy.
   type: keyword
 event.sequence:
   dashed_name: event-sequence
