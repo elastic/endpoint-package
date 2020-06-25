@@ -78,6 +78,7 @@ define gen_mapping_files
 	# remove unused files
 	rm -r $(ROOT_DIR)/generated/$(1)/elasticsearch/6
 	rm $(ROOT_DIR)/generated/$(1)/ecs/ecs_nested.yml
+	rm $(ROOT_DIR)/generated/$(1)/ecs/subset/*/ecs_nested.yml
 endef
 
 # Parameters
@@ -116,8 +117,7 @@ mac-deps:
 clean:
 	rm -rf $(ROOT_DIR)/out
 
-# I'm pinning this to my repo so that we can use the `enabled` and `index` fields once my PR here:
-# https://github.com/elastic/ecs/pull/824 is merged I'll move this back to the upstream ecs repo on the master branch
+
 $(REAL_ECS_DIR):
 	git clone --branch subset-format-update https://github.com/marshallmain/ecs.git $(REAL_ECS_DIR)
 
