@@ -37,11 +37,15 @@ fields:
       id: {}
       ip: {}
       hostname: {}
+      name: {}
       mac: {}
       architecture: {}
       os:
         fields:
           name: {}
+          platform: {}
+          family: {}
+          kernel: {}
           full: {}
           version: {}
           Ext:
