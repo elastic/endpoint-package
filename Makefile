@@ -25,18 +25,9 @@ $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
 SED := sed
-# set mage binary path based on whether the gopath is set
-ifeq ($(GOPATH),)
-	MAGE_BIN := $(HOME)/go/bin/mage
-else
-	MAGE_BIN := $(GOPATH)/bin/mage
-endif
 
-MAGE_DIR := $(ROOT_DIR)/out/mage
-REG_DIR ?= $(ROOT_DIR)/out/package-registry
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
-DEF_PACKAGES_DIR := $(REG_DIR)/build/package-storage/packages
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
 SUB_TOP_DIR := $(ROOT_DIR)/custom_subsets
 SUB_ROOT_DIR := $(SUB_TOP_DIR)/elastic_endpoint
@@ -136,33 +127,27 @@ gen-files: $(TARGETS)
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
 
-.PHONY: check-go
-check-go:
-	go version || { echo "please install go before running the package registry"; exit 1; }
+.PHONY: check-docker
+check-docker:
+	docker -v || { echo "please install docker before running the package registry"; exit 1; }
+	docker-compose -v || { echo "please install docker-compose before running the package registry"; exit 1; }
 
 $(ROOT_DIR)/out:
 	mkdir -p $(ROOT_DIR)/out
 
-$(MAGE_BIN):
-	git clone https://github.com/magefile/mage $(MAGE_DIR)
-	cd $(MAGE_DIR) && go run bootstrap.go
-
-$(REG_DIR):
-	git clone https://github.com/elastic/package-registry $(REG_DIR)
-
 # This target removes the current staged package and uses the current changes in package/endpoint
 # It handles parsing out the package version from the manifest.yml file
 .PHONY: build-package
-build-package:
+build-package: $(ROOT_DIR)/out
 	rm -rf $(PACKAGES_DIR)
 	mkdir -p $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
 .PHONY: run-registry
-run-registry: check-go $(ROOT_DIR)/out $(MAGE_BIN) $(REG_DIR) build-package
-	cd $(REG_DIR) && git pull
-	cd $(REG_DIR) && PACKAGE_PATHS="$(PACKAGES_DIR),$(DEF_PACKAGES_DIR)" $(MAGE_BIN) build && go run .
+run-registry: check-docker build-package
+	docker-compose pull
+	docker-compose up
 
 # This target uses the hub tool to create a PR to the package-storage repo with the contents of the
 # modified endpoint package in this repo
