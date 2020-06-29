@@ -1,188 +1,93 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    labels:
-      fields: "*"
-    message:
-      fields: "*"
-host:
-  fields:
-    os:
-      fields:
-        platform:
-          fields: "*"
-        name:
-          fields: "*"
-        version:
-          fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    dataset:
-      fields: "*"
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
-network:
-  fields:
-    transport:
-      fields: "*"
-    protocol:
-      fields: "*"
-    community_id:
-      fields: "*"
-    bytes:
-      fields: "*"
-    packets:
-      fields: "*"
-source:
-  fields:
-    address:
-      fields: "*"
-    ip:
-      fields: "*"
-    port:
-      fields: "*"
-    bytes:
-      fields: "*"
-    packets:
-      fields: "*"
-destination:
-  fields:
-    address:
-      fields: "*"
-    ip:
-      fields: "*"
-    port:
-      fields: "*"
-    bytes:
-      fields: "*"
-    packets:
-      fields: "*"
-dns:
-  fields:
-    question:
-      fields:
-        name:
-          fields: "*"
-        type:
-          fields: "*"
-        registered_domain:
-          fields: "*"
-    resolved_ip:
-      fields: "*"
-
-endgame:
-  fields:
-    serial_event_id:
-      fields: "*"
-    opcode:
-      fields: "*"
-
-    event_type_full:
-      fields: "*"
-
-    event_subtype_full:
-      fields: "*"
-
-    timestamp:
-      fields: "*"
-
-    timestamp_utc:
-      fields: "*"
-
-    event_message:
-      fields: "*"
-
-    unknown_properties:
-      fields: "*"
-
-    pid:
-      fields: "*"
-
-    process_path:
-      fields: "*"
-
-    process_name:
-      fields: "*"
-
-    unique_pid:
-      fields: "*"
-
-    user_name:
-      fields: "*"
-
-    user_domain:
-      fields: "*"
-
-    user_sid:
-      fields: "*"
-
-    tid:
-      fields: "*"
-
-    real_user_name:
-      fields: "*"
-
-    effective_user_name:
-      fields: "*"
-
-    real_group_name:
-      fields: "*"
-
-    effective_group_name:
-      fields: "*"
-
-    real_uid:
-      fields: "*"
-
-    effective_uid:
-      fields: "*"
-
-    real_gid:
-      fields: "*"
-
-    effective_gid:
-      fields: "*"
-
-    query_name:
-      fields: "*"
-
-    event_id:
-      fields: "*"
-
-    query_type:
-      fields: "*"
-
-    query_status:
-      fields: "*"
-
-    query_options:
-      fields: "*"
-
-    query_results:
-      fields: "*"
+name: dns
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      labels: {}
+      message: {}
+  host:
+    fields:
+      os:
+        fields:
+          platform: {}
+          name: {}
+          version: {}
+      ip: {}
+      hostname: {}
+      name: {}
+  event:
+    fields:
+      id: {}
+      module: {}
+      dataset: {}
+      action: {}
+      kind: {}
+      category: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  network:
+    fields:
+      transport: {}
+      protocol: {}
+      community_id: {}
+      bytes: {}
+      packets: {}
+  source:
+    fields:
+      address: {}
+      ip: {}
+      port: {}
+      bytes: {}
+      packets: {}
+  destination:
+    fields:
+      address: {}
+      ip: {}
+      port: {}
+      bytes: {}
+      packets: {}
+  dns:
+    fields:
+      question:
+        fields:
+          name: {}
+          type: {}
+          registered_domain: {}
+      resolved_ip: {}
+  endgame:
+    fields:
+      serial_event_id: {}
+      opcode: {}
+      event_type_full: {}
+      event_subtype_full: {}
+      timestamp: {}
+      timestamp_utc: {}
+      event_message: {}
+      unknown_properties: {}
+      pid: {}
+      process_path: {}
+      process_name: {}
+      unique_pid: {}
+      user_name: {}
+      user_domain: {}
+      user_sid: {}
+      tid: {}
+      real_user_name: {}
+      effective_user_name: {}
+      real_group_name: {}
+      effective_group_name: {}
+      real_uid: {}
+      effective_uid: {}
+      real_gid: {}
+      effective_gid: {}
+      query_name: {}
+      event_id: {}
+      query_type: {}
+      query_status: {}
+      query_options: {}
+      query_results: {}

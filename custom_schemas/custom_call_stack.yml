@@ -6,6 +6,7 @@
   description: >
     Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
   reusable:
+    order: 1
     top_level: false
     expected:
       - process.thread.Ext

@@ -1,22 +1,19 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    labels:
-      fields: "*"
-    message:
-      fields: "*"
-# data.alert_details.acting_process.unique_pid
-endgame:
-  fields:
-    data:
-      fields:
-        alert_details:
-          fields:
-            acting_process:
-              fields:
-                unique_pid:
-                  fields: "*"
-    serial_event_id:
-      fields: "*"
+name: alert
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      labels: {}
+      message: {}
+  # data.alert_details.acting_process.unique_pid
+  endgame:
+    fields:
+      data:
+        fields:
+          alert_details:
+            fields:
+              acting_process:
+                fields:
+                  unique_pid: {}
+      serial_event_id: {}

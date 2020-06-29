@@ -1,63 +1,66 @@
 ---
-base:
-  fields:
-    "@timestamp": {}
-dataset: {}
-ecs:
-  fields:
-    version: {}
-host:
-  fields:
-    name: {}
-    hostname: {}
-    ip: {}
-    mac: {}
-    architecture: {}
-    id: {}
-    os:
-      fields:
-        platform: {}
-        version: {}
-        family: {}
-        name: {}
-        kernel: {}
-        full: {}
-        Ext:
-          fields:
-            variant: {}
-event:
-  fields:
-    action: {}
-    category: {}
-    created: {}
-    dataset: {}
-    id: {}
-    kind: {}
-    module: {}
-    outcome: {}
-    sequence: {}
-    type: {}
-    Ext:
-      fields:
-        correlation:
-          fields:
-            id: {}
-agent:
-  fields:
-    version: {}
-    type: {}
-    id: {}
-file:
-  fields:
-    name: {}
-    path: {}
-    hash:
-      fields:
-        md5: {}
-        sha1: {}
-        sha256: {}
-    Ext:
-      fields:
-        original:
-          fields:
-            path: {}
+name: unquarantine
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  host:
+    fields:
+      name: {}
+      hostname: {}
+      ip: {}
+      mac: {}
+      architecture: {}
+      id: {}
+      os:
+        fields:
+          platform: {}
+          version: {}
+          family: {}
+          name: {}
+          kernel: {}
+          full: {}
+          Ext:
+            fields:
+              variant: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      dataset: {}
+      id: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      sequence: {}
+      type: {}
+      Ext:
+        fields:
+          correlation:
+            fields:
+              id: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  file:
+    fields:
+      name: {}
+      path: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+      Ext:
+        fields:
+          original:
+            fields:
+              path: {}

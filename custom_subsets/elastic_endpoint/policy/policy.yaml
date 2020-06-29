@@ -1,69 +1,47 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    message:
-      fields: "*"
-dataset: {}
-ecs:
-  fields:
-    version:
-      fields: "*"
-Endpoint:
-  fields:
-    policy:
-      fields:
-        applied:
-          fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    kind:
-      fields: "*"
-    created:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-    module:
-      fields: "*"
-    action:
-      fields: "*"
-    dataset:
-      fields: "*"
-host:
-  fields:
-    id:
-      fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-    mac:
-      fields: "*"
-    architecture:
-      fields: "*"
-    os:
-      fields:
-        name:
-          fields: "*"
-        platform:
-          fields: "*"
-        family:
-          fields: "*"
-        kernel:
-          fields: "*"
-        full:
-          fields: "*"
-        version:
-          fields: "*"
-        Ext:
-          fields:
-            variant:
-              fields: "*"
-    
+name: policy
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  dataset:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  Endpoint:
+    fields:
+      policy:
+        fields:
+          applied:
+            fields: "*"
+  event:
+    fields:
+      id: {}
+      kind: {}
+      created: {}
+      category: {}
+      type: {}
+      module: {}
+      action: {}
+      dataset: {}
+  host:
+    fields:
+      id: {}
+      ip: {}
+      hostname: {}
+      name: {}
+      mac: {}
+      architecture: {}
+      os:
+        fields:
+          name: {}
+          platform: {}
+          family: {}
+          kernel: {}
+          full: {}
+          version: {}
+          Ext:
+            fields:
+              variant: {}

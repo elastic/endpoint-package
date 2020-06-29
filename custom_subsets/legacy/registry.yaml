@@ -1,118 +1,67 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    labels:
-      fields: "*"
-    message:
-      fields: "*"
-host:
-  fields:
-    os:
-      fields:
-        platform:
-          fields: "*"
-        name:
-          fields: "*"
-        version:
-          fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    dataset:
-      fields: "*"
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
-
-endgame:
-  fields:
-    serial_event_id:
-      fields: "*"
-    opcode:
-      fields: "*"
-    event_type_full:
-      fields: "*"
-    event_subtype_full:
-      fields: "*"
-    timestamp:
-      fields: "*"
-    timestamp_utc:
-      fields: "*"
-    event_message:
-      fields: "*"
-    unknown_properties:
-      fields: "*"
-    pid:
-      fields: "*"
-    process_path:
-      fields: "*"
-    process_name:
-      fields: "*"
-    unique_pid:
-      fields: "*"
-    user_name:
-      fields: "*"
-    user_domain:
-      fields: "*"
-    user_sid:
-      fields: "*"
-    tid:
-      fields: "*"
-    real_user_name:
-      fields: "*"
-    effective_user_name:
-      fields: "*"
-    real_group_name:
-      fields: "*"
-    effective_group_name:
-      fields: "*"
-    real_uid:
-      fields: "*"
-    effective_uid:
-      fields: "*"
-    real_gid:
-      fields: "*"
-    effective_gid:
-      fields: "*"
-    # end of generic stuff
-
-    key_path:
-      fields: "*"
-    key_type:
-      fields: "*"
-    bytes_written_count:
-      fields: "*"
-    bytes_written:
-      fields: "*"
-    bytes_written_u32:
-      fields: "*"
-    bytes_written_u64:
-      fields: "*"
-    bytes_written_string:
-      fields: "*"
-    bytes_written_string_list:
-      fields: "*"
+name: registry
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      labels: {}
+      message: {}
+  host:
+    fields:
+      os:
+        fields:
+          platform: {}
+          name: {}
+          version: {}
+      ip: {}
+      hostname: {}
+      name: {}
+  event:
+    fields:
+      id: {}
+      module: {}
+      dataset: {}
+      action: {}
+      kind: {}
+      category: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  endgame:
+    fields:
+      serial_event_id: {}
+      opcode: {}
+      event_type_full: {}
+      event_subtype_full: {}
+      timestamp: {}
+      timestamp_utc: {}
+      event_message: {}
+      unknown_properties: {}
+      pid: {}
+      process_path: {}
+      process_name: {}
+      unique_pid: {}
+      user_name: {}
+      user_domain: {}
+      user_sid: {}
+      tid: {}
+      real_user_name: {}
+      effective_user_name: {}
+      real_group_name: {}
+      effective_group_name: {}
+      real_uid: {}
+      effective_uid: {}
+      real_gid: {}
+      effective_gid: {}
+      # end of generic stuff
+      key_path: {}
+      key_type: {}
+      bytes_written_count: {}
+      bytes_written: {}
+      bytes_written_u32: {}
+      bytes_written_u64: {}
+      bytes_written_string: {}
+      bytes_written_string_list: {}

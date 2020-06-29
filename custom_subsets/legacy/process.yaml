@@ -1,202 +1,102 @@
 ---
-base:
-  fields:
-    "@timestamp":
-      fields: "*"
-    labels:
-      fields: "*"
-    message:
-      fields: "*"
-host:
-  fields:
-    os:
-      fields:
-        platform:
-          fields: "*"
-        name:
-          fields: "*"
-        version:
-          fields: "*"
-    ip:
-      fields: "*"
-    hostname:
-      fields: "*"
-    name:
-      fields: "*"
-event:
-  fields:
-    id:
-      fields: "*"
-    module:
-      fields: "*"
-    dataset:
-      fields: "*"
-    action:
-      fields: "*"
-    kind:
-      fields: "*"
-    category:
-      fields: "*"
-    type:
-      fields: "*"
-agent:
-  fields:
-    version:
-      fields: "*"
-    type:
-      fields: "*"
-    id:
-      fields: "*"
-
-user:
-  fields:
-    group:
-      fields:
-        id:
-          fields: "*"
-        name:
-          fields: "*"
-    id:
-      fields: "*"
-    name:
-      fields: "*"
-process:
-  fields:
-    pid:
-      fields: "*"
-    ppid:
-      fields: "*"
-    name:
-      fields: "*"
-    executable:
-      fields: "*"
-    args:
-      fields: "*"
-    thread:
-      fields:
-        id:
-          fields: "*"
-    hash:
-      fields:
-        md5:
-          fields: "*"
-        sha1:
-          fields: "*"
-        sha256:
-          fields: "*"
-
-endgame:
-  fields:
-    serial_event_id:
-      fields: "*"
-    opcode:
-      fields: "*"
-
-    event_type_full:
-      fields: "*"
-
-    event_subtype_full:
-      fields: "*"
-
-    timestamp:
-      fields: "*"
-
-    timestamp_utc:
-      fields: "*"
-
-    event_message:
-      fields: "*"
-
-    unknown_properties:
-      fields: "*"
-
-    pid:
-      fields: "*"
-
-    process_path:
-      fields: "*"
-
-    process_name:
-      fields: "*"
-
-    unique_pid:
-      fields: "*"
-
-    user_name:
-      fields: "*"
-
-    user_domain:
-      fields: "*"
-
-    user_sid:
-      fields: "*"
-
-    tid:
-      fields: "*"
-
-    real_user_name:
-      fields: "*"
-
-    effective_user_name:
-      fields: "*"
-
-    real_group_name:
-      fields: "*"
-
-    effective_group_name:
-      fields: "*"
-
-    real_uid:
-      fields: "*"
-
-    effective_uid:
-      fields: "*"
-
-    real_gid:
-      fields: "*"
-
-    effective_gid:
-      fields: "*"
-
-    ppid:
-      fields: "*"
-    exit_code:
-      fields: "*"
-    command_line:
-      fields: "*"
-    parent_process_name:
-      fields: "*"
-    parent_process_path:
-      fields: "*"
-    md5:
-      fields: "*"
-    sha1:
-      fields: "*"
-    sha256:
-      fields: "*"
-    unique_ppid:
-      fields: "*"
-    authentication_id:
-      fields: "*"
-    package_name:
-      fields: "*"
-    signature_signer:
-      fields: "*"
-    signature_status:
-      fields: "*"
-    original_file_name:
-      fields: "*"
-    integrity_level:
-      fields: "*"
-    elevated:
-      fields: "*"
-    elevation_type:
-      fields: "*"
-    true_ppid:
-      fields: "*"
-    unique_true_ppid:
-      fields: "*"
-    session_id:
-      fields: "*"
-    exit_code_full:
-      fields: "*"
+name: process
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      labels: {}
+      message: {}
+  host:
+    fields:
+      os:
+        fields:
+          platform: {}
+          name: {}
+          version: {}
+      ip: {}
+      hostname: {}
+      name: {}
+  event:
+    fields:
+      id: {}
+      module: {}
+      dataset: {}
+      action: {}
+      kind: {}
+      category: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  user:
+    fields:
+      group:
+        fields:
+          id: {}
+          name: {}
+      id: {}
+      name: {}
+  process:
+    fields:
+      pid: {}
+      ppid: {}
+      name: {}
+      executable: {}
+      args: {}
+      thread:
+        fields:
+          id: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+  endgame:
+    fields:
+      serial_event_id: {}
+      opcode: {}
+      event_type_full: {}
+      event_subtype_full: {}
+      timestamp: {}
+      timestamp_utc: {}
+      event_message: {}
+      unknown_properties: {}
+      pid: {}
+      process_path: {}
+      process_name: {}
+      unique_pid: {}
+      user_name: {}
+      user_domain: {}
+      user_sid: {}
+      tid: {}
+      real_user_name: {}
+      effective_user_name: {}
+      real_group_name: {}
+      effective_group_name: {}
+      real_uid: {}
+      effective_uid: {}
+      real_gid: {}
+      effective_gid: {}
+      ppid: {}
+      exit_code: {}
+      command_line: {}
+      parent_process_name: {}
+      parent_process_path: {}
+      md5: {}
+      sha1: {}
+      sha256: {}
+      unique_ppid: {}
+      authentication_id: {}
+      package_name: {}
+      signature_signer: {}
+      signature_status: {}
+      original_file_name: {}
+      integrity_level: {}
+      elevated: {}
+      elevation_type: {}
+      true_ppid: {}
+      unique_true_ppid: {}
+      session_id: {}
+      exit_code_full: {}

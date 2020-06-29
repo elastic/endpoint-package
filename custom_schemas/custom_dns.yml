@@ -1,10 +1,15 @@
 ---
 - name: dns
-  title: Dns
+  title: DNS
   group: 2
-  short: Fields describing dns relevant to the event.
+  short: Fields describing DNS queries and answers.
   description: >
-    Fields describing dns relevant to the event.
+    Fields describing DNS queries and answers.
+
+    DNS events should either represent a single DNS query prior to getting answers
+    (`dns.type:query`) or they should represent a full exchange and contain
+    the query details as well as all of the answers that were provided for this
+    query (`dns.type:answer`).
   type: group
   fields:
     - name: Ext
