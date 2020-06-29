@@ -38,3 +38,8 @@ host:
   fields:
     id:
       fields: "*"
+    hostname:
+      fields: "*"
+    name:
+      fields: "*"
+    

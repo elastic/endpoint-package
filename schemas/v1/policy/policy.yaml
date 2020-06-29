@@ -933,6 +933,18 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+host.hostname:
+  dashed_name: host-hostname
+  description: 'Hostname of the host.
+
+    It normally contains what the `hostname` command returns on the host machine.'
+  flat_name: host.hostname
+  ignore_above: 1024
+  level: core
+  name: hostname
+  normalize: []
+  short: Hostname of the host.
+  type: keyword
 host.id:
   dashed_name: host-id
   description: 'Unique host id.
@@ -946,6 +958,19 @@ host.id:
   name: id
   normalize: []
   short: Unique host id.
+  type: keyword
+host.name:
+  dashed_name: host-name
+  description: 'Name of the host.
+
+    It can contain what `hostname` returns on Unix systems, the fully qualified domain
+    name, or a name specified by the user. The sender decides which value to use.'
+  flat_name: host.name
+  ignore_above: 1024
+  level: core
+  name: name
+  normalize: []
+  short: Name of the host.
   type: keyword
 message:
   dashed_name: message

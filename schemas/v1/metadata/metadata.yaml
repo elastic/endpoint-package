@@ -264,6 +264,19 @@ host.mac:
   - array
   short: Host mac addresses.
   type: keyword
+host.name:
+  dashed_name: host-name
+  description: 'Name of the host.
+
+    It can contain what `hostname` returns on Unix systems, the fully qualified domain
+    name, or a name specified by the user. The sender decides which value to use.'
+  flat_name: host.name
+  ignore_above: 1024
+  level: core
+  name: name
+  normalize: []
+  short: Name of the host.
+  type: keyword
 host.os.Ext:
   dashed_name: host-os-Ext
   description: Object for all custom defined fields to live in.

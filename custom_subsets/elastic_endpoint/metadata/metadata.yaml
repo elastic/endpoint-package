@@ -48,6 +48,8 @@ host:
       fields: "*"
     hostname:
       fields: "*"
+    name:
+      fields: "*"
     mac:
       fields: "*"
     architecture:

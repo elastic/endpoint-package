@@ -413,6 +413,13 @@
     hardware, virtual machines, Docker containers, and Kubernetes nodes.'
   type: group
   fields:
+  - name: hostname
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Hostname of the host.
+
+      It normally contains what the `hostname` command returns on the host machine.'
   - name: id
     level: core
     type: keyword
@@ -422,3 +429,12 @@
       As hostname is not always unique, use values that are meaningful in your environment.
 
       Example: The current usage of `beat.name`.'
+  - name: name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Name of the host.
+
+      It can contain what `hostname` returns on Unix systems, the fully qualified
+      domain name, or a name specified by the user. The sender decides which value
+      to use.'
