@@ -933,6 +933,17 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+host.architecture:
+  dashed_name: host-architecture
+  description: Operating system architecture.
+  example: x86_64
+  flat_name: host.architecture
+  ignore_above: 1024
+  level: core
+  name: architecture
+  normalize: []
+  short: Operating system architecture.
+  type: keyword
 host.hostname:
   dashed_name: host-hostname
   description: 'Hostname of the host.
@@ -959,6 +970,27 @@ host.id:
   normalize: []
   short: Unique host id.
   type: keyword
+host.ip:
+  dashed_name: host-ip
+  description: Host ip addresses.
+  flat_name: host.ip
+  level: core
+  name: ip
+  normalize:
+  - array
+  short: Host ip addresses.
+  type: ip
+host.mac:
+  dashed_name: host-mac
+  description: Host mac addresses.
+  flat_name: host.mac
+  ignore_above: 1024
+  level: core
+  name: mac
+  normalize:
+  - array
+  short: Host mac addresses.
+  type: keyword
 host.name:
   dashed_name: host-name
   description: 'Name of the host.
@@ -971,6 +1003,115 @@ host.name:
   name: name
   normalize: []
   short: Name of the host.
+  type: keyword
+host.os.Ext:
+  dashed_name: host-os-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: host.os.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  object_type: keyword
+  original_fieldset: os
+  short: Object for all custom defined fields to live in.
+  type: object
+host.os.Ext.variant:
+  dashed_name: host-os-Ext-variant
+  description: A string value or phrase that further aid to classify or qualify the
+    operating system (OS).  For example the distribution for a Linux OS will be entered
+    in this field.
+  example: Ubuntu
+  flat_name: host.os.Ext.variant
+  ignore_above: 1024
+  level: custom
+  name: Ext.variant
+  normalize: []
+  original_fieldset: os
+  short: A string value or phrase that further aid to classify or qualify the operating
+    system (OS).  For example the distribution for a Linux OS will be entered in this
+    field.
+  type: keyword
+host.os.family:
+  dashed_name: host-os-family
+  description: OS family (such as redhat, debian, freebsd, windows).
+  example: debian
+  flat_name: host.os.family
+  ignore_above: 1024
+  level: extended
+  name: family
+  normalize: []
+  original_fieldset: os
+  short: OS family (such as redhat, debian, freebsd, windows).
+  type: keyword
+host.os.full:
+  dashed_name: host-os-full
+  description: Operating system name, including the version or code name.
+  example: Mac OS Mojave
+  flat_name: host.os.full
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: host.os.full.text
+    name: text
+    norms: false
+    type: text
+  name: full
+  normalize: []
+  original_fieldset: os
+  short: Operating system name, including the version or code name.
+  type: keyword
+host.os.kernel:
+  dashed_name: host-os-kernel
+  description: Operating system kernel version as a raw string.
+  example: 4.4.0-112-generic
+  flat_name: host.os.kernel
+  ignore_above: 1024
+  level: extended
+  name: kernel
+  normalize: []
+  original_fieldset: os
+  short: Operating system kernel version as a raw string.
+  type: keyword
+host.os.name:
+  dashed_name: host-os-name
+  description: Operating system name, without the version.
+  example: Mac OS X
+  flat_name: host.os.name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: host.os.name.text
+    name: text
+    norms: false
+    type: text
+  name: name
+  normalize: []
+  original_fieldset: os
+  short: Operating system name, without the version.
+  type: keyword
+host.os.platform:
+  dashed_name: host-os-platform
+  description: Operating system platform (such centos, ubuntu, windows).
+  example: darwin
+  flat_name: host.os.platform
+  ignore_above: 1024
+  level: extended
+  name: platform
+  normalize: []
+  original_fieldset: os
+  short: Operating system platform (such centos, ubuntu, windows).
+  type: keyword
+host.os.version:
+  dashed_name: host-os-version
+  description: Operating system version as a raw string.
+  example: 10.14.1
+  flat_name: host.os.version
+  ignore_above: 1024
+  level: extended
+  name: version
+  normalize: []
+  original_fieldset: os
+  short: Operating system version as a raw string.
   type: keyword
 message:
   dashed_name: message

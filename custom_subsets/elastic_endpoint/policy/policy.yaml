@@ -38,8 +38,32 @@ host:
   fields:
     id:
       fields: "*"
+    ip:
+      fields: "*"
     hostname:
       fields: "*"
     name:
       fields: "*"
+    mac:
+      fields: "*"
+    architecture:
+      fields: "*"
+    os:
+      fields:
+        name:
+          fields: "*"
+        platform:
+          fields: "*"
+        family:
+          fields: "*"
+        kernel:
+          fields: "*"
+        full:
+          fields: "*"
+        version:
+          fields: "*"
+        Ext:
+          fields:
+            variant:
+              fields: "*"
     

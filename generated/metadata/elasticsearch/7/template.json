@@ -145,6 +145,10 @@
                 },
                 "type": "object"
               },
+              "family": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "full": {
                 "fields": {
                   "text": {
@@ -155,6 +159,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "kernel": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "name": {
                 "fields": {
                   "text": {
@@ -162,6 +170,10 @@
                     "type": "text"
                   }
                 },
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "platform": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
