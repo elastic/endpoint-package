@@ -48,6 +48,8 @@ host:
       fields: "*"
     hostname:
       fields: "*"
+    name:
+      fields: "*"
     mac:
       fields: "*"
     architecture:
@@ -55,6 +57,12 @@ host:
     os:
       fields:
         name:
+          fields: "*"
+        platform:
+          fields: "*"
+        family:
+          fields: "*"
+        kernel:
           fields: "*"
         full:
           fields: "*"
