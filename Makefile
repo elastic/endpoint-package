@@ -43,6 +43,7 @@ SUB_ROOT_DIR := $(SUB_TOP_DIR)/elastic_endpoint
 SUB_EVENTS_DIR := $(SUB_TOP_DIR)/elastic_endpoint/events
 SUB_METADATA_DIR := $(SUB_TOP_DIR)/elastic_endpoint/metadata
 EVENT_SCHEMA_GEN := $(ROOT_DIR)/scripts/event_schema_generator
+EXCEPTION_LIST_GEN := $(ROOT_DIR)/scripts/exceptions
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
 # Get the package version from the manifest file
@@ -95,6 +96,13 @@ define gen_schema_files
 		$(ROOT_DIR)/out/schema/$(1)
 endef
 
+# Parameters
+# 1: path to subset specific ecs output files
+define gen_exception_files
+	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
+		$(ROOT_DIR)/out/$(1)
+endef
+
 ifeq ($(shell uname -s), Darwin)
 ifeq (, $(shell which gsed))
 # add mac gsed install target
@@ -135,6 +143,7 @@ gen-files: $(TARGETS)
 %-target:
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
+	$(call gen_exception_files,$*)
 
 .PHONY: check-go
 check-go:
