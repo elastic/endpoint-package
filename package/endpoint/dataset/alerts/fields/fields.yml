@@ -1616,6 +1616,16 @@
       This field is an array. This will allow proper categorization of some events
       that fall in multiple categories.'
     example: authentication
+  - name: code
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: 'Identification code for this event, if one exists.
+
+      Some event sources use event codes to identify messages unambiguously, regardless
+      of message language or wording adjustments over time. An example of this is
+      the Windows Event ID.'
+    example: 4648
   - name: created
     level: core
     type: date
@@ -1720,6 +1730,17 @@
       this field is generally not populated for metric events, events with `event.type:info`,
       or any events for which an outcome does not make logical sense.'
     example: success
+  - name: provider
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: 'Source of the event.
+
+      Event transports such as Syslog or the Windows Event Log typically mention
+      the source of an event. It can be the name of the software that generated
+      the event (e.g. Sysmon, httpd), or of a subsystem of the operating system
+      (kernel, Microsoft-Windows-Security-Auditing).'
+    example: kernel
   - name: sequence
     level: extended
     type: long
