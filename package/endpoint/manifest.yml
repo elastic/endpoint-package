@@ -11,7 +11,7 @@ release: beta
 type: solution
 license: basic
 
-datasources:
+config_templates:
   - name: endpoint
     title: Endpoint data source
     description: Interact with the endpoint.
