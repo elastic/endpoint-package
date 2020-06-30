@@ -1,0 +1,4 @@
+package_paths:
+  - /registry/packages/endpoint-package
+  - /registry/packages/package-storage
+dev_mode: true

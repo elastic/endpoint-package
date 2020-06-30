@@ -1,0 +1,11 @@
+# This should start the environment with the latest snapshots.
+
+version: "3.8"
+services:
+  package-registry:
+    image: docker.elastic.co/package-registry/package-registry:master
+    volumes:
+      - ./package-registry.config.yml:/registry/config.yml
+      - ./out/packages:/registry/packages/endpoint-package
+    ports:
+      - "127.0.0.1:8080:8080"
