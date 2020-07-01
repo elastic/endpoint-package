@@ -3,3 +3,7 @@ title: Endpoint Library and Driver Events
 type: logs
 
 name: endpoint.events.library
+
+elasticsearch:
+  index_template.mappings:
+    dynamic: false
