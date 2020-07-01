@@ -21,7 +21,7 @@ config_templates:
     solution: endpoint
     multiple: false
 
-requirement:
+conditions:
   kibana:
     versions: ">=7.9.0"
 
