@@ -124,6 +124,7 @@ $(REAL_ECS_DIR):
 .PHONY: install-pipfile
 install-pipfile:
 	cd $(EVENT_SCHEMA_GEN) && PIPENV_NO_INHERIT=1 pipenv install
+	cd $(EXCEPTION_LIST_GEN) && PIPENV_NO_INHERIT=1 pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 
 gen-files: $(TARGETS)
