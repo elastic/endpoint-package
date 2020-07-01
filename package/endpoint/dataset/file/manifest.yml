@@ -3,3 +3,7 @@ title: Endpoint File Events
 type: logs
 
 name: endpoint.events.file
+
+elasticsearch:
+  index_template.mappings:
+    dynamic: false
