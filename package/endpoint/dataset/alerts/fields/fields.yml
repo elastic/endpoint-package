@@ -152,6 +152,10 @@
     type: date
     description: Timestamp from when the module was compiled.
     default_field: false
+  - name: dll.Ext.malware_classification.features
+    type: object
+    enabled: false
+    default_field: false
   - name: dll.Ext.malware_classification.features.data.buffer
     level: custom
     type: keyword
@@ -390,6 +394,10 @@
 
       Leave unpopulated if a certificate was unchecked.'
     example: 'true'
+    default_field: false
+  - name: process.Ext.malware_classification.features
+    type: object
+    enabled: false
     default_field: false
   - name: process.Ext.malware_classification.features.data.buffer
     level: custom
@@ -1048,6 +1056,12 @@
     object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
+  - name: process.thread.Ext.call_stack
+    type: group
+    description: Fields describing a stack frame.  call_stack is expected to be
+      an array where each array element represents a stack frame.
+    enabled: false
+    default_field: false
   - name: process.thread.Ext.call_stack.instruction_pointer
     level: custom
     type: keyword
@@ -1359,6 +1373,10 @@
     level: custom
     type: date
     description: Timestamp from when the module was compiled.
+    default_field: false
+  - name: Ext.malware_classification.features
+    type: object
+    enabled: false
     default_field: false
   - name: Ext.malware_classification.features.data.buffer
     level: custom
@@ -1982,6 +2000,10 @@
     ignore_above: 1024
     description: The original stream size.  Indicates whether stream.raw_code was
       truncated.
+    default_field: false
+  - name: Ext.malware_classification.features
+    type: object
+    enabled: false
     default_field: false
   - name: Ext.malware_classification.features.data.buffer
     level: custom
@@ -2782,6 +2804,10 @@
       Leave unpopulated if a certificate was unchecked.'
     example: 'true'
     default_field: false
+  - name: Ext.malware_classification.features
+    type: object
+    enabled: false
+    default_field: false
   - name: Ext.malware_classification.features.data.buffer
     level: custom
     type: keyword
@@ -3429,6 +3455,12 @@
     type: object
     object_type: keyword
     description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: thread.Ext.call_stack
+    type: group
+    description: Fields describing a stack frame.  call_stack is expected to be
+      an array where each array element represents a stack frame.
+    enabled: false
     default_field: false
   - name: thread.Ext.call_stack.instruction_pointer
     level: custom

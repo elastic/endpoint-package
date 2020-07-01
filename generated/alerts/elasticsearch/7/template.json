@@ -114,6 +114,7 @@
                   "malware_classification": {
                     "properties": {
                       "features": {
+                        "enabled": false,
                         "properties": {
                           "data": {
                             "properties": {
@@ -130,7 +131,8 @@
                               }
                             }
                           }
-                        }
+                        },
+                        "type": "object"
                       },
                       "identifier": {
                         "ignore_above": 1024,
@@ -273,6 +275,7 @@
                   "malware_classification": {
                     "properties": {
                       "features": {
+                        "enabled": false,
                         "properties": {
                           "data": {
                             "properties": {
@@ -289,7 +292,8 @@
                               }
                             }
                           }
-                        }
+                        },
+                        "type": "object"
                       },
                       "identifier": {
                         "ignore_above": 1024,
@@ -712,7 +716,8 @@
                             "ignore_above": 1024,
                             "type": "keyword"
                           }
-                        }
+                        },
+                        "type": "group"
                       },
                       "service": {
                         "ignore_above": 1024,
@@ -875,6 +880,7 @@
               "malware_classification": {
                 "properties": {
                   "features": {
+                    "enabled": false,
                     "properties": {
                       "data": {
                         "properties": {
@@ -891,7 +897,8 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "type": "object"
                   },
                   "identifier": {
                     "ignore_above": 1024,
@@ -1220,6 +1227,7 @@
               "malware_classification": {
                 "properties": {
                   "features": {
+                    "enabled": false,
                     "properties": {
                       "data": {
                         "properties": {
@@ -1236,7 +1244,8 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "type": "object"
                   },
                   "identifier": {
                     "ignore_above": 1024,
@@ -1760,6 +1769,7 @@
               "malware_classification": {
                 "properties": {
                   "features": {
+                    "enabled": false,
                     "properties": {
                       "data": {
                         "properties": {
@@ -1776,7 +1786,8 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "type": "object"
                   },
                   "identifier": {
                     "ignore_above": 1024,
@@ -2199,7 +2210,8 @@
                         "ignore_above": 1024,
                         "type": "keyword"
                       }
-                    }
+                    },
+                    "type": "group"
                   },
                   "service": {
                     "ignore_above": 1024,
