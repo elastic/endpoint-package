@@ -2,4 +2,4 @@ title: Endpoint File Events
 
 type: logs
 
-id: endpoint.events.file
+name: endpoint.events.file

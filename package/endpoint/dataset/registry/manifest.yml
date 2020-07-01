@@ -2,4 +2,4 @@ title: Endpoint Registry Events
 
 type: logs
 
-id: endpoint.events.registry
+name: endpoint.events.registry
