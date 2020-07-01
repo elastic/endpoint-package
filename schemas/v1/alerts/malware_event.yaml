@@ -207,6 +207,13 @@ Target.dll.Ext.compile_time:
   original_fieldset: dll
   short: Timestamp from when the module was compiled.
   type: date
+Target.dll.Ext.malware_classification.features:
+  dashed_name: Target-dll-Ext-malware-classification-features
+  enabled: false
+  flat_name: Target.dll.Ext.malware_classification.features
+  name: features
+  original_fieldset: malware_classification
+  type: object
 Target.dll.Ext.malware_classification.features.data.buffer:
   dashed_name: Target-dll-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -625,6 +632,13 @@ Target.process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+Target.process.Ext.malware_classification.features:
+  dashed_name: Target-process-Ext-malware-classification-features
+  enabled: false
+  flat_name: Target.process.Ext.malware_classification.features
+  name: features
+  original_fieldset: malware_classification
+  type: object
 Target.process.Ext.malware_classification.features.data.buffer:
   dashed_name: Target-process-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -1727,6 +1741,16 @@ Target.process.thread.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+Target.process.thread.Ext.call_stack:
+  dashed_name: Target-process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: false
+  flat_name: Target.process.thread.Ext.call_stack
+  name: call_stack
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: group
 Target.process.thread.Ext.call_stack.instruction_pointer:
   dashed_name: Target-process-thread-Ext-call-stack-instruction-pointer
   description: The return address of this stack frame.
@@ -2204,6 +2228,13 @@ dll.Ext.compile_time:
   normalize: []
   short: Timestamp from when the module was compiled.
   type: date
+dll.Ext.malware_classification.features:
+  dashed_name: dll-Ext-malware-classification-features
+  enabled: false
+  flat_name: dll.Ext.malware_classification.features
+  name: features
+  original_fieldset: malware_classification
+  type: object
 dll.Ext.malware_classification.features.data.buffer:
   dashed_name: dll-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -3542,6 +3573,13 @@ file.Ext.macro.stream.raw_code_size:
   original_fieldset: macro
   short: The original stream size.  Indicates whether stream.raw_code was truncated.
   type: keyword
+file.Ext.malware_classification.features:
+  dashed_name: file-Ext-malware-classification-features
+  enabled: false
+  flat_name: file.Ext.malware_classification.features
+  name: features
+  original_fieldset: malware_classification
+  type: object
 file.Ext.malware_classification.features.data.buffer:
   dashed_name: file-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -4905,6 +4943,13 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.malware_classification.features:
+  dashed_name: process-Ext-malware-classification-features
+  enabled: false
+  flat_name: process.Ext.malware_classification.features
+  name: features
+  original_fieldset: malware_classification
+  type: object
 process.Ext.malware_classification.features.data.buffer:
   dashed_name: process-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -5966,6 +6011,16 @@ process.thread.Ext:
   object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
+process.thread.Ext.call_stack:
+  dashed_name: process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: false
+  flat_name: process.thread.Ext.call_stack
+  name: call_stack
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: group
 process.thread.Ext.call_stack.instruction_pointer:
   dashed_name: process-thread-Ext-call-stack-instruction-pointer
   description: The return address of this stack frame.
