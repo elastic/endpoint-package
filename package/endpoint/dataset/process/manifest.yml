@@ -2,4 +2,4 @@ title: Endpoint Process Events
 
 type: logs
 
-id: endpoint.events.process
+name: endpoint.events.process

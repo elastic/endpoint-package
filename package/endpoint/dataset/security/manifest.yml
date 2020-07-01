@@ -2,4 +2,4 @@ title: Endpoint Security Events
 
 type: logs
 
-id: endpoint.events.security
+name: endpoint.events.security
