@@ -11,7 +11,14 @@ fields:
       version: {}
   event:
     fields:
+      id: {}
+      kind: {}
       created: {}
+      category: {}
+      type: {}
+      module: {}
+      action: {}
+      dataset: {}
   Endpoint:
     fields:
       status: {}
