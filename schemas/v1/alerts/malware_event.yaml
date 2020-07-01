@@ -2740,6 +2740,21 @@ event.category:
   - array
   short: Event category. The second categorization field in the hierarchy.
   type: keyword
+event.code:
+  dashed_name: event-code
+  description: 'Identification code for this event, if one exists.
+
+    Some event sources use event codes to identify messages unambiguously, regardless
+    of message language or wording adjustments over time. An example of this is the
+    Windows Event ID.'
+  example: 4648
+  flat_name: event.code
+  ignore_above: 1024
+  level: extended
+  name: code
+  normalize: []
+  short: Identification code for this event.
+  type: keyword
 event.created:
   dashed_name: event-created
   description: 'event.created contains the date/time when the event was first read
@@ -2965,6 +2980,21 @@ event.outcome:
   name: outcome
   normalize: []
   short: The outcome of the event. The lowest level categorization field in the hierarchy.
+  type: keyword
+event.provider:
+  dashed_name: event-provider
+  description: 'Source of the event.
+
+    Event transports such as Syslog or the Windows Event Log typically mention the
+    source of an event. It can be the name of the software that generated the event
+    (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+  example: kernel
+  flat_name: event.provider
+  ignore_above: 1024
+  level: extended
+  name: provider
+  normalize: []
+  short: Source of the event.
   type: keyword
 event.sequence:
   dashed_name: event-sequence
