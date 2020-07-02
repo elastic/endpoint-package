@@ -163,11 +163,11 @@ run-registry: check-docker build-package
 create-storage-pr:
 	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
 	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
-		git checkout master; \
+		git checkout production; \
 		git branch -D endpoint-release-$(PACKAGE_VERSION); \
 		git push -d origin endpoint-release-$(PACKAGE_VERSION);
 	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
-		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/master
+		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/production
 	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
 	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
 	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
@@ -177,7 +177,7 @@ create-storage-pr:
 	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
 		-m "Endpoint package version $(PACKAGE_VERSION)" \
 		-m "Releasing new endpoint package" \
-		-b elastic:master -d
+		-b elastic:production -d
 
 .PHONY: tag-version
 tag-version:
