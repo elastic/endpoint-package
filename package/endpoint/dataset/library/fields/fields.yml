@@ -101,8 +101,19 @@
     * Dynamic library (`.dylib`) commonly used on macOS'
   type: group
   fields:
-  - name: code_signature.status
-    level: extended
+  - name: Ext
+    level: custom
+    type: object
+    object_type: keyword
+    description: Object for all custom defined fields to live in.
+    default_field: false
+  - name: Ext.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: Ext.code_signature.status
+    level: custom
     type: keyword
     ignore_above: 1024
     description: 'Additional information about the certificate status.
@@ -112,8 +123,8 @@
       was unchecked.'
     example: ERROR_UNTRUSTED_ROOT
     default_field: false
-  - name: code_signature.subject_name
-    level: core
+  - name: Ext.code_signature.subject_name
+    level: custom
     type: keyword
     ignore_above: 1024
     description: Subject name of the code signer

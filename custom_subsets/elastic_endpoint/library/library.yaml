@@ -105,7 +105,9 @@ fields:
           original_file_name: {}
           file_version: {}
           product: {}
-      code_signature:
+      Ext:
         fields:
-          subject_name: {}
-          status: {}
+          code_signature:
+            fields:
+              subject_name: {}
+              status: {}

@@ -83,32 +83,49 @@ dataset.type:
   normalize: []
   short: Dataset type.
   type: constant_keyword
-dll.code_signature.status:
-  dashed_name: dll-code-signature-status
+dll.Ext:
+  dashed_name: dll-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: dll.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  object_type: keyword
+  short: Object for all custom defined fields to live in.
+  type: object
+dll.Ext.code_signature:
+  dashed_name: dll-Ext-code-signature
+  description: Nested version of ECS code_signature fieldset.
+  flat_name: dll.Ext.code_signature
+  level: custom
+  name: Ext.code_signature
+  normalize: []
+  short: Nested version of ECS code_signature fieldset.
+  type: nested
+dll.Ext.code_signature.status:
+  dashed_name: dll-Ext-code-signature-status
   description: 'Additional information about the certificate status.
 
     This is useful for logging cryptographic errors with the certificate validity
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
-  flat_name: dll.code_signature.status
+  flat_name: dll.Ext.code_signature.status
   ignore_above: 1024
-  level: extended
-  name: status
+  level: custom
+  name: Ext.code_signature.status
   normalize: []
-  original_fieldset: code_signature
   short: Additional information about the certificate status.
   type: keyword
-dll.code_signature.subject_name:
-  dashed_name: dll-code-signature-subject-name
+dll.Ext.code_signature.subject_name:
+  dashed_name: dll-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
-  flat_name: dll.code_signature.subject_name
+  flat_name: dll.Ext.code_signature.subject_name
   ignore_above: 1024
-  level: core
-  name: subject_name
+  level: custom
+  name: Ext.code_signature.subject_name
   normalize: []
-  original_fieldset: code_signature
   short: Subject name of the code signer
   type: keyword
 dll.pe.file_version:

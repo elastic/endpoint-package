@@ -53,17 +53,23 @@
       },
       "dll": {
         "properties": {
-          "code_signature": {
+          "Ext": {
             "properties": {
-              "status": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "subject_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
+              "code_signature": {
+                "properties": {
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "nested"
               }
-            }
+            },
+            "type": "object"
           },
           "pe": {
             "properties": {
