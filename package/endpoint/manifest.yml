@@ -23,7 +23,7 @@ config_templates:
 
 conditions:
   kibana:
-    versions: ">=7.9.0"
+    version: ">=7.9.0"
 
 icons:
   - src: "/img/logo-endpoint-64-color.svg"
