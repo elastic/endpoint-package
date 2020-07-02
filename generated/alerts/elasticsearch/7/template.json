@@ -393,27 +393,6 @@
               "args_count": {
                 "type": "long"
               },
-              "code_signature": {
-                "properties": {
-                  "exists": {
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "subject_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "trusted": {
-                    "type": "boolean"
-                  },
-                  "valid": {
-                    "type": "boolean"
-                  }
-                }
-              },
               "command_line": {
                 "fields": {
                   "text": {
@@ -514,27 +493,6 @@
                   },
                   "args_count": {
                     "type": "long"
-                  },
-                  "code_signature": {
-                    "properties": {
-                      "exists": {
-                        "type": "boolean"
-                      },
-                      "status": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "subject_name": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "trusted": {
-                        "type": "boolean"
-                      },
-                      "valid": {
-                        "type": "boolean"
-                      }
-                    }
                   },
                   "command_line": {
                     "fields": {
@@ -1329,27 +1287,6 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
-          "code_signature": {
-            "properties": {
-              "exists": {
-                "type": "boolean"
-              },
-              "status": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "subject_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "trusted": {
-                "type": "boolean"
-              },
-              "valid": {
-                "type": "boolean"
-              }
-            }
-          },
           "created": {
             "type": "date"
           },
@@ -1887,27 +1824,6 @@
           "args_count": {
             "type": "long"
           },
-          "code_signature": {
-            "properties": {
-              "exists": {
-                "type": "boolean"
-              },
-              "status": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "subject_name": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "trusted": {
-                "type": "boolean"
-              },
-              "valid": {
-                "type": "boolean"
-              }
-            }
-          },
           "command_line": {
             "fields": {
               "text": {
@@ -2008,27 +1924,6 @@
               },
               "args_count": {
                 "type": "long"
-              },
-              "code_signature": {
-                "properties": {
-                  "exists": {
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "subject_name": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "trusted": {
-                    "type": "boolean"
-                  },
-                  "valid": {
-                    "type": "boolean"
-                  }
-                }
               },
               "command_line": {
                 "fields": {
