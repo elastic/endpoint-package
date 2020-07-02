@@ -128,8 +128,6 @@ install-pipfile:
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 
 gen-files: $(TARGETS)
-	cp $(ROOT_DIR)/package/endpoint/dataset/metadata/fields/fields.yml \
-	$(ROOT_DIR)/package/endpoint/dataset/metadata_mirror/fields/fields.yml
 
 
 %-target:
