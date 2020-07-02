@@ -420,6 +420,29 @@
     ignore_above: 1024
     description: Process authentication ID
     default_field: false
+  - name: Ext.code_signature
+    level: custom
+    type: nested
+    description: Nested version of ECS code_signature fieldset.
+    default_field: false
+  - name: Ext.code_signature.status
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: 'Additional information about the certificate status.
+
+      This is useful for logging cryptographic errors with the certificate validity
+      or trust status. Leave unpopulated if the validity or trust of the certificate
+      was unchecked.'
+    example: ERROR_UNTRUSTED_ROOT
+    default_field: false
+  - name: Ext.code_signature.subject_name
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Subject name of the code signer
+    example: Microsoft Corporation
+    default_field: false
   - name: Ext.session
     level: custom
     type: keyword
@@ -458,24 +481,6 @@
     - -l
     - user
     - 10.0.0.16
-  - name: code_signature.status
-    level: extended
-    type: keyword
-    ignore_above: 1024
-    description: 'Additional information about the certificate status.
-
-      This is useful for logging cryptographic errors with the certificate validity
-      or trust status. Leave unpopulated if the validity or trust of the certificate
-      was unchecked.'
-    example: ERROR_UNTRUSTED_ROOT
-    default_field: false
-  - name: code_signature.subject_name
-    level: core
-    type: keyword
-    ignore_above: 1024
-    description: Subject name of the code signer
-    example: Microsoft Corporation
-    default_field: false
   - name: command_line
     level: extended
     type: keyword

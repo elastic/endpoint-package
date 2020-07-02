@@ -72,10 +72,6 @@ fields:
       pe:
         fields:
           original_file_name: {}
-      code_signature:
-        fields:
-          subject_name: {}
-          status: {}
       pid: {}
       name: {}
       executable: {}
@@ -105,6 +101,10 @@ fields:
         fields:
           ancestry: {}
           authentication_id: {}
+          code_signature:
+            fields:
+              subject_name: {}
+              status: {}
           session: {}
           token:
             fields:

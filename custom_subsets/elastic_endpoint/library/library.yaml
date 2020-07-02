@@ -80,10 +80,6 @@ fields:
           ancestry: {}
   file:
     fields:
-      code_signature:
-        fields:
-          subject_name: {}
-          status: {}
       pe:
         fields:
           original_file_name: {}
@@ -96,6 +92,12 @@ fields:
           md5: {}
           sha1: {}
           sha256: {}
+      Ext:
+        fields:
+          code_signature:
+            fields:
+              subject_name: {}
+              status: {}
   dll:
     fields:
       pe:
@@ -103,7 +105,9 @@ fields:
           original_file_name: {}
           file_version: {}
           product: {}
-      code_signature:
+      Ext:
         fields:
-          subject_name: {}
-          status: {}
+          code_signature:
+            fields:
+              subject_name: {}
+              status: {}
