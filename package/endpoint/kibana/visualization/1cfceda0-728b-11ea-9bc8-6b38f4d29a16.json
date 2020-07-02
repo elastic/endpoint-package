@@ -1,31 +1,31 @@
 {
-  "attributes": {
-    "description": "",
-    "kibanaSavedObjectMeta": {
-      "searchSourceJSON": "{}"
+    "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{}"
+        },
+        "title": "[Endpoint] Controls",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\n  \"title\": \"[Endpoint] Controls\",\n  \"type\": \"input_control_vis\",\n  \"params\": {\n    \"controls\": [\n      {\n        \"id\": \"1585575202047\",\n        \"fieldName\": \"host.os.name\",\n        \"parent\": \"\",\n        \"label\": \"Operating Systems\",\n        \"type\": \"list\",\n        \"options\": {\n          \"type\": \"terms\",\n          \"multiselect\": true,\n          \"dynamicOptions\": true,\n          \"size\": 5,\n          \"order\": \"desc\"\n        },\n        \"indexPatternRefName\": \"control_0_index_pattern\"\n      },\n      {\n        \"id\": \"1585575244711\",\n        \"fieldName\": \"event.category\",\n        \"parent\": \"\",\n        \"label\": \"Event Categories\",\n        \"type\": \"list\",\n        \"options\": {\n          \"type\": \"terms\",\n          \"multiselect\": true,\n          \"dynamicOptions\": true,\n          \"size\": 5,\n          \"order\": \"desc\"\n        },\n        \"indexPatternRefName\": \"control_1_index_pattern\"\n      }\n    ],\n    \"updateFiltersOnChange\": false,\n    \"useTimeFilter\": true,\n    \"pinFilters\": false\n  },\n  \"aggs\": []\n}"
     },
-    "title": "[Endpoint] Controls",
-    "uiStateJSON": "{}",
-    "version": 1,
-    "visState": "{\"aggs\":[],\"params\":{\"controls\":[{\"fieldName\":\"host.os.name\",\"id\":\"1585575202047\",\"indexPatternRefName\":\"control_0_index_pattern\",\"label\":\"Operating Systems\",\"options\":{\"dynamicOptions\":true,\"multiselect\":true,\"order\":\"desc\",\"size\":5,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\"},{\"fieldName\":\"event.category\",\"id\":\"1585575244711\",\"indexPatternRefName\":\"control_1_index_pattern\",\"label\":\"Event Categories\",\"options\":{\"dynamicOptions\":true,\"multiselect\":true,\"order\":\"desc\",\"size\":5,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\"}],\"pinFilters\":false,\"updateFiltersOnChange\":false,\"useTimeFilter\":true},\"title\":\"[Endpoint] Controls\",\"type\":\"input_control_vis\"}"
-  },
-  "id": "1cfceda0-728b-11ea-9bc8-6b38f4d29a16",
-  "migrationVersion": {
-    "visualization": "7.4.2"
-  },
-  "references": [
-    {
-      "id": "events-*",
-      "name": "control_0_index_pattern",
-      "type": "index-pattern"
+    "id": "1cfceda0-728b-11ea-9bc8-6b38f4d29a16",
+    "migrationVersion": {
+        "visualization": "7.8.0"
     },
-    {
-      "id": "events-*",
-      "name": "control_1_index_pattern",
-      "type": "index-pattern"
-    }
-  ],
-  "type": "visualization",
-  "updated_at": "2020-04-01T16:08:32.353Z",
-  "version": "WzIyOCwxXQ=="
+    "references": [
+        {
+            "id": "endpoint-dashboard-logs",
+            "name": "control_0_index_pattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "endpoint-dashboard-logs",
+            "name": "control_1_index_pattern",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "visualization",
+    "updated_at": "2020-07-02T22:16:19.746Z",
+    "version": "WzI0OSwxXQ=="
 }
