@@ -15,17 +15,17 @@
     },
     "references": [
         {
-            "id": "endpoint-dashboard-logs",
+            "id": "logs-*",
             "name": "control_0_index_pattern",
             "type": "index-pattern"
         },
         {
-            "id": "endpoint-dashboard-logs",
+            "id": "logs-*",
             "name": "control_1_index_pattern",
             "type": "index-pattern"
         }
     ],
     "type": "visualization",
-    "updated_at": "2020-07-02T22:16:19.746Z",
-    "version": "WzI0OSwxXQ=="
+    "updated_at": "2020-07-06T20:36:17.446Z",
+    "version": "WzEwMSwxXQ=="
 }

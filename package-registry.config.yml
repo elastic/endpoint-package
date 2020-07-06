@@ -1,4 +1,4 @@
 package_paths:
-  - /registry/packages/package-storage
-  - /registry/packages/endpoint-package
+  - /packages/production
+  - /packages/endpoint-package
 dev_mode: true

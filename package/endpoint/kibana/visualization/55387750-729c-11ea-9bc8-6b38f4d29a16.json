@@ -15,12 +15,12 @@
     },
     "references": [
         {
-            "id": "endpoint-dashboard-logs",
+            "id": "logs-*",
             "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
             "type": "index-pattern"
         }
     ],
     "type": "visualization",
-    "updated_at": "2020-07-02T21:58:07.354Z",
-    "version": "WzIwOCwxXQ=="
+    "updated_at": "2020-07-06T20:37:15.738Z",
+    "version": "WzExMCwxXQ=="
 }

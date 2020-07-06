@@ -3,9 +3,9 @@
 version: "3.8"
 services:
   package-registry:
-    image: docker.elastic.co/package-registry/package-registry:master
+    image: docker.elastic.co/package-registry/distribution:production
     volumes:
-      - ./package-registry.config.yml:/registry/config.yml
-      - ./out/packages:/registry/packages/endpoint-package
+      - ./package-registry.config.yml:/package-registry/config.yml
+      - ./out/packages:/packages/endpoint-package
     ports:
       - "127.0.0.1:8080:8080"
