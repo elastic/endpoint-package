@@ -104,8 +104,8 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) install-pipfile gen-files
-
+all: $(REAL_ECS_DIR) install-pipfile
+	$(MAKE) gen-files
 
 .PHONY: mac-deps
 mac-deps:
@@ -123,8 +123,7 @@ $(REAL_ECS_DIR):
 
 .PHONY: install-pipfile
 install-pipfile:
-	cd $(EVENT_SCHEMA_GEN) && PIPENV_NO_INHERIT=1 pipenv install
-	cd $(EXCEPTION_LIST_GEN) && PIPENV_NO_INHERIT=1 pipenv install
+	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 
 gen-files: $(TARGETS)
@@ -186,7 +185,6 @@ tag-version:
 
 .PHONY: bump-version
 bump-version:
-	pipenv install
 	pipenv run bump2version minor
 	git push upstream bump-version-$(PACKAGE_VERSION):master
 

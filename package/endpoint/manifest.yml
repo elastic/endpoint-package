@@ -2,8 +2,6 @@ format_version: 1.0.0
 name: endpoint
 title: Elastic Endpoint
 description: Elastic Endpoint Security Integration
-version: 
-description: This is the Elastic Endpoint package.
 version: 0.10.0
 categories: ["security"]
 # Options are experimental, beta, ga
