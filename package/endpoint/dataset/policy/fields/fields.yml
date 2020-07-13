@@ -33,13 +33,11 @@
   - name: policy
     level: custom
     type: object
-    object_type: keyword
     description: The policy fields are used to hold information about applied policy.
     default_field: false
   - name: policy.applied
     level: custom
     type: object
-    object_type: keyword
     description: information about the policy that is applied
     default_field: false
   - name: policy.applied.actions
@@ -70,14 +68,12 @@
   - name: policy.applied.artifacts
     level: custom
     type: object
-    object_type: keyword
     description: information about protection artifacts applied.
     enabled: false
     default_field: false
   - name: policy.applied.artifacts.global
     level: custom
     type: object
-    object_type: keyword
     description: information about global protection artifacts applied.
     default_field: false
   - name: policy.applied.artifacts.global.identifiers
@@ -106,7 +102,6 @@
   - name: policy.applied.artifacts.user
     level: custom
     type: object
-    object_type: keyword
     description: information about user protection artifacts applied.
     default_field: false
   - name: policy.applied.artifacts.user.identifiers
@@ -135,14 +130,12 @@
   - name: policy.applied.configurations
     level: custom
     type: object
-    object_type: keyword
     description: the configurations of the applied policy
     enabled: false
     default_field: false
   - name: policy.applied.configurations.events
     level: custom
     type: object
-    object_type: keyword
     description: overall event collection configuration and status of the applied
       policy
     default_field: false
@@ -162,7 +155,6 @@
   - name: policy.applied.configurations.logging
     level: custom
     type: object
-    object_type: keyword
     description: overall logging configuration and status of the applied policy
     default_field: false
   - name: policy.applied.configurations.logging.concerned_actions
@@ -181,7 +173,6 @@
   - name: policy.applied.configurations.malware
     level: custom
     type: object
-    object_type: keyword
     description: overall malware configuration and status of the applied policy
     default_field: false
   - name: policy.applied.configurations.malware.concerned_actions
@@ -200,7 +191,6 @@
   - name: policy.applied.configurations.streaming
     level: custom
     type: object
-    object_type: keyword
     description: overall data streaming configuration and status of the applied
       policy
     default_field: false
@@ -232,7 +222,6 @@
   - name: policy.applied.response
     level: custom
     type: object
-    object_type: keyword
     description: the response of actions that failed in the applied policy
     enabled: false
     default_field: false
@@ -456,7 +445,6 @@
   - name: os.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: os.Ext.variant

@@ -118,7 +118,7 @@ clean:
 
 
 $(REAL_ECS_DIR):
-	git clone --branch subset-format-update https://github.com/marshallmain/ecs.git $(REAL_ECS_DIR)
+	git clone --branch mmain-fix-short-desc https://github.com/jonathan-buttner/ecs.git $(REAL_ECS_DIR)
 
 
 .PHONY: install-pipfile
