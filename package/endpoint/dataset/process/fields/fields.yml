@@ -236,13 +236,11 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: Group info prior to any setgid operations.
     default_field: false
   - name: Ext.real.id
@@ -320,7 +318,6 @@
   - name: os.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: os.Ext.variant
@@ -405,7 +402,6 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.ancestry
@@ -561,19 +557,16 @@
   - name: parent
     level: custom
     type: object
-    object_type: keyword
     description: Extended "process.parent" field set.
     default_field: false
   - name: parent.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: parent.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: The field set containing parent process info in case of any ppid
       spoofing.
     default_field: false
@@ -661,13 +654,11 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: User info prior to any setuid operations.
     default_field: false
   - name: Ext.real.id

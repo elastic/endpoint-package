@@ -1,5 +1,5 @@
 ---
-name: telemetry
+name: metrics
 fields:
   base:
     fields:

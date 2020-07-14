@@ -33,26 +33,22 @@
   - name: policy
     level: custom
     type: object
-    object_type: keyword
     description: The policy fields are used to hold information about applied policy.
     default_field: false
   - name: policy.applied
     level: custom
     type: object
-    object_type: keyword
     description: information about the policy that is applied
     default_field: false
   - name: policy.applied.artifacts
     level: custom
     type: object
-    object_type: keyword
     description: information about protection artifacts applied.
     enabled: false
     default_field: false
   - name: policy.applied.artifacts.global
     level: custom
     type: object
-    object_type: keyword
     description: information about global protection artifacts applied.
     default_field: false
   - name: policy.applied.artifacts.global.identifiers
@@ -81,7 +77,6 @@
   - name: policy.applied.artifacts.user
     level: custom
     type: object
-    object_type: keyword
     description: information about user protection artifacts applied.
     default_field: false
   - name: policy.applied.artifacts.user.identifiers
@@ -144,7 +139,6 @@
   - name: dll.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: dll.Ext.code_signature
@@ -200,7 +194,9 @@
     description: Timestamp from when the module was compiled.
     default_field: false
   - name: dll.Ext.malware_classification.features
+    level: custom
     type: object
+    description: Intermediate field included by adding option with subset
     enabled: false
     default_field: false
   - name: dll.Ext.malware_classification.features.data.buffer
@@ -338,7 +334,6 @@
   - name: process.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: process.Ext.ancestry
@@ -401,7 +396,9 @@
     example: 'true'
     default_field: false
   - name: process.Ext.malware_classification.features
+    level: custom
     type: object
+    description: Intermediate field included by adding option with subset
     enabled: false
     default_field: false
   - name: process.Ext.malware_classification.features.data.buffer
@@ -662,13 +659,11 @@
   - name: process.parent
     level: custom
     type: object
-    object_type: keyword
     description: Extended "process.parent" field set.
     default_field: false
   - name: process.parent.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: process.parent.Ext.code_signature
@@ -721,7 +716,6 @@
   - name: process.parent.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: The field set containing parent process info in case of any ppid
       spoofing.
     default_field: false
@@ -974,10 +968,10 @@
   - name: process.thread.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: process.thread.Ext.call_stack
+    level: custom
     type: group
     description: Fields describing a stack frame.  call_stack is expected to be
       an array where each array element represents a stack frame.
@@ -1287,7 +1281,6 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.code_signature
@@ -1343,7 +1336,9 @@
     description: Timestamp from when the module was compiled.
     default_field: false
   - name: Ext.malware_classification.features
+    level: custom
     type: object
+    description: Intermediate field included by adding option with subset
     enabled: false
     default_field: false
   - name: Ext.malware_classification.features.data.buffer
@@ -1506,7 +1501,6 @@
   - name: agent
     level: custom
     type: object
-    object_type: keyword
     description: The agent fields contain data about the Elastic Agent. The Elastic
       Agent is the management agent that manages other agents or process on the
       host.
@@ -1736,7 +1730,6 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.code_signature
@@ -1799,7 +1792,6 @@
   - name: Ext.macro.collection
     level: custom
     type: object
-    object_type: keyword
     description: Object containing hashes for the macro collection.
     default_field: false
   - name: Ext.macro.collection.hash.md5
@@ -1851,7 +1843,6 @@
   - name: Ext.macro.project_file
     level: custom
     type: object
-    object_type: keyword
     description: Metadata about the corresponding VBA project file
     default_field: false
   - name: Ext.macro.project_file.hash.md5
@@ -1928,7 +1919,9 @@
       truncated.
     default_field: false
   - name: Ext.malware_classification.features
+    level: custom
     type: object
+    description: Intermediate field included by adding option with subset
     enabled: false
     default_field: false
   - name: Ext.malware_classification.features.data.buffer
@@ -1980,7 +1973,6 @@
   - name: Ext.original
     level: custom
     type: object
-    object_type: keyword
     description: Original file information during a modification event.
     default_field: false
   - name: Ext.original.gid
@@ -2050,7 +2042,6 @@
   - name: Ext.windows
     level: custom
     type: object
-    object_type: keyword
     description: Platform-specific Windows fields
     default_field: false
   - name: Ext.windows.zone_identifier
@@ -2273,13 +2264,11 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: Group info prior to any setgid operations.
     default_field: false
   - name: Ext.real.id
@@ -2428,7 +2417,6 @@
   - name: os.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: os.Ext.variant
@@ -2503,13 +2491,11 @@
   - name: user.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: user.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: User info prior to any setuid operations.
     default_field: false
   - name: user.Ext.real.id
@@ -2550,13 +2536,11 @@
   - name: user.group.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: user.group.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: Group info prior to any setgid operations.
     default_field: false
   - name: user.group.Ext.real.id
@@ -2626,7 +2610,6 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.ancestry
@@ -2689,7 +2672,9 @@
     example: 'true'
     default_field: false
   - name: Ext.malware_classification.features
+    level: custom
     type: object
+    description: Intermediate field included by adding option with subset
     enabled: false
     default_field: false
   - name: Ext.malware_classification.features.data.buffer
@@ -2945,13 +2930,11 @@
   - name: parent
     level: custom
     type: object
-    object_type: keyword
     description: Extended "process.parent" field set.
     default_field: false
   - name: parent.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: parent.Ext.code_signature
@@ -3004,7 +2987,6 @@
   - name: parent.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: The field set containing parent process info in case of any ppid
       spoofing.
     default_field: false
@@ -3253,10 +3235,10 @@
   - name: thread.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: thread.Ext.call_stack
+    level: custom
     type: group
     description: Fields describing a stack frame.  call_stack is expected to be
       an array where each array element represents a stack frame.
@@ -3645,13 +3627,11 @@
   - name: Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: User info prior to any setuid operations.
     default_field: false
   - name: Ext.real.id
@@ -3692,13 +3672,11 @@
   - name: group.Ext
     level: custom
     type: object
-    object_type: keyword
     description: Object for all custom defined fields to live in.
     default_field: false
   - name: group.Ext.real
     level: custom
     type: object
-    object_type: keyword
     description: Group info prior to any setgid operations.
     default_field: false
   - name: group.Ext.real.id
