@@ -5,6 +5,11 @@ fields:
     fields:
       "@timestamp": {}
       message: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
   dataset:
     fields: "*"
   ecs:

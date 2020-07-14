@@ -149,6 +149,46 @@
     type: long
     description: Number of seconds since the system was started
     default_field: false
+- name: agent
+  title: Agent
+  group: 2
+  description: 'The agent fields contain the data about the software entity, if
+    any, that collects, detects, or observes events on a host, or takes measurements
+    on a host.
+
+    Examples include Beats. Agents may also run on observers. ECS agent.* fields
+    shall be populated with details of the agent running on the host or observer
+    where the event happened or the measurement was taken.'
+  footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat.
+    For APM, it is the agent running in the app/service. The agent information does
+    not change if data is sent through queuing systems like Kafka, Redis, or processing
+    systems such as Logstash or APM Server.'
+  type: group
+  fields:
+  - name: id
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Unique identifier of this agent (if one exists).
+
+      Example: For Beats this would be beat.id.'
+    example: 8a4f500d
+  - name: type
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: 'Type of the agent.
+
+      The agent type stays always the same and should be given by the agent used.
+      In case of Filebeat the agent would always be Filebeat also if two Filebeat
+      instances are run on the same machine.'
+    example: filebeat
+  - name: version
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Version of the agent.
+    example: 6.0.0-rc2
 - name: dataset
   title: dataset
   group: 2

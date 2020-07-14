@@ -228,6 +228,45 @@ Endpoint.metrics.uptime.system:
   normalize: []
   short: Number of seconds since the system was started
   type: long
+agent.id:
+  dashed_name: agent-id
+  description: 'Unique identifier of this agent (if one exists).
+
+    Example: For Beats this would be beat.id.'
+  example: 8a4f500d
+  flat_name: agent.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  short: Unique identifier of this agent.
+  type: keyword
+agent.type:
+  dashed_name: agent-type
+  description: 'Type of the agent.
+
+    The agent type stays always the same and should be given by the agent used. In
+    case of Filebeat the agent would always be Filebeat also if two Filebeat instances
+    are run on the same machine.'
+  example: filebeat
+  flat_name: agent.type
+  ignore_above: 1024
+  level: core
+  name: type
+  normalize: []
+  short: Type of the agent.
+  type: keyword
+agent.version:
+  dashed_name: agent-version
+  description: Version of the agent.
+  example: 6.0.0-rc2
+  flat_name: agent.version
+  ignore_above: 1024
+  level: core
+  name: version
+  normalize: []
+  short: Version of the agent.
+  type: keyword
 dataset.name:
   dashed_name: dataset-name
   description: Dataset name.

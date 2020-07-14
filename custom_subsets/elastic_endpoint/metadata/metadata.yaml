@@ -39,6 +39,7 @@ fields:
       version: {}
       id: {}
       name: {}
+      type: {}
   host:
     fields:
       id: {}
