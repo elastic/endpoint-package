@@ -26,6 +26,6 @@ conditions:
     version: ">=7.9.0"
 
 icons:
-  - src: "/img/logo-endpoint-64-color.svg"
+  - src: "/img/glyph-elastic-cluster-color.svg"
     size: "16x16"
     type: "image/svg+xml"
