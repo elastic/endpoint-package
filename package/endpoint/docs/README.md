@@ -1,3 +1,21 @@
 # Elastic Endpoint Security Integration
 
-This is a module for the Elastic Security Solution Kibana App and Elastic Endpoint. It sets up the templates, index patterns, aliases, and dashboards.
+This integration sets up templates and index patterns required for Elastic Endpoint Security.
+
+## Compatibility
+
+For compatibility information view our [documentation](https://www.elastic.co/guide/en/security/current/index.html).
+
+## Logs
+
+### alerts
+
+### file
+
+## Metrics
+
+### metadata
+
+### policy response
+
+### metrics
