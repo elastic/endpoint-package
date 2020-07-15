@@ -1,7 +1,7 @@
 # Generate docs
 
-The script allows for regenerating README docs based on the existing package content and the `import-beats-resources`
-(docs template).
+The script allows for regenerating README docs based on the existing package content and the docs templates stored in
+[doc_templates](../../doc_templates).
 
 Template for README.md file supports following template functions:
 
@@ -12,8 +12,10 @@ Template for README.md file supports following template functions:
 
 ## Getting started
 
-Navigate to the integrations root directory and execute the following command:
+Navigate to the root directory and execute the following command:
 
 ```bash
-PACKAGES=nginx mage GenerateDocs
+go run ./scripts/generate-docs
 ```
+
+This tool is run as part of the make build process so it will be invoked when `make` is run.
