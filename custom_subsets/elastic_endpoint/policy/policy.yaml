@@ -26,6 +26,8 @@ fields:
       module: {}
       action: {}
       dataset: {}
+      ingested: {}
+      sequence: {}
   host:
     fields:
       id: {}

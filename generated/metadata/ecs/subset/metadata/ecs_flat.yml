@@ -400,6 +400,23 @@ event.id:
   normalize: []
   short: Unique ID to describe the event.
   type: keyword
+event.ingested:
+  dashed_name: event-ingested
+  description: 'Timestamp when an event arrived in the central data store.
+
+    This is different from `@timestamp`, which is when the event originally occurred.  It''s
+    also different from `event.created`, which is meant to capture the first time
+    an agent saw the event.
+
+    In normal conditions, assuming no tampering, the timestamps should chronologically
+    look like this: `@timestamp` < `event.created` < `event.ingested`.'
+  example: '2016-05-23T08:05:35.101Z'
+  flat_name: event.ingested
+  level: core
+  name: ingested
+  normalize: []
+  short: Timestamp when an event arrived in the central data store.
+  type: date
 event.kind:
   allowed_values:
   - description: 'This value indicates an event that describes an alert or notable
@@ -486,6 +503,19 @@ event.module:
   normalize: []
   short: Name of the module this data is coming from.
   type: keyword
+event.sequence:
+  dashed_name: event-sequence
+  description: 'Sequence number of the event.
+
+    The sequence number is a value published by some event sources, to make the exact
+    ordering of events unambiguous, regardless of the timestamp precision.'
+  flat_name: event.sequence
+  format: string
+  level: extended
+  name: sequence
+  normalize: []
+  short: Sequence number of the event.
+  type: long
 event.type:
   allowed_values:
   - description: The access event type is used for the subset of events within a category

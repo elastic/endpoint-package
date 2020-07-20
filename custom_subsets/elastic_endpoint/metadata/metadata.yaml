@@ -19,6 +19,8 @@ fields:
       module: {}
       action: {}
       dataset: {}
+      ingested: {}
+      sequence: {}
   Endpoint:
     fields:
       status: {}

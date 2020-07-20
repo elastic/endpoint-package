@@ -46,3 +46,4 @@ fields:
       module: {}
       sequence: {}
       type: {}
+      ingested: {}

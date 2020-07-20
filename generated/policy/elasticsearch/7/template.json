@@ -224,6 +224,9 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "ingested": {
+            "type": "date"
+          },
           "kind": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -231,6 +234,9 @@
           "module": {
             "ignore_above": 1024,
             "type": "keyword"
+          },
+          "sequence": {
+            "type": "long"
           },
           "type": {
             "ignore_above": 1024,
