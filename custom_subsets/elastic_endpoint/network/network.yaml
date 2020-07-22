@@ -91,6 +91,8 @@ fields:
       packets: {}
   source:
     fields:
+      geo:
+        fields: "*"
       address: {}
       ip: {}
       port: {}
@@ -101,6 +103,8 @@ fields:
       packets: {}
   destination:
     fields:
+      geo:
+        fields: "*"
       address: {}
       ip: {}
       port: {}

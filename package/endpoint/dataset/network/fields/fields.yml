@@ -113,6 +113,59 @@
     type: keyword
     ignore_above: 1024
     description: Destination domain.
+  - name: geo.city_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: City name.
+    example: Montreal
+  - name: geo.continent_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Name of the continent.
+    example: North America
+  - name: geo.country_iso_code
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Country ISO code.
+    example: CA
+  - name: geo.country_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Country name.
+    example: Canada
+  - name: geo.location
+    level: core
+    type: geo_point
+    description: Longitude and latitude.
+    example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  - name: geo.name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: 'User-defined description of a location, at the level of granularity
+      they care about.
+
+      Could be the name of their data centers, the floor number, if this describes
+      a local physical entity, city names.
+
+      Not typically used in automated geolocation.'
+    example: boston-dc
+  - name: geo.region_iso_code
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Region ISO code.
+    example: CA-QC
+  - name: geo.region_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Region name.
+    example: Quebec
   - name: ip
     level: core
     type: ip
@@ -803,6 +856,59 @@
     type: keyword
     ignore_above: 1024
     description: Source domain.
+  - name: geo.city_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: City name.
+    example: Montreal
+  - name: geo.continent_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Name of the continent.
+    example: North America
+  - name: geo.country_iso_code
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Country ISO code.
+    example: CA
+  - name: geo.country_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Country name.
+    example: Canada
+  - name: geo.location
+    level: core
+    type: geo_point
+    description: Longitude and latitude.
+    example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  - name: geo.name
+    level: extended
+    type: keyword
+    ignore_above: 1024
+    description: 'User-defined description of a location, at the level of granularity
+      they care about.
+
+      Could be the name of their data centers, the floor number, if this describes
+      a local physical entity, city names.
+
+      Not typically used in automated geolocation.'
+    example: boston-dc
+  - name: geo.region_iso_code
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Region ISO code.
+    example: CA-QC
+  - name: geo.region_name
+    level: core
+    type: keyword
+    ignore_above: 1024
+    description: Region name.
+    example: Quebec
   - name: ip
     level: core
     type: ip
