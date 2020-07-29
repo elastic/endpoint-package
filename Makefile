@@ -25,7 +25,8 @@ $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
 SED := sed
-
+# this is the branch that the PR to the package-storage repo will be against when releasing a package
+PACK_STORAGE_BRANCH ?= staging
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
@@ -163,11 +164,11 @@ run-registry: check-docker build-package
 create-storage-pr:
 	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
 	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
-		git checkout production; \
+		git checkout $(PACK_STORAGE_BRANCH); \
 		git branch -D endpoint-release-$(PACKAGE_VERSION); \
 		git push -d origin endpoint-release-$(PACKAGE_VERSION);
 	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
-		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/production
+		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/$(PACK_STORAGE_BRANCH)
 	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
 	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
 	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
@@ -177,7 +178,7 @@ create-storage-pr:
 	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
 		-m "Endpoint package version $(PACKAGE_VERSION)" \
 		-m "Releasing new endpoint package" \
-		-b elastic:production -d
+		-b elastic:$(PACK_STORAGE_BRANCH) -d
 
 .PHONY: tag-version
 tag-version:
