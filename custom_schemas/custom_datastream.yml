@@ -1,0 +1,28 @@
+---
+# NOTE this file is temporary and once ECS merges in the datastream fields into core we should remove these
+# these are a duplicate of dataset for right now but in 7.10 dataset will be removed
+- name: datastream
+  title: datastream
+  group: 2
+  short: Fields describing the new indexing strategy
+  description: >
+    Fields describing the new indexing strategy <type>-<dataset>-<namespace>
+  type: group
+  fields:
+    - name: type
+      level: custom
+      type: constant_keyword
+      description: >
+        Datastream type.
+
+    - name: dataset
+      level: custom
+      type: constant_keyword
+      description: >
+        Datastream dataset name.
+
+    - name: namespace
+      level: custom
+      type: constant_keyword
+      description: >
+        Datastream namespace.

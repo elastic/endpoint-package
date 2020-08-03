@@ -83,6 +83,33 @@ dataset.type:
   normalize: []
   short: Dataset type.
   type: constant_keyword
+datastream.dataset:
+  dashed_name: datastream-dataset
+  description: Datastream dataset name.
+  flat_name: datastream.dataset
+  level: custom
+  name: dataset
+  normalize: []
+  short: Datastream dataset name.
+  type: constant_keyword
+datastream.namespace:
+  dashed_name: datastream-namespace
+  description: Datastream namespace.
+  flat_name: datastream.namespace
+  level: custom
+  name: namespace
+  normalize: []
+  short: Datastream namespace.
+  type: constant_keyword
+datastream.type:
+  dashed_name: datastream-type
+  description: Datastream type.
+  flat_name: datastream.type
+  level: custom
+  name: type
+  normalize: []
+  short: Datastream type.
+  type: constant_keyword
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
