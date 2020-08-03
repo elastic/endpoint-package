@@ -176,7 +176,7 @@ create-storage-pr:
 		&& git commit -m "Adding package version $(PACKAGE_VERSION)" \
 		&& git push -u origin endpoint-release-$(PACKAGE_VERSION)
 	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
-		-m "Endpoint package version $(PACKAGE_VERSION)" \
+		-m "[$(PACK_STORAGE_BRANCH)] Endpoint package version $(PACKAGE_VERSION)" \
 		-m "Releasing new endpoint package" \
 		-b elastic:$(PACK_STORAGE_BRANCH) -d
 
