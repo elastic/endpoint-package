@@ -6,6 +6,8 @@ fields:
       "@timestamp": {}
   dataset:
     fields: "*"
+  datastream:
+    fields: "*"
   ecs:
     fields:
       version: {}
