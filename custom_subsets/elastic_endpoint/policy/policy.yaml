@@ -12,6 +12,8 @@ fields:
       id: {}
   dataset:
     fields: "*"
+  datastream:
+    fields: "*"
   ecs:
     fields:
       version: {}

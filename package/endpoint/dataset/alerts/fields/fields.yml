@@ -1261,6 +1261,27 @@
     type: constant_keyword
     description: Dataset type.
     default_field: false
+- name: datastream
+  title: datastream
+  group: 2
+  description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
+  type: group
+  fields:
+  - name: dataset
+    level: custom
+    type: constant_keyword
+    description: Datastream dataset name.
+    default_field: false
+  - name: namespace
+    level: custom
+    type: constant_keyword
+    description: Datastream namespace.
+    default_field: false
+  - name: type
+    level: custom
+    type: constant_keyword
+    description: Datastream type.
+    default_field: false
 - name: dll
   title: DLL
   group: 2

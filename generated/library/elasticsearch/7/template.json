@@ -51,6 +51,19 @@
           }
         }
       },
+      "datastream": {
+        "properties": {
+          "dataset": {
+            "type": "constant_keyword"
+          },
+          "namespace": {
+            "type": "constant_keyword"
+          },
+          "type": {
+            "type": "constant_keyword"
+          }
+        }
+      },
       "dll": {
         "properties": {
           "Ext": {
