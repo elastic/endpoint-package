@@ -23,6 +23,7 @@ def main():
 
     with open(args.field_template_file) as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
+        
     with open(args.output_file, 'w') as file:
         yaml.dump(data, file, default_flow_style=False, sort_keys=False)
 
