@@ -25,7 +25,7 @@ conditions:
   kibana:
     # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
     # >= 7.9.0 && < 8.0.0
-    version: "^7.9.0"
+    version: "^7.10.0"
 
 icons:
   - src: "/img/security-logo-color-64px.svg"
