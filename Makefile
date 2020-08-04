@@ -39,8 +39,8 @@ EXCEPTION_LIST_GEN := $(ROOT_DIR)/scripts/exceptions
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
 # Get the package version from the manifest file
-PACKAGE_VERSION := $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
-TAG_NAME := v$(PACKAGE_VERSION)
+get_pack_version = $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
+PACKAGE_VERSION := $(call get_pack_version)
 
 # Given a path this returns the directory (e.g. events, metadata)
 schema_name = $(shell basename $(1))
@@ -93,6 +93,29 @@ endef
 define gen_exception_files
 	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
 		$(ROOT_DIR)/out/$(1)
+endef
+
+define create_pr_package_storage
+	# define the variable `pack_version` set to the updated version in the manifest
+	# this is necessary because it will be different than when the makefile is first parsed
+	$(eval pack_version := $(call get_pack_version))
+	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
+	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
+		git checkout $(PACK_STORAGE_BRANCH); \
+		git branch -D endpoint-release-$(pack_version); \
+		git push -d origin endpoint-release-$(pack_version);
+	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
+		git switch -c endpoint-release-$(pack_version) --track upstream/$(PACK_STORAGE_BRANCH)
+	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
+	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
+	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
+	cd $(PACKAGE_STORAGE_REPO) && git add $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version) \
+		&& git commit -m "Adding package version $(pack_version)" \
+		&& git push -u origin endpoint-release-$(pack_version)
+	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
+		-m "[$(1)] Endpoint package version $(pack_version)" \
+		-m "Releasing new endpoint package" \
+		-b elastic:$(1) -d
 endef
 
 ifeq ($(shell uname -s), Darwin)
@@ -160,34 +183,34 @@ run-registry: check-docker build-package
 
 # This target uses the hub tool to create a PR to the package-storage repo with the contents of the
 # modified endpoint package in this repo
-.PHONY: create-storage-pr
-create-storage-pr:
-	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
-	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
-		git checkout $(PACK_STORAGE_BRANCH); \
-		git branch -D endpoint-release-$(PACKAGE_VERSION); \
-		git push -d origin endpoint-release-$(PACKAGE_VERSION);
-	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
-		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/$(PACK_STORAGE_BRANCH)
-	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	cd $(PACKAGE_STORAGE_REPO) && git add $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION) \
-		&& git commit -m "Adding package version $(PACKAGE_VERSION)" \
-		&& git push -u origin endpoint-release-$(PACKAGE_VERSION)
-	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
-		-m "[$(PACK_STORAGE_BRANCH)] Endpoint package version $(PACKAGE_VERSION)" \
-		-m "Releasing new endpoint package" \
-		-b elastic:$(PACK_STORAGE_BRANCH) -d
+.PHONY: create-storage-pr-staging
+create-storage-pr-staging:
+	$(call create_pr_package_storage,staging)
+
+.PHONY: create-storage-pr-production
+create-storage-pr-production:
+	$(call create_pr_package_storage,production)
 
 .PHONY: tag-version
 tag-version:
+	$(eval TAG_NAME := v$(call get_pack_version))
 	-git tag $(TAG_NAME)
 	-git push upstream $(TAG_NAME)
 
-.PHONY: bump-version
-bump-version:
+.PHONY: bump-version-staging
+bump-version-staging:
+	pipenv run bump2version build
+
+.PHONY: bump-version-production
+bump-version-production:
+	pipenv run bump2version release
+
+.PHONY: bump-version-minor
+bump-version-minor:
 	pipenv run bump2version minor
+
+.PHONY: push-bump-commit
+push-bump-commit:
 	git push upstream bump-version-$(PACKAGE_VERSION):master
 
 .PHONY: switch-to-bump-branch
@@ -199,7 +222,21 @@ switch-to-bump-branch:
 	git fetch upstream; \
 		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/master
 
-# Use this target to tag and release
-.PHONY: release-package
-release-package: switch-to-bump-branch tag-version create-storage-pr bump-version
+# Use this target to release a dev build to staging
+.PHONY: release-staging
+release-package: \
+	switch-to-bump-branch \
+	create-storage-pr-staging \
+	bump-version-staging \
+	push-bump-commit
+
+# Use this target to tag and release to production
+.PHONY: release-production
+release-package: \
+	switch-to-bump-branch \
+	bump-version-production \
+	tag-version \
+	create-storage-pr-production \
+	bump-version-minor \
+	push-bump-commit
 
