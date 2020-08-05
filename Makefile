@@ -26,7 +26,7 @@ $(info ecs git ref: $(ECS_GIT_REF))
 
 SED := sed
 # this is the branch that the PR to the package-storage repo will be against when releasing a package
-PACK_STORAGE_BRANCH ?= staging
+PACK_STORAGE_BRANCH ?= snapshot
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
