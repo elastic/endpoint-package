@@ -187,7 +187,7 @@ tag-version:
 
 .PHONY: bump-version
 bump-version:
-	pipenv run bump2version minor
+	pipenv run bump2version patch
 	git push upstream bump-version-$(PACKAGE_VERSION):master
 
 .PHONY: switch-to-bump-branch
