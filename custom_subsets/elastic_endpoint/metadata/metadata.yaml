@@ -4,9 +4,7 @@ fields:
   base:
     fields:
       "@timestamp": {}
-  dataset:
-    fields: "*"
-  datastream:
+  data_stream:
     fields: "*"
   ecs:
     fields:
