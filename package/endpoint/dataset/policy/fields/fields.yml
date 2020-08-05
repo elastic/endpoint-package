@@ -277,29 +277,8 @@
     ignore_above: 1024
     description: Version of the agent.
     example: 6.0.0-rc2
-- name: dataset
-  title: dataset
-  group: 2
-  description: Fields describing the new indexing strategy <type>-<name>-<namespace>
-  type: group
-  fields:
-  - name: name
-    level: custom
-    type: constant_keyword
-    description: Dataset name.
-    default_field: false
-  - name: namespace
-    level: custom
-    type: constant_keyword
-    description: Dataset namespace.
-    default_field: false
-  - name: type
-    level: custom
-    type: constant_keyword
-    description: Dataset type.
-    default_field: false
-- name: datastream
-  title: datastream
+- name: data_stream
+  title: data_stream
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
@@ -307,17 +286,17 @@
   - name: dataset
     level: custom
     type: constant_keyword
-    description: Datastream dataset name.
+    description: Data stream dataset name.
     default_field: false
   - name: namespace
     level: custom
     type: constant_keyword
-    description: Datastream namespace.
+    description: Data stream namespace.
     default_field: false
   - name: type
     level: custom
     type: constant_keyword
-    description: Datastream type.
+    description: Data stream type.
     default_field: false
 - name: ecs
   title: ECS
