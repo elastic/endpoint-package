@@ -223,6 +223,7 @@ switch-to-bump-branch:
 		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/master
 
 # Use this target to release a dev build to staging
+# todo maybe have this tag?
 .PHONY: release-staging
 release-package: \
 	switch-to-bump-branch \
@@ -231,6 +232,9 @@ release-package: \
 	push-bump-commit
 
 # Use this target to tag and release to production
+# todo spit this out into its own script and have it create a new release branch
+# also have it bump the version on the release branch to the next patch
+# and bump the minor (or prompt for major or minor) on the master branch
 .PHONY: release-production
 release-package: \
 	switch-to-bump-branch \
