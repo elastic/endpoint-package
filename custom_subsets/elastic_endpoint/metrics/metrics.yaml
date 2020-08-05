@@ -10,9 +10,7 @@ fields:
       version: {}
       type: {}
       id: {}
-  dataset:
-    fields: "*"
-  datastream:
+  data_stream:
     fields: "*"
   ecs:
     fields:
