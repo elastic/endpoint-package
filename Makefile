@@ -188,16 +188,16 @@ tag-version:
 .PHONY: bump-version
 bump-version:
 	pipenv run bump2version patch
-	git push upstream bump-version-$(PACKAGE_VERSION):master
+	git push upstream bump-version-$(PACKAGE_VERSION):7.9
 
 .PHONY: switch-to-bump-branch
 switch-to-bump-branch:
 	-git remote add upstream git@github.com:elastic/endpoint-package.git
-	-git checkout master; \
+	-git checkout 7.9; \
 		git branch -D bump-version-$(PACKAGE_VERSION); \
 		git push -d origin bump-version-$(PACKAGE_VERSION);
 	git fetch upstream; \
-		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/master
+		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/7.9
 
 # Use this target to tag and release
 .PHONY: release-package
