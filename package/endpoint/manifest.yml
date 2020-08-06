@@ -31,3 +31,6 @@ icons:
   - src: "/img/security-logo-color-64px.svg"
     size: "16x16"
     type: "image/svg+xml"
+
+owner:
+  github: elastic/endpoint-data-visibility-team
