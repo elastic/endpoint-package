@@ -57,9 +57,9 @@
 
       Example: For Beats this would be beat.id.'
     example: 8a4f500d
-- name: Host_details
-  title: Host_details
+- name: HostDetails
+  title: HostDetails
   group: 2
-  descriptions: details
+  descriptions: host details
   type: group
   fields: !include metadata/fields/fields.yml
