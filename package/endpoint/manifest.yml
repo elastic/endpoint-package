@@ -2,7 +2,7 @@ format_version: 1.0.0
 name: endpoint
 title: Elastic Endpoint Security
 description: Protect your hosts with threat prevention, detection, and deep security data visibility.
-version: 0.15.0-dev.0
+version: 0.16.0-dev.0
 categories: ["security"]
 # Options are experimental, beta, ga
 release: beta
@@ -32,3 +32,6 @@ icons:
   - src: "/img/security-logo-color-64px.svg"
     size: "16x16"
     type: "image/svg+xml"
+
+owner:
+  github: elastic/endpoint-data-visibility-team
