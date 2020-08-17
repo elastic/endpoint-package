@@ -48,6 +48,13 @@ package_file = $(ROOT_DIR)/out/$(1)/generated/beats/fields.ecs.yml
 TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-target)
 
 # Parameters
+# 1: path to subset specific ecs output files
+define gen_exception_files
+	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
+		$(ROOT_DIR)/out/$(1)
+endef
+
+# Parameters
 # 1: schema name (e.g. events, metadata)
 define gen_mapping_files
 	cd $(REAL_ECS_DIR) && pipenv run python scripts/generator.py \
@@ -55,6 +62,7 @@ define gen_mapping_files
 		--include $(CUST_SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
 		--subset $(SUB_ROOT_DIR)/$(1)/*
+	$(call gen_exception_files,$(1))
 	# remove the first 8 lines
 	$(SED) -i $(call package_file,$(1)) -e '1,8d'
 	# remove indentation
@@ -86,13 +94,6 @@ define gen_schema_files
 		$(SUB_ROOT_DIR)/$(1)/*.yaml \
 		$(SUB_ROOT_DIR)/$(1)/*.yml \
 		$(ROOT_DIR)/out/schema/$(1)
-endef
-
-# Parameters
-# 1: path to subset specific ecs output files
-define gen_exception_files
-	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
-		$(ROOT_DIR)/out/$(1)
 endef
 
 ifeq ($(shell uname -s), Darwin)
@@ -137,7 +138,7 @@ gen-files: $(TARGETS)
 %-target:
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
-	$(call gen_exception_files,$*)
+	
 
 .PHONY: check-docker
 check-docker:
