@@ -1,9 +1,6 @@
 title: Endpoint Process Events
-
 type: logs
-
 name: endpoint.events.process
-
 elasticsearch:
   index_template.mappings:
     dynamic: false
