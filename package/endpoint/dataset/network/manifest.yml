@@ -1,9 +1,6 @@
 title: Endpoint Network Events
-
 type: logs
-
 name: endpoint.events.network
-
 elasticsearch:
   index_template.mappings:
     dynamic: false

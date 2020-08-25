@@ -2,3 +2,5 @@
 out
 config.mk
 .vscode
+build
+scripts/go-tools/bin
