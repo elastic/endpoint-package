@@ -11,66 +11,99 @@ import os
 import shutil
 import sys
 import click
+import subprocess
+import os
+import re
+import git
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+root = os.path.join(dir_path, '..', '..')
+package_manifest = os.path.join(root, 'package', 'endpoint', 'manifest.yml')
+version_regex = re.compile('^version: (.*)')
 
 
-def argument_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--yes', action='store_true', help='use default answers to prompts')
-
-    return parser.parse_args()
+def print_capture(res):
+    click.echo(res.stdout)
+    click.echo(res.stderr)
 
 
-def generate_subset(ecs_path, custom_schema, subset_file, out, ecs_git_ref):
-    subset_out = os.path.join(os.path.abspath(out), os.path.splitext(os.path.basename(subset_file))[0])
-    print('Generating subset fields for: {}'.format(subset_file))
-    ret = subprocess.run(['python', ECS_SCRIPT, '--include', os.path.abspath(custom_schema),
-                          '--subset', os.path.abspath(subset_file),
-                          '--out', subset_out, '--ref', ecs_git_ref], stdout=subprocess.PIPE, check=True,
-                         cwd=ecs_path, universal_newlines=True)
-    print('Generation output-----------------')
-    for line in ret.stdout.splitlines():
-        print(line,)
-    print('Finished generating subset-----------------')
+def prompt_bump():
+    part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
+                                                                                       case_sensitive=False))
+    click.echo('part: {}'.format(part))
+    res = subprocess.run(['bump2version', part], capture_output=True)
+    print_capture(res)
 
 
-def create_event_schema(subset, out, out_schema_dir):
-    subset_basename = os.path.basename(subset)
-    subset_no_ext = os.path.splitext(subset_basename)[0]
-    abs_out = os.path.abspath(out)
-    abs_out_schema_dir = os.path.abspath(out_schema_dir)
-    example = os.path.join(abs_out_schema_dir, subset_basename)
-    flat_ecs = os.path.join(abs_out, subset_no_ext, GEN_ECS_FLAT)
-
-    print('Copy generated example file [{}] to {}'.format(subset_basename, abs_out_schema_dir))
-    shutil.copy(flat_ecs, example)
+def bump_dev():
+    click.echo('Bumping the build number')
+    res = subprocess.run(['bump2version', 'build'], capture_output=True)
+    print_capture(res)
 
 
-def get_glob_files(paths):
-    all_files = []
-    for path in paths:
-        all_files.extend(glob.glob(path))
-
-    return all_files
+def bump_release():
+    click.echo('Preparing for a release, removing the build number')
+    res = subprocess.run(['bump2version', 'release'], capture_output=True)
+    print_capture(res)
 
 
-def main():
-    args = argument_parser()
+def tag(repo, upstream, version):
+    repo.create_tag('v{}'.format(version))
 
 
-    print('ecs: {}'.format(args.ecs))
-    print('custom_schema: {}'.format(args.custom_schema))
-    print('subset: {}'.format(args.subset))
-    print('out: {}'.format(args.out))
-    print(f'ecs_git_ref: {args.ecs_git_ref}')
-    args.out_schema_dir = args.out_schema_dir or args.out
-    print('out_schema_dir: {}'.format(args.out_schema_dir))
+def push_commit():
+    pass
 
-    subset_files = get_glob_files(args.subset)
-    print('Found subset files: {}'.format(subset_files))
 
-    for s in subset_files:
-        generate_subset(args.ecs, args.custom_schema, s, args.out, args.ecs_git_ref)
-        create_event_schema(s, args.out, args.out_schema_dir)
+def create_pr(env, version):
+    click.echo('Creating PR to package-storage repo')
+    res = subprocess.run(['hub', 'pull-request',
+                          '-m', '[{}] Endpoint package version {}'.format(env, version),
+                          '-m', 'Releasing new endpoint package',
+                          '-b', 'elastic:{}'.format(env), '-d'], capture_output=True)
+    print_capture(res)
+
+
+def get_package_version():
+    with open(package_manifest) as manifest:
+        for line in manifest:
+            line = line.rstrip()
+            match = version_regex.match(line)
+            if match:
+                return match.group(1)
+
+
+@click.command()
+@click.option('--env', required=True, prompt='Is this a dev or prod release?', default='dev', type=click.Choice(
+    ['dev', 'prod'], case_sensitive=False))
+def main(env):
+    click.echo('env: {}'.format(env))
+    repo = git.Repo(root)
+    upstream = repo.create_remote('upstream', 'git@github.com:elastic/endpoint-package.git')
+
+    if env == 'prod':
+        # switch branch
+        bump_release()
+        version = get_package_version()
+        if not version:
+            pass
+            # display error
+        tag(repo, upstream, version)
+
+        create_pr('production', version)
+        prompt_bump()
+        push_commit()
+    elif env == 'dev':
+        version = get_package_version()
+        if not version:
+            pass
+            # throw error
+        # switch branch
+        create_pr('snapshot', version)
+        bump_dev()
+        push_commit()
+    else:
+        click.echo('Invalid env option: {}'.format(env))
 
 
 if __name__ == '__main__':
