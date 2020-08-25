@@ -26,6 +26,9 @@ def main():
         for (field, options) in flat.items():
             if 'exceptionable' in options:
                 exceptionable_fields.append(field)
+                if 'multi_fields' in options:
+                    for multi_field in options['multi_fields']:
+                        exceptionable_fields.append(multi_field['flat_name'])
         if exceptionable_fields:
             with open(subset + '/exceptionable.json', 'w') as output:
                 json.dump(exceptionable_fields, output, indent=2)
