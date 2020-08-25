@@ -36,6 +36,7 @@ SUB_EVENTS_DIR := $(SUB_TOP_DIR)/elastic_endpoint/events
 SUB_METADATA_DIR := $(SUB_TOP_DIR)/elastic_endpoint/metadata
 EVENT_SCHEMA_GEN := $(ROOT_DIR)/scripts/event_schema_generator
 EXCEPTION_LIST_GEN := $(ROOT_DIR)/scripts/exceptions
+GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
 # Get the package version from the manifest file
@@ -48,6 +49,13 @@ package_file = $(ROOT_DIR)/out/$(1)/generated/beats/fields.ecs.yml
 TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-target)
 
 # Parameters
+# 1: path to subset specific ecs output files
+define gen_exception_files
+	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
+		$(ROOT_DIR)/out/$(1)
+endef
+
+# Parameters
 # 1: schema name (e.g. events, metadata)
 define gen_mapping_files
 	cd $(REAL_ECS_DIR) && pipenv run python scripts/generator.py \
@@ -55,6 +63,7 @@ define gen_mapping_files
 		--include $(CUST_SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
 		--subset $(SUB_ROOT_DIR)/$(1)/*
+	$(call gen_exception_files,$(1))
 	# remove the first 8 lines
 	$(SED) -i $(call package_file,$(1)) -e '1,8d'
 	# remove indentation
@@ -86,13 +95,6 @@ define gen_schema_files
 		$(SUB_ROOT_DIR)/$(1)/*.yaml \
 		$(SUB_ROOT_DIR)/$(1)/*.yml \
 		$(ROOT_DIR)/out/schema/$(1)
-endef
-
-# Parameters
-# 1: path to subset specific ecs output files
-define gen_exception_files
-	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
-		$(ROOT_DIR)/out/$(1)
 endef
 
 define create_pr_package_storage
@@ -128,7 +130,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) install-pipfile
+all: $(REAL_ECS_DIR) setup-tools
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -145,22 +147,22 @@ $(REAL_ECS_DIR):
 	git clone --branch mmain-fix-short-desc https://github.com/jonathan-buttner/ecs.git $(REAL_ECS_DIR)
 
 
-.PHONY: install-pipfile
-install-pipfile:
+.PHONY: setup-tools
+setup-tools:
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
+	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	pipenv run python $(ROOT_DIR)/scripts/yaml_merger/process_yaml.py -base_dir $(ROOT_DIR)/package/endpoint/dataset -field_template_file \
 		$(ROOT_DIR)/merge_template/metadata_current/fields_template.yml \
 		-output_file $(ROOT_DIR)/package/endpoint/dataset/metadata_current/fields/fields.yml
-
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
 
 %-target:
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
-	$(call gen_exception_files,$*)
 
 .PHONY: check-docker
 check-docker:
