@@ -48,6 +48,7 @@ def bump_release():
 
 def tag(repo, upstream, version):
     tag_name = 'v{}'.format(version)
+    click.echo('Tagging endpoint version: {}'.format(tag_name))
     repo.create_tag(tag_name)
     git_cmd = repo.git
     git_cmd.push(upstream, tag_name)
@@ -57,14 +58,14 @@ def create_pr(env, version, package_dir, package_storage_path):
     repo = git.Repo(package_storage_path)
     add_remote(repo, UPSTREAM, 'git@github.com:elastic/package-storage.git')
     branch_name = 'endpoint-release-{}'.format(version)
-
     delete_old_branch(repo, branch_name)
-
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, env))
     endpoint_path = os.path.join(package_storage_path, 'package', 'endpoint')
     package_ver_path = os.path.join(endpoint_path, version)
     shutil.rmtree(package_ver_path, ignore_errors=True)
     os.makedirs(endpoint_path, exist_ok=True)
+
+    click.echo('Copying package to: {}'.format(package_ver_path))
     shutil.copytree(os.path.join(package_dir, 'endpoint') + os.path.sep, package_ver_path)
     repo.git.add(package_ver_path)
     repo.git.commit(m='Adding endpoint package version {}'.format(version))
@@ -133,6 +134,7 @@ def switch_to_bump_branch(repo, version, upstream_branch):
 
 
 def push_commits(repo, remote, local_branch, upstream_branch):
+    click.echo('Pushing changes to upstream')
     repo.git.push(remote, '{}:{}'.format(local_branch, upstream_branch))
 
 
@@ -144,7 +146,7 @@ def push_commits(repo, remote, local_branch, upstream_branch):
 def main(package_storage_path, package_dir, env):
     add_remote(local_repo, UPSTREAM, 'git@github.com:elastic/endpoint-package.git')
     upstream_branch = get_upstream_branch(local_repo)
-
+    active_branch = local_repo.active_branch
     if env == 'prod':
         version = get_package_version(include_dev=False)
         branch_name = switch_to_bump_branch(local_repo, version, upstream_branch)
@@ -161,6 +163,7 @@ def main(package_storage_path, package_dir, env):
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
     else:
         click.echo('Invalid env option: {}'.format(env))
+    local_repo.git.checkout(active_branch)
 
 
 if __name__ == '__main__':
