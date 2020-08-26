@@ -172,7 +172,7 @@ def main(package_storage_path, package_dir, env):
         bump_release()
         tag(local_repo, UPSTREAM, version)
         create_pr('snapshot', version, package_dir, package_storage_path)
-        prompt_bump(version)
+        prompt_bump(version, upstream_branch)
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
     elif env == 'dev':
         branch_name = switch_to_bump_branch(local_repo, upstream_branch)
