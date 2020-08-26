@@ -45,12 +45,14 @@ def bump_dev():
     click.echo('Bumping the build number')
     res = subprocess.run(['bump2version', 'build'], capture_output=True)
     print_capture(res)
+    click.echo('New version: {}'.format(get_package_version()))
 
 
 def bump_release():
     click.echo('Preparing for a release, removing the build number')
     res = subprocess.run(['bump2version', 'release'], capture_output=True)
     print_capture(res)
+    click.echo('Version: {}'.format(get_package_version()))
 
 
 def tag(repo, upstream, version):
@@ -170,6 +172,7 @@ def push_commits(repo, remote, local_branch, upstream_branch):
 @click.option('--env', required=True, prompt='Is this a dev or prod release?', default='dev', type=click.Choice(
     ['dev', 'prod'], case_sensitive=False))
 def main(package_storage_path, package_dir, env):
+    click.echo('Current package version: {}'.format(get_package_version()))
     add_remote(local_repo, UPSTREAM, 'git@github.com:elastic/endpoint-package.git')
     upstream_branch = get_upstream_branch(local_repo)
     active_branch = local_repo.active_branch
