@@ -25,8 +25,6 @@ $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
 SED := sed
-# this is the branch that the PR to the package-storage repo will be against when releasing a package
-PACK_STORAGE_BRANCH ?= snapshot
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
@@ -97,29 +95,6 @@ define gen_schema_files
 		$(ROOT_DIR)/out/schema/$(1)
 endef
 
-define create_pr_package_storage
-	# define the variable `pack_version` set to the updated version in the manifest
-	# this is necessary because it will be different than when the makefile is first parsed
-	$(eval pack_version := $(call get_pack_version))
-	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
-	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
-		git checkout $(PACK_STORAGE_BRANCH); \
-		git branch -D endpoint-release-$(pack_version); \
-		git push -d origin endpoint-release-$(pack_version);
-	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
-		git switch -c endpoint-release-$(pack_version) --track upstream/$(PACK_STORAGE_BRANCH)
-	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
-	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version)
-	cd $(PACKAGE_STORAGE_REPO) && git add $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(pack_version) \
-		&& git commit -m "Adding package version $(pack_version)" \
-		&& git push -u origin endpoint-release-$(pack_version)
-	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
-		-m "[$(1)] Endpoint package version $(pack_version)" \
-		-m "Releasing new endpoint package" \
-		-b elastic:$(1) -d
-endef
-
 ifeq ($(shell uname -s), Darwin)
 ifeq (, $(shell which gsed))
 # add mac gsed install target
@@ -186,66 +161,6 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-# This target uses the hub tool to create a PR to the package-storage repo with the contents of the
-# modified endpoint package in this repo
-.PHONY: create-storage-pr-staging
-create-storage-pr-staging:
-	$(call create_pr_package_storage,staging)
-
-.PHONY: create-storage-pr-production
-create-storage-pr-production:
-	$(call create_pr_package_storage,production)
-
-.PHONY: tag-version
-tag-version:
-	$(eval TAG_NAME := v$(call get_pack_version))
-	-git tag $(TAG_NAME)
-	-git push upstream $(TAG_NAME)
-
-.PHONY: bump-version-staging
-bump-version-staging:
-	pipenv run bump2version build
-
-.PHONY: bump-version-production
-bump-version-production:
-	pipenv run bump2version release
-
-.PHONY: bump-version-minor
-bump-version-minor:
-	pipenv run bump2version minor
-
-.PHONY: push-bump-commit
-push-bump-commit:
-	git push upstream bump-version-$(PACKAGE_VERSION):master
-
-.PHONY: switch-to-bump-branch
-switch-to-bump-branch:
-	-git remote add upstream git@github.com:elastic/endpoint-package.git
-	-git checkout master; \
-		git branch -D bump-version-$(PACKAGE_VERSION); \
-		git push -d origin bump-version-$(PACKAGE_VERSION);
-	git fetch upstream; \
-		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/master
-
-# Use this target to release a dev build to staging
-# todo maybe have this tag?
-.PHONY: release-staging
-release-package: \
-	switch-to-bump-branch \
-	create-storage-pr-staging \
-	bump-version-staging \
-	push-bump-commit
-
-# Use this target to tag and release to production
-# todo spit this out into its own script and have it create a new release branch
-# also have it bump the version on the release branch to the next patch
-# and bump the minor (or prompt for major or minor) on the master branch
-.PHONY: release-production
-release-package: \
-	switch-to-bump-branch \
-	bump-version-production \
-	tag-version \
-	create-storage-pr-production \
-	bump-version-minor \
-	push-bump-commit
-
+.PHONY: release-package
+release-package:
+	pipenv run python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
