@@ -57,8 +57,8 @@ def create_pr(env, version, package_dir, package_storage_path):
     repo = git.Repo(package_storage_path)
     add_remote(repo, UPSTREAM, 'git@github.com:elastic/package-storage.git')
     branch_name = 'endpoint-release-{}'.format(version)
-    repo.git.branch(D=branch_name)
-    repo.git.push(branch_name, d='origin')
+
+    delete_old_branch(repo, branch_name)
 
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, env))
     endpoint_path = os.path.join(package_storage_path, 'package', 'endpoint')
@@ -108,10 +108,20 @@ def get_upstream_branch(repo):
     return upstream_branch
 
 
+def delete_old_branch(repo, name, remote='origin'):
+    try:
+        repo.git.branch(D=name)
+    except git.exc.GitCommandError:
+        pass
+    try:
+        repo.git.push(name, d=remote)
+    except git.exc.GitCommandError:
+        pass
+
+
 def switch_to_bump_branch(repo, version, upstream_branch):
     branch_name = 'bump-version-{}'.format(version)
-    repo.git.branch(D=branch_name)
-    repo.git.push(branch_name, d='origin')
+    delete_old_branch(repo, branch_name)
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, upstream_branch))
     return branch_name
 
