@@ -109,14 +109,16 @@ def get_upstream_branch(repo):
 
 
 def delete_old_branch(repo, name, remote='origin'):
+    # switch to a different branch before deleting
+    repo.git.checkout('master')
     try:
         repo.git.branch(D=name)
-    except git.exc.GitCommandError:
-        pass
+    except git.exc.GitCommandError as e:
+        click.echo(e)
     try:
         repo.git.push(name, d=remote)
-    except git.exc.GitCommandError:
-        pass
+    except git.exc.GitCommandError as e:
+        click.echo(e)
 
 
 def switch_to_bump_branch(repo, version, upstream_branch):
