@@ -28,10 +28,14 @@ def print_capture(res):
         click.echo(res.stderr)
 
 
-def prompt_bump(current_version):
+def prompt_bump(current_version, released_branch):
     click.echo('Current version is: {}'.format(current_version))
-    part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
-                                                                                       case_sensitive=False))
+    if released_branch != 'master':
+        click.echo('Bumping the patch version because the base release branch was not master')
+        part = 'patch'
+    else:
+        part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
+                                                                                           case_sensitive=False))
     res = subprocess.run(['bump2version', part], capture_output=True)
     print_capture(res)
 
@@ -152,8 +156,10 @@ def push_commits(repo, remote, local_branch, upstream_branch):
 
 
 @click.command()
-@click.argument('package_storage_path', type=click.Path(exists=True, file_okay=False, resolve_path=True), metavar='<path to package storage repo root directory>')
-@click.argument('package_dir', type=click.Path(exists=True, file_okay=False, resolve_path=True), metavar='<path to the package directory in the endpoint-package repo>')
+@click.argument('package_storage_path', type=click.Path(exists=True, file_okay=False, resolve_path=True),
+                metavar='<path to package storage repo root directory>')
+@click.argument('package_dir', type=click.Path(exists=True, file_okay=False, resolve_path=True),
+                metavar='<path to the package directory in the endpoint-package repo>')
 @click.option('--env', required=True, prompt='Is this a dev or prod release?', default='dev', type=click.Choice(
     ['dev', 'prod'], case_sensitive=False))
 def main(package_storage_path, package_dir, env):
