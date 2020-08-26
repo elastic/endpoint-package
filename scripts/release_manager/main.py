@@ -76,16 +76,17 @@ def create_pr(env, version, package_dir, package_storage_path):
                             '-m', 'Releasing new endpoint package',
                             '-b', 'elastic:{}'.format(env), '-d'], cwd=package_storage_path,
                            stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-    print_capture(res)
+    click.echo(res.stdout.read())
+    click.echo(res.stderr.read())
 
 
-def get_package_version(no_dev=False):
+def get_package_version(include_dev=True):
     with open(package_manifest) as manifest:
         for line in manifest:
             line = line.rstrip()
             match = version_regex.match(line)
             if match:
-                if no_dev:
+                if not include_dev:
                     return match.group(1).split('-')[0]
                 else:
                     return match.group(1)
@@ -118,7 +119,8 @@ def delete_old_branch(repo, name, remote='origin'):
     try:
         repo.git.push(name, d=remote)
     except git.exc.GitCommandError as e:
-        click.echo(e)
+        if 'remote ref does not exist' not in e.stderr:
+            raise e
 
 
 def switch_to_bump_branch(repo, version, upstream_branch):
@@ -145,7 +147,7 @@ def main(package_storage_path, package_dir, env):
     upstream_branch = get_upstream_branch(local_repo)
 
     if env == 'prod':
-        version = get_package_version(no_dev=True)
+        version = get_package_version(include_dev=False)
         branch_name = switch_to_bump_branch(local_repo, version, upstream_branch)
         bump_release()
         tag(local_repo, UPSTREAM, version)
