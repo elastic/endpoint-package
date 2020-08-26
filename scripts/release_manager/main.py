@@ -115,7 +115,8 @@ def delete_old_branch(repo, name, remote='origin'):
     try:
         repo.git.branch(D=name)
     except git.exc.GitCommandError as e:
-        click.echo(e)
+        if not e.stderr.startswith("error: branch '{}' not found".format(name)):
+            raise e
     try:
         repo.git.push(name, d=remote)
     except git.exc.GitCommandError as e:
