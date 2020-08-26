@@ -58,6 +58,12 @@ def tag(repo, upstream, version):
 
     # remove old tag if it exists
     try:
+        repo.git.tag(d=tag_name)
+    except git.exc.GitCommandError as e:
+        if 'not found' not in e.stderr:
+            raise e
+
+    try:
         repo.git.push(tag_name, d=upstream)
     except git.exc.GitCommandError as e:
         if 'remote ref does not exist' not in e.stderr:
