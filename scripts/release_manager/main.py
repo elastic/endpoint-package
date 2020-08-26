@@ -139,8 +139,6 @@ def push_commits(repo, remote, local_branch, upstream_branch):
 @click.command()
 @click.argument('package_storage_path', type=click.Path(exists=True, file_okay=False, resolve_path=True), metavar='<path to package storage repo root directory>')
 @click.argument('package_dir', type=click.Path(exists=True, file_okay=False, resolve_path=True), metavar='<path to the package directory in the endpoint-package repo>')
-@click.confirmation_option(
-    prompt='Current branch is {} do you wish to continue with the release?'.format(local_repo.active_branch))
 @click.option('--env', required=True, prompt='Is this a dev or prod release?', default='dev', type=click.Choice(
     ['dev', 'prod'], case_sensitive=False))
 def main(package_storage_path, package_dir, env):
