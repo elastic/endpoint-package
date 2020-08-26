@@ -22,14 +22,16 @@ UPSTREAM = 'upstream'
 
 
 def print_capture(res):
-    click.echo(res.stdout)
-    click.echo(res.stderr)
+    if res.stdout:
+        click.echo(res.stdout)
+    if res.stderr:
+        click.echo(res.stderr)
 
 
-def prompt_bump():
+def prompt_bump(current_version):
+    click.echo('Current version is: {}'.format(current_version))
     part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
                                                                                        case_sensitive=False))
-    click.echo('part: {}'.format(part))
     res = subprocess.run(['bump2version', part], capture_output=True)
     print_capture(res)
 
@@ -49,9 +51,16 @@ def bump_release():
 def tag(repo, upstream, version):
     tag_name = 'v{}'.format(version)
     click.echo('Tagging endpoint version: {}'.format(tag_name))
+
+    # remove old tag if it exists
+    try:
+        repo.git.push(tag_name, d=upstream)
+    except git.exc.GitCommandError as e:
+        if 'remote ref does not exist' not in e.stderr:
+            raise e
+
     repo.create_tag(tag_name)
-    git_cmd = repo.git
-    git_cmd.push(upstream, tag_name)
+    repo.git.push(upstream, tag_name)
 
 
 def create_pr(env, version, package_dir, package_storage_path):
@@ -77,8 +86,12 @@ def create_pr(env, version, package_dir, package_storage_path):
                             '-m', 'Releasing new endpoint package',
                             '-b', 'elastic:{}'.format(env), '-d'], cwd=package_storage_path,
                            stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-    click.echo(res.stdout.read())
-    click.echo(res.stderr.read())
+    stdout = res.stdout.read()
+    if stdout:
+        click.echo(stdout)
+    stderr = res.stderr.read()
+    if stderr:
+        click.echo(stderr)
 
 
 def get_package_version(include_dev=True):
@@ -152,8 +165,8 @@ def main(package_storage_path, package_dir, env):
         branch_name = switch_to_bump_branch(local_repo, version, upstream_branch)
         bump_release()
         tag(local_repo, UPSTREAM, version)
-        create_pr('production', version, package_dir, package_storage_path)
-        prompt_bump()
+        create_pr('snapshot', version, package_dir, package_storage_path)
+        prompt_bump(version)
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
     elif env == 'dev':
         version = get_package_version()
