@@ -112,7 +112,7 @@ def add_remote(repo, name, url):
         remote = repo.create_remote(name, url)
     else:
         remote = repo.remote(name)
-    remote.fetch()
+    remote.fetch(t=True)
     repo.git.remote('prune', name)
     return remote
 
@@ -139,8 +139,8 @@ def delete_old_branch(repo, name, remote='origin'):
             raise e
 
 
-def switch_to_bump_branch(repo, version, upstream_branch):
-    branch_name = 'bump-version-{}'.format(version)
+def switch_to_bump_branch(repo, upstream_branch):
+    branch_name = 'bump-version'
     delete_old_branch(repo, branch_name)
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, upstream_branch))
     return branch_name
@@ -161,16 +161,16 @@ def main(package_storage_path, package_dir, env):
     upstream_branch = get_upstream_branch(local_repo)
     active_branch = local_repo.active_branch
     if env == 'prod':
+        branch_name = switch_to_bump_branch(local_repo, upstream_branch)
         version = get_package_version(include_dev=False)
-        branch_name = switch_to_bump_branch(local_repo, version, upstream_branch)
         bump_release()
         tag(local_repo, UPSTREAM, version)
         create_pr('snapshot', version, package_dir, package_storage_path)
         prompt_bump(version)
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
     elif env == 'dev':
+        branch_name = switch_to_bump_branch(local_repo, upstream_branch)
         version = get_package_version()
-        branch_name = switch_to_bump_branch(local_repo, version, upstream_branch)
         create_pr('snapshot', version, package_dir, package_storage_path)
         bump_dev()
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
