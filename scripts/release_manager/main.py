@@ -38,6 +38,7 @@ def prompt_bump(current_version, released_branch):
                                                                                            case_sensitive=False))
     res = subprocess.run(['bump2version', part], capture_output=True)
     print_capture(res)
+    click.echo('New version: {}'.format(get_package_version()))
 
 
 def bump_dev():
