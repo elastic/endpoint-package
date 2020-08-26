@@ -99,6 +99,7 @@ def add_remote(repo, name, url):
     else:
         remote = repo.remote(name)
     remote.fetch()
+    repo.git.remote('prune', name)
     return remote
 
 
