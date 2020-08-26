@@ -143,10 +143,6 @@ def push_commits(repo, remote, local_branch, upstream_branch):
 @click.option('--env', required=True, prompt='Is this a dev or prod release?', default='dev', type=click.Choice(
     ['dev', 'prod'], case_sensitive=False))
 def main(package_storage_path, package_dir, env):
-    delete_old_branch(local_repo, 'blahblah')
-    
-    import sys
-    sys.exit()
     add_remote(local_repo, UPSTREAM, 'git@github.com:elastic/endpoint-package.git')
     upstream_branch = get_upstream_branch(local_repo)
 
