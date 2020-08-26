@@ -57,10 +57,14 @@ def create_pr(env, version, package_dir, package_storage_path):
     repo = git.Repo(package_storage_path)
     add_remote(repo, UPSTREAM, 'git@github.com:elastic/package-storage.git')
     branch_name = 'endpoint-release-{}'.format(version)
+    repo.git.branch(D=branch_name)
+    repo.git.push(branch_name, d='origin')
+
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, env))
-    package_ver_path = os.path.join(package_storage_path, 'package', 'endpoint', version)
+    endpoint_path = os.path.join(package_storage_path, 'package', 'endpoint')
+    package_ver_path = os.path.join(endpoint_path, version)
     shutil.rmtree(package_ver_path, ignore_errors=True)
-    os.makedirs(package_ver_path)
+    os.makedirs(endpoint_path, exist_ok=True)
     shutil.copytree(os.path.join(package_dir, 'endpoint') + os.path.sep, package_ver_path)
     repo.git.add(package_ver_path)
     repo.git.commit(m='Adding endpoint package version {}'.format(version))
@@ -106,6 +110,8 @@ def get_upstream_branch(repo):
 
 def switch_to_bump_branch(repo, version, upstream_branch):
     branch_name = 'bump-version-{}'.format(version)
+    repo.git.branch(D=branch_name)
+    repo.git.push(branch_name, d='origin')
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, upstream_branch))
     return branch_name
 
