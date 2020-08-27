@@ -3,7 +3,7 @@ name: endpoint
 title: Elastic Endpoint Security
 description: Protect your hosts with threat prevention, detection, and deep security
   data visibility.
-version: 0.13.2
+version: 0.13.2-dev.0
 categories: ["security"]
 # Options are experimental, beta, ga
 release: beta

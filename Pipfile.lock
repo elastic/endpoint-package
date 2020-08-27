@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0a8cb119deebddcb04d2660efb17e7ccc9c706fb87fcb0fea5e13a0deca58f65"
+            "sha256": "94f07f973fbf29a7bdd16f379e7db5fa5c85b9e0bc2e80003c1d1a7174a28559"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,6 +23,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.0"
+        },
+        "click": {
+            "hashes": [
+                "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a",
+                "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"
+            ],
+            "index": "pypi",
+            "version": "==7.1.2"
         },
         "gitdb": {
             "hashes": [
@@ -103,6 +111,14 @@
             ],
             "index": "pypi",
             "version": "==5.3.1"
+        },
+        "pyyaml-include": {
+            "hashes": [
+                "sha256:2343c4dad744d3ce907ec50683b29b4383c7c967f142275bdad8ed56d4de9d94",
+                "sha256:2d4e3843110cf515aaf1568b217b05061f8e9f57cd3b35e8e654c838717796cb"
+            ],
+            "index": "pypi",
+            "version": "==1.2"
         },
         "smmap": {
             "hashes": [
