@@ -161,6 +161,12 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-.PHONY: release-package
-release-package:
+# Use this target to release the package (dev or prod) to the package storage repo
+.PHONY: release
+release:
 	pipenv run python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
+
+# Use this target to promote a package that exists in the package-storage repo from one environment to another
+.PHONY: promote
+promote:
+	$(GO_TOOLS)/elastic-package promote
