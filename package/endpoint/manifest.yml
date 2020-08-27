@@ -3,7 +3,7 @@ name: endpoint
 title: Elastic Endpoint Security
 description: Protect your hosts with threat prevention, detection, and deep security
   data visibility.
-version: 0.16.0
+version: 0.16.0-dev.0
 categories: ["security"]
 # Options are experimental, beta, ga
 release: beta
@@ -23,7 +23,7 @@ conditions:
   kibana:
     version: "^7.10.0"
     # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
-    # >= <the version below> && < 8.0.0
+    # >= <the version> && < 8.0.0
 icons:
 - src: "/img/security-logo-color-64px.svg"
   size: "16x16"
