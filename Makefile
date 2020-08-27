@@ -25,8 +25,6 @@ $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
 SED := sed
-# this is the branch that the PR to the package-storage repo will be against when releasing a package
-PACK_STORAGE_BRANCH ?= staging
 PACKAGES_DIR := $(ROOT_DIR)/out/packages
 # Default location for packages, this will be used in conjunction with the package defined in this repo
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
@@ -40,8 +38,8 @@ GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
 # Get the package version from the manifest file
-PACKAGE_VERSION := $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
-TAG_NAME := v$(PACKAGE_VERSION)
+get_pack_version = $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
+PACKAGE_VERSION := $(call get_pack_version)
 
 # Given a path this returns the directory (e.g. events, metadata)
 schema_name = $(shell basename $(1))
@@ -160,48 +158,12 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-# This target uses the hub tool to create a PR to the package-storage repo with the contents of the
-# modified endpoint package in this repo
-.PHONY: create-storage-pr
-create-storage-pr:
-	hub --version || { echo "please install hub before running the release-package command"; exit 1; }
-	-cd $(PACKAGE_STORAGE_REPO) && git remote add upstream git@github.com:elastic/package-storage.git; \
-		git checkout $(PACK_STORAGE_BRANCH); \
-		git branch -D endpoint-release-$(PACKAGE_VERSION); \
-		git push -d origin endpoint-release-$(PACKAGE_VERSION);
-	cd $(PACKAGE_STORAGE_REPO) && git fetch upstream; \
-		git switch -c endpoint-release-$(PACKAGE_VERSION) --track upstream/$(PACK_STORAGE_BRANCH)
-	mkdir -p $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	rm -rf $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION)
-	cd $(PACKAGE_STORAGE_REPO) && git add $(PACKAGE_STORAGE_REPO)/packages/endpoint/$(PACKAGE_VERSION) \
-		&& git commit -m "Adding package version $(PACKAGE_VERSION)" \
-		&& git push -u origin endpoint-release-$(PACKAGE_VERSION)
-	cd $(PACKAGE_STORAGE_REPO) && hub pull-request \
-		-m "Endpoint package version $(PACKAGE_VERSION)" \
-		-m "Releasing new endpoint package" \
-		-b elastic:$(PACK_STORAGE_BRANCH) -d
+# Use this target to release the package (dev or prod) to the package storage repo
+.PHONY: release
+release:
+	pipenv run python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
-.PHONY: tag-version
-tag-version:
-	-git tag $(TAG_NAME)
-	-git push upstream $(TAG_NAME)
-
-.PHONY: bump-version
-bump-version:
-	pipenv run bump2version patch
-	git push upstream bump-version-$(PACKAGE_VERSION):7.9
-
-.PHONY: switch-to-bump-branch
-switch-to-bump-branch:
-	-git remote add upstream git@github.com:elastic/endpoint-package.git
-	-git checkout 7.9; \
-		git branch -D bump-version-$(PACKAGE_VERSION); \
-		git push -d origin bump-version-$(PACKAGE_VERSION);
-	git fetch upstream; \
-		git switch -c bump-version-$(PACKAGE_VERSION) --track upstream/7.9
-
-# Use this target to tag and release
-.PHONY: release-package
-release-package: switch-to-bump-branch tag-version create-storage-pr bump-version
-
+# Use this target to promote a package that exists in the package-storage repo from one environment to another
+.PHONY: promote
+promote:
+	$(GO_TOOLS)/elastic-package promote
