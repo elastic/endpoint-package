@@ -82,7 +82,7 @@ def create_pr(env, version, package_dir, package_storage_path):
     branch_name = 'endpoint-release-{}'.format(version)
     delete_old_branch(repo, branch_name)
     repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, env))
-    endpoint_path = os.path.join(package_storage_path, 'package', 'endpoint')
+    endpoint_path = os.path.join(package_storage_path, 'packages', 'endpoint')
     package_ver_path = os.path.join(endpoint_path, version)
     shutil.rmtree(package_ver_path, ignore_errors=True)
     os.makedirs(endpoint_path, exist_ok=True)
