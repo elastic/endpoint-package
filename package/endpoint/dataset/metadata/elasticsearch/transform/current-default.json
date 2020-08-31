@@ -29,7 +29,7 @@
     "sync": {
         "time": {
             "field": "event.ingested",
-            "delay": "10s"
+            "delay": "60s"
         }
     }
 }
