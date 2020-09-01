@@ -574,14 +574,14 @@
   - name: parent.Ext.real
     level: custom
     type: object
-    description: The field set containing parent process info in case of any ppid
-      spoofing.
+    description: The field set containing process info in case of any pid spoofing.
+      This is mainly useful for process.parent.
     default_field: false
   - name: parent.Ext.real.pid
     level: custom
     type: long
-    description: The ppid of the process that actually spawned the current process,
-      in case of ppid spoofing.
+    description: For process.parent this will be the ppid of the process that actually
+      spawned the current process.
     default_field: false
   - name: parent.entity_id
     level: extended

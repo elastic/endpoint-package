@@ -143,11 +143,11 @@
       level: custom
       type: object
       description: >
-        The field set containing parent process info in case of any ppid spoofing.
+        The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
 
     - name: Ext.real.pid
       level: custom
       type: long
+      short: The real pid of the process if ppid spoofing is happening.
       description: >
-        The ppid of the process that actually spawned the current process, in case of
-        ppid spoofing.
+        For process.parent this will be the ppid of the process that actually spawned the current process.

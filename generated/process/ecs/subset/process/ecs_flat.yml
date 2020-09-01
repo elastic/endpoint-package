@@ -1094,25 +1094,26 @@ process.parent.Ext:
   type: object
 process.parent.Ext.real:
   dashed_name: process-parent-Ext-real
-  description: The field set containing parent process info in case of any ppid spoofing.
+  description: The field set containing process info in case of any pid spoofing.
+    This is mainly useful for process.parent.
   flat_name: process.parent.Ext.real
   level: custom
   name: Ext.real
   normalize: []
   original_fieldset: process
-  short: The field set containing parent process info in case of any ppid spoofing.
+  short: The field set containing process info in case of any pid spoofing. This is
+    mainly useful for process.parent.
   type: object
 process.parent.Ext.real.pid:
   dashed_name: process-parent-Ext-real-pid
-  description: The ppid of the process that actually spawned the current process,
-    in case of ppid spoofing.
+  description: For process.parent this will be the ppid of the process that actually
+    spawned the current process.
   flat_name: process.parent.Ext.real.pid
   level: custom
   name: Ext.real.pid
   normalize: []
   original_fieldset: process
-  short: The ppid of the process that actually spawned the current process, in case
-    of ppid spoofing.
+  short: The real pid of the process if ppid spoofing is happening.
   type: long
 process.parent.entity_id:
   dashed_name: process-parent-entity-id

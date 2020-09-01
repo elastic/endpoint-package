@@ -99,8 +99,8 @@ sent by the endpoint.
 | Target.process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.parent.Ext.real | The field set containing parent process info in case of any ppid spoofing. | object |
-| Target.process.parent.Ext.real.pid | The ppid of the process that actually spawned the current process, in case of ppid spoofing. | long |
+| Target.process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
+| Target.process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -385,8 +385,8 @@ sent by the endpoint.
 | process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.Ext.real | The field set containing parent process info in case of any ppid spoofing. | object |
-| process.parent.Ext.real.pid | The ppid of the process that actually spawned the current process, in case of ppid spoofing. | long |
+| process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
+| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -829,8 +829,8 @@ sent by the endpoint.
 | process.hash.sha256 | SHA256 hash. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.Ext.real | The field set containing parent process info in case of any ppid spoofing. | object |
-| process.parent.Ext.real.pid | The ppid of the process that actually spawned the current process, in case of ppid spoofing. | long |
+| process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
+| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
