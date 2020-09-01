@@ -34,7 +34,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -725,8 +725,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family
@@ -1083,22 +1082,14 @@ process.name:
   normalize: []
   short: Process name.
   type: keyword
-process.parent:
-  dashed_name: process-parent
-  description: Extended "process.parent" field set.
-  flat_name: process.parent
-  level: custom
-  name: parent
-  normalize: []
-  short: Extended "process.parent" field set.
-  type: object
 process.parent.Ext:
   dashed_name: process-parent-Ext
   description: Object for all custom defined fields to live in.
   flat_name: process.parent.Ext
   level: custom
-  name: parent.Ext
+  name: Ext
   normalize: []
+  original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
 process.parent.Ext.real:
@@ -1106,8 +1097,9 @@ process.parent.Ext.real:
   description: The field set containing parent process info in case of any ppid spoofing.
   flat_name: process.parent.Ext.real
   level: custom
-  name: parent.Ext.real
+  name: Ext.real
   normalize: []
+  original_fieldset: process
   short: The field set containing parent process info in case of any ppid spoofing.
   type: object
 process.parent.Ext.real.pid:
@@ -1116,8 +1108,9 @@ process.parent.Ext.real.pid:
     in case of ppid spoofing.
   flat_name: process.parent.Ext.real.pid
   level: custom
-  name: parent.Ext.real.pid
+  name: Ext.real.pid
   normalize: []
+  original_fieldset: process
   short: The ppid of the process that actually spawned the current process, in case
     of ppid spoofing.
   type: long
@@ -1136,8 +1129,9 @@ process.parent.entity_id:
   flat_name: process.parent.entity_id
   ignore_above: 1024
   level: extended
-  name: parent.entity_id
+  name: entity_id
   normalize: []
+  original_fieldset: process
   short: Unique identifier for the process.
   type: keyword
 process.parent.executable:
@@ -1152,8 +1146,9 @@ process.parent.executable:
     name: text
     norms: false
     type: text
-  name: parent.executable
+  name: executable
   normalize: []
+  original_fieldset: process
   short: Absolute path to the process executable.
   type: keyword
 process.parent.name:
@@ -1170,8 +1165,9 @@ process.parent.name:
     name: text
     norms: false
     type: text
-  name: parent.name
+  name: name
   normalize: []
+  original_fieldset: process
   short: Process name.
   type: keyword
 process.parent.pid:
@@ -1181,8 +1177,9 @@ process.parent.pid:
   flat_name: process.parent.pid
   format: string
   level: core
-  name: parent.pid
+  name: pid
   normalize: []
+  original_fieldset: process
   short: Process id.
   type: long
 process.pe.original_file_name:
@@ -1271,13 +1268,13 @@ user.domain:
   type: keyword
 user.id:
   dashed_name: user-id
-  description: Unique identifiers of the user.
+  description: Unique identifier of the user.
   flat_name: user.id
   ignore_above: 1024
   level: core
   name: id
   normalize: []
-  short: Unique identifiers of the user.
+  short: Unique identifier of the user.
   type: keyword
 user.name:
   dashed_name: user-name

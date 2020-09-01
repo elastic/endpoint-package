@@ -140,7 +140,6 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
-
     - name: Ext.code_signature.status
       level: custom
       type: keyword

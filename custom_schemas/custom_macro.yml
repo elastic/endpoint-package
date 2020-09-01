@@ -70,6 +70,7 @@
       type: long
       description: >
         Identifies the character encoding used for this macro.  https://docs.microsoft.com/en-us/windows/win32/intl/code-page-identifiers
+      short: Identifies the character encoding used for this macro.
 
     - name: file_extension
       level: custom

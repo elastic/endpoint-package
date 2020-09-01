@@ -655,11 +655,6 @@
       Sometimes called program name or similar.'
     example: ssh
     default_field: false
-  - name: process.parent
-    level: custom
-    type: object
-    description: Extended "process.parent" field set.
-    default_field: false
   - name: process.parent.Ext
     level: custom
     type: object
@@ -728,11 +723,12 @@
     level: extended
     type: keyword
     ignore_above: 1024
-    description: 'Array of process arguments.
+    description: 'Array of process arguments, starting with the absolute path to the
+      executable.
 
       May be filtered to protect sensitive information.'
     example:
-    - ssh
+    - /usr/bin/ssh
     - -l
     - user
     - 10.0.0.16
@@ -1228,7 +1224,7 @@
     ignore_above: 1024
     description: 'Type of the agent.
 
-      The agent type stays always the same and should be given by the agent used.
+      The agent type always stays the same and should be given by the agent used.
       In case of Filebeat the agent would always be Filebeat also if two Filebeat
       instances are run on the same machine.'
     example: filebeat
@@ -2579,7 +2575,7 @@
     level: core
     type: keyword
     ignore_above: 1024
-    description: Unique identifiers of the user.
+    description: Unique identifier of the user.
   - name: user.name
     level: core
     type: keyword
@@ -2921,11 +2917,6 @@
 
       Sometimes called program name or similar.'
     example: ssh
-  - name: parent
-    level: custom
-    type: object
-    description: Extended "process.parent" field set.
-    default_field: false
   - name: parent.Ext
     level: custom
     type: object
@@ -2994,11 +2985,12 @@
     level: extended
     type: keyword
     ignore_above: 1024
-    description: 'Array of process arguments.
+    description: 'Array of process arguments, starting with the absolute path to the
+      executable.
 
       May be filtered to protect sensitive information.'
     example:
-    - ssh
+    - /usr/bin/ssh
     - -l
     - user
     - 10.0.0.16
@@ -3533,14 +3525,13 @@
 - name: threat
   title: Threat
   group: 2
-  description: 'Fields to classify events and alerts according to a threat taxonomy
-    such as the Mitre ATT&CK framework.
-
-    These fields are for users to classify alerts from all of their sources (e.g.
-    IDS, NGFW, etc.) within a common taxonomy. The threat.tactic.* are meant to capture
-    the high level category of the threat (e.g. "impact"). The threat.technique.*
-    fields are meant to capture which kind of approach is used by this detected threat,
-    to accomplish the goal (e.g. "endpoint denial of service").'
+  description: "Fields to classify events and alerts according to a threat taxonomy
+    such as the MITRE ATT&CK® framework.\nThese fields are for users to classify alerts
+    from all of their sources (e.g. IDS, NGFW, etc.) within a common taxonomy. The
+    threat.tactic.* are meant to capture the high level category of the threat (e.g.
+    \"impact\"). The threat.technique.* fields are meant to capture which kind of
+    approach is used by this detected threat, to accomplish the goal (e.g. \"endpoint
+    denial of service\")."
   type: group
   fields:
   - name: framework
@@ -3556,33 +3547,29 @@
     level: extended
     type: keyword
     ignore_above: 1024
-    description: The id of tactic used by this threat. You can use the Mitre ATT&CK
-      Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-      )
+    description: "The id of tactic used by this threat. You can use a MITRE ATT&CK®
+      tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
     example: TA0040
   - name: tactic.name
     level: extended
     type: keyword
     ignore_above: 1024
-    description: Name of the type of tactic used by this threat. You can use the Mitre
-      ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-      )
+    description: "Name of the type of tactic used by this threat. You can use a MITRE
+      ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/)"
     example: impact
   - name: tactic.reference
     level: extended
     type: keyword
     ignore_above: 1024
-    description: The reference url of tactic used by this threat. You can use the
-      Mitre ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-      )
+    description: "The reference url of tactic used by this threat. You can use a MITRE
+      ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
     example: https://attack.mitre.org/tactics/TA0040/
   - name: technique.id
     level: extended
     type: keyword
     ignore_above: 1024
-    description: The id of technique used by this tactic. You can use the Mitre ATT&CK
-      Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-      )
+    description: "The id of technique used by this threat. You can use a MITRE ATT&CK®
+      technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
     example: T1499
   - name: technique.name
     level: extended
@@ -3593,17 +3580,16 @@
       type: text
       norms: false
       default_field: false
-    description: The name of technique used by this tactic. You can use the Mitre
-      ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-      )
-    example: endpoint denial of service
+    description: "The name of technique used by this threat. You can use a MITRE ATT&CK®
+      technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
+    example: Endpoint Denial of Service
   - name: technique.reference
     level: extended
     type: keyword
     ignore_above: 1024
-    description: The reference url of technique used by this tactic. You can use the
-      Mitre ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-      )
+    description: "The reference url of technique used by this threat. You can use
+      a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1499/
+      )"
     example: https://attack.mitre.org/techniques/T1499/
 - name: user
   title: User
@@ -3712,7 +3698,7 @@
     level: core
     type: keyword
     ignore_above: 1024
-    description: Unique identifiers of the user.
+    description: Unique identifier of the user.
   - name: name
     level: core
     type: keyword

@@ -54,10 +54,7 @@ Endpoint.metrics.cpu.endpoint.histogram:
   level: custom
   name: metrics.cpu.endpoint.histogram
   normalize: []
-  short: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
-    The values field includes 20 buckets (each bucket is 5%) representing the cpu
-    usage The counts field includes 20 buckets of how many times the endpoint's cpu
-    usage fell into each bucket
+  short: CPU histogram
   type: histogram
 Endpoint.metrics.cpu.endpoint.latest:
   dashed_name: Endpoint-metrics-cpu-endpoint-latest
@@ -245,7 +242,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -900,8 +897,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family

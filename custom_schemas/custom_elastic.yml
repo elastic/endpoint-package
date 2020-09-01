@@ -14,6 +14,7 @@
       description: >
         The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent
         that manages other agents or process on the host.
+      short: The agent fields contain data about the Elastic Agent.
 
     - name: agent.id
       level: custom
