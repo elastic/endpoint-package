@@ -153,7 +153,7 @@ $(ROOT_DIR)/out:
 build-package: $(ROOT_DIR)/out
 	rm -rf $(PACKAGES_DIR)
 	mkdir -p $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
+	cp -r $(ROOT_DIR)/package/endpoint/* $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
 .PHONY: run-registry
