@@ -968,6 +968,11 @@ Target.process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.command_line.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.command_line.text
     name: text
     norms: false
@@ -1005,6 +1010,11 @@ Target.process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.executable.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.executable.text
     name: text
     norms: false
@@ -1082,6 +1092,11 @@ Target.process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.name.text
     name: text
     norms: false
@@ -1256,6 +1271,11 @@ Target.process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.command_line.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.command_line.text
     name: text
     norms: false
@@ -1293,6 +1313,11 @@ Target.process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.executable.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.executable.text
     name: text
     norms: false
@@ -1370,6 +1395,11 @@ Target.process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.name.text
     name: text
     norms: false
@@ -1487,6 +1517,11 @@ Target.process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.working_directory.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.working_directory.text
     name: text
     norms: false
@@ -1977,6 +2012,11 @@ Target.process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.working_directory.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.working_directory.text
     name: text
     norms: false
@@ -3846,6 +3886,11 @@ file.path:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: file.path.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: file.path.text
     name: text
     norms: false
@@ -3933,6 +3978,11 @@ file.target_path:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: file.target_path.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: file.target_path.text
     name: text
     norms: false
@@ -4265,6 +4315,11 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.full.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.full.text
     name: text
     norms: false
@@ -4294,6 +4349,11 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.name.text
     name: text
     norms: false
@@ -4995,6 +5055,11 @@ process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.command_line.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.command_line.text
     name: text
     norms: false
@@ -5030,6 +5095,11 @@ process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.executable.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.executable.text
     name: text
     norms: false
@@ -5105,6 +5175,11 @@ process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.name.text
     name: text
     norms: false
@@ -5266,6 +5341,11 @@ process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.command_line.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.command_line.text
     name: text
     norms: false
@@ -5301,6 +5381,11 @@ process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.executable.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.executable.text
     name: text
     norms: false
@@ -5376,6 +5461,11 @@ process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.name.text
     name: text
     norms: false
@@ -5484,6 +5574,11 @@ process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.working_directory.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.working_directory.text
     name: text
     norms: false
@@ -5959,6 +6054,11 @@ process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.working_directory.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.working_directory.text
     name: text
     norms: false

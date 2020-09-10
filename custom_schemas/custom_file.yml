@@ -11,6 +11,22 @@
     File fields provide details about the affected file associated with the event or metric.
   type: group
   fields:
+    - name: path
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: target_path
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
     - name: Ext
       level: custom
       type: object

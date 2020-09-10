@@ -15,6 +15,70 @@
       - Target
   type: group
   fields:
+    - name: command_line
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: executable
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: name
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: working_directory
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: parent.command_line
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: parent.executable
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: parent.name
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: parent.working_directory
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
     - name: Ext
       level: custom
       type: object

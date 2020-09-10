@@ -172,6 +172,9 @@
               },
               "full": {
                 "fields": {
+                  "lower": {
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -186,6 +189,9 @@
               },
               "name": {
                 "fields": {
+                  "lower": {
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -227,6 +233,9 @@
           },
           "executable": {
             "fields": {
+              "lower": {
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -237,6 +246,9 @@
           },
           "name": {
             "fields": {
+              "lower": {
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"

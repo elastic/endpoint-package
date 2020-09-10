@@ -923,6 +923,11 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.full.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.full.text
     name: text
     norms: false
@@ -952,6 +957,11 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.name.lower
+    ignore_above: 1024
+    name: lower
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.name.text
     name: text
     norms: false

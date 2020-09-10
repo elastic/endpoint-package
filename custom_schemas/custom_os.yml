@@ -11,6 +11,22 @@
     expected:
       - host
   fields:
+    - name: full
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: name
+      multi_fields:
+        - name: lower
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
     - name: Ext
       level: custom
       type: object

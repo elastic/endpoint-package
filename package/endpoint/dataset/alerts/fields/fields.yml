@@ -574,6 +574,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -603,6 +605,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -647,6 +651,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -752,6 +758,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -781,6 +789,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -825,6 +835,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -897,6 +909,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -1172,6 +1186,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -2177,6 +2193,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -2231,6 +2250,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -2433,6 +2455,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -2450,6 +2475,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -2844,6 +2872,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -2873,6 +2903,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -2913,6 +2946,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
@@ -3018,6 +3054,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -3047,6 +3085,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -3091,6 +3131,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -3163,6 +3205,8 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
     - name: text
       type: text
       norms: false
@@ -3431,6 +3475,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
+    - name: lower
+      type: keyword
+      default_field: false
     - name: text
       type: text
       norms: false
