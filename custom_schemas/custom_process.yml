@@ -13,6 +13,7 @@
     top_level: true
     expected:
       - Target
+      - { at: Target.process, as: parent }
   type: group
   fields:
     - name: Ext
@@ -138,76 +139,15 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
-    - name: parent
+    - name: Ext.real
       level: custom
       type: object
       description: >
-        Extended "process.parent" field set.
+        The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
 
-    - name: parent.Ext
-      level: custom
-      type: object
-      description: Object for all custom defined fields to live in.
-
-    - name: parent.Ext.code_signature
-      level: custom
-      type: nested
-      description: Nested version of ECS code_signature fieldset.
-
-    - name: parent.Ext.code_signature.exists
-      level: custom
-      type: boolean
-      description: Boolean to capture if a signature is present.
-      example: "true"
-
-    - name: parent.Ext.code_signature.subject_name
-      level: custom
-      type: keyword
-      description: Subject name of the code signer
-      example: Microsoft Corporation
-
-    - name: parent.Ext.code_signature.valid
-      level: custom
-      type: boolean
-      short: Boolean to capture if the digital signature is verified against the binary content.
-      example: "true"
-      description: >
-        Boolean to capture if the digital signature is verified against the binary content.
-
-        Leave unpopulated if a certificate was unchecked.
-
-    - name: parent.Ext.code_signature.trusted
-      level: custom
-      type: boolean
-      short: Stores the trust status of the certificate chain.
-      example: "true"
-      description: >
-        Stores the trust status of the certificate chain.
-
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
-
-
-    - name: parent.Ext.code_signature.status
-      level: custom
-      type: keyword
-      short: Additional information about the certificate status.
-      description: >
-        Additional information about the certificate status.
-
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
-      example: ERROR_UNTRUSTED_ROOT
-
-    - name: parent.Ext.real
-      level: custom
-      type: object
-      description: >
-        The field set containing parent process info in case of any ppid spoofing.
-
-    - name: parent.Ext.real.pid
+    - name: Ext.real.pid
       level: custom
       type: long
+      short: The real pid of the process if ppid spoofing is happening.
       description: >
-        The ppid of the process that actually spawned the current process, in case of
-        ppid spoofing.
+        For process.parent this will be the ppid of the process that actually spawned the current process.

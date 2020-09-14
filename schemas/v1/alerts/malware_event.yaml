@@ -1091,22 +1091,12 @@ Target.process.name:
   original_fieldset: process
   short: Process name.
   type: keyword
-Target.process.parent:
-  dashed_name: Target-process-parent
-  description: Extended "process.parent" field set.
-  flat_name: Target.process.parent
-  level: custom
-  name: parent
-  normalize: []
-  original_fieldset: process
-  short: Extended "process.parent" field set.
-  type: object
 Target.process.parent.Ext:
   dashed_name: Target-process-parent-Ext
   description: Object for all custom defined fields to live in.
   flat_name: Target.process.parent.Ext
   level: custom
-  name: parent.Ext
+  name: Ext
   normalize: []
   original_fieldset: process
   short: Object for all custom defined fields to live in.
@@ -1116,7 +1106,7 @@ Target.process.parent.Ext.code_signature:
   description: Nested version of ECS code_signature fieldset.
   flat_name: Target.process.parent.Ext.code_signature
   level: custom
-  name: parent.Ext.code_signature
+  name: Ext.code_signature
   normalize: []
   original_fieldset: process
   short: Nested version of ECS code_signature fieldset.
@@ -1127,7 +1117,7 @@ Target.process.parent.Ext.code_signature.exists:
   example: 'true'
   flat_name: Target.process.parent.Ext.code_signature.exists
   level: custom
-  name: parent.Ext.code_signature.exists
+  name: Ext.code_signature.exists
   normalize: []
   original_fieldset: process
   short: Boolean to capture if a signature is present.
@@ -1143,7 +1133,7 @@ Target.process.parent.Ext.code_signature.status:
   flat_name: Target.process.parent.Ext.code_signature.status
   ignore_above: 1024
   level: custom
-  name: parent.Ext.code_signature.status
+  name: Ext.code_signature.status
   normalize: []
   original_fieldset: process
   short: Additional information about the certificate status.
@@ -1155,7 +1145,7 @@ Target.process.parent.Ext.code_signature.subject_name:
   flat_name: Target.process.parent.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
-  name: parent.Ext.code_signature.subject_name
+  name: Ext.code_signature.subject_name
   normalize: []
   original_fieldset: process
   short: Subject name of the code signer
@@ -1169,7 +1159,7 @@ Target.process.parent.Ext.code_signature.trusted:
   example: 'true'
   flat_name: Target.process.parent.Ext.code_signature.trusted
   level: custom
-  name: parent.Ext.code_signature.trusted
+  name: Ext.code_signature.trusted
   normalize: []
   original_fieldset: process
   short: Stores the trust status of the certificate chain.
@@ -1183,7 +1173,7 @@ Target.process.parent.Ext.code_signature.valid:
   example: 'true'
   flat_name: Target.process.parent.Ext.code_signature.valid
   level: custom
-  name: parent.Ext.code_signature.valid
+  name: Ext.code_signature.valid
   normalize: []
   original_fieldset: process
   short: Boolean to capture if the digital signature is verified against the binary
@@ -1191,40 +1181,42 @@ Target.process.parent.Ext.code_signature.valid:
   type: boolean
 Target.process.parent.Ext.real:
   dashed_name: Target-process-parent-Ext-real
-  description: The field set containing parent process info in case of any ppid spoofing.
+  description: The field set containing process info in case of any pid spoofing.
+    This is mainly useful for process.parent.
   flat_name: Target.process.parent.Ext.real
   level: custom
-  name: parent.Ext.real
+  name: Ext.real
   normalize: []
   original_fieldset: process
-  short: The field set containing parent process info in case of any ppid spoofing.
+  short: The field set containing process info in case of any pid spoofing. This is
+    mainly useful for process.parent.
   type: object
 Target.process.parent.Ext.real.pid:
   dashed_name: Target-process-parent-Ext-real-pid
-  description: The ppid of the process that actually spawned the current process,
-    in case of ppid spoofing.
+  description: For process.parent this will be the ppid of the process that actually
+    spawned the current process.
   flat_name: Target.process.parent.Ext.real.pid
   level: custom
-  name: parent.Ext.real.pid
+  name: Ext.real.pid
   normalize: []
   original_fieldset: process
-  short: The ppid of the process that actually spawned the current process, in case
-    of ppid spoofing.
+  short: The real pid of the process if ppid spoofing is happening.
   type: long
 Target.process.parent.args:
   dashed_name: Target-process-parent-args
-  description: 'Array of process arguments.
+  description: 'Array of process arguments, starting with the absolute path to the
+    executable.
 
     May be filtered to protect sensitive information.'
   example:
-  - ssh
+  - /usr/bin/ssh
   - -l
   - user
   - 10.0.0.16
   flat_name: Target.process.parent.args
   ignore_above: 1024
   level: extended
-  name: parent.args
+  name: args
   normalize:
   - array
   original_fieldset: process
@@ -1240,7 +1232,7 @@ Target.process.parent.args_count:
   example: 4
   flat_name: Target.process.parent.args_count
   level: extended
-  name: parent.args_count
+  name: args_count
   normalize: []
   original_fieldset: process
   short: Length of the process.args array.
@@ -1260,7 +1252,7 @@ Target.process.parent.command_line:
     name: text
     norms: false
     type: text
-  name: parent.command_line
+  name: command_line
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
@@ -1280,7 +1272,7 @@ Target.process.parent.entity_id:
   flat_name: Target.process.parent.entity_id
   ignore_above: 1024
   level: extended
-  name: parent.entity_id
+  name: entity_id
   normalize: []
   original_fieldset: process
   short: Unique identifier for the process.
@@ -1297,7 +1289,7 @@ Target.process.parent.executable:
     name: text
     norms: false
     type: text
-  name: parent.executable
+  name: executable
   normalize: []
   original_fieldset: process
   short: Absolute path to the process executable.
@@ -1311,7 +1303,7 @@ Target.process.parent.exit_code:
   example: 137
   flat_name: Target.process.parent.exit_code
   level: extended
-  name: parent.exit_code
+  name: exit_code
   normalize: []
   original_fieldset: process
   short: The exit code of the process.
@@ -1374,7 +1366,7 @@ Target.process.parent.name:
     name: text
     norms: false
     type: text
-  name: parent.name
+  name: name
   normalize: []
   original_fieldset: process
   short: Process name.
@@ -1385,7 +1377,7 @@ Target.process.parent.pgid:
   flat_name: Target.process.parent.pgid
   format: string
   level: extended
-  name: parent.pgid
+  name: pgid
   normalize: []
   original_fieldset: process
   short: Identifier of the group of processes the process belongs to.
@@ -1397,7 +1389,7 @@ Target.process.parent.pid:
   flat_name: Target.process.parent.pid
   format: string
   level: core
-  name: parent.pid
+  name: pid
   normalize: []
   original_fieldset: process
   short: Process id.
@@ -1409,7 +1401,7 @@ Target.process.parent.ppid:
   flat_name: Target.process.parent.ppid
   format: string
   level: extended
-  name: parent.ppid
+  name: ppid
   normalize: []
   original_fieldset: process
   short: Parent process' pid.
@@ -1420,7 +1412,7 @@ Target.process.parent.start:
   example: '2016-05-23T08:05:34.853Z'
   flat_name: Target.process.parent.start
   level: extended
-  name: parent.start
+  name: start
   normalize: []
   original_fieldset: process
   short: The time the process started.
@@ -1432,7 +1424,7 @@ Target.process.parent.thread.id:
   flat_name: Target.process.parent.thread.id
   format: string
   level: extended
-  name: parent.thread.id
+  name: thread.id
   normalize: []
   original_fieldset: process
   short: Thread ID.
@@ -1444,7 +1436,7 @@ Target.process.parent.thread.name:
   flat_name: Target.process.parent.thread.name
   ignore_above: 1024
   level: extended
-  name: parent.thread.name
+  name: thread.name
   normalize: []
   original_fieldset: process
   short: Thread name.
@@ -1463,7 +1455,7 @@ Target.process.parent.title:
     name: text
     norms: false
     type: text
-  name: parent.title
+  name: title
   normalize: []
   original_fieldset: process
   short: Process title.
@@ -1474,7 +1466,7 @@ Target.process.parent.uptime:
   example: 1325
   flat_name: Target.process.parent.uptime
   level: extended
-  name: parent.uptime
+  name: uptime
   normalize: []
   original_fieldset: process
   short: Seconds the process has been up.
@@ -1491,7 +1483,7 @@ Target.process.parent.working_directory:
     name: text
     norms: false
     type: text
-  name: parent.working_directory
+  name: working_directory
   normalize: []
   original_fieldset: process
   short: The working directory of the process.
@@ -1645,8 +1637,7 @@ Target.process.thread.Ext.call_stack.memory_section.address:
   name: memory_section.address
   normalize: []
   original_fieldset: call_stack
-  short: Base address of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.BaseAddress`
+  short: Base address of the memory region containing `instruction_pointer`.
   type: keyword
 Target.process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: Target-process-thread-Ext-call-stack-memory-section-protection
@@ -1693,8 +1684,7 @@ Target.process.thread.Ext.call_stack.rva:
   name: rva
   normalize: []
   original_fieldset: call_stack
-  short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
-    - MEMORY_BASIC_INFORMATION.AllocationBase`.
+  short: The relative virtual address of `instruction_pointer`.
   type: keyword
 Target.process.thread.Ext.call_stack.symbol_info:
   dashed_name: Target-process-thread-Ext-call-stack-symbol-info
@@ -2033,7 +2023,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -2443,8 +2433,7 @@ elastic.agent:
   level: custom
   name: agent
   normalize: []
-  short: The agent fields contain data about the Elastic Agent. The Elastic Agent
-    is the management agent that manages other agents or process on the host.
+  short: The agent fields contain data about the Elastic Agent.
   type: object
 elastic.agent.id:
   dashed_name: elastic-agent-id
@@ -3134,7 +3123,7 @@ file.Ext.macro.code_page:
   name: code_page
   normalize: []
   original_fieldset: macro
-  short: Identifies the character encoding used for this macro.  https://docs.microsoft.com/en-us/windows/win32/intl/code-page-identifiers
+  short: Identifies the character encoding used for this macro.
   type: long
 file.Ext.macro.collection:
   dashed_name: file-Ext-macro-collection
@@ -4242,8 +4231,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family
@@ -4527,14 +4515,14 @@ host.user.hash:
   type: keyword
 host.user.id:
   dashed_name: host-user-id
-  description: Unique identifiers of the user.
+  description: Unique identifier of the user.
   flat_name: host.user.id
   ignore_above: 1024
   level: core
   name: id
   normalize: []
   original_fieldset: user
-  short: Unique identifiers of the user.
+  short: Unique identifier of the user.
   type: keyword
 host.user.name:
   dashed_name: host-user-name
@@ -5113,22 +5101,14 @@ process.name:
   normalize: []
   short: Process name.
   type: keyword
-process.parent:
-  dashed_name: process-parent
-  description: Extended "process.parent" field set.
-  flat_name: process.parent
-  level: custom
-  name: parent
-  normalize: []
-  short: Extended "process.parent" field set.
-  type: object
 process.parent.Ext:
   dashed_name: process-parent-Ext
   description: Object for all custom defined fields to live in.
   flat_name: process.parent.Ext
   level: custom
-  name: parent.Ext
+  name: Ext
   normalize: []
+  original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
 process.parent.Ext.code_signature:
@@ -5136,8 +5116,9 @@ process.parent.Ext.code_signature:
   description: Nested version of ECS code_signature fieldset.
   flat_name: process.parent.Ext.code_signature
   level: custom
-  name: parent.Ext.code_signature
+  name: Ext.code_signature
   normalize: []
+  original_fieldset: process
   short: Nested version of ECS code_signature fieldset.
   type: nested
 process.parent.Ext.code_signature.exists:
@@ -5146,8 +5127,9 @@ process.parent.Ext.code_signature.exists:
   example: 'true'
   flat_name: process.parent.Ext.code_signature.exists
   level: custom
-  name: parent.Ext.code_signature.exists
+  name: Ext.code_signature.exists
   normalize: []
+  original_fieldset: process
   short: Boolean to capture if a signature is present.
   type: boolean
 process.parent.Ext.code_signature.status:
@@ -5161,8 +5143,9 @@ process.parent.Ext.code_signature.status:
   flat_name: process.parent.Ext.code_signature.status
   ignore_above: 1024
   level: custom
-  name: parent.Ext.code_signature.status
+  name: Ext.code_signature.status
   normalize: []
+  original_fieldset: process
   short: Additional information about the certificate status.
   type: keyword
 process.parent.Ext.code_signature.subject_name:
@@ -5172,8 +5155,9 @@ process.parent.Ext.code_signature.subject_name:
   flat_name: process.parent.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
-  name: parent.Ext.code_signature.subject_name
+  name: Ext.code_signature.subject_name
   normalize: []
+  original_fieldset: process
   short: Subject name of the code signer
   type: keyword
 process.parent.Ext.code_signature.trusted:
@@ -5185,8 +5169,9 @@ process.parent.Ext.code_signature.trusted:
   example: 'true'
   flat_name: process.parent.Ext.code_signature.trusted
   level: custom
-  name: parent.Ext.code_signature.trusted
+  name: Ext.code_signature.trusted
   normalize: []
+  original_fieldset: process
   short: Stores the trust status of the certificate chain.
   type: boolean
 process.parent.Ext.code_signature.valid:
@@ -5198,47 +5183,53 @@ process.parent.Ext.code_signature.valid:
   example: 'true'
   flat_name: process.parent.Ext.code_signature.valid
   level: custom
-  name: parent.Ext.code_signature.valid
+  name: Ext.code_signature.valid
   normalize: []
+  original_fieldset: process
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
 process.parent.Ext.real:
   dashed_name: process-parent-Ext-real
-  description: The field set containing parent process info in case of any ppid spoofing.
+  description: The field set containing process info in case of any pid spoofing.
+    This is mainly useful for process.parent.
   flat_name: process.parent.Ext.real
   level: custom
-  name: parent.Ext.real
+  name: Ext.real
   normalize: []
-  short: The field set containing parent process info in case of any ppid spoofing.
+  original_fieldset: process
+  short: The field set containing process info in case of any pid spoofing. This is
+    mainly useful for process.parent.
   type: object
 process.parent.Ext.real.pid:
   dashed_name: process-parent-Ext-real-pid
-  description: The ppid of the process that actually spawned the current process,
-    in case of ppid spoofing.
+  description: For process.parent this will be the ppid of the process that actually
+    spawned the current process.
   flat_name: process.parent.Ext.real.pid
   level: custom
-  name: parent.Ext.real.pid
+  name: Ext.real.pid
   normalize: []
-  short: The ppid of the process that actually spawned the current process, in case
-    of ppid spoofing.
+  original_fieldset: process
+  short: The real pid of the process if ppid spoofing is happening.
   type: long
 process.parent.args:
   dashed_name: process-parent-args
-  description: 'Array of process arguments.
+  description: 'Array of process arguments, starting with the absolute path to the
+    executable.
 
     May be filtered to protect sensitive information.'
   example:
-  - ssh
+  - /usr/bin/ssh
   - -l
   - user
   - 10.0.0.16
   flat_name: process.parent.args
   ignore_above: 1024
   level: extended
-  name: parent.args
+  name: args
   normalize:
   - array
+  original_fieldset: process
   short: Array of process arguments.
   type: keyword
 process.parent.args_count:
@@ -5251,8 +5242,9 @@ process.parent.args_count:
   example: 4
   flat_name: process.parent.args_count
   level: extended
-  name: parent.args_count
+  name: args_count
   normalize: []
+  original_fieldset: process
   short: Length of the process.args array.
   type: long
 process.parent.command_line:
@@ -5270,8 +5262,9 @@ process.parent.command_line:
     name: text
     norms: false
     type: text
-  name: parent.command_line
+  name: command_line
   normalize: []
+  original_fieldset: process
   short: Full command line that started the process.
   type: keyword
 process.parent.entity_id:
@@ -5289,8 +5282,9 @@ process.parent.entity_id:
   flat_name: process.parent.entity_id
   ignore_above: 1024
   level: extended
-  name: parent.entity_id
+  name: entity_id
   normalize: []
+  original_fieldset: process
   short: Unique identifier for the process.
   type: keyword
 process.parent.executable:
@@ -5305,8 +5299,9 @@ process.parent.executable:
     name: text
     norms: false
     type: text
-  name: parent.executable
+  name: executable
   normalize: []
+  original_fieldset: process
   short: Absolute path to the process executable.
   type: keyword
 process.parent.exit_code:
@@ -5318,8 +5313,9 @@ process.parent.exit_code:
   example: 137
   flat_name: process.parent.exit_code
   level: extended
-  name: parent.exit_code
+  name: exit_code
   normalize: []
+  original_fieldset: process
   short: The exit code of the process.
   type: long
 process.parent.hash.md5:
@@ -5380,8 +5376,9 @@ process.parent.name:
     name: text
     norms: false
     type: text
-  name: parent.name
+  name: name
   normalize: []
+  original_fieldset: process
   short: Process name.
   type: keyword
 process.parent.pgid:
@@ -5390,8 +5387,9 @@ process.parent.pgid:
   flat_name: process.parent.pgid
   format: string
   level: extended
-  name: parent.pgid
+  name: pgid
   normalize: []
+  original_fieldset: process
   short: Identifier of the group of processes the process belongs to.
   type: long
 process.parent.pid:
@@ -5401,8 +5399,9 @@ process.parent.pid:
   flat_name: process.parent.pid
   format: string
   level: core
-  name: parent.pid
+  name: pid
   normalize: []
+  original_fieldset: process
   short: Process id.
   type: long
 process.parent.ppid:
@@ -5412,8 +5411,9 @@ process.parent.ppid:
   flat_name: process.parent.ppid
   format: string
   level: extended
-  name: parent.ppid
+  name: ppid
   normalize: []
+  original_fieldset: process
   short: Parent process' pid.
   type: long
 process.parent.start:
@@ -5422,8 +5422,9 @@ process.parent.start:
   example: '2016-05-23T08:05:34.853Z'
   flat_name: process.parent.start
   level: extended
-  name: parent.start
+  name: start
   normalize: []
+  original_fieldset: process
   short: The time the process started.
   type: date
 process.parent.thread.id:
@@ -5433,8 +5434,9 @@ process.parent.thread.id:
   flat_name: process.parent.thread.id
   format: string
   level: extended
-  name: parent.thread.id
+  name: thread.id
   normalize: []
+  original_fieldset: process
   short: Thread ID.
   type: long
 process.parent.thread.name:
@@ -5444,8 +5446,9 @@ process.parent.thread.name:
   flat_name: process.parent.thread.name
   ignore_above: 1024
   level: extended
-  name: parent.thread.name
+  name: thread.name
   normalize: []
+  original_fieldset: process
   short: Thread name.
   type: keyword
 process.parent.title:
@@ -5462,8 +5465,9 @@ process.parent.title:
     name: text
     norms: false
     type: text
-  name: parent.title
+  name: title
   normalize: []
+  original_fieldset: process
   short: Process title.
   type: keyword
 process.parent.uptime:
@@ -5472,8 +5476,9 @@ process.parent.uptime:
   example: 1325
   flat_name: process.parent.uptime
   level: extended
-  name: parent.uptime
+  name: uptime
   normalize: []
+  original_fieldset: process
   short: Seconds the process has been up.
   type: long
 process.parent.working_directory:
@@ -5488,8 +5493,9 @@ process.parent.working_directory:
     name: text
     norms: false
     type: text
-  name: parent.working_directory
+  name: working_directory
   normalize: []
+  original_fieldset: process
   short: The working directory of the process.
   type: keyword
 process.pe.company:
@@ -5636,8 +5642,7 @@ process.thread.Ext.call_stack.memory_section.address:
   name: memory_section.address
   normalize: []
   original_fieldset: call_stack
-  short: Base address of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.BaseAddress`
+  short: Base address of the memory region containing `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: process-thread-Ext-call-stack-memory-section-protection
@@ -5684,8 +5689,7 @@ process.thread.Ext.call_stack.rva:
   name: rva
   normalize: []
   original_fieldset: call_stack
-  short: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer
-    - MEMORY_BASIC_INFORMATION.AllocationBase`.
+  short: The relative virtual address of `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.symbol_info:
   dashed_name: process-thread-Ext-call-stack-symbol-info
@@ -6106,9 +6110,8 @@ threat.framework:
   type: keyword
 threat.tactic.id:
   dashed_name: threat-tactic-id
-  description: The id of tactic used by this threat. You can use the Mitre ATT&CK
-    Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-    )
+  description: "The id of tactic used by this threat. You can use a MITRE ATT&CK\xAE\
+    \ tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
   example: TA0040
   flat_name: threat.tactic.id
   ignore_above: 1024
@@ -6120,9 +6123,8 @@ threat.tactic.id:
   type: keyword
 threat.tactic.name:
   dashed_name: threat-tactic-name
-  description: Name of the type of tactic used by this threat. You can use the Mitre
-    ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-    )
+  description: "Name of the type of tactic used by this threat. You can use a MITRE\
+    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/)"
   example: impact
   flat_name: threat.tactic.name
   ignore_above: 1024
@@ -6134,9 +6136,9 @@ threat.tactic.name:
   type: keyword
 threat.tactic.reference:
   dashed_name: threat-tactic-reference
-  description: The reference url of tactic used by this threat. You can use the Mitre
-    ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/tactics/TA0040/
-    )
+  description: "The reference url of tactic used by this threat. You can use a MITRE\
+    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/\
+    \ )"
   example: https://attack.mitre.org/tactics/TA0040/
   flat_name: threat.tactic.reference
   ignore_above: 1024
@@ -6144,13 +6146,12 @@ threat.tactic.reference:
   name: tactic.reference
   normalize:
   - array
-  short: Threat tactic url reference.
+  short: Threat tactic URL reference.
   type: keyword
 threat.technique.id:
   dashed_name: threat-technique-id
-  description: The id of technique used by this tactic. You can use the Mitre ATT&CK
-    Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-    )
+  description: "The id of technique used by this threat. You can use a MITRE ATT&CK\xAE\
+    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
   example: T1499
   flat_name: threat.technique.id
   ignore_above: 1024
@@ -6162,10 +6163,9 @@ threat.technique.id:
   type: keyword
 threat.technique.name:
   dashed_name: threat-technique-name
-  description: The name of technique used by this tactic. You can use the Mitre ATT&CK
-    Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-    )
-  example: endpoint denial of service
+  description: "The name of technique used by this threat. You can use a MITRE ATT&CK\xAE\
+    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
+  example: Endpoint Denial of Service
   flat_name: threat.technique.name
   ignore_above: 1024
   level: extended
@@ -6181,9 +6181,9 @@ threat.technique.name:
   type: keyword
 threat.technique.reference:
   dashed_name: threat-technique-reference
-  description: The reference url of technique used by this tactic. You can use the
-    Mitre ATT&CK Matrix Tactic categorization, for example. (ex. https://attack.mitre.org/techniques/T1499/
-    )
+  description: "The reference url of technique used by this threat. You can use a\
+    \ MITRE ATT&CK\xAE technique, for example. (ex. https://attack.mitre.org/techniques/T1499/\
+    \ )"
   example: https://attack.mitre.org/techniques/T1499/
   flat_name: threat.technique.reference
   ignore_above: 1024
@@ -6191,7 +6191,7 @@ threat.technique.reference:
   name: technique.reference
   normalize:
   - array
-  short: Threat technique reference.
+  short: Threat technique URL reference.
   type: keyword
 user.Ext:
   dashed_name: user-Ext
@@ -6362,13 +6362,13 @@ user.hash:
   type: keyword
 user.id:
   dashed_name: user-id
-  description: Unique identifiers of the user.
+  description: Unique identifier of the user.
   flat_name: user.id
   ignore_above: 1024
   level: core
   name: id
   normalize: []
-  short: Unique identifiers of the user.
+  short: Unique identifier of the user.
   type: keyword
 user.name:
   dashed_name: user-name

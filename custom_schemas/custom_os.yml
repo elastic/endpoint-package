@@ -23,4 +23,5 @@
       description: >
         A string value or phrase that further aid to classify or qualify the operating system (OS). 
         For example the distribution for a Linux OS will be entered in this field.
+      short: A string value or phrase that further aid to classify or qualify the operating system (OS).
       example: Ubuntu
