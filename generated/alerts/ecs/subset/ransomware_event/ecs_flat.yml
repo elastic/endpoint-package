@@ -144,6 +144,7 @@ Endpoint.policy.applied.artifacts.user.version:
 Endpoint.policy.applied.id:
   dashed_name: Endpoint-policy-applied-id
   description: the id of the applied policy
+  exceptionable: true
   flat_name: Endpoint.policy.applied.id
   ignore_above: 1024
   level: custom
@@ -298,1801 +299,6 @@ Ransomware.version:
   normalize: []
   short: Ransomware detection version.
   type: keyword
-Target.dll.Ext:
-  dashed_name: Target-dll-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: Target.dll.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  original_fieldset: dll
-  short: Object for all custom defined fields to live in.
-  type: object
-Target.dll.Ext.code_signature:
-  dashed_name: Target-dll-Ext-code-signature
-  description: Nested version of ECS code_signature fieldset.
-  flat_name: Target.dll.Ext.code_signature
-  level: custom
-  name: Ext.code_signature
-  normalize: []
-  original_fieldset: dll
-  short: Nested version of ECS code_signature fieldset.
-  type: nested
-Target.dll.Ext.code_signature.exists:
-  dashed_name: Target-dll-Ext-code-signature-exists
-  description: Boolean to capture if a signature is present.
-  example: 'true'
-  flat_name: Target.dll.Ext.code_signature.exists
-  level: custom
-  name: Ext.code_signature.exists
-  normalize: []
-  original_fieldset: dll
-  short: Boolean to capture if a signature is present.
-  type: boolean
-Target.dll.Ext.code_signature.status:
-  dashed_name: Target-dll-Ext-code-signature-status
-  description: 'Additional information about the certificate status.
-
-    This is useful for logging cryptographic errors with the certificate validity
-    or trust status. Leave unpopulated if the validity or trust of the certificate
-    was unchecked.'
-  example: ERROR_UNTRUSTED_ROOT
-  flat_name: Target.dll.Ext.code_signature.status
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.status
-  normalize: []
-  original_fieldset: dll
-  short: Additional information about the certificate status.
-  type: keyword
-Target.dll.Ext.code_signature.subject_name:
-  dashed_name: Target-dll-Ext-code-signature-subject-name
-  description: Subject name of the code signer
-  example: Microsoft Corporation
-  flat_name: Target.dll.Ext.code_signature.subject_name
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.subject_name
-  normalize: []
-  original_fieldset: dll
-  short: Subject name of the code signer
-  type: keyword
-Target.dll.Ext.code_signature.trusted:
-  dashed_name: Target-dll-Ext-code-signature-trusted
-  description: 'Stores the trust status of the certificate chain.
-
-    Validating the trust of the certificate chain may be complicated, and this field
-    should only be populated by tools that actively check the status.'
-  example: 'true'
-  flat_name: Target.dll.Ext.code_signature.trusted
-  level: custom
-  name: Ext.code_signature.trusted
-  normalize: []
-  original_fieldset: dll
-  short: Stores the trust status of the certificate chain.
-  type: boolean
-Target.dll.Ext.code_signature.valid:
-  dashed_name: Target-dll-Ext-code-signature-valid
-  description: 'Boolean to capture if the digital signature is verified against the
-    binary content.
-
-    Leave unpopulated if a certificate was unchecked.'
-  example: 'true'
-  flat_name: Target.dll.Ext.code_signature.valid
-  level: custom
-  name: Ext.code_signature.valid
-  normalize: []
-  original_fieldset: dll
-  short: Boolean to capture if the digital signature is verified against the binary
-    content.
-  type: boolean
-Target.dll.Ext.compile_time:
-  dashed_name: Target-dll-Ext-compile-time
-  description: Timestamp from when the module was compiled.
-  flat_name: Target.dll.Ext.compile_time
-  level: custom
-  name: Ext.compile_time
-  normalize: []
-  original_fieldset: dll
-  short: Timestamp from when the module was compiled.
-  type: date
-Target.dll.Ext.malware_classification.features:
-  dashed_name: Target-dll-Ext-malware-classification-features
-  description: Intermediate field included by adding option with subset
-  enabled: false
-  flat_name: Target.dll.Ext.malware_classification.features
-  level: custom
-  name: features
-  normalize: []
-  original_fieldset: malware_classification
-  short: Intermediate field included by adding option with subset
-  type: object
-Target.dll.Ext.malware_classification.features.data.buffer:
-  dashed_name: Target-dll-Ext-malware-classification-features-data-buffer
-  description: The features extracted from this file and evaluated by the model.  Usually
-    an array of floats.  Likely zlib-encoded.
-  flat_name: Target.dll.Ext.malware_classification.features.data.buffer
-  ignore_above: 1024
-  level: custom
-  name: features.data.buffer
-  normalize: []
-  original_fieldset: malware_classification
-  short: The features extracted from this file and evaluated by the model.  Usually
-    an array of floats.  Likely zlib-encoded.
-  type: keyword
-Target.dll.Ext.malware_classification.features.data.decompressed_size:
-  dashed_name: Target-dll-Ext-malware-classification-features-data-decompressed-size
-  description: The decompressed size of buffer.
-  flat_name: Target.dll.Ext.malware_classification.features.data.decompressed_size
-  level: custom
-  name: features.data.decompressed_size
-  normalize: []
-  original_fieldset: malware_classification
-  short: The decompressed size of buffer.
-  type: integer
-Target.dll.Ext.malware_classification.features.data.encoding:
-  dashed_name: Target-dll-Ext-malware-classification-features-data-encoding
-  description: The encoding of buffer (e.g. zlib).
-  flat_name: Target.dll.Ext.malware_classification.features.data.encoding
-  ignore_above: 1024
-  level: custom
-  name: features.data.encoding
-  normalize: []
-  original_fieldset: malware_classification
-  short: The encoding of buffer (e.g. zlib).
-  type: keyword
-Target.dll.Ext.malware_classification.identifier:
-  dashed_name: Target-dll-Ext-malware-classification-identifier
-  description: The model's unique identifier.
-  flat_name: Target.dll.Ext.malware_classification.identifier
-  ignore_above: 1024
-  level: custom
-  name: identifier
-  normalize: []
-  original_fieldset: malware_classification
-  short: The model's unique identifier.
-  type: keyword
-Target.dll.Ext.malware_classification.score:
-  dashed_name: Target-dll-Ext-malware-classification-score
-  description: The score produced by the classification model.
-  flat_name: Target.dll.Ext.malware_classification.score
-  level: custom
-  name: score
-  normalize: []
-  original_fieldset: malware_classification
-  short: The score produced by the classification model.
-  type: double
-Target.dll.Ext.malware_classification.threshold:
-  dashed_name: Target-dll-Ext-malware-classification-threshold
-  description: The score threshold for the model.  Files that score above this threshold
-    are considered malicious.
-  flat_name: Target.dll.Ext.malware_classification.threshold
-  level: custom
-  name: threshold
-  normalize: []
-  original_fieldset: malware_classification
-  short: The score threshold for the model.  Files that score above this threshold
-    are considered malicious.
-  type: double
-Target.dll.Ext.malware_classification.upx_packed:
-  dashed_name: Target-dll-Ext-malware-classification-upx-packed
-  description: Whether UPX packing was detected.
-  flat_name: Target.dll.Ext.malware_classification.upx_packed
-  level: custom
-  name: upx_packed
-  normalize: []
-  original_fieldset: malware_classification
-  short: Whether UPX packing was detected.
-  type: boolean
-Target.dll.Ext.malware_classification.version:
-  dashed_name: Target-dll-Ext-malware-classification-version
-  description: The version of the model used.
-  flat_name: Target.dll.Ext.malware_classification.version
-  ignore_above: 1024
-  level: custom
-  name: version
-  normalize: []
-  original_fieldset: malware_classification
-  short: The version of the model used.
-  type: keyword
-Target.dll.Ext.mapped_address:
-  dashed_name: Target-dll-Ext-mapped-address
-  description: The base address where this module is loaded.
-  flat_name: Target.dll.Ext.mapped_address
-  ignore_above: 1024
-  level: custom
-  name: Ext.mapped_address
-  normalize: []
-  original_fieldset: dll
-  short: The base address where this module is loaded.
-  type: keyword
-Target.dll.Ext.mapped_size:
-  dashed_name: Target-dll-Ext-mapped-size
-  description: The size of this module's memory mapping, in bytes.
-  flat_name: Target.dll.Ext.mapped_size
-  level: custom
-  name: Ext.mapped_size
-  normalize: []
-  original_fieldset: dll
-  short: The size of this module's memory mapping, in bytes.
-  type: long
-Target.dll.hash.md5:
-  dashed_name: Target-dll-hash-md5
-  description: MD5 hash.
-  flat_name: Target.dll.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-Target.dll.hash.sha1:
-  dashed_name: Target-dll-hash-sha1
-  description: SHA1 hash.
-  flat_name: Target.dll.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-Target.dll.hash.sha256:
-  dashed_name: Target-dll-hash-sha256
-  description: SHA256 hash.
-  flat_name: Target.dll.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-Target.dll.hash.sha512:
-  dashed_name: Target-dll-hash-sha512
-  description: SHA512 hash.
-  flat_name: Target.dll.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-Target.dll.name:
-  dashed_name: Target-dll-name
-  description: 'Name of the library.
-
-    This generally maps to the name of the file on disk.'
-  example: kernel32.dll
-  flat_name: Target.dll.name
-  ignore_above: 1024
-  level: core
-  name: name
-  normalize: []
-  original_fieldset: dll
-  short: Name of the library.
-  type: keyword
-Target.dll.path:
-  dashed_name: Target-dll-path
-  description: Full file path of the library.
-  example: C:\Windows\System32\kernel32.dll
-  flat_name: Target.dll.path
-  ignore_above: 1024
-  level: extended
-  name: path
-  normalize: []
-  original_fieldset: dll
-  short: Full file path of the library.
-  type: keyword
-Target.dll.pe.company:
-  dashed_name: Target-dll-pe-company
-  description: Internal company name of the file, provided at compile-time.
-  example: Microsoft Corporation
-  flat_name: Target.dll.pe.company
-  ignore_above: 1024
-  level: extended
-  name: company
-  normalize: []
-  original_fieldset: pe
-  short: Internal company name of the file, provided at compile-time.
-  type: keyword
-Target.dll.pe.description:
-  dashed_name: Target-dll-pe-description
-  description: Internal description of the file, provided at compile-time.
-  example: Paint
-  flat_name: Target.dll.pe.description
-  ignore_above: 1024
-  level: extended
-  name: description
-  normalize: []
-  original_fieldset: pe
-  short: Internal description of the file, provided at compile-time.
-  type: keyword
-Target.dll.pe.file_version:
-  dashed_name: Target-dll-pe-file-version
-  description: Internal version of the file, provided at compile-time.
-  example: 6.3.9600.17415
-  flat_name: Target.dll.pe.file_version
-  ignore_above: 1024
-  level: extended
-  name: file_version
-  normalize: []
-  original_fieldset: pe
-  short: Process name.
-  type: keyword
-Target.dll.pe.original_file_name:
-  dashed_name: Target-dll-pe-original-file-name
-  description: Internal name of the file, provided at compile-time.
-  example: MSPAINT.EXE
-  flat_name: Target.dll.pe.original_file_name
-  ignore_above: 1024
-  level: extended
-  name: original_file_name
-  normalize: []
-  original_fieldset: pe
-  short: Internal name of the file, provided at compile-time.
-  type: keyword
-Target.dll.pe.product:
-  dashed_name: Target-dll-pe-product
-  description: Internal product name of the file, provided at compile-time.
-  example: "Microsoft\xAE Windows\xAE Operating System"
-  flat_name: Target.dll.pe.product
-  ignore_above: 1024
-  level: extended
-  name: product
-  normalize: []
-  original_fieldset: pe
-  short: Internal product name of the file, provided at compile-time.
-  type: keyword
-Target.process.Ext:
-  dashed_name: Target-process-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: Target.process.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  original_fieldset: process
-  short: Object for all custom defined fields to live in.
-  type: object
-Target.process.Ext.ancestry:
-  dashed_name: Target-process-Ext-ancestry
-  description: An array of entity_ids indicating the ancestors for this event
-  flat_name: Target.process.Ext.ancestry
-  ignore_above: 1024
-  level: custom
-  name: Ext.ancestry
-  normalize: []
-  original_fieldset: process
-  short: An array of entity_ids indicating the ancestors for this event
-  type: keyword
-Target.process.Ext.authentication_id:
-  dashed_name: Target-process-Ext-authentication-id
-  description: Process authentication ID
-  flat_name: Target.process.Ext.authentication_id
-  ignore_above: 1024
-  level: custom
-  name: Ext.authentication_id
-  normalize: []
-  original_fieldset: process
-  short: Process authentication ID
-  type: keyword
-Target.process.Ext.code_signature:
-  dashed_name: Target-process-Ext-code-signature
-  description: Nested version of ECS code_signature fieldset.
-  flat_name: Target.process.Ext.code_signature
-  level: custom
-  name: Ext.code_signature
-  normalize: []
-  original_fieldset: process
-  short: Nested version of ECS code_signature fieldset.
-  type: nested
-Target.process.Ext.code_signature.exists:
-  dashed_name: Target-process-Ext-code-signature-exists
-  description: Boolean to capture if a signature is present.
-  example: 'true'
-  flat_name: Target.process.Ext.code_signature.exists
-  level: custom
-  name: Ext.code_signature.exists
-  normalize: []
-  original_fieldset: process
-  short: Boolean to capture if a signature is present.
-  type: boolean
-Target.process.Ext.code_signature.status:
-  dashed_name: Target-process-Ext-code-signature-status
-  description: 'Additional information about the certificate status.
-
-    This is useful for logging cryptographic errors with the certificate validity
-    or trust status. Leave unpopulated if the validity or trust of the certificate
-    was unchecked.'
-  example: ERROR_UNTRUSTED_ROOT
-  flat_name: Target.process.Ext.code_signature.status
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.status
-  normalize: []
-  original_fieldset: process
-  short: Additional information about the certificate status.
-  type: keyword
-Target.process.Ext.code_signature.subject_name:
-  dashed_name: Target-process-Ext-code-signature-subject-name
-  description: Subject name of the code signer
-  example: Microsoft Corporation
-  flat_name: Target.process.Ext.code_signature.subject_name
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.subject_name
-  normalize: []
-  original_fieldset: process
-  short: Subject name of the code signer
-  type: keyword
-Target.process.Ext.code_signature.trusted:
-  dashed_name: Target-process-Ext-code-signature-trusted
-  description: 'Stores the trust status of the certificate chain.
-
-    Validating the trust of the certificate chain may be complicated, and this field
-    should only be populated by tools that actively check the status.'
-  example: 'true'
-  flat_name: Target.process.Ext.code_signature.trusted
-  level: custom
-  name: Ext.code_signature.trusted
-  normalize: []
-  original_fieldset: process
-  short: Stores the trust status of the certificate chain.
-  type: boolean
-Target.process.Ext.code_signature.valid:
-  dashed_name: Target-process-Ext-code-signature-valid
-  description: 'Boolean to capture if the digital signature is verified against the
-    binary content.
-
-    Leave unpopulated if a certificate was unchecked.'
-  example: 'true'
-  flat_name: Target.process.Ext.code_signature.valid
-  level: custom
-  name: Ext.code_signature.valid
-  normalize: []
-  original_fieldset: process
-  short: Boolean to capture if the digital signature is verified against the binary
-    content.
-  type: boolean
-Target.process.Ext.malware_classification.features:
-  dashed_name: Target-process-Ext-malware-classification-features
-  description: Intermediate field included by adding option with subset
-  enabled: false
-  flat_name: Target.process.Ext.malware_classification.features
-  level: custom
-  name: features
-  normalize: []
-  original_fieldset: malware_classification
-  short: Intermediate field included by adding option with subset
-  type: object
-Target.process.Ext.malware_classification.features.data.buffer:
-  dashed_name: Target-process-Ext-malware-classification-features-data-buffer
-  description: The features extracted from this file and evaluated by the model.  Usually
-    an array of floats.  Likely zlib-encoded.
-  flat_name: Target.process.Ext.malware_classification.features.data.buffer
-  ignore_above: 1024
-  level: custom
-  name: features.data.buffer
-  normalize: []
-  original_fieldset: malware_classification
-  short: The features extracted from this file and evaluated by the model.  Usually
-    an array of floats.  Likely zlib-encoded.
-  type: keyword
-Target.process.Ext.malware_classification.features.data.decompressed_size:
-  dashed_name: Target-process-Ext-malware-classification-features-data-decompressed-size
-  description: The decompressed size of buffer.
-  flat_name: Target.process.Ext.malware_classification.features.data.decompressed_size
-  level: custom
-  name: features.data.decompressed_size
-  normalize: []
-  original_fieldset: malware_classification
-  short: The decompressed size of buffer.
-  type: integer
-Target.process.Ext.malware_classification.features.data.encoding:
-  dashed_name: Target-process-Ext-malware-classification-features-data-encoding
-  description: The encoding of buffer (e.g. zlib).
-  flat_name: Target.process.Ext.malware_classification.features.data.encoding
-  ignore_above: 1024
-  level: custom
-  name: features.data.encoding
-  normalize: []
-  original_fieldset: malware_classification
-  short: The encoding of buffer (e.g. zlib).
-  type: keyword
-Target.process.Ext.malware_classification.identifier:
-  dashed_name: Target-process-Ext-malware-classification-identifier
-  description: The model's unique identifier.
-  flat_name: Target.process.Ext.malware_classification.identifier
-  ignore_above: 1024
-  level: custom
-  name: identifier
-  normalize: []
-  original_fieldset: malware_classification
-  short: The model's unique identifier.
-  type: keyword
-Target.process.Ext.malware_classification.score:
-  dashed_name: Target-process-Ext-malware-classification-score
-  description: The score produced by the classification model.
-  flat_name: Target.process.Ext.malware_classification.score
-  level: custom
-  name: score
-  normalize: []
-  original_fieldset: malware_classification
-  short: The score produced by the classification model.
-  type: double
-Target.process.Ext.malware_classification.threshold:
-  dashed_name: Target-process-Ext-malware-classification-threshold
-  description: The score threshold for the model.  Files that score above this threshold
-    are considered malicious.
-  flat_name: Target.process.Ext.malware_classification.threshold
-  level: custom
-  name: threshold
-  normalize: []
-  original_fieldset: malware_classification
-  short: The score threshold for the model.  Files that score above this threshold
-    are considered malicious.
-  type: double
-Target.process.Ext.malware_classification.upx_packed:
-  dashed_name: Target-process-Ext-malware-classification-upx-packed
-  description: Whether UPX packing was detected.
-  flat_name: Target.process.Ext.malware_classification.upx_packed
-  level: custom
-  name: upx_packed
-  normalize: []
-  original_fieldset: malware_classification
-  short: Whether UPX packing was detected.
-  type: boolean
-Target.process.Ext.malware_classification.version:
-  dashed_name: Target-process-Ext-malware-classification-version
-  description: The version of the model used.
-  flat_name: Target.process.Ext.malware_classification.version
-  ignore_above: 1024
-  level: custom
-  name: version
-  normalize: []
-  original_fieldset: malware_classification
-  short: The version of the model used.
-  type: keyword
-Target.process.Ext.services:
-  dashed_name: Target-process-Ext-services
-  description: Services running in this process.
-  flat_name: Target.process.Ext.services
-  ignore_above: 1024
-  level: custom
-  name: Ext.services
-  normalize: []
-  original_fieldset: process
-  short: Services running in this process.
-  type: keyword
-Target.process.Ext.session:
-  dashed_name: Target-process-Ext-session
-  description: Session information for the current process
-  flat_name: Target.process.Ext.session
-  ignore_above: 1024
-  level: custom
-  name: Ext.session
-  normalize: []
-  original_fieldset: process
-  short: Session information for the current process
-  type: keyword
-Target.process.Ext.token.domain:
-  dashed_name: Target-process-Ext-token-domain
-  description: Domain of token user.
-  flat_name: Target.process.Ext.token.domain
-  ignore_above: 1024
-  level: custom
-  name: domain
-  normalize: []
-  original_fieldset: token
-  short: Domain of token user.
-  type: keyword
-Target.process.Ext.token.elevation:
-  dashed_name: Target-process-Ext-token-elevation
-  description: Whether the token is elevated or not
-  flat_name: Target.process.Ext.token.elevation
-  level: custom
-  name: elevation
-  normalize: []
-  original_fieldset: token
-  short: Whether the token is elevated or not
-  type: boolean
-Target.process.Ext.token.elevation_type:
-  dashed_name: Target-process-Ext-token-elevation-type
-  description: What level of elevation the token has
-  example: one of "default", "full", "limited"
-  flat_name: Target.process.Ext.token.elevation_type
-  ignore_above: 1024
-  level: custom
-  name: elevation_type
-  normalize: []
-  original_fieldset: token
-  short: What level of elevation the token has
-  type: keyword
-Target.process.Ext.token.impersonation_level:
-  dashed_name: Target-process-Ext-token-impersonation-level
-  description: Impersonation level. Only valid for impersonation tokens.
-  flat_name: Target.process.Ext.token.impersonation_level
-  ignore_above: 1024
-  level: custom
-  name: impersonation_level
-  normalize: []
-  original_fieldset: token
-  short: Impersonation level. Only valid for impersonation tokens.
-  type: keyword
-Target.process.Ext.token.integrity_level:
-  dashed_name: Target-process-Ext-token-integrity-level
-  description: Numeric integrity level.
-  flat_name: Target.process.Ext.token.integrity_level
-  level: custom
-  name: integrity_level
-  normalize: []
-  original_fieldset: token
-  short: Numeric integrity level.
-  type: long
-Target.process.Ext.token.integrity_level_name:
-  dashed_name: Target-process-Ext-token-integrity-level-name
-  description: Human readable integrity level.
-  example: one of "system", "high", "medium", "low", "untrusted"
-  flat_name: Target.process.Ext.token.integrity_level_name
-  ignore_above: 1024
-  level: custom
-  name: integrity_level_name
-  normalize: []
-  original_fieldset: token
-  short: Human readable integrity level.
-  type: keyword
-Target.process.Ext.token.is_appcontainer:
-  dashed_name: Target-process-Ext-token-is-appcontainer
-  description: Whether or not this is an appcontainer token.
-  flat_name: Target.process.Ext.token.is_appcontainer
-  level: custom
-  name: is_appcontainer
-  normalize: []
-  original_fieldset: token
-  short: Whether or not this is an appcontainer token.
-  type: boolean
-Target.process.Ext.token.privileges:
-  dashed_name: Target-process-Ext-token-privileges
-  description: Array describing the privileges associated with the token.
-  flat_name: Target.process.Ext.token.privileges
-  level: custom
-  name: privileges
-  normalize: []
-  original_fieldset: token
-  short: Array describing the privileges associated with the token.
-  type: nested
-Target.process.Ext.token.privileges.description:
-  dashed_name: Target-process-Ext-token-privileges-description
-  description: Description of the privilege.
-  flat_name: Target.process.Ext.token.privileges.description
-  ignore_above: 1024
-  level: custom
-  name: privileges.description
-  normalize: []
-  original_fieldset: token
-  short: Description of the privilege.
-  type: keyword
-Target.process.Ext.token.privileges.enabled:
-  dashed_name: Target-process-Ext-token-privileges-enabled
-  description: Whether or not the privilege is enabled.
-  flat_name: Target.process.Ext.token.privileges.enabled
-  level: custom
-  name: privileges.enabled
-  normalize: []
-  original_fieldset: token
-  short: Whether or not the privilege is enabled.
-  type: boolean
-Target.process.Ext.token.privileges.name:
-  dashed_name: Target-process-Ext-token-privileges-name
-  description: Name of the privilege.
-  flat_name: Target.process.Ext.token.privileges.name
-  ignore_above: 1024
-  level: custom
-  name: privileges.name
-  normalize: []
-  original_fieldset: token
-  short: Name of the privilege.
-  type: keyword
-Target.process.Ext.token.sid:
-  dashed_name: Target-process-Ext-token-sid
-  description: Token user's Security Identifier (SID).
-  flat_name: Target.process.Ext.token.sid
-  ignore_above: 1024
-  level: custom
-  name: sid
-  normalize: []
-  original_fieldset: token
-  short: Token user's Security Identifier (SID).
-  type: keyword
-Target.process.Ext.token.type:
-  dashed_name: Target-process-Ext-token-type
-  description: Type of the token, either primary or impersonation.
-  flat_name: Target.process.Ext.token.type
-  ignore_above: 1024
-  level: custom
-  name: type
-  normalize: []
-  original_fieldset: token
-  short: Type of the token, either primary or impersonation.
-  type: keyword
-Target.process.Ext.token.user:
-  dashed_name: Target-process-Ext-token-user
-  description: Username of token owner.
-  flat_name: Target.process.Ext.token.user
-  ignore_above: 1024
-  level: custom
-  name: user
-  normalize: []
-  original_fieldset: token
-  short: Username of token owner.
-  type: keyword
-Target.process.Ext.user:
-  dashed_name: Target-process-Ext-user
-  description: User associated with the running process.
-  flat_name: Target.process.Ext.user
-  ignore_above: 1024
-  level: custom
-  name: Ext.user
-  normalize: []
-  original_fieldset: process
-  short: User associated with the running process.
-  type: keyword
-Target.process.args:
-  dashed_name: Target-process-args
-  description: 'Array of process arguments, starting with the absolute path to the
-    executable.
-
-    May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
-  flat_name: Target.process.args
-  ignore_above: 1024
-  level: extended
-  name: args
-  normalize:
-  - array
-  original_fieldset: process
-  short: Array of process arguments.
-  type: keyword
-Target.process.args_count:
-  dashed_name: Target-process-args-count
-  description: 'Length of the process.args array.
-
-    This field can be useful for querying or performing bucket analysis on how many
-    arguments were provided to start a process. More arguments may be an indication
-    of suspicious activity.'
-  example: 4
-  flat_name: Target.process.args_count
-  level: extended
-  name: args_count
-  normalize: []
-  original_fieldset: process
-  short: Length of the process.args array.
-  type: long
-Target.process.command_line:
-  dashed_name: Target-process-command-line
-  description: 'Full command line that started the process, including the absolute
-    path to the executable, and all arguments.
-
-    Some arguments may be filtered to protect sensitive information.'
-  example: /usr/bin/ssh -l user 10.0.0.16
-  flat_name: Target.process.command_line
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.command_line.text
-    name: text
-    norms: false
-    type: text
-  name: command_line
-  normalize: []
-  original_fieldset: process
-  short: Full command line that started the process.
-  type: keyword
-Target.process.entity_id:
-  dashed_name: Target-process-entity-id
-  description: 'Unique identifier for the process.
-
-    The implementation of this is specified by the data source, but some examples
-    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
-    or a hash of some uniquely identifying components of a process.
-
-    Constructing a globally unique identifier is a common practice to mitigate PID
-    reuse as well as to identify a specific process over time, across multiple monitored
-    hosts.'
-  example: c2c455d9f99375d
-  flat_name: Target.process.entity_id
-  ignore_above: 1024
-  level: extended
-  name: entity_id
-  normalize: []
-  original_fieldset: process
-  short: Unique identifier for the process.
-  type: keyword
-Target.process.executable:
-  dashed_name: Target-process-executable
-  description: Absolute path to the process executable.
-  example: /usr/bin/ssh
-  flat_name: Target.process.executable
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.executable.text
-    name: text
-    norms: false
-    type: text
-  name: executable
-  normalize: []
-  original_fieldset: process
-  short: Absolute path to the process executable.
-  type: keyword
-Target.process.exit_code:
-  dashed_name: Target-process-exit-code
-  description: 'The exit code of the process, if this is a termination event.
-
-    The field should be absent if there is no exit code for the event (e.g. process
-    start).'
-  example: 137
-  flat_name: Target.process.exit_code
-  level: extended
-  name: exit_code
-  normalize: []
-  original_fieldset: process
-  short: The exit code of the process.
-  type: long
-Target.process.hash.md5:
-  dashed_name: Target-process-hash-md5
-  description: MD5 hash.
-  flat_name: Target.process.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-Target.process.hash.sha1:
-  dashed_name: Target-process-hash-sha1
-  description: SHA1 hash.
-  flat_name: Target.process.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-Target.process.hash.sha256:
-  dashed_name: Target-process-hash-sha256
-  description: SHA256 hash.
-  flat_name: Target.process.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-Target.process.hash.sha512:
-  dashed_name: Target-process-hash-sha512
-  description: SHA512 hash.
-  flat_name: Target.process.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-Target.process.name:
-  dashed_name: Target-process-name
-  description: 'Process name.
-
-    Sometimes called program name or similar.'
-  example: ssh
-  flat_name: Target.process.name
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.name.text
-    name: text
-    norms: false
-    type: text
-  name: name
-  normalize: []
-  original_fieldset: process
-  short: Process name.
-  type: keyword
-Target.process.parent.Ext:
-  dashed_name: Target-process-parent-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: Target.process.parent.Ext
-  level: custom
-  name: Ext
-  normalize: []
-  original_fieldset: process
-  short: Object for all custom defined fields to live in.
-  type: object
-Target.process.parent.Ext.code_signature:
-  dashed_name: Target-process-parent-Ext-code-signature
-  description: Nested version of ECS code_signature fieldset.
-  flat_name: Target.process.parent.Ext.code_signature
-  level: custom
-  name: Ext.code_signature
-  normalize: []
-  original_fieldset: process
-  short: Nested version of ECS code_signature fieldset.
-  type: nested
-Target.process.parent.Ext.code_signature.exists:
-  dashed_name: Target-process-parent-Ext-code-signature-exists
-  description: Boolean to capture if a signature is present.
-  example: 'true'
-  flat_name: Target.process.parent.Ext.code_signature.exists
-  level: custom
-  name: Ext.code_signature.exists
-  normalize: []
-  original_fieldset: process
-  short: Boolean to capture if a signature is present.
-  type: boolean
-Target.process.parent.Ext.code_signature.status:
-  dashed_name: Target-process-parent-Ext-code-signature-status
-  description: 'Additional information about the certificate status.
-
-    This is useful for logging cryptographic errors with the certificate validity
-    or trust status. Leave unpopulated if the validity or trust of the certificate
-    was unchecked.'
-  example: ERROR_UNTRUSTED_ROOT
-  flat_name: Target.process.parent.Ext.code_signature.status
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.status
-  normalize: []
-  original_fieldset: process
-  short: Additional information about the certificate status.
-  type: keyword
-Target.process.parent.Ext.code_signature.subject_name:
-  dashed_name: Target-process-parent-Ext-code-signature-subject-name
-  description: Subject name of the code signer
-  example: Microsoft Corporation
-  flat_name: Target.process.parent.Ext.code_signature.subject_name
-  ignore_above: 1024
-  level: custom
-  name: Ext.code_signature.subject_name
-  normalize: []
-  original_fieldset: process
-  short: Subject name of the code signer
-  type: keyword
-Target.process.parent.Ext.code_signature.trusted:
-  dashed_name: Target-process-parent-Ext-code-signature-trusted
-  description: 'Stores the trust status of the certificate chain.
-
-    Validating the trust of the certificate chain may be complicated, and this field
-    should only be populated by tools that actively check the status.'
-  example: 'true'
-  flat_name: Target.process.parent.Ext.code_signature.trusted
-  level: custom
-  name: Ext.code_signature.trusted
-  normalize: []
-  original_fieldset: process
-  short: Stores the trust status of the certificate chain.
-  type: boolean
-Target.process.parent.Ext.code_signature.valid:
-  dashed_name: Target-process-parent-Ext-code-signature-valid
-  description: 'Boolean to capture if the digital signature is verified against the
-    binary content.
-
-    Leave unpopulated if a certificate was unchecked.'
-  example: 'true'
-  flat_name: Target.process.parent.Ext.code_signature.valid
-  level: custom
-  name: Ext.code_signature.valid
-  normalize: []
-  original_fieldset: process
-  short: Boolean to capture if the digital signature is verified against the binary
-    content.
-  type: boolean
-Target.process.parent.Ext.real:
-  dashed_name: Target-process-parent-Ext-real
-  description: The field set containing process info in case of any pid spoofing.
-    This is mainly useful for process.parent.
-  flat_name: Target.process.parent.Ext.real
-  level: custom
-  name: Ext.real
-  normalize: []
-  original_fieldset: process
-  short: The field set containing process info in case of any pid spoofing. This is
-    mainly useful for process.parent.
-  type: object
-Target.process.parent.Ext.real.pid:
-  dashed_name: Target-process-parent-Ext-real-pid
-  description: For process.parent this will be the ppid of the process that actually
-    spawned the current process.
-  flat_name: Target.process.parent.Ext.real.pid
-  level: custom
-  name: Ext.real.pid
-  normalize: []
-  original_fieldset: process
-  short: The real pid of the process if ppid spoofing is happening.
-  type: long
-Target.process.parent.args:
-  dashed_name: Target-process-parent-args
-  description: 'Array of process arguments, starting with the absolute path to the
-    executable.
-
-    May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
-  flat_name: Target.process.parent.args
-  ignore_above: 1024
-  level: extended
-  name: args
-  normalize:
-  - array
-  original_fieldset: process
-  short: Array of process arguments.
-  type: keyword
-Target.process.parent.args_count:
-  dashed_name: Target-process-parent-args-count
-  description: 'Length of the process.args array.
-
-    This field can be useful for querying or performing bucket analysis on how many
-    arguments were provided to start a process. More arguments may be an indication
-    of suspicious activity.'
-  example: 4
-  flat_name: Target.process.parent.args_count
-  level: extended
-  name: args_count
-  normalize: []
-  original_fieldset: process
-  short: Length of the process.args array.
-  type: long
-Target.process.parent.command_line:
-  dashed_name: Target-process-parent-command-line
-  description: 'Full command line that started the process, including the absolute
-    path to the executable, and all arguments.
-
-    Some arguments may be filtered to protect sensitive information.'
-  example: /usr/bin/ssh -l user 10.0.0.16
-  flat_name: Target.process.parent.command_line
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.parent.command_line.text
-    name: text
-    norms: false
-    type: text
-  name: command_line
-  normalize: []
-  original_fieldset: process
-  short: Full command line that started the process.
-  type: keyword
-Target.process.parent.entity_id:
-  dashed_name: Target-process-parent-entity-id
-  description: 'Unique identifier for the process.
-
-    The implementation of this is specified by the data source, but some examples
-    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
-    or a hash of some uniquely identifying components of a process.
-
-    Constructing a globally unique identifier is a common practice to mitigate PID
-    reuse as well as to identify a specific process over time, across multiple monitored
-    hosts.'
-  example: c2c455d9f99375d
-  flat_name: Target.process.parent.entity_id
-  ignore_above: 1024
-  level: extended
-  name: entity_id
-  normalize: []
-  original_fieldset: process
-  short: Unique identifier for the process.
-  type: keyword
-Target.process.parent.executable:
-  dashed_name: Target-process-parent-executable
-  description: Absolute path to the process executable.
-  example: /usr/bin/ssh
-  flat_name: Target.process.parent.executable
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.parent.executable.text
-    name: text
-    norms: false
-    type: text
-  name: executable
-  normalize: []
-  original_fieldset: process
-  short: Absolute path to the process executable.
-  type: keyword
-Target.process.parent.exit_code:
-  dashed_name: Target-process-parent-exit-code
-  description: 'The exit code of the process, if this is a termination event.
-
-    The field should be absent if there is no exit code for the event (e.g. process
-    start).'
-  example: 137
-  flat_name: Target.process.parent.exit_code
-  level: extended
-  name: exit_code
-  normalize: []
-  original_fieldset: process
-  short: The exit code of the process.
-  type: long
-Target.process.parent.hash.md5:
-  dashed_name: Target-process-parent-hash-md5
-  description: MD5 hash.
-  flat_name: Target.process.parent.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-Target.process.parent.hash.sha1:
-  dashed_name: Target-process-parent-hash-sha1
-  description: SHA1 hash.
-  flat_name: Target.process.parent.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-Target.process.parent.hash.sha256:
-  dashed_name: Target-process-parent-hash-sha256
-  description: SHA256 hash.
-  flat_name: Target.process.parent.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-Target.process.parent.hash.sha512:
-  dashed_name: Target-process-parent-hash-sha512
-  description: SHA512 hash.
-  flat_name: Target.process.parent.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-Target.process.parent.name:
-  dashed_name: Target-process-parent-name
-  description: 'Process name.
-
-    Sometimes called program name or similar.'
-  example: ssh
-  flat_name: Target.process.parent.name
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.parent.name.text
-    name: text
-    norms: false
-    type: text
-  name: name
-  normalize: []
-  original_fieldset: process
-  short: Process name.
-  type: keyword
-Target.process.parent.pgid:
-  dashed_name: Target-process-parent-pgid
-  description: Identifier of the group of processes the process belongs to.
-  flat_name: Target.process.parent.pgid
-  format: string
-  level: extended
-  name: pgid
-  normalize: []
-  original_fieldset: process
-  short: Identifier of the group of processes the process belongs to.
-  type: long
-Target.process.parent.pid:
-  dashed_name: Target-process-parent-pid
-  description: Process id.
-  example: 4242
-  flat_name: Target.process.parent.pid
-  format: string
-  level: core
-  name: pid
-  normalize: []
-  original_fieldset: process
-  short: Process id.
-  type: long
-Target.process.parent.ppid:
-  dashed_name: Target-process-parent-ppid
-  description: Parent process' pid.
-  example: 4241
-  flat_name: Target.process.parent.ppid
-  format: string
-  level: extended
-  name: ppid
-  normalize: []
-  original_fieldset: process
-  short: Parent process' pid.
-  type: long
-Target.process.parent.start:
-  dashed_name: Target-process-parent-start
-  description: The time the process started.
-  example: '2016-05-23T08:05:34.853Z'
-  flat_name: Target.process.parent.start
-  level: extended
-  name: start
-  normalize: []
-  original_fieldset: process
-  short: The time the process started.
-  type: date
-Target.process.parent.thread.id:
-  dashed_name: Target-process-parent-thread-id
-  description: Thread ID.
-  example: 4242
-  flat_name: Target.process.parent.thread.id
-  format: string
-  level: extended
-  name: thread.id
-  normalize: []
-  original_fieldset: process
-  short: Thread ID.
-  type: long
-Target.process.parent.thread.name:
-  dashed_name: Target-process-parent-thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: Target.process.parent.thread.name
-  ignore_above: 1024
-  level: extended
-  name: thread.name
-  normalize: []
-  original_fieldset: process
-  short: Thread name.
-  type: keyword
-Target.process.parent.title:
-  dashed_name: Target-process-parent-title
-  description: 'Process title.
-
-    The proctitle, some times the same as process name. Can also be different: for
-    example a browser setting its title to the web page currently opened.'
-  flat_name: Target.process.parent.title
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.parent.title.text
-    name: text
-    norms: false
-    type: text
-  name: title
-  normalize: []
-  original_fieldset: process
-  short: Process title.
-  type: keyword
-Target.process.parent.uptime:
-  dashed_name: Target-process-parent-uptime
-  description: Seconds the process has been up.
-  example: 1325
-  flat_name: Target.process.parent.uptime
-  level: extended
-  name: uptime
-  normalize: []
-  original_fieldset: process
-  short: Seconds the process has been up.
-  type: long
-Target.process.parent.working_directory:
-  dashed_name: Target-process-parent-working-directory
-  description: The working directory of the process.
-  example: /home/alice
-  flat_name: Target.process.parent.working_directory
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.parent.working_directory.text
-    name: text
-    norms: false
-    type: text
-  name: working_directory
-  normalize: []
-  original_fieldset: process
-  short: The working directory of the process.
-  type: keyword
-Target.process.pe.company:
-  dashed_name: Target-process-pe-company
-  description: Internal company name of the file, provided at compile-time.
-  example: Microsoft Corporation
-  flat_name: Target.process.pe.company
-  ignore_above: 1024
-  level: extended
-  name: company
-  normalize: []
-  original_fieldset: pe
-  short: Internal company name of the file, provided at compile-time.
-  type: keyword
-Target.process.pe.description:
-  dashed_name: Target-process-pe-description
-  description: Internal description of the file, provided at compile-time.
-  example: Paint
-  flat_name: Target.process.pe.description
-  ignore_above: 1024
-  level: extended
-  name: description
-  normalize: []
-  original_fieldset: pe
-  short: Internal description of the file, provided at compile-time.
-  type: keyword
-Target.process.pe.file_version:
-  dashed_name: Target-process-pe-file-version
-  description: Internal version of the file, provided at compile-time.
-  example: 6.3.9600.17415
-  flat_name: Target.process.pe.file_version
-  ignore_above: 1024
-  level: extended
-  name: file_version
-  normalize: []
-  original_fieldset: pe
-  short: Process name.
-  type: keyword
-Target.process.pe.original_file_name:
-  dashed_name: Target-process-pe-original-file-name
-  description: Internal name of the file, provided at compile-time.
-  example: MSPAINT.EXE
-  flat_name: Target.process.pe.original_file_name
-  ignore_above: 1024
-  level: extended
-  name: original_file_name
-  normalize: []
-  original_fieldset: pe
-  short: Internal name of the file, provided at compile-time.
-  type: keyword
-Target.process.pe.product:
-  dashed_name: Target-process-pe-product
-  description: Internal product name of the file, provided at compile-time.
-  example: "Microsoft\xAE Windows\xAE Operating System"
-  flat_name: Target.process.pe.product
-  ignore_above: 1024
-  level: extended
-  name: product
-  normalize: []
-  original_fieldset: pe
-  short: Internal product name of the file, provided at compile-time.
-  type: keyword
-Target.process.pgid:
-  dashed_name: Target-process-pgid
-  description: Identifier of the group of processes the process belongs to.
-  flat_name: Target.process.pgid
-  format: string
-  level: extended
-  name: pgid
-  normalize: []
-  original_fieldset: process
-  short: Identifier of the group of processes the process belongs to.
-  type: long
-Target.process.pid:
-  dashed_name: Target-process-pid
-  description: Process id.
-  example: 4242
-  flat_name: Target.process.pid
-  format: string
-  level: core
-  name: pid
-  normalize: []
-  original_fieldset: process
-  short: Process id.
-  type: long
-Target.process.ppid:
-  dashed_name: Target-process-ppid
-  description: Parent process' pid.
-  example: 4241
-  flat_name: Target.process.ppid
-  format: string
-  level: extended
-  name: ppid
-  normalize: []
-  original_fieldset: process
-  short: Parent process' pid.
-  type: long
-Target.process.start:
-  dashed_name: Target-process-start
-  description: The time the process started.
-  example: '2016-05-23T08:05:34.853Z'
-  flat_name: Target.process.start
-  level: extended
-  name: start
-  normalize: []
-  original_fieldset: process
-  short: The time the process started.
-  type: date
-Target.process.thread.Ext:
-  dashed_name: Target-process-thread-Ext
-  description: Object for all custom defined fields to live in.
-  flat_name: Target.process.thread.Ext
-  level: custom
-  name: thread.Ext
-  normalize: []
-  original_fieldset: process
-  short: Object for all custom defined fields to live in.
-  type: object
-Target.process.thread.Ext.call_stack:
-  dashed_name: Target-process-thread-Ext-call-stack
-  description: Fields describing a stack frame.  call_stack is expected to be an array
-    where each array element represents a stack frame.
-  enabled: false
-  flat_name: Target.process.thread.Ext.call_stack
-  level: custom
-  name: call_stack
-  normalize: []
-  original_fieldset: call_stack
-  short: Fields describing a stack frame.
-  type: group
-Target.process.thread.Ext.call_stack.instruction_pointer:
-  dashed_name: Target-process-thread-Ext-call-stack-instruction-pointer
-  description: The return address of this stack frame.
-  flat_name: Target.process.thread.Ext.call_stack.instruction_pointer
-  ignore_above: 1024
-  level: custom
-  name: instruction_pointer
-  normalize: []
-  original_fieldset: call_stack
-  short: The return address of this stack frame.
-  type: keyword
-Target.process.thread.Ext.call_stack.memory_section.address:
-  dashed_name: Target-process-thread-Ext-call-stack-memory-section-address
-  description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.BaseAddress`
-  flat_name: Target.process.thread.Ext.call_stack.memory_section.address
-  ignore_above: 1024
-  level: custom
-  name: memory_section.address
-  normalize: []
-  original_fieldset: call_stack
-  short: Base address of the memory region containing `instruction_pointer`.
-  type: keyword
-Target.process.thread.Ext.call_stack.memory_section.protection:
-  dashed_name: Target-process-thread-Ext-call-stack-memory-section-protection
-  description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  flat_name: Target.process.thread.Ext.call_stack.memory_section.protection
-  ignore_above: 1024
-  level: custom
-  name: memory_section.protection
-  normalize: []
-  original_fieldset: call_stack
-  short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  type: keyword
-Target.process.thread.Ext.call_stack.memory_section.size:
-  dashed_name: Target-process-thread-Ext-call-stack-memory-section-size
-  description: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  flat_name: Target.process.thread.Ext.call_stack.memory_section.size
-  ignore_above: 1024
-  level: custom
-  name: memory_section.size
-  normalize: []
-  original_fieldset: call_stack
-  short: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  type: keyword
-Target.process.thread.Ext.call_stack.module_path:
-  dashed_name: Target-process-thread-Ext-call-stack-module-path
-  description: The DLL/module containing `instruction_pointer`.
-  flat_name: Target.process.thread.Ext.call_stack.module_path
-  ignore_above: 1024
-  level: custom
-  name: module_path
-  normalize: []
-  original_fieldset: call_stack
-  short: The DLL/module containing `instruction_pointer`.
-  type: keyword
-Target.process.thread.Ext.call_stack.rva:
-  dashed_name: Target-process-thread-Ext-call-stack-rva
-  description: The relative virtual address of `instruction_pointer`.  Computed as
-    `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-  flat_name: Target.process.thread.Ext.call_stack.rva
-  ignore_above: 1024
-  level: custom
-  name: rva
-  normalize: []
-  original_fieldset: call_stack
-  short: The relative virtual address of `instruction_pointer`.
-  type: keyword
-Target.process.thread.Ext.call_stack.symbol_info:
-  dashed_name: Target-process-thread-Ext-call-stack-symbol-info
-  description: The nearest symbol for `instruction_pointer`.
-  flat_name: Target.process.thread.Ext.call_stack.symbol_info
-  ignore_above: 1024
-  level: custom
-  name: symbol_info
-  normalize: []
-  original_fieldset: call_stack
-  short: The nearest symbol for `instruction_pointer`.
-  type: keyword
-Target.process.thread.Ext.service:
-  dashed_name: Target-process-thread-Ext-service
-  description: Service associated with the thread.
-  example: VaultSvc
-  flat_name: Target.process.thread.Ext.service
-  ignore_above: 1024
-  level: custom
-  name: thread.Ext.service
-  normalize: []
-  original_fieldset: process
-  short: Service associated with the thread.
-  type: keyword
-Target.process.thread.Ext.start:
-  dashed_name: Target-process-thread-Ext-start
-  description: The time the thread started.
-  example: '2016-05-23T08:05:34.853Z'
-  flat_name: Target.process.thread.Ext.start
-  level: custom
-  name: thread.Ext.start
-  normalize: []
-  original_fieldset: process
-  short: The time the thread started.
-  type: date
-Target.process.thread.Ext.start_address:
-  dashed_name: Target-process-thread-Ext-start-address
-  description: Memory address where the thread began execution.
-  example: 5442508
-  flat_name: Target.process.thread.Ext.start_address
-  ignore_above: 1024
-  level: custom
-  name: thread.Ext.start_address
-  normalize: []
-  original_fieldset: process
-  short: Memory address where the thread began execution.
-  type: keyword
-Target.process.thread.Ext.start_address_module:
-  dashed_name: Target-process-thread-Ext-start-address-module
-  description: The dll/module where the thread began execution.
-  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
-  flat_name: Target.process.thread.Ext.start_address_module
-  ignore_above: 1024
-  level: custom
-  name: thread.Ext.start_address_module
-  normalize: []
-  original_fieldset: process
-  short: The dll/module where the thread began execution.
-  type: keyword
-Target.process.thread.Ext.token.domain:
-  dashed_name: Target-process-thread-Ext-token-domain
-  description: Domain of token user.
-  flat_name: Target.process.thread.Ext.token.domain
-  ignore_above: 1024
-  level: custom
-  name: domain
-  normalize: []
-  original_fieldset: token
-  short: Domain of token user.
-  type: keyword
-Target.process.thread.Ext.token.elevation:
-  dashed_name: Target-process-thread-Ext-token-elevation
-  description: Whether the token is elevated or not
-  flat_name: Target.process.thread.Ext.token.elevation
-  level: custom
-  name: elevation
-  normalize: []
-  original_fieldset: token
-  short: Whether the token is elevated or not
-  type: boolean
-Target.process.thread.Ext.token.elevation_type:
-  dashed_name: Target-process-thread-Ext-token-elevation-type
-  description: What level of elevation the token has
-  example: one of "default", "full", "limited"
-  flat_name: Target.process.thread.Ext.token.elevation_type
-  ignore_above: 1024
-  level: custom
-  name: elevation_type
-  normalize: []
-  original_fieldset: token
-  short: What level of elevation the token has
-  type: keyword
-Target.process.thread.Ext.token.impersonation_level:
-  dashed_name: Target-process-thread-Ext-token-impersonation-level
-  description: Impersonation level. Only valid for impersonation tokens.
-  flat_name: Target.process.thread.Ext.token.impersonation_level
-  ignore_above: 1024
-  level: custom
-  name: impersonation_level
-  normalize: []
-  original_fieldset: token
-  short: Impersonation level. Only valid for impersonation tokens.
-  type: keyword
-Target.process.thread.Ext.token.integrity_level:
-  dashed_name: Target-process-thread-Ext-token-integrity-level
-  description: Numeric integrity level.
-  flat_name: Target.process.thread.Ext.token.integrity_level
-  level: custom
-  name: integrity_level
-  normalize: []
-  original_fieldset: token
-  short: Numeric integrity level.
-  type: long
-Target.process.thread.Ext.token.integrity_level_name:
-  dashed_name: Target-process-thread-Ext-token-integrity-level-name
-  description: Human readable integrity level.
-  example: one of "system", "high", "medium", "low", "untrusted"
-  flat_name: Target.process.thread.Ext.token.integrity_level_name
-  ignore_above: 1024
-  level: custom
-  name: integrity_level_name
-  normalize: []
-  original_fieldset: token
-  short: Human readable integrity level.
-  type: keyword
-Target.process.thread.Ext.token.is_appcontainer:
-  dashed_name: Target-process-thread-Ext-token-is-appcontainer
-  description: Whether or not this is an appcontainer token.
-  flat_name: Target.process.thread.Ext.token.is_appcontainer
-  level: custom
-  name: is_appcontainer
-  normalize: []
-  original_fieldset: token
-  short: Whether or not this is an appcontainer token.
-  type: boolean
-Target.process.thread.Ext.token.privileges:
-  dashed_name: Target-process-thread-Ext-token-privileges
-  description: Array describing the privileges associated with the token.
-  flat_name: Target.process.thread.Ext.token.privileges
-  level: custom
-  name: privileges
-  normalize: []
-  original_fieldset: token
-  short: Array describing the privileges associated with the token.
-  type: nested
-Target.process.thread.Ext.token.privileges.description:
-  dashed_name: Target-process-thread-Ext-token-privileges-description
-  description: Description of the privilege.
-  flat_name: Target.process.thread.Ext.token.privileges.description
-  ignore_above: 1024
-  level: custom
-  name: privileges.description
-  normalize: []
-  original_fieldset: token
-  short: Description of the privilege.
-  type: keyword
-Target.process.thread.Ext.token.privileges.enabled:
-  dashed_name: Target-process-thread-Ext-token-privileges-enabled
-  description: Whether or not the privilege is enabled.
-  flat_name: Target.process.thread.Ext.token.privileges.enabled
-  level: custom
-  name: privileges.enabled
-  normalize: []
-  original_fieldset: token
-  short: Whether or not the privilege is enabled.
-  type: boolean
-Target.process.thread.Ext.token.privileges.name:
-  dashed_name: Target-process-thread-Ext-token-privileges-name
-  description: Name of the privilege.
-  flat_name: Target.process.thread.Ext.token.privileges.name
-  ignore_above: 1024
-  level: custom
-  name: privileges.name
-  normalize: []
-  original_fieldset: token
-  short: Name of the privilege.
-  type: keyword
-Target.process.thread.Ext.token.sid:
-  dashed_name: Target-process-thread-Ext-token-sid
-  description: Token user's Security Identifier (SID).
-  flat_name: Target.process.thread.Ext.token.sid
-  ignore_above: 1024
-  level: custom
-  name: sid
-  normalize: []
-  original_fieldset: token
-  short: Token user's Security Identifier (SID).
-  type: keyword
-Target.process.thread.Ext.token.type:
-  dashed_name: Target-process-thread-Ext-token-type
-  description: Type of the token, either primary or impersonation.
-  flat_name: Target.process.thread.Ext.token.type
-  ignore_above: 1024
-  level: custom
-  name: type
-  normalize: []
-  original_fieldset: token
-  short: Type of the token, either primary or impersonation.
-  type: keyword
-Target.process.thread.Ext.token.user:
-  dashed_name: Target-process-thread-Ext-token-user
-  description: Username of token owner.
-  flat_name: Target.process.thread.Ext.token.user
-  ignore_above: 1024
-  level: custom
-  name: user
-  normalize: []
-  original_fieldset: token
-  short: Username of token owner.
-  type: keyword
-Target.process.thread.Ext.uptime:
-  dashed_name: Target-process-thread-Ext-uptime
-  description: Seconds since thread started.
-  flat_name: Target.process.thread.Ext.uptime
-  level: custom
-  name: thread.Ext.uptime
-  normalize: []
-  original_fieldset: process
-  short: Seconds since thread started.
-  type: long
-Target.process.thread.id:
-  dashed_name: Target-process-thread-id
-  description: Thread ID.
-  example: 4242
-  flat_name: Target.process.thread.id
-  format: string
-  level: extended
-  name: thread.id
-  normalize: []
-  original_fieldset: process
-  short: Thread ID.
-  type: long
-Target.process.thread.name:
-  dashed_name: Target-process-thread-name
-  description: Thread name.
-  example: thread-0
-  flat_name: Target.process.thread.name
-  ignore_above: 1024
-  level: extended
-  name: thread.name
-  normalize: []
-  original_fieldset: process
-  short: Thread name.
-  type: keyword
-Target.process.title:
-  dashed_name: Target-process-title
-  description: 'Process title.
-
-    The proctitle, some times the same as process name. Can also be different: for
-    example a browser setting its title to the web page currently opened.'
-  flat_name: Target.process.title
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.title.text
-    name: text
-    norms: false
-    type: text
-  name: title
-  normalize: []
-  original_fieldset: process
-  short: Process title.
-  type: keyword
-Target.process.uptime:
-  dashed_name: Target-process-uptime
-  description: Seconds the process has been up.
-  example: 1325
-  flat_name: Target.process.uptime
-  level: extended
-  name: uptime
-  normalize: []
-  original_fieldset: process
-  short: Seconds the process has been up.
-  type: long
-Target.process.working_directory:
-  dashed_name: Target-process-working-directory
-  description: The working directory of the process.
-  example: /home/alice
-  flat_name: Target.process.working_directory
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: Target.process.working_directory.text
-    name: text
-    norms: false
-    type: text
-  name: working_directory
-  normalize: []
-  original_fieldset: process
-  short: The working directory of the process.
-  type: keyword
 agent.ephemeral_id:
   dashed_name: agent-ephemeral-id
   description: 'Ephemeral identifier of this agent (if one exists).
@@ -2112,6 +318,7 @@ agent.id:
 
     Example: For Beats this would be beat.id.'
   example: 8a4f500d
+  exceptionable: true
   flat_name: agent.id
   ignore_above: 1024
   level: core
@@ -2144,6 +351,7 @@ agent.type:
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
+  exceptionable: true
   flat_name: agent.type
   ignore_above: 1024
   level: core
@@ -2155,6 +363,7 @@ agent.version:
   dashed_name: agent-version
   description: Version of the agent.
   example: 6.0.0-rc2
+  exceptionable: true
   flat_name: agent.version
   ignore_above: 1024
   level: core
@@ -2556,6 +765,7 @@ elastic.agent.id:
   dashed_name: elastic-agent-id
   description: Unique identifier of this elastic agent (if one exists).
   example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+  exceptionable: true
   flat_name: elastic.agent.id
   ignore_above: 1024
   level: custom
@@ -2571,6 +781,7 @@ event.action:
     Examples are `group-add`, `process-started`, `file-created`. The value is normally
     defined by the implementer.'
   example: user-password-change
+  exceptionable: true
   flat_name: event.action
   ignore_above: 1024
   level: core
@@ -2724,6 +935,7 @@ event.category:
     This field is an array. This will allow proper categorization of some events that
     fall in multiple categories.'
   example: authentication
+  exceptionable: true
   flat_name: event.category
   ignore_above: 1024
   level: core
@@ -2740,6 +952,7 @@ event.code:
     of message language or wording adjustments over time. An example of this is the
     Windows Event ID.'
   example: 4648
+  exceptionable: true
   flat_name: event.code
   ignore_above: 1024
   level: extended
@@ -2790,6 +1003,7 @@ event.hash:
   description: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate
     log integrity.
   example: 123456789012345678901234567890ABCD
+  exceptionable: true
   flat_name: event.hash
   ignore_above: 1024
   level: extended
@@ -2890,6 +1104,7 @@ event.kind:
     be handled. They may warrant different retention, different access control, it
     may also help understand whether the data coming in at a regular interval or not.'
   example: alert
+  exceptionable: true
   flat_name: event.kind
   ignore_above: 1024
   level: core
@@ -2905,6 +1120,7 @@ event.module:
     events of a given source (e.g. Apache logs), `event.module` should contain the
     name of this module.'
   example: apache
+  exceptionable: true
   flat_name: event.module
   ignore_above: 1024
   level: core
@@ -2948,6 +1164,7 @@ event.outcome:
     this field is generally not populated for metric events, events with `event.type:info`,
     or any events for which an outcome does not make logical sense.'
   example: success
+  exceptionable: true
   flat_name: event.outcome
   ignore_above: 1024
   level: core
@@ -2963,6 +1180,7 @@ event.provider:
     source of an event. It can be the name of the software that generated the event
     (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
   example: kernel
+  exceptionable: true
   flat_name: event.provider
   ignore_above: 1024
   level: extended
@@ -3134,6 +1352,7 @@ event.type:
 
     This field is an array. This will allow proper categorization of some events that
     fall in multiple event types.'
+  exceptionable: true
   flat_name: event.type
   ignore_above: 1024
   level: core
@@ -3178,6 +1397,7 @@ file.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
+  exceptionable: true
   flat_name: file.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -3189,6 +1409,7 @@ file.Ext.code_signature.subject_name:
   dashed_name: file-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
+  exceptionable: true
   flat_name: file.Ext.code_signature.subject_name
   ignore_above: 1024
   level: core
@@ -3203,6 +1424,7 @@ file.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
+  exceptionable: true
   flat_name: file.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -3216,6 +1438,7 @@ file.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
+  exceptionable: true
   flat_name: file.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -3732,6 +1955,7 @@ file.attributes:
     that are expected in this field: archive, compressed, directory, encrypted, execute,
     hidden, read, readonly, system, write.'
   example: '["readonly", "system"]'
+  exceptionable: true
   flat_name: file.attributes
   ignore_above: 1024
   level: extended
@@ -3767,6 +1991,7 @@ file.device:
   dashed_name: file-device
   description: Device that is the source of the file.
   example: sda
+  exceptionable: true
   flat_name: file.device
   ignore_above: 1024
   level: extended
@@ -3779,6 +2004,7 @@ file.directory:
   description: Directory where the file is located. It should include the drive letter,
     when appropriate.
   example: /home/alice
+  exceptionable: true
   flat_name: file.directory
   ignore_above: 1024
   level: extended
@@ -3793,6 +2019,7 @@ file.drive_letter:
 
     The value should be uppercase, and not include the colon.'
   example: C
+  exceptionable: true
   flat_name: file.drive_letter
   ignore_above: 1
   level: extended
@@ -3804,6 +2031,7 @@ file.extension:
   dashed_name: file-extension
   description: File extension.
   example: png
+  exceptionable: true
   flat_name: file.extension
   ignore_above: 1024
   level: extended
@@ -3815,6 +2043,7 @@ file.gid:
   dashed_name: file-gid
   description: Primary group ID (GID) of the file.
   example: '1001'
+  exceptionable: true
   flat_name: file.gid
   ignore_above: 1024
   level: extended
@@ -3826,6 +2055,7 @@ file.group:
   dashed_name: file-group
   description: Primary group name of the file.
   example: alice
+  exceptionable: true
   flat_name: file.group
   ignore_above: 1024
   level: extended
@@ -3836,6 +2066,7 @@ file.group:
 file.hash.md5:
   dashed_name: file-hash-md5
   description: MD5 hash.
+  exceptionable: true
   flat_name: file.hash.md5
   ignore_above: 1024
   level: extended
@@ -3847,6 +2078,7 @@ file.hash.md5:
 file.hash.sha1:
   dashed_name: file-hash-sha1
   description: SHA1 hash.
+  exceptionable: true
   flat_name: file.hash.sha1
   ignore_above: 1024
   level: extended
@@ -3858,6 +2090,7 @@ file.hash.sha1:
 file.hash.sha256:
   dashed_name: file-hash-sha256
   description: SHA256 hash.
+  exceptionable: true
   flat_name: file.hash.sha256
   ignore_above: 1024
   level: extended
@@ -3869,6 +2102,7 @@ file.hash.sha256:
 file.hash.sha512:
   dashed_name: file-hash-sha512
   description: SHA512 hash.
+  exceptionable: true
   flat_name: file.hash.sha512
   ignore_above: 1024
   level: extended
@@ -3881,6 +2115,7 @@ file.inode:
   dashed_name: file-inode
   description: Inode representing the file in the filesystem.
   example: '256383'
+  exceptionable: true
   flat_name: file.inode
   ignore_above: 1024
   level: extended
@@ -3894,6 +2129,7 @@ file.mime_type:
     using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA official
     types], where possible. When more than one type is applicable, the most specific
     type should be used.
+  exceptionable: true
   flat_name: file.mime_type
   ignore_above: 1024
   level: extended
@@ -3905,6 +2141,7 @@ file.mode:
   dashed_name: file-mode
   description: Mode of the file in octal representation.
   example: '0640'
+  exceptionable: true
   flat_name: file.mode
   ignore_above: 1024
   level: extended
@@ -3925,6 +2162,7 @@ file.name:
   dashed_name: file-name
   description: Name of the file including the extension, without the directory.
   example: example.png
+  exceptionable: true
   flat_name: file.name
   ignore_above: 1024
   level: extended
@@ -3936,6 +2174,7 @@ file.owner:
   dashed_name: file-owner
   description: File owner's username.
   example: alice
+  exceptionable: true
   flat_name: file.owner
   ignore_above: 1024
   level: extended
@@ -3948,6 +2187,7 @@ file.path:
   description: Full path to the file, including the file name. It should include the
     drive letter, when appropriate.
   example: /home/alice/example.png
+  exceptionable: true
   flat_name: file.path
   ignore_above: 1024
   level: extended
@@ -3964,6 +2204,7 @@ file.pe.company:
   dashed_name: file-pe-company
   description: Internal company name of the file, provided at compile-time.
   example: Microsoft Corporation
+  exceptionable: true
   flat_name: file.pe.company
   ignore_above: 1024
   level: extended
@@ -3976,6 +2217,7 @@ file.pe.description:
   dashed_name: file-pe-description
   description: Internal description of the file, provided at compile-time.
   example: Paint
+  exceptionable: true
   flat_name: file.pe.description
   ignore_above: 1024
   level: extended
@@ -3988,6 +2230,7 @@ file.pe.file_version:
   dashed_name: file-pe-file-version
   description: Internal version of the file, provided at compile-time.
   example: 6.3.9600.17415
+  exceptionable: true
   flat_name: file.pe.file_version
   ignore_above: 1024
   level: extended
@@ -4000,6 +2243,7 @@ file.pe.original_file_name:
   dashed_name: file-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
   example: MSPAINT.EXE
+  exceptionable: true
   flat_name: file.pe.original_file_name
   ignore_above: 1024
   level: extended
@@ -4012,6 +2256,7 @@ file.pe.product:
   dashed_name: file-pe-product
   description: Internal product name of the file, provided at compile-time.
   example: "Microsoft\xAE Windows\xAE Operating System"
+  exceptionable: true
   flat_name: file.pe.product
   ignore_above: 1024
   level: extended
@@ -4026,6 +2271,7 @@ file.size:
 
     Only relevant when `file.type` is "file".'
   example: 16384
+  exceptionable: true
   flat_name: file.size
   level: extended
   name: size
@@ -4035,6 +2281,7 @@ file.size:
 file.target_path:
   dashed_name: file-target-path
   description: Target path for symlinks.
+  exceptionable: true
   flat_name: file.target_path
   ignore_above: 1024
   level: extended
@@ -4051,6 +2298,7 @@ file.type:
   dashed_name: file-type
   description: File type (file, dir, or symlink).
   example: file
+  exceptionable: true
   flat_name: file.type
   ignore_above: 1024
   level: extended
@@ -4062,6 +2310,7 @@ file.uid:
   dashed_name: file-uid
   description: The user ID (UID) or security identifier (SID) of the file owner.
   example: '1001'
+  exceptionable: true
   flat_name: file.uid
   ignore_above: 1024
   level: extended
@@ -4090,6 +2339,7 @@ group.Ext.real:
 group.Ext.real.id:
   dashed_name: group-Ext-real-id
   description: Unique identifier for the group on the system/platform.
+  exceptionable: true
   flat_name: group.Ext.real.id
   ignore_above: 1024
   level: custom
@@ -4112,6 +2362,7 @@ group.domain:
   description: 'Name of the directory the group is a member of.
 
     For example, an LDAP or Active Directory domain name.'
+  exceptionable: true
   flat_name: group.domain
   ignore_above: 1024
   level: extended
@@ -4122,6 +2373,7 @@ group.domain:
 group.id:
   dashed_name: group-id
   description: Unique identifier for the group on the system/platform.
+  exceptionable: true
   flat_name: group.id
   ignore_above: 1024
   level: extended
@@ -4143,6 +2395,7 @@ host.architecture:
   dashed_name: host-architecture
   description: Operating system architecture.
   example: x86_64
+  exceptionable: true
   flat_name: host.architecture
   ignore_above: 1024
   level: core
@@ -4157,6 +2410,7 @@ host.domain:
     For example, on Windows this could be the host''s Active Directory domain or NetBIOS
     domain name. For Linux this could be the domain of the host''s LDAP provider.'
   example: CONTOSO
+  exceptionable: true
   flat_name: host.domain
   ignore_above: 1024
   level: extended
@@ -4284,6 +2538,7 @@ host.id:
     As hostname is not always unique, use values that are meaningful in your environment.
 
     Example: The current usage of `beat.name`.'
+  exceptionable: true
   flat_name: host.id
   ignore_above: 1024
   level: core
@@ -4341,6 +2596,7 @@ host.os.Ext.variant:
     operating system (OS).  For example the distribution for a Linux OS will be entered
     in this field.
   example: Ubuntu
+  exceptionable: true
   flat_name: host.os.Ext.variant
   ignore_above: 1024
   level: custom
@@ -4354,6 +2610,7 @@ host.os.family:
   dashed_name: host-os-family
   description: OS family (such as redhat, debian, freebsd, windows).
   example: debian
+  exceptionable: true
   flat_name: host.os.family
   ignore_above: 1024
   level: extended
@@ -4366,6 +2623,7 @@ host.os.full:
   dashed_name: host-os-full
   description: Operating system name, including the version or code name.
   example: Mac OS Mojave
+  exceptionable: true
   flat_name: host.os.full
   ignore_above: 1024
   level: extended
@@ -4383,6 +2641,7 @@ host.os.kernel:
   dashed_name: host-os-kernel
   description: Operating system kernel version as a raw string.
   example: 4.4.0-112-generic
+  exceptionable: true
   flat_name: host.os.kernel
   ignore_above: 1024
   level: extended
@@ -4395,6 +2654,7 @@ host.os.name:
   dashed_name: host-os-name
   description: Operating system name, without the version.
   example: Mac OS X
+  exceptionable: true
   flat_name: host.os.name
   ignore_above: 1024
   level: extended
@@ -4412,6 +2672,7 @@ host.os.platform:
   dashed_name: host-os-platform
   description: Operating system platform (such centos, ubuntu, windows).
   example: darwin
+  exceptionable: true
   flat_name: host.os.platform
   ignore_above: 1024
   level: extended
@@ -4424,6 +2685,7 @@ host.os.version:
   dashed_name: host-os-version
   description: Operating system version as a raw string.
   example: 10.14.1
+  exceptionable: true
   flat_name: host.os.version
   ignore_above: 1024
   level: extended
@@ -4438,6 +2700,7 @@ host.type:
 
     For Cloud providers this can be the machine type like `t2.medium`. If vm, this
     could be the container, for example, or other information meaningful in your environment.'
+  exceptionable: true
   flat_name: host.type
   ignore_above: 1024
   level: core
@@ -4731,6 +2994,7 @@ process.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
+  exceptionable: true
   flat_name: process.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -4742,6 +3006,7 @@ process.Ext.code_signature.subject_name:
   dashed_name: process-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
+  exceptionable: true
   flat_name: process.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -4756,6 +3021,7 @@ process.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
+  exceptionable: true
   flat_name: process.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -4769,6 +3035,7 @@ process.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
+  exceptionable: true
   flat_name: process.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -4878,6 +3145,7 @@ process.Ext.malware_classification.version:
 process.Ext.services:
   dashed_name: process-Ext-services
   description: Services running in this process.
+  exceptionable: true
   flat_name: process.Ext.services
   ignore_above: 1024
   level: custom
@@ -5049,6 +3317,7 @@ process.Ext.token.user:
 process.Ext.user:
   dashed_name: process-Ext-user
   description: User associated with the running process.
+  exceptionable: true
   flat_name: process.Ext.user
   ignore_above: 1024
   level: custom
@@ -5096,6 +3365,7 @@ process.command_line:
 
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
+  exceptionable: true
   flat_name: process.command_line
   ignore_above: 1024
   level: extended
@@ -5131,6 +3401,7 @@ process.executable:
   dashed_name: process-executable
   description: Absolute path to the process executable.
   example: /usr/bin/ssh
+  exceptionable: true
   flat_name: process.executable
   ignore_above: 1024
   level: extended
@@ -5159,6 +3430,7 @@ process.exit_code:
 process.hash.md5:
   dashed_name: process-hash-md5
   description: MD5 hash.
+  exceptionable: true
   flat_name: process.hash.md5
   ignore_above: 1024
   level: extended
@@ -5170,6 +3442,7 @@ process.hash.md5:
 process.hash.sha1:
   dashed_name: process-hash-sha1
   description: SHA1 hash.
+  exceptionable: true
   flat_name: process.hash.sha1
   ignore_above: 1024
   level: extended
@@ -5181,6 +3454,7 @@ process.hash.sha1:
 process.hash.sha256:
   dashed_name: process-hash-sha256
   description: SHA256 hash.
+  exceptionable: true
   flat_name: process.hash.sha256
   ignore_above: 1024
   level: extended
@@ -5192,6 +3466,7 @@ process.hash.sha256:
 process.hash.sha512:
   dashed_name: process-hash-sha512
   description: SHA512 hash.
+  exceptionable: true
   flat_name: process.hash.sha512
   ignore_above: 1024
   level: extended
@@ -5206,6 +3481,7 @@ process.name:
 
     Sometimes called program name or similar.'
   example: ssh
+  exceptionable: true
   flat_name: process.name
   ignore_above: 1024
   level: extended
@@ -5257,6 +3533,7 @@ process.parent.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
+  exceptionable: true
   flat_name: process.parent.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -5269,6 +3546,7 @@ process.parent.Ext.code_signature.subject_name:
   dashed_name: process-parent-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
+  exceptionable: true
   flat_name: process.parent.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -5284,6 +3562,7 @@ process.parent.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
+  exceptionable: true
   flat_name: process.parent.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -5298,6 +3577,7 @@ process.parent.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
+  exceptionable: true
   flat_name: process.parent.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -5371,6 +3651,7 @@ process.parent.command_line:
 
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
+  exceptionable: true
   flat_name: process.parent.command_line
   ignore_above: 1024
   level: extended
@@ -5408,6 +3689,7 @@ process.parent.executable:
   dashed_name: process-parent-executable
   description: Absolute path to the process executable.
   example: /usr/bin/ssh
+  exceptionable: true
   flat_name: process.parent.executable
   ignore_above: 1024
   level: extended
@@ -5438,6 +3720,7 @@ process.parent.exit_code:
 process.parent.hash.md5:
   dashed_name: process-parent-hash-md5
   description: MD5 hash.
+  exceptionable: true
   flat_name: process.parent.hash.md5
   ignore_above: 1024
   level: extended
@@ -5449,6 +3732,7 @@ process.parent.hash.md5:
 process.parent.hash.sha1:
   dashed_name: process-parent-hash-sha1
   description: SHA1 hash.
+  exceptionable: true
   flat_name: process.parent.hash.sha1
   ignore_above: 1024
   level: extended
@@ -5460,6 +3744,7 @@ process.parent.hash.sha1:
 process.parent.hash.sha256:
   dashed_name: process-parent-hash-sha256
   description: SHA256 hash.
+  exceptionable: true
   flat_name: process.parent.hash.sha256
   ignore_above: 1024
   level: extended
@@ -5471,6 +3756,7 @@ process.parent.hash.sha256:
 process.parent.hash.sha512:
   dashed_name: process-parent-hash-sha512
   description: SHA512 hash.
+  exceptionable: true
   flat_name: process.parent.hash.sha512
   ignore_above: 1024
   level: extended
@@ -5485,6 +3771,7 @@ process.parent.name:
 
     Sometimes called program name or similar.'
   example: ssh
+  exceptionable: true
   flat_name: process.parent.name
   ignore_above: 1024
   level: extended
@@ -5501,6 +3788,7 @@ process.parent.name:
 process.parent.pgid:
   dashed_name: process-parent-pgid
   description: Identifier of the group of processes the process belongs to.
+  exceptionable: true
   flat_name: process.parent.pgid
   format: string
   level: extended
@@ -5602,6 +3890,7 @@ process.parent.working_directory:
   dashed_name: process-parent-working-directory
   description: The working directory of the process.
   example: /home/alice
+  exceptionable: true
   flat_name: process.parent.working_directory
   ignore_above: 1024
   level: extended
@@ -5619,6 +3908,7 @@ process.pe.company:
   dashed_name: process-pe-company
   description: Internal company name of the file, provided at compile-time.
   example: Microsoft Corporation
+  exceptionable: true
   flat_name: process.pe.company
   ignore_above: 1024
   level: extended
@@ -5631,6 +3921,7 @@ process.pe.description:
   dashed_name: process-pe-description
   description: Internal description of the file, provided at compile-time.
   example: Paint
+  exceptionable: true
   flat_name: process.pe.description
   ignore_above: 1024
   level: extended
@@ -5643,6 +3934,7 @@ process.pe.file_version:
   dashed_name: process-pe-file-version
   description: Internal version of the file, provided at compile-time.
   example: 6.3.9600.17415
+  exceptionable: true
   flat_name: process.pe.file_version
   ignore_above: 1024
   level: extended
@@ -5655,6 +3947,7 @@ process.pe.original_file_name:
   dashed_name: process-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
   example: MSPAINT.EXE
+  exceptionable: true
   flat_name: process.pe.original_file_name
   ignore_above: 1024
   level: extended
@@ -5667,6 +3960,7 @@ process.pe.product:
   dashed_name: process-pe-product
   description: Internal product name of the file, provided at compile-time.
   example: "Microsoft\xAE Windows\xAE Operating System"
+  exceptionable: true
   flat_name: process.pe.product
   ignore_above: 1024
   level: extended
@@ -5678,6 +3972,7 @@ process.pe.product:
 process.pgid:
   dashed_name: process-pgid
   description: Identifier of the group of processes the process belongs to.
+  exceptionable: true
   flat_name: process.pgid
   format: string
   level: extended
@@ -6076,6 +4371,7 @@ process.working_directory:
   dashed_name: process-working-directory
   description: The working directory of the process.
   example: /home/alice
+  exceptionable: true
   flat_name: process.working_directory
   ignore_above: 1024
   level: extended
@@ -6193,6 +4489,7 @@ rule.uuid:
   description: A rule ID that is unique within the scope of a set or group of agents,
     observers, or other entities using the rule for detection of this event.
   example: 1100110011
+  exceptionable: true
   flat_name: rule.uuid
   ignore_above: 1024
   level: extended

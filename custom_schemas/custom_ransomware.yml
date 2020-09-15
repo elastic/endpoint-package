@@ -1,0 +1,70 @@
+---
+- name: Ransomware
+  title: Ransomware
+  group: 2
+  short: These fields contain information specific to ransomware alerts.
+  description: >
+    These fields contain information specific to ransomware alerts.
+  type: group
+  fields:
+    - name: feature
+      level: custom
+      type: keyword
+      description: Specific ransomware feature, e.g. MBR/Lua/Canaries.
+
+    - name: score
+      level: custom
+      type: double
+      description: Total score of all files ransomed.
+    
+    - name: version
+      level: custom
+      type: keyword
+      description: Ransomware detection version.
+    
+    - name: files
+      level: custom
+      type: object
+      description: Information about each file targeted by the ransomware. Expected to be an array.
+      normalize:
+        - array
+    
+    - name: files.operation
+      level: custom
+      type: keyword
+      description: Operation applied to file.
+    
+    - name: files.entropy
+      level: custom
+      type: double
+      description: TODO write description and check that type is indeed double
+
+    - name: files.metrics
+      level: custom
+      type: double
+      description: TODO idk what this is
+
+    - name: files.extension
+      level: custom
+      type: keyword
+      description: File extension
+
+    - name: files.previous_path
+      level: custom
+      type: keyword
+      description: File path before being ransomed
+
+    - name: files.path
+      level: custom
+      type: keyword
+      description: File path after being ransomed
+
+    - name: files.data
+      level: custom
+      type: binary
+      description: Combined header_string + data buffer field
+
+    - name: files.score
+      level: custom
+      type: double
+      description: Ransomware score for this particular file.

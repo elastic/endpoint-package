@@ -125,6 +125,79 @@
     ignore_above: 1024
     description: the version of this applied policy
     default_field: false
+- name: Ransomware
+  title: Ransomware
+  group: 2
+  description: These fields contain information specific to ransomware alerts.
+  type: group
+  fields:
+  - name: feature
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Specific ransomware feature, e.g. MBR/Lua/Canaries.
+    default_field: false
+  - name: files
+    level: custom
+    type: object
+    description: Information about each file targeted by the ransomware. Expected
+      to be an array.
+    default_field: false
+  - name: files.data
+    level: custom
+    type: binary
+    description: Combined header_string + data buffer field
+    default_field: false
+  - name: files.entropy
+    level: custom
+    type: double
+    description: TODO write description and check that type is indeed double
+    default_field: false
+  - name: files.extension
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: File extension
+    default_field: false
+  - name: files.metrics
+    level: custom
+    type: double
+    description: TODO idk what this is
+    default_field: false
+  - name: files.operation
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Operation applied to file.
+    default_field: false
+  - name: files.path
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: File path after being ransomed
+    default_field: false
+  - name: files.previous_path
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: File path before being ransomed
+    default_field: false
+  - name: files.score
+    level: custom
+    type: double
+    description: Ransomware score for this particular file.
+    default_field: false
+  - name: score
+    level: custom
+    type: double
+    description: Total score of all files ransomed.
+    default_field: false
+  - name: version
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: Ransomware detection version.
+    default_field: false
 - name: Target
   title: Target
   group: 2

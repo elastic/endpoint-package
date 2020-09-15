@@ -1,0 +1,554 @@
+---
+name: ransomware_event
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      "message": {}
+  data_stream:
+    fields: "*"
+  agent:
+    fields:
+      ephemeral_id: {}
+      id:
+        exceptionable: true
+      name: {}
+      type:
+        exceptionable: true
+      version:
+        exceptionable: true
+  dll:
+    fields:
+      name: {}
+      path: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+          sha512: {}
+      pe:
+        fields:
+          company: {}
+          description: {}
+          file_version: {}
+          original_file_name: {}
+          product: {}
+      Ext:
+        fields:
+          mapped_address: {}
+          mapped_size: {}
+          compile_time: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
+          malware_classification:
+            fields:
+              score: {}
+              threshold: {}
+              identifier: {}
+              version: {}
+              upx_packed: {}
+              features:
+                enabled: false
+                fields:
+                  data:
+                    fields:
+                      buffer: {}
+                      decompressed_size: {}
+                      encoding: {}
+  ecs:
+    fields:
+      version: {}
+  event:
+    fields:
+      action:
+        exceptionable: true
+      category:
+        exceptionable: true
+      created: {}
+      code:
+        exceptionable: true
+      dataset: {}
+      hash:
+        exceptionable: true
+      id: {}
+      ingested: {}
+      kind:
+        exceptionable: true
+      module:
+        exceptionable: true
+      outcome:
+        exceptionable: true
+      provider:
+        exceptionable: true
+      sequence: {}
+      severity: {}
+      type:
+        exceptionable: true
+  Endpoint:
+    fields:
+      policy:
+        fields:
+          applied:
+            fields:
+              id:
+                exceptionable: true
+              status: {}
+              version: {}
+              name: {}
+              artifacts:
+                fields: "*"
+  elastic:
+    fields:
+      agent:
+        fields:
+          id:
+            exceptionable: true
+  rule:
+    fields:
+      author: {}
+      category: {}
+      description: {}
+      id: {}
+      license: {}
+      name: {}
+      reference: {}
+      ruleset: {}
+      uuid:
+        exceptionable: true
+      version: {}
+  threat:
+    fields: "*"
+  host:
+    fields:
+      architecture:
+        exceptionable: true
+      domain:
+        exceptionable: true
+      hostname: {}
+      id:
+        exceptionable: true
+      ip: {}
+      mac: {}
+      name: {}
+      type:
+        exceptionable: true
+      uptime: {}
+      geo:
+        fields: "*"
+      os:
+        fields:
+          family:
+            exceptionable: true
+          full:
+            exceptionable: true
+          kernel:
+            exceptionable: true
+          name:
+            exceptionable: true
+          platform:
+            exceptionable: true
+          version:
+            exceptionable: true
+          Ext:
+            fields:
+              variant:
+                exceptionable: true
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          hash: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+          group:
+            fields:
+              Ext:
+                fields:
+                  real:
+                    fields:
+                      id: {}
+                      name: {}
+              domain: {}
+              id: {}
+              name: {}
+  file:
+    fields:
+      accessed: {}
+      attributes:
+        exceptionable: true
+      created: {}
+      ctime: {}
+      device:
+        exceptionable: true
+      directory:
+        exceptionable: true
+      drive_letter:
+        exceptionable: true
+      extension:
+        exceptionable: true
+      gid:
+        exceptionable: true
+      group:
+        exceptionable: true
+      hash:
+        fields:
+          md5:
+            exceptionable: true
+          sha1:
+            exceptionable: true
+          sha256:
+            exceptionable: true
+          sha512:
+            exceptionable: true
+      inode:
+        exceptionable: true
+      mime_type:
+        exceptionable: true
+      mode:
+        exceptionable: true
+      mtime: {}
+      name:
+        exceptionable: true
+      owner:
+        exceptionable: true
+      path:
+        exceptionable: true
+      pe:
+        fields:
+          company:
+            exceptionable: true
+          description:
+            exceptionable: true
+          file_version:
+            exceptionable: true
+          original_file_name:
+            exceptionable: true
+          product:
+            exceptionable: true
+      size:
+        exceptionable: true
+      target_path:
+        exceptionable: true
+      type:
+        exceptionable: true
+      uid:
+        exceptionable: true
+      Ext:
+        fields:
+          entry_modified: {}
+          temp_file_path: {}
+          quarantine_result: {}
+          quarantine_path: {}
+          windows:
+            fields:
+              zone_identifier: {}
+          original:
+            fields:
+              name: {}
+              path: {}
+              mode: {}
+              uid: {}
+              owner: {}
+              gid: {}
+              group: {}
+          code_signature:
+            fields:
+              exists: {}
+              subject_name:
+                exceptionable: true
+              valid:
+                exceptionable: true
+              trusted:
+                exceptionable: true
+              status:
+                exceptionable: true
+          malware_classification:
+            fields:
+              score: {}
+              threshold: {}
+              identifier: {}
+              version: {}
+              upx_packed: {}
+              features:
+                enabled: false
+                fields:
+                  data:
+                    fields:
+                      buffer: {}
+                      decompressed_size: {}
+                      encoding: {}
+          macro:
+            fields:
+              errors:
+                fields:
+                  count: {}
+                  error_type: {}
+              collection:
+                fields:
+                  hash:
+                    fields:
+                      md5: {}
+                      sha1: {}
+                      sha256: {}
+                      sha512: {}
+              project_file:
+                fields:
+                  hash:
+                    fields:
+                      md5: {}
+                      sha1: {}
+                      sha256: {}
+                      sha512: {}
+              stream:
+                fields:
+                  name: {}
+                  raw_code: {}
+                  raw_code_size: {}
+                  hash:
+                    fields:
+                      md5: {}
+                      sha1: {}
+                      sha256: {}
+                      sha512: {}
+              code_page: {}
+              file_extension: {}
+  group:
+    fields:
+      domain:
+        exceptionable: true
+      id:
+        exceptionable: true
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id:
+                exceptionable: true
+              name: {}
+  process:
+    fields:
+      args: {}
+      args_count: {}
+      command_line:
+        exceptionable: true
+      entity_id: {}
+      executable:
+        exceptionable: true
+      exit_code: {}
+      hash:
+        fields:
+          md5:
+            exceptionable: true
+          sha1:
+            exceptionable: true
+          sha256:
+            exceptionable: true
+          sha512:
+            exceptionable: true
+      name:
+        exceptionable: true
+      pe:
+        fields:
+          company:
+            exceptionable: true
+          description:
+            exceptionable: true
+          file_version:
+            exceptionable: true
+          original_file_name:
+            exceptionable: true
+          product:
+            exceptionable: true
+      pgid:
+        exceptionable: true
+      pid: {}
+      ppid: {}
+      start: {}
+      thread:
+        fields:
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: false
+                fields:
+                  module_path: {}
+                  instruction_pointer: {}
+                  memory_section:
+                    fields:
+                      address: {}
+                      size: {}
+                      protection: {}
+                  symbol_info: {}
+                  rva: {}
+              start: {}
+              start_address: {}
+              start_address_module: {}
+              service: {}
+              token:
+                fields:
+                  domain: {}
+                  elevation: {}
+                  elevation_type: {}
+                  impersonation_level: {}
+                  integrity_level: {}
+                  integrity_level_name: {}
+                  is_appcontainer: {}
+                  privileges:
+                    fields:
+                      name: {}
+                      enabled: {}
+                      description: {}
+                  sid: {}
+                  type: {}
+                  user: {}
+              uptime: {}
+      title: {}
+      uptime: {}
+      working_directory:
+        exceptionable: true
+      Ext:
+        fields:
+          ancestry: {}
+          authentication_id: {}
+          services:
+            exceptionable: true
+          session: {}
+          user:
+            exceptionable: true
+          code_signature:
+            fields:
+              exists: {}
+              subject_name:
+                exceptionable: true
+              valid:
+                exceptionable: true
+              trusted:
+                exceptionable: true
+              status:
+                exceptionable: true
+          malware_classification:
+            fields:
+              score: {}
+              threshold: {}
+              identifier: {}
+              version: {}
+              upx_packed: {}
+              features:
+                enabled: false
+                fields:
+                  data:
+                    fields:
+                      buffer: {}
+                      decompressed_size: {}
+                      encoding: {}
+          token:
+            fields:
+              domain: {}
+              elevation: {}
+              elevation_type: {}
+              impersonation_level: {}
+              integrity_level: {}
+              integrity_level_name: {}
+              is_appcontainer: {}
+              privileges:
+                fields:
+                  name: {}
+                  enabled: {}
+                  description: {}
+              sid: {}
+              type: {}
+              user: {}
+      parent:
+        fields:
+          args: {}
+          args_count: {}
+          command_line:
+            exceptionable: true
+          entity_id: {}
+          executable:
+            exceptionable: true
+          exit_code: {}
+          hash:
+            fields:
+              md5:
+                exceptionable: true
+              sha1:
+                exceptionable: true
+              sha256:
+                exceptionable: true
+              sha512:
+                exceptionable: true
+          name:
+            exceptionable: true
+          pgid:
+            exceptionable: true
+          pid: {}
+          ppid: {}
+          start: {}
+          thread:
+            fields:
+              id: {}
+              name: {}
+          title: {}
+          uptime: {}
+          working_directory:
+            exceptionable: true
+          Ext:
+            fields:
+              real:
+                fields:
+                  pid: {}
+              code_signature:
+                fields:
+                  exists: {}
+                  subject_name:
+                    exceptionable: true
+                  valid:
+                    exceptionable: true
+                  trusted:
+                    exceptionable: true
+                  status:
+                    exceptionable: true
+  user:
+    fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
+      id: {}
+      name: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  Ransomware:
+    fields: "*"
