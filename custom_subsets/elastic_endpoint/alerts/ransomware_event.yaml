@@ -46,21 +46,6 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
-          malware_classification:
-            fields:
-              score: {}
-              threshold: {}
-              identifier: {}
-              version: {}
-              upx_packed: {}
-              features:
-                enabled: false
-                fields:
-                  data:
-                    fields:
-                      buffer: {}
-                      decompressed_size: {}
-                      encoding: {}
   ecs:
     fields:
       version: {}
@@ -184,147 +169,6 @@ fields:
               domain: {}
               id: {}
               name: {}
-  file:
-    fields:
-      accessed: {}
-      attributes:
-        exceptionable: true
-      created: {}
-      ctime: {}
-      device:
-        exceptionable: true
-      directory:
-        exceptionable: true
-      drive_letter:
-        exceptionable: true
-      extension:
-        exceptionable: true
-      gid:
-        exceptionable: true
-      group:
-        exceptionable: true
-      hash:
-        fields:
-          md5:
-            exceptionable: true
-          sha1:
-            exceptionable: true
-          sha256:
-            exceptionable: true
-          sha512:
-            exceptionable: true
-      inode:
-        exceptionable: true
-      mime_type:
-        exceptionable: true
-      mode:
-        exceptionable: true
-      mtime: {}
-      name:
-        exceptionable: true
-      owner:
-        exceptionable: true
-      path:
-        exceptionable: true
-      pe:
-        fields:
-          company:
-            exceptionable: true
-          description:
-            exceptionable: true
-          file_version:
-            exceptionable: true
-          original_file_name:
-            exceptionable: true
-          product:
-            exceptionable: true
-      size:
-        exceptionable: true
-      target_path:
-        exceptionable: true
-      type:
-        exceptionable: true
-      uid:
-        exceptionable: true
-      Ext:
-        fields:
-          entry_modified: {}
-          temp_file_path: {}
-          quarantine_result: {}
-          quarantine_path: {}
-          windows:
-            fields:
-              zone_identifier: {}
-          original:
-            fields:
-              name: {}
-              path: {}
-              mode: {}
-              uid: {}
-              owner: {}
-              gid: {}
-              group: {}
-          code_signature:
-            fields:
-              exists: {}
-              subject_name:
-                exceptionable: true
-              valid:
-                exceptionable: true
-              trusted:
-                exceptionable: true
-              status:
-                exceptionable: true
-          malware_classification:
-            fields:
-              score: {}
-              threshold: {}
-              identifier: {}
-              version: {}
-              upx_packed: {}
-              features:
-                enabled: false
-                fields:
-                  data:
-                    fields:
-                      buffer: {}
-                      decompressed_size: {}
-                      encoding: {}
-          macro:
-            fields:
-              errors:
-                fields:
-                  count: {}
-                  error_type: {}
-              collection:
-                fields:
-                  hash:
-                    fields:
-                      md5: {}
-                      sha1: {}
-                      sha256: {}
-                      sha512: {}
-              project_file:
-                fields:
-                  hash:
-                    fields:
-                      md5: {}
-                      sha1: {}
-                      sha256: {}
-                      sha512: {}
-              stream:
-                fields:
-                  name: {}
-                  raw_code: {}
-                  raw_code_size: {}
-                  hash:
-                    fields:
-                      md5: {}
-                      sha1: {}
-                      sha256: {}
-                      sha512: {}
-              code_page: {}
-              file_extension: {}
   group:
     fields:
       domain:
@@ -442,21 +286,6 @@ fields:
                 exceptionable: true
               status:
                 exceptionable: true
-          malware_classification:
-            fields:
-              score: {}
-              threshold: {}
-              identifier: {}
-              version: {}
-              upx_packed: {}
-              features:
-                enabled: false
-                fields:
-                  data:
-                    fields:
-                      buffer: {}
-                      decompressed_size: {}
-                      encoding: {}
           token:
             fields:
               domain: {}
