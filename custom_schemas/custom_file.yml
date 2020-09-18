@@ -13,7 +13,7 @@
   fields:
     - name: path
       multi_fields:
-        - name: lower
+        - name: caseless
           type: keyword
           normalizer: lowercase
         - name: text
@@ -21,7 +21,7 @@
 
     - name: target_path
       multi_fields:
-        - name: lower
+        - name: caseless
           type: keyword
           normalizer: lowercase
         - name: text
