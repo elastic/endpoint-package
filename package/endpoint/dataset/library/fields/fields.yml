@@ -370,8 +370,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
-    - name: lower
+    - name: caseless
       type: keyword
+      normalizer: lowercase
       default_field: false
     - name: text
       type: text
@@ -515,8 +516,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
-    - name: lower
+    - name: caseless
       type: keyword
+      normalizer: lowercase
       default_field: false
     - name: text
       type: text
@@ -535,8 +537,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
-    - name: lower
+    - name: caseless
       type: keyword
+      normalizer: lowercase
       default_field: false
     - name: text
       type: text
@@ -597,8 +600,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
-    - name: lower
+    - name: caseless
       type: keyword
+      normalizer: lowercase
       default_field: false
     - name: text
       type: text
@@ -611,8 +615,9 @@
     type: keyword
     ignore_above: 1024
     multi_fields:
-    - name: lower
+    - name: caseless
       type: keyword
+      normalizer: lowercase
       default_field: false
     - name: text
       type: text

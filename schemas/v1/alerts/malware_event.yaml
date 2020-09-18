@@ -968,9 +968,9 @@ Target.process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.command_line.lower
+  - flat_name: Target.process.command_line.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.command_line.text
@@ -1010,9 +1010,9 @@ Target.process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.executable.lower
+  - flat_name: Target.process.executable.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.executable.text
@@ -1092,9 +1092,9 @@ Target.process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.name.lower
+  - flat_name: Target.process.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.name.text
@@ -1271,9 +1271,9 @@ Target.process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.parent.command_line.lower
+  - flat_name: Target.process.parent.command_line.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.parent.command_line.text
@@ -1313,9 +1313,9 @@ Target.process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.parent.executable.lower
+  - flat_name: Target.process.parent.executable.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.parent.executable.text
@@ -1395,9 +1395,9 @@ Target.process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.parent.name.lower
+  - flat_name: Target.process.parent.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.parent.name.text
@@ -1517,9 +1517,9 @@ Target.process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.parent.working_directory.lower
+  - flat_name: Target.process.parent.working_directory.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.parent.working_directory.text
@@ -2012,9 +2012,9 @@ Target.process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: Target.process.working_directory.lower
+  - flat_name: Target.process.working_directory.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: Target.process.working_directory.text
@@ -3886,9 +3886,9 @@ file.path:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: file.path.lower
+  - flat_name: file.path.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: file.path.text
@@ -3978,9 +3978,9 @@ file.target_path:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: file.target_path.lower
+  - flat_name: file.target_path.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: file.target_path.text
@@ -4315,9 +4315,9 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.full.lower
+  - flat_name: host.os.full.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.full.text
@@ -4349,9 +4349,9 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.name.lower
+  - flat_name: host.os.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.name.text
@@ -5055,9 +5055,9 @@ process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.command_line.lower
+  - flat_name: process.command_line.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.command_line.text
@@ -5095,9 +5095,9 @@ process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.executable.lower
+  - flat_name: process.executable.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.executable.text
@@ -5175,9 +5175,9 @@ process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.name.lower
+  - flat_name: process.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.name.text
@@ -5341,9 +5341,9 @@ process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.parent.command_line.lower
+  - flat_name: process.parent.command_line.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.parent.command_line.text
@@ -5381,9 +5381,9 @@ process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.parent.executable.lower
+  - flat_name: process.parent.executable.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.parent.executable.text
@@ -5461,9 +5461,9 @@ process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.parent.name.lower
+  - flat_name: process.parent.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.parent.name.text
@@ -5574,9 +5574,9 @@ process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.parent.working_directory.lower
+  - flat_name: process.parent.working_directory.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.parent.working_directory.text
@@ -6054,9 +6054,9 @@ process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.working_directory.lower
+  - flat_name: process.working_directory.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.working_directory.text

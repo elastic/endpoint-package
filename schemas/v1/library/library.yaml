@@ -750,9 +750,9 @@ file.path:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: file.path.lower
+  - flat_name: file.path.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: file.path.text
@@ -974,9 +974,9 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.full.lower
+  - flat_name: host.os.full.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.full.text
@@ -1008,9 +1008,9 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.name.lower
+  - flat_name: host.os.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.name.text
@@ -1109,9 +1109,9 @@ process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.executable.lower
+  - flat_name: process.executable.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.executable.text
@@ -1132,9 +1132,9 @@ process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: process.name.lower
+  - flat_name: process.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: process.name.text

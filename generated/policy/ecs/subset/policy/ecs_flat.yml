@@ -1040,9 +1040,9 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.full.lower
+  - flat_name: host.os.full.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.full.text
@@ -1074,9 +1074,9 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.os.name.lower
+  - flat_name: host.os.name.caseless
     ignore_above: 1024
-    name: lower
+    name: caseless
     normalizer: lowercase
     type: keyword
   - flat_name: host.os.name.text

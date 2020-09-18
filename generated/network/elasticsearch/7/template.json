@@ -282,7 +282,8 @@
               },
               "full": {
                 "fields": {
-                  "lower": {
+                  "caseless": {
+                    "normalizer": "lowercase",
                     "type": "keyword"
                   },
                   "text": {
@@ -299,7 +300,8 @@
               },
               "name": {
                 "fields": {
-                  "lower": {
+                  "caseless": {
+                    "normalizer": "lowercase",
                     "type": "keyword"
                   },
                   "text": {
@@ -441,7 +443,8 @@
           },
           "executable": {
             "fields": {
-              "lower": {
+              "caseless": {
+                "normalizer": "lowercase",
                 "type": "keyword"
               },
               "text": {
@@ -454,7 +457,8 @@
           },
           "name": {
             "fields": {
-              "lower": {
+              "caseless": {
+                "normalizer": "lowercase",
                 "type": "keyword"
               },
               "text": {
