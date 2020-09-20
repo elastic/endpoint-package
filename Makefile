@@ -119,7 +119,7 @@ clean:
 
 
 $(REAL_ECS_DIR):
-	git clone --branch mmain-fix-short-desc https://github.com/jonathan-buttner/ecs.git $(REAL_ECS_DIR)
+	git clone --branch lowercase-normalizer https://github.com/madirey/ecs.git $(REAL_ECS_DIR)
 
 
 .PHONY: setup-tools
