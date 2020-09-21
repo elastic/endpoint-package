@@ -4,7 +4,7 @@
   ],
   "mappings": {
     "_meta": {
-      "version": "1.5.0"
+      "version": "1.6.0"
     },
     "date_detection": false,
     "dynamic_templates": [
@@ -626,8 +626,7 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   }
-                },
-                "type": "object"
+                }
               },
               "pe": {
                 "properties": {
@@ -2106,8 +2105,7 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               }
-            },
-            "type": "object"
+            }
           },
           "pe": {
             "properties": {

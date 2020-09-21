@@ -221,8 +221,7 @@ Endpoint.policy.applied.configurations.events.status:
   level: custom
   name: policy.applied.configurations.events.status
   normalize: []
-  short: the overall status of event collection, this is correlated to the status
-    of concerned actions  but not a simple sum of the actions
+  short: the overall status of event collection
   type: keyword
 Endpoint.policy.applied.configurations.logging:
   dashed_name: Endpoint-policy-applied-configurations-logging
@@ -252,8 +251,7 @@ Endpoint.policy.applied.configurations.logging.status:
   level: custom
   name: policy.applied.configurations.logging.status
   normalize: []
-  short: the overall status of logging, this is correlated to the status of concerned
-    actions but  not a simple sum of the actions
+  short: the overall status of logging
   type: keyword
 Endpoint.policy.applied.configurations.malware:
   dashed_name: Endpoint-policy-applied-configurations-malware
@@ -283,8 +281,7 @@ Endpoint.policy.applied.configurations.malware.status:
   level: custom
   name: policy.applied.configurations.malware.status
   normalize: []
-  short: the overall status of malware, this is correlated to the status of concerned
-    actions  but not a simple sum of the actions
+  short: the overall status of malware
   type: keyword
 Endpoint.policy.applied.configurations.streaming:
   dashed_name: Endpoint-policy-applied-configurations-streaming
@@ -314,8 +311,7 @@ Endpoint.policy.applied.configurations.streaming.status:
   level: custom
   name: policy.applied.configurations.streaming.status
   normalize: []
-  short: the overall status of data streaming, this is correlated to the status of
-    concerned actions  but not a simple sum of the actions
+  short: overall status of data streaming
   type: keyword
 Endpoint.policy.applied.id:
   dashed_name: Endpoint-policy-applied-id
@@ -384,7 +380,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -1017,8 +1013,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family

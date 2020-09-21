@@ -28,6 +28,7 @@
       type: keyword
       description: >
         Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      short: Base address of the memory region containing `instruction_pointer`.
 
     - name: memory_section.size
       level: custom
@@ -52,3 +53,4 @@
       type: keyword
       description: >
         The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      short: The relative virtual address of `instruction_pointer`.

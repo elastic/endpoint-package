@@ -34,7 +34,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -834,8 +834,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family

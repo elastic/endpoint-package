@@ -34,7 +34,7 @@ agent.type:
   dashed_name: agent-type
   description: 'Type of the agent.
 
-    The agent type stays always the same and should be given by the agent used. In
+    The agent type always stays the same and should be given by the agent used. In
     case of Filebeat the agent would always be Filebeat also if two Filebeat instances
     are run on the same machine.'
   example: filebeat
@@ -725,8 +725,7 @@ host.os.Ext.variant:
   normalize: []
   original_fieldset: os
   short: A string value or phrase that further aid to classify or qualify the operating
-    system (OS).  For example the distribution for a Linux OS will be entered in this
-    field.
+    system (OS).
   type: keyword
 host.os.family:
   dashed_name: host-os-family
@@ -970,7 +969,8 @@ registry.data.strings:
   ignore_above: 1024
   level: core
   name: data.strings
-  normalize: []
+  normalize:
+  - array
   short: List of strings representing what was written to the registry.
   type: keyword
 registry.hive:
@@ -1070,13 +1070,13 @@ user.domain:
   type: keyword
 user.id:
   dashed_name: user-id
-  description: Unique identifiers of the user.
+  description: Unique identifier of the user.
   flat_name: user.id
   ignore_above: 1024
   level: core
   name: id
   normalize: []
-  short: Unique identifiers of the user.
+  short: Unique identifier of the user.
   type: keyword
 user.name:
   dashed_name: user-name

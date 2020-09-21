@@ -53,7 +53,7 @@
     ignore_above: 1024
     description: 'Type of the agent.
 
-      The agent type stays always the same and should be given by the agent used.
+      The agent type always stays the same and should be given by the agent used.
       In case of Filebeat the agent would always be Filebeat also if two Filebeat
       instances are run on the same machine.'
     example: filebeat
@@ -585,11 +585,6 @@
 
       Sometimes called program name or similar.'
     example: ssh
-  - name: parent
-    level: custom
-    type: object
-    description: Extended "process.parent" field set.
-    default_field: false
   - name: parent.Ext
     level: custom
     type: object
@@ -598,14 +593,14 @@
   - name: parent.Ext.real
     level: custom
     type: object
-    description: The field set containing parent process info in case of any ppid
-      spoofing.
+    description: The field set containing process info in case of any pid spoofing.
+      This is mainly useful for process.parent.
     default_field: false
   - name: parent.Ext.real.pid
     level: custom
     type: long
-    description: The ppid of the process that actually spawned the current process,
-      in case of ppid spoofing.
+    description: For process.parent this will be the ppid of the process that actually
+      spawned the current process.
     default_field: false
   - name: parent.entity_id
     level: extended
@@ -721,7 +716,7 @@
     level: core
     type: keyword
     ignore_above: 1024
-    description: Unique identifiers of the user.
+    description: Unique identifier of the user.
   - name: name
     level: core
     type: keyword

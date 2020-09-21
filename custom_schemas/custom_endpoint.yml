@@ -91,6 +91,7 @@
       description: >
         the overall status of event collection, this is correlated to the status of concerned actions 
         but not a simple sum of the actions
+      short: the overall status of event collection
 
     - name: policy.applied.configurations.logging
       level: custom
@@ -108,6 +109,7 @@
       description: >
         the overall status of logging, this is correlated to the status of concerned actions but 
         not a simple sum of the actions
+      short: the overall status of logging
 
     - name: policy.applied.configurations.malware
       level: custom
@@ -125,6 +127,7 @@
       description: >
         the overall status of malware, this is correlated to the status of concerned actions 
         but not a simple sum of the actions
+      short: the overall status of malware
 
     - name: policy.applied.configurations.streaming
       level: custom
@@ -142,6 +145,7 @@
       description: >
         the overall status of data streaming, this is correlated to the status of concerned actions 
         but not a simple sum of the actions
+      short: overall status of data streaming
 
     - name: policy.applied.artifacts
       level: custom
@@ -246,6 +250,7 @@
         This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
         The values field includes 20 buckets (each bucket is 5%) representing the cpu usage
         The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket
+      short: CPU histogram
 
     - name: metrics.memory
       level: custom
