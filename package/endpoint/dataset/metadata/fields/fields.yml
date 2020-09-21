@@ -380,8 +380,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Operating system name, including the version or code name.
     example: Mac OS Mojave
   - name: os.kernel
@@ -401,8 +401,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Operating system name, without the version.
     example: Mac OS X
   - name: os.platform

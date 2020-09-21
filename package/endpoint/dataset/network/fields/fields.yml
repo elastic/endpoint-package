@@ -569,8 +569,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Operating system name, including the version or code name.
     example: Mac OS Mojave
   - name: os.kernel
@@ -590,8 +590,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Operating system name, without the version.
     example: Mac OS X
   - name: os.platform
@@ -626,8 +626,8 @@
     multi_fields:
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: The full HTTP request body.
     example: Hello world
   - name: request.bytes
@@ -660,8 +660,8 @@
     multi_fields:
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: The full HTTP response body.
     example: Hello world
   - name: response.bytes
@@ -806,8 +806,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Absolute path to the process executable.
     example: /usr/bin/ssh
   - name: name
@@ -821,8 +821,8 @@
       normalizer: lowercase
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: 'Process name.
 
       Sometimes called program name or similar.'
@@ -1012,7 +1012,7 @@
     multi_fields:
     - name: text
       type: text
-      default_field: false
       norms: false
+      default_field: false
     description: Short name or login of the user.
     example: albert
