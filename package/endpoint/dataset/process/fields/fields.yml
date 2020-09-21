@@ -354,12 +354,12 @@
     multi_fields:
     - name: caseless
       type: keyword
-      normalizer: lowercase
       default_field: false
+      normalizer: lowercase
     - name: text
       type: text
-      norms: false
       default_field: false
+      norms: false
     description: Operating system name, including the version or code name.
     example: Mac OS Mojave
   - name: os.kernel
@@ -375,12 +375,12 @@
     multi_fields:
     - name: caseless
       type: keyword
-      normalizer: lowercase
       default_field: false
+      normalizer: lowercase
     - name: text
       type: text
-      norms: false
       default_field: false
+      norms: false
     description: Operating system name, without the version.
     example: Mac OS X
   - name: os.platform
@@ -536,12 +536,12 @@
     multi_fields:
     - name: caseless
       type: keyword
-      normalizer: lowercase
       default_field: false
+      normalizer: lowercase
     - name: text
       type: text
-      norms: false
       default_field: false
+      norms: false
     description: Absolute path to the process executable.
     example: /usr/bin/ssh
   - name: exit_code
@@ -575,12 +575,12 @@
     multi_fields:
     - name: caseless
       type: keyword
-      normalizer: lowercase
       default_field: false
+      normalizer: lowercase
     - name: text
       type: text
-      norms: false
       default_field: false
+      norms: false
     description: 'Process name.
 
       Sometimes called program name or similar.'
@@ -729,7 +729,7 @@
     multi_fields:
     - name: text
       type: text
-      norms: false
       default_field: false
+      norms: false
     description: Short name or login of the user.
     example: albert
