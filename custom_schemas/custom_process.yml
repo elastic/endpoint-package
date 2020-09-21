@@ -48,38 +48,6 @@
         - name: text
           type: text
 
-    - name: parent.command_line
-      multi_fields:
-        - name: caseless
-          type: keyword
-          normalizer: lowercase
-        - name: text
-          type: text
-
-    - name: parent.executable
-      multi_fields:
-        - name: caseless
-          type: keyword
-          normalizer: lowercase
-        - name: text
-          type: text
-
-    - name: parent.name
-      multi_fields:
-        - name: caseless
-          type: keyword
-          normalizer: lowercase
-        - name: text
-          type: text
-
-    - name: parent.working_directory
-      multi_fields:
-        - name: caseless
-          type: keyword
-          normalizer: lowercase
-        - name: text
-          type: text
-
     - name: Ext
       level: custom
       type: object
