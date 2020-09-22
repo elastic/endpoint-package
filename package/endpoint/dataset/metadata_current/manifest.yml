@@ -1,0 +1,5 @@
+title: Endpoint Metadata
+type: metrics
+elasticsearch:
+  index_template.mappings:
+    dynamic: false
