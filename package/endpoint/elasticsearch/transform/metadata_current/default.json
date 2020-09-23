@@ -3,7 +3,7 @@
         "index": "metrics-endpoint.metadata-default*"
     },
     "dest": {
-        "index": "metrics-endpoint.metadata_current-default"
+        "index": "metrics-endpoint.metadata_current_default"
     },
     "pivot": {
         "group_by": {

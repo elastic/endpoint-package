@@ -1,6 +1,6 @@
 {
     "index_patterns": [
-        "metrics-endpoint.metadata_current-*"
+        "metrics-endpoint.metadata_current_*"
     ],
     "priority": 200,
     "template": {
