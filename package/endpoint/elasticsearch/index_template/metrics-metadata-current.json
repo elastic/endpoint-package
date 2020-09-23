@@ -237,7 +237,8 @@
         "settings": {
             "index": {
                 "lifecycle": {
-                    "name": "metrics-default"
+                    "name": "metrics",
+                    "rollover_alias": "metrics-endpoint.metadata_current"
                 },
                 "codec": "best_compression",
                 "refresh_interval": "5s",
