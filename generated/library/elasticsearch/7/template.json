@@ -181,6 +181,7 @@
           "path": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -283,6 +284,7 @@
               "full": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -301,6 +303,7 @@
               "name": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -346,6 +349,7 @@
           "executable": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -360,6 +364,7 @@
           "name": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },

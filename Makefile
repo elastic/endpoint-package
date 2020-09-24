@@ -119,7 +119,7 @@ clean:
 
 
 $(REAL_ECS_DIR):
-	git clone --branch case-insensitive-matches https://github.com/madirey/ecs.git $(REAL_ECS_DIR)
+	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-tools
 setup-tools:

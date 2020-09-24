@@ -577,6 +577,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -609,6 +610,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -656,6 +658,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -760,6 +763,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -792,6 +796,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -839,6 +844,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -914,6 +920,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -1192,6 +1199,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2201,6 +2209,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2259,6 +2268,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2465,6 +2475,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2486,6 +2497,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2883,6 +2895,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2916,6 +2929,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -2960,6 +2974,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -3064,6 +3079,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -3096,6 +3112,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -3143,6 +3160,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -3218,6 +3236,7 @@
     - name: caseless
       type: keyword
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false
@@ -3490,6 +3509,7 @@
       type: keyword
       default_field: false
       normalizer: lowercase
+      ignore_above: 1024
     - name: text
       type: text
       norms: false

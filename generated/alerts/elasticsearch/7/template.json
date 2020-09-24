@@ -397,6 +397,7 @@
               "command_line": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -415,6 +416,7 @@
               "executable": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -452,6 +454,7 @@
               "name": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -510,6 +513,7 @@
                   "command_line": {
                     "fields": {
                       "caseless": {
+                        "ignore_above": 1024,
                         "normalizer": "lowercase",
                         "type": "keyword"
                       },
@@ -528,6 +532,7 @@
                   "executable": {
                     "fields": {
                       "caseless": {
+                        "ignore_above": 1024,
                         "normalizer": "lowercase",
                         "type": "keyword"
                       },
@@ -565,6 +570,7 @@
                   "name": {
                     "fields": {
                       "caseless": {
+                        "ignore_above": 1024,
                         "normalizer": "lowercase",
                         "type": "keyword"
                       },
@@ -615,6 +621,7 @@
                   "working_directory": {
                     "fields": {
                       "caseless": {
+                        "ignore_above": 1024,
                         "normalizer": "lowercase",
                         "type": "keyword"
                       },
@@ -808,6 +815,7 @@
               "working_directory": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -1396,6 +1404,7 @@
           "path": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -1437,6 +1446,7 @@
           "target_path": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -1574,6 +1584,7 @@
               "full": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -1592,6 +1603,7 @@
               "name": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -1876,6 +1888,7 @@
           "command_line": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -1894,6 +1907,7 @@
           "executable": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -1931,6 +1945,7 @@
           "name": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
@@ -1989,6 +2004,7 @@
               "command_line": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -2007,6 +2023,7 @@
               "executable": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -2044,6 +2061,7 @@
               "name": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -2094,6 +2112,7 @@
               "working_directory": {
                 "fields": {
                   "caseless": {
+                    "ignore_above": 1024,
                     "normalizer": "lowercase",
                     "type": "keyword"
                   },
@@ -2287,6 +2306,7 @@
           "working_directory": {
             "fields": {
               "caseless": {
+                "ignore_above": 1024,
                 "normalizer": "lowercase",
                 "type": "keyword"
               },
