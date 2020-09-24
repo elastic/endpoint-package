@@ -3,7 +3,7 @@
 The Endpoint package handles installing mapping templates, ILM policies, ingest pipelines, and other functionality
 that should be done prior to the Endpoint streaming data to ES and using the Endpoint app in Kibana.
 
-The Endpoint package is located [locally here](./package/endpoint) and [remotely here](https://github.com/elastic/package-storage/tree/master/packages/endpoint)
+The Endpoint package is located [locally here](./package/endpoint) and [remotely here](https://github.com/elastic/package-storage/tree/production/packages/endpoint)
 
 To update the endpoint package clone this repo and make changes as needed
 
