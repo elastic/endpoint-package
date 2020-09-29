@@ -40,10 +40,10 @@ processors:
   - script:
       ignore_failure: true
       source: >-
-        Map map = ["a": "x", "b": "y", "c": "z"];
+        Map nameMap = ["1": "A", "2": "NS", "3": "MD"];
         if (ctx.dns.question.Ext.type == '1') {
           ctx.dns.question.type = 'A'
-        } else if (ctx.dns.question.)
+        }
 
 # const (
 # 	TypeNone       uint16 = 0
