@@ -117,3 +117,40 @@ processors:
 # 	TypeURI        uint16 = 256
 # 	TypeCAA        uint16 = 257
 # 	TypeAVC        uint16 = 258
+
+# POST _ingest/pipeline/_simulate
+# {
+#   "pipeline": {
+#     "description" : "...",
+#     "processors": [
+#       {
+#         "grok": {
+#           "field": "message",
+#           "pattern_definitions": {
+#             "DOMAIN_NAME": "[^,]+"
+#           }, 
+#           "patterns": ["^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"]
+#         }
+#       },
+#       {
+#         "script": {
+#           "source": """
+#             if (ctx.dns.question.Ext.type == '28') {
+#               ctx.dns.question.type = 'AAAA'
+#             }
+#           """
+#         }
+#       }
+#     ]
+#   },
+#   "docs":[
+#     {
+#       "_source": {
+#         "message": "DNS query is completed for the name v10.events.data.microsoft.com, type 29, query options 2251800887582720 with status 0 Results type:  5 global.asimov.events.data.trafficmanager.net;type:  5 skypedataprdcolweu00.cloudapp.net;::ffff:52.114.75.149; ",
+#         "test": {
+#           "blah": "28"
+#         }
+#       }
+#     }
+#   ]
+# }
