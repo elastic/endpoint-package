@@ -39,6 +39,7 @@ processors:
         - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"
   - script:
       ignore_failure: true
+      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext?.type != null"
       source: >-
         Map nameMap = ["1": "A", "2": "NS", "3": "MD"];
         if (ctx.dns.question.Ext.type == '1') {
