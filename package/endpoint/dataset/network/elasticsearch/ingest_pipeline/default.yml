@@ -1,0 +1,119 @@
+---
+description: Pipeline for network events
+processors:
+  - set:
+      field: "event.ingested"
+      value: "{{ _ingest.timestamp }}"
+      ignore_failure: true
+  - geoip:
+      field: "source.ip"
+      target_field: "source.geo"
+      properties:
+        - continent_name
+        - country_name
+        - country_iso_code
+        - region_iso_code
+        - region_name
+        - city_name
+        - location
+      ignore_missing: true
+  - geoip:
+      field: "destination.ip"
+      target_field: "destination.geo"
+      properties:
+        - continent_name
+        - country_name
+        - country_iso_code
+        - region_iso_code
+        - region_name
+        - city_name
+        - location
+      ignore_missing: true
+  - grok:
+      if: "ctx.network.protocol == 'dns'"
+      ignore_failure: true
+      field: "message"
+      pattern_definitions:
+        DOMAIN_NAME: "[^,]+"
+      patterns:
+        - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"
+  - script:
+      ignore_failure: true
+      source: >-
+        Map map = ["a": "x", "b": "y", "c": "z"];
+        if (ctx.dns.question.Ext.type == '1') {
+          ctx.dns.question.type = 'A'
+        } else if (ctx.dns.question.)
+
+# const (
+# 	TypeNone       uint16 = 0
+# 	TypeA          uint16 = 1
+# 	TypeNS         uint16 = 2
+# 	TypeMD         uint16 = 3
+# 	TypeMF         uint16 = 4
+# 	TypeCNAME      uint16 = 5
+# 	TypeSOA        uint16 = 6
+# 	TypeMB         uint16 = 7
+# 	TypeMG         uint16 = 8
+# 	TypeMR         uint16 = 9
+# 	TypeNULL       uint16 = 10
+# 	TypePTR        uint16 = 12
+# 	TypeHINFO      uint16 = 13
+# 	TypeMINFO      uint16 = 14
+# 	TypeMX         uint16 = 15
+# 	TypeTXT        uint16 = 16
+# 	TypeRP         uint16 = 17
+# 	TypeAFSDB      uint16 = 18
+# 	TypeX25        uint16 = 19
+# 	TypeISDN       uint16 = 20
+# 	TypeRT         uint16 = 21
+# 	TypeNSAPPTR    uint16 = 23
+# 	TypeSIG        uint16 = 24
+# 	TypeKEY        uint16 = 25
+# 	TypePX         uint16 = 26
+# 	TypeGPOS       uint16 = 27
+# 	TypeAAAA       uint16 = 28
+# 	TypeLOC        uint16 = 29
+# 	TypeNXT        uint16 = 30
+# 	TypeEID        uint16 = 31
+# 	TypeNIMLOC     uint16 = 32
+# 	TypeSRV        uint16 = 33
+# 	TypeATMA       uint16 = 34
+# 	TypeNAPTR      uint16 = 35
+# 	TypeKX         uint16 = 36
+# 	TypeCERT       uint16 = 37
+# 	TypeDNAME      uint16 = 39
+# 	TypeOPT        uint16 = 41 // EDNS
+# 	TypeAPL        uint16 = 42
+# 	TypeDS         uint16 = 43
+# 	TypeSSHFP      uint16 = 44
+# 	TypeRRSIG      uint16 = 46
+# 	TypeNSEC       uint16 = 47
+# 	TypeDNSKEY     uint16 = 48
+# 	TypeDHCID      uint16 = 49
+# 	TypeNSEC3      uint16 = 50
+# 	TypeNSEC3PARAM uint16 = 51
+# 	TypeTLSA       uint16 = 52
+# 	TypeSMIMEA     uint16 = 53
+# 	TypeHIP        uint16 = 55
+# 	TypeNINFO      uint16 = 56
+# 	TypeRKEY       uint16 = 57
+# 	TypeTALINK     uint16 = 58
+# 	TypeCDS        uint16 = 59
+# 	TypeCDNSKEY    uint16 = 60
+# 	TypeOPENPGPKEY uint16 = 61
+# 	TypeCSYNC      uint16 = 62
+# 	TypeSPF        uint16 = 99
+# 	TypeUINFO      uint16 = 100
+# 	TypeUID        uint16 = 101
+# 	TypeGID        uint16 = 102
+# 	TypeUNSPEC     uint16 = 103
+# 	TypeNID        uint16 = 104
+# 	TypeL32        uint16 = 105
+# 	TypeL64        uint16 = 106
+# 	TypeLP         uint16 = 107
+# 	TypeEUI48      uint16 = 108
+# 	TypeEUI64      uint16 = 109
+# 	TypeURI        uint16 = 256
+# 	TypeCAA        uint16 = 257
+# 	TypeAVC        uint16 = 258
