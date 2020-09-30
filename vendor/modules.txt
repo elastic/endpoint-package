@@ -13,7 +13,7 @@ github.com/aymerick/raymond/lexer
 github.com/aymerick/raymond/parser
 # github.com/creasty/defaults v1.5.1
 github.com/creasty/defaults
-# github.com/elastic/elastic-package v0.0.0-20200930120156-860bce7af2c9
+# github.com/elastic/elastic-package v0.0.0-20200930171254-daa6613b9892
 ## explicit
 github.com/elastic/elastic-package
 github.com/elastic/elastic-package/cmd
@@ -42,7 +42,7 @@ github.com/elastic/go-elasticsearch/v7
 github.com/elastic/go-elasticsearch/v7/esapi
 github.com/elastic/go-elasticsearch/v7/estransport
 github.com/elastic/go-elasticsearch/v7/internal/version
-# github.com/elastic/package-spec/code/go v0.0.0-20200930112347-763ab44be25b
+# github.com/elastic/package-spec/code/go v0.0.0-20200930145841-f3a4262e317f
 github.com/elastic/package-spec/code/go/internal/spec
 github.com/elastic/package-spec/code/go/internal/validator
 github.com/elastic/package-spec/code/go/internal/yamlschema
@@ -157,7 +157,8 @@ github.com/xeipuuv/gojsonpointer
 github.com/xeipuuv/gojsonreference
 # github.com/xeipuuv/gojsonschema v1.2.0
 github.com/xeipuuv/gojsonschema
-# golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+# golang.org/x/crypto v0.0.0-20200930160638-afb6bcd081ae
+## explicit
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/cast5
 golang.org/x/crypto/chacha20
@@ -177,7 +178,7 @@ golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
 golang.org/x/crypto/ssh/knownhosts
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/net v0.0.0-20200927032502-5d4f70055728
+# golang.org/x/net v0.0.0-20200930145003-4acb6c075d10
 ## explicit
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp

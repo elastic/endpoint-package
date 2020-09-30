@@ -105,7 +105,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) setup-tools
+all: setup-tools
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -122,7 +122,7 @@ $(REAL_ECS_DIR):
 	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-tools
-setup-tools:
+setup-tools: $(REAL_ECS_DIR)
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
