@@ -130,6 +130,7 @@ setup-tools: $(REAL_ECS_DIR)
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 %-target:
 	$(call gen_mapping_files,$*)
