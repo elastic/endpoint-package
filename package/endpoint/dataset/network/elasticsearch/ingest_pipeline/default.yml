@@ -31,127 +31,41 @@ processors:
       ignore_missing: true
   - grok:
       if: "ctx.network.protocol == 'dns'"
+      ignore_missing: true
       ignore_failure: true
       field: "message"
       pattern_definitions:
         DOMAIN_NAME: "[^,]+"
       patterns:
+        # dns.question.Ext.type is a temporary field used to hold the parsed question type
         - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"
   - script:
       ignore_failure: true
       if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext?.type != null"
+      # the parsed type is a string of a number, so we'll want to convert it to the resource reference format
+      # question.type map references:
+      # https://github.com/spc476/SPCDNS/blob/master/src/dns.h
+      # https://pkg.go.dev/github.com/miekg/dns#pkg-constants
+      # https://en.wikipedia.org/wiki/List_of_DNS_record_types
       source: >-
-        Map nameMap = ["1": "A", "2": "NS", "3": "MD"];
-        if (ctx.dns.question.Ext.type == '1') {
-          ctx.dns.question.type = 'A'
+        Map typeMap = ['1': 'A', '2': 'NS', '3': 'MD', '4': 'MF', '5': 'CNAME', '6': 'SOA', '7': 'MB', '8': 'MG', '9': 'MR',
+          '10': 'NULL', '11': 'WKS', '12': 'PTR', '13': 'HINFO', '14': 'MINFO', '15': 'MX', '16': 'TXT', '17': 'RP', '18': 'AFSDB',
+          '19': 'X25', '20': 'ISDN', '21': 'RT', '22': 'NSAP', '23': 'NSAPPTR', '24': 'SIG', '25': 'KEY', '26': 'PX',
+          '27': 'GPOS', '28': 'AAAA', '29': 'LOC', '30': 'NXT', '31': 'EID', '32': 'NIMLOC', '33': 'SRV', '34': 'ATMA',
+          '35': 'NAPTR', '36': 'KX', '37': 'CERT', '38': 'A6', '39': 'DNAME', '40': 'SINK', '41': 'OPT', '42': 'APL',
+          '43': 'DS', '44': 'SSHFP', '45': 'ISECKEY', '46': 'RRSIG', '47': 'NSEC', '48': 'DNSKEY', '49': 'DHCID',
+          '50': 'NSEC3', '51': 'NSEC3PARAM', '52': 'TLSA', '53': 'SMIMEA', '55': 'HIP', '56': 'NINFO', '57': 'RKEY',
+          '58': 'TALINK', '59': 'CDS', '60': 'CDNSKEY', '61': 'OPENPGPKEY', '62': 'CSYNC', '63': 'ZONEMD', '64': 'SVCB',
+          '65': 'HTTPS', '99': 'SPF', '100': 'UINFO', '101': 'UID', '102': 'GID', '103': 'UNSPEC', '104': 'NID',
+          '105': 'L32', '106': 'L64', '107': 'LP', '108': 'EUI48', '109': 'EUI64', '249': 'TKEY', '250': 'TSIG',
+          '251': 'IXFR', '252': 'AXFR', '253': 'MAILB', '254': 'MAILA', '255': 'ANY','256': 'URI', '257': 'CAA',
+          '258': 'AVC'];
+        def type = typeMap[ctx.dns.question.Ext.type];
+        if (type != null) {
+          ctx.dns.question.type = type;
         }
-
-# const (
-# 	TypeNone       uint16 = 0
-# 	TypeA          uint16 = 1
-# 	TypeNS         uint16 = 2
-# 	TypeMD         uint16 = 3
-# 	TypeMF         uint16 = 4
-# 	TypeCNAME      uint16 = 5
-# 	TypeSOA        uint16 = 6
-# 	TypeMB         uint16 = 7
-# 	TypeMG         uint16 = 8
-# 	TypeMR         uint16 = 9
-# 	TypeNULL       uint16 = 10
-# 	TypePTR        uint16 = 12
-# 	TypeHINFO      uint16 = 13
-# 	TypeMINFO      uint16 = 14
-# 	TypeMX         uint16 = 15
-# 	TypeTXT        uint16 = 16
-# 	TypeRP         uint16 = 17
-# 	TypeAFSDB      uint16 = 18
-# 	TypeX25        uint16 = 19
-# 	TypeISDN       uint16 = 20
-# 	TypeRT         uint16 = 21
-# 	TypeNSAPPTR    uint16 = 23
-# 	TypeSIG        uint16 = 24
-# 	TypeKEY        uint16 = 25
-# 	TypePX         uint16 = 26
-# 	TypeGPOS       uint16 = 27
-# 	TypeAAAA       uint16 = 28
-# 	TypeLOC        uint16 = 29
-# 	TypeNXT        uint16 = 30
-# 	TypeEID        uint16 = 31
-# 	TypeNIMLOC     uint16 = 32
-# 	TypeSRV        uint16 = 33
-# 	TypeATMA       uint16 = 34
-# 	TypeNAPTR      uint16 = 35
-# 	TypeKX         uint16 = 36
-# 	TypeCERT       uint16 = 37
-# 	TypeDNAME      uint16 = 39
-# 	TypeOPT        uint16 = 41 // EDNS
-# 	TypeAPL        uint16 = 42
-# 	TypeDS         uint16 = 43
-# 	TypeSSHFP      uint16 = 44
-# 	TypeRRSIG      uint16 = 46
-# 	TypeNSEC       uint16 = 47
-# 	TypeDNSKEY     uint16 = 48
-# 	TypeDHCID      uint16 = 49
-# 	TypeNSEC3      uint16 = 50
-# 	TypeNSEC3PARAM uint16 = 51
-# 	TypeTLSA       uint16 = 52
-# 	TypeSMIMEA     uint16 = 53
-# 	TypeHIP        uint16 = 55
-# 	TypeNINFO      uint16 = 56
-# 	TypeRKEY       uint16 = 57
-# 	TypeTALINK     uint16 = 58
-# 	TypeCDS        uint16 = 59
-# 	TypeCDNSKEY    uint16 = 60
-# 	TypeOPENPGPKEY uint16 = 61
-# 	TypeCSYNC      uint16 = 62
-# 	TypeSPF        uint16 = 99
-# 	TypeUINFO      uint16 = 100
-# 	TypeUID        uint16 = 101
-# 	TypeGID        uint16 = 102
-# 	TypeUNSPEC     uint16 = 103
-# 	TypeNID        uint16 = 104
-# 	TypeL32        uint16 = 105
-# 	TypeL64        uint16 = 106
-# 	TypeLP         uint16 = 107
-# 	TypeEUI48      uint16 = 108
-# 	TypeEUI64      uint16 = 109
-# 	TypeURI        uint16 = 256
-# 	TypeCAA        uint16 = 257
-# 	TypeAVC        uint16 = 258
-
-# POST _ingest/pipeline/_simulate
-# {
-#   "pipeline": {
-#     "description" : "...",
-#     "processors": [
-#       {
-#         "grok": {
-#           "field": "message",
-#           "pattern_definitions": {
-#             "DOMAIN_NAME": "[^,]+"
-#           }, 
-#           "patterns": ["^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"]
-#         }
-#       },
-#       {
-#         "script": {
-#           "source": """
-#             if (ctx.dns.question.Ext.type == '28') {
-#               ctx.dns.question.type = 'AAAA'
-#             }
-#           """
-#         }
-#       }
-#     ]
-#   },
-#   "docs":[
-#     {
-#       "_source": {
-#         "message": "DNS query is completed for the name v10.events.data.microsoft.com, type 29, query options 2251800887582720 with status 0 Results type:  5 global.asimov.events.data.trafficmanager.net;type:  5 skypedataprdcolweu00.cloudapp.net;::ffff:52.114.75.149; ",
-#         "test": {
-#           "blah": "28"
-#         }
-#       }
-#     }
-#   ]
-# }
+  - remove:
+      if: "ctx.network.protocol == 'dns'"
+      ignore_failure: true
+      ignore_missing: true
+      field: "dns.question.Ext"
