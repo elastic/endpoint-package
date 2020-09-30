@@ -72,7 +72,7 @@ define gen_mapping_files
 	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
 
 	# move the generated ecs file directly to the package
-	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/data_stream/$(1)/fields/fields.yml
 	rm -r $(ROOT_DIR)/generated/$(1)/beats
 
 	# remove unused files
