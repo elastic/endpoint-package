@@ -37,11 +37,11 @@ processors:
       pattern_definitions:
         DOMAIN_NAME: "[^,]+"
       patterns:
-        # dns.question.Ext.type is a temporary field used to hold the parsed question type
-        - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"
+        # dns.question.Ext_temp.type is a temporary field used to hold the parsed question type
+        - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext_temp.type}"
   - script:
       ignore_failure: true
-      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext?.type != null && ctx.dns?.question?.type == null"
+      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext_temp?.type != null && ctx.dns?.question?.type == null"
       # the parsed type is a string of a number, so we'll want to convert it to the resource reference format
       # question.type map references:
       # https://github.com/spc476/SPCDNS/blob/master/src/dns.h
@@ -60,7 +60,7 @@ processors:
           '105': 'L32', '106': 'L64', '107': 'LP', '108': 'EUI48', '109': 'EUI64', '249': 'TKEY', '250': 'TSIG',
           '251': 'IXFR', '252': 'AXFR', '253': 'MAILB', '254': 'MAILA', '255': 'ANY','256': 'URI', '257': 'CAA',
           '258': 'AVC'];
-        def type = typeMap[ctx.dns.question.Ext.type];
+        def type = typeMap[ctx.dns.question.Ext_temp.type];
         if (type != null) {
           ctx.dns.question.type = type;
         }
@@ -68,4 +68,4 @@ processors:
       if: "ctx.network.protocol == 'dns'"
       ignore_failure: true
       ignore_missing: true
-      field: "dns.question.Ext"
+      field: "dns.question.Ext_temp"
