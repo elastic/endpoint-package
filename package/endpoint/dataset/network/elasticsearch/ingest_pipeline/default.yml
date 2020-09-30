@@ -30,7 +30,7 @@ processors:
         - location
       ignore_missing: true
   - grok:
-      if: "ctx.network.protocol == 'dns'"
+      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.name == null"
       ignore_missing: true
       ignore_failure: true
       field: "message"
@@ -41,7 +41,7 @@ processors:
         - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext.type}"
   - script:
       ignore_failure: true
-      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext?.type != null"
+      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext?.type != null && ctx.dns?.question?.type == null"
       # the parsed type is a string of a number, so we'll want to convert it to the resource reference format
       # question.type map references:
       # https://github.com/spc476/SPCDNS/blob/master/src/dns.h
