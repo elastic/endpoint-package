@@ -30,7 +30,7 @@ processors:
         - location
       ignore_missing: true
   - grok:
-      if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.name == null"
+      if: "ctx.network.protocol == 'dns'"
       ignore_missing: true
       ignore_failure: true
       field: "message"
@@ -38,7 +38,7 @@ processors:
         DOMAIN_NAME: "[^,]+"
       patterns:
         # dns.question.Ext_temp.type is a temporary field used to hold the parsed question type
-        - "^DNS query is completed for the name %{DOMAIN_NAME:dns.question.name}, type %{WORD:dns.question.Ext_temp.type}"
+        - "^DNS query is completed for the name .* type %{WORD:dns.question.Ext_temp.type}"
   - script:
       ignore_failure: true
       if: "ctx.network.protocol == 'dns' && ctx.dns?.question?.Ext_temp?.type != null && ctx.dns?.question?.type == null"
