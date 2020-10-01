@@ -248,6 +248,11 @@
           },
           "path": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -334,6 +339,11 @@
               },
               "full": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -348,6 +358,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -389,6 +404,11 @@
           },
           "executable": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -399,6 +419,11 @@
           },
           "name": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
