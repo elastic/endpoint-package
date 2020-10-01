@@ -34,8 +34,6 @@ processors:
       ignore_missing: true
       ignore_failure: true
       field: "message"
-      pattern_definitions:
-        DOMAIN_NAME: "[^,]+"
       patterns:
         # dns.question.Ext_temp.type is a temporary field used to hold the parsed question type
         - "^DNS query is completed for the name .* type %{WORD:dns.question.Ext_temp.type}"
