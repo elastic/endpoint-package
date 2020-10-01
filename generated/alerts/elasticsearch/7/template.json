@@ -396,6 +396,11 @@
               },
               "command_line": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -410,6 +415,11 @@
               },
               "executable": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -443,6 +453,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -497,6 +512,11 @@
                   },
                   "command_line": {
                     "fields": {
+                      "caseless": {
+                        "ignore_above": 1024,
+                        "normalizer": "lowercase",
+                        "type": "keyword"
+                      },
                       "text": {
                         "norms": false,
                         "type": "text"
@@ -511,6 +531,11 @@
                   },
                   "executable": {
                     "fields": {
+                      "caseless": {
+                        "ignore_above": 1024,
+                        "normalizer": "lowercase",
+                        "type": "keyword"
+                      },
                       "text": {
                         "norms": false,
                         "type": "text"
@@ -544,6 +569,11 @@
                   },
                   "name": {
                     "fields": {
+                      "caseless": {
+                        "ignore_above": 1024,
+                        "normalizer": "lowercase",
+                        "type": "keyword"
+                      },
                       "text": {
                         "norms": false,
                         "type": "text"
@@ -590,6 +620,11 @@
                   },
                   "working_directory": {
                     "fields": {
+                      "caseless": {
+                        "ignore_above": 1024,
+                        "normalizer": "lowercase",
+                        "type": "keyword"
+                      },
                       "text": {
                         "norms": false,
                         "type": "text"
@@ -779,6 +814,11 @@
               },
               "working_directory": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -825,6 +865,45 @@
           },
           "type": {
             "type": "constant_keyword"
+          }
+        }
+      },
+      "destination": {
+        "properties": {
+          "geo": {
+            "properties": {
+              "city_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "continent_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
           }
         }
       },
@@ -1363,6 +1442,11 @@
           },
           "path": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -1400,6 +1484,11 @@
           },
           "target_path": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -1533,6 +1622,11 @@
               },
               "full": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -1547,6 +1641,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -1827,6 +1926,11 @@
           },
           "command_line": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -1841,6 +1945,11 @@
           },
           "executable": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -1874,6 +1983,11 @@
           },
           "name": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -1928,6 +2042,11 @@
               },
               "command_line": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -1942,6 +2061,11 @@
               },
               "executable": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -1975,6 +2099,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -2021,6 +2150,11 @@
               },
               "working_directory": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -2210,6 +2344,11 @@
           },
           "working_directory": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -2261,6 +2400,45 @@
           "version": {
             "ignore_above": 1024,
             "type": "keyword"
+          }
+        }
+      },
+      "source": {
+        "properties": {
+          "geo": {
+            "properties": {
+              "city_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "continent_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
           }
         }
       },

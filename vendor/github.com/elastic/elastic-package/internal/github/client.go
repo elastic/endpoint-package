@@ -1,7 +1,12 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package github
 
 import (
 	"context"
+
 	"github.com/pkg/errors"
 
 	"github.com/google/go-github/v32/github"

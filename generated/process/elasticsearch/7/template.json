@@ -51,6 +51,45 @@
           }
         }
       },
+      "destination": {
+        "properties": {
+          "geo": {
+            "properties": {
+              "city_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "continent_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
       "ecs": {
         "properties": {
           "version": {
@@ -172,6 +211,11 @@
               },
               "full": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -186,6 +230,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -271,6 +320,11 @@
           },
           "command_line": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -285,6 +339,11 @@
           },
           "executable": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -314,6 +373,11 @@
           },
           "name": {
             "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
               "text": {
                 "norms": false,
                 "type": "text"
@@ -343,6 +407,11 @@
               },
               "executable": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -353,6 +422,11 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -381,6 +455,45 @@
             "properties": {
               "id": {
                 "type": "long"
+              }
+            }
+          }
+        }
+      },
+      "source": {
+        "properties": {
+          "geo": {
+            "properties": {
+              "city_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "continent_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "country_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_iso_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
               }
             }
           }

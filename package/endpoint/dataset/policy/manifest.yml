@@ -1,5 +1,0 @@
-title: Endpoint Policy Response
-type: metrics
-elasticsearch:
-  index_template.mappings:
-    dynamic: false

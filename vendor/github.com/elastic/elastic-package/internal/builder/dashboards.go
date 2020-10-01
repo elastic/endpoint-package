@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package builder
 
 import (
@@ -6,6 +10,8 @@ import (
 	"path/filepath"
 
 	"github.com/pkg/errors"
+
+	"github.com/elastic/elastic-package/internal/common"
 )
 
 var fieldsToEncode = []string{
@@ -49,7 +55,7 @@ func encodeDashboards(destinationDir string) error {
 // The reason is that for versioning it is much nicer to have the full
 // json so only on packaging this is changed.
 func encodedSavedObject(data []byte) ([]byte, bool, error) {
-	savedObject := mapStr{}
+	savedObject := common.MapStr{}
 	err := json.Unmarshal(data, &savedObject)
 	if err != nil {
 		return nil, false, errors.Wrapf(err, "unmarshalling saved object failed")
@@ -57,7 +63,7 @@ func encodedSavedObject(data []byte) ([]byte, bool, error) {
 
 	var changed bool
 	for _, v := range fieldsToEncode {
-		out, err := savedObject.getValue(v)
+		out, err := savedObject.GetValue(v)
 		// This means the key did not exists, no conversion needed.
 		if err != nil {
 			continue
@@ -75,11 +81,11 @@ func encodedSavedObject(data []byte) ([]byte, bool, error) {
 		if err != nil {
 			return nil, false, err
 		}
-		_, err = savedObject.put(v, string(r))
+		_, err = savedObject.Put(v, string(r))
 		if err != nil {
 			return nil, false, errors.Wrapf(err, "can't put value to the saved object")
 		}
 		changed = true
 	}
-	return []byte(savedObject.stringToPrint()), changed, nil
+	return []byte(savedObject.StringToPrint()), changed, nil
 }

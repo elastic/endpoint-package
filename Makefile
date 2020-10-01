@@ -72,7 +72,7 @@ define gen_mapping_files
 	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
 
 	# move the generated ecs file directly to the package
-	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/data_stream/$(1)/fields/fields.yml
 	rm -r $(ROOT_DIR)/generated/$(1)/beats
 
 	# remove unused files
@@ -105,7 +105,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) setup-tools
+all: setup-tools
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -122,17 +122,15 @@ $(REAL_ECS_DIR):
 	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-tools
-setup-tools:
+setup-tools: $(REAL_ECS_DIR)
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
-	pipenv run python $(ROOT_DIR)/scripts/yaml_merger/process_yaml.py -base_dir $(ROOT_DIR)/package/endpoint/dataset -field_template_file \
-		$(ROOT_DIR)/merge_template/metadata_current/fields_template.yml \
-		-output_file $(ROOT_DIR)/package/endpoint/dataset/metadata_current/fields/fields.yml
 	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 %-target:
 	$(call gen_mapping_files,$*)
@@ -152,7 +150,7 @@ $(ROOT_DIR)/out:
 build-package: $(ROOT_DIR)/out
 	rm -rf $(PACKAGES_DIR)
 	mkdir -p $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
+	cp -r $(ROOT_DIR)/package/endpoint/* $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
 .PHONY: run-registry
