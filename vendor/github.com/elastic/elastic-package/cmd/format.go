@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package cmd
 
 import (
@@ -21,6 +25,8 @@ func setupFormatCommand() *cobra.Command {
 }
 
 func formatCommandAction(cmd *cobra.Command, args []string) error {
+	cmd.Println("Format the package")
+
 	packageRoot, found, err := packages.FindPackageRoot()
 	if err != nil {
 		return errors.Wrap(err, "locating package root failed")
@@ -38,5 +44,7 @@ func formatCommandAction(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return errors.Wrapf(err, "formatting the integration failed (path: %s, failFast: %t)", packageRoot, ff)
 	}
+
+	cmd.Println("Done")
 	return nil
 }

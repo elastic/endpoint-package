@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package cmd
 
 import (
@@ -19,6 +23,8 @@ func setupLintCommand() *cobra.Command {
 }
 
 func lintCommandAction(cmd *cobra.Command, args []string) error {
+	cmd.Println("Lint the package")
+
 	packageRootPath, found, err := packages.FindPackageRoot()
 	if !found {
 		return errors.New("package root not found")
@@ -27,5 +33,11 @@ func lintCommandAction(cmd *cobra.Command, args []string) error {
 		return errors.Wrap(err, "locating package root failed")
 	}
 
-	return validator.ValidateFromPath(packageRootPath)
+	err = validator.ValidateFromPath(packageRootPath)
+	if err != nil {
+		return errors.Wrap(err, "linting package failed")
+	}
+
+	cmd.Println("Done")
+	return nil
 }

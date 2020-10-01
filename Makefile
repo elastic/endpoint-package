@@ -72,7 +72,7 @@ define gen_mapping_files
 	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
 
 	# move the generated ecs file directly to the package
-	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/data_stream/$(1)/fields/fields.yml
 	rm -r $(ROOT_DIR)/generated/$(1)/beats
 
 	# remove unused files
@@ -105,7 +105,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) setup-tools
+all: setup-tools
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -122,7 +122,7 @@ $(REAL_ECS_DIR):
 	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-tools
-setup-tools:
+setup-tools: $(REAL_ECS_DIR)
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
@@ -130,6 +130,7 @@ setup-tools:
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 %-target:
 	$(call gen_mapping_files,$*)
