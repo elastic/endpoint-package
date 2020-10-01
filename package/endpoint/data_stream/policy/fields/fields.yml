@@ -458,6 +458,11 @@
       type: keyword
       ignore_above: 1024
       multi_fields:
+        - name: caseless
+          type: keyword
+          default_field: false
+          normalizer: lowercase
+          ignore_above: 1024
         - name: text
           type: text
           norms: false
@@ -475,6 +480,11 @@
       type: keyword
       ignore_above: 1024
       multi_fields:
+        - name: caseless
+          type: keyword
+          default_field: false
+          normalizer: lowercase
+          ignore_above: 1024
         - name: text
           type: text
           norms: false
