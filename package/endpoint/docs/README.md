@@ -1,6 +1,6 @@
-# Elastic Endpoint Security Integration
+# Endpoint Security Integration
 
-This integration sets up templates and index patterns required for Elastic Endpoint Security.
+This integration sets up templates and index patterns required for Endpoint Security.
 
 ## Compatibility
 

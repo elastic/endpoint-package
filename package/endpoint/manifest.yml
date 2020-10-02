@@ -1,6 +1,6 @@
 format_version: 1.0.0
 name: endpoint
-title: Elastic Endpoint Security
+title: Endpoint Security
 description: Protect your hosts with threat prevention, detection, and deep security data visibility.
 version: 0.16.0-dev.4
 categories: ["security"]
@@ -12,7 +12,7 @@ type: integration
 license: basic
 policy_templates:
   - name: endpoint
-    title: Elastic Endpoint Security Integration
+    title: Endpoint Security Integration
     description: Interact with the endpoint.
     multiple: false
 conditions:
