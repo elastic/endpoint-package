@@ -116,16 +116,21 @@ mac-deps:
 .PHONY: clean
 clean:
 	rm -rf $(ROOT_DIR)/out
-
+	# this will be produced by running elastic-package check or build
+	rm -rf $(ROOT_DIR)/build
+	rm -rf $(GO_TOOLS)
 
 $(REAL_ECS_DIR):
 	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
+.PHONY: setup-go-tools
+setup-go-tools:
+	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
+
 .PHONY: setup-tools
-setup-tools: $(REAL_ECS_DIR)
+setup-tools: $(REAL_ECS_DIR) setup-go-tools
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
-	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
@@ -158,6 +163,11 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
+# Use this target to run the linter on the current state of the package
+.PHONY: lint
+lint: setup-go-tools
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
+
 # Use this target to release the package (dev or prod) to the package storage repo
 .PHONY: release
 release:
@@ -165,5 +175,5 @@ release:
 
 # Use this target to promote a package that exists in the package-storage repo from one environment to another
 .PHONY: promote
-promote:
+promote: setup-go-tools
 	$(GO_TOOLS)/elastic-package promote
