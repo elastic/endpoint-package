@@ -41,6 +41,12 @@ def prompt_bump(current_version, released_branch):
     click.echo('New version: {}'.format(get_package_version()))
 
 
+def bump_patch():
+    res = subprocess.run(['bump2version', 'patch'], capture_output=True)
+    print_capture(res)
+    click.echo('New version: {}'.format(get_package_version()))
+
+
 def bump_dev():
     click.echo('Bumping the build number')
     res = subprocess.run(['bump2version', 'build'], capture_output=True)
@@ -164,6 +170,30 @@ def push_commits(repo, remote, local_branch, upstream_branch):
     repo.git.push(remote, '{}:{}'.format(local_branch, upstream_branch))
 
 
+def get_commit_hash(repo):
+    return repo.head.object.hexsha
+
+
+def get_release_branch(repo):
+    while True:
+        release_branch = click.prompt('What should the release branch name be?')
+        remote_branches = [b.name.split('/')[1] for b in repo.remote(UPSTREAM).refs]
+        if release_branch in remote_branches:
+            click.echo('Release branch: {} already exists as a remote branch please create a new one')
+        else:
+            return release_branch
+
+
+def handle_release_branch(repo, tagged_hash):
+    if not click.confirm('Should we create a branch to track this release?'):
+        return
+    release_branch = get_release_branch(repo)
+    delete_old_branch(repo, release_branch)
+    repo.git.checkout(tagged_hash, b=release_branch)
+    bump_patch()
+    push_commits(local_repo, UPSTREAM, release_branch, release_branch)
+
+
 @click.command()
 @click.argument('package_storage_path', type=click.Path(exists=True, file_okay=False, resolve_path=True),
                 metavar='<path to package storage repo root directory>')
@@ -181,9 +211,13 @@ def main(package_storage_path, package_dir, env):
         version = get_package_version(include_dev=False)
         bump_release()
         tag(local_repo, UPSTREAM, version)
+        # if we're going to create a new release branch to track this version of the stack we need the hash
+        # after we have tagged the release version
+        tagged_commit_hash = get_commit_hash(local_repo)
         create_pr('snapshot', version, package_dir, package_storage_path)
         prompt_bump(version, upstream_branch)
         push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
+        handle_release_branch(local_repo, tagged_commit_hash)
     elif env == 'dev':
         branch_name = switch_to_bump_branch(local_repo, upstream_branch)
         version = get_package_version()
