@@ -82,6 +82,19 @@ def tag(repo, upstream, version):
     repo.git.push(upstream, tag_name)
 
 
+def calc_dir_hash(filepath):
+    res = subprocess.Popen("find {} -type f -exec shasum {{}} + | awk '{{print $1}}' | sort | shasum".format(filepath),
+                           shell=True, stdout=subprocess.PIPE)
+    stdout = res.stdout.read().decode('utf-8')
+    split_stdout = stdout.split()
+    if len(split_stdout) > 0:
+        dir_hash = split_stdout[0]
+    else:
+        click.echo('Unable to calculate the directory hash')
+        dir_hash = 'unknown'
+    return dir_hash
+
+
 def create_pr(env, version, package_dir, package_storage_path):
     repo = git.Repo(package_storage_path)
     add_remote(repo, UPSTREAM, 'git@github.com:elastic/package-storage.git')
@@ -99,10 +112,14 @@ def create_pr(env, version, package_dir, package_storage_path):
     repo.git.commit(m='Adding endpoint package version {}'.format(version))
     repo.git.push(branch_name, u='origin')
 
+    dir_hash = calc_dir_hash(package_ver_path)
+    click.echo('Endpoint package directory hash: {}'.format(dir_hash))
+
     click.echo('Creating PR to package-storage repo')
     res = subprocess.Popen(['hub', 'pull-request',
                             '-m', '[{}] Endpoint package version {}'.format(env, version),
                             '-m', 'Releasing new endpoint package',
+                            '-m', 'endpoint/{} sha1 hash: {}'.format(version, dir_hash),
                             '-b', 'elastic:{}'.format(env), '-d'], cwd=package_storage_path,
                            stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     stdout = res.stdout.read()
