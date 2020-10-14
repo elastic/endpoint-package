@@ -12,6 +12,7 @@ gitpython = "==3.1.2"
 jinja2 = "==2.11.2"
 pyyaml-include = "==1.2"
 click = "*"
+xxhash = "*"
 
 [requires]
 python_version = "3.7"
