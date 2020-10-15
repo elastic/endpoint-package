@@ -10,13 +10,14 @@ import os
 import re
 import git
 import shutil
+import xxhash
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-root = os.path.join(dir_path, '..', '..')
-package_manifest = os.path.join(root, 'package', 'endpoint', 'manifest.yml')
-version_regex = re.compile('^version: (.*)')
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+ROOT = os.path.join(DIR_PATH, '..', '..')
+PACKAGE_MANIFEST = os.path.join(ROOT, 'package', 'endpoint', 'manifest.yml')
+VERSION_REGEX = re.compile('^version: (.*)')
 
-local_repo = git.Repo(root)
+LOCAL_REPO = git.Repo(ROOT)
 
 UPSTREAM = 'upstream'
 
@@ -37,6 +38,12 @@ def prompt_bump(current_version, released_branch):
         part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
                                                                                            case_sensitive=False))
     res = subprocess.run(['bump2version', part], capture_output=True)
+    print_capture(res)
+    click.echo('New version: {}'.format(get_package_version()))
+
+
+def bump_patch():
+    res = subprocess.run(['bump2version', 'patch'], capture_output=True)
     print_capture(res)
     click.echo('New version: {}'.format(get_package_version()))
 
@@ -76,6 +83,18 @@ def tag(repo, upstream, version):
     repo.git.push(upstream, tag_name)
 
 
+def calc_dir_signature(dir_path):
+    dir_signatures = []
+    for root_dir, dirs, files in os.walk(os.path.abspath(os.path.expanduser(dir_path))):
+        for filename in files:
+            filepath = os.path.join(root_dir, filename)
+            with open(filepath, 'rb') as f:
+                dir_signatures.append(xxhash.xxh64_hexdigest(f.read()))
+    dir_signatures.sort()
+    sigs_as_string = '\n'.join(dir_signatures) + '\n'
+    return xxhash.xxh64_hexdigest(sigs_as_string)
+
+
 def create_pr(env, version, package_dir, package_storage_path):
     repo = git.Repo(package_storage_path)
     add_remote(repo, UPSTREAM, 'git@github.com:elastic/package-storage.git')
@@ -93,10 +112,14 @@ def create_pr(env, version, package_dir, package_storage_path):
     repo.git.commit(m='Adding endpoint package version {}'.format(version))
     repo.git.push(branch_name, u='origin')
 
+    dir_hash = calc_dir_signature(package_ver_path)
+    click.echo('Endpoint package directory hash: {}'.format(dir_hash))
+
     click.echo('Creating PR to package-storage repo')
     res = subprocess.Popen(['hub', 'pull-request',
                             '-m', '[{}] Endpoint package version {}'.format(env, version),
                             '-m', 'Releasing new endpoint package',
+                            '-m', 'endpoint/{} directory signature: {}'.format(version, dir_hash),
                             '-b', 'elastic:{}'.format(env), '-d'], cwd=package_storage_path,
                            stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     stdout = res.stdout.read()
@@ -108,10 +131,10 @@ def create_pr(env, version, package_dir, package_storage_path):
 
 
 def get_package_version(include_dev=True):
-    with open(package_manifest) as manifest:
+    with open(PACKAGE_MANIFEST) as manifest:
         for line in manifest:
             line = line.rstrip()
-            match = version_regex.match(line)
+            match = VERSION_REGEX.match(line)
             if match:
                 if not include_dev:
                     return match.group(1).split('-')[0]
@@ -164,6 +187,30 @@ def push_commits(repo, remote, local_branch, upstream_branch):
     repo.git.push(remote, '{}:{}'.format(local_branch, upstream_branch))
 
 
+def get_commit_hash(repo):
+    return repo.head.object.hexsha
+
+
+def get_release_branch(repo):
+    while True:
+        release_branch = click.prompt('What should the release branch name be?')
+        remote_branches = [b.name.split('/')[1] for b in repo.remote(UPSTREAM).refs]
+        if release_branch in remote_branches:
+            click.echo('Release branch: {} already exists as a remote branch please create a new one')
+        else:
+            return release_branch
+
+
+def handle_release_branch(repo, tagged_hash):
+    if not click.confirm('Should we create a branch to track this release?'):
+        return
+    release_branch = get_release_branch(repo)
+    delete_old_branch(repo, release_branch)
+    repo.git.checkout(tagged_hash, b=release_branch)
+    bump_patch()
+    push_commits(LOCAL_REPO, UPSTREAM, release_branch, release_branch)
+
+
 @click.command()
 @click.argument('package_storage_path', type=click.Path(exists=True, file_okay=False, resolve_path=True),
                 metavar='<path to package storage repo root directory>')
@@ -173,26 +220,30 @@ def push_commits(repo, remote, local_branch, upstream_branch):
     ['dev', 'prod'], case_sensitive=False))
 def main(package_storage_path, package_dir, env):
     click.echo('Current package version: {}'.format(get_package_version()))
-    add_remote(local_repo, UPSTREAM, 'git@github.com:elastic/endpoint-package.git')
-    upstream_branch = get_upstream_branch(local_repo)
-    active_branch = local_repo.active_branch
+    add_remote(LOCAL_REPO, UPSTREAM, 'git@github.com:elastic/endpoint-package.git')
+    upstream_branch = get_upstream_branch(LOCAL_REPO)
+    active_branch = LOCAL_REPO.active_branch
     if env == 'prod':
-        branch_name = switch_to_bump_branch(local_repo, upstream_branch)
+        branch_name = switch_to_bump_branch(LOCAL_REPO, upstream_branch)
         version = get_package_version(include_dev=False)
         bump_release()
-        tag(local_repo, UPSTREAM, version)
+        tag(LOCAL_REPO, UPSTREAM, version)
+        # if we're going to create a new release branch to track this version of the stack we need the hash
+        # after we have tagged the release version
+        tagged_commit_hash = get_commit_hash(LOCAL_REPO)
         create_pr('snapshot', version, package_dir, package_storage_path)
         prompt_bump(version, upstream_branch)
-        push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
+        push_commits(LOCAL_REPO, UPSTREAM, branch_name, upstream_branch)
+        handle_release_branch(LOCAL_REPO, tagged_commit_hash)
     elif env == 'dev':
-        branch_name = switch_to_bump_branch(local_repo, upstream_branch)
+        branch_name = switch_to_bump_branch(LOCAL_REPO, upstream_branch)
         version = get_package_version()
         create_pr('snapshot', version, package_dir, package_storage_path)
         bump_dev()
-        push_commits(local_repo, UPSTREAM, branch_name, upstream_branch)
+        push_commits(LOCAL_REPO, UPSTREAM, branch_name, upstream_branch)
     else:
         click.echo('Invalid env option: {}'.format(env))
-    local_repo.git.checkout(active_branch)
+    LOCAL_REPO.git.checkout(active_branch)
 
 
 if __name__ == '__main__':
