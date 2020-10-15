@@ -119,7 +119,7 @@ def create_pr(env, version, package_dir, package_storage_path):
     res = subprocess.Popen(['hub', 'pull-request',
                             '-m', '[{}] Endpoint package version {}'.format(env, version),
                             '-m', 'Releasing new endpoint package',
-                            '-m', 'endpoint/{} directory sha1 hash: {}'.format(version, dir_hash),
+                            '-m', 'endpoint/{} directory signature: {}'.format(version, dir_hash),
                             '-b', 'elastic:{}'.format(env), '-d'], cwd=package_storage_path,
                            stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     stdout = res.stdout.read()
