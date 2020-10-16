@@ -1,9 +1,8 @@
 format_version: 1.0.0
 name: endpoint
-title: Elastic Endpoint Security
-description: Protect your hosts with threat prevention, detection, and deep security
-  data visibility.
-version: 0.16.0-dev.1
+title: Endpoint Security
+description: Protect your hosts with threat prevention, detection, and deep security data visibility.
+version: 0.17.0-dev.0
 categories: ["security"]
 # Options are experimental, beta, ga
 release: beta
@@ -11,22 +10,18 @@ release: beta
 # The default type is integration and will be set if empty.
 type: integration
 license: basic
-config_templates:
-- name: endpoint
-  title: Elastic Endpoint Security Integration
-  description: Interact with the endpoint.
-  # This tells the UI that for configuration, it must link to a specific solution
-  # Only solution packages can contain this field.
-  solution: endpoint
-  multiple: false
+policy_templates:
+  - name: endpoint
+    title: Endpoint Security Integration
+    description: Interact with the endpoint.
+    multiple: false
 conditions:
-  kibana:
-    version: "^7.10.0"
-    # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
-    # >= <the version> && < 8.0.0
+  kibana.version: "^7.10.0"
+  # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
+  # >= <the version> && < 8.0.0
 icons:
-- src: "/img/security-logo-color-64px.svg"
-  size: "16x16"
-  type: "image/svg+xml"
+  - src: "/img/security-logo-color-64px.svg"
+    size: "16x16"
+    type: "image/svg+xml"
 owner:
   github: elastic/endpoint-data-visibility-team

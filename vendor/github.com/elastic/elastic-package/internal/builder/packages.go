@@ -1,11 +1,15 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package builder
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 
 	"github.com/elastic/elastic-package/internal/files"
+	"github.com/elastic/elastic-package/internal/logger"
 	"github.com/elastic/elastic-package/internal/packages"
 
 	"github.com/pkg/errors"
@@ -52,8 +56,6 @@ func FindBuildPackagesDirectory() (string, bool, error) {
 }
 
 func buildPackage(sourcePath string) error {
-	fmt.Printf("Building package: %s\n", sourcePath)
-
 	buildDir, found, err := FindBuildPackagesDirectory()
 	if err != nil {
 		return errors.Wrap(err, "locating build directory failed")
@@ -71,27 +73,25 @@ func buildPackage(sourcePath string) error {
 	}
 
 	destinationDir := filepath.Join(buildDir, m.Name, m.Version)
-	fmt.Printf("Build directory: %s\n", destinationDir)
+	logger.Debugf("Build directory: %s\n", destinationDir)
 
-	fmt.Printf("Clear target directory (path: %s)\n", destinationDir)
+	logger.Debugf("Clear target directory (path: %s)", destinationDir)
 	err = files.ClearDir(destinationDir)
 	if err != nil {
 		return errors.Wrap(err, "clearing package contents failed")
 	}
 
-	fmt.Printf("Copy package content (source: %s)\n", sourcePath)
-	err = files.CopyAll(sourcePath, destinationDir)
+	logger.Debugf("Copy package content (source: %s)", sourcePath)
+	err = files.CopyWithoutDev(sourcePath, destinationDir)
 	if err != nil {
 		return errors.Wrap(err, "copying package contents failed")
 	}
 
-	fmt.Println("Encode dashboards")
+	logger.Debug("Encode dashboards")
 	err = encodeDashboards(destinationDir)
 	if err != nil {
 		return errors.Wrap(err, "encoding dashboards failed")
 	}
-
-	fmt.Println("Done.")
 	return nil
 }
 

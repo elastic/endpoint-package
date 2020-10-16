@@ -16,6 +16,38 @@
       - { at: Target.process, as: parent }
   type: group
   fields:
+    - name: command_line
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: executable
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: name
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
+    - name: working_directory
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+        - name: text
+          type: text
+
     - name: Ext
       level: custom
       type: object

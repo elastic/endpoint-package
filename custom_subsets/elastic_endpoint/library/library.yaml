@@ -10,6 +10,15 @@ fields:
   ecs:
     fields:
       version: {}
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
   host:
     fields:
       name: {}

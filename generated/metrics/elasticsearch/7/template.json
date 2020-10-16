@@ -239,6 +239,9 @@
               },
               "full": {
                 "fields": {
+                  "caseless": {
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
@@ -253,6 +256,9 @@
               },
               "name": {
                 "fields": {
+                  "caseless": {
+                    "type": "keyword"
+                  },
                   "text": {
                     "norms": false,
                     "type": "text"
