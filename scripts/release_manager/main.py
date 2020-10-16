@@ -206,8 +206,8 @@ def get_release_branch(repo):
 def update_backport(repo, release_branch, upstream_branch):
     # backporting only applies to commits that go to master so if the original release
     # was not targeting master then don't add anything to the .backportrc.json file
-    #if upstream_branch != 'master':
-    #    return
+    if upstream_branch != 'master':
+        return
 
     click.echo('Updating .backportrc.json file')
     branch_name = 'update-backport'
@@ -218,6 +218,7 @@ def update_backport(repo, release_branch, upstream_branch):
     data['targetBranchChoices'].append(release_branch)
     with open(BACKPORT_FILE, 'w') as f:
         json.dump(data, f, indent=2, sort_keys=True)
+        f.write("\n")
 
     repo.index.add([BACKPORT_FILE])
     repo.index.commit("adding {} to backport file".format(release_branch))
