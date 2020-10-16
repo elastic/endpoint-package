@@ -11,6 +11,7 @@ import re
 import git
 import shutil
 import xxhash
+import json
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.join(DIR_PATH, '..', '..')
@@ -20,6 +21,7 @@ VERSION_REGEX = re.compile('^version: (.*)')
 LOCAL_REPO = git.Repo(ROOT)
 
 UPSTREAM = 'upstream'
+BACKPORT_FILE = os.path.join(ROOT, '.backportrc.json')
 
 
 def print_capture(res):
@@ -183,7 +185,7 @@ def switch_to_bump_branch(repo, upstream_branch):
 
 
 def push_commits(repo, remote, local_branch, upstream_branch):
-    click.echo('Pushing changes to upstream')
+    click.echo('Pushing changes to upstream: {}'.format(upstream_branch))
     repo.git.push(remote, '{}:{}'.format(local_branch, upstream_branch))
 
 
@@ -201,14 +203,36 @@ def get_release_branch(repo):
             return release_branch
 
 
-def handle_release_branch(repo, tagged_hash):
+def update_backport(repo, release_branch, upstream_branch):
+    # backporting only applies to commits that go to master so if the original release
+    # was not targeting master then don't add anything to the .backportrc.json file
+    #if upstream_branch != 'master':
+    #    return
+
+    click.echo('Updating .backportrc.json file')
+    branch_name = 'update-backport'
+    delete_old_branch(repo, branch_name)
+    repo.git.checkout(b=branch_name, t='{}/{}'.format(UPSTREAM, upstream_branch))
+    with open(BACKPORT_FILE, 'r') as f:
+        data = json.load(f)
+    data['targetBranchChoices'].append(release_branch)
+    with open(BACKPORT_FILE, 'w') as f:
+        json.dump(data, f, indent=2, sort_keys=True)
+
+    repo.index.add([BACKPORT_FILE])
+    repo.index.commit("adding {} to backport file".format(release_branch))
+    push_commits(repo, UPSTREAM, branch_name, upstream_branch)
+
+
+def handle_release_branch(repo, tagged_hash, upstream_branch):
     if not click.confirm('Should we create a branch to track this release?'):
         return
     release_branch = get_release_branch(repo)
     delete_old_branch(repo, release_branch)
     repo.git.checkout(tagged_hash, b=release_branch)
     bump_patch()
-    push_commits(LOCAL_REPO, UPSTREAM, release_branch, release_branch)
+    push_commits(repo, UPSTREAM, release_branch, release_branch)
+    update_backport(repo, release_branch, upstream_branch)
 
 
 @click.command()
@@ -234,7 +258,7 @@ def main(package_storage_path, package_dir, env):
         create_pr('snapshot', version, package_dir, package_storage_path)
         prompt_bump(version, upstream_branch)
         push_commits(LOCAL_REPO, UPSTREAM, branch_name, upstream_branch)
-        handle_release_branch(LOCAL_REPO, tagged_commit_hash)
+        handle_release_branch(LOCAL_REPO, tagged_commit_hash, upstream_branch)
     elif env == 'dev':
         branch_name = switch_to_bump_branch(LOCAL_REPO, upstream_branch)
         version = get_package_version()
