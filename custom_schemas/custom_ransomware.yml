@@ -21,6 +21,11 @@
       level: custom
       type: keyword
       description: Ransomware detection version.
+
+    - name: child_pids
+      level: custom
+      type: long
+      description: Array of PIDs for cases where ransomware spawns numerous child processes (e.g. lockergoga)
     
     - name: files
       level: custom
@@ -53,6 +58,11 @@
       level: custom
       type: keyword
       description: File path before being ransomed
+
+    - name: files.previous_extension
+      level: custom
+      type: keyword
+      description: File extension before being ransomed
 
     - name: files.path
       level: custom

@@ -181,6 +181,17 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
+Ransomware.child_pids:
+  dashed_name: Ransomware-child-pids
+  description: Array of PIDs for cases where ransomware spawns numerous child processes
+    (e.g. lockergoga)
+  flat_name: Ransomware.child_pids
+  level: custom
+  name: child_pids
+  normalize: []
+  short: Array of PIDs for cases where ransomware spawns numerous child processes
+    (e.g. lockergoga)
+  type: long
 Ransomware.feature:
   dashed_name: Ransomware-feature
   description: Specific ransomware feature, e.g. MBR/Lua/Canaries.
@@ -259,6 +270,16 @@ Ransomware.files.path:
   name: files.path
   normalize: []
   short: File path after being ransomed
+  type: keyword
+Ransomware.files.previous_extension:
+  dashed_name: Ransomware-files-previous-extension
+  description: File extension before being ransomed
+  flat_name: Ransomware.files.previous_extension
+  ignore_above: 1024
+  level: custom
+  name: files.previous_extension
+  normalize: []
+  short: File extension before being ransomed
   type: keyword
 Ransomware.files.previous_path:
   dashed_name: Ransomware-files-previous-path

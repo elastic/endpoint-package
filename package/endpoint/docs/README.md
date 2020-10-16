@@ -24,6 +24,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
+| Ransomware.child_pids | Array of PIDs for cases where ransomware spawns numerous child processes (e.g. lockergoga) | long |
 | Ransomware.feature | Specific ransomware feature, e.g. MBR/Lua/Canaries. | keyword |
 | Ransomware.files | Information about each file targeted by the ransomware. Expected to be an array. | object |
 | Ransomware.files.data | Combined header_string + data buffer field | binary |
@@ -32,6 +33,7 @@ sent by the endpoint.
 | Ransomware.files.metrics | TODO idk what this is | double |
 | Ransomware.files.operation | Operation applied to file. | keyword |
 | Ransomware.files.path | File path after being ransomed | keyword |
+| Ransomware.files.previous_extension | File extension before being ransomed | keyword |
 | Ransomware.files.previous_path | File path before being ransomed | keyword |
 | Ransomware.files.score | Ransomware score for this particular file. | double |
 | Ransomware.score | Total score of all files ransomed. | double |

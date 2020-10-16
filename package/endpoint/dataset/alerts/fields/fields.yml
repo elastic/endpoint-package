@@ -131,6 +131,12 @@
   description: These fields contain information specific to ransomware alerts.
   type: group
   fields:
+  - name: child_pids
+    level: custom
+    type: long
+    description: Array of PIDs for cases where ransomware spawns numerous child processes
+      (e.g. lockergoga)
+    default_field: false
   - name: feature
     level: custom
     type: keyword
@@ -175,6 +181,12 @@
     type: keyword
     ignore_above: 1024
     description: File path after being ransomed
+    default_field: false
+  - name: files.previous_extension
+    level: custom
+    type: keyword
+    ignore_above: 1024
+    description: File extension before being ransomed
     default_field: false
   - name: files.previous_path
     level: custom
