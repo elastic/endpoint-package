@@ -26,6 +26,8 @@
       level: custom
       type: long
       description: Array of PIDs for cases where ransomware spawns numerous child processes (e.g. lockergoga)
+      normalize:
+        - array
     
     - name: files
       level: custom

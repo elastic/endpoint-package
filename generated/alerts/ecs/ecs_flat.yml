@@ -188,7 +188,8 @@ Ransomware.child_pids:
   flat_name: Ransomware.child_pids
   level: custom
   name: child_pids
-  normalize: []
+  normalize:
+  - array
   short: Array of PIDs for cases where ransomware spawns numerous child processes
     (e.g. lockergoga)
   type: long
