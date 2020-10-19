@@ -130,39 +130,39 @@
     - name: child_pids
       level: custom
       type: long
-      description: Array of PIDs for cases where ransomware spawns numerous child processes (e.g. lockergoga)
+      description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
       default_field: false
     - name: feature
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Specific ransomware feature, e.g. MBR/Lua/Canaries.
+      description: Ransomware feature which triggered the alert.
       default_field: false
     - name: files
       level: custom
       type: object
-      description: Information about each file targeted by the ransomware. Expected to be an array.
+      description: Information about each file event attributed to the ransomware. Expected to be an array.
       default_field: false
     - name: files.data
       level: custom
       type: binary
-      description: Combined header_string + data buffer field
+      description: File header or MBR bytes.
       default_field: false
     - name: files.entropy
       level: custom
       type: double
-      description: TODO write description and check that type is indeed double
+      description: Entropy of file contents.
       default_field: false
     - name: files.extension
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File extension
+      description: File extension.
       default_field: false
     - name: files.metrics
       level: custom
       type: double
-      description: TODO idk what this is
+      description: Suspicious ransomware behaviours associated with the file event.
       default_field: false
     - name: files.operation
       level: custom
@@ -174,35 +174,35 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File path after being ransomed
+      description: File path.
       default_field: false
     - name: files.previous_extension
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File extension before being ransomed
+      description: Previous file extension.
       default_field: false
     - name: files.previous_path
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File path before being ransomed
+      description: Previous file path.
       default_field: false
     - name: files.score
       level: custom
       type: double
-      description: Ransomware score for this particular file.
+      description: Ransomware score for this particular file event.
       default_field: false
     - name: score
       level: custom
       type: double
-      description: Total score of all files ransomed.
+      description: Total ransomware score for aggregated file events.
       default_field: false
     - name: version
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Ransomware detection version.
+      description: Ransomware artifact version.
       default_field: false
 - name: Target
   title: Target

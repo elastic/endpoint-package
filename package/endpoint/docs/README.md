@@ -24,20 +24,20 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
-| Ransomware.child_pids | Array of PIDs for cases where ransomware spawns numerous child processes (e.g. lockergoga) | long |
-| Ransomware.feature | Specific ransomware feature, e.g. MBR/Lua/Canaries. | keyword |
-| Ransomware.files | Information about each file targeted by the ransomware. Expected to be an array. | object |
-| Ransomware.files.data | Combined header_string + data buffer field | binary |
-| Ransomware.files.entropy | TODO write description and check that type is indeed double | double |
-| Ransomware.files.extension | File extension | keyword |
-| Ransomware.files.metrics | TODO idk what this is | double |
+| Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
+| Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | object |
+| Ransomware.files.data | File header or MBR bytes. | binary |
+| Ransomware.files.entropy | Entropy of file contents. | double |
+| Ransomware.files.extension | File extension. | keyword |
+| Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | double |
 | Ransomware.files.operation | Operation applied to file. | keyword |
-| Ransomware.files.path | File path after being ransomed | keyword |
-| Ransomware.files.previous_extension | File extension before being ransomed | keyword |
-| Ransomware.files.previous_path | File path before being ransomed | keyword |
-| Ransomware.files.score | Ransomware score for this particular file. | double |
-| Ransomware.score | Total score of all files ransomed. | double |
-| Ransomware.version | Ransomware detection version. | keyword |
+| Ransomware.files.path | File path. | keyword |
+| Ransomware.files.previous_extension | Previous file extension. | keyword |
+| Ransomware.files.previous_path | Previous file path. | keyword |
+| Ransomware.files.score | Ransomware score for this particular file event. | double |
+| Ransomware.score | Total ransomware score for aggregated file events. | double |
+| Ransomware.version | Ransomware artifact version. | keyword |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |

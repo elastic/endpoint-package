@@ -183,74 +183,74 @@ Endpoint.policy.applied.version:
   type: keyword
 Ransomware.child_pids:
   dashed_name: Ransomware-child-pids
-  description: Array of PIDs for cases where ransomware spawns numerous child processes
-    (e.g. lockergoga)
+  description: Array of child PIDs for ransomware which spawns numerous processes
+    to handle encryption.
   flat_name: Ransomware.child_pids
   level: custom
   name: child_pids
   normalize:
   - array
-  short: Array of PIDs for cases where ransomware spawns numerous child processes
-    (e.g. lockergoga)
+  short: Array of child PIDs for ransomware which spawns numerous processes to handle
+    encryption.
   type: long
 Ransomware.feature:
   dashed_name: Ransomware-feature
-  description: Specific ransomware feature, e.g. MBR/Lua/Canaries.
+  description: Ransomware feature which triggered the alert.
   flat_name: Ransomware.feature
   ignore_above: 1024
   level: custom
   name: feature
   normalize: []
-  short: Specific ransomware feature, e.g. MBR/Lua/Canaries.
+  short: Ransomware feature which triggered the alert.
   type: keyword
 Ransomware.files:
   dashed_name: Ransomware-files
-  description: Information about each file targeted by the ransomware. Expected to
-    be an array.
+  description: Information about each file event attributed to the ransomware. Expected
+    to be an array.
   flat_name: Ransomware.files
   level: custom
   name: files
   normalize:
   - array
-  short: Information about each file targeted by the ransomware. Expected to be an
-    array.
+  short: Information about each file event attributed to the ransomware. Expected
+    to be an array.
   type: object
 Ransomware.files.data:
   dashed_name: Ransomware-files-data
-  description: Combined header_string + data buffer field
+  description: File header or MBR bytes.
   flat_name: Ransomware.files.data
   level: custom
   name: files.data
   normalize: []
-  short: Combined header_string + data buffer field
+  short: File header or MBR bytes.
   type: binary
 Ransomware.files.entropy:
   dashed_name: Ransomware-files-entropy
-  description: TODO write description and check that type is indeed double
+  description: Entropy of file contents.
   flat_name: Ransomware.files.entropy
   level: custom
   name: files.entropy
   normalize: []
-  short: TODO write description and check that type is indeed double
+  short: Entropy of file contents.
   type: double
 Ransomware.files.extension:
   dashed_name: Ransomware-files-extension
-  description: File extension
+  description: File extension.
   flat_name: Ransomware.files.extension
   ignore_above: 1024
   level: custom
   name: files.extension
   normalize: []
-  short: File extension
+  short: File extension.
   type: keyword
 Ransomware.files.metrics:
   dashed_name: Ransomware-files-metrics
-  description: TODO idk what this is
+  description: Suspicious ransomware behaviours associated with the file event.
   flat_name: Ransomware.files.metrics
   level: custom
   name: files.metrics
   normalize: []
-  short: TODO idk what this is
+  short: Suspicious ransomware behaviours associated with the file event.
   type: double
 Ransomware.files.operation:
   dashed_name: Ransomware-files-operation
@@ -264,61 +264,61 @@ Ransomware.files.operation:
   type: keyword
 Ransomware.files.path:
   dashed_name: Ransomware-files-path
-  description: File path after being ransomed
+  description: File path.
   flat_name: Ransomware.files.path
   ignore_above: 1024
   level: custom
   name: files.path
   normalize: []
-  short: File path after being ransomed
+  short: File path.
   type: keyword
 Ransomware.files.previous_extension:
   dashed_name: Ransomware-files-previous-extension
-  description: File extension before being ransomed
+  description: Previous file extension.
   flat_name: Ransomware.files.previous_extension
   ignore_above: 1024
   level: custom
   name: files.previous_extension
   normalize: []
-  short: File extension before being ransomed
+  short: Previous file extension.
   type: keyword
 Ransomware.files.previous_path:
   dashed_name: Ransomware-files-previous-path
-  description: File path before being ransomed
+  description: Previous file path.
   flat_name: Ransomware.files.previous_path
   ignore_above: 1024
   level: custom
   name: files.previous_path
   normalize: []
-  short: File path before being ransomed
+  short: Previous file path.
   type: keyword
 Ransomware.files.score:
   dashed_name: Ransomware-files-score
-  description: Ransomware score for this particular file.
+  description: Ransomware score for this particular file event.
   flat_name: Ransomware.files.score
   level: custom
   name: files.score
   normalize: []
-  short: Ransomware score for this particular file.
+  short: Ransomware score for this particular file event.
   type: double
 Ransomware.score:
   dashed_name: Ransomware-score
-  description: Total score of all files ransomed.
+  description: Total ransomware score for aggregated file events.
   flat_name: Ransomware.score
   level: custom
   name: score
   normalize: []
-  short: Total score of all files ransomed.
+  short: Total ransomware score for aggregated file events.
   type: double
 Ransomware.version:
   dashed_name: Ransomware-version
-  description: Ransomware detection version.
+  description: Ransomware artifact version.
   flat_name: Ransomware.version
   ignore_above: 1024
   level: custom
   name: version
   normalize: []
-  short: Ransomware detection version.
+  short: Ransomware artifact version.
   type: keyword
 Target.dll.Ext:
   dashed_name: Target-dll-Ext
