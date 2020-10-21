@@ -161,7 +161,8 @@
       default_field: false
     - name: files.metrics
       level: custom
-      type: double
+      type: keyword
+      ignore_above: 1024
       description: Suspicious ransomware behaviours associated with the file event.
       default_field: false
     - name: files.operation
@@ -170,23 +171,23 @@
       ignore_above: 1024
       description: Operation applied to file.
       default_field: false
-    - name: files.path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: File path.
-      default_field: false
-    - name: files.previous_extension
+    - name: files.original.extension
       level: custom
       type: keyword
       ignore_above: 1024
       description: Previous file extension.
       default_field: false
-    - name: files.previous_path
+    - name: files.original.path
       level: custom
       type: keyword
       ignore_above: 1024
       description: Previous file path.
+      default_field: false
+    - name: files.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: File path.
       default_field: false
     - name: files.score
       level: custom

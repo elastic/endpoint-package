@@ -248,11 +248,13 @@ Ransomware.files.metrics:
   dashed_name: Ransomware-files-metrics
   description: Suspicious ransomware behaviours associated with the file event.
   flat_name: Ransomware.files.metrics
+  ignore_above: 1024
   level: custom
   name: files.metrics
-  normalize: []
+  normalize:
+  - array
   short: Suspicious ransomware behaviours associated with the file event.
-  type: double
+  type: keyword
 Ransomware.files.operation:
   dashed_name: Ransomware-files-operation
   description: Operation applied to file.
@@ -263,6 +265,26 @@ Ransomware.files.operation:
   normalize: []
   short: Operation applied to file.
   type: keyword
+Ransomware.files.original.extension:
+  dashed_name: Ransomware-files-original-extension
+  description: Previous file extension.
+  flat_name: Ransomware.files.original.extension
+  ignore_above: 1024
+  level: custom
+  name: files.original.extension
+  normalize: []
+  short: Previous file extension.
+  type: keyword
+Ransomware.files.original.path:
+  dashed_name: Ransomware-files-original-path
+  description: Previous file path.
+  flat_name: Ransomware.files.original.path
+  ignore_above: 1024
+  level: custom
+  name: files.original.path
+  normalize: []
+  short: Previous file path.
+  type: keyword
 Ransomware.files.path:
   dashed_name: Ransomware-files-path
   description: File path.
@@ -272,26 +294,6 @@ Ransomware.files.path:
   name: files.path
   normalize: []
   short: File path.
-  type: keyword
-Ransomware.files.previous_extension:
-  dashed_name: Ransomware-files-previous-extension
-  description: Previous file extension.
-  flat_name: Ransomware.files.previous_extension
-  ignore_above: 1024
-  level: custom
-  name: files.previous_extension
-  normalize: []
-  short: Previous file extension.
-  type: keyword
-Ransomware.files.previous_path:
-  dashed_name: Ransomware-files-previous-path
-  description: Previous file path.
-  flat_name: Ransomware.files.previous_path
-  ignore_above: 1024
-  level: custom
-  name: files.previous_path
-  normalize: []
-  short: Previous file path.
   type: keyword
 Ransomware.files.score:
   dashed_name: Ransomware-files-score

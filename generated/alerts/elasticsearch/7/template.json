@@ -124,21 +124,26 @@
                 "type": "keyword"
               },
               "metrics": {
-                "type": "double"
+                "ignore_above": 1024,
+                "type": "keyword"
               },
               "operation": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "original": {
+                "properties": {
+                  "extension": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "path": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "previous_extension": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "previous_path": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },

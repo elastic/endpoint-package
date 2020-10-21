@@ -48,20 +48,22 @@
 
     - name: files.metrics
       level: custom
-      type: double
+      type: keyword
       description: Suspicious ransomware behaviours associated with the file event.
+      normalize:
+        - array
 
     - name: files.extension
       level: custom
       type: keyword
       description: File extension.
 
-    - name: files.previous_path
+    - name: files.original.path
       level: custom
       type: keyword
       description: Previous file path.
 
-    - name: files.previous_extension
+    - name: files.original.extension
       level: custom
       type: keyword
       description: Previous file extension.
