@@ -214,7 +214,7 @@ Ransomware.files:
   - array
   short: Information about each file event attributed to the ransomware. Expected
     to be an array.
-  type: object
+  type: nested
 Ransomware.files.data:
   dashed_name: Ransomware-files-data
   description: File header or MBR bytes.

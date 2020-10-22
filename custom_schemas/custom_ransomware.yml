@@ -31,7 +31,7 @@
     
     - name: files
       level: custom
-      type: object
+      type: nested
       description: Information about each file event attributed to the ransomware. Expected to be an array.
       normalize:
         - array

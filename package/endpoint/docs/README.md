@@ -26,7 +26,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
 | Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
-| Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | object |
+| Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
 | Ransomware.files.data | File header or MBR bytes. | binary |
 | Ransomware.files.entropy | Entropy of file contents. | double |
 | Ransomware.files.extension | File extension. | keyword |
