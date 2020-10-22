@@ -56,22 +56,22 @@
     - name: files.extension
       level: custom
       type: keyword
-      description: File extension.
+      description: File extension, excluding the leading dot.
 
     - name: files.original.path
       level: custom
       type: keyword
-      description: Previous file path.
+      description: Original file path prior to the file event.
 
     - name: files.original.extension
       level: custom
       type: keyword
-      description: Previous file extension.
+      description: Original file extension prior to the file event.
 
     - name: files.path
       level: custom
       type: keyword
-      description: File path.
+      description: Full path to the file, including the file name.
 
     - name: files.data
       level: custom

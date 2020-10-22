@@ -236,13 +236,13 @@ Ransomware.files.entropy:
   type: double
 Ransomware.files.extension:
   dashed_name: Ransomware-files-extension
-  description: File extension.
+  description: File extension, excluding the leading dot.
   flat_name: Ransomware.files.extension
   ignore_above: 1024
   level: custom
   name: files.extension
   normalize: []
-  short: File extension.
+  short: File extension, excluding the leading dot.
   type: keyword
 Ransomware.files.metrics:
   dashed_name: Ransomware-files-metrics
@@ -267,33 +267,33 @@ Ransomware.files.operation:
   type: keyword
 Ransomware.files.original.extension:
   dashed_name: Ransomware-files-original-extension
-  description: Previous file extension.
+  description: Original file extension prior to the file event.
   flat_name: Ransomware.files.original.extension
   ignore_above: 1024
   level: custom
   name: files.original.extension
   normalize: []
-  short: Previous file extension.
+  short: Original file extension prior to the file event.
   type: keyword
 Ransomware.files.original.path:
   dashed_name: Ransomware-files-original-path
-  description: Previous file path.
+  description: Original file path prior to the file event.
   flat_name: Ransomware.files.original.path
   ignore_above: 1024
   level: custom
   name: files.original.path
   normalize: []
-  short: Previous file path.
+  short: Original file path prior to the file event.
   type: keyword
 Ransomware.files.path:
   dashed_name: Ransomware-files-path
-  description: File path.
+  description: Full path to the file, including the file name.
   flat_name: Ransomware.files.path
   ignore_above: 1024
   level: custom
   name: files.path
   normalize: []
-  short: File path.
+  short: Full path to the file, including the file name.
   type: keyword
 Ransomware.files.score:
   dashed_name: Ransomware-files-score

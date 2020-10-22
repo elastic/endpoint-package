@@ -29,12 +29,12 @@ sent by the endpoint.
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
 | Ransomware.files.data | File header or MBR bytes. | binary |
 | Ransomware.files.entropy | Entropy of file contents. | double |
-| Ransomware.files.extension | File extension. | keyword |
+| Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
 | Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
 | Ransomware.files.operation | Operation applied to file. | keyword |
-| Ransomware.files.original.extension | Previous file extension. | keyword |
-| Ransomware.files.original.path | Previous file path. | keyword |
-| Ransomware.files.path | File path. | keyword |
+| Ransomware.files.original.extension | Original file extension prior to the file event. | keyword |
+| Ransomware.files.original.path | Original file path prior to the file event. | keyword |
+| Ransomware.files.path | Full path to the file, including the file name. | keyword |
 | Ransomware.files.score | Ransomware score for this particular file event. | double |
 | Ransomware.score | Total ransomware score for aggregated file events. | double |
 | Ransomware.version | Ransomware artifact version. | keyword |

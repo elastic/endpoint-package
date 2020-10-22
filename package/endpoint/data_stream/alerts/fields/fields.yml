@@ -157,7 +157,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File extension.
+      description: File extension, excluding the leading dot.
       default_field: false
     - name: files.metrics
       level: custom
@@ -175,19 +175,19 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Previous file extension.
+      description: Original file extension prior to the file event.
       default_field: false
     - name: files.original.path
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Previous file path.
+      description: Original file path prior to the file event.
       default_field: false
     - name: files.path
       level: custom
       type: keyword
       ignore_above: 1024
-      description: File path.
+      description: Full path to the file, including the file name.
       default_field: false
     - name: files.score
       level: custom
