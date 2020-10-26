@@ -1,0 +1,84 @@
+---
+- name: Ransomware
+  title: Ransomware
+  group: 2
+  short: These fields contain information specific to ransomware alerts.
+  description: >
+    These fields contain information specific to ransomware alerts.
+  type: group
+  fields:
+    - name: feature
+      level: custom
+      type: keyword
+      description: Ransomware feature which triggered the alert.
+
+    - name: score
+      level: custom
+      type: double
+      description: Total ransomware score for aggregated file events.
+    
+    - name: version
+      level: custom
+      type: keyword
+      description: Ransomware artifact version.
+
+    - name: child_pids
+      level: custom
+      type: long
+      description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
+      normalize:
+        - array
+    
+    - name: files
+      level: custom
+      type: nested
+      description: Information about each file event attributed to the ransomware. Expected to be an array.
+      normalize:
+        - array
+    
+    - name: files.operation
+      level: custom
+      type: keyword
+      description: Operation applied to file.
+    
+    - name: files.entropy
+      level: custom
+      type: double
+      description: Entropy of file contents.
+
+    - name: files.metrics
+      level: custom
+      type: keyword
+      description: Suspicious ransomware behaviours associated with the file event.
+      normalize:
+        - array
+
+    - name: files.extension
+      level: custom
+      type: keyword
+      description: File extension, excluding the leading dot.
+
+    - name: files.original.path
+      level: custom
+      type: keyword
+      description: Original file path prior to the file event.
+
+    - name: files.original.extension
+      level: custom
+      type: keyword
+      description: Original file extension prior to the file event.
+
+    - name: files.path
+      level: custom
+      type: keyword
+      description: Full path to the file, including the file name.
+
+    - name: files.data
+      level: custom
+      type: binary
+      description: File header or MBR bytes.
+
+    - name: files.score
+      level: custom
+      type: double
+      description: Ransomware score for this particular file event.

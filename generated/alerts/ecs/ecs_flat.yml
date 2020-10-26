@@ -181,6 +181,147 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
+Ransomware.child_pids:
+  dashed_name: Ransomware-child-pids
+  description: Array of child PIDs for ransomware which spawns numerous processes
+    to handle encryption.
+  flat_name: Ransomware.child_pids
+  level: custom
+  name: child_pids
+  normalize:
+  - array
+  short: Array of child PIDs for ransomware which spawns numerous processes to handle
+    encryption.
+  type: long
+Ransomware.feature:
+  dashed_name: Ransomware-feature
+  description: Ransomware feature which triggered the alert.
+  flat_name: Ransomware.feature
+  ignore_above: 1024
+  level: custom
+  name: feature
+  normalize: []
+  short: Ransomware feature which triggered the alert.
+  type: keyword
+Ransomware.files:
+  dashed_name: Ransomware-files
+  description: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  flat_name: Ransomware.files
+  level: custom
+  name: files
+  normalize:
+  - array
+  short: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  type: nested
+Ransomware.files.data:
+  dashed_name: Ransomware-files-data
+  description: File header or MBR bytes.
+  flat_name: Ransomware.files.data
+  level: custom
+  name: files.data
+  normalize: []
+  short: File header or MBR bytes.
+  type: binary
+Ransomware.files.entropy:
+  dashed_name: Ransomware-files-entropy
+  description: Entropy of file contents.
+  flat_name: Ransomware.files.entropy
+  level: custom
+  name: files.entropy
+  normalize: []
+  short: Entropy of file contents.
+  type: double
+Ransomware.files.extension:
+  dashed_name: Ransomware-files-extension
+  description: File extension, excluding the leading dot.
+  flat_name: Ransomware.files.extension
+  ignore_above: 1024
+  level: custom
+  name: files.extension
+  normalize: []
+  short: File extension, excluding the leading dot.
+  type: keyword
+Ransomware.files.metrics:
+  dashed_name: Ransomware-files-metrics
+  description: Suspicious ransomware behaviours associated with the file event.
+  flat_name: Ransomware.files.metrics
+  ignore_above: 1024
+  level: custom
+  name: files.metrics
+  normalize:
+  - array
+  short: Suspicious ransomware behaviours associated with the file event.
+  type: keyword
+Ransomware.files.operation:
+  dashed_name: Ransomware-files-operation
+  description: Operation applied to file.
+  flat_name: Ransomware.files.operation
+  ignore_above: 1024
+  level: custom
+  name: files.operation
+  normalize: []
+  short: Operation applied to file.
+  type: keyword
+Ransomware.files.original.extension:
+  dashed_name: Ransomware-files-original-extension
+  description: Original file extension prior to the file event.
+  flat_name: Ransomware.files.original.extension
+  ignore_above: 1024
+  level: custom
+  name: files.original.extension
+  normalize: []
+  short: Original file extension prior to the file event.
+  type: keyword
+Ransomware.files.original.path:
+  dashed_name: Ransomware-files-original-path
+  description: Original file path prior to the file event.
+  flat_name: Ransomware.files.original.path
+  ignore_above: 1024
+  level: custom
+  name: files.original.path
+  normalize: []
+  short: Original file path prior to the file event.
+  type: keyword
+Ransomware.files.path:
+  dashed_name: Ransomware-files-path
+  description: Full path to the file, including the file name.
+  flat_name: Ransomware.files.path
+  ignore_above: 1024
+  level: custom
+  name: files.path
+  normalize: []
+  short: Full path to the file, including the file name.
+  type: keyword
+Ransomware.files.score:
+  dashed_name: Ransomware-files-score
+  description: Ransomware score for this particular file event.
+  flat_name: Ransomware.files.score
+  level: custom
+  name: files.score
+  normalize: []
+  short: Ransomware score for this particular file event.
+  type: double
+Ransomware.score:
+  dashed_name: Ransomware-score
+  description: Total ransomware score for aggregated file events.
+  flat_name: Ransomware.score
+  level: custom
+  name: score
+  normalize: []
+  short: Total ransomware score for aggregated file events.
+  type: double
+Ransomware.version:
+  dashed_name: Ransomware-version
+  description: Ransomware artifact version.
+  flat_name: Ransomware.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  short: Ransomware artifact version.
+  type: keyword
 Target.dll.Ext:
   dashed_name: Target-dll-Ext
   description: Object for all custom defined fields to live in.

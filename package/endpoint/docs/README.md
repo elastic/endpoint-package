@@ -24,6 +24,20 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
+| Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
+| Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
+| Ransomware.files.data | File header or MBR bytes. | binary |
+| Ransomware.files.entropy | Entropy of file contents. | double |
+| Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
+| Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
+| Ransomware.files.operation | Operation applied to file. | keyword |
+| Ransomware.files.original.extension | Original file extension prior to the file event. | keyword |
+| Ransomware.files.original.path | Original file path prior to the file event. | keyword |
+| Ransomware.files.path | Full path to the file, including the file name. | keyword |
+| Ransomware.files.score | Ransomware score for this particular file event. | double |
+| Ransomware.score | Total ransomware score for aggregated file events. | double |
+| Ransomware.version | Ransomware artifact version. | keyword |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
