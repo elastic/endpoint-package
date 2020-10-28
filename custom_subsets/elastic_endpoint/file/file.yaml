@@ -79,6 +79,7 @@ fields:
               name: {}
   process:
     fields:
+      args_count: {}
       pid: {}
       name: {}
       executable: {}
@@ -104,6 +105,7 @@ fields:
           md5: {}
           sha1: {}
           sha256: {}
+      extension: {}
       Ext:
         fields:
           windows:

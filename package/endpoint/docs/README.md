@@ -554,6 +554,7 @@ sent by the endpoint.
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
+| file.extension | File extension. | keyword |
 | file.gid | Primary group ID (GID) of the file. | keyword |
 | file.group | Primary group name of the file. | keyword |
 | file.hash.md5 | MD5 hash. | keyword |
@@ -588,6 +589,7 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
