@@ -108,10 +108,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "code": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "created": {
             "type": "date"
           },
           "dataset": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "hash": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -130,7 +138,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "outcome": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "provider": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "sequence": {
+            "type": "long"
+          },
+          "severity": {
             "type": "long"
           },
           "type": {
@@ -159,6 +178,10 @@
             },
             "type": "object"
           },
+          "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "id": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -172,6 +195,10 @@
       "host": {
         "properties": {
           "architecture": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "domain": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -252,6 +279,13 @@
                 "type": "keyword"
               }
             }
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uptime": {
+            "type": "long"
           }
         }
       },
@@ -281,6 +315,9 @@
               },
               "code_signature": {
                 "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
                   "status": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -288,6 +325,12 @@
                   "subject_name": {
                     "ignore_above": 1024,
                     "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
                   }
                 },
                 "type": "nested"
@@ -317,6 +360,30 @@
           "args": {
             "ignore_above": 1024,
             "type": "keyword"
+          },
+          "args_count": {
+            "type": "long"
+          },
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            }
           },
           "command_line": {
             "fields": {
@@ -368,6 +435,10 @@
               "sha256": {
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "sha512": {
+                "ignore_above": 1024,
+                "type": "keyword"
               }
             }
           },
@@ -390,6 +461,28 @@
             "properties": {
               "Ext": {
                 "properties": {
+                  "code_signature": {
+                    "properties": {
+                      "exists": {
+                        "type": "boolean"
+                      },
+                      "status": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "subject_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "trusted": {
+                        "type": "boolean"
+                      },
+                      "valid": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "nested"
+                  },
                   "real": {
                     "properties": {
                       "pid": {
@@ -400,6 +493,49 @@
                   }
                 },
                 "type": "object"
+              },
+              "args": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "args_count": {
+                "type": "long"
+              },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "command_line": {
+                "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
+                  "text": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "ignore_above": 1024,
+                "type": "keyword"
               },
               "entity_id": {
                 "ignore_above": 1024,
@@ -420,6 +556,29 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "exit_code": {
+                "type": "long"
+              },
+              "hash": {
+                "properties": {
+                  "md5": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha1": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha256": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "sha512": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "name": {
                 "fields": {
                   "caseless": {
@@ -435,28 +594,151 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "pe": {
+                "properties": {
+                  "company": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "description": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "original_file_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "pgid": {
+                "type": "long"
+              },
               "pid": {
                 "type": "long"
-              }
-            }
-          },
-          "pe": {
-            "properties": {
-              "original_file_name": {
+              },
+              "ppid": {
+                "type": "long"
+              },
+              "thread": {
+                "properties": {
+                  "id": {
+                    "type": "long"
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "title": {
+                "fields": {
+                  "text": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "uptime": {
+                "type": "long"
+              },
+              "working_directory": {
+                "fields": {
+                  "caseless": {
+                    "ignore_above": 1024,
+                    "normalizer": "lowercase",
+                    "type": "keyword"
+                  },
+                  "text": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
                 "ignore_above": 1024,
                 "type": "keyword"
               }
             }
           },
+          "pe": {
+            "properties": {
+              "company": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "description": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original_file_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "pgid": {
+            "type": "long"
+          },
           "pid": {
+            "type": "long"
+          },
+          "ppid": {
             "type": "long"
           },
           "thread": {
             "properties": {
               "id": {
                 "type": "long"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
               }
             }
+          },
+          "title": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uptime": {
+            "type": "long"
+          },
+          "working_directory": {
+            "fields": {
+              "caseless": {
+                "ignore_above": 1024,
+                "normalizer": "lowercase",
+                "type": "keyword"
+              },
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
           }
         }
       },
@@ -520,6 +802,58 @@
             "type": "object"
           },
           "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "email": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "full_name": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "group": {
+            "properties": {
+              "Ext": {
+                "properties": {
+                  "real": {
+                    "properties": {
+                      "id": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "domain": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "hash": {
             "ignore_above": 1024,
             "type": "keyword"
           },
