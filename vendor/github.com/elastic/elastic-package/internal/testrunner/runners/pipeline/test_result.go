@@ -10,13 +10,13 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
+	"github.com/elastic/elastic-package/internal/testrunner/runners/testerrors"
+
 	"github.com/kylelemons/godebug/diff"
 	"github.com/pkg/errors"
 )
 
 const expectedTestResultSuffix = "-expected.json"
-
-var errTestCaseFailed = errors.New("test case failed")
 
 type testResult struct {
 	events []json.RawMessage
@@ -42,7 +42,7 @@ func writeTestResult(testCasePath string, result *testResult) error {
 }
 
 func compareResults(testCasePath string, result *testResult) error {
-	current, err := marshalTestResult(result)
+	actual, err := marshalTestResult(result)
 	if err != nil {
 		return errors.Wrap(err, "marshalling test result failed")
 	}
@@ -52,11 +52,12 @@ func compareResults(testCasePath string, result *testResult) error {
 		return errors.Wrap(err, "reading expected test result failed")
 	}
 
-	report := diff.Diff(string(expected), string(current))
+	report := diff.Diff(string(expected), string(actual))
 	if report != "" {
-		fmt.Println("Expected results are different from current ones:")
-		fmt.Println(report)
-		return errTestCaseFailed
+		return testerrors.ErrTestCaseFailed{
+			Reason:  "Expected results are different from actual ones",
+			Details: report,
+		}
 	}
 	return nil
 }
