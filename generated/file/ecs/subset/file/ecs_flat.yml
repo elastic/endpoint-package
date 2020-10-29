@@ -828,6 +828,17 @@ file.Ext.windows.zone_identifier:
   normalize: []
   short: Windows zone identifier for a file
   type: keyword
+file.extension:
+  dashed_name: file-extension
+  description: File extension.
+  example: png
+  flat_name: file.extension
+  ignore_above: 1024
+  level: extended
+  name: extension
+  normalize: []
+  short: File extension.
+  type: keyword
 file.gid:
   dashed_name: file-gid
   description: Primary group ID (GID) of the file.
@@ -1242,6 +1253,20 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.args_count:
+  dashed_name: process-args-count
+  description: 'Length of the process.args array.
+
+    This field can be useful for querying or performing bucket analysis on how many
+    arguments were provided to start a process. More arguments may be an indication
+    of suspicious activity.'
+  example: 4
+  flat_name: process.args_count
+  level: extended
+  name: args_count
+  normalize: []
+  short: Length of the process.args array.
+  type: long
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.
