@@ -95,13 +95,18 @@ func (r *DockerComposeServiceDeployer) SetUp(inCtxt ServiceContext) (DeployedSer
 		outCtxt.Ports[idx] = port.InternalPort
 	}
 
+	// Shortcut to first port for convenience
+	if len(outCtxt.Ports) > 0 {
+		outCtxt.Port = outCtxt.Ports[0]
+	}
+
 	service.ctxt = outCtxt
 	return &service, nil
 }
 
 // TearDown tears down the service.
 func (s *dockerComposeDeployedService) TearDown() error {
-	logger.Infof("tearing down service using docker compose runner")
+	logger.Debugf("tearing down service using docker compose runner")
 	defer func() {
 		err := files.RemoveContent(s.ctxt.Logs.Folder.Local)
 		if err != nil {
