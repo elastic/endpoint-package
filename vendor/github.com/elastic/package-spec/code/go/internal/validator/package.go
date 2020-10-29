@@ -13,6 +13,7 @@ import (
 
 // Package represents an Elastic Package Registry package
 type Package struct {
+	Name        string
 	SpecVersion *semver.Version
 	RootPath    string
 }
@@ -40,6 +41,7 @@ func NewPackage(pkgRootPath string) (*Package, error) {
 	}
 
 	var manifest struct {
+		Name        string `yaml:"name"`
 		SpecVersion string `yaml:"format_version"`
 	}
 	if err := yaml.Unmarshal(data, &manifest); err != nil {
@@ -53,8 +55,9 @@ func NewPackage(pkgRootPath string) (*Package, error) {
 
 	// Instantiate Package object and return it
 	p := Package{
-		specVersion,
-		pkgRootPath,
+		Name:        manifest.Name,
+		RootPath:    pkgRootPath,
+		SpecVersion: specVersion,
 	}
 
 	return &p, nil

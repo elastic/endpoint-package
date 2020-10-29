@@ -7,6 +7,7 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
+	"strings"
 
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v3"
@@ -59,7 +60,7 @@ func newFolderSpec(fs http.FileSystem, specPath string) (*folderSpec, error) {
 	return &spec, nil
 }
 
-func (s *folderSpec) validate(folderPath string) ValidationErrors {
+func (s *folderSpec) validate(packageName string, folderPath string) ValidationErrors {
 	var errs ValidationErrors
 	files, err := ioutil.ReadDir(folderPath)
 	if err != nil {
@@ -69,7 +70,7 @@ func (s *folderSpec) validate(folderPath string) ValidationErrors {
 
 	for _, file := range files {
 		fileName := file.Name()
-		itemSpec, err := s.findItemSpec(fileName)
+		itemSpec, err := s.findItemSpec(packageName, fileName)
 		if err != nil {
 			errs = append(errs, err)
 			continue
@@ -122,7 +123,7 @@ func (s *folderSpec) validate(folderPath string) ValidationErrors {
 			}
 
 			subFolderPath := path.Join(folderPath, fileName)
-			subErrs := subFolderSpec.validate(subFolderPath)
+			subErrs := subFolderSpec.validate(packageName, subFolderPath)
 			if len(subErrs) > 0 {
 				errs = append(errs, subErrs...)
 			}
@@ -168,13 +169,13 @@ func (s *folderSpec) validate(folderPath string) ValidationErrors {
 	return errs
 }
 
-func (s *folderSpec) findItemSpec(folderItemName string) (*folderItemSpec, error) {
+func (s *folderSpec) findItemSpec(packageName string, folderItemName string) (*folderItemSpec, error) {
 	for _, itemSpec := range s.Contents {
 		if itemSpec.Name != "" && itemSpec.Name == folderItemName {
 			return &itemSpec, nil
 		}
 		if itemSpec.Pattern != "" {
-			isMatch, err := regexp.MatchString(itemSpec.Pattern, folderItemName)
+			isMatch, err := regexp.MatchString(strings.ReplaceAll(itemSpec.Pattern, "{PACKAGE_NAME}", packageName), folderItemName)
 			if err != nil {
 				return nil, errors.Wrap(err, "invalid folder item spec pattern")
 			}
