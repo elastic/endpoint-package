@@ -7,6 +7,7 @@ package ingestmanager
 import (
 	"encoding/json"
 	"fmt"
+	"net/url"
 	"time"
 
 	"github.com/elastic/elastic-package/internal/logger"
@@ -22,7 +23,7 @@ type Agent struct {
 
 // ListAgents returns the list of agents enrolled with Fleet.
 func (c *Client) ListAgents() ([]Agent, error) {
-	statusCode, respBody, err := c.get("fleet/agents")
+	statusCode, respBody, err := c.get("agents")
 	if err != nil {
 		return nil, errors.Wrap(err, "could not list agents")
 	}
@@ -46,7 +47,7 @@ func (c *Client) ListAgents() ([]Agent, error) {
 func (c *Client) AssignPolicyToAgent(a Agent, p Policy) error {
 	reqBody := `{ "policy_id": "` + p.ID + `" }`
 
-	path := fmt.Sprintf("fleet/agents/%s/reassign", a.ID)
+	path := fmt.Sprintf("agents/%s/reassign", a.ID)
 	statusCode, respBody, err := c.put(path, []byte(reqBody))
 	if err != nil {
 		return errors.Wrap(err, "could not assign policy to agent")
@@ -63,32 +64,51 @@ func (c *Client) AssignPolicyToAgent(a Agent, p Policy) error {
 	return nil
 }
 
+func (c *Client) getTotalAgentForPolicy(p Policy) (int, error) {
+	kuery := url.QueryEscape(fmt.Sprintf("fleet-agents.policy_id:\"%s\"", p.ID))
+	path := fmt.Sprintf("agents?kuery=%s", kuery)
+	statusCode, respBody, err := c.get(path)
+	if err != nil {
+		return 0, errors.Wrapf(err, "could not check agent status; API status code = %d; policy ID = %s; response body = %s", statusCode, p.ID, string(respBody))
+	}
+	var resp struct {
+		Total int `json:"total"`
+	}
+
+	if err := json.Unmarshal(respBody, &resp); err != nil {
+		return 0, errors.Wrap(err, "could not convert agent list (response) to JSON")
+	}
+
+	return resp.Total, nil
+}
+
 func (c *Client) waitUntilPolicyAssigned(p Policy) error {
-	path := fmt.Sprintf("fleet/agent-status?policyId=%s", p.ID)
+	totalAgents, err := c.getTotalAgentForPolicy(p)
+	if err != nil {
+		return errors.Wrapf(err, "could not get number of agents for policy; policy ID = %s", p.ID)
+	}
+	if totalAgents == 0 {
+		return fmt.Errorf("no agent is available")
+	}
 
 	var assigned bool
 	for !assigned {
+		kuery := url.QueryEscape(fmt.Sprintf("fleet-agents.policy_id:\"%s\" and fleet-agents.policy_revision:*", p.ID))
+		path := fmt.Sprintf("agents?kuery=%s", kuery)
 		statusCode, respBody, err := c.get(path)
 		if err != nil {
 			return errors.Wrapf(err, "could not check agent status; API status code = %d; policy ID = %s; response body = %s", statusCode, p.ID, string(respBody))
 		}
 
 		var resp struct {
-			Results struct {
-				Online int `json:"online"`
-				Total  int `json:"total"`
-			} `json:"results"`
+			Total int `json:"total"`
 		}
 
 		if err := json.Unmarshal(respBody, &resp); err != nil {
-			return errors.Wrap(err, "could not convert agent status (response) to JSON")
+			return errors.Wrap(err, "could not convert agent list (response) to JSON")
 		}
 
-		if resp.Results.Total == 0 {
-			return fmt.Errorf("no agent is available")
-		}
-
-		if resp.Results.Total == resp.Results.Online {
+		if resp.Total == totalAgents {
 			assigned = true
 		}
 
