@@ -21,20 +21,23 @@ fields:
         fields: "*"
   host:
     fields:
-      name: {}
+      architecture: {}
+      domain: {}
       hostname: {}
+      id: {}
       ip: {}
       mac: {}
-      architecture: {}
-      id: {}
+      name: {}
+      type: {}
+      uptime: {}
       os:
         fields:
+          family: {}
+          full: {}
+          kernel: {}
           platform: {}
           version: {}
-          family: {}
           name: {}
-          kernel: {}
-          full: {}
           Ext:
             fields:
               variant: {}
@@ -43,14 +46,18 @@ fields:
       action: {}
       category: {}
       created: {}
+      code: {}
       dataset: {}
+      hash: {}
       id: {}
+      ingested: {}
       kind: {}
       module: {}
       outcome: {}
+      provider: {}
       sequence: {}
+      severity: {}
       type: {}
-      ingested: {}
   agent:
     fields:
       version: {}
@@ -58,6 +65,7 @@ fields:
       id: {}
   group:
     fields:
+      domain: {}
       id: {}
       name: {}
       Ext:
@@ -68,9 +76,23 @@ fields:
               name: {}
   user:
     fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
       id: {}
       name: {}
-      domain: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
       Ext:
         fields:
           real:
@@ -92,12 +114,14 @@ fields:
           ancestry: {}
   file:
     fields:
-      name: {}
-      path: {}
-      mode: {}
-      inode: {}
-      uid: {}
-      owner: {}
+      accessed: {}
+      attributes: {}
+      created: {}
+      ctime: {}
+      device: {}
+      directory: {}
+      drive_letter: {}
+      extension: {}
       gid: {}
       group: {}
       hash:
@@ -105,7 +129,25 @@ fields:
           md5: {}
           sha1: {}
           sha256: {}
-      extension: {}
+          sha512: {}
+      inode: {}
+      mime_type: {}
+      mode: {}
+      mtime: {}
+      name: {}
+      owner: {}
+      path: {}
+      pe:
+        fields:
+          company: {}
+          description: {}
+          file_version: {}
+          original_file_name: {}
+          product: {}
+      size: {}
+      target_path: {}
+      type: {}
+      uid: {}
       Ext:
         fields:
           windows:
