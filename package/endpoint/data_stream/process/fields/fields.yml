@@ -171,6 +171,14 @@
 
         This field is an array. This will allow proper categorization of some events that fall in multiple categories.'
       example: authentication
+    - name: code
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Identification code for this event, if one exists.
+
+        Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID.'
+      example: 4648
     - name: created
       level: core
       type: date
@@ -192,6 +200,12 @@
 
         It''s recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name.'
       example: apache.access
+    - name: hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity.
+      example: 123456789012345678901234567890ABCD
     - name: id
       level: core
       type: keyword
@@ -226,6 +240,28 @@
 
         If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module.'
       example: apache
+    - name: outcome
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy.
+
+        `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event.
+
+        Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective.
+
+        Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer.
+
+        Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense.'
+      example: success
+    - name: provider
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Source of the event.
+
+        Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+      example: kernel
     - name: sequence
       level: extended
       type: long
@@ -233,6 +269,16 @@
       description: 'Sequence number of the event.
 
         The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision.'
+    - name: severity
+      level: core
+      type: long
+      format: string
+      description: 'The numeric severity of the event according to your event source.
+
+        What the different severity values mean can be different between sources and use cases. It''s up to the implementer to make sure severities are consistent across events from the same source.
+
+        The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`.'
+      example: 7
     - name: type
       level: core
       type: keyword
@@ -270,6 +316,13 @@
       ignore_above: 1024
       description: Name of the group.
       default_field: false
+    - name: domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the directory the group is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
     - name: id
       level: extended
       type: keyword
@@ -294,6 +347,15 @@
       ignore_above: 1024
       description: Operating system architecture.
       example: x86_64
+    - name: domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the domain of which the host is a member.
+
+        For example, on Windows this could be the host''s Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host''s LDAP provider.'
+      example: CONTOSO
+      default_field: false
     - name: hostname
       level: core
       type: keyword
@@ -394,6 +456,18 @@
       ignore_above: 1024
       description: Operating system version as a raw string.
       example: 10.14.1
+    - name: type
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Type of host.
+
+        For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment.'
+    - name: uptime
+      level: extended
+      type: long
+      description: Seconds the host has been up.
+      example: 1325
 - name: package
   title: Package
   group: 2
@@ -436,6 +510,12 @@
       type: nested
       description: Nested version of ECS code_signature fieldset.
       default_field: false
+    - name: Ext.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
     - name: Ext.code_signature.status
       level: custom
       type: keyword
@@ -451,6 +531,22 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: Ext.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: Ext.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
       default_field: false
     - name: Ext.session
       level: custom
@@ -489,6 +585,52 @@
         - -l
         - user
         - 10.0.0.16
+    - name: args_count
+      level: extended
+      type: long
+      description: 'Length of the process.args array.
+
+        This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity.'
+      example: 4
+      default_field: false
+    - name: code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: code_signature.status
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: code_signature.subject_name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: code_signature.trusted
+      level: extended
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: code_signature.valid
+      level: extended
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
     - name: command_line
       level: extended
       type: keyword
@@ -556,6 +698,11 @@
       type: keyword
       ignore_above: 1024
       description: SHA256 hash.
+    - name: hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
     - name: name
       level: extended
       type: keyword
@@ -579,6 +726,49 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: parent.Ext.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+      default_field: false
+    - name: parent.Ext.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: parent.Ext.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: parent.Ext.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: parent.Ext.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: parent.Ext.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
     - name: parent.Ext.real
       level: custom
       type: object
@@ -588,6 +778,82 @@
       level: custom
       type: long
       description: For process.parent this will be the ppid of the process that actually spawned the current process.
+      default_field: false
+    - name: parent.args
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Array of process arguments, starting with the absolute path to the executable.
+
+        May be filtered to protect sensitive information.'
+      example:
+        - /usr/bin/ssh
+        - -l
+        - user
+        - 10.0.0.16
+      default_field: false
+    - name: parent.args_count
+      level: extended
+      type: long
+      description: 'Length of the process.args array.
+
+        This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity.'
+      example: 4
+      default_field: false
+    - name: parent.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: parent.code_signature.status
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: parent.code_signature.subject_name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: parent.code_signature.trusted
+      level: extended
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: parent.code_signature.valid
+      level: extended
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: parent.command_line
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: 'Full command line that started the process, including the absolute path to the executable, and all arguments.
+
+        Some arguments may be filtered to protect sensitive information.'
+      example: /usr/bin/ssh -l user 10.0.0.16
       default_field: false
     - name: parent.entity_id
       level: extended
@@ -615,6 +881,38 @@
       description: Absolute path to the process executable.
       example: /usr/bin/ssh
       default_field: false
+    - name: parent.exit_code
+      level: extended
+      type: long
+      description: 'The exit code of the process, if this is a termination event.
+
+        The field should be absent if there is no exit code for the event (e.g. process start).'
+      example: 137
+      default_field: false
+    - name: parent.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: parent.hash.sha1
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA1 hash.
+      default_field: false
+    - name: parent.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: parent.hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
+      default_field: false
     - name: parent.name
       level: extended
       type: keyword
@@ -632,12 +930,128 @@
         Sometimes called program name or similar.'
       example: ssh
       default_field: false
+    - name: parent.pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: parent.pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: parent.pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: parent.pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: parent.pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: parent.pgid
+      level: extended
+      type: long
+      format: string
+      description: Identifier of the group of processes the process belongs to.
+      default_field: false
     - name: parent.pid
       level: core
       type: long
       format: string
       description: Process id.
       example: 4242
+      default_field: false
+    - name: parent.ppid
+      level: extended
+      type: long
+      format: string
+      description: Parent process' pid.
+      example: 4241
+      default_field: false
+    - name: parent.thread.id
+      level: extended
+      type: long
+      format: string
+      description: Thread ID.
+      example: 4242
+      default_field: false
+    - name: parent.thread.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Thread name.
+      example: thread-0
+      default_field: false
+    - name: parent.title
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+      description: 'Process title.
+
+        The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
+      default_field: false
+    - name: parent.uptime
+      level: extended
+      type: long
+      description: Seconds the process has been up.
+      example: 1325
+      default_field: false
+    - name: parent.working_directory
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: The working directory of the process.
+      example: /home/alice
+      default_field: false
+    - name: pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
       default_field: false
     - name: pe.original_file_name
       level: extended
@@ -646,18 +1060,75 @@
       description: Internal name of the file, provided at compile-time.
       example: MSPAINT.EXE
       default_field: false
+    - name: pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: pgid
+      level: extended
+      type: long
+      format: string
+      description: Identifier of the group of processes the process belongs to.
     - name: pid
       level: core
       type: long
       format: string
       description: Process id.
       example: 4242
+    - name: ppid
+      level: extended
+      type: long
+      format: string
+      description: Parent process' pid.
+      example: 4241
     - name: thread.id
       level: extended
       type: long
       format: string
       description: Thread ID.
       example: 4242
+    - name: thread.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Thread name.
+      example: thread-0
+    - name: title
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: 'Process title.
+
+        The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
+    - name: uptime
+      level: extended
+      type: long
+      description: Seconds the process has been up.
+      example: 1325
+    - name: working_directory
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          default_field: false
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: The working directory of the process.
+      example: /home/alice
 - name: source
   title: Source
   group: 2
@@ -754,6 +1225,68 @@
       description: 'Name of the directory the user is a member of.
 
         For example, an LDAP or Active Directory domain name.'
+    - name: email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: User email address.
+    - name: full_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: User's full name, if available.
+      example: Albert Einstein
+    - name: group.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: group.Ext.real
+      level: custom
+      type: object
+      description: Group info prior to any setgid operations.
+      default_field: false
+    - name: group.Ext.real.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the group on the system/platform.
+      default_field: false
+    - name: group.Ext.real.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the group.
+      default_field: false
+    - name: group.domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the directory the group is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
+    - name: group.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the group on the system/platform.
+    - name: group.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the group.
+    - name: hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique user hash to correlate information for a user in anonymized form.
+
+        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
     - name: id
       level: core
       type: keyword

@@ -179,10 +179,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "code": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "created": {
             "type": "date"
           },
           "dataset": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "hash": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -201,7 +209,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "outcome": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "provider": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "sequence": {
+            "type": "long"
+          },
+          "severity": {
             "type": "long"
           },
           "type": {
@@ -230,6 +249,10 @@
             },
             "type": "object"
           },
+          "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "id": {
             "ignore_above": 1024,
             "type": "keyword"
@@ -243,6 +266,10 @@
       "host": {
         "properties": {
           "architecture": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "domain": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -323,6 +350,13 @@
                 "type": "keyword"
               }
             }
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uptime": {
+            "type": "long"
           }
         }
       },
@@ -573,6 +607,58 @@
             "type": "object"
           },
           "domain": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "email": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "full_name": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "group": {
+            "properties": {
+              "Ext": {
+                "properties": {
+                  "real": {
+                    "properties": {
+                      "id": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "domain": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "hash": {
             "ignore_above": 1024,
             "type": "keyword"
           },
