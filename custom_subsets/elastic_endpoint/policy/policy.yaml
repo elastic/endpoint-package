@@ -23,16 +23,21 @@ fields:
             fields: "*"
   event:
     fields:
-      id: {}
-      kind: {}
-      created: {}
-      category: {}
-      type: {}
-      module: {}
       action: {}
+      category: {}
+      created: {}
+      code: {}
       dataset: {}
+      hash: {}
+      id: {}
       ingested: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
       sequence: {}
+      severity: {}
+      type: {}
   host:
     fields:
       id: {}

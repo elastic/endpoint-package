@@ -21,34 +21,42 @@ fields:
         fields: "*"
   host:
     fields:
-      name: {}
+      architecture: {}
+      domain: {}
       hostname: {}
+      id: {}
       ip: {}
       mac: {}
-      architecture: {}
-      id: {}
+      name: {}
+      type: {}
+      uptime: {}
       os:
         fields:
+          family: {}
+          full: {}
+          kernel: {}
           platform: {}
           version: {}
-          family: {}
           name: {}
-          kernel: {}
-          full: {}
           Ext:
             fields:
               variant: {}
   event:
     fields:
-      start: {}
-      end: {}
       action: {}
       category: {}
       created: {}
+      code: {}
       dataset: {}
+      end: {}
+      hash: {}
       id: {}
+      ingested: {}
       kind: {}
       module: {}
+      outcome: {}
+      provider: {}
       sequence: {}
+      severity: {}
+      start: {}
       type: {}
-      ingested: {}
