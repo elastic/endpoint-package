@@ -365,6 +365,21 @@ event.category:
   - array
   short: Event category. The second categorization field in the hierarchy.
   type: keyword
+event.code:
+  dashed_name: event-code
+  description: 'Identification code for this event, if one exists.
+
+    Some event sources use event codes to identify messages unambiguously, regardless
+    of message language or wording adjustments over time. An example of this is the
+    Windows Event ID.'
+  example: 4648
+  flat_name: event.code
+  ignore_above: 1024
+  level: extended
+  name: code
+  normalize: []
+  short: Identification code for this event.
+  type: keyword
 event.created:
   dashed_name: event-created
   description: 'event.created contains the date/time when the event was first read
@@ -402,6 +417,19 @@ event.dataset:
   name: dataset
   normalize: []
   short: Name of the dataset.
+  type: keyword
+event.hash:
+  dashed_name: event-hash
+  description: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate
+    log integrity.
+  example: 123456789012345678901234567890ABCD
+  flat_name: event.hash
+  ignore_above: 1024
+  level: extended
+  name: hash
+  normalize: []
+  short: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate
+    log integrity.
   type: keyword
 event.id:
   dashed_name: event-id
@@ -517,6 +545,64 @@ event.module:
   normalize: []
   short: Name of the module this data is coming from.
   type: keyword
+event.outcome:
+  allowed_values:
+  - description: Indicates that this event describes a failed result. A common example
+      is `event.category:file AND event.type:access AND event.outcome:failure` to
+      indicate that a file access was attempted, but was not successful.
+    name: failure
+  - description: Indicates that this event describes a successful result. A common
+      example is `event.category:file AND event.type:create AND event.outcome:success`
+      to indicate that a file was successfully created.
+    name: success
+  - description: Indicates that this event describes only an attempt for which the
+      result is unknown from the perspective of the event producer. For example, if
+      the event contains information only about the request side of a transaction
+      that results in a response, populating `event.outcome:unknown` in the request
+      event is appropriate. The unknown value should not be used when an outcome doesn't
+      make logical sense for the event. In such cases `event.outcome` should not be
+      populated.
+    name: unknown
+  dashed_name: event-outcome
+  description: 'This is one of four ECS Categorization Fields, and indicates the lowest
+    level in the ECS category hierarchy.
+
+    `event.outcome` simply denotes whether the event represents a success or a failure
+    from the perspective of the entity that produced the event.
+
+    Note that when a single transaction is described in multiple events, each event
+    may populate different values of `event.outcome`, according to their perspective.
+
+    Also note that in the case of a compound event (a single event that contains multiple
+    logical events), this field should be populated with the value that best captures
+    the overall success or failure from the perspective of the event producer.
+
+    Further note that not all events will have an associated outcome. For example,
+    this field is generally not populated for metric events, events with `event.type:info`,
+    or any events for which an outcome does not make logical sense.'
+  example: success
+  flat_name: event.outcome
+  ignore_above: 1024
+  level: core
+  name: outcome
+  normalize: []
+  short: The outcome of the event. The lowest level categorization field in the hierarchy.
+  type: keyword
+event.provider:
+  dashed_name: event-provider
+  description: 'Source of the event.
+
+    Event transports such as Syslog or the Windows Event Log typically mention the
+    source of an event. It can be the name of the software that generated the event
+    (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+  example: kernel
+  flat_name: event.provider
+  ignore_above: 1024
+  level: extended
+  name: provider
+  normalize: []
+  short: Source of the event.
+  type: keyword
 event.sequence:
   dashed_name: event-sequence
   description: 'Sequence number of the event.
@@ -529,6 +615,26 @@ event.sequence:
   name: sequence
   normalize: []
   short: Sequence number of the event.
+  type: long
+event.severity:
+  dashed_name: event-severity
+  description: 'The numeric severity of the event according to your event source.
+
+    What the different severity values mean can be different between sources and use
+    cases. It''s up to the implementer to make sure severities are consistent across
+    events from the same source.
+
+    The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is
+    meant to represent the severity according to the event source (e.g. firewall,
+    IDS). If the event source does not publish its own severity, you may optionally
+    copy the `log.syslog.severity.code` to `event.severity`.'
+  example: 7
+  flat_name: event.severity
+  format: string
+  level: core
+  name: severity
+  normalize: []
+  short: Numeric severity of the event.
   type: long
 event.type:
   allowed_values:
@@ -679,6 +785,20 @@ host.architecture:
   name: architecture
   normalize: []
   short: Operating system architecture.
+  type: keyword
+host.domain:
+  dashed_name: host-domain
+  description: 'Name of the domain of which the host is a member.
+
+    For example, on Windows this could be the host''s Active Directory domain or NetBIOS
+    domain name. For Linux this could be the domain of the host''s LDAP provider.'
+  example: CONTOSO
+  flat_name: host.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  short: Name of the directory the group is a member of.
   type: keyword
 host.hostname:
   dashed_name: host-hostname
@@ -857,3 +977,26 @@ host.os.version:
   original_fieldset: os
   short: Operating system version as a raw string.
   type: keyword
+host.type:
+  dashed_name: host-type
+  description: 'Type of host.
+
+    For Cloud providers this can be the machine type like `t2.medium`. If vm, this
+    could be the container, for example, or other information meaningful in your environment.'
+  flat_name: host.type
+  ignore_above: 1024
+  level: core
+  name: type
+  normalize: []
+  short: Type of host.
+  type: keyword
+host.uptime:
+  dashed_name: host-uptime
+  description: Seconds the host has been up.
+  example: 1325
+  flat_name: host.uptime
+  level: extended
+  name: uptime
+  normalize: []
+  short: Seconds the host has been up.
+  type: long

@@ -116,10 +116,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "code": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "created": {
             "type": "date"
           },
           "dataset": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "hash": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -138,7 +146,18 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "outcome": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "provider": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "sequence": {
+            "type": "long"
+          },
+          "severity": {
             "type": "long"
           },
           "type": {
@@ -150,6 +169,10 @@
       "host": {
         "properties": {
           "architecture": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "domain": {
             "ignore_above": 1024,
             "type": "keyword"
           },
@@ -230,6 +253,13 @@
                 "type": "keyword"
               }
             }
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "uptime": {
+            "type": "long"
           }
         }
       }

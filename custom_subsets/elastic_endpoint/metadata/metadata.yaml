@@ -11,16 +11,21 @@ fields:
       version: {}
   event:
     fields:
-      id: {}
-      kind: {}
-      created: {}
-      category: {}
-      type: {}
-      module: {}
       action: {}
+      category: {}
+      created: {}
+      code: {}
       dataset: {}
+      hash: {}
+      id: {}
       ingested: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
       sequence: {}
+      severity: {}
+      type: {}
   Endpoint:
     fields:
       status: {}
@@ -44,20 +49,23 @@ fields:
       type: {}
   host:
     fields:
+      architecture: {}
+      domain: {}
+      hostname: {}
       id: {}
       ip: {}
-      hostname: {}
-      name: {}
       mac: {}
-      architecture: {}
+      name: {}
+      type: {}
+      uptime: {}
       os:
         fields:
-          name: {}
-          platform: {}
           family: {}
-          kernel: {}
           full: {}
+          kernel: {}
+          platform: {}
           version: {}
+          name: {}
           Ext:
             fields:
               variant: {}
