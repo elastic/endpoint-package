@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package cmd
 
 import (
@@ -25,6 +29,8 @@ func setupPromoteCommand() *cobra.Command {
 }
 
 func promoteCommandAction(cmd *cobra.Command, args []string) error {
+	cmd.Println("Promote packages")
+
 	// Setup GitHub
 	err := github.EnsureAuthConfigured()
 	if err != nil {
@@ -97,8 +103,14 @@ func promoteCommandAction(cmd *cobra.Command, args []string) error {
 		return errors.Wrapf(err, "pushing changes failed")
 	}
 
+	// Calculate package signatures
+	signedPackages, err := promote.CalculatePackageSignatures(repository, newDestinationStage, promotedPackages)
+	if err != nil {
+		return errors.Wrap(err, "signing packages failed")
+	}
+
 	// Open PRs
-	url, err := promote.OpenPullRequestWithPromotedPackages(githubClient, githubUser, newDestinationStage, destinationStage, sourceStage, destinationStage, promotedPackages)
+	url, err := promote.OpenPullRequestWithPromotedPackages(githubClient, githubUser, newDestinationStage, destinationStage, sourceStage, destinationStage, signedPackages)
 	if err != nil {
 		return errors.Wrapf(err, "opening PR with promoted packages failed (head: %s, base: %s)", newDestinationStage, destinationStage)
 	}
@@ -109,6 +121,8 @@ func promoteCommandAction(cmd *cobra.Command, args []string) error {
 		return errors.Wrapf(err, "opening PR with removed packages failed (head: %s, base: %s)", newDestinationStage, destinationStage)
 	}
 	cmd.Println("Pull request with removed packages:", url)
+
+	cmd.Println("Done")
 	return nil
 }
 

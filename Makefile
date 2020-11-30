@@ -72,7 +72,7 @@ define gen_mapping_files
 	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
 
 	# move the generated ecs file directly to the package
-	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/dataset/$(1)/fields/fields.yml
+	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/data_stream/$(1)/fields/fields.yml
 	rm -r $(ROOT_DIR)/generated/$(1)/beats
 
 	# remove unused files
@@ -105,7 +105,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: $(REAL_ECS_DIR) setup-tools
+all: setup-tools
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -116,20 +116,26 @@ mac-deps:
 .PHONY: clean
 clean:
 	rm -rf $(ROOT_DIR)/out
-
+	# this will be produced by running elastic-package check or build
+	rm -rf $(ROOT_DIR)/build
+	rm -rf $(GO_TOOLS)
 
 $(REAL_ECS_DIR):
 	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
+.PHONY: setup-go-tools
+setup-go-tools:
+	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
+
 .PHONY: setup-tools
-setup-tools:
+setup-tools: $(REAL_ECS_DIR) setup-go-tools
 	pipenv install
 	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
-	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 %-target:
 	$(call gen_mapping_files,$*)
@@ -149,13 +155,18 @@ $(ROOT_DIR)/out:
 build-package: $(ROOT_DIR)/out
 	rm -rf $(PACKAGES_DIR)
 	mkdir -p $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/ $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
+	cp -r $(ROOT_DIR)/package/endpoint/* $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
 .PHONY: run-registry
 run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
+
+# Use this target to run the linter on the current state of the package
+.PHONY: lint
+lint: setup-go-tools
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 # Use this target to release the package (dev or prod) to the package storage repo
 .PHONY: release
@@ -164,5 +175,5 @@ release:
 
 # Use this target to promote a package that exists in the package-storage repo from one environment to another
 .PHONY: promote
-promote:
+promote: setup-go-tools
 	$(GO_TOOLS)/elastic-package promote

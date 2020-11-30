@@ -1,10 +1,11 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package stack
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
-	"path/filepath"
 
 	"github.com/pkg/errors"
 
@@ -13,8 +14,12 @@ import (
 	"github.com/elastic/elastic-package/internal/install"
 )
 
+// DockerComposeProjectName is the name of the Docker Compose project used to boot up
+// Elastic Stack containers.
+const DockerComposeProjectName = "elastic-package-stack"
+
 // BootUp method boots up the testing stack.
-func BootUp(daemonMode bool, stackVersion string) error {
+func BootUp(options Options) error {
 	buildPackagesPath, found, err := builder.FindBuildPackagesDirectory()
 	if err != nil {
 		return errors.Wrap(err, "finding build packages directory failed")
@@ -38,7 +43,7 @@ func BootUp(daemonMode bool, stackVersion string) error {
 		}
 	}
 
-	err = dockerComposeBuild(stackVersion)
+	err = dockerComposeBuild(options)
 	if err != nil {
 		return errors.Wrap(err, "building docker images failed")
 	}
@@ -48,7 +53,7 @@ func BootUp(daemonMode bool, stackVersion string) error {
 		return errors.Wrap(err, "stopping docker containers failed")
 	}
 
-	err = dockerComposeUp(daemonMode, stackVersion)
+	err = dockerComposeUp(options)
 	if err != nil {
 		return errors.Wrap(err, "running docker-compose failed")
 	}
@@ -60,107 +65,6 @@ func TearDown() error {
 	err := dockerComposeDown()
 	if err != nil {
 		return errors.Wrap(err, "stopping docker containers failed")
-	}
-	return nil
-}
-
-// Update pulls down the most recent versions of the Docker images
-func Update(stackVersion string) error {
-	err := dockerComposePull(stackVersion)
-	if err != nil {
-		return errors.Wrap(err, "updating docker images failed")
-	}
-	return nil
-}
-
-func dockerComposeBuild(stackVersion string) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	args := []string{
-		"-f", filepath.Join(stackDir, "snapshot.yml"),
-		"build", "package-registry",
-	}
-	cmd := exec.Command("docker-compose", args...)
-	cmd.Env = append(os.Environ(), fmt.Sprintf("STACK_VERSION=%s", stackVersion))
-	cmd.Stderr = os.Stderr
-	cmd.Stdout = os.Stdout
-
-	err = cmd.Run()
-	if err != nil {
-		return errors.Wrap(err, "running command failed")
-	}
-	return nil
-}
-
-func dockerComposePull(stackVersion string) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	args := []string{
-		"-f", filepath.Join(stackDir, "snapshot.yml"),
-		"pull",
-	}
-	cmd := exec.Command("docker-compose", args...)
-	cmd.Env = append(os.Environ(), fmt.Sprintf("STACK_VERSION=%s", stackVersion))
-	cmd.Stderr = os.Stderr
-	cmd.Stdout = os.Stdout
-
-	err = cmd.Run()
-	if err != nil {
-		return errors.Wrap(err, "running command failed")
-	}
-	return nil
-}
-
-func dockerComposeUp(daemonMode bool, stackVersion string) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	args := []string{
-		"-f", filepath.Join(stackDir, "snapshot.yml"),
-		"up",
-	}
-
-	if daemonMode {
-		args = append(args, "-d")
-	}
-
-	cmd := exec.Command("docker-compose", args...)
-	cmd.Env = append(os.Environ(), fmt.Sprintf("STACK_VERSION=%s", stackVersion))
-	cmd.Stderr = os.Stderr
-	cmd.Stdout = os.Stdout
-	err = cmd.Run()
-	if err != nil {
-		return errors.Wrap(err, "running command failed")
-	}
-	return nil
-}
-
-func dockerComposeDown() error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	cmd := exec.Command("docker-compose",
-		"-f", filepath.Join(stackDir, "snapshot.yml"),
-		"--project-directory", stackDir,
-		"down")
-	// We set the STACK_VERSION env var here to avoid showing a warning to the user about
-	// it not being set.
-	cmd.Env = append(os.Environ(), fmt.Sprintf("STACK_VERSION=%s", DefaultVersion))
-	cmd.Stderr = os.Stderr
-	cmd.Stdout = os.Stdout
-	err = cmd.Run()
-	if err != nil {
-		return errors.Wrap(err, "running command failed")
 	}
 	return nil
 }

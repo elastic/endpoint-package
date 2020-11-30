@@ -1,6 +1,6 @@
-# Elastic Endpoint Security Integration
+# Endpoint Security Integration
 
-This integration sets up templates and index patterns required for Elastic Endpoint Security.
+This integration sets up templates and index patterns required for Endpoint Security.
 
 ## Compatibility
 
@@ -24,6 +24,20 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
+| Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
+| Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
+| Ransomware.files.data | File header or MBR bytes. | binary |
+| Ransomware.files.entropy | Entropy of file contents. | double |
+| Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
+| Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
+| Ransomware.files.operation | Operation applied to file. | keyword |
+| Ransomware.files.original.extension | Original file extension prior to the file event. | keyword |
+| Ransomware.files.original.path | Original file path prior to the file event. | keyword |
+| Ransomware.files.path | Full path to the file, including the file name. | keyword |
+| Ransomware.files.score | Ransomware score for this particular file event. | double |
+| Ransomware.score | Total ransomware score for aggregated file events. | double |
+| Ransomware.version | Ransomware artifact version. | keyword |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -163,6 +177,14 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | dll.Ext | Object for all custom defined fields to live in. | object |
 | dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -451,6 +473,14 @@ sent by the endpoint.
 | rule.ruleset | Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. | keyword |
 | rule.uuid | A rule ID that is unique within the scope of a set or group of agents, observers, or other entities using the rule for detection of this event. | keyword |
 | rule.version | The version / revision of the rule being used for analysis. | keyword |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | threat.framework | Name of the threat framework used to further categorize and classify the tactic and technique of the reported threat. Framework classification can be provided by detecting systems, evaluated at ingest time, or retrospectively tagged to events. | keyword |
 | threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ ) | keyword |
 | threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/) | keyword |
@@ -490,20 +520,32 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.Ext | Object for all custom defined fields to live in. | object |
 | event.Ext.correlation | Information about event this should be correlated with. | object |
 | event.Ext.correlation.id | ID of event that this event is correlated to, e.g. quarantine event associated with an unquarantine event | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
 | event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.original | Original file information during a modification event. | object |
@@ -516,24 +558,45 @@ sent by the endpoint.
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
+| file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
+| file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
+| file.created | File creation time. Note that not all filesystems store the creation time. | date |
+| file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |
+| file.device | Device that is the source of the file. | keyword |
+| file.directory | Directory where the file is located. It should include the drive letter, when appropriate. | keyword |
+| file.drive_letter | Drive letter where the file is located. This field is only relevant on Windows. The value should be uppercase, and not include the colon. | keyword |
+| file.extension | File extension. | keyword |
 | file.gid | Primary group ID (GID) of the file. | keyword |
 | file.group | Primary group name of the file. | keyword |
 | file.hash.md5 | MD5 hash. | keyword |
 | file.hash.sha1 | SHA1 hash. | keyword |
 | file.hash.sha256 | SHA256 hash. | keyword |
+| file.hash.sha512 | SHA512 hash. | keyword |
 | file.inode | Inode representing the file in the filesystem. | keyword |
+| file.mime_type | MIME type should identify the format of the file or stream of bytes using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA official types], where possible. When more than one type is applicable, the most specific type should be used. | keyword |
 | file.mode | Mode of the file in octal representation. | keyword |
+| file.mtime | Last time the file content was modified. | date |
 | file.name | Name of the file including the extension, without the directory. | keyword |
 | file.owner | File owner's username. | keyword |
 | file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
+| file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| file.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| file.size | File size in bytes. Only relevant when `file.type` is "file". | long |
+| file.target_path | Target path for symlinks. | keyword |
+| file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -547,19 +610,40 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -577,33 +661,57 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | dll.Ext | Object for all custom defined fields to live in. | object |
 | dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| file.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | file.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.hash.md5 | MD5 hash. | keyword |
 | file.hash.sha1 | SHA1 hash. | keyword |
 | file.hash.sha256 | SHA256 hash. | keyword |
+| file.hash.sha512 | SHA512 hash. | keyword |
 | file.name | Name of the file including the extension, without the directory. | keyword |
 | file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
+| file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
@@ -611,9 +719,11 @@ sent by the endpoint.
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -627,6 +737,8 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
@@ -635,11 +747,29 @@ sent by the endpoint.
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -685,21 +815,28 @@ sent by the endpoint.
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -713,6 +850,8 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | http.request.body.bytes | Size in bytes of the request body. | long |
 | http.request.body.content | The full HTTP request body. | keyword |
 | http.request.bytes | Total size in bytes of the request (body and headers). | long |
@@ -759,6 +898,16 @@ sent by the endpoint.
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -776,24 +925,39 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -807,19 +971,30 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
@@ -827,22 +1002,82 @@ sent by the endpoint.
 | process.hash.md5 | MD5 hash. | keyword |
 | process.hash.sha1 | SHA1 hash. | keyword |
 | process.hash.sha256 | SHA256 hash. | keyword |
+| process.hash.sha512 | SHA512 hash. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
+| process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
+| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
+| process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.parent.hash.md5 | MD5 hash. | keyword |
+| process.parent.hash.sha1 | SHA1 hash. | keyword |
+| process.parent.hash.sha256 | SHA256 hash. | keyword |
+| process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.parent.pid | Process id. | long |
+| process.parent.ppid | Parent process' pid. | long |
+| process.parent.thread.id | Thread ID. | long |
+| process.parent.thread.name | Thread name. | keyword |
+| process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.parent.uptime | Seconds the process has been up. | long |
+| process.parent.working_directory | The working directory of the process. | keyword |
+| process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.pid | Process id. | long |
+| process.ppid | Parent process' pid. | long |
 | process.thread.id | Thread ID. | long |
+| process.thread.name | Thread name. | keyword |
+| process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.uptime | Seconds the process has been up. | long |
+| process.working_directory | The working directory of the process. | keyword |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -860,24 +1095,39 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -891,6 +1141,8 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
@@ -905,11 +1157,29 @@ sent by the endpoint.
 | registry.key | Hive-relative path of keys. | keyword |
 | registry.path | Full path, including hive, key and value | keyword |
 | registry.value | Name of the value written. | keyword |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -927,24 +1197,39 @@ sent by the endpoint.
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
 | data_stream.namespace | Data stream namespace. | constant_keyword |
 | data_stream.type | Data stream type. | constant_keyword |
+| destination.geo.city_name | City name. | keyword |
+| destination.geo.continent_name | Name of the continent. | keyword |
+| destination.geo.country_iso_code | Country ISO code. | keyword |
+| destination.geo.country_name | Country name. | keyword |
+| destination.geo.location | Longitude and latitude. | geo_point |
+| destination.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| destination.geo.region_iso_code | Region ISO code. | keyword |
+| destination.geo.region_name | Region name. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
 | group.Ext.real.name | Name of the group. | keyword |
+| group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -958,6 +1243,8 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
@@ -966,11 +1253,29 @@ sent by the endpoint.
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
+| source.geo.city_name | City name. | keyword |
+| source.geo.continent_name | Name of the continent. | keyword |
+| source.geo.country_iso_code | Country ISO code. | keyword |
+| source.geo.country_name | Country name. | keyword |
+| source.geo.location | Longitude and latitude. | geo_point |
+| source.geo.name | User-defined description of a location, at the level of granularity they care about. Could be the name of their data centers, the floor number, if this describes a local physical entity, city names. Not typically used in automated geolocation. | keyword |
+| source.geo.region_iso_code | Region ISO code. | keyword |
+| source.geo.region_name | Region name. | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.email | User email address. | keyword |
+| user.full_name | User's full name, if available. | keyword |
+| user.group.Ext | Object for all custom defined fields to live in. | object |
+| user.group.Ext.real | Group info prior to any setgid operations. | object |
+| user.group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.Ext.real.name | Name of the group. | keyword |
+| user.group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.group.id | Unique identifier for the group on the system/platform. | keyword |
+| user.group.name | Name of the group. | keyword |
+| user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 
@@ -1005,15 +1310,21 @@ sent by the endpoint.
 | elastic.agent.id | Unique identifier of this elastic agent (if one exists). | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -1027,6 +1338,8 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 
 
 ### metrics
@@ -1061,17 +1374,23 @@ Metrics documents contain performance information about the endpoint executable 
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
 | event.end | event.end contains the date when the event ended or when the activity was last observed. | date |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.start | event.start contains the date when the event started or when the activity was first observed. | date |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
@@ -1085,6 +1404,8 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
+| host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 
 
@@ -1110,13 +1431,18 @@ Metrics documents contain performance information about the endpoint executable 
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
+| event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
 | event.created | event.created contains the date/time when the event was first read by an agent, or by your pipeline. This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event. In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent's or pipeline's ability to keep up with your event source. In case the two timestamps are identical, @timestamp should be used. | date |
 | event.dataset | Name of the dataset. If an event source publishes more than one type of log or events (e.g. access log, error log), the dataset is used to specify which one the event comes from. It's recommended but not required to start the dataset name with the module name, followed by a dot, then the dataset name. | keyword |
+| event.hash | Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate log integrity. | keyword |
 | event.id | Unique ID to describe the event. | keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`. | date |
 | event.kind | This is one of four ECS Categorization Fields, and indicates the highest level in the ECS category hierarchy. `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events. The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not. | keyword |
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
+| event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
+| event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
+| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |

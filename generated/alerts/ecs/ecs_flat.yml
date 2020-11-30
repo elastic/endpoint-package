@@ -181,6 +181,147 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
+Ransomware.child_pids:
+  dashed_name: Ransomware-child-pids
+  description: Array of child PIDs for ransomware which spawns numerous processes
+    to handle encryption.
+  flat_name: Ransomware.child_pids
+  level: custom
+  name: child_pids
+  normalize:
+  - array
+  short: Array of child PIDs for ransomware which spawns numerous processes to handle
+    encryption.
+  type: long
+Ransomware.feature:
+  dashed_name: Ransomware-feature
+  description: Ransomware feature which triggered the alert.
+  flat_name: Ransomware.feature
+  ignore_above: 1024
+  level: custom
+  name: feature
+  normalize: []
+  short: Ransomware feature which triggered the alert.
+  type: keyword
+Ransomware.files:
+  dashed_name: Ransomware-files
+  description: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  flat_name: Ransomware.files
+  level: custom
+  name: files
+  normalize:
+  - array
+  short: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  type: nested
+Ransomware.files.data:
+  dashed_name: Ransomware-files-data
+  description: File header or MBR bytes.
+  flat_name: Ransomware.files.data
+  level: custom
+  name: files.data
+  normalize: []
+  short: File header or MBR bytes.
+  type: binary
+Ransomware.files.entropy:
+  dashed_name: Ransomware-files-entropy
+  description: Entropy of file contents.
+  flat_name: Ransomware.files.entropy
+  level: custom
+  name: files.entropy
+  normalize: []
+  short: Entropy of file contents.
+  type: double
+Ransomware.files.extension:
+  dashed_name: Ransomware-files-extension
+  description: File extension, excluding the leading dot.
+  flat_name: Ransomware.files.extension
+  ignore_above: 1024
+  level: custom
+  name: files.extension
+  normalize: []
+  short: File extension, excluding the leading dot.
+  type: keyword
+Ransomware.files.metrics:
+  dashed_name: Ransomware-files-metrics
+  description: Suspicious ransomware behaviours associated with the file event.
+  flat_name: Ransomware.files.metrics
+  ignore_above: 1024
+  level: custom
+  name: files.metrics
+  normalize:
+  - array
+  short: Suspicious ransomware behaviours associated with the file event.
+  type: keyword
+Ransomware.files.operation:
+  dashed_name: Ransomware-files-operation
+  description: Operation applied to file.
+  flat_name: Ransomware.files.operation
+  ignore_above: 1024
+  level: custom
+  name: files.operation
+  normalize: []
+  short: Operation applied to file.
+  type: keyword
+Ransomware.files.original.extension:
+  dashed_name: Ransomware-files-original-extension
+  description: Original file extension prior to the file event.
+  flat_name: Ransomware.files.original.extension
+  ignore_above: 1024
+  level: custom
+  name: files.original.extension
+  normalize: []
+  short: Original file extension prior to the file event.
+  type: keyword
+Ransomware.files.original.path:
+  dashed_name: Ransomware-files-original-path
+  description: Original file path prior to the file event.
+  flat_name: Ransomware.files.original.path
+  ignore_above: 1024
+  level: custom
+  name: files.original.path
+  normalize: []
+  short: Original file path prior to the file event.
+  type: keyword
+Ransomware.files.path:
+  dashed_name: Ransomware-files-path
+  description: Full path to the file, including the file name.
+  flat_name: Ransomware.files.path
+  ignore_above: 1024
+  level: custom
+  name: files.path
+  normalize: []
+  short: Full path to the file, including the file name.
+  type: keyword
+Ransomware.files.score:
+  dashed_name: Ransomware-files-score
+  description: Ransomware score for this particular file event.
+  flat_name: Ransomware.files.score
+  level: custom
+  name: files.score
+  normalize: []
+  short: Ransomware score for this particular file event.
+  type: double
+Ransomware.score:
+  dashed_name: Ransomware-score
+  description: Total ransomware score for aggregated file events.
+  flat_name: Ransomware.score
+  level: custom
+  name: score
+  normalize: []
+  short: Total ransomware score for aggregated file events.
+  type: double
+Ransomware.version:
+  dashed_name: Ransomware-version
+  description: Ransomware artifact version.
+  flat_name: Ransomware.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  short: Ransomware artifact version.
+  type: keyword
 Target.dll.Ext:
   dashed_name: Target-dll-Ext
   description: Object for all custom defined fields to live in.
@@ -968,6 +1109,11 @@ Target.process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.command_line.text
     name: text
     norms: false
@@ -1005,6 +1151,11 @@ Target.process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.executable.text
     name: text
     norms: false
@@ -1082,6 +1233,11 @@ Target.process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.name.text
     name: text
     norms: false
@@ -1248,6 +1404,11 @@ Target.process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.command_line.text
     name: text
     norms: false
@@ -1285,6 +1446,11 @@ Target.process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.executable.text
     name: text
     norms: false
@@ -1362,6 +1528,11 @@ Target.process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.name.text
     name: text
     norms: false
@@ -1479,6 +1650,11 @@ Target.process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.parent.working_directory.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.parent.working_directory.text
     name: text
     norms: false
@@ -1967,6 +2143,11 @@ Target.process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: Target.process.working_directory.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: Target.process.working_directory.text
     name: text
     norms: false
@@ -2072,6 +2253,107 @@ data_stream.type:
   normalize: []
   short: Data stream type.
   type: constant_keyword
+destination.geo.city_name:
+  dashed_name: destination-geo-city-name
+  description: City name.
+  example: Montreal
+  flat_name: destination.geo.city_name
+  ignore_above: 1024
+  level: core
+  name: city_name
+  normalize: []
+  original_fieldset: geo
+  short: City name.
+  type: keyword
+destination.geo.continent_name:
+  dashed_name: destination-geo-continent-name
+  description: Name of the continent.
+  example: North America
+  flat_name: destination.geo.continent_name
+  ignore_above: 1024
+  level: core
+  name: continent_name
+  normalize: []
+  original_fieldset: geo
+  short: Name of the continent.
+  type: keyword
+destination.geo.country_iso_code:
+  dashed_name: destination-geo-country-iso-code
+  description: Country ISO code.
+  example: CA
+  flat_name: destination.geo.country_iso_code
+  ignore_above: 1024
+  level: core
+  name: country_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Country ISO code.
+  type: keyword
+destination.geo.country_name:
+  dashed_name: destination-geo-country-name
+  description: Country name.
+  example: Canada
+  flat_name: destination.geo.country_name
+  ignore_above: 1024
+  level: core
+  name: country_name
+  normalize: []
+  original_fieldset: geo
+  short: Country name.
+  type: keyword
+destination.geo.location:
+  dashed_name: destination-geo-location
+  description: Longitude and latitude.
+  example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  flat_name: destination.geo.location
+  level: core
+  name: location
+  normalize: []
+  original_fieldset: geo
+  short: Longitude and latitude.
+  type: geo_point
+destination.geo.name:
+  dashed_name: destination-geo-name
+  description: 'User-defined description of a location, at the level of granularity
+    they care about.
+
+    Could be the name of their data centers, the floor number, if this describes a
+    local physical entity, city names.
+
+    Not typically used in automated geolocation.'
+  example: boston-dc
+  flat_name: destination.geo.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: geo
+  short: User-defined description of a location.
+  type: keyword
+destination.geo.region_iso_code:
+  dashed_name: destination-geo-region-iso-code
+  description: Region ISO code.
+  example: CA-QC
+  flat_name: destination.geo.region_iso_code
+  ignore_above: 1024
+  level: core
+  name: region_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Region ISO code.
+  type: keyword
+destination.geo.region_name:
+  dashed_name: destination-geo-region-name
+  description: Region name.
+  example: Quebec
+  flat_name: destination.geo.region_name
+  ignore_above: 1024
+  level: core
+  name: region_name
+  normalize: []
+  original_fieldset: geo
+  short: Region name.
+  type: keyword
 dll.Ext:
   dashed_name: dll-Ext
   description: Object for all custom defined fields to live in.
@@ -3835,6 +4117,11 @@ file.path:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: file.path.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: file.path.text
     name: text
     norms: false
@@ -3922,6 +4209,11 @@ file.target_path:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: file.target_path.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: file.target_path.text
     name: text
     norms: false
@@ -4253,6 +4545,11 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.full.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.full.text
     name: text
     norms: false
@@ -4282,6 +4579,11 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.name.text
     name: text
     norms: false
@@ -4983,6 +5285,11 @@ process.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.command_line.text
     name: text
     norms: false
@@ -5018,6 +5325,11 @@ process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.executable.text
     name: text
     norms: false
@@ -5093,6 +5405,11 @@ process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.name.text
     name: text
     norms: false
@@ -5258,6 +5575,11 @@ process.parent.command_line:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.command_line.text
     name: text
     norms: false
@@ -5295,6 +5617,11 @@ process.parent.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.executable.text
     name: text
     norms: false
@@ -5372,6 +5699,11 @@ process.parent.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.name.text
     name: text
     norms: false
@@ -5489,6 +5821,11 @@ process.parent.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.parent.working_directory.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.parent.working_directory.text
     name: text
     norms: false
@@ -5963,6 +6300,11 @@ process.working_directory:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.working_directory.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.working_directory.text
     name: text
     norms: false
@@ -6093,6 +6435,107 @@ rule.version:
   name: version
   normalize: []
   short: Rule version
+  type: keyword
+source.geo.city_name:
+  dashed_name: source-geo-city-name
+  description: City name.
+  example: Montreal
+  flat_name: source.geo.city_name
+  ignore_above: 1024
+  level: core
+  name: city_name
+  normalize: []
+  original_fieldset: geo
+  short: City name.
+  type: keyword
+source.geo.continent_name:
+  dashed_name: source-geo-continent-name
+  description: Name of the continent.
+  example: North America
+  flat_name: source.geo.continent_name
+  ignore_above: 1024
+  level: core
+  name: continent_name
+  normalize: []
+  original_fieldset: geo
+  short: Name of the continent.
+  type: keyword
+source.geo.country_iso_code:
+  dashed_name: source-geo-country-iso-code
+  description: Country ISO code.
+  example: CA
+  flat_name: source.geo.country_iso_code
+  ignore_above: 1024
+  level: core
+  name: country_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Country ISO code.
+  type: keyword
+source.geo.country_name:
+  dashed_name: source-geo-country-name
+  description: Country name.
+  example: Canada
+  flat_name: source.geo.country_name
+  ignore_above: 1024
+  level: core
+  name: country_name
+  normalize: []
+  original_fieldset: geo
+  short: Country name.
+  type: keyword
+source.geo.location:
+  dashed_name: source-geo-location
+  description: Longitude and latitude.
+  example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  flat_name: source.geo.location
+  level: core
+  name: location
+  normalize: []
+  original_fieldset: geo
+  short: Longitude and latitude.
+  type: geo_point
+source.geo.name:
+  dashed_name: source-geo-name
+  description: 'User-defined description of a location, at the level of granularity
+    they care about.
+
+    Could be the name of their data centers, the floor number, if this describes a
+    local physical entity, city names.
+
+    Not typically used in automated geolocation.'
+  example: boston-dc
+  flat_name: source.geo.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: geo
+  short: User-defined description of a location.
+  type: keyword
+source.geo.region_iso_code:
+  dashed_name: source-geo-region-iso-code
+  description: Region ISO code.
+  example: CA-QC
+  flat_name: source.geo.region_iso_code
+  ignore_above: 1024
+  level: core
+  name: region_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Region ISO code.
+  type: keyword
+source.geo.region_name:
+  dashed_name: source-geo-region-name
+  description: Region name.
+  example: Quebec
+  flat_name: source.geo.region_name
+  ignore_above: 1024
+  level: core
+  name: region_name
+  normalize: []
+  original_fieldset: geo
+  short: Region name.
   type: keyword
 threat.framework:
   dashed_name: threat-framework

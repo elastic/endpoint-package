@@ -83,6 +83,107 @@ data_stream.type:
   normalize: []
   short: Data stream type.
   type: constant_keyword
+destination.geo.city_name:
+  dashed_name: destination-geo-city-name
+  description: City name.
+  example: Montreal
+  flat_name: destination.geo.city_name
+  ignore_above: 1024
+  level: core
+  name: city_name
+  normalize: []
+  original_fieldset: geo
+  short: City name.
+  type: keyword
+destination.geo.continent_name:
+  dashed_name: destination-geo-continent-name
+  description: Name of the continent.
+  example: North America
+  flat_name: destination.geo.continent_name
+  ignore_above: 1024
+  level: core
+  name: continent_name
+  normalize: []
+  original_fieldset: geo
+  short: Name of the continent.
+  type: keyword
+destination.geo.country_iso_code:
+  dashed_name: destination-geo-country-iso-code
+  description: Country ISO code.
+  example: CA
+  flat_name: destination.geo.country_iso_code
+  ignore_above: 1024
+  level: core
+  name: country_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Country ISO code.
+  type: keyword
+destination.geo.country_name:
+  dashed_name: destination-geo-country-name
+  description: Country name.
+  example: Canada
+  flat_name: destination.geo.country_name
+  ignore_above: 1024
+  level: core
+  name: country_name
+  normalize: []
+  original_fieldset: geo
+  short: Country name.
+  type: keyword
+destination.geo.location:
+  dashed_name: destination-geo-location
+  description: Longitude and latitude.
+  example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  flat_name: destination.geo.location
+  level: core
+  name: location
+  normalize: []
+  original_fieldset: geo
+  short: Longitude and latitude.
+  type: geo_point
+destination.geo.name:
+  dashed_name: destination-geo-name
+  description: 'User-defined description of a location, at the level of granularity
+    they care about.
+
+    Could be the name of their data centers, the floor number, if this describes a
+    local physical entity, city names.
+
+    Not typically used in automated geolocation.'
+  example: boston-dc
+  flat_name: destination.geo.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: geo
+  short: User-defined description of a location.
+  type: keyword
+destination.geo.region_iso_code:
+  dashed_name: destination-geo-region-iso-code
+  description: Region ISO code.
+  example: CA-QC
+  flat_name: destination.geo.region_iso_code
+  ignore_above: 1024
+  level: core
+  name: region_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Region ISO code.
+  type: keyword
+destination.geo.region_name:
+  dashed_name: destination-geo-region-name
+  description: Region name.
+  example: Quebec
+  flat_name: destination.geo.region_name
+  ignore_above: 1024
+  level: core
+  name: region_name
+  normalize: []
+  original_fieldset: geo
+  short: Region name.
+  type: keyword
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
@@ -269,6 +370,21 @@ event.category:
   - array
   short: Event category. The second categorization field in the hierarchy.
   type: keyword
+event.code:
+  dashed_name: event-code
+  description: 'Identification code for this event, if one exists.
+
+    Some event sources use event codes to identify messages unambiguously, regardless
+    of message language or wording adjustments over time. An example of this is the
+    Windows Event ID.'
+  example: 4648
+  flat_name: event.code
+  ignore_above: 1024
+  level: extended
+  name: code
+  normalize: []
+  short: Identification code for this event.
+  type: keyword
 event.created:
   dashed_name: event-created
   description: 'event.created contains the date/time when the event was first read
@@ -306,6 +422,19 @@ event.dataset:
   name: dataset
   normalize: []
   short: Name of the dataset.
+  type: keyword
+event.hash:
+  dashed_name: event-hash
+  description: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate
+    log integrity.
+  example: 123456789012345678901234567890ABCD
+  flat_name: event.hash
+  ignore_above: 1024
+  level: extended
+  name: hash
+  normalize: []
+  short: Hash (perhaps logstash fingerprint) of raw field to be able to demonstrate
+    log integrity.
   type: keyword
 event.id:
   dashed_name: event-id
@@ -464,6 +593,21 @@ event.outcome:
   normalize: []
   short: The outcome of the event. The lowest level categorization field in the hierarchy.
   type: keyword
+event.provider:
+  dashed_name: event-provider
+  description: 'Source of the event.
+
+    Event transports such as Syslog or the Windows Event Log typically mention the
+    source of an event. It can be the name of the software that generated the event
+    (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+  example: kernel
+  flat_name: event.provider
+  ignore_above: 1024
+  level: extended
+  name: provider
+  normalize: []
+  short: Source of the event.
+  type: keyword
 event.sequence:
   dashed_name: event-sequence
   description: 'Sequence number of the event.
@@ -476,6 +620,26 @@ event.sequence:
   name: sequence
   normalize: []
   short: Sequence number of the event.
+  type: long
+event.severity:
+  dashed_name: event-severity
+  description: 'The numeric severity of the event according to your event source.
+
+    What the different severity values mean can be different between sources and use
+    cases. It''s up to the implementer to make sure severities are consistent across
+    events from the same source.
+
+    The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is
+    meant to represent the severity according to the event source (e.g. firewall,
+    IDS). If the event source does not publish its own severity, you may optionally
+    copy the `log.syslog.severity.code` to `event.severity`.'
+  example: 7
+  flat_name: event.severity
+  format: string
+  level: core
+  name: severity
+  normalize: []
+  short: Numeric severity of the event.
   type: long
 event.type:
   allowed_values:
@@ -727,6 +891,104 @@ file.Ext.windows.zone_identifier:
   normalize: []
   short: Windows zone identifier for a file
   type: keyword
+file.accessed:
+  dashed_name: file-accessed
+  description: 'Last time the file was accessed.
+
+    Note that not all filesystems keep track of access time.'
+  flat_name: file.accessed
+  level: extended
+  name: accessed
+  normalize: []
+  short: Last time the file was accessed.
+  type: date
+file.attributes:
+  dashed_name: file-attributes
+  description: 'Array of file attributes.
+
+    Attributes names will vary by platform. Here''s a non-exhaustive list of values
+    that are expected in this field: archive, compressed, directory, encrypted, execute,
+    hidden, read, readonly, system, write.'
+  example: '["readonly", "system"]'
+  flat_name: file.attributes
+  ignore_above: 1024
+  level: extended
+  name: attributes
+  normalize:
+  - array
+  short: Array of file attributes.
+  type: keyword
+file.created:
+  dashed_name: file-created
+  description: 'File creation time.
+
+    Note that not all filesystems store the creation time.'
+  flat_name: file.created
+  level: extended
+  name: created
+  normalize: []
+  short: File creation time.
+  type: date
+file.ctime:
+  dashed_name: file-ctime
+  description: 'Last time the file attributes or metadata changed.
+
+    Note that changes to the file content will update `mtime`. This implies `ctime`
+    will be adjusted at the same time, since `mtime` is an attribute of the file.'
+  flat_name: file.ctime
+  level: extended
+  name: ctime
+  normalize: []
+  short: Last time the file attributes or metadata changed.
+  type: date
+file.device:
+  dashed_name: file-device
+  description: Device that is the source of the file.
+  example: sda
+  flat_name: file.device
+  ignore_above: 1024
+  level: extended
+  name: device
+  normalize: []
+  short: Device that is the source of the file.
+  type: keyword
+file.directory:
+  dashed_name: file-directory
+  description: Directory where the file is located. It should include the drive letter,
+    when appropriate.
+  example: /home/alice
+  flat_name: file.directory
+  ignore_above: 1024
+  level: extended
+  name: directory
+  normalize: []
+  short: Directory where the file is located.
+  type: keyword
+file.drive_letter:
+  dashed_name: file-drive-letter
+  description: 'Drive letter where the file is located. This field is only relevant
+    on Windows.
+
+    The value should be uppercase, and not include the colon.'
+  example: C
+  flat_name: file.drive_letter
+  ignore_above: 1
+  level: extended
+  name: drive_letter
+  normalize: []
+  short: Drive letter where the file is located.
+  type: keyword
+file.extension:
+  dashed_name: file-extension
+  description: File extension.
+  example: png
+  flat_name: file.extension
+  ignore_above: 1024
+  level: extended
+  name: extension
+  normalize: []
+  short: File extension.
+  type: keyword
 file.gid:
   dashed_name: file-gid
   description: Primary group ID (GID) of the file.
@@ -782,6 +1044,17 @@ file.hash.sha256:
   original_fieldset: hash
   short: SHA256 hash.
   type: keyword
+file.hash.sha512:
+  dashed_name: file-hash-sha512
+  description: SHA512 hash.
+  flat_name: file.hash.sha512
+  ignore_above: 1024
+  level: extended
+  name: sha512
+  normalize: []
+  original_fieldset: hash
+  short: SHA512 hash.
+  type: keyword
 file.inode:
   dashed_name: file-inode
   description: Inode representing the file in the filesystem.
@@ -792,6 +1065,19 @@ file.inode:
   name: inode
   normalize: []
   short: Inode representing the file in the filesystem.
+  type: keyword
+file.mime_type:
+  dashed_name: file-mime-type
+  description: MIME type should identify the format of the file or stream of bytes
+    using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA official
+    types], where possible. When more than one type is applicable, the most specific
+    type should be used.
+  flat_name: file.mime_type
+  ignore_above: 1024
+  level: extended
+  name: mime_type
+  normalize: []
+  short: Media type of file, document, or arrangement of bytes.
   type: keyword
 file.mode:
   dashed_name: file-mode
@@ -804,6 +1090,15 @@ file.mode:
   normalize: []
   short: Mode of the file in octal representation.
   type: keyword
+file.mtime:
+  dashed_name: file-mtime
+  description: Last time the file content was modified.
+  flat_name: file.mtime
+  level: extended
+  name: mtime
+  normalize: []
+  short: Last time the file content was modified.
+  type: date
 file.name:
   dashed_name: file-name
   description: Name of the file including the extension, without the directory.
@@ -835,6 +1130,11 @@ file.path:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: file.path.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: file.path.text
     name: text
     norms: false
@@ -842,6 +1142,109 @@ file.path:
   name: path
   normalize: []
   short: Full path to the file, including the file name.
+  type: keyword
+file.pe.company:
+  dashed_name: file-pe-company
+  description: Internal company name of the file, provided at compile-time.
+  example: Microsoft Corporation
+  flat_name: file.pe.company
+  ignore_above: 1024
+  level: extended
+  name: company
+  normalize: []
+  original_fieldset: pe
+  short: Internal company name of the file, provided at compile-time.
+  type: keyword
+file.pe.description:
+  dashed_name: file-pe-description
+  description: Internal description of the file, provided at compile-time.
+  example: Paint
+  flat_name: file.pe.description
+  ignore_above: 1024
+  level: extended
+  name: description
+  normalize: []
+  original_fieldset: pe
+  short: Internal description of the file, provided at compile-time.
+  type: keyword
+file.pe.file_version:
+  dashed_name: file-pe-file-version
+  description: Internal version of the file, provided at compile-time.
+  example: 6.3.9600.17415
+  flat_name: file.pe.file_version
+  ignore_above: 1024
+  level: extended
+  name: file_version
+  normalize: []
+  original_fieldset: pe
+  short: Process name.
+  type: keyword
+file.pe.original_file_name:
+  dashed_name: file-pe-original-file-name
+  description: Internal name of the file, provided at compile-time.
+  example: MSPAINT.EXE
+  flat_name: file.pe.original_file_name
+  ignore_above: 1024
+  level: extended
+  name: original_file_name
+  normalize: []
+  original_fieldset: pe
+  short: Internal name of the file, provided at compile-time.
+  type: keyword
+file.pe.product:
+  dashed_name: file-pe-product
+  description: Internal product name of the file, provided at compile-time.
+  example: "Microsoft\xAE Windows\xAE Operating System"
+  flat_name: file.pe.product
+  ignore_above: 1024
+  level: extended
+  name: product
+  normalize: []
+  original_fieldset: pe
+  short: Internal product name of the file, provided at compile-time.
+  type: keyword
+file.size:
+  dashed_name: file-size
+  description: 'File size in bytes.
+
+    Only relevant when `file.type` is "file".'
+  example: 16384
+  flat_name: file.size
+  level: extended
+  name: size
+  normalize: []
+  short: File size in bytes.
+  type: long
+file.target_path:
+  dashed_name: file-target-path
+  description: Target path for symlinks.
+  flat_name: file.target_path
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: file.target_path.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: file.target_path.text
+    name: text
+    norms: false
+    type: text
+  name: target_path
+  normalize: []
+  short: Target path for symlinks.
+  type: keyword
+file.type:
+  dashed_name: file-type
+  description: File type (file, dir, or symlink).
+  example: file
+  flat_name: file.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  short: File type (file, dir, or symlink).
   type: keyword
 file.uid:
   dashed_name: file-uid
@@ -892,6 +1295,18 @@ group.Ext.real.name:
   normalize: []
   short: Name of the group.
   type: keyword
+group.domain:
+  dashed_name: group-domain
+  description: 'Name of the directory the group is a member of.
+
+    For example, an LDAP or Active Directory domain name.'
+  flat_name: group.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  short: Name of the directory the group is a member of.
+  type: keyword
 group.id:
   dashed_name: group-id
   description: Unique identifier for the group on the system/platform.
@@ -922,6 +1337,20 @@ host.architecture:
   name: architecture
   normalize: []
   short: Operating system architecture.
+  type: keyword
+host.domain:
+  dashed_name: host-domain
+  description: 'Name of the domain of which the host is a member.
+
+    For example, on Windows this could be the host''s Active Directory domain or NetBIOS
+    domain name. For Linux this could be the domain of the host''s LDAP provider.'
+  example: CONTOSO
+  flat_name: host.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  short: Name of the directory the group is a member of.
   type: keyword
 host.hostname:
   dashed_name: host-hostname
@@ -1028,6 +1457,11 @@ host.os.full:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.full.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.full.text
     name: text
     norms: false
@@ -1057,6 +1491,11 @@ host.os.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: host.os.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: host.os.name.text
     name: text
     norms: false
@@ -1090,6 +1529,29 @@ host.os.version:
   original_fieldset: os
   short: Operating system version as a raw string.
   type: keyword
+host.type:
+  dashed_name: host-type
+  description: 'Type of host.
+
+    For Cloud providers this can be the machine type like `t2.medium`. If vm, this
+    could be the container, for example, or other information meaningful in your environment.'
+  flat_name: host.type
+  ignore_above: 1024
+  level: core
+  name: type
+  normalize: []
+  short: Type of host.
+  type: keyword
+host.uptime:
+  dashed_name: host-uptime
+  description: Seconds the host has been up.
+  example: 1325
+  flat_name: host.uptime
+  level: extended
+  name: uptime
+  normalize: []
+  short: Seconds the host has been up.
+  type: long
 message:
   dashed_name: message
   description: 'For log events the message field contains the log message, optimized
@@ -1126,6 +1588,20 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.args_count:
+  dashed_name: process-args-count
+  description: 'Length of the process.args array.
+
+    This field can be useful for querying or performing bucket analysis on how many
+    arguments were provided to start a process. More arguments may be an indication
+    of suspicious activity.'
+  example: 4
+  flat_name: process.args_count
+  level: extended
+  name: args_count
+  normalize: []
+  short: Length of the process.args array.
+  type: long
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.
@@ -1153,6 +1629,11 @@ process.executable:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.executable.text
     name: text
     norms: false
@@ -1171,6 +1652,11 @@ process.name:
   ignore_above: 1024
   level: extended
   multi_fields:
+  - flat_name: process.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
   - flat_name: process.name.text
     name: text
     norms: false
@@ -1201,6 +1687,107 @@ process.thread.id:
   normalize: []
   short: Thread ID.
   type: long
+source.geo.city_name:
+  dashed_name: source-geo-city-name
+  description: City name.
+  example: Montreal
+  flat_name: source.geo.city_name
+  ignore_above: 1024
+  level: core
+  name: city_name
+  normalize: []
+  original_fieldset: geo
+  short: City name.
+  type: keyword
+source.geo.continent_name:
+  dashed_name: source-geo-continent-name
+  description: Name of the continent.
+  example: North America
+  flat_name: source.geo.continent_name
+  ignore_above: 1024
+  level: core
+  name: continent_name
+  normalize: []
+  original_fieldset: geo
+  short: Name of the continent.
+  type: keyword
+source.geo.country_iso_code:
+  dashed_name: source-geo-country-iso-code
+  description: Country ISO code.
+  example: CA
+  flat_name: source.geo.country_iso_code
+  ignore_above: 1024
+  level: core
+  name: country_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Country ISO code.
+  type: keyword
+source.geo.country_name:
+  dashed_name: source-geo-country-name
+  description: Country name.
+  example: Canada
+  flat_name: source.geo.country_name
+  ignore_above: 1024
+  level: core
+  name: country_name
+  normalize: []
+  original_fieldset: geo
+  short: Country name.
+  type: keyword
+source.geo.location:
+  dashed_name: source-geo-location
+  description: Longitude and latitude.
+  example: '{ "lon": -73.614830, "lat": 45.505918 }'
+  flat_name: source.geo.location
+  level: core
+  name: location
+  normalize: []
+  original_fieldset: geo
+  short: Longitude and latitude.
+  type: geo_point
+source.geo.name:
+  dashed_name: source-geo-name
+  description: 'User-defined description of a location, at the level of granularity
+    they care about.
+
+    Could be the name of their data centers, the floor number, if this describes a
+    local physical entity, city names.
+
+    Not typically used in automated geolocation.'
+  example: boston-dc
+  flat_name: source.geo.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: geo
+  short: User-defined description of a location.
+  type: keyword
+source.geo.region_iso_code:
+  dashed_name: source-geo-region-iso-code
+  description: Region ISO code.
+  example: CA-QC
+  flat_name: source.geo.region_iso_code
+  ignore_above: 1024
+  level: core
+  name: region_iso_code
+  normalize: []
+  original_fieldset: geo
+  short: Region ISO code.
+  type: keyword
+source.geo.region_name:
+  dashed_name: source-geo-region-name
+  description: Region name.
+  example: Quebec
+  flat_name: source.geo.region_name
+  ignore_above: 1024
+  level: core
+  name: region_name
+  normalize: []
+  original_fieldset: geo
+  short: Region name.
+  type: keyword
 user.Ext:
   dashed_name: user-Ext
   description: Object for all custom defined fields to live in.
@@ -1250,6 +1837,123 @@ user.domain:
   name: domain
   normalize: []
   short: Name of the directory the user is a member of.
+  type: keyword
+user.email:
+  dashed_name: user-email
+  description: User email address.
+  flat_name: user.email
+  ignore_above: 1024
+  level: extended
+  name: email
+  normalize: []
+  short: User email address.
+  type: keyword
+user.full_name:
+  dashed_name: user-full-name
+  description: User's full name, if available.
+  example: Albert Einstein
+  flat_name: user.full_name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: user.full_name.text
+    name: text
+    norms: false
+    type: text
+  name: full_name
+  normalize: []
+  short: User's full name, if available.
+  type: keyword
+user.group.Ext:
+  dashed_name: user-group-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: user.group.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  original_fieldset: group
+  short: Object for all custom defined fields to live in.
+  type: object
+user.group.Ext.real:
+  dashed_name: user-group-Ext-real
+  description: Group info prior to any setgid operations.
+  flat_name: user.group.Ext.real
+  level: custom
+  name: Ext.real
+  normalize: []
+  original_fieldset: group
+  short: Group info prior to any setgid operations.
+  type: object
+user.group.Ext.real.id:
+  dashed_name: user-group-Ext-real-id
+  description: Unique identifier for the group on the system/platform.
+  flat_name: user.group.Ext.real.id
+  ignore_above: 1024
+  level: custom
+  name: Ext.real.id
+  normalize: []
+  original_fieldset: group
+  short: Unique identifier for the group on the system/platform.
+  type: keyword
+user.group.Ext.real.name:
+  dashed_name: user-group-Ext-real-name
+  description: Name of the group.
+  flat_name: user.group.Ext.real.name
+  ignore_above: 1024
+  level: custom
+  name: Ext.real.name
+  normalize: []
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
+user.group.domain:
+  dashed_name: user-group-domain
+  description: 'Name of the directory the group is a member of.
+
+    For example, an LDAP or Active Directory domain name.'
+  flat_name: user.group.domain
+  ignore_above: 1024
+  level: extended
+  name: domain
+  normalize: []
+  original_fieldset: group
+  short: Name of the directory the group is a member of.
+  type: keyword
+user.group.id:
+  dashed_name: user-group-id
+  description: Unique identifier for the group on the system/platform.
+  flat_name: user.group.id
+  ignore_above: 1024
+  level: extended
+  name: id
+  normalize: []
+  original_fieldset: group
+  short: Unique identifier for the group on the system/platform.
+  type: keyword
+user.group.name:
+  dashed_name: user-group-name
+  description: Name of the group.
+  flat_name: user.group.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
+user.hash:
+  dashed_name: user-hash
+  description: 'Unique user hash to correlate information for a user in anonymized
+    form.
+
+    Useful if `user.id` or `user.name` contain confidential information and cannot
+    be used.'
+  flat_name: user.hash
+  ignore_above: 1024
+  level: extended
+  name: hash
+  normalize: []
+  short: Unique user hash to correlate information for a user in anonymized form.
   type: keyword
 user.id:
   dashed_name: user-id

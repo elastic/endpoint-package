@@ -10,22 +10,34 @@ fields:
   ecs:
     fields:
       version: {}
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
   host:
     fields:
-      name: {}
+      architecture: {}
+      domain: {}
       hostname: {}
+      id: {}
       ip: {}
       mac: {}
-      architecture: {}
-      id: {}
+      name: {}
+      type: {}
+      uptime: {}
       os:
         fields:
+          family: {}
+          full: {}
+          kernel: {}
           platform: {}
           version: {}
-          family: {}
           name: {}
-          kernel: {}
-          full: {}
           Ext:
             fields:
               variant: {}
@@ -34,13 +46,18 @@ fields:
       action: {}
       category: {}
       created: {}
+      code: {}
       dataset: {}
+      hash: {}
       id: {}
+      ingested: {}
       kind: {}
       module: {}
+      outcome: {}
+      provider: {}
       sequence: {}
+      severity: {}
       type: {}
-      ingested: {}
   agent:
     fields:
       version: {}
@@ -48,6 +65,7 @@ fields:
       id: {}
   group:
     fields:
+      domain: {}
       id: {}
       name: {}
       Ext:
@@ -58,9 +76,23 @@ fields:
               name: {}
   user:
     fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
       id: {}
       name: {}
-      domain: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
       Ext:
         fields:
           real:
@@ -83,8 +115,10 @@ fields:
     fields:
       pe:
         fields:
-          original_file_name: {}
+          company: {}
+          description: {}
           file_version: {}
+          original_file_name: {}
           product: {}
       name: {}
       path: {}
@@ -93,22 +127,31 @@ fields:
           md5: {}
           sha1: {}
           sha256: {}
+          sha512: {}
       Ext:
         fields:
           code_signature:
             fields:
-              subject_name: {}
+              exists: {}
               status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
   dll:
     fields:
       pe:
         fields:
-          original_file_name: {}
+          company: {}
+          description: {}
           file_version: {}
+          original_file_name: {}
           product: {}
       Ext:
         fields:
           code_signature:
             fields:
-              subject_name: {}
+              exists: {}
               status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}

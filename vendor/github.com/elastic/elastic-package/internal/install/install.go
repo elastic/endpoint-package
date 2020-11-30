@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package install
 
 import (
@@ -13,6 +17,12 @@ const (
 	elasticPackageDir = ".elastic-package"
 	stackDir          = "stack"
 	packagesDir       = "development"
+	temporaryDir      = "tmp"
+)
+
+var (
+	serviceLogsDir = filepath.Join(temporaryDir, "service_logs")
+	testReportsDir = filepath.Join(temporaryDir, "test", "reports")
 )
 
 const versionFilename = "version"
@@ -44,7 +54,11 @@ func EnsureInstalled() error {
 		return errors.Wrap(err, "writing static resources failed")
 	}
 
-	fmt.Println("elastic-package has been installed.")
+	if err := createServiceLogsDir(elasticPackagePath); err != nil {
+		return errors.Wrap(err, "creating service logs directory failed")
+	}
+
+	fmt.Fprintln(os.Stderr, "elastic-package has been installed.")
 	return nil
 }
 
@@ -64,6 +78,25 @@ func StackPackagesDir() (string, error) {
 		return "", errors.Wrap(err, "locating stack directory failed")
 	}
 	return filepath.Join(stackDir, packagesDir), nil
+}
+
+// ServiceLogsDir method returns the location of the directory to store service logs on the
+// local filesystem, i.e. the same one where elastic-package is installed.
+func ServiceLogsDir() (string, error) {
+	configurationDir, err := configurationDir()
+	if err != nil {
+		return "", errors.Wrap(err, "locating configuration directory failed")
+	}
+	return filepath.Join(configurationDir, serviceLogsDir), nil
+}
+
+// TestReportsDir returns the location of the directory to store test reports.
+func TestReportsDir() (string, error) {
+	configurationDir, err := configurationDir()
+	if err != nil {
+		return "", errors.Wrap(err, "locating configuration directory failed")
+	}
+	return filepath.Join(configurationDir, testReportsDir), nil
 }
 
 func configurationDir() (string, error) {
@@ -124,6 +157,15 @@ func writeStaticResource(err error, path, content string) error {
 	err = ioutil.WriteFile(path, []byte(content), 0644)
 	if err != nil {
 		return errors.Wrapf(err, "writing file failed (path: %s)", path)
+	}
+	return nil
+}
+
+func createServiceLogsDir(elasticPackagePath string) error {
+	dirPath := filepath.Join(elasticPackagePath, serviceLogsDir)
+	err := os.MkdirAll(dirPath, 0755)
+	if err != nil {
+		return errors.Wrapf(err, "mkdir failed (path: %s)", dirPath)
 	}
 	return nil
 }
