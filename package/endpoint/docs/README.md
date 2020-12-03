@@ -676,6 +676,12 @@ sent by the endpoint.
 | dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| dll.hash.md5 | MD5 hash. | keyword |
+| dll.hash.sha1 | SHA1 hash. | keyword |
+| dll.hash.sha256 | SHA256 hash. | keyword |
+| dll.hash.sha512 | SHA512 hash. | keyword |
+| dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
