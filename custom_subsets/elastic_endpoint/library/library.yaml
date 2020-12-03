@@ -152,7 +152,6 @@ fields:
           company: {}
           description: {}
           file_version: {}
-          imphash: {}
           original_file_name: {}
           product: {}
       Ext:

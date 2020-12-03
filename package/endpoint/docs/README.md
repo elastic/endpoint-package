@@ -685,7 +685,6 @@ sent by the endpoint.
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
