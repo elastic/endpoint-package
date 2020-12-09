@@ -1,0 +1,28 @@
+---
+name: collection
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+  data_stream:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      code: {}
+      dataset: {}
+      hash: {}
+      id: {}
+      ingested: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
+      sequence: {}
+      severity: {}
+      type: {}
