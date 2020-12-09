@@ -48,6 +48,7 @@ sent by the endpoint.
 | Target.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext | Object for all custom defined fields to live in. | object |
@@ -124,6 +125,7 @@ sent by the endpoint.
 | Target.process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.pgid | Identifier of the group of processes the process belongs to. | long |
@@ -195,6 +197,7 @@ sent by the endpoint.
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
@@ -288,6 +291,7 @@ sent by the endpoint.
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| file.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | file.size | File size in bytes. Only relevant when `file.type` is "file". | long |
@@ -418,6 +422,7 @@ sent by the endpoint.
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Identifier of the group of processes the process belongs to. | long |
@@ -568,6 +573,7 @@ sent by the endpoint.
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| file.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | file.size | File size in bytes. Only relevant when `file.type` is "file". | long |
@@ -671,6 +677,7 @@ sent by the endpoint.
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
@@ -705,6 +712,7 @@ sent by the endpoint.
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| file.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
@@ -1024,6 +1032,7 @@ sent by the endpoint.
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
@@ -1037,6 +1046,7 @@ sent by the endpoint.
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Identifier of the group of processes the process belongs to. | long |
