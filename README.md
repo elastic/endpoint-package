@@ -100,17 +100,17 @@ endpoint-package repo.
 
 After choosing the type of release, the script will prompt for the remote branch in the endpoint-package repo that should be released. Most release will
 probably come from the `master` branch because this is where the latest package code is developed. If a bugfix is needed for an already released package,
-then we'll need to use a release branch (e.g. 7.9). Once the remote branch is chosen a draft PR will be opened to the `staging` branch for the package-storage repo.
+then we'll need to use a release branch (e.g. 7.9). Once the remote branch is chosen a draft PR will be opened to the `snapshot` branch for the package-storage repo.
 If this is a `prod` release and the branch used was `master`, the script will prompt for which version part (`major`, `minor`, or `patch`) should be increased for the next
 future release. If the branch was not `master` then the script only increments the `patch` part of the version because it
 assumes a release branch was being used (e.g. 7.9, 7.10, etc).
 
 ### Creating new docker images
 
-Once the PR is merged to the `staging` branch CI will kick off a new build for that branch that will release a new docker image.
+Once the PR is merged to the `snapshot` branch CI will kick off a new build for that branch that will release a new docker image.
 The images can be located here: <https://container-library.elastic.co/r/package-registry/distribution>
 
-To create a new docker image for `snapshot` you might need to manually kick off a build for that branch which can be done here: <https://beats-ci.elastic.co/blue/organizations/jenkins/Beats%2Fpackage-storage/branches>
+If for some reason the `snapshot` branch CI does kick off a new build, you can manually trigger it here: <https://beats-ci.elastic.co/blue/organizations/jenkins/Beats%2Fpackage-storage/branches>
 
 ### Deploying a new registry with the package
 
@@ -120,13 +120,13 @@ To see all the available registries run:
 
 `kubectl get deployment -n package-registry`
 
-To deploy the package to the staging registry run: `kubectl rollout restart deployment package-registry-staging-vanilla -n package-registry`
+To deploy the package to the staging registry run: `kubectl rollout restart deployment package-registry-snapshot-vanilla -n package-registry`
 
 Once all the pods restart you should be able to see the new package here: <https://epr-staging.elastic.co/search?package=endpoint>
 
-To deploy a new docker image for `snapshot` and `production` use the commands below:
+To deploy a new docker image for `staging` and `production` use the commands below:
 
-kubectl rollout restart deployment package-registry-snapshot-vanilla -n package-registry
+kubectl rollout restart deployment package-registry-staging-vanilla -n package-registry
 kubectl rollout restart deployment package-registry-prod-vanilla -n package-registry
 
 ### Promoting a package to a new environment
