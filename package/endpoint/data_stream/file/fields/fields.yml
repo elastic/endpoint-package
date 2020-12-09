@@ -169,6 +169,11 @@
       ignore_above: 1024
       description: ID of event that this event is correlated to, e.g. quarantine event associated with an unquarantine event
       default_field: false
+    - name: Ext.our_custom_incrementing_id
+      level: custom
+      type: long
+      description: Some new ID
+      default_field: false
     - name: action
       level: core
       type: keyword

@@ -55,6 +55,7 @@ fields:
           correlation:
             fields:
               id: {}
+          our_custom_incrementing_id: {}
   agent:
     fields:
       version: {}

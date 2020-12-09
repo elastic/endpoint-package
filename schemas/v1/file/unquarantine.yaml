@@ -231,6 +231,15 @@ event.Ext.correlation.id:
   short: ID of event that this event is correlated to, e.g. quarantine event associated
     with an unquarantine event
   type: keyword
+event.Ext.our_custom_incrementing_id:
+  dashed_name: event-Ext-our-custom-incrementing-id
+  description: Some new ID
+  flat_name: event.Ext.our_custom_incrementing_id
+  level: custom
+  name: Ext.our_custom_incrementing_id
+  normalize: []
+  short: Some new ID
+  type: long
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.

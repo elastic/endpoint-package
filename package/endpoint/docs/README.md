@@ -537,6 +537,7 @@ sent by the endpoint.
 | event.Ext | Object for all custom defined fields to live in. | object |
 | event.Ext.correlation | Information about event this should be correlated with. | object |
 | event.Ext.correlation.id | ID of event that this event is correlated to, e.g. quarantine event associated with an unquarantine event | keyword |
+| event.Ext.our_custom_incrementing_id | Some new ID | long |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |

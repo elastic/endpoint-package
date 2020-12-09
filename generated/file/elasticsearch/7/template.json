@@ -110,6 +110,9 @@
                   }
                 },
                 "type": "object"
+              },
+              "our_custom_incrementing_id": {
+                "type": "long"
               }
             },
             "type": "object"
