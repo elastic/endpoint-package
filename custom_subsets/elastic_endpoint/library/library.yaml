@@ -118,6 +118,7 @@ fields:
           company: {}
           description: {}
           file_version: {}
+          imphash: {}
           original_file_name: {}
           product: {}
       name: {}
@@ -139,11 +140,20 @@ fields:
               valid: {}
   dll:
     fields:
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+          sha512: {}
+      name: {}
+      path: {}
       pe:
         fields:
           company: {}
           description: {}
           file_version: {}
+          imphash: {}
           original_file_name: {}
           product: {}
       Ext:
