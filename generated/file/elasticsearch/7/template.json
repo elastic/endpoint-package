@@ -558,6 +558,14 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "parent": {
+            "properties": {
+              "entity_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "pid": {
             "type": "long"
           },

@@ -109,6 +109,9 @@ fields:
       thread:
         fields:
           id: {}
+      parent:
+        fields:
+          entity_id: {}
       Ext:
         fields:
           ancestry: {}

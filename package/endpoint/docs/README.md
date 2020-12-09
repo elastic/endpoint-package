@@ -626,6 +626,7 @@ sent by the endpoint.
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |

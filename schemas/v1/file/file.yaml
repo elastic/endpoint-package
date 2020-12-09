@@ -1681,6 +1681,26 @@ process.name:
   normalize: []
   short: Process name.
   type: keyword
+process.parent.entity_id:
+  dashed_name: process-parent-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.parent.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
 process.pid:
   dashed_name: process-pid
   description: Process id.
