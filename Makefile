@@ -121,7 +121,7 @@ clean:
 	rm -rf $(GO_TOOLS)
 
 $(REAL_ECS_DIR):
-	git clone --branch master https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
+	git clone --branch v1.7.0 https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-go-tools
 setup-go-tools:
