@@ -287,6 +287,10 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "imphash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "original_file_name": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -709,6 +713,10 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "imphash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "original_file_name": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -1087,6 +1095,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -1526,6 +1538,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -2236,6 +2252,10 @@
                 "type": "keyword"
               },
               "file_version": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "imphash": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },

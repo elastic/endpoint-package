@@ -732,6 +732,22 @@ dll.pe.file_version:
   original_fieldset: pe
   short: Process name.
   type: keyword
+dll.pe.imphash:
+  dashed_name: dll-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: dll.pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
 dll.pe.original_file_name:
   dashed_name: dll-pe-original-file-name
   description: Internal name of the file, provided at compile-time.
@@ -2900,6 +2916,22 @@ process.pe.file_version:
   normalize: []
   original_fieldset: pe
   short: Process name.
+  type: keyword
+process.pe.imphash:
+  dashed_name: process-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: process.pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
   type: keyword
 process.pe.original_file_name:
   dashed_name: process-pe-original-file-name

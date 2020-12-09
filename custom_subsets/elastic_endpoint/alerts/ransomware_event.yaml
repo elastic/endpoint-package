@@ -1,7 +1,7 @@
 ---
 name: ransomware_event
 fields:
-# these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
   source:
     fields:
       geo:
@@ -41,6 +41,7 @@ fields:
           company: {}
           description: {}
           file_version: {}
+          imphash: {}
           original_file_name: {}
           product: {}
       Ext:
@@ -221,6 +222,8 @@ fields:
           description:
             exceptionable: true
           file_version:
+            exceptionable: true
+          imphash:
             exceptionable: true
           original_file_name:
             exceptionable: true

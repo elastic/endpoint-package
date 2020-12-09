@@ -254,6 +254,15 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
+    - name: pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
     - name: pe.original_file_name
       level: extended
       type: keyword
@@ -544,6 +553,15 @@
       ignore_above: 1024
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
+      default_field: false
+    - name: pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
       default_field: false
     - name: pe.original_file_name
       level: extended
