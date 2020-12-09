@@ -126,6 +126,7 @@ fields:
           company: {}
           description: {}
           file_version: {}
+          imphash: {}
           original_file_name: {}
           product: {}
       pgid: {}
@@ -182,6 +183,7 @@ fields:
               company: {}
               description: {}
               file_version: {}
+              imphash: {}
               original_file_name: {}
               product: {}
           pgid: {}
