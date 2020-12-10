@@ -2,7 +2,7 @@ title: Endpoint Alert Collection
 type: logs
 dataset: endpoint.diagnostics.collection
 hidden: true
-ilm_policy: logs-endpoint.collection-diagnotics
+ilm_policy: logs-endpoint.collection-diagnostics
 elasticsearch:
   index_template:
     mappings:
