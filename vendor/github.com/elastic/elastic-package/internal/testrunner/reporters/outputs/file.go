@@ -13,7 +13,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/elastic/elastic-package/internal/install"
+	"github.com/elastic/elastic-package/internal/builder"
 	"github.com/elastic/elastic-package/internal/testrunner"
 	"github.com/elastic/elastic-package/internal/testrunner/reporters/formats"
 )
@@ -28,18 +28,17 @@ const (
 )
 
 func reportToFile(pkg, report string, format testrunner.TestReportFormat) error {
-	dest, err := install.TestReportsDir()
+	dest, err := testReportsDir()
 	if err != nil {
 		return errors.Wrap(err, "could not determine test reports folder")
 	}
 
+	// Create test reports folder if it doesn't exist
 	_, err = os.Stat(dest)
-	if os.IsNotExist(err) {
+	if err != nil && os.IsNotExist(err) {
 		if err := os.MkdirAll(dest, 0755); err != nil {
 			return errors.Wrap(err, "could not create test reports folder")
 		}
-	} else if err != nil {
-		return errors.Wrap(err, "could not check test reports folder")
 	}
 
 	ext := "txt"
@@ -55,4 +54,13 @@ func reportToFile(pkg, report string, format testrunner.TestReportFormat) error 
 	}
 
 	return nil
+}
+
+// testReportsDir returns the location of the directory to store test reports.
+func testReportsDir() (string, error) {
+	buildDir, _, err := builder.FindBuildDirectory()
+	if err != nil {
+		return "", errors.Wrap(err, "locating build directory failed")
+	}
+	return filepath.Join(buildDir, "test-results"), nil
 }
