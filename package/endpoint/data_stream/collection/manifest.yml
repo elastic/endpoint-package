@@ -1,0 +1,9 @@
+title: Endpoint Alert Collection
+type: logs
+dataset: endpoint.diagnostic.collection
+hidden: true
+ilm_policy: logs-endpoint.collection-diagnostic
+elasticsearch:
+  index_template:
+    mappings:
+      dynamic: false
