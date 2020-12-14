@@ -6,7 +6,6 @@ package cmd
 
 import (
 	"fmt"
-	"path/filepath"
 	"strings"
 
 	"github.com/pkg/errors"
@@ -43,15 +42,16 @@ func setupTestCommand() *cobra.Command {
 	cmd.PersistentFlags().StringSliceP(cobraext.DataStreamsFlagName, "d", nil, cobraext.DataStreamsFlagDescription)
 	cmd.PersistentFlags().StringP(cobraext.ReportFormatFlagName, "", string(formats.ReportFormatHuman), cobraext.ReportFormatFlagDescription)
 	cmd.PersistentFlags().StringP(cobraext.ReportOutputFlagName, "", string(outputs.ReportOutputSTDOUT), cobraext.ReportOutputFlagDescription)
+	cmd.PersistentFlags().DurationP(cobraext.DeferCleanupFlagName, "", 0, cobraext.DeferCleanupFlagDescription)
 
-	for _, testType := range testrunner.TestTypes() {
-		action := testTypeCommandActionFactory(testType)
+	for testType, runner := range testrunner.TestRunners() {
+		action := testTypeCommandActionFactory(runner)
 		testTypeCmdActions = append(testTypeCmdActions, action)
 
 		testTypeCmd := &cobra.Command{
 			Use:   string(testType),
-			Short: fmt.Sprintf("Run %s tests", testType),
-			Long:  fmt.Sprintf("Run %s tests for the package", testType),
+			Short: fmt.Sprintf("Run %s tests", runner.String()),
+			Long:  fmt.Sprintf("Run %s tests for the package.", runner.String()),
 			RunE:  action,
 		}
 
@@ -61,7 +61,8 @@ func setupTestCommand() *cobra.Command {
 	return cmd
 }
 
-func testTypeCommandActionFactory(testType testrunner.TestType) cobraext.CommandAction {
+func testTypeCommandActionFactory(runner testrunner.TestRunner) cobraext.CommandAction {
+	testType := runner.Type()
 	return func(cmd *cobra.Command, args []string) error {
 		cmd.Printf("Run %s tests for the package\n", testType)
 
@@ -110,6 +111,11 @@ func testTypeCommandActionFactory(testType testrunner.TestType) cobraext.Command
 			return fmt.Errorf("no %s tests found", testType)
 		}
 
+		deferCleanup, err := cmd.Flags().GetDuration(cobraext.DeferCleanupFlagName)
+		if err != nil {
+			return cobraext.FlagParsingError(err, cobraext.DeferCleanupFlagName)
+		}
+
 		esClient, err := elasticsearch.Client()
 		if err != nil {
 			return errors.Wrap(err, "fetching Elasticsearch client instance failed")
@@ -122,6 +128,7 @@ func testTypeCommandActionFactory(testType testrunner.TestType) cobraext.Command
 				PackageRootPath:    packageRootPath,
 				GenerateTestResult: generateTestResult,
 				ESClient:           esClient,
+				DeferCleanup:       deferCleanup,
 			})
 
 			results = append(results, r...)
@@ -137,7 +144,7 @@ func testTypeCommandActionFactory(testType testrunner.TestType) cobraext.Command
 			return errors.Wrap(err, "error formatting test report")
 		}
 
-		m, err := packages.ReadPackageManifest(filepath.Join(packageRootPath, packages.PackageManifestFile))
+		m, err := packages.ReadPackageManifestFromPackageRoot(packageRootPath)
 		if err != nil {
 			return errors.Wrapf(err, "reading package manifest failed (path: %s)", packageRootPath)
 		}

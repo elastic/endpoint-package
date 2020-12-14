@@ -20,6 +20,9 @@ Alternatively, you may use `go get` but you will not be able to use the `elastic
 go get github.com/elastic/elastic-package
 ```
 
+_Please make sure that you've correctly [setup environment variables](https://golang.org/doc/gopath_code.html#GOPATH) -
+`$GOPATH` and `$PATH`, and `elastic-package` is accessible from your `$PATH`._
+
 Change directory to the package under development. Note: an integration is a specific type of a package.
 
 ```bash
@@ -72,6 +75,13 @@ _Context: package_
 Use this command to run the `format`, `lint`, and `build` commands all at once, in that order.
 
 
+### `elastic-package clean`
+
+_Context: package_
+
+Use this command to clean resources used for building the package.
+
+
 ### `elastic-package format`
 
 _Context: package_
@@ -85,6 +95,13 @@ _Context: package_
 
 Use this command to validate the contents of a package using the 
 [package specification](https://github.com/elastic/package-spec).
+
+
+### `elastic-package export`
+
+_Context: package_
+
+Use this command to export assets relevant for the package, e.g. Kibana dashboards.
 
 
 ### `elastic-package promote`
@@ -116,6 +133,8 @@ _Context: global_
 Use this command to spin up a Docker-based Elastic Stack consisting of Elasticsearch, Kibana, and 
 the Package Registry. By default the latest released version of the stack is spun up but it is possible
 to specify a different version, including SNAPSHOT versions.
+
+For details on how to connect the service with the Elastic stack, see the [HOWTO guide](docs/howto/connect_service_with_elastic_stack.md).
 
 
 ### `elastic-package test`

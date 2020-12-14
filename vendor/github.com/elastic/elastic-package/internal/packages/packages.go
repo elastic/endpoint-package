@@ -51,7 +51,7 @@ func (vv VarValue) MarshalJSON() ([]byte, error) {
 	} else if vv.list != nil {
 		return json.Marshal(vv.list)
 	}
-	return nil, nil
+	return []byte("null"), nil
 }
 
 // Variable is an instance of configuration variable (named, typed).
@@ -95,6 +95,19 @@ type DataStreamManifest struct {
 		Input string     `config:"input" json:"input" yaml:"input"`
 		Vars  []Variable `config:"vars" json:"vars" yaml:"vars"`
 	} `config:"streams" json:"streams" yaml:"streams"`
+}
+
+// MustFindPackageRoot finds and returns the path to the root folder of a package.
+// It fails with an error if the package root can't be found.
+func MustFindPackageRoot() (string, error) {
+	root, found, err := FindPackageRoot()
+	if err != nil {
+		return "", errors.Wrap(err, "locating package root failed")
+	}
+	if !found {
+		return "", errors.New("package root not found")
+	}
+	return root, nil
 }
 
 // FindPackageRoot finds and returns the path to the root folder of a package.
@@ -148,6 +161,11 @@ func FindDataStreamRootForPath(workDir string) (string, bool, error) {
 		dir = filepath.Dir(dir)
 	}
 	return "", false, nil
+}
+
+// ReadPackageManifestFromPackageRoot reads and parses the package manifest file for the given package.
+func ReadPackageManifestFromPackageRoot(packageRoot string) (*PackageManifest, error) {
+	return ReadPackageManifest(filepath.Join(packageRoot, PackageManifestFile))
 }
 
 // ReadPackageManifest reads and parses the given package manifest file.

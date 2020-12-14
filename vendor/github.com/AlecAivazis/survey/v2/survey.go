@@ -10,6 +10,10 @@ import (
 	"github.com/AlecAivazis/survey/v2/terminal"
 )
 
+// OnInterrupt is the function to run when
+// SIGINT (CTRL+C) is sent to the process.
+var OnInterrupt func()
+
 // DefaultAskOptions is the default options on ask, using the OS stdio.
 func defaultAskOptions() *AskOptions {
 	return &AskOptions{
@@ -19,8 +23,9 @@ func defaultAskOptions() *AskOptions {
 			Err: os.Stderr,
 		},
 		PromptConfig: PromptConfig{
-			PageSize:  7,
-			HelpInput: "?",
+			PageSize:     7,
+			HelpInput:    "?",
+			SuggestInput: "tab",
 			Icons: IconSet{
 				Error: Icon{
 					Text:   "X",
@@ -55,6 +60,7 @@ func defaultAskOptions() *AskOptions {
 			},
 			KeepFilter: false,
 		},
+		OnInterrupt: OnInterrupt,
 	}
 }
 func defaultPromptConfig() *PromptConfig {
@@ -107,11 +113,12 @@ type Question struct {
 
 // PromptConfig holds the global configuration for a prompt
 type PromptConfig struct {
-	PageSize   int
-	Icons      IconSet
-	HelpInput  string
-	Filter     func(filter string, option string, index int) bool
-	KeepFilter bool
+	PageSize     int
+	Icons        IconSet
+	HelpInput    string
+	SuggestInput string
+	Filter       func(filter string, option string, index int) bool
+	KeepFilter   bool
 }
 
 // Prompt is the primary interface for the objects that can take user input
@@ -135,6 +142,7 @@ type AskOptions struct {
 	Stdio        terminal.Stdio
 	Validators   []Validator
 	PromptConfig PromptConfig
+	OnInterrupt  func()
 }
 
 // WithStdio specifies the standard input, output and error files survey
@@ -175,6 +183,16 @@ func WithValidator(v Validator) AskOpt {
 		// add the provided validator to the list
 		options.Validators = append(options.Validators, v)
 
+		// nothing went wrong
+		return nil
+	}
+}
+
+// WithInterruptFunc specifies a function to run on recieving
+// SIGINT (aka CTRL+C) during prompt.
+func WithInterruptFunc(fn func()) AskOpt {
+	return func(options *AskOptions) error {
+		options.OnInterrupt = fn
 		// nothing went wrong
 		return nil
 	}
@@ -289,6 +307,10 @@ func Ask(qs []*Question, response interface{}, opts ...AskOpt) error {
 
 		// grab the user input and save it
 		ans, err := q.Prompt.Prompt(&options.PromptConfig)
+		// if SIGINT is recieved.
+		if err == terminal.InterruptErr {
+			options.OnInterrupt()
+		}
 		// if there was a problem
 		if err != nil {
 			return err

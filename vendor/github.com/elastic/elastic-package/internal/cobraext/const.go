@@ -9,8 +9,14 @@ const (
 	DaemonModeFlagName        = "daemon"
 	DaemonModeFlagDescription = "daemon mode"
 
+	DashboardIDsFlagName         = "id"
+	DashboardIDsFlagDescriptions = "Kibana dashboard IDs (comma-separated values)"
+
 	DataStreamsFlagName        = "data-streams"
 	DataStreamsFlagDescription = "comma-separated data streams to test"
+
+	DeferCleanupFlagName        = "defer-cleanup"
+	DeferCleanupFlagDescription = "defer test cleanup for debugging purposes"
 
 	FailOnMissingFlagName        = "fail-on-missing"
 	FailOnMissingFlagDescription = "fail if tests are missing"
