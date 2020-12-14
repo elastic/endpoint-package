@@ -24,6 +24,8 @@ func RootCmd() *cobra.Command {
 	rootCmd.AddCommand(
 		setupBuildCommand(),
 		setupCheckCommand(),
+		setupCleanCommand(),
+		setupExportCommand(),
 		setupStackCommand(),
 		setupFormatCommand(),
 		setupLintCommand(),

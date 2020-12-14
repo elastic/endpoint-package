@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sync"
 
 	"github.com/pkg/errors"
 	"github.com/xeipuuv/gojsonschema"
@@ -13,17 +14,22 @@ import (
 	"github.com/elastic/package-spec/code/go/internal/yamlschema"
 )
 
+const relativePathFormat = "relative-path"
+
 type folderItemSpec struct {
-	Description      string `yaml:"description"`
-	ItemType         string `yaml:"type"`
-	ContentMediaType string `yaml:"contentMediaType"`
-	Name             string `yaml:"name"`
-	Pattern          string `yaml:"pattern"`
-	Required         bool   `yaml:"required"`
-	Ref              string `yaml:"$ref"`
-	Visibility       string `yaml:"visibility" default:"public"`
-	commonSpec       `yaml:",inline"`
+	Description       string   `yaml:"description"`
+	ItemType          string   `yaml:"type"`
+	ContentMediaType  string   `yaml:"contentMediaType"`
+	ForbiddenPatterns []string `yaml:"forbiddenPatterns"`
+	Name              string   `yaml:"name"`
+	Pattern           string   `yaml:"pattern"`
+	Required          bool     `yaml:"required"`
+	Ref               string   `yaml:"$ref"`
+	Visibility        string   `yaml:"visibility" default:"public"`
+	commonSpec        `yaml:",inline"`
 }
+
+var formatCheckersMutex sync.Mutex
 
 func (s *folderItemSpec) matchingFileExists(files []os.FileInfo) (bool, error) {
 	if s.Name != "" {
@@ -77,6 +83,14 @@ func (s *folderItemSpec) validate(fs http.FileSystem, folderSpecPath string, ite
 
 	// validation with schema
 	documentLoader := gojsonschema.NewBytesLoader(itemData)
+
+	formatCheckersMutex.Lock()
+	defer func() {
+		unloadRelativePathFormatChecker()
+		formatCheckersMutex.Unlock()
+	}()
+
+	loadRelativePathFormatChecker(filepath.Dir(itemPath))
 	result, err := gojsonschema.Validate(schemaLoader, documentLoader)
 	if err != nil {
 		return ValidationErrors{err}
@@ -88,7 +102,17 @@ func (s *folderItemSpec) validate(fs http.FileSystem, folderSpecPath string, ite
 
 	var errs ValidationErrors
 	for _, re := range result.Errors() {
-		errs = append(errs, fmt.Errorf("field %s: %s", re.Field(), re.Description()))
+		errs = append(errs, fmt.Errorf("field %s: %s", re.Field(), adjustErrorDescription(re.Description())))
 	}
 	return errs
+}
+
+func loadRelativePathFormatChecker(currentPath string) {
+	gojsonschema.FormatCheckers.Add(relativePathFormat, RelativePathChecker{
+		currentPath: currentPath,
+	})
+}
+
+func unloadRelativePathFormatChecker() {
+	gojsonschema.FormatCheckers.Remove(relativePathFormat)
 }

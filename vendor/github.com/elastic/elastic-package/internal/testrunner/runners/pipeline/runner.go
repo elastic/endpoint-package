@@ -5,20 +5,22 @@
 package pipeline
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 
 	"github.com/pkg/errors"
 
+	"github.com/elastic/elastic-package/internal/common"
 	"github.com/elastic/elastic-package/internal/fields"
 	"github.com/elastic/elastic-package/internal/logger"
 	"github.com/elastic/elastic-package/internal/multierror"
 	"github.com/elastic/elastic-package/internal/packages"
 	"github.com/elastic/elastic-package/internal/testrunner"
-	"github.com/elastic/elastic-package/internal/testrunner/runners/testerrors"
 )
 
 const (
@@ -30,10 +32,25 @@ type runner struct {
 	options testrunner.TestOptions
 }
 
+// Type returns the type of test that can be run by this test runner.
+func (r *runner) Type() testrunner.TestType {
+	return TestType
+}
+
+// String returns the human-friendly name of the test runner.
+func (r *runner) String() string {
+	return "pipeline"
+}
+
 // Run runs the pipeline tests defined under the given folder
-func Run(options testrunner.TestOptions) ([]testrunner.TestResult, error) {
-	r := runner{options}
+func (r *runner) Run(options testrunner.TestOptions) ([]testrunner.TestResult, error) {
+	r.options = options
 	return r.run()
+}
+
+// ShutDown shuts down the pipeline test runner.
+func (r *runner) TearDown() error {
+	return nil
 }
 
 func (r *runner) run() ([]testrunner.TestResult, error) {
@@ -55,16 +72,16 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 		return nil, errors.Wrap(err, "installing ingest pipelines failed")
 	}
 	defer func() {
+		if r.options.DeferCleanup > 0 {
+			logger.Debugf("Waiting for %s before cleanup...", r.options.DeferCleanup)
+			time.Sleep(r.options.DeferCleanup)
+		}
+
 		err := uninstallIngestPipelines(r.options.ESClient, pipelineIDs)
 		if err != nil {
-			logger.Warnf("uninstalling ingest pipelines failed: %v", err)
+			logger.Warnf("Uninstalling ingest pipelines failed: %v", err)
 		}
 	}()
-
-	fieldsValidator, err := fields.CreateValidatorForDataStream(dataStreamPath)
-	if err != nil {
-		return nil, errors.Wrapf(err, "creating fields validator for data stream failed (path: %s)", dataStreamPath)
-	}
 
 	results := make([]testrunner.TestResult, 0)
 	for _, testCaseFile := range testCaseFiles {
@@ -93,8 +110,14 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 		}
 
 		tr.TimeElapsed = time.Now().Sub(startTime)
-		err = r.verifyResults(testCaseFile, result, fieldsValidator)
-		if e, ok := err.(testerrors.ErrTestCaseFailed); ok {
+		fieldsValidator, err := fields.CreateValidatorForDataStream(dataStreamPath,
+			fields.WithNumericKeywordFields(tc.config.NumericKeywordFields))
+		if err != nil {
+			return nil, errors.Wrapf(err, "creating fields validator for data stream failed (path: %s, test case file: %s)", dataStreamPath, testCaseFile)
+		}
+
+		err = r.verifyResults(testCaseFile, tc.config, result, fieldsValidator)
+		if e, ok := err.(testrunner.ErrTestCaseFailed); ok {
 			tr.FailureMsg = e.Error()
 			tr.FailureDetails = e.Details
 
@@ -136,30 +159,37 @@ func (r *runner) loadTestCaseFile(testCaseFile string) (*testCase, error) {
 		return nil, errors.Wrapf(err, "reading input file failed (testCasePath: %s)", testCasePath)
 	}
 
-	var tc *testCase
+	config, err := readConfigForTestCase(testCasePath)
+	if err != nil {
+		return nil, errors.Wrapf(err, "reading config for test case failed (testCasePath: %s)", testCasePath)
+	}
+
 	ext := filepath.Ext(testCaseFile)
+
+	var entries []json.RawMessage
 	switch ext {
 	case ".json":
-		tc, err = createTestCaseForEvents(testCaseFile, testCaseData)
+		entries, err = readTestCaseEntriesForEvents(testCaseData)
 		if err != nil {
-			return nil, errors.Wrapf(err, "creating test case for events failed (testCasePath: %s)", testCasePath)
+			return nil, errors.Wrapf(err, "reading test case entries for events failed (testCasePath: %s)", testCasePath)
 		}
 	case ".log":
-		config, err := readConfigForTestCase(testCasePath)
+		entries, err = readTestCaseEntriesForRawInput(testCaseData, config)
 		if err != nil {
-			return nil, errors.Wrapf(err, "reading config for test case failed (testCasePath: %s)", testCasePath)
-		}
-		tc, err = createTestCaseForRawInput(testCaseFile, testCaseData, config)
-		if err != nil {
-			return nil, errors.Wrapf(err, "creating test case for events failed (testCasePath: %s)", testCasePath)
+			return nil, errors.Wrapf(err, "creating test case entries for raw input failed (testCasePath: %s)", testCasePath)
 		}
 	default:
 		return nil, fmt.Errorf("unsupported extension for test case file (ext: %s)", ext)
 	}
+
+	tc, err := createTestCase(testCaseFile, entries, config)
+	if err != nil {
+		return nil, errors.Wrapf(err, "can't create test case (testCasePath: %s)", testCasePath)
+	}
 	return tc, nil
 }
 
-func (r *runner) verifyResults(testCaseFile string, result *testResult, fieldsValidator *fields.Validator) error {
+func (r *runner) verifyResults(testCaseFile string, config *testConfig, result *testResult, fieldsValidator *fields.Validator) error {
 	testCasePath := filepath.Join(r.options.TestFolder.Path, testCaseFile)
 
 	if r.options.GenerateTestResult {
@@ -169,17 +199,67 @@ func (r *runner) verifyResults(testCaseFile string, result *testResult, fieldsVa
 		}
 	}
 
-	err := compareResults(testCasePath, result)
-	if _, ok := err.(testerrors.ErrTestCaseFailed); ok {
+	err := compareResults(testCasePath, config, result)
+	if _, ok := err.(testrunner.ErrTestCaseFailed); ok {
 		return err
 	}
 	if err != nil {
 		return errors.Wrap(err, "comparing test results failed")
 	}
 
+	err = verifyDynamicFields(result, config)
+	if err != nil {
+		return err
+	}
+
 	err = verifyFieldsInTestResult(result, fieldsValidator)
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+func verifyDynamicFields(result *testResult, config *testConfig) error {
+	if config == nil || config.DynamicFields == nil {
+		return nil
+	}
+
+	var multiErr multierror.Error
+	for _, event := range result.events {
+		var m common.MapStr
+		err := json.Unmarshal(event, &m)
+		if err != nil {
+			return errors.Wrap(err, "can't unmarshal event")
+		}
+
+		for key, pattern := range config.DynamicFields {
+			val, err := m.GetValue(key)
+			if err != nil && err != common.ErrKeyNotFound {
+				return errors.Wrap(err, "can't remove dynamic field")
+			}
+
+			valStr, ok := val.(string)
+			if !ok {
+				continue // regular expressions can be verify only string values
+			}
+
+			matched, err := regexp.MatchString(pattern, valStr)
+			if err != nil {
+				return errors.Wrap(err, "pattern matching for dynamic field failed")
+			}
+
+			if !matched {
+				multiErr = append(multiErr, fmt.Errorf("dynamic field \"%s\" doesn't match the pattern (%s): %s",
+					key, pattern, valStr))
+			}
+		}
+	}
+
+	if len(multiErr) > 0 {
+		return testrunner.ErrTestCaseFailed{
+			Reason:  "one or more problems with dynamic fields found in documents",
+			Details: multiErr.Unique().Error(),
+		}
 	}
 	return nil
 }
@@ -194,15 +274,14 @@ func verifyFieldsInTestResult(result *testResult, fieldsValidator *fields.Valida
 	}
 
 	if len(multiErr) > 0 {
-		multiErr = multiErr.Unique()
-		return testerrors.ErrTestCaseFailed{
+		return testrunner.ErrTestCaseFailed{
 			Reason:  "one or more problems with fields found in documents",
-			Details: multiErr.Error(),
+			Details: multiErr.Unique().Error(),
 		}
 	}
 	return nil
 }
 
 func init() {
-	testrunner.RegisterRunner(TestType, Run)
+	testrunner.RegisterRunner(&runner{})
 }

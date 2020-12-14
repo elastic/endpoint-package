@@ -77,7 +77,7 @@ func (m *MultiSelect) OnChange(key rune, config *PromptConfig) {
 			// decrement the selected index
 			m.selectedIndex--
 		}
-	} else if key == terminal.KeyArrowDown || (m.VimMode && key == 'j') {
+	} else if key == terminal.KeyTab || key == terminal.KeyArrowDown || (m.VimMode && key == 'j') {
 		// if we are at the bottom of the list
 		if m.selectedIndex == len(options)-1 {
 			// start at the top
@@ -273,7 +273,10 @@ func (m *MultiSelect) Prompt(config *PromptConfig) (interface{}, error) {
 
 	// start waiting for input
 	for {
-		r, _, _ := rr.ReadRune()
+		r, _, err := rr.ReadRune()
+		if err != nil {
+			return "", err
+		}
 		if r == '\r' || r == '\n' {
 			break
 		}

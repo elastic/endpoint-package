@@ -17,8 +17,17 @@ import (
 const configTestSuffix = "-config.json"
 
 type testConfig struct {
-	Multiline *multiline             `json:"multiline"`
-	Fields    map[string]interface{} `json:"fields"`
+	Multiline     *multiline             `json:"multiline"`
+	Fields        map[string]interface{} `json:"fields"`
+	DynamicFields map[string]string      `json:"dynamic_fields"`
+
+	// NumericKeywordFields holds a list of fields that have keyword
+	// type but can be ingested as numeric type.
+	NumericKeywordFields []string `json:"numeric_keyword_fields"`
+}
+
+type multiline struct {
+	FirstLinePattern string `json:"first_line_pattern"`
 }
 
 func readConfigForTestCase(testCasePath string) (testConfig, error) {
