@@ -14,8 +14,7 @@
             "delete": {
                 "min_age": "10m",
                 "actions": {
-                    "delete": {
-                    }
+                    "delete": {}
                 }
             }
         }
