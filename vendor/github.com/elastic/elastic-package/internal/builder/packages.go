@@ -15,25 +15,22 @@ import (
 	"github.com/pkg/errors"
 )
 
-// BuildPackage method builds the package.
-func BuildPackage() error {
-	packageRoot, found, err := packages.FindPackageRoot()
-	if !found {
-		return errors.New("package root not found")
-	}
+// BuildPackage function builds the package.
+func BuildPackage() (string, error) {
+	packageRoot, err := packages.MustFindPackageRoot()
 	if err != nil {
-		return errors.Wrap(err, "locating package root failed")
+		return "", errors.Wrap(err, "locating package root failed")
 	}
 
-	err = buildPackage(packageRoot)
+	target, err := buildPackage(packageRoot)
 	if err != nil {
-		return errors.Wrapf(err, "building package failed (root: %s)", packageRoot)
+		return "", errors.Wrapf(err, "building package failed (root: %s)", packageRoot)
 	}
-	return nil
+	return target, nil
 }
 
-// FindBuildPackagesDirectory method locates the target build directory for packages.
-func FindBuildPackagesDirectory() (string, bool, error) {
+// FindBuildDirectory locates the target build directory.
+func FindBuildDirectory() (string, bool, error) {
 	workDir, err := os.Getwd()
 	if err != nil {
 		return "", false, errors.Wrap(err, "locating working directory failed")
@@ -41,7 +38,7 @@ func FindBuildPackagesDirectory() (string, bool, error) {
 
 	dir := workDir
 	for dir != "." {
-		path := filepath.Join(dir, "build", "integrations") // TODO add support for other package types
+		path := filepath.Join(dir, "build")
 		fileInfo, err := os.Stat(path)
 		if err == nil && fileInfo.IsDir() {
 			return path, true, nil
@@ -55,21 +52,46 @@ func FindBuildPackagesDirectory() (string, bool, error) {
 	return "", false, nil
 }
 
-func buildPackage(sourcePath string) error {
+// FindBuildPackagesDirectory function locates the target build directory for packages.
+func FindBuildPackagesDirectory() (string, bool, error) {
+	buildDir, found, err := FindBuildDirectory()
+	if err != nil {
+		return "", false, err
+	}
+
+	if found {
+		path := filepath.Join(buildDir, "integrations") // TODO add support for other package types
+		fileInfo, err := os.Stat(path)
+		if os.IsNotExist(err) {
+			return "", false, nil
+		}
+		if err != nil {
+			return "", false, err
+		}
+
+		if fileInfo.IsDir() {
+			return path, true, nil
+		}
+	}
+
+	return "", false, nil
+}
+
+func buildPackage(packageRoot string) (string, error) {
 	buildDir, found, err := FindBuildPackagesDirectory()
 	if err != nil {
-		return errors.Wrap(err, "locating build directory failed")
+		return "", errors.Wrap(err, "locating build directory failed")
 	}
 	if !found {
 		buildDir, err = createBuildPackagesDirectory()
 		if err != nil {
-			return errors.Wrap(err, "creating new build directory failed")
+			return "", errors.Wrap(err, "creating new build directory failed")
 		}
 	}
 
-	m, err := packages.ReadPackageManifest(filepath.Join(sourcePath, packages.PackageManifestFile))
+	m, err := packages.ReadPackageManifestFromPackageRoot(packageRoot)
 	if err != nil {
-		return errors.Wrapf(err, "reading package manifest failed (path: %s)", sourcePath)
+		return "", errors.Wrapf(err, "reading package manifest failed (path: %s)", packageRoot)
 	}
 
 	destinationDir := filepath.Join(buildDir, m.Name, m.Version)
@@ -78,21 +100,21 @@ func buildPackage(sourcePath string) error {
 	logger.Debugf("Clear target directory (path: %s)", destinationDir)
 	err = files.ClearDir(destinationDir)
 	if err != nil {
-		return errors.Wrap(err, "clearing package contents failed")
+		return "", errors.Wrap(err, "clearing package contents failed")
 	}
 
-	logger.Debugf("Copy package content (source: %s)", sourcePath)
-	err = files.CopyWithoutDev(sourcePath, destinationDir)
+	logger.Debugf("Copy package content (source: %s)", packageRoot)
+	err = files.CopyWithoutDev(packageRoot, destinationDir)
 	if err != nil {
-		return errors.Wrap(err, "copying package contents failed")
+		return "", errors.Wrap(err, "copying package contents failed")
 	}
 
 	logger.Debug("Encode dashboards")
 	err = encodeDashboards(destinationDir)
 	if err != nil {
-		return errors.Wrap(err, "encoding dashboards failed")
+		return "", errors.Wrap(err, "encoding dashboards failed")
 	}
-	return nil
+	return destinationDir, nil
 }
 
 func createBuildPackagesDirectory() (string, error) {

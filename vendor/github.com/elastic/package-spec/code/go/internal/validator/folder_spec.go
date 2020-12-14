@@ -180,7 +180,21 @@ func (s *folderSpec) findItemSpec(packageName string, folderItemName string) (*f
 				return nil, errors.Wrap(err, "invalid folder item spec pattern")
 			}
 			if isMatch {
-				return &itemSpec, nil
+				var isForbidden bool
+				for _, forbidden := range itemSpec.ForbiddenPatterns {
+					isForbidden, err = regexp.MatchString(forbidden, folderItemName)
+					if err != nil {
+						return nil, errors.Wrap(err, "invalid forbidden pattern for folder item")
+					}
+
+					if isForbidden {
+						break
+					}
+				}
+
+				if !isForbidden {
+					return &itemSpec, nil
+				}
 			}
 		}
 	}

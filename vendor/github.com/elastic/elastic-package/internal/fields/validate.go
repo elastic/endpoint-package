@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"path/filepath"
-	"reflect"
 	"regexp"
 	"strings"
 
@@ -23,18 +22,49 @@ import (
 
 // Validator is responsible for fields validation.
 type Validator struct {
-	schema []fieldDefinition
+	schema               []FieldDefinition
+	numericKeywordFields map[string]struct{}
 }
 
-// CreateValidatorForDataStream method creates a validator for the data stream.
-func CreateValidatorForDataStream(dataStreamRootPath string) (*Validator, error) {
+// ValidatorOption represents an optional flag that can be passed to  CreateValidatorForDataStream.
+type ValidatorOption func(*Validator) error
+
+// WithNumericKeywordFields configures the validator to accept specific fields to have numeric-type
+// while defined as keyword or constant_keyword.
+func WithNumericKeywordFields(fields []string) ValidatorOption {
+	return func(v *Validator) error {
+		v.numericKeywordFields = make(map[string]struct{}, len(fields))
+		for _, field := range fields {
+			v.numericKeywordFields[field] = struct{}{}
+		}
+		return nil
+	}
+}
+
+// CreateValidatorForDataStream function creates a validator for the data stream.
+func CreateValidatorForDataStream(dataStreamRootPath string, opts ...ValidatorOption) (v *Validator, err error) {
+	v = new(Validator)
+	for _, opt := range opts {
+		if err := opt(v); err != nil {
+			return nil, err
+		}
+	}
+	v.schema, err = LoadFieldsForDataStream(dataStreamRootPath)
+	if err != nil {
+		return nil, errors.Wrapf(err, "can't load fields for data stream (path: %s)", dataStreamRootPath)
+	}
+	return v, nil
+}
+
+// LoadFieldsForDataStream function loads fields defined for the given data stream.
+func LoadFieldsForDataStream(dataStreamRootPath string) ([]FieldDefinition, error) {
 	fieldsDir := filepath.Join(dataStreamRootPath, "fields")
 	fileInfos, err := ioutil.ReadDir(fieldsDir)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading directory with fields failed (path: %s)", fieldsDir)
 	}
 
-	var fields []fieldDefinition
+	var fields []FieldDefinition
 	for _, fileInfo := range fileInfos {
 		f := filepath.Join(fieldsDir, fileInfo.Name())
 		body, err := ioutil.ReadFile(f)
@@ -42,16 +72,14 @@ func CreateValidatorForDataStream(dataStreamRootPath string) (*Validator, error)
 			return nil, errors.Wrap(err, "reading fields file failed")
 		}
 
-		var u []fieldDefinition
+		var u []FieldDefinition
 		err = yaml.Unmarshal(body, &u)
 		if err != nil {
 			return nil, errors.Wrap(err, "unmarshalling field body failed")
 		}
 		fields = append(fields, u...)
 	}
-	return &Validator{
-		schema: fields,
-	}, nil
+	return fields, nil
 }
 
 // ValidateDocumentBody validates the provided document body.
@@ -94,6 +122,11 @@ func (v *Validator) validateMapElement(root string, elem common.MapStr) multierr
 				}
 			}
 		case map[string]interface{}:
+			if isFieldTypeFlattened(key, v.schema) {
+				// Do not traverse into objects with flattened data types
+				// because the entire object is mapped as a single field.
+				continue
+			}
 			err := v.validateMapElement(key, val.(map[string]interface{}))
 			if err != nil {
 				errs = append(errs, err...)
@@ -113,7 +146,7 @@ func (v *Validator) validateScalarElement(key string, val interface{}) error {
 		return nil // root key is always valid
 	}
 
-	definition := findElementDefinition("", key, v.schema)
+	definition := findElementDefinition(key, v.schema)
 	if definition == nil && skipValidationForField(key) {
 		return nil // generic field, let's skip validation for now
 	}
@@ -121,11 +154,21 @@ func (v *Validator) validateScalarElement(key string, val interface{}) error {
 		return fmt.Errorf(`field "%s" is undefined`, key)
 	}
 
+	// Convert numeric keyword fields to string for validation.
+	if _, found := v.numericKeywordFields[key]; found && isNumericKeyword(*definition, val) {
+		val = fmt.Sprintf("%q", val)
+	}
+
 	err := parseElementValue(key, *definition, val)
 	if err != nil {
 		return errors.Wrap(err, "parsing field value failed")
 	}
 	return nil
+}
+
+func isNumericKeyword(definition FieldDefinition, val interface{}) bool {
+	_, isNumber := val.(float64)
+	return isNumber && (definition.Type == "keyword" || definition.Type == "constant_keyword")
 }
 
 // skipValidationForField skips field validation (field presence) of special fields. The special fields are present
@@ -145,8 +188,13 @@ func isFieldFamilyMatching(family, key string) bool {
 	return key == family || strings.HasPrefix(key, family+".")
 }
 
-func findElementDefinition(root, searchedKey string, fieldDefinitions []fieldDefinition) *fieldDefinition {
-	for _, def := range fieldDefinitions {
+func isFieldTypeFlattened(key string, fieldDefinitions []FieldDefinition) bool {
+	definition := findElementDefinition(key, fieldDefinitions)
+	return definition != nil && "flattened" == definition.Type
+}
+
+func findElementDefinitionForRoot(root, searchedKey string, FieldDefinitions []FieldDefinition) *FieldDefinition {
+	for _, def := range FieldDefinitions {
 		key := strings.TrimLeft(root+"."+def.Name, ".")
 		if compareKeys(key, def, searchedKey) {
 			return &def
@@ -156,7 +204,7 @@ func findElementDefinition(root, searchedKey string, fieldDefinitions []fieldDef
 			continue
 		}
 
-		fd := findElementDefinition(key, searchedKey, def.Fields)
+		fd := findElementDefinitionForRoot(key, searchedKey, def.Fields)
 		if fd != nil {
 			return fd
 		}
@@ -164,7 +212,11 @@ func findElementDefinition(root, searchedKey string, fieldDefinitions []fieldDef
 	return nil
 }
 
-func compareKeys(key string, def fieldDefinition, searchedKey string) bool {
+func findElementDefinition(searchedKey string, fieldDefinitions []FieldDefinition) *FieldDefinition {
+	return findElementDefinitionForRoot("", searchedKey, fieldDefinitions)
+}
+
+func compareKeys(key string, def FieldDefinition, searchedKey string) bool {
 	k := strings.ReplaceAll(key, ".", "\\.")
 	k = strings.ReplaceAll(k, "*", "[^.]+")
 
@@ -181,7 +233,7 @@ func compareKeys(key string, def fieldDefinition, searchedKey string) bool {
 	return matched
 }
 
-func parseElementValue(key string, definition fieldDefinition, val interface{}) error {
+func parseElementValue(key string, definition FieldDefinition, val interface{}) error {
 	val, ok := ensureSingleElementValue(val)
 	if !ok {
 		return nil // it's an array, but it's not possible to extract the single value.
@@ -190,7 +242,19 @@ func parseElementValue(key string, definition fieldDefinition, val interface{}) 
 	var valid bool
 	switch definition.Type {
 	case "date", "ip", "constant_keyword", "keyword", "text":
-		_, valid = val.(string)
+		var valStr string
+		valStr, valid = val.(string)
+		if !valid || definition.Pattern == "" {
+			break
+		}
+
+		valid, err := regexp.MatchString(definition.Pattern, valStr)
+		if err != nil {
+			return errors.Wrap(err, "invalid pattern")
+		}
+		if !valid {
+			return fmt.Errorf("field %q's value, %s, does not match the expected pattern: %s", key, valStr, definition.Pattern)
+		}
 	case "float", "long", "double":
 		_, valid = val.(float64)
 	default:
@@ -198,7 +262,7 @@ func parseElementValue(key string, definition fieldDefinition, val interface{}) 
 	}
 
 	if !valid {
-		return fmt.Errorf("field \"%s\" has invalid type, expected: %s, actual Go type: %s", key, definition.Type, reflect.TypeOf(val))
+		return fmt.Errorf("field %q's Go type, %T, does not match the expected field type: %s (field value: %v)", key, val, definition.Type, val)
 	}
 	return nil
 }
