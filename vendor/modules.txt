@@ -13,7 +13,6 @@ github.com/Masterminds/semver/v3
 github.com/Microsoft/go-winio
 github.com/Microsoft/go-winio/pkg/guid
 # github.com/asaskevich/govalidator v0.0.0-20200907205600-7a23bdc65eef
-## explicit
 github.com/asaskevich/govalidator
 # github.com/aymerick/raymond v2.0.2+incompatible
 github.com/aymerick/raymond
@@ -258,8 +257,6 @@ golang.org/x/term
 ## explicit
 golang.org/x/text/transform
 golang.org/x/text/width
-# golang.org/x/tools v0.0.0-20201021000207-d49c4edd7d96
-## explicit
 # google.golang.org/appengine v1.6.7
 ## explicit
 google.golang.org/appengine/internal
