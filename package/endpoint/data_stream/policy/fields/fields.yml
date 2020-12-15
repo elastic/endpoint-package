@@ -127,6 +127,26 @@
       description: the configurations of the applied policy
       enabled: false
       default_field: false
+    - name: policy.applied.configurations.antivirus_registration
+      level: custom
+      type: object
+      description: overall antivirus registration configuration and status of the applied policy
+      enabled: false
+      default_field: false
+    - name: policy.applied.configurations.antivirus_registration.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for antivirus registration
+      enabled: false
+      default_field: false
+    - name: policy.applied.configurations.antivirus_registration.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of antivirus registration, this is correlated to the status of concerned actions but  not a simple sum of the actions
+      enabled: false
+      default_field: false
     - name: policy.applied.configurations.events
       level: custom
       type: object

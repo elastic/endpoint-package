@@ -99,6 +99,20 @@
                   "configurations": {
                     "enabled": false,
                     "properties": {
+                      "antivirus_registration": {
+                        "enabled": false,
+                        "properties": {
+                          "concerned_actions": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "status": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "object"
+                      },
                       "events": {
                         "properties": {
                           "concerned_actions": {
