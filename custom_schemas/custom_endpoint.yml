@@ -111,6 +111,24 @@
         not a simple sum of the actions
       short: the overall status of logging
 
+    - name: policy.applied.configurations.antivirus_registration
+      level: custom
+      type: object
+      description: overall antivirus registration configuration and status of the applied policy
+
+    - name: policy.applied.configurations.antivirus_registration.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for antivirus registration
+
+    - name: policy.applied.configurations.antivirus_registration.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of antivirus registration, this is correlated to the status of concerned actions but 
+        not a simple sum of the actions
+      short: the overall status of antivirus registration
+
     - name: policy.applied.configurations.malware
       level: custom
       type: object
