@@ -120,13 +120,11 @@
     - name: policy.applied.configurations.antivirus_registration.concerned_actions
       level: custom
       type: keyword
-      enabled: false
       description: all actions that were taken for antivirus registration
 
     - name: policy.applied.configurations.antivirus_registration.status
       level: custom
       type: keyword
-      enabled: false
       description: >
         the overall status of antivirus registration, this is correlated to the status of concerned actions but 
         not a simple sum of the actions

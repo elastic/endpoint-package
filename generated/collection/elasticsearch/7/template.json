@@ -1,0 +1,119 @@
+{
+  "index_patterns": [
+    "try-ecs-*"
+  ],
+  "mappings": {
+    "_meta": {
+      "version": "1.6.0"
+    },
+    "date_detection": false,
+    "dynamic_templates": [
+      {
+        "strings_as_keyword": {
+          "mapping": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "match_mapping_type": "string"
+        }
+      }
+    ],
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "data_stream": {
+        "properties": {
+          "dataset": {
+            "type": "constant_keyword"
+          },
+          "namespace": {
+            "type": "constant_keyword"
+          },
+          "type": {
+            "type": "constant_keyword"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "event": {
+        "properties": {
+          "action": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "category": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "code": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "created": {
+            "type": "date"
+          },
+          "dataset": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "hash": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "ingested": {
+            "type": "date"
+          },
+          "kind": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "module": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "outcome": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "provider": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "sequence": {
+            "type": "long"
+          },
+          "severity": {
+            "type": "long"
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  },
+  "order": 1,
+  "settings": {
+    "index": {
+      "mapping": {
+        "total_fields": {
+          "limit": 10000
+        }
+      },
+      "refresh_interval": "5s"
+    }
+  }
+}
