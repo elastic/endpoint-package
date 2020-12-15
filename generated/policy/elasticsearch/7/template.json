@@ -100,6 +100,7 @@
                     "enabled": false,
                     "properties": {
                       "antivirus_registration": {
+                        "enabled": false,
                         "properties": {
                           "concerned_actions": {
                             "ignore_above": 1024,

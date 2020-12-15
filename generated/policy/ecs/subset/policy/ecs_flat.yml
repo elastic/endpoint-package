@@ -197,6 +197,7 @@ Endpoint.policy.applied.configurations.antivirus_registration:
   dashed_name: Endpoint-policy-applied-configurations-antivirus-registration
   description: overall antivirus registration configuration and status of the applied
     policy
+  enabled: false
   flat_name: Endpoint.policy.applied.configurations.antivirus_registration
   level: custom
   name: policy.applied.configurations.antivirus_registration
@@ -206,6 +207,7 @@ Endpoint.policy.applied.configurations.antivirus_registration:
 Endpoint.policy.applied.configurations.antivirus_registration.concerned_actions:
   dashed_name: Endpoint-policy-applied-configurations-antivirus-registration-concerned-actions
   description: all actions that were taken for antivirus registration
+  enabled: false
   flat_name: Endpoint.policy.applied.configurations.antivirus_registration.concerned_actions
   ignore_above: 1024
   level: custom
@@ -217,6 +219,7 @@ Endpoint.policy.applied.configurations.antivirus_registration.status:
   dashed_name: Endpoint-policy-applied-configurations-antivirus-registration-status
   description: the overall status of antivirus registration, this is correlated to
     the status of concerned actions but  not a simple sum of the actions
+  enabled: false
   flat_name: Endpoint.policy.applied.configurations.antivirus_registration.status
   ignore_above: 1024
   level: custom
