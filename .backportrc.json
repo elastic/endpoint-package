@@ -1,5 +1,11 @@
 {
-  "upstream": "elastic/endpoint-package",
-  "targetBranchChoices": ["7.9", "7.10"],
-  "targetPRLabels": ["backport"]
+  "targetBranchChoices": [
+    "7.9",
+    "7.10",
+    "7.11"
+  ],
+  "targetPRLabels": [
+    "backport"
+  ],
+  "upstream": "elastic/endpoint-package"
 }
