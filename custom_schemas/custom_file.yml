@@ -166,3 +166,32 @@
         This is useful for logging cryptographic errors with the certificate validity or trust status.
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
+
+    - name: Ext.file_entropy
+      level: custom
+      type: double
+      short: File entropy value
+      description: >
+        Entropy calculation of file's header and footer used to check file integrity.
+
+    - name: Ext.file_data
+      level: custom
+      type: text
+      short: File bytes from header and footer
+      description: >
+        File header and footer bytes used to check file integrity.
+
+    - name: Ext.file_data_size
+      level: custom
+      type: unsigned_long
+      short: Length of file_data 
+      description: >
+        Length of data captured from file's header and footer.
+
+    - name: Ext.file_monotonic_id
+      level: custom
+      type: unsigned_long
+      short: File event monotonic ID
+      description: >
+        
+
