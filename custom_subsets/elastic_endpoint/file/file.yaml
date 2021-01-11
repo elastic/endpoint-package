@@ -106,6 +106,9 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+
+      ppid {}
+
       thread:
         fields:
           id: {}

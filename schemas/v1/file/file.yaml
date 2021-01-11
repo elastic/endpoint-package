@@ -1692,17 +1692,6 @@ process.pid:
   normalize: []
   short: Process id.
   type: long
-process.ppid:
-  dashed_name: process-ppid
-  description: Parent process' pid.
-  example: 4241
-  flat_name: process.ppid
-  format: string
-  level: extended
-  name: ppid
-  normalize: []
-  short: Parent process' pid.
-  type: long
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.
