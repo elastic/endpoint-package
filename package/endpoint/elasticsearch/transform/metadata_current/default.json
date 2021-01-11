@@ -1,6 +1,13 @@
 {
     "source": {
-        "index": "metrics-endpoint.metadata-default*"
+        "index": "metrics-endpoint.metadata-default*",
+        "query": {
+            "range": {
+                "@timestamp": {
+                    "gt": "now-90d/d"
+                }
+            }
+        }
     },
     "dest": {
         "index": "metrics-endpoint.metadata_current_default"
