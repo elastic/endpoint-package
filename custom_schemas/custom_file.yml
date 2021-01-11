@@ -167,24 +167,25 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
-    - name: Ext.file_entropy
+    - name: Ext.entropy
       level: custom
       type: double
       short: File entropy value
       description: >
         Entropy calculation of file's header and footer used to check file integrity.
 
-    - name: Ext.file_data
+    - name: Ext.data
       level: custom
       type: text
       short: File bytes from header and footer
       description: >
         File header and footer bytes used to check file integrity.
 
-    - name: Ext.file_monotonic_id
+    - name: Ext.monotonic_id
       level: custom
       type: unsigned_long
       short: File event monotonic ID
       description: >
+        File event monotonic ID.
         
 
