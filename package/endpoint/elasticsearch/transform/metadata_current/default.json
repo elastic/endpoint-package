@@ -13,7 +13,9 @@
         "index": "metrics-endpoint.metadata_current_default"
     },
     "latest": {
-        "unique_key": ["agent.id"],
+        "unique_key": [
+            "agent.id"
+        ],
         "sort": "@timestamp"
     },
     "description": "collapse and update the latest document for each host",
