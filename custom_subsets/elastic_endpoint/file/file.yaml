@@ -107,7 +107,7 @@ fields:
       executable: {}
       entity_id: {}
 
-      ppid {}
+      ppid: {}
 
       thread:
         fields:
