@@ -819,6 +819,35 @@ file.Ext:
   normalize: []
   short: Object for all custom defined fields to live in.
   type: object
+file.Ext.entropy:
+  dashed_name: file-Ext-entropy
+  description: Entropy calculation of file's header and footer used to check file
+    integrity.
+  flat_name: file.Ext.entropy
+  level: custom
+  name: Ext.entropy
+  normalize: []
+  short: File entropy value
+  type: double
+file.Ext.header_trailer_data:
+  dashed_name: file-Ext-header-trailer-data
+  description: File header and footer bytes used to check file integrity.
+  flat_name: file.Ext.header_trailer_data
+  level: custom
+  name: Ext.header_trailer_data
+  normalize: []
+  norms: false
+  short: File bytes from header and footer
+  type: text
+file.Ext.monotonic_id:
+  dashed_name: file-Ext-monotonic-id
+  description: File event monotonic ID.
+  flat_name: file.Ext.monotonic_id
+  level: custom
+  name: Ext.monotonic_id
+  normalize: []
+  short: File event monotonic ID
+  type: unsigned_long
 file.Ext.original:
   dashed_name: file-Ext-original
   description: Original file information during a modification event.
@@ -1721,6 +1750,17 @@ process.pid:
   name: pid
   normalize: []
   short: Process id.
+  type: long
+process.ppid:
+  dashed_name: process-ppid
+  description: Parent process' pid.
+  example: 4241
+  flat_name: process.ppid
+  format: string
+  level: extended
+  name: ppid
+  normalize: []
+  short: Parent process' pid.
   type: long
 process.thread.id:
   dashed_name: process-thread-id
