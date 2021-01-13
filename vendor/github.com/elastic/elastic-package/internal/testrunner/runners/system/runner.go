@@ -7,7 +7,6 @@ package system
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 	"path/filepath"
 	"strings"
 	"time"
@@ -18,7 +17,7 @@ import (
 	"github.com/elastic/elastic-package/internal/common"
 	"github.com/elastic/elastic-package/internal/fields"
 	"github.com/elastic/elastic-package/internal/install"
-	"github.com/elastic/elastic-package/internal/kibana/ingestmanager"
+	"github.com/elastic/elastic-package/internal/kibana"
 	"github.com/elastic/elastic-package/internal/logger"
 	"github.com/elastic/elastic-package/internal/multierror"
 	"github.com/elastic/elastic-package/internal/packages"
@@ -33,11 +32,17 @@ func init() {
 const (
 	// TestType defining system tests
 	TestType testrunner.TestType = "system"
+
+	// Maximum number of events to query.
+	elasticsearchQuerySize = 500
+
+	// Folder path where log files produced by the service
+	// are stored on the Agent container's filesystem.
+	serviceLogsAgentDir = "/tmp/service_logs"
 )
 
 type runner struct {
-	options       testrunner.TestOptions
-	stackSettings stackSettings
+	options testrunner.TestOptions
 
 	// Execution order of following handlers is defined in runner.TearDown() method.
 	deleteTestPolicyHandler func() error
@@ -70,8 +75,6 @@ func (r *runner) String() string {
 // Run runs the system tests defined under the given folder
 func (r *runner) Run(options testrunner.TestOptions) ([]testrunner.TestResult, error) {
 	r.options = options
-	r.stackSettings = getStackSettingsFromEnv()
-
 	return r.run()
 }
 
@@ -80,196 +83,111 @@ func (r *runner) TearDown() error {
 		if err := r.resetAgentPolicyHandler(); err != nil {
 			return err
 		}
+		r.resetAgentPolicyHandler = nil
 	}
 
 	if r.deleteTestPolicyHandler != nil {
 		if err := r.deleteTestPolicyHandler(); err != nil {
 			return err
 		}
+		r.deleteTestPolicyHandler = nil
 	}
 
 	if r.shutdownServiceHandler != nil {
 		if err := r.shutdownServiceHandler(); err != nil {
 			return err
 		}
+		r.shutdownServiceHandler = nil
 	}
 
 	if r.wipeDataStreamHandler != nil {
 		if err := r.wipeDataStreamHandler(); err != nil {
 			return err
 		}
+		r.wipeDataStreamHandler = nil
 	}
 
 	return nil
 }
 
-func (r *runner) run() ([]testrunner.TestResult, error) {
-	result := testrunner.TestResult{
-		TestType:   TestType,
-		Package:    r.options.TestFolder.Package,
-		DataStream: r.options.TestFolder.DataStream,
+type resultComposer struct {
+	testrunner.TestResult
+	startTime time.Time
+}
+
+func (r *runner) newResult(name string) resultComposer {
+	return resultComposer{
+		TestResult: testrunner.TestResult{
+			TestType:   TestType,
+			Name:       name,
+			Package:    r.options.TestFolder.Package,
+			DataStream: r.options.TestFolder.DataStream,
+		},
+		startTime: time.Now(),
 	}
-	startTime := time.Now()
-	resultsWith := func(tr testrunner.TestResult, err error) ([]testrunner.TestResult, error) {
-		tr.TimeElapsed = time.Now().Sub(startTime)
-		if err == nil {
-			return []testrunner.TestResult{tr}, nil
-		}
+}
 
-		if tcf, ok := err.(testrunner.ErrTestCaseFailed); ok {
-			tr.FailureMsg = tcf.Reason
-			tr.FailureDetails = tcf.Details
-			return []testrunner.TestResult{tr}, nil
-		}
-
-		tr.ErrorMsg = err.Error()
-		return []testrunner.TestResult{tr}, err
-	}
-
-	pkgManifest, err := packages.ReadPackageManifestFromPackageRoot(r.options.PackageRootPath)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "reading package manifest failed"))
+func (rc *resultComposer) withError(err error) ([]testrunner.TestResult, error) {
+	rc.TimeElapsed = time.Now().Sub(rc.startTime)
+	if err == nil {
+		return []testrunner.TestResult{rc.TestResult}, nil
 	}
 
-	dataStreamPath, found, err := packages.FindDataStreamRootForPath(r.options.TestFolder.Path)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "locating data stream root failed"))
-	}
-	if !found {
-		return resultsWith(result, errors.New("data stream root not found"))
+	if tcf, ok := err.(testrunner.ErrTestCaseFailed); ok {
+		rc.FailureMsg += tcf.Reason
+		rc.FailureDetails += tcf.Details
+		return []testrunner.TestResult{rc.TestResult}, nil
 	}
 
-	dataStreamManifest, err := packages.ReadDataStreamManifest(filepath.Join(dataStreamPath, packages.DataStreamManifestFile))
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "reading data stream manifest failed"))
-	}
+	rc.ErrorMsg += err.Error()
+	return []testrunner.TestResult{rc.TestResult}, err
+}
 
+func (rc *resultComposer) withSuccess() ([]testrunner.TestResult, error) {
+	return rc.withError(nil)
+}
+
+func (r *runner) run() (results []testrunner.TestResult, err error) {
+	result := r.newResult("(init)")
 	serviceLogsDir, err := install.ServiceLogsDir()
 	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "reading service logs directory failed"))
+		return result.withError(errors.Wrap(err, "reading service logs directory failed"))
 	}
 
-	// Step 1. Setup service.
-	// Step 1a. (Deferred) Tear down service.
-	logger.Debug("setting up service...")
-	serviceDeployer, err := servicedeployer.Factory(r.options.PackageRootPath)
+	files, err := listConfigFiles(r.options.TestFolder.Path)
 	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not create service runner"))
+		return result.withError(errors.Wrap(err, "failed listing test case config files"))
 	}
-
-	var ctxt servicedeployer.ServiceContext
-	ctxt.Name = r.options.TestFolder.Package
-	ctxt.Logs.Folder.Local = serviceLogsDir
-
-	service, err := serviceDeployer.SetUp(ctxt)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not setup service"))
-	}
-	ctxt = service.Context()
-
-	r.shutdownServiceHandler = func() error {
-		logger.Debug("tearing down service...")
-		if err := service.TearDown(); err != nil {
-			return errors.Wrap(err, "error tearing down service")
+	for _, cfgFile := range files {
+		var ctxt servicedeployer.ServiceContext
+		ctxt.Name = r.options.TestFolder.Package
+		ctxt.Logs.Folder.Local = serviceLogsDir
+		ctxt.Logs.Folder.Agent = serviceLogsAgentDir
+		testConfig, err := newConfig(filepath.Join(r.options.TestFolder.Path, cfgFile), ctxt)
+		if err != nil {
+			return result.withError(errors.Wrapf(err, "unable to load system test case file '%s'", cfgFile))
 		}
-
-		return nil
-	}
-
-	// Step 2. Configure package (single data stream) via Ingest Manager APIs.
-	im, err := ingestmanager.NewClient(r.stackSettings.kibana.host, r.stackSettings.elasticsearch.username, r.stackSettings.elasticsearch.password)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not create ingest manager client"))
-	}
-
-	logger.Debug("creating test policy...")
-	testTime := time.Now().Format("20060102T15:04:05Z")
-	p := ingestmanager.Policy{
-		Name:        fmt.Sprintf("ep-test-system-%s-%s-%s", r.options.TestFolder.Package, r.options.TestFolder.DataStream, testTime),
-		Description: fmt.Sprintf("test policy created by elastic-package test system for data stream %s/%s", r.options.TestFolder.Package, r.options.TestFolder.DataStream),
-		Namespace:   "ep",
-	}
-	policy, err := im.CreatePolicy(p)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not create test policy"))
-	}
-	r.deleteTestPolicyHandler = func() error {
-		logger.Debug("deleting test policy...")
-		if err := im.DeletePolicy(*policy); err != nil {
-			return errors.Wrap(err, "error cleaning up test policy")
+		partial, err := r.runTest(testConfig, ctxt)
+		results = append(results, partial...)
+		if err != nil {
+			return results, err
 		}
-		return nil
-	}
-
-	testConfig, err := newConfig(r.options.TestFolder.Path, ctxt)
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "unable to load system test configuration"))
-	}
-
-	logger.Debug("adding package data stream to test policy...")
-	ds := createPackageDatastream(*policy, *pkgManifest, *dataStreamManifest, *testConfig)
-	if err := im.AddPackageDataStreamToPolicy(ds); err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not add data stream config to policy"))
-	}
-
-	// Get enrolled agent ID
-	agents, err := im.ListAgents()
-	if err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not list agents"))
-	}
-	if agents == nil || len(agents) == 0 {
-		return resultsWith(result, errors.New("no agents found"))
-	}
-	agent := agents[0]
-	origPolicy := ingestmanager.Policy{
-		ID: agent.PolicyID,
-	}
-
-	// Delete old data
-	dataStream := fmt.Sprintf(
-		"%s-%s-%s",
-		ds.Inputs[0].Streams[0].DataStream.Type,
-		ds.Inputs[0].Streams[0].DataStream.Dataset,
-		ds.Namespace,
-	)
-
-	r.wipeDataStreamHandler = func() error {
-		logger.Debugf("deleting data in data stream...")
-		if err := deleteDataStreamDocs(r.options.ESClient, dataStream); err != nil {
-			return errors.Wrap(err, "error deleting data in data stream")
+		if err = r.TearDown(); err != nil {
+			return results, errors.Wrap(err, "failed to teardown runner")
 		}
-		return nil
 	}
+	return results, nil
+}
 
-	logger.Debug("deleting old data in data stream...")
-	if err := deleteDataStreamDocs(r.options.ESClient, dataStream); err != nil {
-		return resultsWith(result, errors.Wrapf(err, "error deleting old data in data stream: %s", dataStream))
-	}
-
-	// Assign policy to agent
-	logger.Debug("assigning package data stream to agent...")
-	if err := im.AssignPolicyToAgent(agent, *policy); err != nil {
-		return resultsWith(result, errors.Wrap(err, "could not assign policy to agent"))
-	}
-	r.resetAgentPolicyHandler = func() error {
-		logger.Debug("reassigning original policy back to agent...")
-		if err := im.AssignPolicyToAgent(agent, origPolicy); err != nil {
-			return errors.Wrap(err, "error reassigning original policy to agent")
-		}
-		return nil
-	}
-
-	fieldsValidator, err := fields.CreateValidatorForDataStream(dataStreamPath,
-		fields.WithNumericKeywordFields(testConfig.NumericKeywordFields))
-	if err != nil {
-		return resultsWith(result, errors.Wrapf(err, "creating fields validator for data stream failed (path: %s)", dataStreamPath))
-	}
-
-	// Step 4. (TODO in future) Optionally exercise service to generate load.
-	logger.Debug("checking for expected data in data stream...")
-	passed, err := waitUntilTrue(func() (bool, error) {
+func (r *runner) hasNumDocs(
+	dataStream string,
+	fieldsValidator *fields.Validator,
+	checker func(int) bool) func() (bool, error) {
+	return func() (bool, error) {
 		resp, err := r.options.ESClient.Search(
 			r.options.ESClient.Search.WithIndex(dataStream),
+			r.options.ESClient.Search.WithSort("@timestamp:asc"),
+			r.options.ESClient.Search.WithSize(elasticsearchQuerySize),
 		)
 		if err != nil {
 			return false, errors.Wrap(err, "could not search data stream")
@@ -293,14 +211,14 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 
 		numHits := results.Hits.Total.Value
 		logger.Debugf("found %d hits in %s data stream", numHits, dataStream)
-		if numHits == 0 {
+		if !checker(numHits) {
 			return false, nil
 		}
 
 		var multiErr multierror.Error
 		for _, hit := range results.Hits.Hits {
 			if message, err := hit.Source.GetValue("error.message"); err != common.ErrKeyNotFound {
-				multiErr = append(multiErr, errors.New(message.(string)))
+				multiErr = append(multiErr, fmt.Errorf("found error.message in event: %v", message))
 				continue
 			}
 
@@ -319,45 +237,181 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 			}
 		}
 		return true, nil
-	}, 2*time.Minute)
+	}
+}
+
+func (r *runner) runTest(config *testConfig, ctxt servicedeployer.ServiceContext) ([]testrunner.TestResult, error) {
+	result := r.newResult(config.Name())
+
+	pkgManifest, err := packages.ReadPackageManifestFromPackageRoot(r.options.PackageRootPath)
 	if err != nil {
-		return resultsWith(result, err)
+		return result.withError(errors.Wrap(err, "reading package manifest failed"))
+	}
+
+	dataStreamPath, found, err := packages.FindDataStreamRootForPath(r.options.TestFolder.Path)
+	if err != nil {
+		return result.withError(errors.Wrap(err, "locating data stream root failed"))
+	}
+	if !found {
+		return result.withError(errors.New("data stream root not found"))
+	}
+
+	dataStreamManifest, err := packages.ReadDataStreamManifest(filepath.Join(dataStreamPath, packages.DataStreamManifestFile))
+	if err != nil {
+		return result.withError(errors.Wrap(err, "reading data stream manifest failed"))
+	}
+
+	// Setup service.
+	logger.Debug("setting up service...")
+	serviceDeployer, err := servicedeployer.Factory(r.options.PackageRootPath)
+	if err != nil {
+		return result.withError(errors.Wrap(err, "could not create service runner"))
+	}
+
+	if config.Service != "" {
+		ctxt.Name = config.Service
+	}
+	service, err := serviceDeployer.SetUp(ctxt)
+	if err != nil {
+		return result.withError(errors.Wrap(err, "could not setup service"))
+	}
+	ctxt = service.Context()
+	r.shutdownServiceHandler = func() error {
+		logger.Debug("tearing down service...")
+		if err := service.TearDown(); err != nil {
+			return errors.Wrap(err, "error tearing down service")
+		}
+
+		return nil
+	}
+
+	// Reload test config with ctx variable substitution.
+	config, err = newConfig(config.Path, ctxt)
+	if err != nil {
+		return result.withError(errors.Wrap(err, "unable to reload system test case configuration"))
+	}
+
+	// Configure package (single data stream) via Ingest Manager APIs.
+	kib, err := kibana.NewClient()
+	if err != nil {
+		return result.withError(errors.Wrap(err, "could not create ingest manager client"))
+	}
+
+	logger.Debug("creating test policy...")
+	testTime := time.Now().Format("20060102T15:04:05Z")
+	p := kibana.Policy{
+		Name:        fmt.Sprintf("ep-test-system-%s-%s-%s", r.options.TestFolder.Package, r.options.TestFolder.DataStream, testTime),
+		Description: fmt.Sprintf("test policy created by elastic-package test system for data stream %s/%s", r.options.TestFolder.Package, r.options.TestFolder.DataStream),
+		Namespace:   "ep",
+	}
+	policy, err := kib.CreatePolicy(p)
+	if err != nil {
+		return result.withError(errors.Wrap(err, "could not create test policy"))
+	}
+	r.deleteTestPolicyHandler = func() error {
+		logger.Debug("deleting test policy...")
+		if err := kib.DeletePolicy(*policy); err != nil {
+			return errors.Wrap(err, "error cleaning up test policy")
+		}
+		return nil
+	}
+
+	logger.Debug("adding package data stream to test policy...")
+
+	ds := createPackageDatastream(*policy, *pkgManifest, *dataStreamManifest, *config)
+	if err := kib.AddPackageDataStreamToPolicy(ds); err != nil {
+		return result.withError(errors.Wrap(err, "could not add data stream config to policy"))
+	}
+
+	// Get enrolled agent ID
+	agents, err := kib.ListAgents()
+	if err != nil {
+		return result.withError(errors.Wrap(err, "could not list agents"))
+	}
+	if agents == nil || len(agents) == 0 {
+		return result.withError(errors.New("no agents found"))
+	}
+	agent := agents[0]
+	origPolicy := kibana.Policy{
+		ID: agent.PolicyID,
+	}
+
+	// Create field validator
+	fieldsValidator, err := fields.CreateValidatorForDataStream(dataStreamPath,
+		fields.WithNumericKeywordFields(config.NumericKeywordFields))
+	if err != nil {
+		return result.withError(errors.Wrapf(err, "creating fields validator for data stream failed (path: %s)", dataStreamPath))
+	}
+
+	// Delete old data
+	logger.Debug("deleting old data in data stream...")
+	dataStream := fmt.Sprintf(
+		"%s-%s-%s",
+		ds.Inputs[0].Streams[0].DataStream.Type,
+		ds.Inputs[0].Streams[0].DataStream.Dataset,
+		ds.Namespace,
+	)
+
+	r.wipeDataStreamHandler = func() error {
+		logger.Debugf("deleting data in data stream...")
+		if err := deleteDataStreamDocs(r.options.ESClient, dataStream); err != nil {
+			return errors.Wrap(err, "error deleting data in data stream")
+		}
+		return nil
+	}
+
+	if err := deleteDataStreamDocs(r.options.ESClient, dataStream); err != nil {
+		return result.withError(errors.Wrapf(err, "error deleting old data in data stream: %s", dataStream))
+	}
+
+	cleared, err := waitUntilTrue(r.hasNumDocs(dataStream, fieldsValidator, func(n int) bool {
+		return n == 0
+	}), 2*time.Minute)
+	if err != nil || !cleared {
+		if err == nil {
+			err = errors.New("unable to clear previous data")
+		}
+		return result.withError(err)
+	}
+
+	// Assign policy to agent
+	logger.Debug("assigning package data stream to agent...")
+	if err := kib.AssignPolicyToAgent(agent, *policy); err != nil {
+		return result.withError(errors.Wrap(err, "could not assign policy to agent"))
+	}
+	r.resetAgentPolicyHandler = func() error {
+		logger.Debug("reassigning original policy back to agent...")
+		if err := kib.AssignPolicyToAgent(agent, origPolicy); err != nil {
+			return errors.Wrap(err, "error reassigning original policy to agent")
+		}
+		return nil
+	}
+
+	// (TODO in future) Optionally exercise service to generate load.
+	logger.Debug("checking for expected data in data stream...")
+	passed, err := waitUntilTrue(r.hasNumDocs(dataStream, fieldsValidator, func(n int) bool {
+		return n > 0
+	}), 2*time.Minute)
+
+	if err != nil {
+		return result.withError(err)
 	}
 
 	if !passed {
 		result.FailureMsg = fmt.Sprintf("could not find hits in %s data stream", dataStream)
 	}
-	return resultsWith(result, nil)
-}
-
-func getStackSettingsFromEnv() stackSettings {
-	s := stackSettings{}
-
-	s.elasticsearch.host = os.Getenv("ELASTIC_PACKAGE_ELASTICSEARCH_HOST")
-	if s.elasticsearch.host == "" {
-		s.elasticsearch.host = "http://localhost:9200"
-	}
-
-	s.elasticsearch.username = os.Getenv("ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME")
-	s.elasticsearch.password = os.Getenv("ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD")
-
-	s.kibana.host = os.Getenv("ELASTIC_PACKAGE_KIBANA_HOST")
-	if s.kibana.host == "" {
-		s.kibana.host = "http://localhost:5601"
-	}
-
-	return s
+	return result.withSuccess()
 }
 
 func createPackageDatastream(
-	p ingestmanager.Policy,
+	p kibana.Policy,
 	pkg packages.PackageManifest,
 	ds packages.DataStreamManifest,
 	c testConfig,
-) ingestmanager.PackageDataStream {
+) kibana.PackageDataStream {
 	stream := ds.Streams[getDataStreamIndex(c.Input, ds)]
 	streamInput := stream.Input
-	r := ingestmanager.PackageDataStream{
+	r := kibana.PackageDataStream{
 		Name:      fmt.Sprintf("%s-%s", pkg.Name, ds.Name),
 		Namespace: "ep",
 		PolicyID:  p.ID,
@@ -368,18 +422,18 @@ func createPackageDatastream(
 	r.Package.Title = pkg.Title
 	r.Package.Version = pkg.Version
 
-	r.Inputs = []ingestmanager.Input{
+	r.Inputs = []kibana.Input{
 		{
 			Type:    streamInput,
 			Enabled: true,
 		},
 	}
 
-	streams := []ingestmanager.Stream{
+	streams := []kibana.Stream{
 		{
 			ID:      fmt.Sprintf("%s-%s.%s", streamInput, pkg.Name, ds.Name),
 			Enabled: true,
-			DataStream: ingestmanager.DataStream{
+			DataStream: kibana.DataStream{
 				Type:    ds.Type,
 				Dataset: fmt.Sprintf("%s.%s", pkg.Name, ds.Name),
 			},
@@ -387,7 +441,7 @@ func createPackageDatastream(
 	}
 
 	// Add dataStream-level vars
-	dsVars := ingestmanager.Vars{}
+	dsVars := kibana.Vars{}
 	for _, dsVar := range stream.Vars {
 		val := dsVar.Default
 
@@ -397,7 +451,7 @@ func createPackageDatastream(
 			val = cfgVar
 		}
 
-		dsVars[dsVar.Name] = ingestmanager.Var{
+		dsVars[dsVar.Name] = kibana.Var{
 			Type:  dsVar.Type,
 			Value: val,
 		}
@@ -406,7 +460,7 @@ func createPackageDatastream(
 	r.Inputs[0].Streams = streams
 
 	// Add package-level vars
-	pkgVars := ingestmanager.Vars{}
+	pkgVars := kibana.Vars{}
 	input := pkg.PolicyTemplates[0].FindInputByType(streamInput)
 	if input != nil {
 		for _, pkgVar := range input.Vars {
@@ -418,7 +472,7 @@ func createPackageDatastream(
 				val = cfgVar
 			}
 
-			pkgVars[pkgVar.Name] = ingestmanager.Var{
+			pkgVars[pkgVar.Name] = kibana.Var{
 				Type:  pkgVar.Type,
 				Value: val,
 			}
