@@ -322,10 +322,10 @@
       type: double
       description: Entropy calculation of file's header and footer used to check file integrity.
       default_field: false
-    - name: Ext.header_trailer_data
+    - name: Ext.header_data
       level: custom
       type: text
-      description: File header and footer bytes used to check file integrity.
+      description: First 16 bytes of file used to check file integrity.
       default_field: false
     - name: Ext.monotonic_id
       level: custom

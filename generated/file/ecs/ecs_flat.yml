@@ -829,15 +829,15 @@ file.Ext.entropy:
   normalize: []
   short: File entropy value
   type: double
-file.Ext.header_trailer_data:
-  dashed_name: file-Ext-header-trailer-data
-  description: File header and footer bytes used to check file integrity.
-  flat_name: file.Ext.header_trailer_data
+file.Ext.header_data:
+  dashed_name: file-Ext-header-data
+  description: First 16 bytes of file used to check file integrity.
+  flat_name: file.Ext.header_data
   level: custom
-  name: Ext.header_trailer_data
+  name: Ext.header_data
   normalize: []
   norms: false
-  short: File bytes from header and footer
+  short: Header bytes
   type: text
 file.Ext.monotonic_id:
   dashed_name: file-Ext-monotonic-id

@@ -179,7 +179,7 @@
               "entropy": {
                 "type": "double"
               },
-              "header_trailer_data": {
+              "header_data": {
                 "norms": false,
                 "type": "text"
               },
