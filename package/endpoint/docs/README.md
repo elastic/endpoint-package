@@ -554,7 +554,7 @@ sent by the endpoint.
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
-| file.Ext.header_trailer_data | File header and footer bytes used to check file integrity. | text |
+| file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.monotonic_id | File event monotonic ID. | unsigned_long |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |

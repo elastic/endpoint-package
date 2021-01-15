@@ -152,7 +152,7 @@ fields:
       uid: {}
       Ext:
         fields:
-          header_trailer_data: {}
+          header_data: {}
           entropy: {}
           monotonic_id: {}
           windows:
