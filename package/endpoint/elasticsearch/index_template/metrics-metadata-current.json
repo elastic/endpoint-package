@@ -82,7 +82,7 @@
                                     "type": "constant_keyword"
                                 },
                                 "namespace": {
-                                    "type": "constant_keyword"
+                                    "type": "keyword"
                                 },
                                 "type": {
                                     "type": "constant_keyword"
