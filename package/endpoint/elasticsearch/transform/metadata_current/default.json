@@ -1,6 +1,6 @@
 {
     "source": {
-        "index": "metrics-endpoint.metadata-default*"
+        "index": "metrics-endpoint.metadata-*"
     },
     "dest": {
         "index": "metrics-endpoint.metadata_current_default"
