@@ -106,6 +106,7 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+      ppid: {}
       thread:
         fields:
           id: {}
@@ -151,6 +152,9 @@ fields:
       uid: {}
       Ext:
         fields:
+          header_data: {}
+          entropy: {}
+          monotonic_id: {}
           windows:
             fields:
               zone_identifier: {}

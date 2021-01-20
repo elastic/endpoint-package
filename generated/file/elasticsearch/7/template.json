@@ -176,6 +176,16 @@
         "properties": {
           "Ext": {
             "properties": {
+              "entropy": {
+                "type": "double"
+              },
+              "header_data": {
+                "norms": false,
+                "type": "text"
+              },
+              "monotonic_id": {
+                "type": "unsigned_long"
+              },
               "original": {
                 "properties": {
                   "gid": {
@@ -556,6 +566,9 @@
             "type": "keyword"
           },
           "pid": {
+            "type": "long"
+          },
+          "ppid": {
             "type": "long"
           },
           "thread": {

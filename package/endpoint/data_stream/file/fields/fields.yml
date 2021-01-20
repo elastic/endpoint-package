@@ -317,6 +317,21 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: Ext.entropy
+      level: custom
+      type: double
+      description: Entropy calculation of file's header and footer used to check file integrity.
+      default_field: false
+    - name: Ext.header_data
+      level: custom
+      type: text
+      description: First 16 bytes of file used to check file integrity.
+      default_field: false
+    - name: Ext.monotonic_id
+      level: custom
+      type: unsigned_long
+      description: File event monotonic ID.
+      default_field: false
     - name: Ext.original
       level: custom
       type: object
@@ -851,6 +866,12 @@
       format: string
       description: Process id.
       example: 4242
+    - name: ppid
+      level: extended
+      type: long
+      format: string
+      description: Parent process' pid.
+      example: 4241
     - name: thread.id
       level: extended
       type: long
