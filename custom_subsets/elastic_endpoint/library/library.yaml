@@ -140,6 +140,13 @@ fields:
               valid: {}
   dll:
     fields:
+      code_signature:
+        fields:
+          exists: {}
+          status: {}
+          subject_name: {}
+          trusted: {}
+          valid: {}
       hash:
         fields:
           md5: {}
