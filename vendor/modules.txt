@@ -1,4 +1,4 @@
-# github.com/AlecAivazis/survey/v2 v2.2.5
+# github.com/AlecAivazis/survey/v2 v2.2.7
 ## explicit
 github.com/AlecAivazis/survey/v2
 github.com/AlecAivazis/survey/v2/core
@@ -23,7 +23,7 @@ github.com/aymerick/raymond/parser
 github.com/cespare/xxhash/v2
 # github.com/creasty/defaults v1.5.1
 github.com/creasty/defaults
-# github.com/elastic/elastic-package v0.0.0-20201211101121-88f40b569b78
+# github.com/elastic/elastic-package v0.0.0-20210113065835-c7481728ba8c
 ## explicit
 github.com/elastic/elastic-package
 github.com/elastic/elastic-package/cmd
@@ -42,7 +42,6 @@ github.com/elastic/elastic-package/internal/formatter
 github.com/elastic/elastic-package/internal/github
 github.com/elastic/elastic-package/internal/install
 github.com/elastic/elastic-package/internal/kibana
-github.com/elastic/elastic-package/internal/kibana/ingestmanager
 github.com/elastic/elastic-package/internal/logger
 github.com/elastic/elastic-package/internal/multierror
 github.com/elastic/elastic-package/internal/packages
@@ -66,7 +65,8 @@ github.com/elastic/go-elasticsearch/v7/internal/version
 github.com/elastic/go-ucfg
 github.com/elastic/go-ucfg/parse
 github.com/elastic/go-ucfg/yaml
-# github.com/elastic/package-spec/code/go v0.0.0-20201210164239-22bc835bcf04
+# github.com/elastic/package-spec/code/go v0.0.0-20210112140728-930b44726a52
+## explicit
 github.com/elastic/package-spec/code/go/internal/spec
 github.com/elastic/package-spec/code/go/internal/validator
 github.com/elastic/package-spec/code/go/internal/yamlschema
@@ -165,7 +165,8 @@ github.com/kballard/go-shellquote
 github.com/kevinburke/ssh_config
 # github.com/kylelemons/godebug v1.1.0
 github.com/kylelemons/godebug/diff
-# github.com/magefile/mage v1.10.0
+# github.com/magefile/mage v1.11.0
+## explicit
 github.com/magefile/mage/mg
 github.com/magefile/mage/sh
 # github.com/mattn/go-colorable v0.1.8
@@ -173,13 +174,14 @@ github.com/magefile/mage/sh
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.12
 github.com/mattn/go-isatty
-# github.com/mattn/go-runewidth v0.0.9
+# github.com/mattn/go-runewidth v0.0.10
+## explicit
 github.com/mattn/go-runewidth
 # github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 github.com/mgutz/ansi
 # github.com/mitchellh/go-homedir v1.1.0
 github.com/mitchellh/go-homedir
-# github.com/mitchellh/mapstructure v1.4.0
+# github.com/mitchellh/mapstructure v1.4.1
 ## explicit
 github.com/mitchellh/mapstructure
 # github.com/pkg/errors v0.9.1
@@ -187,6 +189,9 @@ github.com/mitchellh/mapstructure
 github.com/pkg/errors
 # github.com/rakyll/statik v0.1.7
 github.com/rakyll/statik/fs
+# github.com/rivo/uniseg v0.2.0
+## explicit
+github.com/rivo/uniseg
 # github.com/sergi/go-diff v1.1.0
 github.com/sergi/go-diff/diffmatchpatch
 # github.com/spf13/cobra v1.1.1
@@ -212,7 +217,7 @@ go.mongodb.org/mongo-driver/bson/bsonrw
 go.mongodb.org/mongo-driver/bson/bsontype
 go.mongodb.org/mongo-driver/bson/primitive
 go.mongodb.org/mongo-driver/x/bsonx/bsoncore
-# golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
+# golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
 ## explicit
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/cast5
@@ -233,17 +238,17 @@ golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
 golang.org/x/crypto/ssh/knownhosts
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/net v0.0.0-20201209123823-ac852fbbde11
+# golang.org/x/net v0.0.0-20201224014010-6772e930b67b
 ## explicit
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/oauth2 v0.0.0-20201208152858-08078c50e5b5
+# golang.org/x/oauth2 v0.0.0-20210112200429-01de73cf58bd
 ## explicit
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
-# golang.org/x/sys v0.0.0-20201211090839-8ad439b19e0f
+# golang.org/x/sys v0.0.0-20210113131315-ba0562f347e0
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
@@ -253,7 +258,7 @@ golang.org/x/sys/windows
 # golang.org/x/term v0.0.0-20201210144234-2321bbc49cbf
 ## explicit
 golang.org/x/term
-# golang.org/x/text v0.3.4
+# golang.org/x/text v0.3.5
 ## explicit
 golang.org/x/text/transform
 golang.org/x/text/width
@@ -298,5 +303,6 @@ gopkg.in/warnings.v0
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit
 gopkg.in/yaml.v2
-# gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
+# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+## explicit
 gopkg.in/yaml.v3

@@ -135,7 +135,7 @@ setup-tools: $(REAL_ECS_DIR) setup-go-tools
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
-	#cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
+	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
 
 %-target:
 	$(call gen_mapping_files,$*)
@@ -177,3 +177,10 @@ release:
 .PHONY: promote
 promote: setup-go-tools
 	$(GO_TOOLS)/elastic-package promote
+
+# Update elastic-package tooling
+.PHONY: update-elastic-package
+update-elastic-package:
+	GO111MODULE=on go get -u github.com/elastic/elastic-package
+	go mod tidy
+	go mod vendor
