@@ -16,6 +16,12 @@
       type: keyword
       description: >
         The DLL/module containing `instruction_pointer`.
+        
+    - name: module_name
+      level: custom
+      type: keyword
+      description: >
+        The basename of the DLL/module containing `instruction_pointer`.
 
     - name: instruction_pointer
       level: custom
