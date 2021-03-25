@@ -265,6 +265,18 @@ dll.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+dll.Ext.load_index:
+  dashed_name: dll-Ext-load-index
+  description: 'A DLL can be loaded into a process multiple times. This field indicates
+    the Nth time that this DLL has been loaded.
+
+    The first load index is 1.'
+  flat_name: dll.Ext.load_index
+  level: custom
+  name: Ext.load_index
+  normalize: []
+  short: Number of times this DLL has been loaded into the process
+  type: unsigned_long
 dll.code_signature.exists:
   dashed_name: dll-code-signature-exists
   description: Boolean to capture if a signature is present.

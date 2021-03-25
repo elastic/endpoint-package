@@ -115,6 +115,9 @@
                   }
                 },
                 "type": "nested"
+              },
+              "load_index": {
+                "type": "unsigned_long"
               }
             },
             "type": "object"
