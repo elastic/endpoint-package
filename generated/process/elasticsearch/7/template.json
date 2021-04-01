@@ -335,6 +335,9 @@
                 },
                 "type": "nested"
               },
+              "defense_evasions": {
+                "type": "array"
+              },
               "session": {
                 "ignore_above": 1024,
                 "type": "keyword"

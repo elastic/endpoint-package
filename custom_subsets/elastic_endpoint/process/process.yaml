@@ -150,6 +150,7 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+          defense_evasions: {}
           session: {}
           token:
             fields:
