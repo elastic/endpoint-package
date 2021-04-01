@@ -172,3 +172,4 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+          load_index: {}

@@ -88,3 +88,13 @@
         This is useful for logging cryptographic errors with the certificate validity or trust status.
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
+
+    - name: Ext.load_index
+      level: custom
+      type: unsigned_long
+      short: Number of times this DLL has been loaded into the process
+      description: >
+        A DLL can be loaded into a process multiple times.
+        This field indicates the Nth time that this DLL has been loaded.
+        
+        The first load index is 1.
