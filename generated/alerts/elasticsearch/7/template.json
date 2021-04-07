@@ -1183,6 +1183,9 @@
             "ignore_above": 1024,
             "type": "keyword"
           },
+          "risk_score": {
+            "type": "long"
+          },
           "sequence": {
             "type": "long"
           },

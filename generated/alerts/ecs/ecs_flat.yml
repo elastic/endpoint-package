@@ -3183,6 +3183,15 @@ event.provider:
   normalize: []
   short: Source of the event.
   type: keyword
+event.risk_score:
+  dashed_name: event-risk-score
+  description: Risk score of malware prevention/detection
+  flat_name: event.risk_score
+  level: custom
+  name: risk_score
+  normalize: []
+  short: Risk score of malware prevention/detection
+  type: long
 event.sequence:
   dashed_name: event-sequence
   description: 'Sequence number of the event.
