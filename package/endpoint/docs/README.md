@@ -1008,7 +1008,7 @@ sent by the endpoint.
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping. | array |
+| process.Ext.defense_evasions | List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |

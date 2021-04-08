@@ -186,7 +186,7 @@
         
     - name: Ext.defense_evasions
       level: custom
-      type: array
+      type: keyword
       short: List of defense evasions found in this process.
       description: >
         List of defense evasions found in this process.  
