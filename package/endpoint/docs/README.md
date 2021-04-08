@@ -283,6 +283,11 @@ sent by the endpoint.
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
+| file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| file.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| file.code_signature.subject_name | Subject name of the code signer | keyword |
+| file.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| file.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.created | File creation time. Note that not all filesystems store the creation time. | date |
 | file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |
 | file.device | Device that is the source of the file. | keyword |
