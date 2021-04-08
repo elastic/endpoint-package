@@ -18,11 +18,6 @@
     metric and state events.
   type: group
   fields:
-    - name: risk_score
-      level: custom
-      type: long
-      description: Risk score of malware prevention/detection
-
     - name: Ext
       level: custom
       type: object
