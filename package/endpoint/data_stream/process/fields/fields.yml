@@ -548,6 +548,12 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: Ext.defense_evasions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping."
+      default_field: false
     - name: Ext.session
       level: custom
       type: keyword

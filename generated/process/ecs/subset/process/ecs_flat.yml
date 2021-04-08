@@ -1204,6 +1204,19 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.defense_evasions:
+  dashed_name: process-Ext-defense-evasions
+  description: "List of defense evasions found in this process.   These defense evasions\
+    \ can make it harder to inspect a process and/or cause abnormal OS behavior. Examples\
+    \ tools that can cause defense evasions include Process Doppelg\xE4nging and Process\
+    \ Herpaderping."
+  flat_name: process.Ext.defense_evasions
+  ignore_above: 1024
+  level: custom
+  name: Ext.defense_evasions
+  normalize: []
+  short: List of defense evasions found in this process.
+  type: keyword
 process.Ext.session:
   dashed_name: process-Ext-session
   description: Session information for the current process
