@@ -117,7 +117,7 @@
       description: >
         State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE".
 
-    - name: region_state
+    - name: strings
       level: custom
       type: keyword
       description: >
