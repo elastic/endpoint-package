@@ -181,6 +181,67 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
+Memory_protection.cross_session:
+  dashed_name: Memory-protection-cross-session
+  description: Is this process injecting across operating system sessions?
+  flat_name: Memory_protection.cross_session
+  level: custom
+  name: cross_session
+  normalize: []
+  short: Is this process injecting across operating system sessions?
+  type: boolean
+Memory_protection.feature:
+  dashed_name: Memory-protection-feature
+  description: Memory Protection feature which triggered the alert.
+  example: shellcode_thread
+  flat_name: Memory_protection.feature
+  ignore_above: 1024
+  level: custom
+  name: feature
+  normalize: []
+  short: Memory Protection feature which triggered the alert.
+  type: keyword
+Memory_protection.parent_to_child:
+  dashed_name: Memory-protection-parent-to-child
+  description: Is this process injecting into its child?
+  flat_name: Memory_protection.parent_to_child
+  level: custom
+  name: parent_to_child
+  normalize: []
+  short: Is this process injecting into its child?
+  type: boolean
+Memory_protection.self_injection:
+  dashed_name: Memory-protection-self-injection
+  description: Is this alert about a process injecting into itself?
+  flat_name: Memory_protection.self_injection
+  level: custom
+  name: self_injection
+  normalize: []
+  short: Is this alert about a process injecting into itself?
+  type: boolean
+Memory_protection.thread_count:
+  dashed_name: Memory-protection-thread-count
+  description: The number of threads that this alert applies to. If several alerts
+    occur in a short period of time, they can be combined into a single alert with
+    thread_count > 1.
+  flat_name: Memory_protection.thread_count
+  level: custom
+  name: thread_count
+  normalize: []
+  short: The number of threads that this alert applies to. If several alerts occur
+    in a short period of time, they can be combined into a single alert with thread_count
+    > 1.
+  type: long
+Memory_protection.unique_key_v1:
+  dashed_name: Memory-protection-unique-key-v1
+  description: A unique key created by hashing several characteristics of this alert.
+  flat_name: Memory_protection.unique_key_v1
+  ignore_above: 1024
+  level: custom
+  name: unique_key_v1
+  normalize: []
+  short: A unique key created by hashing several characteristics of this alert.
+  type: keyword
 Ransomware.child_pids:
   dashed_name: Ransomware-child-pids
   description: Array of child PIDs for ransomware which spawns numerous processes
@@ -4942,6 +5003,17 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.architecture:
+  dashed_name: process-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 process.Ext.authentication_id:
   dashed_name: process-Ext-authentication-id
   description: Process authentication ID
@@ -5024,6 +5096,271 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.dll.Ext:
+  dashed_name: process-Ext-dll-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.Ext.dll.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  original_fieldset: dll
+  short: Object for all custom defined fields to live in.
+  type: object
+process.Ext.dll.Ext.code_signature:
+  dashed_name: process-Ext-dll-Ext-code-signature
+  description: Nested version of ECS code_signature fieldset.
+  flat_name: process.Ext.dll.Ext.code_signature
+  level: custom
+  name: Ext.code_signature
+  normalize: []
+  original_fieldset: dll
+  short: Nested version of ECS code_signature fieldset.
+  type: nested
+process.Ext.dll.Ext.code_signature.exists:
+  dashed_name: process-Ext-dll-Ext-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.Ext.dll.Ext.code_signature.exists
+  level: custom
+  name: Ext.code_signature.exists
+  normalize: []
+  original_fieldset: dll
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.Ext.dll.Ext.code_signature.status:
+  dashed_name: process-Ext-dll-Ext-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.Ext.dll.Ext.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.status
+  normalize: []
+  original_fieldset: dll
+  short: Additional information about the certificate status.
+  type: keyword
+process.Ext.dll.Ext.code_signature.subject_name:
+  dashed_name: process-Ext-dll-Ext-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.Ext.dll.Ext.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.subject_name
+  normalize: []
+  original_fieldset: dll
+  short: Subject name of the code signer
+  type: keyword
+process.Ext.dll.Ext.code_signature.trusted:
+  dashed_name: process-Ext-dll-Ext-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.Ext.dll.Ext.code_signature.trusted
+  level: custom
+  name: Ext.code_signature.trusted
+  normalize: []
+  original_fieldset: dll
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.Ext.dll.Ext.code_signature.valid:
+  dashed_name: process-Ext-dll-Ext-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: process.Ext.dll.Ext.code_signature.valid
+  level: custom
+  name: Ext.code_signature.valid
+  normalize: []
+  original_fieldset: dll
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+process.Ext.dll.Ext.compile_time:
+  dashed_name: process-Ext-dll-Ext-compile-time
+  description: Timestamp from when the module was compiled.
+  flat_name: process.Ext.dll.Ext.compile_time
+  level: custom
+  name: Ext.compile_time
+  normalize: []
+  original_fieldset: dll
+  short: Timestamp from when the module was compiled.
+  type: date
+process.Ext.dll.Ext.mapped_address:
+  dashed_name: process-Ext-dll-Ext-mapped-address
+  description: The base address where this module is loaded.
+  flat_name: process.Ext.dll.Ext.mapped_address
+  ignore_above: 1024
+  level: custom
+  name: Ext.mapped_address
+  normalize: []
+  original_fieldset: dll
+  short: The base address where this module is loaded.
+  type: keyword
+process.Ext.dll.Ext.mapped_size:
+  dashed_name: process-Ext-dll-Ext-mapped-size
+  description: The size of this module's memory mapping, in bytes.
+  flat_name: process.Ext.dll.Ext.mapped_size
+  level: custom
+  name: Ext.mapped_size
+  normalize: []
+  original_fieldset: dll
+  short: The size of this module's memory mapping, in bytes.
+  type: long
+process.Ext.dll.hash.md5:
+  dashed_name: process-Ext-dll-hash-md5
+  description: MD5 hash.
+  flat_name: process.Ext.dll.hash.md5
+  ignore_above: 1024
+  level: extended
+  name: md5
+  normalize: []
+  original_fieldset: hash
+  short: MD5 hash.
+  type: keyword
+process.Ext.dll.hash.sha1:
+  dashed_name: process-Ext-dll-hash-sha1
+  description: SHA1 hash.
+  flat_name: process.Ext.dll.hash.sha1
+  ignore_above: 1024
+  level: extended
+  name: sha1
+  normalize: []
+  original_fieldset: hash
+  short: SHA1 hash.
+  type: keyword
+process.Ext.dll.hash.sha256:
+  dashed_name: process-Ext-dll-hash-sha256
+  description: SHA256 hash.
+  flat_name: process.Ext.dll.hash.sha256
+  ignore_above: 1024
+  level: extended
+  name: sha256
+  normalize: []
+  original_fieldset: hash
+  short: SHA256 hash.
+  type: keyword
+process.Ext.dll.hash.sha512:
+  dashed_name: process-Ext-dll-hash-sha512
+  description: SHA512 hash.
+  flat_name: process.Ext.dll.hash.sha512
+  ignore_above: 1024
+  level: extended
+  name: sha512
+  normalize: []
+  original_fieldset: hash
+  short: SHA512 hash.
+  type: keyword
+process.Ext.dll.name:
+  dashed_name: process-Ext-dll-name
+  description: 'Name of the library.
+
+    This generally maps to the name of the file on disk.'
+  example: kernel32.dll
+  flat_name: process.Ext.dll.name
+  ignore_above: 1024
+  level: core
+  name: name
+  normalize: []
+  original_fieldset: dll
+  short: Name of the library.
+  type: keyword
+process.Ext.dll.path:
+  dashed_name: process-Ext-dll-path
+  description: Full file path of the library.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: process.Ext.dll.path
+  ignore_above: 1024
+  level: extended
+  name: path
+  normalize: []
+  original_fieldset: dll
+  short: Full file path of the library.
+  type: keyword
+process.Ext.dll.pe.company:
+  dashed_name: process-Ext-dll-pe-company
+  description: Internal company name of the file, provided at compile-time.
+  example: Microsoft Corporation
+  flat_name: process.Ext.dll.pe.company
+  ignore_above: 1024
+  level: extended
+  name: company
+  normalize: []
+  original_fieldset: pe
+  short: Internal company name of the file, provided at compile-time.
+  type: keyword
+process.Ext.dll.pe.description:
+  dashed_name: process-Ext-dll-pe-description
+  description: Internal description of the file, provided at compile-time.
+  example: Paint
+  flat_name: process.Ext.dll.pe.description
+  ignore_above: 1024
+  level: extended
+  name: description
+  normalize: []
+  original_fieldset: pe
+  short: Internal description of the file, provided at compile-time.
+  type: keyword
+process.Ext.dll.pe.file_version:
+  dashed_name: process-Ext-dll-pe-file-version
+  description: Internal version of the file, provided at compile-time.
+  example: 6.3.9600.17415
+  flat_name: process.Ext.dll.pe.file_version
+  ignore_above: 1024
+  level: extended
+  name: file_version
+  normalize: []
+  original_fieldset: pe
+  short: Process name.
+  type: keyword
+process.Ext.dll.pe.imphash:
+  dashed_name: process-Ext-dll-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: process.Ext.dll.pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
+process.Ext.dll.pe.original_file_name:
+  dashed_name: process-Ext-dll-pe-original-file-name
+  description: Internal name of the file, provided at compile-time.
+  example: MSPAINT.EXE
+  flat_name: process.Ext.dll.pe.original_file_name
+  ignore_above: 1024
+  level: extended
+  name: original_file_name
+  normalize: []
+  original_fieldset: pe
+  short: Internal name of the file, provided at compile-time.
+  type: keyword
+process.Ext.dll.pe.product:
+  dashed_name: process-Ext-dll-pe-product
+  description: Internal product name of the file, provided at compile-time.
+  example: "Microsoft\xAE Windows\xAE Operating System"
+  flat_name: process.Ext.dll.pe.product
+  ignore_above: 1024
+  level: extended
+  name: product
+  normalize: []
+  original_fieldset: pe
+  short: Internal product name of the file, provided at compile-time.
+  type: keyword
 process.Ext.malware_classification.features:
   dashed_name: process-Ext-malware-classification-features
   description: Intermediate field included by adding option with subset
@@ -5491,6 +5828,18 @@ process.parent.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+process.parent.Ext.architecture:
+  dashed_name: process-parent-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.parent.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  original_fieldset: process
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 process.parent.Ext.code_signature:
   dashed_name: process-parent-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
@@ -5592,6 +5941,157 @@ process.parent.Ext.real.pid:
   original_fieldset: process
   short: The real pid of the process if ppid spoofing is happening.
   type: long
+process.parent.Ext.token.domain:
+  dashed_name: process-parent-Ext-token-domain
+  description: Domain of token user.
+  flat_name: process.parent.Ext.token.domain
+  ignore_above: 1024
+  level: custom
+  name: domain
+  normalize: []
+  original_fieldset: token
+  short: Domain of token user.
+  type: keyword
+process.parent.Ext.token.elevation:
+  dashed_name: process-parent-Ext-token-elevation
+  description: Whether the token is elevated or not
+  flat_name: process.parent.Ext.token.elevation
+  level: custom
+  name: elevation
+  normalize: []
+  original_fieldset: token
+  short: Whether the token is elevated or not
+  type: boolean
+process.parent.Ext.token.elevation_type:
+  dashed_name: process-parent-Ext-token-elevation-type
+  description: What level of elevation the token has
+  example: one of "default", "full", "limited"
+  flat_name: process.parent.Ext.token.elevation_type
+  ignore_above: 1024
+  level: custom
+  name: elevation_type
+  normalize: []
+  original_fieldset: token
+  short: What level of elevation the token has
+  type: keyword
+process.parent.Ext.token.impersonation_level:
+  dashed_name: process-parent-Ext-token-impersonation-level
+  description: Impersonation level. Only valid for impersonation tokens.
+  flat_name: process.parent.Ext.token.impersonation_level
+  ignore_above: 1024
+  level: custom
+  name: impersonation_level
+  normalize: []
+  original_fieldset: token
+  short: Impersonation level. Only valid for impersonation tokens.
+  type: keyword
+process.parent.Ext.token.integrity_level:
+  dashed_name: process-parent-Ext-token-integrity-level
+  description: Numeric integrity level.
+  flat_name: process.parent.Ext.token.integrity_level
+  level: custom
+  name: integrity_level
+  normalize: []
+  original_fieldset: token
+  short: Numeric integrity level.
+  type: long
+process.parent.Ext.token.integrity_level_name:
+  dashed_name: process-parent-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: process.parent.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
+process.parent.Ext.token.is_appcontainer:
+  dashed_name: process-parent-Ext-token-is-appcontainer
+  description: Whether or not this is an appcontainer token.
+  flat_name: process.parent.Ext.token.is_appcontainer
+  level: custom
+  name: is_appcontainer
+  normalize: []
+  original_fieldset: token
+  short: Whether or not this is an appcontainer token.
+  type: boolean
+process.parent.Ext.token.privileges:
+  dashed_name: process-parent-Ext-token-privileges
+  description: Array describing the privileges associated with the token.
+  flat_name: process.parent.Ext.token.privileges
+  level: custom
+  name: privileges
+  normalize: []
+  original_fieldset: token
+  short: Array describing the privileges associated with the token.
+  type: nested
+process.parent.Ext.token.privileges.description:
+  dashed_name: process-parent-Ext-token-privileges-description
+  description: Description of the privilege.
+  flat_name: process.parent.Ext.token.privileges.description
+  ignore_above: 1024
+  level: custom
+  name: privileges.description
+  normalize: []
+  original_fieldset: token
+  short: Description of the privilege.
+  type: keyword
+process.parent.Ext.token.privileges.enabled:
+  dashed_name: process-parent-Ext-token-privileges-enabled
+  description: Whether or not the privilege is enabled.
+  flat_name: process.parent.Ext.token.privileges.enabled
+  level: custom
+  name: privileges.enabled
+  normalize: []
+  original_fieldset: token
+  short: Whether or not the privilege is enabled.
+  type: boolean
+process.parent.Ext.token.privileges.name:
+  dashed_name: process-parent-Ext-token-privileges-name
+  description: Name of the privilege.
+  flat_name: process.parent.Ext.token.privileges.name
+  ignore_above: 1024
+  level: custom
+  name: privileges.name
+  normalize: []
+  original_fieldset: token
+  short: Name of the privilege.
+  type: keyword
+process.parent.Ext.token.sid:
+  dashed_name: process-parent-Ext-token-sid
+  description: Token user's Security Identifier (SID).
+  flat_name: process.parent.Ext.token.sid
+  ignore_above: 1024
+  level: custom
+  name: sid
+  normalize: []
+  original_fieldset: token
+  short: Token user's Security Identifier (SID).
+  type: keyword
+process.parent.Ext.token.type:
+  dashed_name: process-parent-Ext-token-type
+  description: Type of the token, either primary or impersonation.
+  flat_name: process.parent.Ext.token.type
+  ignore_above: 1024
+  level: custom
+  name: type
+  normalize: []
+  original_fieldset: token
+  short: Type of the token, either primary or impersonation.
+  type: keyword
+process.parent.Ext.token.user:
+  dashed_name: process-parent-Ext-token-user
+  description: Username of token owner.
+  flat_name: process.parent.Ext.token.user
+  ignore_above: 1024
+  level: custom
+  name: user
+  normalize: []
+  original_fieldset: token
+  short: Username of token owner.
+  type: keyword
 process.parent.args:
   dashed_name: process-parent-args
   description: 'Array of process arguments, starting with the absolute path to the
@@ -6118,6 +6618,39 @@ process.thread.Ext.call_stack.symbol_info:
   original_fieldset: call_stack
   short: The nearest symbol for `instruction_pointer`.
   type: keyword
+process.thread.Ext.parameter:
+  dashed_name: process-thread-Ext-parameter
+  description: When a thread is created, this is the raw numerical value of its parameter.
+  flat_name: process.thread.Ext.parameter
+  level: custom
+  name: thread.Ext.parameter
+  normalize: []
+  short: When a thread is created, this is the raw numerical value of its parameter.
+  type: long
+process.thread.Ext.parameter_bytes_compressed:
+  dashed_name: process-thread-Ext-parameter-bytes-compressed
+  description: Up to 512KB of raw data from the thread parameter, if it is a valid
+    pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated
+    on the endpoint, and may be missing from many alerts if the same data would be
+    sent multiple times.
+  flat_name: process.thread.Ext.parameter_bytes_compressed
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed
+  normalize: []
+  short: Up to 512KB of raw data from the thread parameter, if it is a valid pointer.
+    This is compressed with zlib. To reduce data volume, this is de-duplicated on
+    the endpoint, and may be missing from many alerts if the same data would be sent
+    multiple times.
+  type: long
+process.thread.Ext.parameter_bytes_compressed_present:
+  dashed_name: process-thread-Ext-parameter-bytes-compressed-present
+  description: Whether parameter_bytes_compressed is present in this event.
+  flat_name: process.thread.Ext.parameter_bytes_compressed_present
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed_present
+  normalize: []
+  short: Whether parameter_bytes_compressed is present in this event.
+  type: boolean
 process.thread.Ext.service:
   dashed_name: process-thread-Ext-service
   description: Service associated with the thread.
@@ -6149,6 +6682,393 @@ process.thread.Ext.start_address:
   normalize: []
   short: Memory address where the thread began execution.
   type: long
+process.thread.Ext.start_address_allocation_offset:
+  dashed_name: process-thread-Ext-start-address-allocation-offset
+  description: Offset of start_address into the memory allocation. Equal to start_address
+    - start_address_details.allocation_base.
+  example: 0
+  flat_name: process.thread.Ext.start_address_allocation_offset
+  level: custom
+  name: thread.Ext.start_address_allocation_offset
+  normalize: []
+  short: Offset of start_address into the memory allocation. Equal to start_address
+    - start_address_details.allocation_base.
+  type: long
+process.thread.Ext.start_address_bytes:
+  dashed_name: process-thread-Ext-start-address-bytes
+  description: A few (typically 32) raw opcode bytes at the thread start address,
+    hex-encoded.
+  example: c3cc0000cccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  flat_name: process.thread.Ext.start_address_bytes
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.start_address_bytes
+  normalize: []
+  short: A few (typically 32) raw opcode bytes at the thread start address, hex-encoded.
+  type: keyword
+process.thread.Ext.start_address_bytes_disasm:
+  dashed_name: process-thread-Ext-start-address-bytes-disasm
+  description: The bytes at the thread start address, disassembled into human-readable
+    assembly code.
+  example: ret\nint3
+  flat_name: process.thread.Ext.start_address_bytes_disasm
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.start_address_bytes_disasm
+  normalize: []
+  short: The bytes at the thread start address, disassembled into human-readable assembly
+    code.
+  type: keyword
+process.thread.Ext.start_address_bytes_disasm_hash:
+  dashed_name: process-thread-Ext-start-address-bytes-disasm-hash
+  description: The bytes at the thread start address, with immediate values capped
+    to 0x100, disassembled into human-readable assembly code, then hashed.
+  example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+  flat_name: process.thread.Ext.start_address_bytes_disasm_hash
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.start_address_bytes_disasm_hash
+  normalize: []
+  short: The bytes at the thread start address, with immediate values capped to 0x100,
+    disassembled into human-readable assembly code, then hashed.
+  type: keyword
+process.thread.Ext.start_address_details.allocation_base:
+  dashed_name: process-thread-Ext-start-address-details-allocation-base
+  description: Base address of the memory allocation containing the memory region.
+  example: 2431737462784
+  flat_name: process.thread.Ext.start_address_details.allocation_base
+  level: custom
+  name: allocation_base
+  normalize: []
+  original_fieldset: memory_region
+  short: Base address of the memory allocation containing the memory region.
+  type: long
+process.thread.Ext.start_address_details.allocation_protection:
+  dashed_name: process-thread-Ext-start-address-details-allocation-protection
+  description: Original memory protection requested when the memory was allocated.
+    Example values include "RWX" and "R-X".
+  example: RWX
+  flat_name: process.thread.Ext.start_address_details.allocation_protection
+  ignore_above: 1024
+  level: custom
+  name: allocation_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory protection requested when the memory was allocated. Example
+    values include "RWX" and "R-X".
+  type: keyword
+process.thread.Ext.start_address_details.allocation_size:
+  dashed_name: process-thread-Ext-start-address-details-allocation-size
+  description: Original memory protection requested when the memory was allocated.
+    Example values include "RWX" and "R-X".
+  example: 4096
+  flat_name: process.thread.Ext.start_address_details.allocation_size
+  level: custom
+  name: allocation_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory protection requested when the memory was allocated. Example
+    values include "RWX" and "R-X".
+  type: long
+process.thread.Ext.start_address_details.allocation_type:
+  dashed_name: process-thread-Ext-start-address-details-allocation-type
+  description: The memory allocation type. Example values include "IMAGE", "MAPPED",
+    and "PRIVATE".
+  example: PRIVATE
+  flat_name: process.thread.Ext.start_address_details.allocation_type
+  ignore_above: 1024
+  level: custom
+  name: allocation_type
+  normalize: []
+  original_fieldset: memory_region
+  short: The memory allocation type. Example values include "IMAGE", "MAPPED", and
+    "PRIVATE".
+  type: keyword
+process.thread.Ext.start_address_details.bytes_address:
+  dashed_name: process-thread-Ext-start-address-details-bytes-address
+  description: The address where bytes_compressed begins.
+  example: 2431737462784
+  flat_name: process.thread.Ext.start_address_details.bytes_address
+  level: custom
+  name: bytes_address
+  normalize: []
+  original_fieldset: memory_region
+  short: The address where bytes_compressed begins.
+  type: long
+process.thread.Ext.start_address_details.bytes_allocation_offset:
+  dashed_name: process-thread-Ext-start-address-details-bytes-allocation-offset
+  description: Offset of bytes_address the memory allocation. Equal to bytes_address
+    - allocation_base.
+  example: 0
+  flat_name: process.thread.Ext.start_address_details.bytes_allocation_offset
+  level: custom
+  name: bytes_allocation_offset
+  normalize: []
+  original_fieldset: memory_region
+  short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
+  type: long
+process.thread.Ext.start_address_details.bytes_compressed:
+  dashed_name: process-thread-Ext-start-address-details-bytes-compressed
+  description: Up to 4MB of raw data from the memory allocation. This is compressed
+    with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may
+    be missing from many alerts if the same data would be sent multiple times.
+  example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
+  flat_name: process.thread.Ext.start_address_details.bytes_compressed
+  ignore_above: 1024
+  level: custom
+  name: bytes_compressed
+  normalize: []
+  original_fieldset: memory_region
+  short: Up to 4MB of raw data from the memory allocation. This is compressed with
+    zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be
+    missing from many alerts if the same data would be sent multiple times.
+  type: keyword
+process.thread.Ext.start_address_details.bytes_compressed_present:
+  dashed_name: process-thread-Ext-start-address-details-bytes-compressed-present
+  description: Whether bytes_compressed is present in this event.
+  example: false
+  flat_name: process.thread.Ext.start_address_details.bytes_compressed_present
+  level: custom
+  name: bytes_compressed_present
+  normalize: []
+  original_fieldset: memory_region
+  short: Whether bytes_compressed is present in this event.
+  type: boolean
+process.thread.Ext.start_address_details.mapped_pe.company:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-company
+  description: Internal company name of the file, provided at compile-time.
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.company
+  ignore_above: 1024
+  level: extended
+  name: company
+  normalize: []
+  original_fieldset: pe
+  short: Internal company name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe.description:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-description
+  description: Internal description of the file, provided at compile-time.
+  example: Paint
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.description
+  ignore_above: 1024
+  level: extended
+  name: description
+  normalize: []
+  original_fieldset: pe
+  short: Internal description of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe.file_version:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-file-version
+  description: Internal version of the file, provided at compile-time.
+  example: 6.3.9600.17415
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.file_version
+  ignore_above: 1024
+  level: extended
+  name: file_version
+  normalize: []
+  original_fieldset: pe
+  short: Process name.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe.imphash:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe.original_file_name:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-original-file-name
+  description: Internal name of the file, provided at compile-time.
+  example: MSPAINT.EXE
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.original_file_name
+  ignore_above: 1024
+  level: extended
+  name: original_file_name
+  normalize: []
+  original_fieldset: pe
+  short: Internal name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe.product:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-product
+  description: Internal product name of the file, provided at compile-time.
+  example: "Microsoft\xAE Windows\xAE Operating System"
+  flat_name: process.thread.Ext.start_address_details.mapped_pe.product
+  ignore_above: 1024
+  level: extended
+  name: product
+  normalize: []
+  original_fieldset: pe
+  short: Internal product name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.mapped_pe_detected:
+  dashed_name: process-thread-Ext-start-address-details-mapped-pe-detected
+  description: Whether the file at mapped_path is an executable.
+  example: false
+  flat_name: process.thread.Ext.start_address_details.mapped_pe_detected
+  level: custom
+  name: mapped_pe_detected
+  normalize: []
+  original_fieldset: memory_region
+  short: Whether the file at mapped_path is an executable.
+  type: boolean
+process.thread.Ext.start_address_details.memory_pe.company:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-company
+  description: Internal company name of the file, provided at compile-time.
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.start_address_details.memory_pe.company
+  ignore_above: 1024
+  level: extended
+  name: company
+  normalize: []
+  original_fieldset: pe
+  short: Internal company name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe.description:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-description
+  description: Internal description of the file, provided at compile-time.
+  example: Paint
+  flat_name: process.thread.Ext.start_address_details.memory_pe.description
+  ignore_above: 1024
+  level: extended
+  name: description
+  normalize: []
+  original_fieldset: pe
+  short: Internal description of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe.file_version:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-file-version
+  description: Internal version of the file, provided at compile-time.
+  example: 6.3.9600.17415
+  flat_name: process.thread.Ext.start_address_details.memory_pe.file_version
+  ignore_above: 1024
+  level: extended
+  name: file_version
+  normalize: []
+  original_fieldset: pe
+  short: Process name.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe.imphash:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: process.thread.Ext.start_address_details.memory_pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe.original_file_name:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-original-file-name
+  description: Internal name of the file, provided at compile-time.
+  example: MSPAINT.EXE
+  flat_name: process.thread.Ext.start_address_details.memory_pe.original_file_name
+  ignore_above: 1024
+  level: extended
+  name: original_file_name
+  normalize: []
+  original_fieldset: pe
+  short: Internal name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe.product:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-product
+  description: Internal product name of the file, provided at compile-time.
+  example: "Microsoft\xAE Windows\xAE Operating System"
+  flat_name: process.thread.Ext.start_address_details.memory_pe.product
+  ignore_above: 1024
+  level: extended
+  name: product
+  normalize: []
+  original_fieldset: pe
+  short: Internal product name of the file, provided at compile-time.
+  type: keyword
+process.thread.Ext.start_address_details.memory_pe_detected:
+  dashed_name: process-thread-Ext-start-address-details-memory-pe-detected
+  description: Whether an executable file was found in memory.
+  example: false
+  flat_name: process.thread.Ext.start_address_details.memory_pe_detected
+  level: custom
+  name: memory_pe_detected
+  normalize: []
+  original_fieldset: memory_region
+  short: Whether an executable file was found in memory.
+  type: boolean
+process.thread.Ext.start_address_details.region_base:
+  dashed_name: process-thread-Ext-start-address-details-region-base
+  description: Base address of the memory region.
+  example: 2431737462784
+  flat_name: process.thread.Ext.start_address_details.region_base
+  level: custom
+  name: region_base
+  normalize: []
+  original_fieldset: memory_region
+  short: Base address of the memory region.
+  type: long
+process.thread.Ext.start_address_details.region_protection:
+  dashed_name: process-thread-Ext-start-address-details-region-protection
+  description: Memory protection of the memory region. Example values include "RWX"
+    and "R-X".
+  example: RWX
+  flat_name: process.thread.Ext.start_address_details.region_protection
+  ignore_above: 1024
+  level: custom
+  name: region_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Memory protection of the memory region. Example values include "RWX" and
+    "R-X".
+  type: keyword
+process.thread.Ext.start_address_details.region_size:
+  dashed_name: process-thread-Ext-start-address-details-region-size
+  description: Size of the memory region.
+  example: 4096
+  flat_name: process.thread.Ext.start_address_details.region_size
+  level: custom
+  name: region_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Size of the memory region.
+  type: long
+process.thread.Ext.start_address_details.region_state:
+  dashed_name: process-thread-Ext-start-address-details-region-state
+  description: State of the memory region. Example values include "RESERVE", "COMMIT",
+    and "FREE".
+  example: COMMIT
+  flat_name: process.thread.Ext.start_address_details.region_state
+  ignore_above: 1024
+  level: custom
+  name: region_state
+  normalize: []
+  original_fieldset: memory_region
+  short: State of the memory region. Example values include "RESERVE", "COMMIT", and
+    "FREE".
+  type: keyword
+process.thread.Ext.start_address_details.strings:
+  dashed_name: process-thread-Ext-start-address-details-strings
+  description: Array of strings found within the memory region.
+  flat_name: process.thread.Ext.start_address_details.strings
+  ignore_above: 1024
+  level: custom
+  name: strings
+  normalize: []
+  original_fieldset: memory_region
+  short: Array of strings found within the memory region.
+  type: keyword
 process.thread.Ext.start_address_module:
   dashed_name: process-thread-Ext-start-address-module
   description: The dll/module where the thread began execution.

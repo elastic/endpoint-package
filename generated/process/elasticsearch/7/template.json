@@ -32,6 +32,10 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "authentication_id": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -188,6 +192,18 @@
                 "properties": {
                   "Ext": {
                     "properties": {
+                      "ancestry": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "architecture": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "authentication_id": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "code_signature": {
                         "properties": {
                           "exists": {
@@ -210,6 +226,10 @@
                         },
                         "type": "nested"
                       },
+                      "defense_evasions": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "real": {
                         "properties": {
                           "pid": {
@@ -217,6 +237,25 @@
                           }
                         },
                         "type": "object"
+                      },
+                      "session": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "token": {
+                        "properties": {
+                          "elevation": {
+                            "type": "boolean"
+                          },
+                          "elevation_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "integrity_level_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
                       }
                     },
                     "type": "object"
@@ -440,6 +479,15 @@
                 "properties": {
                   "Ext": {
                     "properties": {
+                      "parameter": {
+                        "type": "long"
+                      },
+                      "parameter_bytes_compressed": {
+                        "type": "long"
+                      },
+                      "parameter_bytes_compressed_present": {
+                        "type": "boolean"
+                      },
                       "start_address": {
                         "type": "long"
                       },
@@ -483,6 +531,9 @@
                           "bytes_compressed": {
                             "ignore_above": 1024,
                             "type": "keyword"
+                          },
+                          "bytes_compressed_present": {
+                            "type": "boolean"
                           },
                           "mapped_pe": {
                             "properties": {
@@ -901,6 +952,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "authentication_id": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1057,6 +1112,18 @@
             "properties": {
               "Ext": {
                 "properties": {
+                  "ancestry": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "authentication_id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "code_signature": {
                     "properties": {
                       "exists": {
@@ -1079,6 +1146,10 @@
                     },
                     "type": "nested"
                   },
+                  "defense_evasions": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "real": {
                     "properties": {
                       "pid": {
@@ -1086,6 +1157,25 @@
                       }
                     },
                     "type": "object"
+                  },
+                  "session": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "token": {
+                    "properties": {
+                      "elevation": {
+                        "type": "boolean"
+                      },
+                      "elevation_type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "integrity_level_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   }
                 },
                 "type": "object"
@@ -1309,6 +1399,15 @@
             "properties": {
               "Ext": {
                 "properties": {
+                  "parameter": {
+                    "type": "long"
+                  },
+                  "parameter_bytes_compressed": {
+                    "type": "long"
+                  },
+                  "parameter_bytes_compressed_present": {
+                    "type": "boolean"
+                  },
                   "start_address": {
                     "type": "long"
                   },
@@ -1352,6 +1451,9 @@
                       "bytes_compressed": {
                         "ignore_above": 1024,
                         "type": "keyword"
+                      },
+                      "bytes_compressed_present": {
+                        "type": "boolean"
                       },
                       "mapped_pe": {
                         "properties": {

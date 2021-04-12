@@ -38,6 +38,13 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: process.Ext.architecture
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process architecture.  It can differ from host architecture.
+      example: x86_64
+      default_field: false
     - name: process.Ext.authentication_id
       level: custom
       type: keyword
@@ -274,6 +281,25 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: process.parent.Ext.ancestry
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: An array of entity_ids indicating the ancestors for this event
+      default_field: false
+    - name: process.parent.Ext.architecture
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process architecture.  It can differ from host architecture.
+      example: x86_64
+      default_field: false
+    - name: process.parent.Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
     - name: process.parent.Ext.code_signature
       level: custom
       type: nested
@@ -317,6 +343,12 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: process.parent.Ext.defense_evasions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping."
+      default_field: false
     - name: process.parent.Ext.real
       level: custom
       type: object
@@ -326,6 +358,31 @@
       level: custom
       type: long
       description: For process.parent this will be the ppid of the process that actually spawned the current process.
+      default_field: false
+    - name: process.parent.Ext.session
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session information for the current process
+      default_field: false
+    - name: process.parent.Ext.token.elevation
+      level: custom
+      type: boolean
+      description: Whether the token is elevated or not
+      default_field: false
+    - name: process.parent.Ext.token.elevation_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: What level of elevation the token has
+      example: one of "default", "full", "limited"
+      default_field: false
+    - name: process.parent.Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
       default_field: false
     - name: process.parent.args
       level: extended
@@ -658,6 +715,21 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: process.thread.Ext.parameter
+      level: custom
+      type: long
+      description: When a thread is created, this is the raw numerical value of its parameter.
+      default_field: false
+    - name: process.thread.Ext.parameter_bytes_compressed
+      level: custom
+      type: long
+      description: Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+      default_field: false
+    - name: process.thread.Ext.parameter_bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether parameter_bytes_compressed is present in this event.
+      default_field: false
     - name: process.thread.Ext.start_address
       level: custom
       type: long
@@ -735,6 +807,12 @@
       ignore_above: 1024
       description: Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
       example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
+      default_field: false
+    - name: process.thread.Ext.start_address_details.bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether bytes_compressed is present in this event.
+      example: false
       default_field: false
     - name: process.thread.Ext.start_address_details.mapped_pe.company
       level: extended
@@ -1402,6 +1480,13 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.architecture
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process architecture.  It can differ from host architecture.
+      example: x86_64
+      default_field: false
     - name: Ext.authentication_id
       level: custom
       type: keyword
@@ -1635,6 +1720,25 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: parent.Ext.ancestry
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: An array of entity_ids indicating the ancestors for this event
+      default_field: false
+    - name: parent.Ext.architecture
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process architecture.  It can differ from host architecture.
+      example: x86_64
+      default_field: false
+    - name: parent.Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
     - name: parent.Ext.code_signature
       level: custom
       type: nested
@@ -1678,6 +1782,12 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: parent.Ext.defense_evasions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping."
+      default_field: false
     - name: parent.Ext.real
       level: custom
       type: object
@@ -1687,6 +1797,31 @@
       level: custom
       type: long
       description: For process.parent this will be the ppid of the process that actually spawned the current process.
+      default_field: false
+    - name: parent.Ext.session
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session information for the current process
+      default_field: false
+    - name: parent.Ext.token.elevation
+      level: custom
+      type: boolean
+      description: Whether the token is elevated or not
+      default_field: false
+    - name: parent.Ext.token.elevation_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: What level of elevation the token has
+      example: one of "default", "full", "limited"
+      default_field: false
+    - name: parent.Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
       default_field: false
     - name: parent.args
       level: extended
@@ -2016,6 +2151,21 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: thread.Ext.parameter
+      level: custom
+      type: long
+      description: When a thread is created, this is the raw numerical value of its parameter.
+      default_field: false
+    - name: thread.Ext.parameter_bytes_compressed
+      level: custom
+      type: long
+      description: Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+      default_field: false
+    - name: thread.Ext.parameter_bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether parameter_bytes_compressed is present in this event.
+      default_field: false
     - name: thread.Ext.start_address
       level: custom
       type: long
@@ -2093,6 +2243,12 @@
       ignore_above: 1024
       description: Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
       example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
+      default_field: false
+    - name: thread.Ext.start_address_details.bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether bytes_compressed is present in this event.
+      example: false
       default_field: false
     - name: thread.Ext.start_address_details.mapped_pe.company
       level: extended

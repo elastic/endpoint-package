@@ -57,6 +57,12 @@
       level: custom
       type: keyword
       description: An array of entity_ids indicating the ancestors for this event
+      
+    - name: Ext.architecture
+      level: custom
+      type: keyword
+      example: "x86_64"
+      description: Process architecture.  It can differ from host architecture.
 
     - name: Ext.services
       level: custom

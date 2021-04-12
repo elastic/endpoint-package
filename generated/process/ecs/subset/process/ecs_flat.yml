@@ -38,6 +38,18 @@ Target.process.Ext.ancestry:
   original_fieldset: process
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+Target.process.Ext.architecture:
+  dashed_name: Target-process-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: Target.process.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  original_fieldset: process
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 Target.process.Ext.authentication_id:
   dashed_name: Target-process-Ext-authentication-id
   description: Process authentication ID
@@ -448,6 +460,40 @@ Target.process.parent.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+Target.process.parent.Ext.ancestry:
+  dashed_name: Target-process-parent-Ext-ancestry
+  description: An array of entity_ids indicating the ancestors for this event
+  flat_name: Target.process.parent.Ext.ancestry
+  ignore_above: 1024
+  level: custom
+  name: Ext.ancestry
+  normalize: []
+  original_fieldset: process
+  short: An array of entity_ids indicating the ancestors for this event
+  type: keyword
+Target.process.parent.Ext.architecture:
+  dashed_name: Target-process-parent-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: Target.process.parent.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  original_fieldset: process
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
+Target.process.parent.Ext.authentication_id:
+  dashed_name: Target-process-parent-Ext-authentication-id
+  description: Process authentication ID
+  flat_name: Target.process.parent.Ext.authentication_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.authentication_id
+  normalize: []
+  original_fieldset: process
+  short: Process authentication ID
+  type: keyword
 Target.process.parent.Ext.code_signature:
   dashed_name: Target-process-parent-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
@@ -526,6 +572,20 @@ Target.process.parent.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+Target.process.parent.Ext.defense_evasions:
+  dashed_name: Target-process-parent-Ext-defense-evasions
+  description: "List of defense evasions found in this process.   These defense evasions\
+    \ can make it harder to inspect a process and/or cause abnormal OS behavior. Examples\
+    \ tools that can cause defense evasions include Process Doppelg\xE4nging and Process\
+    \ Herpaderping."
+  flat_name: Target.process.parent.Ext.defense_evasions
+  ignore_above: 1024
+  level: custom
+  name: Ext.defense_evasions
+  normalize: []
+  original_fieldset: process
+  short: List of defense evasions found in this process.
+  type: keyword
 Target.process.parent.Ext.real:
   dashed_name: Target-process-parent-Ext-real
   description: The field set containing process info in case of any pid spoofing.
@@ -549,6 +609,51 @@ Target.process.parent.Ext.real.pid:
   original_fieldset: process
   short: The real pid of the process if ppid spoofing is happening.
   type: long
+Target.process.parent.Ext.session:
+  dashed_name: Target-process-parent-Ext-session
+  description: Session information for the current process
+  flat_name: Target.process.parent.Ext.session
+  ignore_above: 1024
+  level: custom
+  name: Ext.session
+  normalize: []
+  original_fieldset: process
+  short: Session information for the current process
+  type: keyword
+Target.process.parent.Ext.token.elevation:
+  dashed_name: Target-process-parent-Ext-token-elevation
+  description: Whether the token is elevated or not
+  flat_name: Target.process.parent.Ext.token.elevation
+  level: custom
+  name: elevation
+  normalize: []
+  original_fieldset: token
+  short: Whether the token is elevated or not
+  type: boolean
+Target.process.parent.Ext.token.elevation_type:
+  dashed_name: Target-process-parent-Ext-token-elevation-type
+  description: What level of elevation the token has
+  example: one of "default", "full", "limited"
+  flat_name: Target.process.parent.Ext.token.elevation_type
+  ignore_above: 1024
+  level: custom
+  name: elevation_type
+  normalize: []
+  original_fieldset: token
+  short: What level of elevation the token has
+  type: keyword
+Target.process.parent.Ext.token.integrity_level_name:
+  dashed_name: Target-process-parent-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: Target.process.parent.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
 Target.process.parent.args:
   dashed_name: Target-process-parent-args
   description: 'Array of process arguments, starting with the absolute path to the
@@ -1109,6 +1214,42 @@ Target.process.thread.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+Target.process.thread.Ext.parameter:
+  dashed_name: Target-process-thread-Ext-parameter
+  description: When a thread is created, this is the raw numerical value of its parameter.
+  flat_name: Target.process.thread.Ext.parameter
+  level: custom
+  name: thread.Ext.parameter
+  normalize: []
+  original_fieldset: process
+  short: When a thread is created, this is the raw numerical value of its parameter.
+  type: long
+Target.process.thread.Ext.parameter_bytes_compressed:
+  dashed_name: Target-process-thread-Ext-parameter-bytes-compressed
+  description: Up to 512KB of raw data from the thread parameter, if it is a valid
+    pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated
+    on the endpoint, and may be missing from many alerts if the same data would be
+    sent multiple times.
+  flat_name: Target.process.thread.Ext.parameter_bytes_compressed
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed
+  normalize: []
+  original_fieldset: process
+  short: Up to 512KB of raw data from the thread parameter, if it is a valid pointer.
+    This is compressed with zlib. To reduce data volume, this is de-duplicated on
+    the endpoint, and may be missing from many alerts if the same data would be sent
+    multiple times.
+  type: long
+Target.process.thread.Ext.parameter_bytes_compressed_present:
+  dashed_name: Target-process-thread-Ext-parameter-bytes-compressed-present
+  description: Whether parameter_bytes_compressed is present in this event.
+  flat_name: Target.process.thread.Ext.parameter_bytes_compressed_present
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed_present
+  normalize: []
+  original_fieldset: process
+  short: Whether parameter_bytes_compressed is present in this event.
+  type: boolean
 Target.process.thread.Ext.start_address:
   dashed_name: Target-process-thread-Ext-start-address
   description: Memory address where the thread began execution.
@@ -1265,6 +1406,17 @@ Target.process.thread.Ext.start_address_details.bytes_compressed:
     zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be
     missing from many alerts if the same data would be sent multiple times.
   type: keyword
+Target.process.thread.Ext.start_address_details.bytes_compressed_present:
+  dashed_name: Target-process-thread-Ext-start-address-details-bytes-compressed-present
+  description: Whether bytes_compressed is present in this event.
+  example: false
+  flat_name: Target.process.thread.Ext.start_address_details.bytes_compressed_present
+  level: custom
+  name: bytes_compressed_present
+  normalize: []
+  original_fieldset: memory_region
+  short: Whether bytes_compressed is present in this event.
+  type: boolean
 Target.process.thread.Ext.start_address_details.mapped_pe.company:
   dashed_name: Target-process-thread-Ext-start-address-details-mapped-pe-company
   description: Internal company name of the file, provided at compile-time.
@@ -2693,6 +2845,17 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.architecture:
+  dashed_name: process-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 process.Ext.authentication_id:
   dashed_name: process-Ext-authentication-id
   description: Process authentication ID
@@ -3087,6 +3250,40 @@ process.parent.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+process.parent.Ext.ancestry:
+  dashed_name: process-parent-Ext-ancestry
+  description: An array of entity_ids indicating the ancestors for this event
+  flat_name: process.parent.Ext.ancestry
+  ignore_above: 1024
+  level: custom
+  name: Ext.ancestry
+  normalize: []
+  original_fieldset: process
+  short: An array of entity_ids indicating the ancestors for this event
+  type: keyword
+process.parent.Ext.architecture:
+  dashed_name: process-parent-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.parent.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  original_fieldset: process
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
+process.parent.Ext.authentication_id:
+  dashed_name: process-parent-Ext-authentication-id
+  description: Process authentication ID
+  flat_name: process.parent.Ext.authentication_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.authentication_id
+  normalize: []
+  original_fieldset: process
+  short: Process authentication ID
+  type: keyword
 process.parent.Ext.code_signature:
   dashed_name: process-parent-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
@@ -3165,6 +3362,20 @@ process.parent.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.parent.Ext.defense_evasions:
+  dashed_name: process-parent-Ext-defense-evasions
+  description: "List of defense evasions found in this process.   These defense evasions\
+    \ can make it harder to inspect a process and/or cause abnormal OS behavior. Examples\
+    \ tools that can cause defense evasions include Process Doppelg\xE4nging and Process\
+    \ Herpaderping."
+  flat_name: process.parent.Ext.defense_evasions
+  ignore_above: 1024
+  level: custom
+  name: Ext.defense_evasions
+  normalize: []
+  original_fieldset: process
+  short: List of defense evasions found in this process.
+  type: keyword
 process.parent.Ext.real:
   dashed_name: process-parent-Ext-real
   description: The field set containing process info in case of any pid spoofing.
@@ -3188,6 +3399,51 @@ process.parent.Ext.real.pid:
   original_fieldset: process
   short: The real pid of the process if ppid spoofing is happening.
   type: long
+process.parent.Ext.session:
+  dashed_name: process-parent-Ext-session
+  description: Session information for the current process
+  flat_name: process.parent.Ext.session
+  ignore_above: 1024
+  level: custom
+  name: Ext.session
+  normalize: []
+  original_fieldset: process
+  short: Session information for the current process
+  type: keyword
+process.parent.Ext.token.elevation:
+  dashed_name: process-parent-Ext-token-elevation
+  description: Whether the token is elevated or not
+  flat_name: process.parent.Ext.token.elevation
+  level: custom
+  name: elevation
+  normalize: []
+  original_fieldset: token
+  short: Whether the token is elevated or not
+  type: boolean
+process.parent.Ext.token.elevation_type:
+  dashed_name: process-parent-Ext-token-elevation-type
+  description: What level of elevation the token has
+  example: one of "default", "full", "limited"
+  flat_name: process.parent.Ext.token.elevation_type
+  ignore_above: 1024
+  level: custom
+  name: elevation_type
+  normalize: []
+  original_fieldset: token
+  short: What level of elevation the token has
+  type: keyword
+process.parent.Ext.token.integrity_level_name:
+  dashed_name: process-parent-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: process.parent.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
 process.parent.args:
   dashed_name: process-parent-args
   description: 'Array of process arguments, starting with the absolute path to the
@@ -3744,6 +4000,39 @@ process.thread.Ext:
   normalize: []
   short: Object for all custom defined fields to live in.
   type: object
+process.thread.Ext.parameter:
+  dashed_name: process-thread-Ext-parameter
+  description: When a thread is created, this is the raw numerical value of its parameter.
+  flat_name: process.thread.Ext.parameter
+  level: custom
+  name: thread.Ext.parameter
+  normalize: []
+  short: When a thread is created, this is the raw numerical value of its parameter.
+  type: long
+process.thread.Ext.parameter_bytes_compressed:
+  dashed_name: process-thread-Ext-parameter-bytes-compressed
+  description: Up to 512KB of raw data from the thread parameter, if it is a valid
+    pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated
+    on the endpoint, and may be missing from many alerts if the same data would be
+    sent multiple times.
+  flat_name: process.thread.Ext.parameter_bytes_compressed
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed
+  normalize: []
+  short: Up to 512KB of raw data from the thread parameter, if it is a valid pointer.
+    This is compressed with zlib. To reduce data volume, this is de-duplicated on
+    the endpoint, and may be missing from many alerts if the same data would be sent
+    multiple times.
+  type: long
+process.thread.Ext.parameter_bytes_compressed_present:
+  dashed_name: process-thread-Ext-parameter-bytes-compressed-present
+  description: Whether parameter_bytes_compressed is present in this event.
+  flat_name: process.thread.Ext.parameter_bytes_compressed_present
+  level: custom
+  name: thread.Ext.parameter_bytes_compressed_present
+  normalize: []
+  short: Whether parameter_bytes_compressed is present in this event.
+  type: boolean
 process.thread.Ext.start_address:
   dashed_name: process-thread-Ext-start-address
   description: Memory address where the thread began execution.
@@ -3895,6 +4184,17 @@ process.thread.Ext.start_address_details.bytes_compressed:
     zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be
     missing from many alerts if the same data would be sent multiple times.
   type: keyword
+process.thread.Ext.start_address_details.bytes_compressed_present:
+  dashed_name: process-thread-Ext-start-address-details-bytes-compressed-present
+  description: Whether bytes_compressed is present in this event.
+  example: false
+  flat_name: process.thread.Ext.start_address_details.bytes_compressed_present
+  level: custom
+  name: bytes_compressed_present
+  normalize: []
+  original_fieldset: memory_region
+  short: Whether bytes_compressed is present in this event.
+  type: boolean
 process.thread.Ext.start_address_details.mapped_pe.company:
   dashed_name: process-thread-Ext-start-address-details-mapped-pe-company
   description: Internal company name of the file, provided at compile-time.

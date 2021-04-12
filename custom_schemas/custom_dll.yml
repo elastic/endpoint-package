@@ -15,6 +15,7 @@
     top_level: true
     expected:
       - Target
+      - process.Ext
   fields:
     - name: Ext
       level: custom

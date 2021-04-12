@@ -138,6 +138,9 @@ fields:
           name: {}
           Ext:
             fields:
+              parameter: {}
+              parameter_bytes_compressed: {}
+              parameter_bytes_compressed_present: {}
               start_address: {}
               start_address_module: {}
               start_address_allocation_offset: {}
@@ -153,6 +156,7 @@ fields:
                   bytes_address: {}
                   bytes_allocation_offset: {}
                   bytes_compressed: {}
+                  bytes_compressed_present: {}
                   mapped_pe:
                     fields: *pe-fields
                   mapped_pe_detected: {}
@@ -172,6 +176,7 @@ fields:
         fields:
           ancestry: {}
           authentication_id: {}
+          architecture: {}
           code_signature:
             fields:
               exists: {}
@@ -228,9 +233,9 @@ fields:
           working_directory: {}
           Ext:
             fields:
-              real:
-                fields:
-                  pid: {}
+              ancestry: {}
+              authentication_id: {}
+              architecture: {}
               code_signature:
                 fields:
                   exists: {}
@@ -238,6 +243,16 @@ fields:
                   subject_name: {}
                   trusted: {}
                   valid: {}
+              defense_evasions: {}
+              real:
+                fields:
+                  pid: {}
+              session: {}
+              token:
+                fields:
+                  elevation: {}
+                  elevation_type: {}
+                  integrity_level_name: {}
                   
   Target:
     fields:

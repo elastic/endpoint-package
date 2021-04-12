@@ -1,0 +1,446 @@
+---
+name: ransomware_event
+fields:
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
+  base:
+    fields:
+      "@timestamp": {}
+      "message": {}
+  data_stream:
+    fields: "*"
+  agent:
+    fields:
+      ephemeral_id: {}
+      id:
+        exceptionable: true
+      name: {}
+      type:
+        exceptionable: true
+      version:
+        exceptionable: true
+  dll:
+    fields: &dll-fields
+      name: {}
+      path: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+          sha512: {}
+      pe:
+        fields: &pe-fields
+          company: {}
+          description: {}
+          file_version: {}
+          imphash: {}
+          original_file_name: {}
+          product: {}
+      Ext:
+        fields:
+          mapped_address: {}
+          mapped_size: {}
+          compile_time: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
+  ecs:
+    fields:
+      version: {}
+  event:
+    fields:
+      action:
+        exceptionable: true
+      category:
+        exceptionable: true
+      created: {}
+      code:
+        exceptionable: true
+      dataset: {}
+      hash:
+        exceptionable: true
+      id: {}
+      ingested: {}
+      kind:
+        exceptionable: true
+      module:
+        exceptionable: true
+      outcome:
+        exceptionable: true
+      provider:
+        exceptionable: true
+      sequence: {}
+      severity: {}
+      type:
+        exceptionable: true
+  Endpoint:
+    fields:
+      policy:
+        fields:
+          applied:
+            fields:
+              id:
+                exceptionable: true
+              status: {}
+              version: {}
+              name: {}
+              artifacts:
+                fields: "*"
+  elastic:
+    fields:
+      agent:
+        fields:
+          id:
+            exceptionable: true
+  rule:
+    fields:
+      author: {}
+      category: {}
+      description: {}
+      id: {}
+      license: {}
+      name: {}
+      reference: {}
+      ruleset: {}
+      uuid:
+        exceptionable: true
+      version: {}
+  threat:
+    fields: "*"
+  host:
+    fields:
+      architecture:
+        exceptionable: true
+      domain:
+        exceptionable: true
+      hostname: {}
+      id:
+        exceptionable: true
+      ip: {}
+      mac: {}
+      name: {}
+      type:
+        exceptionable: true
+      uptime: {}
+      geo:
+        fields: "*"
+      os:
+        fields:
+          family:
+            exceptionable: true
+          full:
+            exceptionable: true
+          kernel:
+            exceptionable: true
+          name:
+            exceptionable: true
+          platform:
+            exceptionable: true
+          version:
+            exceptionable: true
+          Ext:
+            fields:
+              variant:
+                exceptionable: true
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          hash: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+          group:
+            fields:
+              Ext:
+                fields:
+                  real:
+                    fields:
+                      id: {}
+                      name: {}
+              domain: {}
+              id: {}
+              name: {}
+  group:
+    fields:
+      domain:
+        exceptionable: true
+      id:
+        exceptionable: true
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id:
+                exceptionable: true
+              name: {}
+  process:
+    fields:
+      args: {}
+      args_count: {}
+      command_line:
+        exceptionable: true
+      entity_id: {}
+      executable:
+        exceptionable: true
+      exit_code: {}
+      hash:
+        fields:
+          md5:
+            exceptionable: true
+          sha1:
+            exceptionable: true
+          sha256:
+            exceptionable: true
+          sha512:
+            exceptionable: true
+      name:
+        exceptionable: true
+      pe:
+        fields:
+          company:
+            exceptionable: true
+          description:
+            exceptionable: true
+          file_version:
+            exceptionable: true
+          imphash:
+            exceptionable: true
+          original_file_name:
+            exceptionable: true
+          product:
+            exceptionable: true
+      pgid:
+        exceptionable: true
+      pid: {}
+      ppid: {}
+      start: {}
+      thread:
+        fields:
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: false
+                fields:
+                  module_path: {}
+                  instruction_pointer: {}
+                  memory_section:
+                    fields:
+                      address: {}
+                      size: {}
+                      protection: {}
+                  symbol_info: {}
+                  rva: {}
+              parameter: {}
+              parameter_bytes_compressed: {}
+              parameter_bytes_compressed_present: {}
+              start: {}
+              start_address: {}
+              start_address_module: {}
+              start_address: {}
+              start_address_module: {}
+              start_address_allocation_offset: {}
+              start_address_bytes: {}
+              start_address_bytes_disasm: {}
+              start_address_bytes_disasm_hash: {}
+              start_address_details:
+                fields:
+                  allocation_base: {}
+                  allocation_protection: {}
+                  allocation_size: {}
+                  allocation_type: {}
+                  bytes_address: {}
+                  bytes_allocation_offset: {}
+                  bytes_compressed: {}
+                  bytes_compressed_present: {}
+                  mapped_pe:
+                    fields: *pe-fields
+                  mapped_pe_detected: {}
+                  memory_pe:
+                    fields: *pe-fields
+                  memory_pe_detected: {}
+                  region_base: {}
+                  region_protection: {}
+                  region_size: {}
+                  region_state: {}
+                  strings: {}
+              service: {}
+              token:
+                fields:
+                  domain: {}
+                  elevation: {}
+                  elevation_type: {}
+                  impersonation_level: {}
+                  integrity_level: {}
+                  integrity_level_name: {}
+                  is_appcontainer: {}
+                  privileges:
+                    fields:
+                      name: {}
+                      enabled: {}
+                      description: {}
+                  sid: {}
+                  type: {}
+                  user: {}
+              uptime: {}
+      title: {}
+      uptime: {}
+      working_directory:
+        exceptionable: true
+      Ext:
+        fields:
+          ancestry: {}
+          architecture: {}
+          authentication_id: {}
+          dll:
+            fields: *dll-fields
+          services:
+            exceptionable: true
+          session: {}
+          user:
+            exceptionable: true
+          code_signature:
+            fields:
+              exists: {}
+              subject_name:
+                exceptionable: true
+              valid:
+                exceptionable: true
+              trusted:
+                exceptionable: true
+              status:
+                exceptionable: true
+          token:
+            fields:
+              domain: {}
+              elevation: {}
+              elevation_type: {}
+              impersonation_level: {}
+              integrity_level: {}
+              integrity_level_name: {}
+              is_appcontainer: {}
+              privileges:
+                fields:
+                  name: {}
+                  enabled: {}
+                  description: {}
+              sid: {}
+              type: {}
+              user: {}
+      parent:
+        fields:
+          args: {}
+          args_count: {}
+          command_line:
+            exceptionable: true
+          entity_id: {}
+          executable:
+            exceptionable: true
+          exit_code: {}
+          hash:
+            fields:
+              md5:
+                exceptionable: true
+              sha1:
+                exceptionable: true
+              sha256:
+                exceptionable: true
+              sha512:
+                exceptionable: true
+          name:
+            exceptionable: true
+          pgid:
+            exceptionable: true
+          pid: {}
+          ppid: {}
+          start: {}
+          thread:
+            fields:
+              id: {}
+              name: {}
+          title: {}
+          uptime: {}
+          working_directory:
+            exceptionable: true
+          Ext:
+            fields:
+              architecture: {}
+              real:
+                fields:
+                  pid: {}
+              code_signature:
+                fields:
+                  exists: {}
+                  subject_name:
+                    exceptionable: true
+                  valid:
+                    exceptionable: true
+                  trusted:
+                    exceptionable: true
+                  status:
+                    exceptionable: true
+              token:
+                fields:
+                  domain: {}
+                  elevation: {}
+                  elevation_type: {}
+                  impersonation_level: {}
+                  integrity_level: {}
+                  integrity_level_name: {}
+                  is_appcontainer: {}
+                  privileges:
+                    fields:
+                      name: {}
+                      enabled: {}
+                      description: {}
+                  sid: {}
+                  type: {}
+                  user: {}
+  user:
+    fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
+      id: {}
+      name: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  Memory_protection:
+    fields: "*"
