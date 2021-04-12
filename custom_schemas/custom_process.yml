@@ -69,6 +69,11 @@
       type: keyword
       description: >
         User associated with the running process.
+        
+    - name: thread
+      level: custom
+      type: object
+      description: Thread within the running process.
 
     - name: thread.Ext
       level: custom
@@ -106,14 +111,14 @@
     - name: thread.Ext.start_address_bytes_disasm
       level: custom
       type: keyword
-      example: "ret\nint3",
+      example: "ret\\nint3"
       description: >
         The bytes at the thread start address, disassembled into human-readable assembly code.
         
     - name: thread.Ext.start_address_bytes_disasm_hash
       level: custom
       type: keyword
-      example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c",
+      example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
       description: >
         The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
         

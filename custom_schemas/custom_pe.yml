@@ -7,7 +7,7 @@
   reusable:
     order: 1
     expected:
-      - at: process.thread.Ext.start_address_details
+      - at: Target.process.thread.Ext.start_address_details
         as: mapped_pe
-      - at: process.thread.Ext.start_address_details
+      - at: Target.process.thread.Ext.start_address_details
         as: memory_pe

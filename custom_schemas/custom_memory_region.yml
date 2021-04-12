@@ -9,7 +9,7 @@
     order: 1
     top_level: false
     expected:
-      - at: process.thread.Ext
+      - at: Target.process.thread.Ext
         as: start_address_details
   fields:
     - name: allocation_base
@@ -71,7 +71,7 @@
     - name: mapped_path
       level: custom
       type: keyword
-      example: "C:\Windows\System32\mshtml.dll"
+      example: "C:\\Windows\\System32\\mshtml.dll"
       description: >
         If the memory corresponds to a file mapping, this is the file's path.
         

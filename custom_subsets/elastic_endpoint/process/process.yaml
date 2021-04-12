@@ -100,7 +100,7 @@ fields:
               id: {}
               name: {}
   process:
-    fields:
+    fields: &process-fields
       args: {}
       args_count: {}
       code_signature:
@@ -122,7 +122,7 @@ fields:
           sha512: {}
       name: {}
       pe:
-        fields:
+        fields: &pe-fields
           company: {}
           description: {}
           file_version: {}
@@ -136,6 +136,35 @@ fields:
         fields:
           id: {}
           name: {}
+          Ext:
+            fields:
+              start_address: {}
+              start_address_module: {}
+              start_address_allocation_offset: {}
+              start_address_bytes: {}
+              start_address_bytes_disasm: {}
+              start_address_bytes_disasm_hash: {}
+              start_address_details:
+                fields:
+                  allocation_base: {}
+                  allocation_protection: {}
+                  allocation_size: {}
+                  allocation_type: {}
+                  bytes_address: {}
+                  bytes_allocation_offset: {}
+                  bytes_compressed: {}
+                  mapped_pe:
+                    fields: *pe-fields
+                  mapped_pe_detected: {}
+                  memory_pe:
+                    fields: *pe-fields
+                  memory_pe_detected: {}
+                  region_base: {}
+                  region_protection: {}
+                  region_size: {}
+                  region_state: {}
+                  strings: {}
+              
       title: {}
       uptime: {}
       working_directory: {}
@@ -209,6 +238,12 @@ fields:
                   subject_name: {}
                   trusted: {}
                   valid: {}
+                  
+  Target:
+    fields:
+      process:
+        fields: *process-fields
+
   package:
     fields:
       name: {}
