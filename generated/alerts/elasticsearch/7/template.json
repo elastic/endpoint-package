@@ -788,8 +788,7 @@
                         "type": "date"
                       },
                       "start_address": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
+                        "type": "long"
                       },
                       "start_address_module": {
                         "ignore_above": 1024,
@@ -2330,8 +2329,7 @@
                     "type": "date"
                   },
                   "start_address": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "type": "long"
                   },
                   "start_address_module": {
                     "ignore_above": 1024,

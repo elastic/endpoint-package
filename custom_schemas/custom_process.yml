@@ -69,11 +69,6 @@
       type: keyword
       description: >
         User associated with the running process.
-        
-    - name: thread
-      level: custom
-      type: object
-      description: Thread within the running process.
 
     - name: thread.Ext
       level: custom
@@ -89,15 +84,15 @@
 
     - name: thread.Ext.start_address
       level: custom
-      type: keyword
-      example: long
+      type: long
+      example: 4194304
       description: >
         Memory address where the thread began execution.
 
     - name: thread.Ext.start_address_allocation_offset
       level: custom
-      type: keyword
-      example: long
+      type: long
+      example: 0
       description: >
         Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
         
@@ -129,6 +124,12 @@
       description: >
         The dll/module where the thread began execution.
 
+    - name: thread.Ext.start_address_details
+      level: custom
+      type: object
+      description: >
+        Additional information about the memory containing the thread start address.
+        
     - name: thread.Ext.service
       level: custom
       type: keyword

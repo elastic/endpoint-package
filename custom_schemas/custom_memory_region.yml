@@ -9,7 +9,7 @@
     order: 1
     top_level: false
     expected:
-      - at: Target.process.thread.Ext
+      - at: process.thread.Ext
         as: start_address_details
   fields:
     - name: allocation_base

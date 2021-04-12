@@ -1115,10 +1115,9 @@
       default_field: false
     - name: process.thread.Ext.start_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: Memory address where the thread began execution.
-      example: 5442508
+      example: 4194304
       default_field: false
     - name: process.thread.Ext.start_address_module
       level: custom
@@ -3357,10 +3356,9 @@
       default_field: false
     - name: thread.Ext.start_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: Memory address where the thread began execution.
-      example: 5442508
+      example: 4194304
       default_field: false
     - name: thread.Ext.start_address_module
       level: custom
