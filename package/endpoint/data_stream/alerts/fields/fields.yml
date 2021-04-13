@@ -357,12 +357,12 @@
       default_field: false
     - name: dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: dll.hash.md5
@@ -571,12 +571,12 @@
       default_field: false
     - name: process.Ext.dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: process.Ext.dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: process.Ext.dll.hash.md5
@@ -1035,12 +1035,12 @@
       default_field: false
     - name: process.parent.Ext.dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: process.parent.Ext.dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: process.parent.Ext.dll.hash.md5
@@ -1579,7 +1579,7 @@
       default_field: false
     - name: process.thread.Ext.parameter
       level: custom
-      type: long
+      type: unsigned_long
       description: When a thread is created, this is the raw numerical value of its parameter.
       default_field: false
     - name: process.thread.Ext.parameter_bytes_compressed
@@ -1608,13 +1608,13 @@
       default_field: false
     - name: process.thread.Ext.start_address
       level: custom
-      type: long
+      type: unsigned_long
       description: Memory address where the thread began execution.
       example: 4194304
       default_field: false
     - name: process.thread.Ext.start_address_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       description: Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
       example: 0
       default_field: false
@@ -1641,7 +1641,7 @@
       default_field: false
     - name: process.thread.Ext.start_address_details.allocation_base
       level: custom
-      type: long
+      type: unsigned_long
       description: Base address of the memory allocation containing the memory region.
       example: 2431737462784
       default_field: false
@@ -1654,7 +1654,7 @@
       default_field: false
     - name: process.thread.Ext.start_address_details.allocation_size
       level: custom
-      type: long
+      type: unsigned_long
       description: Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X".
       example: 4096
       default_field: false
@@ -1667,13 +1667,13 @@
       default_field: false
     - name: process.thread.Ext.start_address_details.bytes_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The address where bytes_compressed begins.
       example: 2431737462784
       default_field: false
     - name: process.thread.Ext.start_address_details.bytes_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       description: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
       example: 0
       default_field: false
@@ -1792,7 +1792,7 @@
       default_field: false
     - name: process.thread.Ext.start_address_details.region_base
       level: custom
-      type: long
+      type: unsigned_long
       description: Base address of the memory region.
       example: 2431737462784
       default_field: false
@@ -1805,7 +1805,7 @@
       default_field: false
     - name: process.thread.Ext.start_address_details.region_size
       level: custom
-      type: long
+      type: unsigned_long
       description: Size of the memory region.
       example: 4096
       default_field: false
@@ -2211,12 +2211,12 @@
       default_field: false
     - name: Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: hash.md5
@@ -3483,12 +3483,12 @@
       default_field: false
     - name: Ext.dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: Ext.dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: Ext.dll.hash.md5
@@ -3944,12 +3944,12 @@
       default_field: false
     - name: parent.Ext.dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: parent.Ext.dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: parent.Ext.dll.hash.md5
@@ -4484,7 +4484,7 @@
       default_field: false
     - name: thread.Ext.parameter
       level: custom
-      type: long
+      type: unsigned_long
       description: When a thread is created, this is the raw numerical value of its parameter.
       default_field: false
     - name: thread.Ext.parameter_bytes_compressed
@@ -4513,13 +4513,13 @@
       default_field: false
     - name: thread.Ext.start_address
       level: custom
-      type: long
+      type: unsigned_long
       description: Memory address where the thread began execution.
       example: 4194304
       default_field: false
     - name: thread.Ext.start_address_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       description: Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
       example: 0
       default_field: false
@@ -4546,7 +4546,7 @@
       default_field: false
     - name: thread.Ext.start_address_details.allocation_base
       level: custom
-      type: long
+      type: unsigned_long
       description: Base address of the memory allocation containing the memory region.
       example: 2431737462784
       default_field: false
@@ -4559,7 +4559,7 @@
       default_field: false
     - name: thread.Ext.start_address_details.allocation_size
       level: custom
-      type: long
+      type: unsigned_long
       description: Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X".
       example: 4096
       default_field: false
@@ -4572,13 +4572,13 @@
       default_field: false
     - name: thread.Ext.start_address_details.bytes_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The address where bytes_compressed begins.
       example: 2431737462784
       default_field: false
     - name: thread.Ext.start_address_details.bytes_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       description: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
       example: 0
       default_field: false
@@ -4697,7 +4697,7 @@
       default_field: false
     - name: thread.Ext.start_address_details.region_base
       level: custom
-      type: long
+      type: unsigned_long
       description: Base address of the memory region.
       example: 2431737462784
       default_field: false
@@ -4710,7 +4710,7 @@
       default_field: false
     - name: thread.Ext.start_address_details.region_size
       level: custom
-      type: long
+      type: unsigned_long
       description: Size of the memory region.
       example: 4096
       default_field: false

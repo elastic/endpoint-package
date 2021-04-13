@@ -260,10 +260,10 @@
                     }
                   },
                   "mapped_address": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   },
                   "mapped_size": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   }
                 },
                 "type": "object"
@@ -394,10 +394,10 @@
                             "type": "date"
                           },
                           "mapped_address": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "mapped_size": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           }
                         },
                         "type": "object"
@@ -713,10 +713,10 @@
                                 "type": "date"
                               },
                               "mapped_address": {
-                                "type": "long"
+                                "type": "unsigned_long"
                               },
                               "mapped_size": {
-                                "type": "long"
+                                "type": "unsigned_long"
                               }
                             },
                             "type": "object"
@@ -1093,7 +1093,7 @@
                         "type": "group"
                       },
                       "parameter": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "parameter_bytes_compressed": {
                         "ignore_above": 1024,
@@ -1110,10 +1110,10 @@
                         "type": "date"
                       },
                       "start_address": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "start_address_allocation_offset": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "start_address_bytes": {
                         "ignore_above": 1024,
@@ -1130,24 +1130,24 @@
                       "start_address_details": {
                         "properties": {
                           "allocation_base": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "allocation_protection": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           },
                           "allocation_size": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "allocation_type": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           },
                           "bytes_address": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "bytes_allocation_offset": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "bytes_compressed": {
                             "ignore_above": 1024,
@@ -1219,14 +1219,14 @@
                             "type": "boolean"
                           },
                           "region_base": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "region_protection": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           },
                           "region_size": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "region_state": {
                             "ignore_above": 1024,
@@ -1494,10 +1494,10 @@
                 }
               },
               "mapped_address": {
-                "type": "long"
+                "type": "unsigned_long"
               },
               "mapped_size": {
-                "type": "long"
+                "type": "unsigned_long"
               }
             },
             "type": "object"
@@ -2359,10 +2359,10 @@
                         "type": "date"
                       },
                       "mapped_address": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "mapped_size": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       }
                     },
                     "type": "object"
@@ -2678,10 +2678,10 @@
                             "type": "date"
                           },
                           "mapped_address": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           },
                           "mapped_size": {
-                            "type": "long"
+                            "type": "unsigned_long"
                           }
                         },
                         "type": "object"
@@ -3058,7 +3058,7 @@
                     "type": "group"
                   },
                   "parameter": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   },
                   "parameter_bytes_compressed": {
                     "ignore_above": 1024,
@@ -3075,10 +3075,10 @@
                     "type": "date"
                   },
                   "start_address": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   },
                   "start_address_allocation_offset": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   },
                   "start_address_bytes": {
                     "ignore_above": 1024,
@@ -3095,24 +3095,24 @@
                   "start_address_details": {
                     "properties": {
                       "allocation_base": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "allocation_protection": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
                       "allocation_size": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "allocation_type": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
                       "bytes_address": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "bytes_allocation_offset": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "bytes_compressed": {
                         "ignore_above": 1024,
@@ -3184,14 +3184,14 @@
                         "type": "boolean"
                       },
                       "region_base": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "region_protection": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
                       "region_size": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "region_state": {
                         "ignore_above": 1024,

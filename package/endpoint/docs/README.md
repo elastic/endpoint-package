@@ -57,8 +57,8 @@ sent by the endpoint.
 | Target.dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| Target.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| Target.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | Target.dll.hash.md5 | MD5 hash. | keyword |
 | Target.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -89,8 +89,8 @@ sent by the endpoint.
 | Target.process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -152,8 +152,8 @@ sent by the endpoint.
 | Target.process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| Target.process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | Target.process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.process.parent.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -220,22 +220,22 @@ sent by the endpoint.
 | Target.process.ppid | Parent process' pid. | long |
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | long |
+| Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
 | Target.process.thread.Ext.start | The time the thread started. | date |
-| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | long |
-| Target.process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | long |
+| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
+| Target.process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
 | Target.process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
 | Target.process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
 | Target.process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| Target.process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | long |
+| Target.process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| Target.process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | long |
+| Target.process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
 | Target.process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
-| Target.process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | long |
-| Target.process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | long |
+| Target.process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.start_address_details.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.start_address_details.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
@@ -252,9 +252,9 @@ sent by the endpoint.
 | Target.process.thread.Ext.start_address_details.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.thread.Ext.start_address_details.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.thread.Ext.start_address_details.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| Target.process.thread.Ext.start_address_details.region_base | Base address of the memory region. | long |
+| Target.process.thread.Ext.start_address_details.region_base | Base address of the memory region. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| Target.process.thread.Ext.start_address_details.region_size | Size of the memory region. | long |
+| Target.process.thread.Ext.start_address_details.region_size | Size of the memory region. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | Target.process.thread.Ext.start_address_details.strings | Array of strings found within the memory region. | keyword |
 | Target.process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
@@ -307,8 +307,8 @@ sent by the endpoint.
 | dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | dll.hash.md5 | MD5 hash. | keyword |
 | dll.hash.sha1 | SHA1 hash. | keyword |
 | dll.hash.sha256 | SHA256 hash. | keyword |
@@ -487,8 +487,8 @@ sent by the endpoint.
 | process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -550,8 +550,8 @@ sent by the endpoint.
 | process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | process.parent.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -618,22 +618,22 @@ sent by the endpoint.
 | process.ppid | Parent process' pid. | long |
 | process.start | The time the process started. | date |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | long |
+| process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.service | Service associated with the thread. | keyword |
 | process.thread.Ext.start | The time the thread started. | date |
-| process.thread.Ext.start_address | Memory address where the thread began execution. | long |
-| process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | long |
+| process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
+| process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
 | process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
 | process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
 | process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | long |
+| process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | long |
+| process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
 | process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
-| process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | long |
-| process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | long |
+| process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
+| process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | process.thread.Ext.start_address_details.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.start_address_details.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.start_address_details.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
@@ -650,9 +650,9 @@ sent by the endpoint.
 | process.thread.Ext.start_address_details.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.thread.Ext.start_address_details.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.thread.Ext.start_address_details.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| process.thread.Ext.start_address_details.region_base | Base address of the memory region. | long |
+| process.thread.Ext.start_address_details.region_base | Base address of the memory region. | unsigned_long |
 | process.thread.Ext.start_address_details.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| process.thread.Ext.start_address_details.region_size | Size of the memory region. | long |
+| process.thread.Ext.start_address_details.region_size | Size of the memory region. | unsigned_long |
 | process.thread.Ext.start_address_details.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | process.thread.Ext.start_address_details.strings | Array of strings found within the memory region. | keyword |
 | process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
@@ -1225,8 +1225,8 @@ sent by the endpoint.
 | process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
-| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |

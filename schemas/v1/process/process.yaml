@@ -1324,7 +1324,7 @@ process.Ext.dll.Ext.mapped_address:
   normalize: []
   original_fieldset: dll
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 process.Ext.dll.Ext.mapped_size:
   dashed_name: process-Ext-dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -1334,7 +1334,7 @@ process.Ext.dll.Ext.mapped_size:
   normalize: []
   original_fieldset: dll
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 process.Ext.dll.hash.md5:
   dashed_name: process-Ext-dll-hash-md5
   description: MD5 hash.

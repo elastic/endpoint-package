@@ -369,10 +369,10 @@
                         "type": "date"
                       },
                       "mapped_address": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       },
                       "mapped_size": {
-                        "type": "long"
+                        "type": "unsigned_long"
                       }
                     },
                     "type": "object"

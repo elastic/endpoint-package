@@ -471,7 +471,7 @@ Target.process.Ext.dll.Ext.mapped_address:
   normalize: []
   original_fieldset: dll
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 Target.process.Ext.dll.Ext.mapped_size:
   dashed_name: Target-process-Ext-dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -481,7 +481,7 @@ Target.process.Ext.dll.Ext.mapped_size:
   normalize: []
   original_fieldset: dll
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 Target.process.Ext.dll.hash.md5:
   dashed_name: Target-process-Ext-dll-hash-md5
   description: MD5 hash.
@@ -1203,7 +1203,7 @@ Target.process.parent.Ext.dll.Ext.mapped_address:
   normalize: []
   original_fieldset: dll
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 Target.process.parent.Ext.dll.Ext.mapped_size:
   dashed_name: Target-process-parent-Ext-dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -1213,7 +1213,7 @@ Target.process.parent.Ext.dll.Ext.mapped_size:
   normalize: []
   original_fieldset: dll
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 Target.process.parent.Ext.dll.hash.md5:
   dashed_name: Target-process-parent-Ext-dll-hash-md5
   description: MD5 hash.
@@ -2161,7 +2161,7 @@ Target.process.thread.Ext.parameter:
   normalize: []
   original_fieldset: process
   short: When a thread is created, this is the raw numerical value of its parameter.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.parameter_bytes_compressed:
   dashed_name: Target-process-thread-Ext-parameter-bytes-compressed
   description: Up to 512KB of raw data from the thread parameter, if it is a valid
@@ -2222,7 +2222,7 @@ Target.process.thread.Ext.start_address:
   normalize: []
   original_fieldset: process
   short: Memory address where the thread began execution.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_allocation_offset:
   dashed_name: Target-process-thread-Ext-start-address-allocation-offset
   description: Offset of start_address into the memory allocation. Equal to start_address
@@ -2235,7 +2235,7 @@ Target.process.thread.Ext.start_address_allocation_offset:
   original_fieldset: process
   short: Offset of start_address into the memory allocation. Equal to start_address
     - start_address_details.allocation_base.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_bytes:
   dashed_name: Target-process-thread-Ext-start-address-bytes
   description: A few (typically 32) raw opcode bytes at the thread start address,
@@ -2287,7 +2287,7 @@ Target.process.thread.Ext.start_address_details.allocation_base:
   normalize: []
   original_fieldset: memory_region
   short: Base address of the memory allocation containing the memory region.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.allocation_protection:
   dashed_name: Target-process-thread-Ext-start-address-details-allocation-protection
   description: Original memory protection requested when the memory was allocated.
@@ -2314,7 +2314,7 @@ Target.process.thread.Ext.start_address_details.allocation_size:
   original_fieldset: memory_region
   short: Original memory protection requested when the memory was allocated. Example
     values include "RWX" and "R-X".
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.allocation_type:
   dashed_name: Target-process-thread-Ext-start-address-details-allocation-type
   description: The memory allocation type. Example values include "IMAGE", "MAPPED",
@@ -2339,7 +2339,7 @@ Target.process.thread.Ext.start_address_details.bytes_address:
   normalize: []
   original_fieldset: memory_region
   short: The address where bytes_compressed begins.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.bytes_allocation_offset:
   dashed_name: Target-process-thread-Ext-start-address-details-bytes-allocation-offset
   description: Offset of bytes_address the memory allocation. Equal to bytes_address
@@ -2351,7 +2351,7 @@ Target.process.thread.Ext.start_address_details.bytes_allocation_offset:
   normalize: []
   original_fieldset: memory_region
   short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.bytes_compressed:
   dashed_name: Target-process-thread-Ext-start-address-details-bytes-compressed
   description: Up to 4MB of raw data from the memory allocation. This is compressed
@@ -2563,7 +2563,7 @@ Target.process.thread.Ext.start_address_details.region_base:
   normalize: []
   original_fieldset: memory_region
   short: Base address of the memory region.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.region_protection:
   dashed_name: Target-process-thread-Ext-start-address-details-region-protection
   description: Memory protection of the memory region. Example values include "RWX"
@@ -2588,7 +2588,7 @@ Target.process.thread.Ext.start_address_details.region_size:
   normalize: []
   original_fieldset: memory_region
   short: Size of the memory region.
-  type: long
+  type: unsigned_long
 Target.process.thread.Ext.start_address_details.region_state:
   dashed_name: Target-process-thread-Ext-start-address-details-region-state
   description: State of the memory region. Example values include "RESERVE", "COMMIT",
@@ -3158,7 +3158,7 @@ dll.Ext.mapped_address:
   name: Ext.mapped_address
   normalize: []
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 dll.Ext.mapped_size:
   dashed_name: dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -3167,7 +3167,7 @@ dll.Ext.mapped_size:
   name: Ext.mapped_size
   normalize: []
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 dll.hash.md5:
   dashed_name: dll-hash-md5
   description: MD5 hash.
@@ -4764,7 +4764,7 @@ process.Ext.dll.Ext.mapped_address:
   normalize: []
   original_fieldset: dll
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 process.Ext.dll.Ext.mapped_size:
   dashed_name: process-Ext-dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -4774,7 +4774,7 @@ process.Ext.dll.Ext.mapped_size:
   normalize: []
   original_fieldset: dll
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 process.Ext.dll.hash.md5:
   dashed_name: process-Ext-dll-hash-md5
   description: MD5 hash.
@@ -5486,7 +5486,7 @@ process.parent.Ext.dll.Ext.mapped_address:
   normalize: []
   original_fieldset: dll
   short: The base address where this module is loaded.
-  type: long
+  type: unsigned_long
 process.parent.Ext.dll.Ext.mapped_size:
   dashed_name: process-parent-Ext-dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -5496,7 +5496,7 @@ process.parent.Ext.dll.Ext.mapped_size:
   normalize: []
   original_fieldset: dll
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 process.parent.Ext.dll.hash.md5:
   dashed_name: process-parent-Ext-dll-hash-md5
   description: MD5 hash.
@@ -6438,7 +6438,7 @@ process.thread.Ext.parameter:
   name: thread.Ext.parameter
   normalize: []
   short: When a thread is created, this is the raw numerical value of its parameter.
-  type: long
+  type: unsigned_long
 process.thread.Ext.parameter_bytes_compressed:
   dashed_name: process-thread-Ext-parameter-bytes-compressed
   description: Up to 512KB of raw data from the thread parameter, if it is a valid
@@ -6494,7 +6494,7 @@ process.thread.Ext.start_address:
   name: thread.Ext.start_address
   normalize: []
   short: Memory address where the thread began execution.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_allocation_offset:
   dashed_name: process-thread-Ext-start-address-allocation-offset
   description: Offset of start_address into the memory allocation. Equal to start_address
@@ -6506,7 +6506,7 @@ process.thread.Ext.start_address_allocation_offset:
   normalize: []
   short: Offset of start_address into the memory allocation. Equal to start_address
     - start_address_details.allocation_base.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_bytes:
   dashed_name: process-thread-Ext-start-address-bytes
   description: A few (typically 32) raw opcode bytes at the thread start address,
@@ -6555,7 +6555,7 @@ process.thread.Ext.start_address_details.allocation_base:
   normalize: []
   original_fieldset: memory_region
   short: Base address of the memory allocation containing the memory region.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.allocation_protection:
   dashed_name: process-thread-Ext-start-address-details-allocation-protection
   description: Original memory protection requested when the memory was allocated.
@@ -6582,7 +6582,7 @@ process.thread.Ext.start_address_details.allocation_size:
   original_fieldset: memory_region
   short: Original memory protection requested when the memory was allocated. Example
     values include "RWX" and "R-X".
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.allocation_type:
   dashed_name: process-thread-Ext-start-address-details-allocation-type
   description: The memory allocation type. Example values include "IMAGE", "MAPPED",
@@ -6607,7 +6607,7 @@ process.thread.Ext.start_address_details.bytes_address:
   normalize: []
   original_fieldset: memory_region
   short: The address where bytes_compressed begins.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.bytes_allocation_offset:
   dashed_name: process-thread-Ext-start-address-details-bytes-allocation-offset
   description: Offset of bytes_address the memory allocation. Equal to bytes_address
@@ -6619,7 +6619,7 @@ process.thread.Ext.start_address_details.bytes_allocation_offset:
   normalize: []
   original_fieldset: memory_region
   short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.bytes_compressed:
   dashed_name: process-thread-Ext-start-address-details-bytes-compressed
   description: Up to 4MB of raw data from the memory allocation. This is compressed
@@ -6831,7 +6831,7 @@ process.thread.Ext.start_address_details.region_base:
   normalize: []
   original_fieldset: memory_region
   short: Base address of the memory region.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.region_protection:
   dashed_name: process-thread-Ext-start-address-details-region-protection
   description: Memory protection of the memory region. Example values include "RWX"
@@ -6856,7 +6856,7 @@ process.thread.Ext.start_address_details.region_size:
   normalize: []
   original_fieldset: memory_region
   short: Size of the memory region.
-  type: long
+  type: unsigned_long
 process.thread.Ext.start_address_details.region_state:
   dashed_name: process-thread-Ext-start-address-details-region-state
   description: State of the memory region. Example values include "RESERVE", "COMMIT",

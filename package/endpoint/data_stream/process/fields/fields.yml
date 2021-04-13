@@ -609,12 +609,12 @@
       default_field: false
     - name: Ext.dll.Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: The base address where this module is loaded.
       default_field: false
     - name: Ext.dll.Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: The size of this module's memory mapping, in bytes.
       default_field: false
     - name: Ext.dll.hash.md5
