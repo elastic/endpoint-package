@@ -91,14 +91,14 @@
 
     - name: thread.Ext.start_address
       level: custom
-      type: long
+      type: unsigned_long
       example: 4194304
       description: >
         Memory address where the thread began execution.
 
     - name: thread.Ext.start_address_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       example: 0
       description: >
         Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
@@ -152,7 +152,7 @@
         
     - name: thread.Ext.parameter
       level: custom
-      type: long
+      type: unsigned_long
       description: >
         When a thread is created, this is the raw numerical value of its parameter.
 
@@ -176,7 +176,7 @@
         
     - name: Ext.dll
       level: custom
-      type: nested
+      type: object
       description: >
         List of modules loaded within this process
 

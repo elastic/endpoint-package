@@ -14,7 +14,7 @@
   fields:
     - name: allocation_base
       level: custom
-      type: long
+      type: unsigned_long
       example: 2431737462784
       description: >
         Base address of the memory allocation containing the memory region.
@@ -28,7 +28,7 @@
 
     - name: allocation_size
       level: custom
-      type: long
+      type: unsigned_long
       example: 4096
       description: >
         Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". 
@@ -42,14 +42,14 @@
         
     - name: bytes_address
       level: custom
-      type: long
+      type: unsigned_long
       example: 2431737462784
       description: >
         The address where bytes_compressed begins.
         
     - name: bytes_allocation_offset
       level: custom
-      type: long
+      type: unsigned_long
       example: 0
       description: >
         Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
@@ -91,7 +91,7 @@
 
     - name: region_base
       level: custom
-      type: long
+      type: unsigned_long
       example: 2431737462784
       description: >
         Base address of the memory region.
@@ -105,7 +105,7 @@
 
     - name: region_size
       level: custom
-      type: long
+      type: unsigned_long
       example: 4096
       description: >
         Size of the memory region.
