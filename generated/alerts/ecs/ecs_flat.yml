@@ -2688,6 +2688,7 @@ Target.process.thread.Ext.parameter_bytes_compressed:
     on the endpoint, and may be missing from many alerts if the same data would be
     sent multiple times.
   flat_name: Target.process.thread.Ext.parameter_bytes_compressed
+  ignore_above: 1024
   level: custom
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
@@ -2696,7 +2697,7 @@ Target.process.thread.Ext.parameter_bytes_compressed:
     This is compressed with zlib. To reduce data volume, this is de-duplicated on
     the endpoint, and may be missing from many alerts if the same data would be sent
     multiple times.
-  type: long
+  type: keyword
 Target.process.thread.Ext.parameter_bytes_compressed_present:
   dashed_name: Target-process-thread-Ext-parameter-bytes-compressed-present
   description: Whether parameter_bytes_compressed is present in this event.
@@ -8031,6 +8032,7 @@ process.thread.Ext.parameter_bytes_compressed:
     on the endpoint, and may be missing from many alerts if the same data would be
     sent multiple times.
   flat_name: process.thread.Ext.parameter_bytes_compressed
+  ignore_above: 1024
   level: custom
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
@@ -8038,7 +8040,7 @@ process.thread.Ext.parameter_bytes_compressed:
     This is compressed with zlib. To reduce data volume, this is de-duplicated on
     the endpoint, and may be missing from many alerts if the same data would be sent
     multiple times.
-  type: long
+  type: keyword
 process.thread.Ext.parameter_bytes_compressed_present:
   dashed_name: process-thread-Ext-parameter-bytes-compressed-present
   description: Whether parameter_bytes_compressed is present in this event.

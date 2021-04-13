@@ -1067,7 +1067,8 @@
                         "type": "long"
                       },
                       "parameter_bytes_compressed": {
-                        "type": "long"
+                        "ignore_above": 1024,
+                        "type": "keyword"
                       },
                       "parameter_bytes_compressed_present": {
                         "type": "boolean"
@@ -3002,7 +3003,8 @@
                     "type": "long"
                   },
                   "parameter_bytes_compressed": {
-                    "type": "long"
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "parameter_bytes_compressed_present": {
                     "type": "boolean"

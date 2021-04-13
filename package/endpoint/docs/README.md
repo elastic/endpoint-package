@@ -214,7 +214,7 @@ sent by the endpoint.
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | long |
-| Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | long |
+| Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
 | Target.process.thread.Ext.start | The time the thread started. | date |
@@ -605,7 +605,7 @@ sent by the endpoint.
 | process.start | The time the process started. | date |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | long |
-| process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | long |
+| process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.service | Service associated with the thread. | keyword |
 | process.thread.Ext.start | The time the thread started. | date |
