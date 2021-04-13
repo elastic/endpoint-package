@@ -151,6 +151,36 @@ fields:
               trusted: {}
               valid: {}
           defense_evasions: {}
+          dll:
+            fields:
+              name: {}
+              path: {}
+              hash:
+                fields:
+                  md5: {}
+                  sha1: {}
+                  sha256: {}
+                  sha512: {}
+              pe:
+                fields: &pe-fields
+                  company: {}
+                  description: {}
+                  file_version: {}
+                  imphash: {}
+                  original_file_name: {}
+                  product: {}
+              Ext:
+                fields:
+                  mapped_address: {}
+                  mapped_size: {}
+                  compile_time: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                      valid: {}
           session: {}
           token:
             fields:
@@ -199,9 +229,6 @@ fields:
           working_directory: {}
           Ext:
             fields:
-              real:
-                fields:
-                  pid: {}
               code_signature:
                 fields:
                   exists: {}
@@ -209,6 +236,9 @@ fields:
                   subject_name: {}
                   trusted: {}
                   valid: {}
+              real:
+                fields:
+                  pid: {}
   package:
     fields:
       name: {}

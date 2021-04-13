@@ -176,7 +176,7 @@
         
     - name: Ext.dll
       level: custom
-      type: object
+      type: nested
       description: >
         List of modules loaded within this process
 

@@ -370,6 +370,20 @@ fields:
                 exceptionable: true
           name:
             exceptionable: true
+          pe:
+            fields:
+              company:
+                exceptionable: true
+              description:
+                exceptionable: true
+              file_version:
+                exceptionable: true
+              imphash:
+                exceptionable: true
+              original_file_name:
+                exceptionable: true
+              product:
+                exceptionable: true
           pgid:
             exceptionable: true
           pid: {}
@@ -419,6 +433,8 @@ fields:
                   sid: {}
                   type: {}
                   user: {}
+              user:
+                exceptionable: true
   user:
     fields:
       domain: {}

@@ -24,7 +24,7 @@
 
     - name: Ext.mapped_address
       level: custom
-      type: keyword
+      type: long
       description: >
         The base address where this module is loaded.
 
