@@ -554,6 +554,153 @@
       ignore_above: 1024
       description: "List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping."
       default_field: false
+    - name: Ext.dll.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: Ext.dll.Ext.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+      default_field: false
+    - name: Ext.dll.Ext.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: Ext.dll.Ext.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: Ext.dll.Ext.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: Ext.dll.Ext.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: Ext.dll.Ext.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: Ext.dll.Ext.compile_time
+      level: custom
+      type: date
+      description: Timestamp from when the module was compiled.
+      default_field: false
+    - name: Ext.dll.Ext.mapped_address
+      level: custom
+      type: long
+      description: The base address where this module is loaded.
+      default_field: false
+    - name: Ext.dll.Ext.mapped_size
+      level: custom
+      type: long
+      description: The size of this module's memory mapping, in bytes.
+      default_field: false
+    - name: Ext.dll.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: Ext.dll.hash.sha1
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA1 hash.
+      default_field: false
+    - name: Ext.dll.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: Ext.dll.hash.sha512
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA512 hash.
+      default_field: false
+    - name: Ext.dll.name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the library.
+
+        This generally maps to the name of the file on disk.'
+      example: kernel32.dll
+      default_field: false
+    - name: Ext.dll.path
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Full file path of the library.
+      example: C:\Windows\System32\kernel32.dll
+      default_field: false
+    - name: Ext.dll.pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: Ext.dll.pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: Ext.dll.pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: Ext.dll.pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: Ext.dll.pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: Ext.dll.pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
     - name: Ext.session
       level: custom
       type: keyword

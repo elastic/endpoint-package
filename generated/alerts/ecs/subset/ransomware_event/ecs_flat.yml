@@ -617,12 +617,11 @@ dll.Ext.mapped_address:
   dashed_name: dll-Ext-mapped-address
   description: The base address where this module is loaded.
   flat_name: dll.Ext.mapped_address
-  ignore_above: 1024
   level: custom
   name: Ext.mapped_address
   normalize: []
   short: The base address where this module is loaded.
-  type: keyword
+  type: long
 dll.Ext.mapped_size:
   dashed_name: dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.

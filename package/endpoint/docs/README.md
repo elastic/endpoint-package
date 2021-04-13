@@ -57,7 +57,7 @@ sent by the endpoint.
 | Target.dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| Target.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| Target.dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | Target.dll.hash.md5 | MD5 hash. | keyword |
 | Target.dll.hash.sha1 | SHA1 hash. | keyword |
@@ -89,7 +89,7 @@ sent by the endpoint.
 | Target.process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
@@ -152,7 +152,7 @@ sent by the endpoint.
 | Target.process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | Target.process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | Target.process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
@@ -182,6 +182,7 @@ sent by the endpoint.
 | Target.process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | Target.process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.parent.Ext.token.user | Username of token owner. | keyword |
+| Target.process.parent.Ext.user | User associated with the running process. | keyword |
 | Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -193,6 +194,12 @@ sent by the endpoint.
 | Target.process.parent.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.parent.hash.sha512 | SHA512 hash. | keyword |
 | Target.process.parent.name | Process name. Sometimes called program name or similar. | keyword |
+| Target.process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | Target.process.parent.pid | Process id. | long |
 | Target.process.parent.ppid | Parent process' pid. | long |
@@ -300,7 +307,7 @@ sent by the endpoint.
 | dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | dll.hash.md5 | MD5 hash. | keyword |
 | dll.hash.sha1 | SHA1 hash. | keyword |
@@ -480,7 +487,7 @@ sent by the endpoint.
 | process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
@@ -543,7 +550,7 @@ sent by the endpoint.
 | process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
+| process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
 | process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
 | process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
@@ -573,6 +580,7 @@ sent by the endpoint.
 | process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | process.parent.Ext.token.user | Username of token owner. | keyword |
+| process.parent.Ext.user | User associated with the running process. | keyword |
 | process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -584,6 +592,12 @@ sent by the endpoint.
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
@@ -1203,6 +1217,28 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping. | keyword |
+| process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
+| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | long |
+| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| process.Ext.dll.hash.md5 | MD5 hash. | keyword |
+| process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
+| process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
+| process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
+| process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| process.Ext.dll.path | Full file path of the library. | keyword |
+| process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |

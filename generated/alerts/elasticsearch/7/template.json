@@ -260,8 +260,7 @@
                     }
                   },
                   "mapped_address": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "type": "long"
                   },
                   "mapped_size": {
                     "type": "long"
@@ -395,8 +394,7 @@
                             "type": "date"
                           },
                           "mapped_address": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
+                            "type": "long"
                           },
                           "mapped_size": {
                             "type": "long"
@@ -715,8 +713,7 @@
                                 "type": "date"
                               },
                               "mapped_address": {
-                                "ignore_above": 1024,
-                                "type": "keyword"
+                                "type": "long"
                               },
                               "mapped_size": {
                                 "type": "long"
@@ -846,6 +843,10 @@
                             "type": "keyword"
                           }
                         }
+                      },
+                      "user": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
                       }
                     },
                     "type": "object"
@@ -928,6 +929,34 @@
                     },
                     "ignore_above": 1024,
                     "type": "keyword"
+                  },
+                  "pe": {
+                    "properties": {
+                      "company": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "description": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "file_version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "original_file_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "product": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   },
                   "pgid": {
                     "type": "long"
@@ -1465,8 +1494,7 @@
                 }
               },
               "mapped_address": {
-                "ignore_above": 1024,
-                "type": "keyword"
+                "type": "long"
               },
               "mapped_size": {
                 "type": "long"
@@ -2331,8 +2359,7 @@
                         "type": "date"
                       },
                       "mapped_address": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
+                        "type": "long"
                       },
                       "mapped_size": {
                         "type": "long"
@@ -2651,8 +2678,7 @@
                             "type": "date"
                           },
                           "mapped_address": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
+                            "type": "long"
                           },
                           "mapped_size": {
                             "type": "long"
@@ -2782,6 +2808,10 @@
                         "type": "keyword"
                       }
                     }
+                  },
+                  "user": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   }
                 },
                 "type": "object"
@@ -2864,6 +2894,34 @@
                 },
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "pe": {
+                "properties": {
+                  "company": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "description": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "imphash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "original_file_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
               },
               "pgid": {
                 "type": "long"

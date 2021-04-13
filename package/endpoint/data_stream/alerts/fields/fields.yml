@@ -357,8 +357,7 @@
       default_field: false
     - name: dll.Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: dll.Ext.mapped_size
@@ -572,8 +571,7 @@
       default_field: false
     - name: process.Ext.dll.Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: process.Ext.dll.Ext.mapped_size
@@ -1037,8 +1035,7 @@
       default_field: false
     - name: process.parent.Ext.dll.Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: process.parent.Ext.dll.Ext.mapped_size
@@ -1221,6 +1218,12 @@
       ignore_above: 1024
       description: Username of token owner.
       default_field: false
+    - name: process.parent.Ext.user
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: User associated with the running process.
+      default_field: false
     - name: process.parent.args
       level: extended
       type: keyword
@@ -1333,6 +1336,50 @@
 
         Sometimes called program name or similar.'
       example: ssh
+      default_field: false
+    - name: process.parent.pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.parent.pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: process.parent.pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: process.parent.pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: process.parent.pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: process.parent.pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
       default_field: false
     - name: process.parent.pgid
       level: extended
@@ -2164,8 +2211,7 @@
       default_field: false
     - name: Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: Ext.mapped_size
@@ -3437,8 +3483,7 @@
       default_field: false
     - name: Ext.dll.Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: Ext.dll.Ext.mapped_size
@@ -3899,8 +3944,7 @@
       default_field: false
     - name: parent.Ext.dll.Ext.mapped_address
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: long
       description: The base address where this module is loaded.
       default_field: false
     - name: parent.Ext.dll.Ext.mapped_size
@@ -4083,6 +4127,12 @@
       ignore_above: 1024
       description: Username of token owner.
       default_field: false
+    - name: parent.Ext.user
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: User associated with the running process.
+      default_field: false
     - name: parent.args
       level: extended
       type: keyword
@@ -4195,6 +4245,50 @@
 
         Sometimes called program name or similar.'
       example: ssh
+      default_field: false
+    - name: parent.pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: parent.pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: parent.pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: parent.pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: parent.pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: parent.pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
       default_field: false
     - name: parent.pgid
       level: extended
