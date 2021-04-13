@@ -24,13 +24,13 @@
 
     - name: Ext.mapped_address
       level: custom
-      type: long
+      type: unsigned_long
       description: >
         The base address where this module is loaded.
 
     - name: Ext.mapped_size
       level: custom
-      type: long
+      type: unsigned_long
       description: >
         The size of this module's memory mapping, in bytes.
 
