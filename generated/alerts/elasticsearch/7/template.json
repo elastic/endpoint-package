@@ -1096,7 +1096,9 @@
                         "type": "unsigned_long"
                       },
                       "parameter_bytes_compressed": {
+                        "doc_values": false,
                         "ignore_above": 1024,
+                        "index": false,
                         "type": "keyword"
                       },
                       "parameter_bytes_compressed_present": {
@@ -1150,7 +1152,9 @@
                             "type": "unsigned_long"
                           },
                           "bytes_compressed": {
+                            "doc_values": false,
                             "ignore_above": 1024,
+                            "index": false,
                             "type": "keyword"
                           },
                           "bytes_compressed_present": {
@@ -3061,7 +3065,9 @@
                     "type": "unsigned_long"
                   },
                   "parameter_bytes_compressed": {
+                    "doc_values": false,
                     "ignore_above": 1024,
+                    "index": false,
                     "type": "keyword"
                   },
                   "parameter_bytes_compressed_present": {
@@ -3115,7 +3121,9 @@
                         "type": "unsigned_long"
                       },
                       "bytes_compressed": {
+                        "doc_values": false,
                         "ignore_above": 1024,
+                        "index": false,
                         "type": "keyword"
                       },
                       "bytes_compressed_present": {

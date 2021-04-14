@@ -2168,8 +2168,10 @@ Target.process.thread.Ext.parameter_bytes_compressed:
     pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated
     on the endpoint, and may be missing from many alerts if the same data would be
     sent multiple times.
+  doc_values: false
   flat_name: Target.process.thread.Ext.parameter_bytes_compressed
   ignore_above: 1024
+  index: false
   level: custom
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
@@ -2357,9 +2359,11 @@ Target.process.thread.Ext.start_address_details.bytes_compressed:
   description: Up to 4MB of raw data from the memory allocation. This is compressed
     with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may
     be missing from many alerts if the same data would be sent multiple times.
+  doc_values: false
   example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
   flat_name: Target.process.thread.Ext.start_address_details.bytes_compressed
   ignore_above: 1024
+  index: false
   level: custom
   name: bytes_compressed
   normalize: []
@@ -6445,8 +6449,10 @@ process.thread.Ext.parameter_bytes_compressed:
     pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated
     on the endpoint, and may be missing from many alerts if the same data would be
     sent multiple times.
+  doc_values: false
   flat_name: process.thread.Ext.parameter_bytes_compressed
   ignore_above: 1024
+  index: false
   level: custom
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
@@ -6625,9 +6631,11 @@ process.thread.Ext.start_address_details.bytes_compressed:
   description: Up to 4MB of raw data from the memory allocation. This is compressed
     with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may
     be missing from many alerts if the same data would be sent multiple times.
+  doc_values: false
   example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
   flat_name: process.thread.Ext.start_address_details.bytes_compressed
   ignore_above: 1024
+  index: false
   level: custom
   name: bytes_compressed
   normalize: []

@@ -159,6 +159,7 @@
     - name: thread.Ext.parameter_bytes_compressed
       level: custom
       type: keyword
+      index: false
       description: >
         Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
         
