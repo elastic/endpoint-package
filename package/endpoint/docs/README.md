@@ -1217,28 +1217,6 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping. | keyword |
-| process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
-| process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
-| process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
-| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| process.Ext.dll.hash.md5 | MD5 hash. | keyword |
-| process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
-| process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
-| process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
-| process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
