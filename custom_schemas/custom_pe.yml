@@ -6,4 +6,8 @@
   type: group
   reusable:
     order: 1
-    expected: []
+    expected:
+      - at: memory_region
+        as: mapped_pe
+      - at: memory_region
+        as: memory_pe

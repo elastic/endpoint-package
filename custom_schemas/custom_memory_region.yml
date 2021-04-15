@@ -1,0 +1,126 @@
+---
+- name: memory_region
+  title: Memory Region
+  group: 2
+  short: Fields describing a memory region.
+  description: >
+    Fields describing a memory region.
+  reusable:
+    order: 1
+    top_level: false
+    expected:
+      - at: process.thread.Ext
+        as: start_address_details
+  fields:
+    - name: allocation_base
+      level: custom
+      type: unsigned_long
+      example: 2431737462784
+      description: >
+        Base address of the memory allocation containing the memory region.
+        
+    - name: allocation_protection
+      level: custom
+      type: keyword
+      example: "RWX"
+      description: >
+        Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X".
+
+    - name: allocation_size
+      level: custom
+      type: unsigned_long
+      example: 4096
+      description: >
+        Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". 
+        
+    - name: allocation_type
+      level: custom
+      type: keyword
+      example: "PRIVATE"
+      description: >
+        The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE".
+        
+    - name: bytes_address
+      level: custom
+      type: unsigned_long
+      example: 2431737462784
+      description: >
+        The address where bytes_compressed begins.
+        
+    - name: bytes_allocation_offset
+      level: custom
+      type: unsigned_long
+      example: 0
+      description: >
+        Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
+        
+    - name: bytes_compressed
+      level: custom
+      type: keyword
+      index: false
+      example: "eJzzSM3JyVcIzy/KSVEEABxJBD4="
+      description: >
+        Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+        
+    - name: bytes_compressed_present
+      level: custom
+      type: boolean
+      example: false
+      description: >
+        Whether bytes_compressed is present in this event.
+        
+    - name: mapped_path
+      level: custom
+      type: keyword
+      example: "C:\\Windows\\System32\\mshtml.dll"
+      description: >
+        If the memory corresponds to a file mapping, this is the file's path.
+        
+    - name: mapped_pe_detected
+      level: custom
+      type: boolean
+      example: false
+      description: >
+        Whether the file at mapped_path is an executable.
+
+    - name: memory_pe_detected
+      level: custom
+      type: boolean
+      example: false
+      description: >
+        Whether an executable file was found in memory.
+
+    - name: region_base
+      level: custom
+      type: unsigned_long
+      example: 2431737462784
+      description: >
+        Base address of the memory region.
+        
+    - name: region_protection
+      level: custom
+      type: keyword
+      example: "RWX"
+      description: >
+        Memory protection of the memory region. Example values include "RWX" and "R-X".
+
+    - name: region_size
+      level: custom
+      type: unsigned_long
+      example: 4096
+      description: >
+        Size of the memory region.
+        
+    - name: region_state
+      level: custom
+      type: keyword
+      example: "COMMIT"
+      description: >
+        State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE".
+
+    - name: strings
+      level: custom
+      type: keyword
+      description: >
+        Array of strings found within the memory region.
+

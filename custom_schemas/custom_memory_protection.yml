@@ -1,0 +1,39 @@
+---
+- name: Memory_protection
+  title: Memory Protection
+  group: 2
+  short: These fields contain information specific to Memory Protection alerts.
+  description: >
+    These fields contain information specific to Memory Protection alerts.
+  type: group
+  fields:
+    - name: feature
+      level: custom
+      type: keyword
+      example: "shellcode_thread"
+      description: Memory Protection feature which triggered the alert.
+
+    - name: thread_count
+      level: custom
+      type: long
+      description: The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1.
+    
+    - name: self_injection
+      level: custom
+      type: boolean
+      description: Is this alert about a process injecting into itself?
+
+    - name: parent_to_child
+      level: custom
+      type: boolean
+      description: Is this process injecting into its child?
+    
+    - name: cross_session
+      level: custom
+      type: boolean
+      description: Is this process injecting across operating system sessions?
+    
+    - name: unique_key_v1
+      level: custom
+      type: keyword
+      description: A unique key created by hashing several characteristics of this alert.

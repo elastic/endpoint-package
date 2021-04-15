@@ -24,6 +24,12 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
+| Memory_protection.cross_session | Is this process injecting across operating system sessions? | boolean |
+| Memory_protection.feature | Memory Protection feature which triggered the alert. | keyword |
+| Memory_protection.parent_to_child | Is this process injecting into its child? | boolean |
+| Memory_protection.self_injection | Is this alert about a process injecting into itself? | boolean |
+| Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
+| Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
 | Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
@@ -51,8 +57,8 @@ sent by the endpoint.
 | Target.dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| Target.dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
-| Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| Target.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | Target.dll.hash.md5 | MD5 hash. | keyword |
 | Target.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -67,6 +73,7 @@ sent by the endpoint.
 | Target.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| Target.process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.Ext.authentication_id | Process authentication ID | keyword |
 | Target.process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -74,6 +81,28 @@ sent by the endpoint.
 | Target.process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| Target.process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| Target.process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| Target.process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
+| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
+| Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
+| Target.process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
+| Target.process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
+| Target.process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| Target.process.Ext.dll.path | Full file path of the library. | keyword |
+| Target.process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | Target.process.Ext.malware_classification.score | The score produced by the classification model. | double |
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
@@ -108,14 +137,52 @@ sent by the endpoint.
 | Target.process.hash.sha512 | SHA512 hash. | keyword |
 | Target.process.name | Process name. Sometimes called program name or similar. | keyword |
 | Target.process.parent.Ext | Object for all custom defined fields to live in. | object |
+| Target.process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | Target.process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| Target.process.parent.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| Target.process.parent.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| Target.process.parent.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.parent.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.parent.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| Target.process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
+| Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| Target.process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| Target.process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
+| Target.process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
+| Target.process.parent.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
+| Target.process.parent.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
+| Target.process.parent.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| Target.process.parent.Ext.dll.path | Full file path of the library. | keyword |
+| Target.process.parent.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.parent.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.parent.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | Target.process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
+| Target.process.parent.Ext.token.domain | Domain of token user. | keyword |
+| Target.process.parent.Ext.token.elevation | Whether the token is elevated or not | boolean |
+| Target.process.parent.Ext.token.elevation_type | What level of elevation the token has | keyword |
+| Target.process.parent.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
+| Target.process.parent.Ext.token.integrity_level | Numeric integrity level. | long |
+| Target.process.parent.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
+| Target.process.parent.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
+| Target.process.parent.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
+| Target.process.parent.Ext.token.privileges.description | Description of the privilege. | keyword |
+| Target.process.parent.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
+| Target.process.parent.Ext.token.privileges.name | Name of the privilege. | keyword |
+| Target.process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
+| Target.process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
+| Target.process.parent.Ext.token.user | Username of token owner. | keyword |
+| Target.process.parent.Ext.user | User associated with the running process. | keyword |
 | Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -127,6 +194,12 @@ sent by the endpoint.
 | Target.process.parent.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.parent.hash.sha512 | SHA512 hash. | keyword |
 | Target.process.parent.name | Process name. Sometimes called program name or similar. | keyword |
+| Target.process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | Target.process.parent.pid | Process id. | long |
 | Target.process.parent.ppid | Parent process' pid. | long |
@@ -147,9 +220,43 @@ sent by the endpoint.
 | Target.process.ppid | Parent process' pid. | long |
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
+| Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
+| Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
 | Target.process.thread.Ext.start | The time the thread started. | date |
-| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | keyword |
+| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
+| Target.process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
+| Target.process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
+| Target.process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
+| Target.process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
+| Target.process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
+| Target.process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
+| Target.process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| Target.process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| Target.process.thread.Ext.start_address_details.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
+| Target.process.thread.Ext.start_address_details.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.mapped_pe_detected | Whether the file at mapped_path is an executable. | boolean |
+| Target.process.thread.Ext.start_address_details.memory_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| Target.process.thread.Ext.start_address_details.memory_pe_detected | Whether an executable file was found in memory. | boolean |
+| Target.process.thread.Ext.start_address_details.region_base | Base address of the memory region. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
+| Target.process.thread.Ext.start_address_details.region_size | Size of the memory region. | unsigned_long |
+| Target.process.thread.Ext.start_address_details.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| Target.process.thread.Ext.start_address_details.strings | Array of strings found within the memory region. | keyword |
 | Target.process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.token.domain | Domain of token user. | keyword |
 | Target.process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |
@@ -200,8 +307,8 @@ sent by the endpoint.
 | dll.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | dll.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
-| dll.Ext.mapped_address | The base address where this module is loaded. | keyword |
-| dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | long |
+| dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | dll.hash.md5 | MD5 hash. | keyword |
 | dll.hash.sha1 | SHA1 hash. | keyword |
 | dll.hash.sha256 | SHA256 hash. | keyword |
@@ -364,6 +471,7 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -371,6 +479,28 @@ sent by the endpoint.
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
+| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| process.Ext.dll.hash.md5 | MD5 hash. | keyword |
+| process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
+| process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
+| process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
+| process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| process.Ext.dll.path | Full file path of the library. | keyword |
+| process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | process.Ext.malware_classification.score | The score produced by the classification model. | double |
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
@@ -405,14 +535,52 @@ sent by the endpoint.
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
+| process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.parent.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| process.parent.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.parent.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.parent.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.parent.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.parent.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.parent.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
+| process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
+| process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
+| process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
+| process.parent.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
+| process.parent.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
+| process.parent.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| process.parent.Ext.dll.path | Full file path of the library. | keyword |
+| process.parent.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.parent.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.parent.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
+| process.parent.Ext.token.domain | Domain of token user. | keyword |
+| process.parent.Ext.token.elevation | Whether the token is elevated or not | boolean |
+| process.parent.Ext.token.elevation_type | What level of elevation the token has | keyword |
+| process.parent.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
+| process.parent.Ext.token.integrity_level | Numeric integrity level. | long |
+| process.parent.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
+| process.parent.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
+| process.parent.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
+| process.parent.Ext.token.privileges.description | Description of the privilege. | keyword |
+| process.parent.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
+| process.parent.Ext.token.privileges.name | Name of the privilege. | keyword |
+| process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
+| process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
+| process.parent.Ext.token.user | Username of token owner. | keyword |
+| process.parent.Ext.user | User associated with the running process. | keyword |
 | process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
@@ -424,6 +592,12 @@ sent by the endpoint.
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
@@ -444,9 +618,43 @@ sent by the endpoint.
 | process.ppid | Parent process' pid. | long |
 | process.start | The time the process started. | date |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
+| process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.service | Service associated with the thread. | keyword |
 | process.thread.Ext.start | The time the thread started. | date |
-| process.thread.Ext.start_address | Memory address where the thread began execution. | keyword |
+| process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
+| process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
+| process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
+| process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
+| process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
+| process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
+| process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
+| process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
+| process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
+| process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| process.thread.Ext.start_address_details.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| process.thread.Ext.start_address_details.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
+| process.thread.Ext.start_address_details.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.mapped_pe_detected | Whether the file at mapped_path is an executable. | boolean |
+| process.thread.Ext.start_address_details.memory_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.memory_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.memory_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.thread.Ext.start_address_details.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.thread.Ext.start_address_details.memory_pe_detected | Whether an executable file was found in memory. | boolean |
+| process.thread.Ext.start_address_details.region_base | Base address of the memory region. | unsigned_long |
+| process.thread.Ext.start_address_details.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
+| process.thread.Ext.start_address_details.region_size | Size of the memory region. | unsigned_long |
+| process.thread.Ext.start_address_details.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| process.thread.Ext.start_address_details.strings | Array of strings found within the memory region. | keyword |
 | process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | process.thread.Ext.token.domain | Domain of token user. | keyword |
 | process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |

@@ -102,6 +102,30 @@
           }
         }
       },
+      "Memory_protection": {
+        "properties": {
+          "cross_session": {
+            "type": "boolean"
+          },
+          "feature": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "parent_to_child": {
+            "type": "boolean"
+          },
+          "self_injection": {
+            "type": "boolean"
+          },
+          "thread_count": {
+            "type": "long"
+          },
+          "unique_key_v1": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "Ransomware": {
         "properties": {
           "child_pids": {
@@ -236,11 +260,10 @@
                     }
                   },
                   "mapped_address": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "type": "unsigned_long"
                   },
                   "mapped_size": {
-                    "type": "long"
+                    "type": "unsigned_long"
                   }
                 },
                 "type": "object"
@@ -311,6 +334,10 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "authentication_id": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -336,6 +363,102 @@
                       }
                     },
                     "type": "nested"
+                  },
+                  "dll": {
+                    "properties": {
+                      "Ext": {
+                        "properties": {
+                          "code_signature": {
+                            "properties": {
+                              "exists": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "subject_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "trusted": {
+                                "type": "boolean"
+                              },
+                              "valid": {
+                                "type": "boolean"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "compile_time": {
+                            "type": "date"
+                          },
+                          "mapped_address": {
+                            "type": "unsigned_long"
+                          },
+                          "mapped_size": {
+                            "type": "unsigned_long"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "hash": {
+                        "properties": {
+                          "md5": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha1": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha256": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha512": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "path": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "pe": {
+                        "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    }
                   },
                   "malware_classification": {
                     "properties": {
@@ -534,6 +657,10 @@
                 "properties": {
                   "Ext": {
                     "properties": {
+                      "architecture": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "code_signature": {
                         "properties": {
                           "exists": {
@@ -556,6 +683,102 @@
                         },
                         "type": "nested"
                       },
+                      "dll": {
+                        "properties": {
+                          "Ext": {
+                            "properties": {
+                              "code_signature": {
+                                "properties": {
+                                  "exists": {
+                                    "type": "boolean"
+                                  },
+                                  "status": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                  },
+                                  "subject_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                  },
+                                  "trusted": {
+                                    "type": "boolean"
+                                  },
+                                  "valid": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "type": "nested"
+                              },
+                              "compile_time": {
+                                "type": "date"
+                              },
+                              "mapped_address": {
+                                "type": "unsigned_long"
+                              },
+                              "mapped_size": {
+                                "type": "unsigned_long"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "hash": {
+                            "properties": {
+                              "md5": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "sha1": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "sha512": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "path": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "pe": {
+                            "properties": {
+                              "company": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "description": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "file_version": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "imphash": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "original_file_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "product": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          }
+                        }
+                      },
                       "real": {
                         "properties": {
                           "pid": {
@@ -563,6 +786,67 @@
                           }
                         },
                         "type": "object"
+                      },
+                      "token": {
+                        "properties": {
+                          "domain": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "elevation": {
+                            "type": "boolean"
+                          },
+                          "elevation_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "impersonation_level": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "integrity_level": {
+                            "type": "long"
+                          },
+                          "integrity_level_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "is_appcontainer": {
+                            "type": "boolean"
+                          },
+                          "privileges": {
+                            "properties": {
+                              "description": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "sid": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "user": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "user": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
                       }
                     },
                     "type": "object"
@@ -645,6 +929,34 @@
                     },
                     "ignore_above": 1024,
                     "type": "keyword"
+                  },
+                  "pe": {
+                    "properties": {
+                      "company": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "description": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "file_version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "original_file_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "product": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   },
                   "pgid": {
                     "type": "long"
@@ -780,6 +1092,18 @@
                         },
                         "type": "group"
                       },
+                      "parameter": {
+                        "type": "unsigned_long"
+                      },
+                      "parameter_bytes_compressed": {
+                        "doc_values": false,
+                        "ignore_above": 1024,
+                        "index": false,
+                        "type": "keyword"
+                      },
+                      "parameter_bytes_compressed_present": {
+                        "type": "boolean"
+                      },
                       "service": {
                         "ignore_above": 1024,
                         "type": "keyword"
@@ -788,8 +1112,135 @@
                         "type": "date"
                       },
                       "start_address": {
+                        "type": "unsigned_long"
+                      },
+                      "start_address_allocation_offset": {
+                        "type": "unsigned_long"
+                      },
+                      "start_address_bytes": {
                         "ignore_above": 1024,
                         "type": "keyword"
+                      },
+                      "start_address_bytes_disasm": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "start_address_bytes_disasm_hash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "start_address_details": {
+                        "properties": {
+                          "allocation_base": {
+                            "type": "unsigned_long"
+                          },
+                          "allocation_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "allocation_size": {
+                            "type": "unsigned_long"
+                          },
+                          "allocation_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "bytes_address": {
+                            "type": "unsigned_long"
+                          },
+                          "bytes_allocation_offset": {
+                            "type": "unsigned_long"
+                          },
+                          "bytes_compressed": {
+                            "doc_values": false,
+                            "ignore_above": 1024,
+                            "index": false,
+                            "type": "keyword"
+                          },
+                          "bytes_compressed_present": {
+                            "type": "boolean"
+                          },
+                          "mapped_pe": {
+                            "properties": {
+                              "company": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "description": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "file_version": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "imphash": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "original_file_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "product": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "mapped_pe_detected": {
+                            "type": "boolean"
+                          },
+                          "memory_pe": {
+                            "properties": {
+                              "company": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "description": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "file_version": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "imphash": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "original_file_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "product": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "memory_pe_detected": {
+                            "type": "boolean"
+                          },
+                          "region_base": {
+                            "type": "unsigned_long"
+                          },
+                          "region_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "region_size": {
+                            "type": "unsigned_long"
+                          },
+                          "region_state": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "strings": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
                       },
                       "start_address_module": {
                         "ignore_above": 1024,
@@ -1047,11 +1498,10 @@
                 }
               },
               "mapped_address": {
-                "ignore_above": 1024,
-                "type": "keyword"
+                "type": "unsigned_long"
               },
               "mapped_size": {
-                "type": "long"
+                "type": "unsigned_long"
               }
             },
             "type": "object"
@@ -1853,6 +2303,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "authentication_id": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1878,6 +2332,102 @@
                   }
                 },
                 "type": "nested"
+              },
+              "dll": {
+                "properties": {
+                  "Ext": {
+                    "properties": {
+                      "code_signature": {
+                        "properties": {
+                          "exists": {
+                            "type": "boolean"
+                          },
+                          "status": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "subject_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "trusted": {
+                            "type": "boolean"
+                          },
+                          "valid": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "nested"
+                      },
+                      "compile_time": {
+                        "type": "date"
+                      },
+                      "mapped_address": {
+                        "type": "unsigned_long"
+                      },
+                      "mapped_size": {
+                        "type": "unsigned_long"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "hash": {
+                    "properties": {
+                      "md5": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha1": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha256": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "sha512": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "pe": {
+                    "properties": {
+                      "company": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "description": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "file_version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "original_file_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "product": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
               },
               "malware_classification": {
                 "properties": {
@@ -2076,6 +2626,10 @@
             "properties": {
               "Ext": {
                 "properties": {
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "code_signature": {
                     "properties": {
                       "exists": {
@@ -2098,6 +2652,102 @@
                     },
                     "type": "nested"
                   },
+                  "dll": {
+                    "properties": {
+                      "Ext": {
+                        "properties": {
+                          "code_signature": {
+                            "properties": {
+                              "exists": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "subject_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "trusted": {
+                                "type": "boolean"
+                              },
+                              "valid": {
+                                "type": "boolean"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "compile_time": {
+                            "type": "date"
+                          },
+                          "mapped_address": {
+                            "type": "unsigned_long"
+                          },
+                          "mapped_size": {
+                            "type": "unsigned_long"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "hash": {
+                        "properties": {
+                          "md5": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha1": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha256": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "sha512": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "path": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "pe": {
+                        "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    }
+                  },
                   "real": {
                     "properties": {
                       "pid": {
@@ -2105,6 +2755,67 @@
                       }
                     },
                     "type": "object"
+                  },
+                  "token": {
+                    "properties": {
+                      "domain": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "elevation": {
+                        "type": "boolean"
+                      },
+                      "elevation_type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "impersonation_level": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "integrity_level": {
+                        "type": "long"
+                      },
+                      "integrity_level_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "is_appcontainer": {
+                        "type": "boolean"
+                      },
+                      "privileges": {
+                        "properties": {
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "nested"
+                      },
+                      "sid": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "user": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "user": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   }
                 },
                 "type": "object"
@@ -2187,6 +2898,34 @@
                 },
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "pe": {
+                "properties": {
+                  "company": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "description": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "file_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "imphash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "original_file_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
               },
               "pgid": {
                 "type": "long"
@@ -2322,6 +3061,18 @@
                     },
                     "type": "group"
                   },
+                  "parameter": {
+                    "type": "unsigned_long"
+                  },
+                  "parameter_bytes_compressed": {
+                    "doc_values": false,
+                    "ignore_above": 1024,
+                    "index": false,
+                    "type": "keyword"
+                  },
+                  "parameter_bytes_compressed_present": {
+                    "type": "boolean"
+                  },
                   "service": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -2330,8 +3081,135 @@
                     "type": "date"
                   },
                   "start_address": {
+                    "type": "unsigned_long"
+                  },
+                  "start_address_allocation_offset": {
+                    "type": "unsigned_long"
+                  },
+                  "start_address_bytes": {
                     "ignore_above": 1024,
                     "type": "keyword"
+                  },
+                  "start_address_bytes_disasm": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "start_address_bytes_disasm_hash": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "start_address_details": {
+                    "properties": {
+                      "allocation_base": {
+                        "type": "unsigned_long"
+                      },
+                      "allocation_protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "allocation_size": {
+                        "type": "unsigned_long"
+                      },
+                      "allocation_type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "bytes_address": {
+                        "type": "unsigned_long"
+                      },
+                      "bytes_allocation_offset": {
+                        "type": "unsigned_long"
+                      },
+                      "bytes_compressed": {
+                        "doc_values": false,
+                        "ignore_above": 1024,
+                        "index": false,
+                        "type": "keyword"
+                      },
+                      "bytes_compressed_present": {
+                        "type": "boolean"
+                      },
+                      "mapped_pe": {
+                        "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "mapped_pe_detected": {
+                        "type": "boolean"
+                      },
+                      "memory_pe": {
+                        "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "memory_pe_detected": {
+                        "type": "boolean"
+                      },
+                      "region_base": {
+                        "type": "unsigned_long"
+                      },
+                      "region_protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "region_size": {
+                        "type": "unsigned_long"
+                      },
+                      "region_state": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "strings": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
                   },
                   "start_address_module": {
                     "ignore_above": 1024,

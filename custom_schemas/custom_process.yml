@@ -12,6 +12,7 @@
   reusable:
     top_level: true
     expected:
+      - { at: process, as: parent }
       - Target
       - { at: Target.process, as: parent }
   type: group
@@ -57,6 +58,12 @@
       level: custom
       type: keyword
       description: An array of entity_ids indicating the ancestors for this event
+      
+    - name: Ext.architecture
+      level: custom
+      type: keyword
+      example: "x86_64"
+      description: Process architecture.  It can differ from host architecture.
 
     - name: Ext.services
       level: custom
@@ -84,11 +91,39 @@
 
     - name: thread.Ext.start_address
       level: custom
-      type: keyword
-      example: 5442508
+      type: unsigned_long
+      example: 4194304
       description: >
         Memory address where the thread began execution.
 
+    - name: thread.Ext.start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      example: 0
+      description: >
+        Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
+        
+    - name: thread.Ext.start_address_bytes
+      level: custom
+      type: keyword
+      example: "c3cc0000cccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      description: >
+        A few (typically 32) raw opcode bytes at the thread start address, hex-encoded.
+        
+    - name: thread.Ext.start_address_bytes_disasm
+      level: custom
+      type: keyword
+      example: "ret\\nint3"
+      description: >
+        The bytes at the thread start address, disassembled into human-readable assembly code.
+        
+    - name: thread.Ext.start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
+      description: >
+        The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
+        
     - name: thread.Ext.start_address_module
       level: custom
       type: keyword
@@ -96,6 +131,12 @@
       description: >
         The dll/module where the thread began execution.
 
+    - name: thread.Ext.start_address_details
+      level: custom
+      type: object
+      description: >
+        Additional information about the memory containing the thread start address.
+        
     - name: thread.Ext.service
       level: custom
       type: keyword
@@ -108,12 +149,37 @@
       type: long
       description: >
         Seconds since thread started.
+        
+    - name: thread.Ext.parameter
+      level: custom
+      type: unsigned_long
+      description: >
+        When a thread is created, this is the raw numerical value of its parameter.
+
+    - name: thread.Ext.parameter_bytes_compressed
+      level: custom
+      type: keyword
+      index: false
+      description: >
+        Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+        
+    - name: thread.Ext.parameter_bytes_compressed_present
+      level: custom
+      type: boolean
+      description: >
+        Whether parameter_bytes_compressed is present in this event.
 
     - name: Ext.authentication_id
       level: custom
       type: keyword
       description: >
         Process authentication ID
+        
+    - name: Ext.dll
+      level: custom
+      type: object
+      description: >
+        List of modules loaded within this process
 
     - name: Ext.session
       level: custom

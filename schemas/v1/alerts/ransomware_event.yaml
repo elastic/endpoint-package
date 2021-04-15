@@ -613,12 +613,11 @@ dll.Ext.mapped_address:
   dashed_name: dll-Ext-mapped-address
   description: The base address where this module is loaded.
   flat_name: dll.Ext.mapped_address
-  ignore_above: 1024
   level: custom
   name: Ext.mapped_address
   normalize: []
   short: The base address where this module is loaded.
-  type: keyword
+  type: unsigned_long
 dll.Ext.mapped_size:
   dashed_name: dll-Ext-mapped-size
   description: The size of this module's memory mapping, in bytes.
@@ -627,7 +626,7 @@ dll.Ext.mapped_size:
   name: Ext.mapped_size
   normalize: []
   short: The size of this module's memory mapping, in bytes.
-  type: long
+  type: unsigned_long
 dll.hash.md5:
   dashed_name: dll-hash-md5
   description: MD5 hash.
@@ -3125,14 +3124,13 @@ process.thread.Ext.start:
 process.thread.Ext.start_address:
   dashed_name: process-thread-Ext-start-address
   description: Memory address where the thread began execution.
-  example: 5442508
+  example: 4194304
   flat_name: process.thread.Ext.start_address
-  ignore_above: 1024
   level: custom
   name: thread.Ext.start_address
   normalize: []
   short: Memory address where the thread began execution.
-  type: keyword
+  type: unsigned_long
 process.thread.Ext.start_address_module:
   dashed_name: process-thread-Ext-start-address-module
   description: The dll/module where the thread began execution.
