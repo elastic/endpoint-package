@@ -54,6 +54,11 @@
       type: object
       description: Object for all custom defined fields to live in.
 
+    - name: Ext.architecture
+      level: custom
+      type: keyword
+      description: process architecture.
+
     - name: Ext.ancestry
       level: custom
       type: keyword
@@ -225,7 +230,6 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
-
     - name: Ext.code_signature.status
       level: custom
       type: keyword
@@ -250,6 +254,16 @@
       description: >
         For process.parent this will be the ppid of the process that actually spawned the current process.
         
+    - name: Ext.token
+      level: custom
+      type: object
+      description: token information about process.
+
+    - name: Ext.token.elevation_level
+      level: custom
+      type: object
+      description: token information about process.
+        
     - name: Ext.defense_evasions
       level: custom
       type: keyword
@@ -257,4 +271,4 @@
       description: >
         List of defense evasions found in this process.  
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
-        Examples tools that can cause defense evasions include Process Doppelg√§nging and Process Herpaderping.
+        Examples tools that can cause defense evasions include Process Doppelg‰nging and Process Herpaderping.
