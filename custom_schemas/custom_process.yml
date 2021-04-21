@@ -185,13 +185,13 @@
       level: custom
       type: keyword
       description: >
-        List of modules loaded within this process
+        Module name.
 
     - name: Ext.dll.path
       level: custom
       type: keyword
       description: >
-        List of modules loaded within this process
+        Module path.
 
     - name: Ext.dll.Ext
       level: custom
@@ -202,13 +202,13 @@
       level: custom
       type: unsigned_long
       description: >
-        List of modules loaded within this process
+        Module mapped address
 
     - name: Ext.dll.Ext.mapped_size
       level: custom
       type: unsigned_long
       description: >
-        List of modules loaded within this process
+        Module mapped size
 
     - name: Ext.session
       level: custom
@@ -285,4 +285,4 @@
       description: >
         List of defense evasions found in this process.  
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
-        Examples tools that can cause defense evasions include Process Doppelgänging and Process Herpaderping.
+        Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.

@@ -4463,6 +4463,17 @@ event.provider:
   normalize: []
   short: Source of the event.
   type: keyword
+event.risk_score:
+  dashed_name: event-risk-score
+  description: Risk score or priority of the event (e.g. security solutions). Use
+    your system's original value here.
+  flat_name: event.risk_score
+  level: core
+  name: risk_score
+  normalize: []
+  short: Risk score or priority of the event (e.g. security solutions). Use your system's
+    original value here.
+  type: float
 event.sequence:
   dashed_name: event-sequence
   description: 'Sequence number of the event.
@@ -5156,6 +5167,16 @@ file.Ext.original.uid:
   normalize: []
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
+file.Ext.quarantine_message:
+  dashed_name: file-Ext-quarantine-message
+  description: Message describing quarantine results.
+  flat_name: file.Ext.quarantine_message
+  ignore_above: 1024
+  level: custom
+  name: Ext.quarantine_message
+  normalize: []
+  short: Message describing quarantine results.
+  type: keyword
 file.Ext.quarantine_path:
   dashed_name: file-Ext-quarantine-path
   description: Path on endpoint the quarantined file was originally.
@@ -5233,6 +5254,74 @@ file.attributes:
   - array
   short: Array of file attributes.
   type: keyword
+file.code_signature.exists:
+  dashed_name: file-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: file.code_signature.exists
+  level: core
+  name: exists
+  normalize: []
+  original_fieldset: code_signature
+  short: Boolean to capture if a signature is present.
+  type: boolean
+file.code_signature.status:
+  dashed_name: file-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: file.code_signature.status
+  ignore_above: 1024
+  level: extended
+  name: status
+  normalize: []
+  original_fieldset: code_signature
+  short: Additional information about the certificate status.
+  type: keyword
+file.code_signature.subject_name:
+  dashed_name: file-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: file.code_signature.subject_name
+  ignore_above: 1024
+  level: core
+  name: subject_name
+  normalize: []
+  original_fieldset: code_signature
+  short: Subject name of the code signer
+  type: keyword
+file.code_signature.trusted:
+  dashed_name: file-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: file.code_signature.trusted
+  level: extended
+  name: trusted
+  normalize: []
+  original_fieldset: code_signature
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+file.code_signature.valid:
+  dashed_name: file-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: file.code_signature.valid
+  level: extended
+  name: valid
+  normalize: []
+  original_fieldset: code_signature
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
 file.created:
   dashed_name: file-created
   description: 'File creation time.
