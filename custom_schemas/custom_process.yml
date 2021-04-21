@@ -54,11 +54,6 @@
       type: object
       description: Object for all custom defined fields to live in.
 
-    - name: Ext.architecture
-      level: custom
-      type: keyword
-      description: process architecture.
-
     - name: Ext.ancestry
       level: custom
       type: keyword
@@ -186,6 +181,35 @@
       description: >
         List of modules loaded within this process
 
+    - name: Ext.dll.name
+      level: custom
+      type: keyword
+      description: >
+        List of modules loaded within this process
+
+    - name: Ext.dll.path
+      level: custom
+      type: keyword
+      description: >
+        List of modules loaded within this process
+
+    - name: Ext.dll.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+
+    - name: Ext.dll.Ext.mapped_address
+      level: custom
+      type: unsigned_long
+      description: >
+        List of modules loaded within this process
+
+    - name: Ext.dll.Ext.mapped_size
+      level: custom
+      type: unsigned_long
+      description: >
+        List of modules loaded within this process
+
     - name: Ext.session
       level: custom
       type: keyword
@@ -253,17 +277,7 @@
       short: The real pid of the process if ppid spoofing is happening.
       description: >
         For process.parent this will be the ppid of the process that actually spawned the current process.
-        
-    - name: Ext.token
-      level: custom
-      type: object
-      description: token information about process.
 
-    - name: Ext.token.elevation_level
-      level: custom
-      type: object
-      description: token information about process.
-        
     - name: Ext.defense_evasions
       level: custom
       type: keyword

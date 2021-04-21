@@ -152,6 +152,14 @@ fields:
               trusted: {}
               valid: {}
           defense_evasions: {}
+          dll:
+            fields:
+              name: {}
+              path: {}
+              Ext:
+                fields:
+                  mapped_address: {}
+                  mapped_size: {}
           session: {}
           token:
             fields:
