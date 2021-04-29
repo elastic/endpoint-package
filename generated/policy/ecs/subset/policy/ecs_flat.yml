@@ -1057,6 +1057,24 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+host.Ext:
+  dashed_name: host-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: host.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+host.Ext.isolated:
+  dashed_name: host-Ext-isolated
+  description: true if network access is disabled on a host
+  flat_name: host.Ext.isolated
+  level: custom
+  name: Ext.isolated
+  normalize: []
+  short: true if network access is disabled on a host
+  type: boolean
 host.architecture:
   dashed_name: host-architecture
   description: Operating system architecture.

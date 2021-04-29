@@ -1,0 +1,20 @@
+---
+- name: host
+  title: Host
+  group: 2
+  short: Custom Fields relating to Host
+  description: >
+    A host is defined as a general computing instance.
+
+    ECS host.* fields should be populated with details about the host on which the event happened, or from which the measurement was taken. Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.
+  type: group
+  fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+    - name: Ext.isolated
+      type: boolean
+      level: custom
+      description: >
+        true if network access is disabled on a host

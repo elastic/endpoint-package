@@ -46,6 +46,9 @@ fields:
       name: {}
       mac: {}
       architecture: {}
+      Ext:
+        fields:
+          isolated: {}
       os:
         fields:
           name: {}

@@ -166,6 +166,14 @@
                 },
                 "host": {
                     "properties": {
+                        "Ext": {
+                            "properties": {
+                                "isolated": {
+                                    "type": "boolean",
+                                    "null_value": false,
+                                }
+                            }
+                        },
                         "architecture": {
                             "ignore_above": 1024,
                             "type": "keyword"

@@ -295,6 +295,14 @@
       },
       "host": {
         "properties": {
+          "Ext": {
+            "properties": {
+              "isolated": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
           "architecture": {
             "ignore_above": 1024,
             "type": "keyword"

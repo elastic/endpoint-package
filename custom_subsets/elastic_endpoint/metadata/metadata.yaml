@@ -58,6 +58,9 @@ fields:
       name: {}
       type: {}
       uptime: {}
+      Ext:
+        fields:
+          isolated: {}
       os:
         fields:
           family: {}
