@@ -54,6 +54,13 @@
         What level of elevation the token has
       example: one of "default", "full", "limited"
 
+    - name: elevation_level
+      level: custom
+      type: keyword
+      description: >
+        What level of elevation the token has
+      example: one of "default", "full", "limited"
+
     - name: impersonation_level
       level: custom
       type: keyword

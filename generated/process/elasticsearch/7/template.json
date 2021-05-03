@@ -309,6 +309,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "architecture": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "authentication_id": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -339,6 +343,29 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "dll": {
+                "properties": {
+                  "Ext": {
+                    "properties": {
+                      "mapped_address": {
+                        "type": "unsigned_long"
+                      },
+                      "mapped_size": {
+                        "type": "unsigned_long"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "session": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -347,6 +374,10 @@
                 "properties": {
                   "elevation": {
                     "type": "boolean"
+                  },
+                  "elevation_level": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "elevation_type": {
                     "ignore_above": 1024,
@@ -465,6 +496,10 @@
             "properties": {
               "Ext": {
                 "properties": {
+                  "architecture": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "code_signature": {
                     "properties": {
                       "exists": {
@@ -494,6 +529,10 @@
                       }
                     },
                     "type": "object"
+                  },
+                  "user": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   }
                 },
                 "type": "object"

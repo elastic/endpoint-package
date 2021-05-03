@@ -2455,6 +2455,10 @@
 
         Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
       example: kernel
+    - name: risk_score
+      level: core
+      type: float
+      description: Risk score or priority of the event (e.g. security solutions). Use your system's original value here.
     - name: sequence
       level: extended
       type: long
@@ -2775,6 +2779,12 @@
       description: The user ID (UID) or security identifier (SID) of the file owner.
       example: '1001'
       default_field: false
+    - name: Ext.quarantine_message
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Message describing quarantine results.
+      default_field: false
     - name: Ext.quarantine_path
       level: custom
       type: keyword
@@ -2817,6 +2827,44 @@
 
         Attributes names will vary by platform. Here''s a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write.'
       example: '["readonly", "system"]'
+      default_field: false
+    - name: code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: code_signature.status
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: code_signature.subject_name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: code_signature.trusted
+      level: extended
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: code_signature.valid
+      level: extended
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
       default_field: false
     - name: created
       level: extended

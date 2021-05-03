@@ -1229,6 +1229,17 @@ registry.data.strings:
   - array
   short: List of strings representing what was written to the registry.
   type: keyword
+registry.data.type:
+  dashed_name: registry-data-type
+  description: Standard registry type for encoding contents
+  example: REG_SZ
+  flat_name: registry.data.type
+  ignore_above: 1024
+  level: core
+  name: data.type
+  normalize: []
+  short: Standard registry type for encoding contents
+  type: keyword
 registry.hive:
   dashed_name: registry-hive
   description: Abbreviated name for the hive.

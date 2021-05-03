@@ -121,97 +121,11 @@
       ignore_above: 1024
       description: the version of user artifacts applied.
       default_field: false
-    - name: policy.applied.configurations
-      level: custom
-      type: object
-      description: the configurations of the applied policy
-      enabled: false
-      default_field: false
-    - name: policy.applied.configurations.antivirus_registration
-      level: custom
-      type: object
-      description: overall antivirus registration configuration and status of the applied policy
-      enabled: false
-      default_field: false
-    - name: policy.applied.configurations.antivirus_registration.concerned_actions
+    - name: policy.applied.endpoint_policy_version
       level: custom
       type: keyword
       ignore_above: 1024
-      description: all actions that were taken for antivirus registration
-      default_field: false
-    - name: policy.applied.configurations.antivirus_registration.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of antivirus registration, this is correlated to the status of concerned actions but  not a simple sum of the actions
-      default_field: false
-    - name: policy.applied.configurations.events
-      level: custom
-      type: object
-      description: overall event collection configuration and status of the applied policy
-      default_field: false
-    - name: policy.applied.configurations.events.concerned_actions
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: all actions that were taken for event collection
-      default_field: false
-    - name: policy.applied.configurations.events.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of event collection, this is correlated to the status of concerned actions  but not a simple sum of the actions
-      default_field: false
-    - name: policy.applied.configurations.logging
-      level: custom
-      type: object
-      description: overall logging configuration and status of the applied policy
-      default_field: false
-    - name: policy.applied.configurations.logging.concerned_actions
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: all actions that were taken for logging
-      default_field: false
-    - name: policy.applied.configurations.logging.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of logging, this is correlated to the status of concerned actions but  not a simple sum of the actions
-      default_field: false
-    - name: policy.applied.configurations.malware
-      level: custom
-      type: object
-      description: overall malware configuration and status of the applied policy
-      default_field: false
-    - name: policy.applied.configurations.malware.concerned_actions
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: all actions that were taken for malware
-      default_field: false
-    - name: policy.applied.configurations.malware.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of malware, this is correlated to the status of concerned actions  but not a simple sum of the actions
-      default_field: false
-    - name: policy.applied.configurations.streaming
-      level: custom
-      type: object
-      description: overall data streaming configuration and status of the applied policy
-      default_field: false
-    - name: policy.applied.configurations.streaming.concerned_actions
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: all actions that were taken for data streaming
-      default_field: false
-    - name: policy.applied.configurations.streaming.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of data streaming, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      description: the version of this applied policy
       default_field: false
     - name: policy.applied.id
       level: custom
@@ -230,6 +144,188 @@
       type: object
       description: the response of actions that failed in the applied policy
       enabled: false
+      default_field: false
+    - name: policy.applied.response.configurations
+      level: custom
+      type: object
+      description: the configurations of the applied policy
+      enabled: false
+      default_field: false
+    - name: policy.applied.response.configurations.antivirus_registration
+      level: custom
+      type: object
+      description: overall antivirus registration configuration and status of the applied policy
+      enabled: false
+      default_field: false
+    - name: policy.applied.response.configurations.antivirus_registration.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for antivirus registration
+      default_field: false
+    - name: policy.applied.response.configurations.antivirus_registration.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of antivirus registration, this is correlated to the status of concerned actions but  not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.events
+      level: custom
+      type: object
+      description: overall event collection configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.events.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for event collection
+      default_field: false
+    - name: policy.applied.response.configurations.events.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of event collection, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.host_isolation.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for host isolation
+      default_field: false
+    - name: policy.applied.response.configurations.host_isolation.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of host isolation, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.logging
+      level: custom
+      type: object
+      description: overall logging configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.logging.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for logging
+      default_field: false
+    - name: policy.applied.response.configurations.logging.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of logging, this is correlated to the status of concerned actions but  not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.malware
+      level: custom
+      type: object
+      description: overall malware configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.malware.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for malware
+      default_field: false
+    - name: policy.applied.response.configurations.malware.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of malware, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.ransomware.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for ransomware
+      default_field: false
+    - name: policy.applied.response.configurations.ransomware.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of ransomware, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.configurations.streaming
+      level: custom
+      type: object
+      description: overall data streaming configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.streaming.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for data streaming
+      default_field: false
+    - name: policy.applied.response.configurations.streaming.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of data streaming, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic
+      level: custom
+      type: object
+      description: the diagnostic configurations of the applied policy
+      enabled: false
+      default_field: false
+    - name: policy.applied.response.diagnostic.malware.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of malware
+      default_field: false
+    - name: policy.applied.response.diagnostic.malware.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of malware, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic.memory_protection.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of memory protection
+      default_field: false
+    - name: policy.applied.response.diagnostic.memory_protection.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of memory protection, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic.memory_scan.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of memory scan
+      default_field: false
+    - name: policy.applied.response.diagnostic.memory_scan.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of memory scan, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic.ransomware.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of ransomware
+      default_field: false
+    - name: policy.applied.response.diagnostic.ransomware.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of ransomware, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic.rules_engine.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of rules engine
+      default_field: false
+    - name: policy.applied.response.diagnostic.rules_engine.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of rules engine, this is correlated to  the status of concerned actions but not a simple sum of the actions
       default_field: false
     - name: policy.applied.status
       level: custom
@@ -252,6 +348,15 @@
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
   fields:
+    - name: build.original
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Extended build information for the agent.
+
+        This field is intended to contain any build information that a data source may provide, no specific formatting is required.'
+      example: metricbeat version 7.6.0 (amd64), libbeat 7.6.0 [6a23e8f8f30f5001ba344e4e54d8d9cb82cb107c built 2020-02-05 23:10:10 +0000 UTC]
+      default_field: false
     - name: id
       level: core
       type: keyword

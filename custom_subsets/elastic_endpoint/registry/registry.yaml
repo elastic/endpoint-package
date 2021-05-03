@@ -119,5 +119,6 @@ fields:
       value: {}
       data:
         fields:
+          type: {}
           bytes: {}
           strings: {}
