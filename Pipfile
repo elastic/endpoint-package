@@ -9,7 +9,7 @@ verify_ssl = true
 bump2version = "==1.0.0"
 pyyaml = "==5.3.1"
 gitpython = "==3.1.2"
-jinja2 = "==2.11.2"
+jinja2 = "==2.11.3"
 pyyaml-include = "==1.2"
 click = "*"
 xxhash = "*"
