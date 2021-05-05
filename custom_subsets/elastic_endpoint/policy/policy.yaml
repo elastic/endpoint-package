@@ -21,6 +21,12 @@ fields:
         fields:
           applied:
             fields: "*"
+      configuration:
+        fields:
+          isolation: {}
+      state:
+        fields:
+          isolation: {}
   event:
     fields:
       action: {}
