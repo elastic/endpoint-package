@@ -18,6 +18,12 @@
         ],
         "sort": "@timestamp"
     },
+    "retention_policy": {
+        "time": {
+            "field": "event.ingested",
+            "max_age": "90d"
+        }
+    },
     "description": "collapse and update the latest document for each host",
     "frequency": "1m",
     "sync": {
