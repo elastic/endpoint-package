@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 bump2version = "==1.0.0"
-pyyaml = "==5.3.1"
+pyyaml = "==5.4"
 gitpython = "==3.1.2"
 jinja2 = "==2.11.2"
 pyyaml-include = "==1.2"
