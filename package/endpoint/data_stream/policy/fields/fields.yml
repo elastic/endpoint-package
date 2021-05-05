@@ -25,6 +25,16 @@
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
   fields:
+    - name: configuration
+      level: custom
+      type: object
+      description: Configuration fields represent the intended and applied setting for fields not part of a Policy setting This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
+      default_field: false
+    - name: configuration.isolation
+      level: custom
+      type: boolean
+      description: Configuration setting for Host Isolation from the network
+      default_field: false
     - name: policy
       level: custom
       type: object
@@ -242,6 +252,16 @@
       type: keyword
       ignore_above: 1024
       description: the version of this applied policy
+      default_field: false
+    - name: state
+      level: custom
+      type: object
+      description: Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
+      default_field: false
+    - name: state.isolation
+      level: custom
+      type: boolean
+      description: Current network isolation state of the host
       default_field: false
 - name: agent
   title: Agent
@@ -461,16 +481,6 @@
     ECS host.* fields should be populated with details about the host on which the event happened, or from which the measurement was taken. Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.'
   type: group
   fields:
-    - name: Ext
-      level: custom
-      type: object
-      description: Object for all custom defined fields to live in.
-      default_field: false
-    - name: Ext.isolated
-      level: custom
-      type: boolean
-      description: true if network access is disabled on a host
-      default_field: false
     - name: architecture
       level: core
       type: keyword

@@ -36,6 +36,12 @@ fields:
               id: {}
               status: {}
               name: {}
+      configuration:
+        fields:
+          isolation: {}
+      state:
+        fields:
+          isolation: {}
   elastic:
     fields:
       agent:
@@ -58,9 +64,6 @@ fields:
       name: {}
       type: {}
       uptime: {}
-      Ext:
-        fields:
-          isolated: {}
       os:
         fields:
           family: {}
