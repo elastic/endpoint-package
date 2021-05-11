@@ -174,41 +174,6 @@
       type: keyword
       description: >
         Process authentication ID
-        
-    - name: Ext.dll
-      level: custom
-      type: object
-      description: >
-        List of modules loaded within this process
-
-    - name: Ext.dll.name
-      level: custom
-      type: keyword
-      description: >
-        Module name.
-
-    - name: Ext.dll.path
-      level: custom
-      type: keyword
-      description: >
-        Module path.
-
-    - name: Ext.dll.Ext
-      level: custom
-      type: object
-      description: Object for all custom defined fields to live in.
-
-    - name: Ext.dll.Ext.mapped_address
-      level: custom
-      type: unsigned_long
-      description: >
-        Module mapped address
-
-    - name: Ext.dll.Ext.mapped_size
-      level: custom
-      type: unsigned_long
-      description: >
-        Module mapped size
 
     - name: Ext.session
       level: custom
