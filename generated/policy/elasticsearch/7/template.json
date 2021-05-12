@@ -210,6 +210,18 @@
                       "diagnostic": {
                         "enabled": false,
                         "properties": {
+                          "behavior_protection": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
                           "malware": {
                             "properties": {
                               "concerned_actions": {
@@ -247,18 +259,6 @@
                             }
                           },
                           "ransomware": {
-                            "properties": {
-                              "concerned_actions": {
-                                "ignore_above": 1024,
-                                "type": "keyword"
-                              },
-                              "status": {
-                                "ignore_above": 1024,
-                                "type": "keyword"
-                              }
-                            }
-                          },
-                          "rules_engine": {
                             "properties": {
                               "concerned_actions": {
                                 "ignore_above": 1024,

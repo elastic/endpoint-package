@@ -267,6 +267,18 @@
       description: the diagnostic configurations of the applied policy
       enabled: false
       default_field: false
+    - name: policy.applied.response.diagnostic.behavior_protection.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of behavior protection
+      default_field: false
+    - name: policy.applied.response.diagnostic.behavior_protection.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of behavior protection, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
     - name: policy.applied.response.diagnostic.malware.concerned_actions
       level: custom
       type: keyword
@@ -314,18 +326,6 @@
       type: keyword
       ignore_above: 1024
       description: the overall status of the diagnostic configuration of ransomware, this is correlated to  the status of concerned actions but not a simple sum of the actions
-      default_field: false
-    - name: policy.applied.response.diagnostic.rules_engine.concerned_actions
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: all actions that were taken for the diagnostic configuration of rules engine
-      default_field: false
-    - name: policy.applied.response.diagnostic.rules_engine.status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: the overall status of the diagnostic configuration of rules engine, this is correlated to  the status of concerned actions but not a simple sum of the actions
       default_field: false
     - name: policy.applied.status
       level: custom
