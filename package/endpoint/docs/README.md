@@ -1606,7 +1606,8 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics | Metrics fields hold the endpoint and system's performance metrics | object |
 | Endpoint.metrics.cpu | CPU statistics | object |
 | Endpoint.metrics.cpu.endpoint | CPU metrics for the endpoint | object |
-| Endpoint.metrics.cpu.endpoint.histogram | This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram) The values field includes 20 buckets (each bucket is 5%) representing the cpu usage The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket | histogram |
+| Endpoint.metrics.cpu.endpoint.histogram.counts | CPU histogram counts | histogram |
+| Endpoint.metrics.cpu.endpoint.histogram.values | CPU Histogram values | histogram |
 | Endpoint.metrics.cpu.endpoint.latest | Average CPU over the last sample interval | half_float |
 | Endpoint.metrics.cpu.endpoint.mean | Average CPU load used by the endpoint | half_float |
 | Endpoint.metrics.memory | Memory statistics | object |

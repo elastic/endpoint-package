@@ -31,7 +31,14 @@
                   "endpoint": {
                     "properties": {
                       "histogram": {
-                        "type": "histogram"
+                        "properties": {
+                          "counts": {
+                            "type": "histogram"
+                          },
+                          "values": {
+                            "type": "histogram"
+                          }
+                        }
                       },
                       "latest": {
                         "type": "half_float"
@@ -91,6 +98,10 @@
                     "type": "object"
                   }
                 },
+                "type": "object"
+              },
+              "system_impact": {
+                "enabled": false,
                 "type": "object"
               },
               "threads": {
