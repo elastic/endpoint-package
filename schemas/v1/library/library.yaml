@@ -265,6 +265,18 @@ dll.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+dll.Ext.defense_evasions:
+  dashed_name: dll-Ext-defense-evasions
+  description: List of defense evasions found for this DLL. These defense evasions
+    can make it harder to inspect a process and/or cause abnormal OS behavior. Examples
+    tools that can cause defense evasions include KnownDlls hijacking and PPLDump.
+  flat_name: dll.Ext.defense_evasions
+  ignore_above: 1024
+  level: custom
+  name: Ext.defense_evasions
+  normalize: []
+  short: List of defense evasions found for this DLL.
+  type: keyword
 dll.Ext.load_index:
   dashed_name: dll-Ext-load-index
   description: 'A DLL can be loaded into a process multiple times. This field indicates

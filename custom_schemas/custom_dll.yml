@@ -99,3 +99,12 @@
         This field indicates the Nth time that this DLL has been loaded.
         
         The first load index is 1.
+
+    - name: Ext.defense_evasions
+      level: custom
+      type: keyword
+      short: List of defense evasions found for this DLL.
+      description: >
+        List of defense evasions found for this DLL.
+        These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
+        Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump.
