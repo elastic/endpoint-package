@@ -24,6 +24,14 @@
       },
       "Endpoint": {
         "properties": {
+          "configuration": {
+            "properties": {
+              "isolation": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
           "policy": {
             "properties": {
               "applied": {
@@ -286,6 +294,14 @@
                   }
                 },
                 "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "state": {
+            "properties": {
+              "isolation": {
+                "type": "boolean"
               }
             },
             "type": "object"

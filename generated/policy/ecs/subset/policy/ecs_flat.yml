@@ -17,6 +17,28 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Endpoint.configuration:
+  dashed_name: Endpoint-configuration
+  description: Configuration fields represent the intended and applied setting for
+    fields not part of a Policy setting This reflects what a given field is configured
+    to do. The actual state of that same field is found in Endpoint.state
+  flat_name: Endpoint.configuration
+  level: custom
+  name: configuration
+  normalize: []
+  short: Configuration fields represent the intended and applied setting for fields
+    not part of a Policy setting This reflects what a given field is configured to
+    do. The actual state of that same field is found in Endpoint.state
+  type: object
+Endpoint.configuration.isolation:
+  dashed_name: Endpoint-configuration-isolation
+  description: Configuration setting for Host Isolation from the network
+  flat_name: Endpoint.configuration.isolation
+  level: custom
+  name: configuration.isolation
+  normalize: []
+  short: Configuration setting for Host Isolation from the network
+  type: boolean
 Endpoint.policy:
   dashed_name: Endpoint-policy
   description: The policy fields are used to hold information about applied policy.
@@ -183,15 +205,167 @@ Endpoint.policy.applied.artifacts.user.version:
   normalize: []
   short: the version of user artifacts applied.
   type: keyword
-Endpoint.policy.applied.endpoint_policy_version:
-  dashed_name: Endpoint-policy-applied-endpoint-policy-version
-  description: the version of this applied policy
-  flat_name: Endpoint.policy.applied.endpoint_policy_version
+Endpoint.policy.applied.configurations:
+  dashed_name: Endpoint-policy-applied-configurations
+  description: the configurations of the applied policy
+  enabled: false
+  flat_name: Endpoint.policy.applied.configurations
+  level: custom
+  name: policy.applied.configurations
+  normalize: []
+  short: the configurations of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.antivirus_registration:
+  dashed_name: Endpoint-policy-applied-configurations-antivirus-registration
+  description: overall antivirus registration configuration and status of the applied
+    policy
+  enabled: false
+  flat_name: Endpoint.policy.applied.configurations.antivirus_registration
+  level: custom
+  name: policy.applied.configurations.antivirus_registration
+  normalize: []
+  short: overall antivirus registration configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.antivirus_registration.concerned_actions:
+  dashed_name: Endpoint-policy-applied-configurations-antivirus-registration-concerned-actions
+  description: all actions that were taken for antivirus registration
+  flat_name: Endpoint.policy.applied.configurations.antivirus_registration.concerned_actions
   ignore_above: 1024
   level: custom
-  name: policy.applied.endpoint_policy_version
+  name: policy.applied.configurations.antivirus_registration.concerned_actions
   normalize: []
-  short: the version of this applied policy
+  short: all actions that were taken for antivirus registration
+  type: keyword
+Endpoint.policy.applied.configurations.antivirus_registration.status:
+  dashed_name: Endpoint-policy-applied-configurations-antivirus-registration-status
+  description: the overall status of antivirus registration, this is correlated to
+    the status of concerned actions but  not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.configurations.antivirus_registration.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.antivirus_registration.status
+  normalize: []
+  short: the overall status of antivirus registration
+  type: keyword
+Endpoint.policy.applied.configurations.events:
+  dashed_name: Endpoint-policy-applied-configurations-events
+  description: overall event collection configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.configurations.events
+  level: custom
+  name: policy.applied.configurations.events
+  normalize: []
+  short: overall event collection configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.events.concerned_actions:
+  dashed_name: Endpoint-policy-applied-configurations-events-concerned-actions
+  description: all actions that were taken for event collection
+  flat_name: Endpoint.policy.applied.configurations.events.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.events.concerned_actions
+  normalize: []
+  short: all actions that were taken for event collection
+  type: keyword
+Endpoint.policy.applied.configurations.events.status:
+  dashed_name: Endpoint-policy-applied-configurations-events-status
+  description: the overall status of event collection, this is correlated to the status
+    of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.configurations.events.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.events.status
+  normalize: []
+  short: the overall status of event collection
+  type: keyword
+Endpoint.policy.applied.configurations.logging:
+  dashed_name: Endpoint-policy-applied-configurations-logging
+  description: overall logging configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.configurations.logging
+  level: custom
+  name: policy.applied.configurations.logging
+  normalize: []
+  short: overall logging configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.logging.concerned_actions:
+  dashed_name: Endpoint-policy-applied-configurations-logging-concerned-actions
+  description: all actions that were taken for logging
+  flat_name: Endpoint.policy.applied.configurations.logging.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.logging.concerned_actions
+  normalize: []
+  short: all actions that were taken for logging
+  type: keyword
+Endpoint.policy.applied.configurations.logging.status:
+  dashed_name: Endpoint-policy-applied-configurations-logging-status
+  description: the overall status of logging, this is correlated to the status of
+    concerned actions but  not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.configurations.logging.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.logging.status
+  normalize: []
+  short: the overall status of logging
+  type: keyword
+Endpoint.policy.applied.configurations.malware:
+  dashed_name: Endpoint-policy-applied-configurations-malware
+  description: overall malware configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.configurations.malware
+  level: custom
+  name: policy.applied.configurations.malware
+  normalize: []
+  short: overall malware configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.malware.concerned_actions:
+  dashed_name: Endpoint-policy-applied-configurations-malware-concerned-actions
+  description: all actions that were taken for malware
+  flat_name: Endpoint.policy.applied.configurations.malware.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.malware.concerned_actions
+  normalize: []
+  short: all actions that were taken for malware
+  type: keyword
+Endpoint.policy.applied.configurations.malware.status:
+  dashed_name: Endpoint-policy-applied-configurations-malware-status
+  description: the overall status of malware, this is correlated to the status of
+    concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.configurations.malware.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.malware.status
+  normalize: []
+  short: the overall status of malware
+  type: keyword
+Endpoint.policy.applied.configurations.streaming:
+  dashed_name: Endpoint-policy-applied-configurations-streaming
+  description: overall data streaming configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.configurations.streaming
+  level: custom
+  name: policy.applied.configurations.streaming
+  normalize: []
+  short: overall data streaming configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.configurations.streaming.concerned_actions:
+  dashed_name: Endpoint-policy-applied-configurations-streaming-concerned-actions
+  description: all actions that were taken for data streaming
+  flat_name: Endpoint.policy.applied.configurations.streaming.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.streaming.concerned_actions
+  normalize: []
+  short: all actions that were taken for data streaming
+  type: keyword
+Endpoint.policy.applied.configurations.streaming.status:
+  dashed_name: Endpoint-policy-applied-configurations-streaming-status
+  description: the overall status of data streaming, this is correlated to the status
+    of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.configurations.streaming.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.configurations.streaming.status
+  normalize: []
+  short: overall status of data streaming
   type: keyword
 Endpoint.policy.applied.id:
   dashed_name: Endpoint-policy-applied-id
@@ -223,334 +397,6 @@ Endpoint.policy.applied.response:
   normalize: []
   short: the response of actions that failed in the applied policy
   type: object
-Endpoint.policy.applied.response.configurations:
-  dashed_name: Endpoint-policy-applied-response-configurations
-  description: the configurations of the applied policy
-  enabled: false
-  flat_name: Endpoint.policy.applied.response.configurations
-  level: custom
-  name: policy.applied.response.configurations
-  normalize: []
-  short: the configurations of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.antivirus_registration:
-  dashed_name: Endpoint-policy-applied-response-configurations-antivirus-registration
-  description: overall antivirus registration configuration and status of the applied
-    policy
-  enabled: false
-  flat_name: Endpoint.policy.applied.response.configurations.antivirus_registration
-  level: custom
-  name: policy.applied.response.configurations.antivirus_registration
-  normalize: []
-  short: overall antivirus registration configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-antivirus-registration-concerned-actions
-  description: all actions that were taken for antivirus registration
-  flat_name: Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.antivirus_registration.concerned_actions
-  normalize: []
-  short: all actions that were taken for antivirus registration
-  type: keyword
-Endpoint.policy.applied.response.configurations.antivirus_registration.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-antivirus-registration-status
-  description: the overall status of antivirus registration, this is correlated to
-    the status of concerned actions but  not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.antivirus_registration.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.antivirus_registration.status
-  normalize: []
-  short: the overall status of antivirus registration
-  type: keyword
-Endpoint.policy.applied.response.configurations.events:
-  dashed_name: Endpoint-policy-applied-response-configurations-events
-  description: overall event collection configuration and status of the applied policy
-  flat_name: Endpoint.policy.applied.response.configurations.events
-  level: custom
-  name: policy.applied.response.configurations.events
-  normalize: []
-  short: overall event collection configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.events.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-events-concerned-actions
-  description: all actions that were taken for event collection
-  flat_name: Endpoint.policy.applied.response.configurations.events.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.events.concerned_actions
-  normalize: []
-  short: all actions that were taken for event collection
-  type: keyword
-Endpoint.policy.applied.response.configurations.events.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-events-status
-  description: the overall status of event collection, this is correlated to the status
-    of concerned actions  but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.events.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.events.status
-  normalize: []
-  short: the overall status of event collection
-  type: keyword
-Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-host-isolation-concerned-actions
-  description: all actions that were taken for host isolation
-  flat_name: Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.host_isolation.concerned_actions
-  normalize: []
-  short: all actions that were taken for host isolation
-  type: keyword
-Endpoint.policy.applied.response.configurations.host_isolation.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-host-isolation-status
-  description: the overall status of host isolation, this is correlated to the status
-    of concerned actions  but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.host_isolation.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.host_isolation.status
-  normalize: []
-  short: overall status of host isolation
-  type: keyword
-Endpoint.policy.applied.response.configurations.logging:
-  dashed_name: Endpoint-policy-applied-response-configurations-logging
-  description: overall logging configuration and status of the applied policy
-  flat_name: Endpoint.policy.applied.response.configurations.logging
-  level: custom
-  name: policy.applied.response.configurations.logging
-  normalize: []
-  short: overall logging configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.logging.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-logging-concerned-actions
-  description: all actions that were taken for logging
-  flat_name: Endpoint.policy.applied.response.configurations.logging.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.logging.concerned_actions
-  normalize: []
-  short: all actions that were taken for logging
-  type: keyword
-Endpoint.policy.applied.response.configurations.logging.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-logging-status
-  description: the overall status of logging, this is correlated to the status of
-    concerned actions but  not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.logging.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.logging.status
-  normalize: []
-  short: the overall status of logging
-  type: keyword
-Endpoint.policy.applied.response.configurations.malware:
-  dashed_name: Endpoint-policy-applied-response-configurations-malware
-  description: overall malware configuration and status of the applied policy
-  flat_name: Endpoint.policy.applied.response.configurations.malware
-  level: custom
-  name: policy.applied.response.configurations.malware
-  normalize: []
-  short: overall malware configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.malware.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-malware-concerned-actions
-  description: all actions that were taken for malware
-  flat_name: Endpoint.policy.applied.response.configurations.malware.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.malware.concerned_actions
-  normalize: []
-  short: all actions that were taken for malware
-  type: keyword
-Endpoint.policy.applied.response.configurations.malware.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-malware-status
-  description: the overall status of malware, this is correlated to the status of
-    concerned actions  but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.malware.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.malware.status
-  normalize: []
-  short: the overall status of malware
-  type: keyword
-Endpoint.policy.applied.response.configurations.ransomware.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-ransomware-concerned-actions
-  description: all actions that were taken for ransomware
-  flat_name: Endpoint.policy.applied.response.configurations.ransomware.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.ransomware.concerned_actions
-  normalize: []
-  short: all actions that were taken for ransomware
-  type: keyword
-Endpoint.policy.applied.response.configurations.ransomware.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-ransomware-status
-  description: the overall status of ransomware, this is correlated to the status
-    of concerned actions  but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.ransomware.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.ransomware.status
-  normalize: []
-  short: overall status of ransomware
-  type: keyword
-Endpoint.policy.applied.response.configurations.streaming:
-  dashed_name: Endpoint-policy-applied-response-configurations-streaming
-  description: overall data streaming configuration and status of the applied policy
-  flat_name: Endpoint.policy.applied.response.configurations.streaming
-  level: custom
-  name: policy.applied.response.configurations.streaming
-  normalize: []
-  short: overall data streaming configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.streaming.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-streaming-concerned-actions
-  description: all actions that were taken for data streaming
-  flat_name: Endpoint.policy.applied.response.configurations.streaming.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.streaming.concerned_actions
-  normalize: []
-  short: all actions that were taken for data streaming
-  type: keyword
-Endpoint.policy.applied.response.configurations.streaming.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-streaming-status
-  description: the overall status of data streaming, this is correlated to the status
-    of concerned actions  but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.streaming.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.streaming.status
-  normalize: []
-  short: overall status of data streaming
-  type: keyword
-Endpoint.policy.applied.response.diagnostic:
-  dashed_name: Endpoint-policy-applied-response-diagnostic
-  description: the diagnostic configurations of the applied policy
-  enabled: false
-  flat_name: Endpoint.policy.applied.response.diagnostic
-  level: custom
-  name: policy.applied.response.diagnostic
-  normalize: []
-  short: the diagnostic configurations of the applied policy
-  type: object
-Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-behavior-protection-concerned-actions
-  description: all actions that were taken for the diagnostic configuration of behavior
-    protection
-  flat_name: Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.behavior_protection.concerned_actions
-  normalize: []
-  short: all actions that were taken for the diagnostic configuration of behavior
-    protection
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.behavior_protection.status:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-behavior-protection-status
-  description: the overall status of the diagnostic configuration of behavior protection,
-    this is correlated to  the status of concerned actions but not a simple sum of
-    the actions
-  flat_name: Endpoint.policy.applied.response.diagnostic.behavior_protection.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.behavior_protection.status
-  normalize: []
-  short: overall status of diagnostic behavior protection
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.malware.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-malware-concerned-actions
-  description: all actions that were taken for the diagnostic configuration of malware
-  flat_name: Endpoint.policy.applied.response.diagnostic.malware.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.malware.concerned_actions
-  normalize: []
-  short: all actions that were taken for the diagnostic configuration of malware
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.malware.status:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-malware-status
-  description: the overall status of the diagnostic configuration of malware, this
-    is correlated to  the status of concerned actions but not a simple sum of the
-    actions
-  flat_name: Endpoint.policy.applied.response.diagnostic.malware.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.malware.status
-  normalize: []
-  short: overall status of diagnostic malware
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-memory-protection-concerned-actions
-  description: all actions that were taken for the diagnostic configuration of memory
-    protection
-  flat_name: Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.memory_protection.concerned_actions
-  normalize: []
-  short: all actions that were taken for the diagnostic configuration of memory protection
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.memory_protection.status:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-memory-protection-status
-  description: the overall status of the diagnostic configuration of memory protection,
-    this is correlated to  the status of concerned actions but not a simple sum of
-    the actions
-  flat_name: Endpoint.policy.applied.response.diagnostic.memory_protection.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.memory_protection.status
-  normalize: []
-  short: overall status of diagnostic memory protection
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.memory_scan.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-memory-scan-concerned-actions
-  description: all actions that were taken for the diagnostic configuration of memory
-    scan
-  flat_name: Endpoint.policy.applied.response.diagnostic.memory_scan.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.memory_scan.concerned_actions
-  normalize: []
-  short: all actions that were taken for the diagnostic configuration of memory scan
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.memory_scan.status:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-memory-scan-status
-  description: the overall status of the diagnostic configuration of memory scan,
-    this is correlated to  the status of concerned actions but not a simple sum of
-    the actions
-  flat_name: Endpoint.policy.applied.response.diagnostic.memory_scan.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.memory_scan.status
-  normalize: []
-  short: overall status of diagnostic memory scan
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.ransomware.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-ransomware-concerned-actions
-  description: all actions that were taken for the diagnostic configuration of ransomware
-  flat_name: Endpoint.policy.applied.response.diagnostic.ransomware.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.ransomware.concerned_actions
-  normalize: []
-  short: all actions that were taken for the diagnostic configuration of ransomware
-  type: keyword
-Endpoint.policy.applied.response.diagnostic.ransomware.status:
-  dashed_name: Endpoint-policy-applied-response-diagnostic-ransomware-status
-  description: the overall status of the diagnostic configuration of ransomware, this
-    is correlated to  the status of concerned actions but not a simple sum of the
-    actions
-  flat_name: Endpoint.policy.applied.response.diagnostic.ransomware.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.diagnostic.ransomware.status
-  normalize: []
-  short: overall status of diagnostic ransomware
-  type: keyword
 Endpoint.policy.applied.status:
   dashed_name: Endpoint-policy-applied-status
   description: the status of the applied policy
@@ -571,21 +417,28 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
-agent.build.original:
-  dashed_name: agent-build-original
-  description: 'Extended build information for the agent.
-
-    This field is intended to contain any build information that a data source may
-    provide, no specific formatting is required.'
-  example: metricbeat version 7.6.0 (amd64), libbeat 7.6.0 [6a23e8f8f30f5001ba344e4e54d8d9cb82cb107c
-    built 2020-02-05 23:10:10 +0000 UTC]
-  flat_name: agent.build.original
-  ignore_above: 1024
-  level: core
-  name: build.original
+Endpoint.state:
+  dashed_name: Endpoint-state
+  description: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  flat_name: Endpoint.state
+  level: custom
+  name: state
   normalize: []
-  short: Extended build information for the agent.
-  type: keyword
+  short: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  type: object
+Endpoint.state.isolation:
+  dashed_name: Endpoint-state-isolation
+  description: Current network isolation state of the host
+  flat_name: Endpoint.state.isolation
+  level: custom
+  name: state.isolation
+  normalize: []
+  short: Current network isolation state of the host
+  type: boolean
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).

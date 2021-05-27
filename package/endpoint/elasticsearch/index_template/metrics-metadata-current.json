@@ -25,6 +25,14 @@
                 },
                 "Endpoint": {
                     "properties": {
+                        "configuration": {
+                            "properties": {
+                                "isolated": {
+                                    "type": "boolean",
+                                    "null_value": false
+                                }
+                            }
+                        },
                         "policy": {
                             "properties": {
                                 "applied": {
@@ -42,6 +50,14 @@
                                             "ignore_above": 1024
                                         }
                                     }
+                                }
+                            }
+                        },
+                        "state": {
+                            "properties": {
+                                "isolated": {
+                                    "type": "boolean",
+                                    "null_value": false
                                 }
                             }
                         },

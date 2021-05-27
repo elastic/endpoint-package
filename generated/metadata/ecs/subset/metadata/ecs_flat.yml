@@ -17,6 +17,28 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Endpoint.configuration:
+  dashed_name: Endpoint-configuration
+  description: Configuration fields represent the intended and applied setting for
+    fields not part of a Policy setting This reflects what a given field is configured
+    to do. The actual state of that same field is found in Endpoint.state
+  flat_name: Endpoint.configuration
+  level: custom
+  name: configuration
+  normalize: []
+  short: Configuration fields represent the intended and applied setting for fields
+    not part of a Policy setting This reflects what a given field is configured to
+    do. The actual state of that same field is found in Endpoint.state
+  type: object
+Endpoint.configuration.isolation:
+  dashed_name: Endpoint-configuration-isolation
+  description: Configuration setting for Host Isolation from the network
+  flat_name: Endpoint.configuration.isolation
+  level: custom
+  name: configuration.isolation
+  normalize: []
+  short: Configuration setting for Host Isolation from the network
+  type: boolean
 Endpoint.policy:
   dashed_name: Endpoint-policy
   description: The policy fields are used to hold information about applied policy.
@@ -65,6 +87,28 @@ Endpoint.policy.applied.status:
   normalize: []
   short: the status of the applied policy
   type: keyword
+Endpoint.state:
+  dashed_name: Endpoint-state
+  description: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  flat_name: Endpoint.state
+  level: custom
+  name: state
+  normalize: []
+  short: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  type: object
+Endpoint.state.isolation:
+  dashed_name: Endpoint-state-isolation
+  description: Current network isolation state of the host
+  flat_name: Endpoint.state.isolation
+  level: custom
+  name: state.isolation
+  normalize: []
+  short: Current network isolation state of the host
+  type: boolean
 Endpoint.status:
   dashed_name: Endpoint-status
   description: The current status of the endpoint e.g. enrolled, unenrolled.

@@ -461,3 +461,27 @@
       type: object
       enabled: false
       description: Statistics about the individual threads of the system (array)
+
+    - name: configuration
+      level: custom
+      type: object
+      description:
+        Configuration fields represent the intended and applied setting for fields not part of a Policy setting
+        This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
+
+    - name: configuration.isolation
+      level: custom
+      type: boolean
+      description: Configuration setting for Host Isolation from the network
+
+    - name: state
+      level: custom
+      type: object
+      description:
+        Represents the current state of a non-policy setting
+        These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
+
+    - name: state.isolation
+      level: custom
+      type: boolean
+      description: Current network isolation state of the host
