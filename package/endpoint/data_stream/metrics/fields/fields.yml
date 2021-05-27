@@ -40,15 +40,10 @@
       type: object
       description: CPU metrics for the endpoint
       default_field: false
-    - name: metrics.cpu.endpoint.histogram.counts
+    - name: metrics.cpu.endpoint.histogram
       level: custom
       type: histogram
-      description: CPU histogram counts
-      default_field: false
-    - name: metrics.cpu.endpoint.histogram.values
-      level: custom
-      type: histogram
-      description: CPU Histogram values
+      description: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram) The values field includes 20 buckets (each bucket is 5%) representing the cpu usage The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket
       default_field: false
     - name: metrics.cpu.endpoint.latest
       level: custom

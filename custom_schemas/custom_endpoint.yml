@@ -373,20 +373,6 @@
         The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket
       short: CPU histogram
 
-    - name: metrics.cpu.endpoint.histogram.values
-      level: custom
-      type: histogram
-      description:
-        CPU Histogram values
-      short: CPU histogram values
-      
-    - name: metrics.cpu.endpoint.histogram.counts
-      level: custom
-      type: histogram
-      description:
-        CPU histogram counts
-      short: CPU histogram counts
-
     - name: metrics.memory
       level: custom
       type: object

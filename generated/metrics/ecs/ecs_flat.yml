@@ -44,23 +44,17 @@ Endpoint.metrics.cpu.endpoint:
   normalize: []
   short: CPU metrics for the endpoint
   type: object
-Endpoint.metrics.cpu.endpoint.histogram.counts:
-  dashed_name: Endpoint-metrics-cpu-endpoint-histogram-counts
-  description: CPU histogram counts
-  flat_name: Endpoint.metrics.cpu.endpoint.histogram.counts
+Endpoint.metrics.cpu.endpoint.histogram:
+  dashed_name: Endpoint-metrics-cpu-endpoint-histogram
+  description: This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram)
+    The values field includes 20 buckets (each bucket is 5%) representing the cpu
+    usage The counts field includes 20 buckets of how many times the endpoint's cpu
+    usage fell into each bucket
+  flat_name: Endpoint.metrics.cpu.endpoint.histogram
   level: custom
-  name: metrics.cpu.endpoint.histogram.counts
+  name: metrics.cpu.endpoint.histogram
   normalize: []
-  short: CPU histogram counts
-  type: histogram
-Endpoint.metrics.cpu.endpoint.histogram.values:
-  dashed_name: Endpoint-metrics-cpu-endpoint-histogram-values
-  description: CPU Histogram values
-  flat_name: Endpoint.metrics.cpu.endpoint.histogram.values
-  level: custom
-  name: metrics.cpu.endpoint.histogram.values
-  normalize: []
-  short: CPU histogram values
+  short: CPU histogram
   type: histogram
 Endpoint.metrics.cpu.endpoint.latest:
   dashed_name: Endpoint-metrics-cpu-endpoint-latest

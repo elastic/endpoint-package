@@ -31,14 +31,7 @@
                   "endpoint": {
                     "properties": {
                       "histogram": {
-                        "properties": {
-                          "counts": {
-                            "type": "histogram"
-                          },
-                          "values": {
-                            "type": "histogram"
-                          }
-                        }
+                        "type": "histogram"
                       },
                       "latest": {
                         "type": "half_float"
