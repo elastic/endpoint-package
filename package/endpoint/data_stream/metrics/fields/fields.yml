@@ -119,6 +119,12 @@
       type: long
       description: Average memory usage by the endpoint since its start
       default_field: false
+    - name: metrics.system_impact
+      level: custom
+      type: object
+      description: An array of system impact information
+      enabled: false
+      default_field: false
     - name: metrics.threads
       level: custom
       type: object

@@ -63,29 +63,34 @@
       type: keyword
       description: the name of this applied policy
 
+    - name: policy.applied.endpoint_policy_version
+      level: custom
+      type: keyword
+      description: the version of this applied policy
+
     - name: policy.applied.response
       level: custom
       type: object
       enabled: false
       description: the response of actions that failed in the applied policy
 
-    - name: policy.applied.configurations
+    - name: policy.applied.response.configurations
       level: custom
       type: object
       enabled: false
       description: the configurations of the applied policy
 
-    - name: policy.applied.configurations.events
+    - name: policy.applied.response.configurations.events
       level: custom
       type: object
       description: overall event collection configuration and status of the applied policy
 
-    - name: policy.applied.configurations.events.concerned_actions
+    - name: policy.applied.response.configurations.events.concerned_actions
       level: custom
       type: keyword
       description: all actions that were taken for event collection
 
-    - name: policy.applied.configurations.events.status
+    - name: policy.applied.response.configurations.events.status
       level: custom
       type: keyword
       description: >
@@ -93,17 +98,17 @@
         but not a simple sum of the actions
       short: the overall status of event collection
 
-    - name: policy.applied.configurations.logging
+    - name: policy.applied.response.configurations.logging
       level: custom
       type: object
       description: overall logging configuration and status of the applied policy
 
-    - name: policy.applied.configurations.logging.concerned_actions
+    - name: policy.applied.response.configurations.logging.concerned_actions
       level: custom
       type: keyword
       description: all actions that were taken for logging
 
-    - name: policy.applied.configurations.logging.status
+    - name: policy.applied.response.configurations.logging.status
       level: custom
       type: keyword
       description: >
@@ -111,18 +116,18 @@
         not a simple sum of the actions
       short: the overall status of logging
 
-    - name: policy.applied.configurations.antivirus_registration
+    - name: policy.applied.response.configurations.antivirus_registration
       level: custom
       type: object
       enabled: false
       description: overall antivirus registration configuration and status of the applied policy
 
-    - name: policy.applied.configurations.antivirus_registration.concerned_actions
+    - name: policy.applied.response.configurations.antivirus_registration.concerned_actions
       level: custom
       type: keyword
       description: all actions that were taken for antivirus registration
 
-    - name: policy.applied.configurations.antivirus_registration.status
+    - name: policy.applied.response.configurations.antivirus_registration.status
       level: custom
       type: keyword
       description: >
@@ -130,17 +135,17 @@
         not a simple sum of the actions
       short: the overall status of antivirus registration
 
-    - name: policy.applied.configurations.malware
+    - name: policy.applied.response.configurations.malware
       level: custom
       type: object
       description: overall malware configuration and status of the applied policy
 
-    - name: policy.applied.configurations.malware.concerned_actions
+    - name: policy.applied.response.configurations.malware.concerned_actions
       level: custom
       type: keyword
       description: all actions that were taken for malware
 
-    - name: policy.applied.configurations.malware.status
+    - name: policy.applied.response.configurations.malware.status
       level: custom
       type: keyword
       description: >
@@ -148,23 +153,120 @@
         but not a simple sum of the actions
       short: the overall status of malware
 
-    - name: policy.applied.configurations.streaming
+    - name: policy.applied.response.configurations.streaming
       level: custom
       type: object
       description: overall data streaming configuration and status of the applied policy
 
-    - name: policy.applied.configurations.streaming.concerned_actions
+    - name: policy.applied.response.configurations.streaming.concerned_actions
       level: custom
       type: keyword
       description: all actions that were taken for data streaming
 
-    - name: policy.applied.configurations.streaming.status
+    - name: policy.applied.response.configurations.streaming.status
       level: custom
       type: keyword
       description: >
         the overall status of data streaming, this is correlated to the status of concerned actions 
         but not a simple sum of the actions
       short: overall status of data streaming
+
+    - name: policy.applied.response.configurations.host_isolation.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for host isolation
+
+    - name: policy.applied.response.configurations.host_isolation.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of host isolation, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
+      short: overall status of host isolation
+
+    - name: policy.applied.response.configurations.ransomware.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for ransomware
+
+    - name: policy.applied.response.configurations.ransomware.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of ransomware, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
+      short: overall status of ransomware
+
+    - name: policy.applied.response.diagnostic
+      level: custom
+      type: object
+      enabled: false
+      description: the diagnostic configurations of the applied policy
+
+    - name: policy.applied.response.diagnostic.ransomware.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of ransomware
+
+    - name: policy.applied.response.diagnostic.ransomware.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of ransomware, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic ransomware
+
+    - name: policy.applied.response.diagnostic.malware.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of malware
+
+    - name: policy.applied.response.diagnostic.malware.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of malware, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic malware
+
+    - name: policy.applied.response.diagnostic.memory_scan.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of memory scan
+
+    - name: policy.applied.response.diagnostic.memory_scan.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of memory scan, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic memory scan
+
+    - name: policy.applied.response.diagnostic.memory_protection.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of memory protection
+
+    - name: policy.applied.response.diagnostic.memory_protection.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of memory protection, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic memory protection
+
+    - name: policy.applied.response.diagnostic.behavior_protection.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of behavior protection
+
+    - name: policy.applied.response.diagnostic.behavior_protection.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of behavior protection, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic behavior protection
 
     - name: policy.applied.artifacts
       level: custom
@@ -331,6 +433,12 @@
       level: custom
       type: long
       description: The size of the disk in bytes
+
+    - name: metrics.system_impact
+      level: custom
+      type: object
+      enabled: false
+      description: An array of system impact information
 
     - name: metrics.threads
       level: custom

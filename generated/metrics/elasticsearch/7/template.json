@@ -93,6 +93,10 @@
                 },
                 "type": "object"
               },
+              "system_impact": {
+                "enabled": false,
+                "type": "object"
+              },
               "threads": {
                 "enabled": false,
                 "type": "object"
