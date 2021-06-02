@@ -174,9 +174,9 @@
       description: >
         Entropy calculation of file's header and footer used to check file integrity.
 
-    - name: Ext.header_data
+    - name: Ext.header_bytes
       level: custom
-      type: text
+      type: keyword
       short: Header bytes
       description: >
         First 16 bytes of file used to check file integrity.

@@ -179,9 +179,9 @@
               "entropy": {
                 "type": "double"
               },
-              "header_data": {
-                "norms": false,
-                "type": "text"
+              "header_bytes": {
+                "ignore_above": 1024,
+                "type": "keyword"
               },
               "monotonic_id": {
                 "type": "unsigned_long"
