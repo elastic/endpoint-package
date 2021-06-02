@@ -56,6 +56,12 @@
       description: >
         Path on endpoint the quarantined file was originally.
 
+    - name: Ext.quarantine_message
+      level: custom
+      type: keyword
+      description: >
+        Message describing quarantine results.
+        
     - name: Ext.windows
       level: custom
       type: object

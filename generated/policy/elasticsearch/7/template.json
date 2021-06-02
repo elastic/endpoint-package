@@ -104,77 +104,9 @@
                     },
                     "type": "object"
                   },
-                  "configurations": {
-                    "enabled": false,
-                    "properties": {
-                      "antivirus_registration": {
-                        "enabled": false,
-                        "properties": {
-                          "concerned_actions": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "status": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "events": {
-                        "properties": {
-                          "concerned_actions": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "status": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "logging": {
-                        "properties": {
-                          "concerned_actions": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "status": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "malware": {
-                        "properties": {
-                          "concerned_actions": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "status": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "streaming": {
-                        "properties": {
-                          "concerned_actions": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "status": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        },
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
+                  "endpoint_policy_version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "id": {
                     "ignore_above": 1024,
@@ -186,6 +118,170 @@
                   },
                   "response": {
                     "enabled": false,
+                    "properties": {
+                      "configurations": {
+                        "enabled": false,
+                        "properties": {
+                          "antivirus_registration": {
+                            "enabled": false,
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "events": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "host_isolation": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "logging": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "malware": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "ransomware": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "streaming": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "diagnostic": {
+                        "enabled": false,
+                        "properties": {
+                          "behavior_protection": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "malware": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "memory_protection": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "memory_scan": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "ransomware": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
                     "type": "object"
                   },
                   "status": {
@@ -214,6 +310,14 @@
       },
       "agent": {
         "properties": {
+          "build": {
+            "properties": {
+              "original": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "id": {
             "ignore_above": 1024,
             "type": "keyword"
