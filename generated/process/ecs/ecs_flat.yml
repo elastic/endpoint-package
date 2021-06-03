@@ -1122,6 +1122,17 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.architecture:
+  dashed_name: process-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 process.Ext.authentication_id:
   dashed_name: process-Ext-authentication-id
   description: Process authentication ID
@@ -1206,16 +1217,72 @@ process.Ext.code_signature.valid:
   type: boolean
 process.Ext.defense_evasions:
   dashed_name: process-Ext-defense-evasions
-  description: "List of defense evasions found in this process.   These defense evasions\
-    \ can make it harder to inspect a process and/or cause abnormal OS behavior. Examples\
-    \ tools that can cause defense evasions include Process Doppelg\xE4nging and Process\
-    \ Herpaderping."
+  description: List of defense evasions found in this process.   These defense evasions
+    can make it harder to inspect a process and/or cause abnormal OS behavior. Examples
+    tools that can cause defense evasions include Process Doppelganging and Process
+    Herpaderping.
   flat_name: process.Ext.defense_evasions
   ignore_above: 1024
   level: custom
   name: Ext.defense_evasions
   normalize: []
   short: List of defense evasions found in this process.
+  type: keyword
+process.Ext.dll.Ext:
+  dashed_name: process-Ext-dll-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.Ext.dll.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  original_fieldset: dll
+  short: Object for all custom defined fields to live in.
+  type: object
+process.Ext.dll.Ext.mapped_address:
+  dashed_name: process-Ext-dll-Ext-mapped-address
+  description: The base address where this module is loaded.
+  flat_name: process.Ext.dll.Ext.mapped_address
+  level: custom
+  name: Ext.mapped_address
+  normalize: []
+  original_fieldset: dll
+  short: The base address where this module is loaded.
+  type: unsigned_long
+process.Ext.dll.Ext.mapped_size:
+  dashed_name: process-Ext-dll-Ext-mapped-size
+  description: The size of this module's memory mapping, in bytes.
+  flat_name: process.Ext.dll.Ext.mapped_size
+  level: custom
+  name: Ext.mapped_size
+  normalize: []
+  original_fieldset: dll
+  short: The size of this module's memory mapping, in bytes.
+  type: unsigned_long
+process.Ext.dll.name:
+  dashed_name: process-Ext-dll-name
+  description: 'Name of the library.
+
+    This generally maps to the name of the file on disk.'
+  example: kernel32.dll
+  flat_name: process.Ext.dll.name
+  ignore_above: 1024
+  level: core
+  name: name
+  normalize: []
+  original_fieldset: dll
+  short: Name of the library.
+  type: keyword
+process.Ext.dll.path:
+  dashed_name: process-Ext-dll-path
+  description: Full file path of the library.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: process.Ext.dll.path
+  ignore_above: 1024
+  level: extended
+  name: path
+  normalize: []
+  original_fieldset: dll
+  short: Full file path of the library.
   type: keyword
 process.Ext.session:
   dashed_name: process-Ext-session
@@ -1237,6 +1304,18 @@ process.Ext.token.elevation:
   original_fieldset: token
   short: Whether the token is elevated or not
   type: boolean
+process.Ext.token.elevation_level:
+  dashed_name: process-Ext-token-elevation-level
+  description: What level of elevation the token has
+  example: one of "default", "full", "limited"
+  flat_name: process.Ext.token.elevation_level
+  ignore_above: 1024
+  level: custom
+  name: elevation_level
+  normalize: []
+  original_fieldset: token
+  short: What level of elevation the token has
+  type: keyword
 process.Ext.token.elevation_type:
   dashed_name: process-Ext-token-elevation-type
   description: What level of elevation the token has
@@ -1516,6 +1595,18 @@ process.parent.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+process.parent.Ext.architecture:
+  dashed_name: process-parent-Ext-architecture
+  description: Process architecture.  It can differ from host architecture.
+  example: x86_64
+  flat_name: process.parent.Ext.architecture
+  ignore_above: 1024
+  level: custom
+  name: Ext.architecture
+  normalize: []
+  original_fieldset: process
+  short: Process architecture.  It can differ from host architecture.
+  type: keyword
 process.parent.Ext.code_signature:
   dashed_name: process-parent-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
@@ -1617,6 +1708,17 @@ process.parent.Ext.real.pid:
   original_fieldset: process
   short: The real pid of the process if ppid spoofing is happening.
   type: long
+process.parent.Ext.user:
+  dashed_name: process-parent-Ext-user
+  description: User associated with the running process.
+  flat_name: process.parent.Ext.user
+  ignore_above: 1024
+  level: custom
+  name: Ext.user
+  normalize: []
+  original_fieldset: process
+  short: User associated with the running process.
+  type: keyword
 process.parent.args:
   dashed_name: process-parent-args
   description: 'Array of process arguments, starting with the absolute path to the

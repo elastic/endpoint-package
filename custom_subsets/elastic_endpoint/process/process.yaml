@@ -142,6 +142,7 @@ fields:
       Ext:
         fields:
           ancestry: {}
+          architecture: {}
           authentication_id: {}
           code_signature:
             fields:
@@ -151,10 +152,19 @@ fields:
               trusted: {}
               valid: {}
           defense_evasions: {}
+          dll:
+            fields:
+              name: {}
+              path: {}
+              Ext:
+                fields:
+                  mapped_address: {}
+                  mapped_size: {}
           session: {}
           token:
             fields:
               elevation: {}
+              elevation_level: {}
               elevation_type: {}
               integrity_level_name: {}
       parent:
@@ -199,6 +209,7 @@ fields:
           working_directory: {}
           Ext:
             fields:
+              architecture: {}
               real:
                 fields:
                   pid: {}
@@ -209,6 +220,7 @@ fields:
                   subject_name: {}
                   trusted: {}
                   valid: {}
+              user: {}
   package:
     fields:
       name: {}

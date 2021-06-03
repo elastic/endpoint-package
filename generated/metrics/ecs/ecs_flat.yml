@@ -188,6 +188,16 @@ Endpoint.metrics.memory.endpoint.private.mean:
   normalize: []
   short: Average memory usage by the endpoint since its start
   type: long
+Endpoint.metrics.system_impact:
+  dashed_name: Endpoint-metrics-system-impact
+  description: An array of system impact information
+  enabled: false
+  flat_name: Endpoint.metrics.system_impact
+  level: custom
+  name: metrics.system_impact
+  normalize: []
+  short: An array of system impact information
+  type: object
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
   description: Statistics about the individual threads of the system (array)

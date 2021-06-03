@@ -10,6 +10,9 @@ fields:
       version: {}
       type: {}
       id: {}
+      build:
+        fields:
+          original: {}
   data_stream:
     fields: "*"
   ecs:
