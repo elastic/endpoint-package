@@ -1,0 +1,8 @@
+---
+- name: MultiProcessRansomware
+  title: MultiProcessRansomware
+  group: 2
+  short: These fields contain information specific to multi process ransomware alerts.
+  description: >
+    These fields contain information specific to multi process ransomware alerts.
+  type: nested
