@@ -153,6 +153,7 @@ fields:
       Ext:
         fields:
           header_data: {}
+          header_bytes: {}
           entropy: {}
           monotonic_id: {}
           windows:
