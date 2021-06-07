@@ -328,6 +328,11 @@
       ignore_above: 1024
       description: First 16 bytes of file used to check file integrity.
       default_field: false
+    - name: Ext.header_data
+      level: custom
+      type: text
+      description: First 16 bytes of file used to check file integrity.
+      default_field: false
     - name: Ext.monotonic_id
       level: custom
       type: unsigned_long

@@ -183,6 +183,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "header_data": {
+                "norms": false,
+                "type": "text"
+              },
               "monotonic_id": {
                 "type": "unsigned_long"
               },

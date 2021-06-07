@@ -770,6 +770,7 @@ sent by the endpoint.
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
+| file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.monotonic_id | File event monotonic ID. | unsigned_long |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |

@@ -839,6 +839,16 @@ file.Ext.header_bytes:
   normalize: []
   short: Header bytes
   type: keyword
+file.Ext.header_data:
+  dashed_name: file-Ext-header-data
+  description: First 16 bytes of file used to check file integrity.
+  flat_name: file.Ext.header_data
+  level: custom
+  name: Ext.header_data
+  normalize: []
+  norms: false
+  short: Header data
+  type: text
 file.Ext.monotonic_id:
   dashed_name: file-Ext-monotonic-id
   description: File event monotonic ID.
