@@ -13,6 +13,24 @@
       - at: MultiProcessRansomware
         as: Ransomware
   fields:
+    - name: executable
+      level: custom
+      type: keyword
+      description: >
+        Absolute path to the process executable.
+      example: /usr/bin/ssh
+      multi_fields:
+        - type: text
+          name: text
+
+    - name: pid
+      format: string
+      level: core
+      type: long
+      description: >
+        Process id.
+      example: 4242
+
     - name: feature
       level: custom
       type: keyword

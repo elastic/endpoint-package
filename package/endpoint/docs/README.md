@@ -31,6 +31,7 @@ sent by the endpoint.
 | Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
 | Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
 | MultiProcessRansomware.Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| MultiProcessRansomware.Ransomware.executable | Absolute path to the process executable. | keyword |
 | MultiProcessRansomware.Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | MultiProcessRansomware.Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
 | MultiProcessRansomware.Ransomware.files.data | File header or MBR bytes. | binary |
@@ -42,9 +43,11 @@ sent by the endpoint.
 | MultiProcessRansomware.Ransomware.files.original.path | Original file path prior to the file event. | keyword |
 | MultiProcessRansomware.Ransomware.files.path | Full path to the file, including the file name. | keyword |
 | MultiProcessRansomware.Ransomware.files.score | Ransomware score for this particular file event. | double |
+| MultiProcessRansomware.Ransomware.pid | Process id. | long |
 | MultiProcessRansomware.Ransomware.score | Total ransomware score for aggregated file events. | double |
 | MultiProcessRansomware.Ransomware.version | Ransomware artifact version. | keyword |
 | Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| Ransomware.executable | Absolute path to the process executable. | keyword |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
 | Ransomware.files.data | File header or MBR bytes. | binary |
@@ -56,6 +59,7 @@ sent by the endpoint.
 | Ransomware.files.original.path | Original file path prior to the file event. | keyword |
 | Ransomware.files.path | Full path to the file, including the file name. | keyword |
 | Ransomware.files.score | Ransomware score for this particular file event. | double |
+| Ransomware.pid | Process id. | long |
 | Ransomware.score | Total ransomware score for aggregated file events. | double |
 | Ransomware.version | Ransomware artifact version. | keyword |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |

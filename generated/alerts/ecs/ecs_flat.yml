@@ -255,6 +255,23 @@ MultiProcessRansomware.Ransomware.child_pids:
   short: Array of child PIDs for ransomware which spawns numerous processes to handle
     encryption.
   type: long
+MultiProcessRansomware.Ransomware.executable:
+  dashed_name: MultiProcessRansomware-Ransomware-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: MultiProcessRansomware.Ransomware.executable
+  ignore_above: 1024
+  level: custom
+  multi_fields:
+  - flat_name: MultiProcessRansomware.Ransomware.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  original_fieldset: Ransomware
+  short: Absolute path to the process executable.
+  type: keyword
 MultiProcessRansomware.Ransomware.feature:
   dashed_name: MultiProcessRansomware-Ransomware-feature
   description: Ransomware feature which triggered the alert.
@@ -376,6 +393,18 @@ MultiProcessRansomware.Ransomware.files.score:
   original_fieldset: Ransomware
   short: Ransomware score for this particular file event.
   type: double
+MultiProcessRansomware.Ransomware.pid:
+  dashed_name: MultiProcessRansomware-Ransomware-pid
+  description: Process id.
+  example: 4242
+  flat_name: MultiProcessRansomware.Ransomware.pid
+  format: string
+  level: core
+  name: pid
+  normalize: []
+  original_fieldset: Ransomware
+  short: Process id.
+  type: long
 MultiProcessRansomware.Ransomware.score:
   dashed_name: MultiProcessRansomware-Ransomware-score
   description: Total ransomware score for aggregated file events.

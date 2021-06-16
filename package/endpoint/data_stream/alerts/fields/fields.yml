@@ -171,6 +171,17 @@
       type: long
       description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
       default_field: false
+    - name: Ransomware.executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+      description: Absolute path to the process executable.
+      example: /usr/bin/ssh
+      default_field: false
     - name: Ransomware.feature
       level: custom
       type: keyword
@@ -233,6 +244,13 @@
       type: double
       description: Ransomware score for this particular file event.
       default_field: false
+    - name: Ransomware.pid
+      level: core
+      type: long
+      format: string
+      description: Process id.
+      example: 4242
+      default_field: false
     - name: Ransomware.score
       level: custom
       type: double
@@ -254,6 +272,17 @@
       level: custom
       type: long
       description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
+      default_field: false
+    - name: executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+      description: Absolute path to the process executable.
+      example: /usr/bin/ssh
       default_field: false
     - name: feature
       level: custom
@@ -316,6 +345,13 @@
       level: custom
       type: double
       description: Ransomware score for this particular file event.
+      default_field: false
+    - name: pid
+      level: core
+      type: long
+      format: string
+      description: Process id.
+      example: 4242
       default_field: false
     - name: score
       level: custom
