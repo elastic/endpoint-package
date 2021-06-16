@@ -245,7 +245,7 @@
       description: Ransomware score for this particular file event.
       default_field: false
     - name: Ransomware.pid
-      level: core
+      level: custom
       type: long
       format: string
       description: Process id.
@@ -347,7 +347,7 @@
       description: Ransomware score for this particular file event.
       default_field: false
     - name: pid
-      level: core
+      level: custom
       type: long
       format: string
       description: Process id.

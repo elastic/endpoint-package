@@ -339,7 +339,7 @@ MultiProcessRansomware.Ransomware.pid:
   example: 4242
   flat_name: MultiProcessRansomware.Ransomware.pid
   format: string
-  level: core
+  level: custom
   name: pid
   normalize: []
   original_fieldset: Ransomware
