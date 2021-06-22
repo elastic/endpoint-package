@@ -251,3 +251,12 @@
         List of defense evasions found in this process.  
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
         Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
+
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      short: OS-level protections granted to this process
+      description: >
+        Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
+        Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+

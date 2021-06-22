@@ -2137,6 +2137,18 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
 process.Ext.services:
   dashed_name: process-Ext-services
   description: Services running in this process.
@@ -2596,6 +2608,19 @@ process.parent.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.parent.Ext.protection:
+  dashed_name: process-parent-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.parent.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
+  type: keyword
 process.parent.Ext.real:
   dashed_name: process-parent-Ext-real
   description: The field set containing process info in case of any pid spoofing.

@@ -592,6 +592,12 @@
       description: Full file path of the library.
       example: C:\Windows\System32\kernel32.dll
       default_field: false
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
     - name: Ext.session
       level: custom
       type: keyword
@@ -826,6 +832,12 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: parent.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
       default_field: false
     - name: parent.Ext.real
       level: custom

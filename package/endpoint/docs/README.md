@@ -108,6 +108,7 @@ sent by the endpoint.
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.process.Ext.malware_classification.version | The version of the model used. | keyword |
+| Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
 | Target.process.Ext.session | Session information for the current process | keyword |
 | Target.process.Ext.token.domain | Domain of token user. | keyword |
@@ -166,6 +167,7 @@ sent by the endpoint.
 | Target.process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| Target.process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | Target.process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | Target.process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -513,6 +515,7 @@ sent by the endpoint.
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
+| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.domain | Domain of token user. | keyword |
@@ -571,6 +574,7 @@ sent by the endpoint.
 | process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -1232,6 +1236,7 @@ sent by the endpoint.
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
+| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
@@ -1261,6 +1266,7 @@ sent by the endpoint.
 | process.parent.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.parent.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |

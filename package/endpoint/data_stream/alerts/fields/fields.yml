@@ -713,6 +713,12 @@
       ignore_above: 1024
       description: The version of the model used.
       default_field: false
+    - name: process.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
     - name: process.Ext.services
       level: custom
       type: keyword
@@ -1126,6 +1132,12 @@
       ignore_above: 1024
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: process.parent.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
       default_field: false
     - name: process.parent.Ext.real
       level: custom
@@ -3675,6 +3687,12 @@
       ignore_above: 1024
       description: The version of the model used.
       default_field: false
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
     - name: Ext.services
       level: custom
       type: keyword
@@ -4085,6 +4103,12 @@
       ignore_above: 1024
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: parent.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
       default_field: false
     - name: parent.Ext.real
       level: custom
