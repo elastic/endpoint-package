@@ -126,13 +126,10 @@
           }
         }
       },
-      "MultiProcessRansomware": {
+      "Ransomware": {
         "properties": {
-          "Ransomware": {
+          "child_processes": {
             "properties": {
-              "child_pids": {
-                "type": "long"
-              },
               "executable": {
                 "fields": {
                   "text": {
@@ -200,6 +197,72 @@
                 "type": "keyword"
               }
             }
+          },
+          "executable": {
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "feature": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "files": {
+            "properties": {
+              "data": {
+                "type": "binary"
+              },
+              "entropy": {
+                "type": "double"
+              },
+              "extension": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "metrics": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "operation": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "original": {
+                "properties": {
+                  "extension": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "path": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "score": {
+                "type": "double"
+              }
+            },
+            "type": "nested"
+          },
+          "pid": {
+            "type": "long"
+          },
+          "score": {
+            "type": "double"
+          },
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
           }
         }
       },

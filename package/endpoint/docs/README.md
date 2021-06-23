@@ -30,23 +30,21 @@ sent by the endpoint.
 | Memory_protection.self_injection | Is this alert about a process injecting into itself? | boolean |
 | Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
 | Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
-| MultiProcessRansomware.Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
-| MultiProcessRansomware.Ransomware.executable | Absolute path to the process executable. | keyword |
-| MultiProcessRansomware.Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
-| MultiProcessRansomware.Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
-| MultiProcessRansomware.Ransomware.files.data | File header or MBR bytes. | binary |
-| MultiProcessRansomware.Ransomware.files.entropy | Entropy of file contents. | double |
-| MultiProcessRansomware.Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
-| MultiProcessRansomware.Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
-| MultiProcessRansomware.Ransomware.files.operation | Operation applied to file. | keyword |
-| MultiProcessRansomware.Ransomware.files.original.extension | Original file extension prior to the file event. | keyword |
-| MultiProcessRansomware.Ransomware.files.original.path | Original file path prior to the file event. | keyword |
-| MultiProcessRansomware.Ransomware.files.path | Full path to the file, including the file name. | keyword |
-| MultiProcessRansomware.Ransomware.files.score | Ransomware score for this particular file event. | double |
-| MultiProcessRansomware.Ransomware.pid | Process id. | long |
-| MultiProcessRansomware.Ransomware.score | Total ransomware score for aggregated file events. | double |
-| MultiProcessRansomware.Ransomware.version | Ransomware artifact version. | keyword |
-| Ransomware.child_pids | Array of child PIDs for ransomware which spawns numerous processes to handle encryption. | long |
+| Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
+| Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
+| Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
+| Ransomware.child_processes.files.data | File header or MBR bytes. | binary |
+| Ransomware.child_processes.files.entropy | Entropy of file contents. | double |
+| Ransomware.child_processes.files.extension | File extension, excluding the leading dot. | keyword |
+| Ransomware.child_processes.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
+| Ransomware.child_processes.files.operation | Operation applied to file. | keyword |
+| Ransomware.child_processes.files.original.extension | Original file extension prior to the file event. | keyword |
+| Ransomware.child_processes.files.original.path | Original file path prior to the file event. | keyword |
+| Ransomware.child_processes.files.path | Full path to the file, including the file name. | keyword |
+| Ransomware.child_processes.files.score | Ransomware score for this particular file event. | double |
+| Ransomware.child_processes.pid | Process id. | long |
+| Ransomware.child_processes.score | Total ransomware score for aggregated file events. | double |
+| Ransomware.child_processes.version | Ransomware artifact version. | keyword |
 | Ransomware.executable | Absolute path to the process executable. | keyword |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |

@@ -393,5 +393,3 @@ fields:
               name: {}
   Ransomware:
     fields: "*"
-  MultiProcessRansomware:
-    fields: "*"

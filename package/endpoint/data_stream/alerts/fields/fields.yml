@@ -160,18 +160,13 @@
       ignore_above: 1024
       description: A unique key created by hashing several characteristics of this alert.
       default_field: false
-- name: MultiProcessRansomware
-  title: MultiProcessRansomware
+- name: Ransomware
+  title: Ransomware
   group: 2
-  description: These fields contain information specific to multi process ransomware alerts.
-  type: nested
+  description: These fields contain information specific to ransomware alerts.
+  type: group
   fields:
-    - name: Ransomware.child_pids
-      level: custom
-      type: long
-      description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
-      default_field: false
-    - name: Ransomware.executable
+    - name: child_processes.executable
       level: custom
       type: keyword
       ignore_above: 1024
@@ -182,96 +177,85 @@
       description: Absolute path to the process executable.
       example: /usr/bin/ssh
       default_field: false
-    - name: Ransomware.feature
+    - name: child_processes.feature
       level: custom
       type: keyword
       ignore_above: 1024
       description: Ransomware feature which triggered the alert.
       default_field: false
-    - name: Ransomware.files
+    - name: child_processes.files
       level: custom
       type: nested
       description: Information about each file event attributed to the ransomware. Expected to be an array.
       default_field: false
-    - name: Ransomware.files.data
+    - name: child_processes.files.data
       level: custom
       type: binary
       description: File header or MBR bytes.
       default_field: false
-    - name: Ransomware.files.entropy
+    - name: child_processes.files.entropy
       level: custom
       type: double
       description: Entropy of file contents.
       default_field: false
-    - name: Ransomware.files.extension
+    - name: child_processes.files.extension
       level: custom
       type: keyword
       ignore_above: 1024
       description: File extension, excluding the leading dot.
       default_field: false
-    - name: Ransomware.files.metrics
+    - name: child_processes.files.metrics
       level: custom
       type: keyword
       ignore_above: 1024
       description: Suspicious ransomware behaviours associated with the file event.
       default_field: false
-    - name: Ransomware.files.operation
+    - name: child_processes.files.operation
       level: custom
       type: keyword
       ignore_above: 1024
       description: Operation applied to file.
       default_field: false
-    - name: Ransomware.files.original.extension
+    - name: child_processes.files.original.extension
       level: custom
       type: keyword
       ignore_above: 1024
       description: Original file extension prior to the file event.
       default_field: false
-    - name: Ransomware.files.original.path
+    - name: child_processes.files.original.path
       level: custom
       type: keyword
       ignore_above: 1024
       description: Original file path prior to the file event.
       default_field: false
-    - name: Ransomware.files.path
+    - name: child_processes.files.path
       level: custom
       type: keyword
       ignore_above: 1024
       description: Full path to the file, including the file name.
       default_field: false
-    - name: Ransomware.files.score
+    - name: child_processes.files.score
       level: custom
       type: double
       description: Ransomware score for this particular file event.
       default_field: false
-    - name: Ransomware.pid
+    - name: child_processes.pid
       level: custom
       type: long
       format: string
       description: Process id.
       example: 4242
       default_field: false
-    - name: Ransomware.score
+    - name: child_processes.score
       level: custom
       type: double
       description: Total ransomware score for aggregated file events.
       default_field: false
-    - name: Ransomware.version
+    - name: child_processes.version
       level: custom
       type: keyword
       ignore_above: 1024
       description: Ransomware artifact version.
-      default_field: false
-- name: Ransomware
-  title: Ransomware
-  group: 2
-  description: These fields contain information specific to ransomware alerts.
-  type: group
-  fields:
-    - name: child_pids
-      level: custom
-      type: long
-      description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
       default_field: false
     - name: executable
       level: custom

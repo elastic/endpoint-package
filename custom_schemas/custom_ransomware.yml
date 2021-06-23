@@ -7,11 +7,9 @@
     These fields contain information specific to ransomware alerts.
   type: group
   reusable:
-    order: 1
-    top_level: false
+    top_level: true
     expected:
-      - at: MultiProcessRansomware
-        as: Ransomware
+      - { at: Ransomware, as: child_processes }
   fields:
     - name: executable
       level: custom
@@ -45,13 +43,6 @@
       level: custom
       type: keyword
       description: Ransomware artifact version.
-
-    - name: child_pids
-      level: custom
-      type: long
-      description: Array of child PIDs for ransomware which spawns numerous processes to handle encryption.
-      normalize:
-        - array
 
     - name: files
       level: custom
