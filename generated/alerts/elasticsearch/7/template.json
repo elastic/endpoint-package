@@ -502,6 +502,10 @@
                       }
                     }
                   },
+                  "protection": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
                   "services": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -778,6 +782,10 @@
                             }
                           }
                         }
+                      },
+                      "protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
                       },
                       "real": {
                         "properties": {
@@ -2499,6 +2507,10 @@
                   }
                 }
               },
+              "protection": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "services": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -2775,6 +2787,10 @@
                         }
                       }
                     }
+                  },
+                  "protection": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "real": {
                     "properties": {

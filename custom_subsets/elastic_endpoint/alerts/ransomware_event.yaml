@@ -298,6 +298,7 @@ fields:
                 exceptionable: true
               status:
                 exceptionable: true
+          protection: {}
           token:
             fields:
               domain: {}
@@ -366,6 +367,7 @@ fields:
                     exceptionable: true
                   status:
                     exceptionable: true
+              protection: {}
   user:
     fields:
       domain: {}

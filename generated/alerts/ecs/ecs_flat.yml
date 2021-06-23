@@ -1231,6 +1231,19 @@ Target.process.Ext.malware_classification.version:
   original_fieldset: malware_classification
   short: The version of the model used.
   type: keyword
+Target.process.Ext.protection:
+  dashed_name: Target-process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: Target.process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
+  type: keyword
 Target.process.Ext.services:
   dashed_name: Target-process-Ext-services
   description: Services running in this process.
@@ -1962,6 +1975,19 @@ Target.process.parent.Ext.dll.pe.product:
   normalize: []
   original_fieldset: pe
   short: Internal product name of the file, provided at compile-time.
+  type: keyword
+Target.process.parent.Ext.protection:
+  dashed_name: Target-process-parent-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: Target.process.parent.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
   type: keyword
 Target.process.parent.Ext.real:
   dashed_name: Target-process-parent-Ext-real
@@ -6768,6 +6794,18 @@ process.Ext.malware_classification.version:
   original_fieldset: malware_classification
   short: The version of the model used.
   type: keyword
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
 process.Ext.services:
   dashed_name: process-Ext-services
   description: Services running in this process.
@@ -7489,6 +7527,19 @@ process.parent.Ext.dll.pe.product:
   normalize: []
   original_fieldset: pe
   short: Internal product name of the file, provided at compile-time.
+  type: keyword
+process.parent.Ext.protection:
+  dashed_name: process-parent-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.parent.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
   type: keyword
 process.parent.Ext.real:
   dashed_name: process-parent-Ext-real

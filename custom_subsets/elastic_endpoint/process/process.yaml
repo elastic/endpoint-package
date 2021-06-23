@@ -160,6 +160,7 @@ fields:
                 fields:
                   mapped_address: {}
                   mapped_size: {}
+          protection: {}
           session: {}
           token:
             fields:
@@ -221,6 +222,7 @@ fields:
                   trusted: {}
                   valid: {}
               user: {}
+              protection: {}
   package:
     fields:
       name: {}
