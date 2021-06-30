@@ -515,6 +515,11 @@ sent by the endpoint.
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
+| process.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| process.Ext.malware_signature.identifier | The model's unique identifier. | keyword |
+| process.Ext.malware_signature.primary | The first matching details. | object |
+| process.Ext.malware_signature.secondary | Additional matching details if available. | array |
+| process.Ext.malware_signature.version | The version of the model used. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
