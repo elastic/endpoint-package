@@ -378,6 +378,11 @@ sent by the endpoint.
 | file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | file.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | file.Ext.malware_classification.version | The version of the model used. | keyword |
+| file.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| file.Ext.malware_signature.identifier | The model's unique identifier. | keyword |
+| file.Ext.malware_signature.primary | The first matching details. | object |
+| file.Ext.malware_signature.secondary | Additional matching details if available. | array |
+| file.Ext.malware_signature.version | The version of the model used. | keyword |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |

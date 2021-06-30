@@ -1837,6 +1837,28 @@
                   }
                 }
               },
+              "malware_signature": {
+                "properties": {
+                  "all_names": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "identifier": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "primary": {
+                    "type": "object"
+                  },
+                  "secondary": {
+                    "type": "array"
+                  },
+                  "version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "original": {
                 "properties": {
                   "gid": {

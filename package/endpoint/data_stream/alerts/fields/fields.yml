@@ -2740,6 +2740,35 @@
       ignore_above: 1024
       description: The version of the model used.
       default_field: false
+    - name: Ext.malware_signature.all_names
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: A sequence of signature names matched.
+      example: Windows.EICAR.Not-a-virus
+      default_field: false
+    - name: Ext.malware_signature.identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The model's unique identifier.
+      default_field: false
+    - name: Ext.malware_signature.primary
+      level: custom
+      type: object
+      description: The first matching details.
+      default_field: false
+    - name: Ext.malware_signature.secondary
+      level: custom
+      type: array
+      description: Additional matching details if available.
+      default_field: false
+    - name: Ext.malware_signature.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The version of the model used.
+      default_field: false
     - name: Ext.original
       level: custom
       type: object
