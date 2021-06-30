@@ -1848,6 +1848,32 @@
                     "type": "keyword"
                   },
                   "primary": {
+                    "properties": {
+                      "matches": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "signature": {
+                        "properties": {
+                          "hash": {
+                            "properties": {
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    },
                     "type": "object"
                   },
                   "secondary": {
@@ -2522,28 +2548,6 @@
                   },
                   "upx_packed": {
                     "type": "boolean"
-                  },
-                  "version": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  }
-                }
-              },
-              "malware_signature": {
-                "properties": {
-                  "all_names": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "identifier": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "primary": {
-                    "type": "object"
-                  },
-                  "secondary": {
-                    "type": "array"
                   },
                   "version": {
                     "ignore_above": 1024,
