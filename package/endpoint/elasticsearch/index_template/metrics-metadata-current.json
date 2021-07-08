@@ -27,7 +27,7 @@
                     "properties": {
                         "configuration": {
                             "properties": {
-                                "isolated": {
+                                "isolation": {
                                     "type": "boolean",
                                     "null_value": false
                                 }
@@ -55,7 +55,7 @@
                         },
                         "state": {
                             "properties": {
-                                "isolated": {
+                                "isolation": {
                                     "type": "boolean",
                                     "null_value": false
                                 }
