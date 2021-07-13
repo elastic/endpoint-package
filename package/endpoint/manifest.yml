@@ -5,7 +5,7 @@ description: Protect your hosts with threat prevention, detection, and deep secu
 version: 0.21.0-dev.0
 categories: ["security"]
 # Options are experimental, beta, ga
-release: beta
+release: ga
 # The package type. The options for now are [integration, solution], more type might be added in the future.
 # The default type is integration and will be set if empty.
 type: integration
@@ -24,4 +24,4 @@ icons:
     size: "16x16"
     type: "image/svg+xml"
 owner:
-  github: elastic/endpoint-data-visibility-team
+  github: elastic/security-onboarding-and-lifecycle-mgt
