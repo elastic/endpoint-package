@@ -187,6 +187,19 @@
                             },
                             "type": "object"
                           },
+                          "memory_protection": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
                           "ransomware": {
                             "properties": {
                               "concerned_actions": {
