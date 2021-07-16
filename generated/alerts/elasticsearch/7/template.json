@@ -502,6 +502,68 @@
                       }
                     }
                   },
+                  "malware_signature": {
+                    "properties": {
+                      "all_names": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "memory_region": {
+                        "properties": {
+                          "allocation_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "allocation_size": {
+                            "type": "unsigned_long"
+                          },
+                          "allocation_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "bytes_allocation_offset": {
+                            "type": "unsigned_long"
+                          },
+                          "memory_pe": {
+                            "properties": {
+                              "imphash": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
+                          "region_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "region_size": {
+                            "type": "unsigned_long"
+                          },
+                          "region_state": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "primary": {
+                        "properties": {
+                          "signature": {
+                            "properties": {
+                              "id": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          }
+                        },
+                        "type": "object"
+                      }
+                    }
+                  },
                   "protection": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -1837,76 +1899,6 @@
                   }
                 }
               },
-              "malware_signature": {
-                "properties": {
-                  "all_names": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "malware_signature": {
-                    "properties": {
-                      "memory_region": {
-                        "properties": {
-                          "allocation_protection": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "allocation_size": {
-                            "type": "long"
-                          },
-                          "allocation_type": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "bytes_allocation_offset": {
-                            "type": "long"
-                          },
-                          "memory_pe": {
-                            "properties": {
-                              "imphash": {
-                                "ignore_above": 1024,
-                                "type": "keyword"
-                              }
-                            }
-                          },
-                          "region_protection": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "region_size": {
-                            "type": "long"
-                          },
-                          "region_state": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "primary": {
-                    "properties": {
-                      "signature": {
-                        "properties": {
-                          "id": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          },
-                          "name": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "secondary": {
-                    "enabled": false,
-                    "type": "nested"
-                  }
-                }
-              },
               "original": {
                 "properties": {
                   "gid": {
@@ -2574,6 +2566,68 @@
                   "version": {
                     "ignore_above": 1024,
                     "type": "keyword"
+                  }
+                }
+              },
+              "malware_signature": {
+                "properties": {
+                  "all_names": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "memory_region": {
+                    "properties": {
+                      "allocation_protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "allocation_size": {
+                        "type": "unsigned_long"
+                      },
+                      "allocation_type": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "bytes_allocation_offset": {
+                        "type": "unsigned_long"
+                      },
+                      "memory_pe": {
+                        "properties": {
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "region_protection": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "region_size": {
+                        "type": "unsigned_long"
+                      },
+                      "region_state": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "primary": {
+                    "properties": {
+                      "signature": {
+                        "properties": {
+                          "id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    },
+                    "type": "object"
                   }
                 }
               },

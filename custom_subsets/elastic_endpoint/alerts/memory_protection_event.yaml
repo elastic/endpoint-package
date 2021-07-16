@@ -349,6 +349,27 @@ fields:
               sid: {}
               type: {}
               user: {}
+          malware_signature:
+            fields:
+              all_names: {}
+              primary:
+                fields:
+                  signature:
+                    fields:
+                      id: {}
+                      name: {}
+              memory_region:
+                fields:
+                  allocation_protection: {}
+                  allocation_size: {}
+                  allocation_type: {}
+                  region_protection: {}
+                  region_size: {}
+                  region_state: {}
+                  bytes_allocation_offset: {}
+                  memory_pe:
+                    fields:
+                      imphash: {}
       parent:
         fields:
           args: {}

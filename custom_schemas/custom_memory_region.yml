@@ -11,6 +11,8 @@
     expected:
       - at: process.thread.Ext
         as: start_address_details
+      - at: process.Ext.malware_signature
+        as: memory_region
   fields:
     - name: allocation_base
       level: custom
@@ -31,7 +33,7 @@
       type: unsigned_long
       example: 4096
       description: >
-        Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". 
+        Original memory size requested when the memory was allocated.
         
     - name: allocation_type
       level: custom
@@ -123,4 +125,3 @@
       type: keyword
       description: >
         Array of strings found within the memory region.
-

@@ -1231,6 +1231,156 @@ Target.process.Ext.malware_classification.version:
   original_fieldset: malware_classification
   short: The version of the model used.
   type: keyword
+Target.process.Ext.malware_signature.all_names:
+  dashed_name: Target-process-Ext-malware-signature-all-names
+  description: A sequence of signature names matched.
+  example: Windows.EICAR.Not-a-virus
+  flat_name: Target.process.Ext.malware_signature.all_names
+  ignore_above: 1024
+  level: custom
+  name: all_names
+  normalize: []
+  original_fieldset: malware_signature
+  short: A sequence of signature names matched.
+  type: keyword
+Target.process.Ext.malware_signature.memory_region.allocation_protection:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-allocation-protection
+  description: Original memory protection requested when the memory was allocated.
+    Example values include "RWX" and "R-X".
+  example: RWX
+  flat_name: Target.process.Ext.malware_signature.memory_region.allocation_protection
+  ignore_above: 1024
+  level: custom
+  name: allocation_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory protection requested when the memory was allocated. Example
+    values include "RWX" and "R-X".
+  type: keyword
+Target.process.Ext.malware_signature.memory_region.allocation_size:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-allocation-size
+  description: Original memory size requested when the memory was allocated.
+  example: 4096
+  flat_name: Target.process.Ext.malware_signature.memory_region.allocation_size
+  level: custom
+  name: allocation_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory size requested when the memory was allocated.
+  type: unsigned_long
+Target.process.Ext.malware_signature.memory_region.allocation_type:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-allocation-type
+  description: The memory allocation type. Example values include "IMAGE", "MAPPED",
+    and "PRIVATE".
+  example: PRIVATE
+  flat_name: Target.process.Ext.malware_signature.memory_region.allocation_type
+  ignore_above: 1024
+  level: custom
+  name: allocation_type
+  normalize: []
+  original_fieldset: memory_region
+  short: The memory allocation type. Example values include "IMAGE", "MAPPED", and
+    "PRIVATE".
+  type: keyword
+Target.process.Ext.malware_signature.memory_region.bytes_allocation_offset:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-bytes-allocation-offset
+  description: Offset of bytes_address the memory allocation. Equal to bytes_address
+    - allocation_base.
+  example: 0
+  flat_name: Target.process.Ext.malware_signature.memory_region.bytes_allocation_offset
+  level: custom
+  name: bytes_allocation_offset
+  normalize: []
+  original_fieldset: memory_region
+  short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
+  type: unsigned_long
+Target.process.Ext.malware_signature.memory_region.memory_pe.imphash:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-memory-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: Target.process.Ext.malware_signature.memory_region.memory_pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
+Target.process.Ext.malware_signature.memory_region.region_protection:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-region-protection
+  description: Memory protection of the memory region. Example values include "RWX"
+    and "R-X".
+  example: RWX
+  flat_name: Target.process.Ext.malware_signature.memory_region.region_protection
+  ignore_above: 1024
+  level: custom
+  name: region_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Memory protection of the memory region. Example values include "RWX" and
+    "R-X".
+  type: keyword
+Target.process.Ext.malware_signature.memory_region.region_size:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-region-size
+  description: Size of the memory region.
+  example: 4096
+  flat_name: Target.process.Ext.malware_signature.memory_region.region_size
+  level: custom
+  name: region_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Size of the memory region.
+  type: unsigned_long
+Target.process.Ext.malware_signature.memory_region.region_state:
+  dashed_name: Target-process-Ext-malware-signature-memory-region-region-state
+  description: State of the memory region. Example values include "RESERVE", "COMMIT",
+    and "FREE".
+  example: COMMIT
+  flat_name: Target.process.Ext.malware_signature.memory_region.region_state
+  ignore_above: 1024
+  level: custom
+  name: region_state
+  normalize: []
+  original_fieldset: memory_region
+  short: State of the memory region. Example values include "RESERVE", "COMMIT", and
+    "FREE".
+  type: keyword
+Target.process.Ext.malware_signature.primary:
+  dashed_name: Target-process-Ext-malware-signature-primary
+  description: The first matching details.
+  flat_name: Target.process.Ext.malware_signature.primary
+  level: custom
+  name: primary
+  normalize: []
+  original_fieldset: malware_signature
+  short: The first matching details.
+  type: object
+Target.process.Ext.malware_signature.primary.signature.id:
+  dashed_name: Target-process-Ext-malware-signature-primary-signature-id
+  description: The id of the first yara rule matched.
+  flat_name: Target.process.Ext.malware_signature.primary.signature.id
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.id
+  normalize: []
+  original_fieldset: malware_signature
+  short: The id of the first yara rule matched.
+  type: keyword
+Target.process.Ext.malware_signature.primary.signature.name:
+  dashed_name: Target-process-Ext-malware-signature-primary-signature-name
+  description: The name of the first yara rule matched.
+  flat_name: Target.process.Ext.malware_signature.primary.signature.name
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.name
+  normalize: []
+  original_fieldset: malware_signature
+  short: The name of the first yara rule matched.
+  type: keyword
 Target.process.Ext.protection:
   dashed_name: Target-process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
@@ -2935,16 +3085,14 @@ Target.process.thread.Ext.start_address_details.allocation_protection:
   type: keyword
 Target.process.thread.Ext.start_address_details.allocation_size:
   dashed_name: Target-process-thread-Ext-start-address-details-allocation-size
-  description: Original memory protection requested when the memory was allocated.
-    Example values include "RWX" and "R-X".
+  description: Original memory size requested when the memory was allocated.
   example: 4096
   flat_name: Target.process.thread.Ext.start_address_details.allocation_size
   level: custom
   name: allocation_size
   normalize: []
   original_fieldset: memory_region
-  short: Original memory protection requested when the memory was allocated. Example
-    values include "RWX" and "R-X".
+  short: Original memory size requested when the memory was allocated.
   type: unsigned_long
 Target.process.thread.Ext.start_address_details.allocation_type:
   dashed_name: Target-process-thread-Ext-start-address-details-allocation-type
@@ -5110,164 +5258,6 @@ file.Ext.malware_classification.version:
   original_fieldset: malware_classification
   short: The version of the model used.
   type: keyword
-file.Ext.malware_signature.all_names:
-  dashed_name: file-Ext-malware-signature-all-names
-  description: A sequence of signature names matched.
-  example: Windows.EICAR.Not-a-virus
-  flat_name: file.Ext.malware_signature.all_names
-  ignore_above: 1024
-  level: custom
-  name: all_names
-  normalize: []
-  original_fieldset: malware_signature
-  short: A sequence of signature names matched.
-  type: keyword
-file.Ext.malware_signature.malware_signature.memory_region.allocation_protection:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-allocation-protection
-  description: Original memory protection requested when the memory was allocated.
-    Example values include "RWX" and "R-X".
-  example: RWX
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.allocation_protection
-  ignore_above: 1024
-  level: custom
-  name: malware_signature.memory_region.allocation_protection
-  normalize: []
-  original_fieldset: malware_signature
-  short: Original memory protection requested when the memory was allocated. Example
-    values include "RWX" and "R-X".
-  type: keyword
-file.Ext.malware_signature.malware_signature.memory_region.allocation_size:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-allocation-size
-  description: Original memory size requested when the memory was allocated.
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.allocation_size
-  level: custom
-  name: malware_signature.memory_region.allocation_size
-  normalize: []
-  original_fieldset: malware_signature
-  short: Original memory size requested when the memory was allocated.
-  type: long
-file.Ext.malware_signature.malware_signature.memory_region.allocation_type:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-allocation-type
-  description: The memory allocation type. Example values include "IMAGE", "MAPPED",
-    and "PRIVATE".
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.allocation_type
-  ignore_above: 1024
-  level: custom
-  name: malware_signature.memory_region.allocation_type
-  normalize: []
-  original_fieldset: malware_signature
-  short: The memory allocation type. Example values include "IMAGE", "MAPPED", and
-    "PRIVATE".
-  type: keyword
-file.Ext.malware_signature.malware_signature.memory_region.bytes_allocation_offset:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-bytes-allocation-offset
-  description: Offset of bytes_address the memory allocation. Equal to bytes_address
-    - allocation_base.
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.bytes_allocation_offset
-  level: custom
-  name: malware_signature.memory_region.bytes_allocation_offset
-  normalize: []
-  original_fieldset: malware_signature
-  short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
-  type: long
-file.Ext.malware_signature.malware_signature.memory_region.memory_pe.imphash:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-memory-pe-imphash
-  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
-    can be used to fingerprint binaries even after recompilation or other code-level
-    transformations have occurred, which would change more traditional hash values.
-
-    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.memory_pe.imphash
-  ignore_above: 1024
-  level: custom
-  name: malware_signature.memory_region.memory_pe.imphash
-  normalize: []
-  original_fieldset: malware_signature
-  short: 'A hash of the imports in a PE file. An imphash -- or import hash -- can
-    be used to fingerprint binaries even after recompilation or other code-level transformations
-    have occurred, which would change more traditional hash values.
-
-    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-  type: keyword
-file.Ext.malware_signature.malware_signature.memory_region.region_protection:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-region-protection
-  description: Memory protection of the memory region. Example values include "RWX"
-    and "R-X".
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.region_protection
-  ignore_above: 1024
-  level: custom
-  name: malware_signature.memory_region.region_protection
-  normalize: []
-  original_fieldset: malware_signature
-  short: Memory protection of the memory region. Example values include "RWX" and
-    "R-X".
-  type: keyword
-file.Ext.malware_signature.malware_signature.memory_region.region_size:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-region-size
-  description: Size of the memory region.
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.region_size
-  level: custom
-  name: malware_signature.memory_region.region_size
-  normalize: []
-  original_fieldset: malware_signature
-  short: Size of the memory region.
-  type: long
-file.Ext.malware_signature.malware_signature.memory_region.region_state:
-  dashed_name: file-Ext-malware-signature-malware-signature-memory-region-region-state
-  description: State of the memory region. Example values include "RESERVE", "COMMIT",
-    and "FREE".
-  flat_name: file.Ext.malware_signature.malware_signature.memory_region.region_state
-  ignore_above: 1024
-  level: custom
-  name: malware_signature.memory_region.region_state
-  normalize: []
-  original_fieldset: malware_signature
-  short: State of the memory region. Example values include "RESERVE", "COMMIT", and
-    "FREE".
-  type: keyword
-file.Ext.malware_signature.primary:
-  dashed_name: file-Ext-malware-signature-primary
-  description: The first matching details.
-  flat_name: file.Ext.malware_signature.primary
-  level: custom
-  name: primary
-  normalize: []
-  original_fieldset: malware_signature
-  short: The first matching details.
-  type: object
-file.Ext.malware_signature.primary.signature.id:
-  dashed_name: file-Ext-malware-signature-primary-signature-id
-  description: The id of the first yara rule matched.
-  flat_name: file.Ext.malware_signature.primary.signature.id
-  ignore_above: 1024
-  level: custom
-  name: primary.signature.id
-  normalize: []
-  original_fieldset: malware_signature
-  short: The id of the first yara rule matched.
-  type: keyword
-file.Ext.malware_signature.primary.signature.name:
-  dashed_name: file-Ext-malware-signature-primary-signature-name
-  description: The name of the first yara rule matched.
-  flat_name: file.Ext.malware_signature.primary.signature.name
-  ignore_above: 1024
-  level: custom
-  name: primary.signature.name
-  normalize: []
-  original_fieldset: malware_signature
-  short: The name of the first yara rule matched.
-  type: keyword
-file.Ext.malware_signature.secondary:
-  dashed_name: file-Ext-malware-signature-secondary
-  description: Additional matching details if available.
-  enabled: false
-  flat_name: file.Ext.malware_signature.secondary
-  level: custom
-  name: secondary
-  normalize: []
-  original_fieldset: malware_signature
-  short: Additional matching details if available.
-  type: nested
 file.Ext.original:
   dashed_name: file-Ext-original
   description: Original file information during a modification event.
@@ -6952,6 +6942,156 @@ process.Ext.malware_classification.version:
   original_fieldset: malware_classification
   short: The version of the model used.
   type: keyword
+process.Ext.malware_signature.all_names:
+  dashed_name: process-Ext-malware-signature-all-names
+  description: A sequence of signature names matched.
+  example: Windows.EICAR.Not-a-virus
+  flat_name: process.Ext.malware_signature.all_names
+  ignore_above: 1024
+  level: custom
+  name: all_names
+  normalize: []
+  original_fieldset: malware_signature
+  short: A sequence of signature names matched.
+  type: keyword
+process.Ext.malware_signature.memory_region.allocation_protection:
+  dashed_name: process-Ext-malware-signature-memory-region-allocation-protection
+  description: Original memory protection requested when the memory was allocated.
+    Example values include "RWX" and "R-X".
+  example: RWX
+  flat_name: process.Ext.malware_signature.memory_region.allocation_protection
+  ignore_above: 1024
+  level: custom
+  name: allocation_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory protection requested when the memory was allocated. Example
+    values include "RWX" and "R-X".
+  type: keyword
+process.Ext.malware_signature.memory_region.allocation_size:
+  dashed_name: process-Ext-malware-signature-memory-region-allocation-size
+  description: Original memory size requested when the memory was allocated.
+  example: 4096
+  flat_name: process.Ext.malware_signature.memory_region.allocation_size
+  level: custom
+  name: allocation_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Original memory size requested when the memory was allocated.
+  type: unsigned_long
+process.Ext.malware_signature.memory_region.allocation_type:
+  dashed_name: process-Ext-malware-signature-memory-region-allocation-type
+  description: The memory allocation type. Example values include "IMAGE", "MAPPED",
+    and "PRIVATE".
+  example: PRIVATE
+  flat_name: process.Ext.malware_signature.memory_region.allocation_type
+  ignore_above: 1024
+  level: custom
+  name: allocation_type
+  normalize: []
+  original_fieldset: memory_region
+  short: The memory allocation type. Example values include "IMAGE", "MAPPED", and
+    "PRIVATE".
+  type: keyword
+process.Ext.malware_signature.memory_region.bytes_allocation_offset:
+  dashed_name: process-Ext-malware-signature-memory-region-bytes-allocation-offset
+  description: Offset of bytes_address the memory allocation. Equal to bytes_address
+    - allocation_base.
+  example: 0
+  flat_name: process.Ext.malware_signature.memory_region.bytes_allocation_offset
+  level: custom
+  name: bytes_allocation_offset
+  normalize: []
+  original_fieldset: memory_region
+  short: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
+  type: unsigned_long
+process.Ext.malware_signature.memory_region.memory_pe.imphash:
+  dashed_name: process-Ext-malware-signature-memory-region-memory-pe-imphash
+  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
+    can be used to fingerprint binaries even after recompilation or other code-level
+    transformations have occurred, which would change more traditional hash values.
+
+    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+  example: 0c6803c4e922103c4dca5963aad36ddf
+  flat_name: process.Ext.malware_signature.memory_region.memory_pe.imphash
+  ignore_above: 1024
+  level: extended
+  name: imphash
+  normalize: []
+  original_fieldset: pe
+  short: A hash of the imports in a PE file.
+  type: keyword
+process.Ext.malware_signature.memory_region.region_protection:
+  dashed_name: process-Ext-malware-signature-memory-region-region-protection
+  description: Memory protection of the memory region. Example values include "RWX"
+    and "R-X".
+  example: RWX
+  flat_name: process.Ext.malware_signature.memory_region.region_protection
+  ignore_above: 1024
+  level: custom
+  name: region_protection
+  normalize: []
+  original_fieldset: memory_region
+  short: Memory protection of the memory region. Example values include "RWX" and
+    "R-X".
+  type: keyword
+process.Ext.malware_signature.memory_region.region_size:
+  dashed_name: process-Ext-malware-signature-memory-region-region-size
+  description: Size of the memory region.
+  example: 4096
+  flat_name: process.Ext.malware_signature.memory_region.region_size
+  level: custom
+  name: region_size
+  normalize: []
+  original_fieldset: memory_region
+  short: Size of the memory region.
+  type: unsigned_long
+process.Ext.malware_signature.memory_region.region_state:
+  dashed_name: process-Ext-malware-signature-memory-region-region-state
+  description: State of the memory region. Example values include "RESERVE", "COMMIT",
+    and "FREE".
+  example: COMMIT
+  flat_name: process.Ext.malware_signature.memory_region.region_state
+  ignore_above: 1024
+  level: custom
+  name: region_state
+  normalize: []
+  original_fieldset: memory_region
+  short: State of the memory region. Example values include "RESERVE", "COMMIT", and
+    "FREE".
+  type: keyword
+process.Ext.malware_signature.primary:
+  dashed_name: process-Ext-malware-signature-primary
+  description: The first matching details.
+  flat_name: process.Ext.malware_signature.primary
+  level: custom
+  name: primary
+  normalize: []
+  original_fieldset: malware_signature
+  short: The first matching details.
+  type: object
+process.Ext.malware_signature.primary.signature.id:
+  dashed_name: process-Ext-malware-signature-primary-signature-id
+  description: The id of the first yara rule matched.
+  flat_name: process.Ext.malware_signature.primary.signature.id
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.id
+  normalize: []
+  original_fieldset: malware_signature
+  short: The id of the first yara rule matched.
+  type: keyword
+process.Ext.malware_signature.primary.signature.name:
+  dashed_name: process-Ext-malware-signature-primary-signature-name
+  description: The name of the first yara rule matched.
+  flat_name: process.Ext.malware_signature.primary.signature.name
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.name
+  normalize: []
+  original_fieldset: malware_signature
+  short: The name of the first yara rule matched.
+  type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
@@ -8630,16 +8770,14 @@ process.thread.Ext.start_address_details.allocation_protection:
   type: keyword
 process.thread.Ext.start_address_details.allocation_size:
   dashed_name: process-thread-Ext-start-address-details-allocation-size
-  description: Original memory protection requested when the memory was allocated.
-    Example values include "RWX" and "R-X".
+  description: Original memory size requested when the memory was allocated.
   example: 4096
   flat_name: process.thread.Ext.start_address_details.allocation_size
   level: custom
   name: allocation_size
   normalize: []
   original_fieldset: memory_region
-  short: Original memory protection requested when the memory was allocated. Example
-    values include "RWX" and "R-X".
+  short: Original memory size requested when the memory was allocated.
   type: unsigned_long
 process.thread.Ext.start_address_details.allocation_type:
   dashed_name: process-thread-Ext-start-address-details-allocation-type

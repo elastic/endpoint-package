@@ -108,6 +108,18 @@ sent by the endpoint.
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.process.Ext.malware_classification.version | The version of the model used. | keyword |
+| Target.process.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| Target.process.Ext.malware_signature.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
+| Target.process.Ext.malware_signature.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
+| Target.process.Ext.malware_signature.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| Target.process.Ext.malware_signature.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| Target.process.Ext.malware_signature.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.Ext.malware_signature.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
+| Target.process.Ext.malware_signature.memory_region.region_size | Size of the memory region. | unsigned_long |
+| Target.process.Ext.malware_signature.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| Target.process.Ext.malware_signature.primary | The first matching details. | object |
+| Target.process.Ext.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
+| Target.process.Ext.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
 | Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
 | Target.process.Ext.session | Session information for the current process | keyword |
@@ -234,7 +246,7 @@ sent by the endpoint.
 | Target.process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
 | Target.process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| Target.process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
+| Target.process.thread.Ext.start_address_details.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
 | Target.process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | Target.process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
@@ -378,18 +390,6 @@ sent by the endpoint.
 | file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | file.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | file.Ext.malware_classification.version | The version of the model used. | keyword |
-| file.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
-| file.Ext.malware_signature.malware_signature.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| file.Ext.malware_signature.malware_signature.memory_region.allocation_size | Original memory size requested when the memory was allocated. | long |
-| file.Ext.malware_signature.malware_signature.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
-| file.Ext.malware_signature.malware_signature.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | long |
-| file.Ext.malware_signature.malware_signature.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| file.Ext.malware_signature.malware_signature.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| file.Ext.malware_signature.malware_signature.memory_region.region_size | Size of the memory region. | long |
-| file.Ext.malware_signature.malware_signature.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
-| file.Ext.malware_signature.primary | The first matching details. | object |
-| file.Ext.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
-| file.Ext.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |
@@ -527,6 +527,18 @@ sent by the endpoint.
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
+| process.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| process.Ext.malware_signature.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
+| process.Ext.malware_signature.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
+| process.Ext.malware_signature.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| process.Ext.malware_signature.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| process.Ext.malware_signature.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.Ext.malware_signature.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
+| process.Ext.malware_signature.memory_region.region_size | Size of the memory region. | unsigned_long |
+| process.Ext.malware_signature.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| process.Ext.malware_signature.primary | The first matching details. | object |
+| process.Ext.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
+| process.Ext.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
@@ -653,7 +665,7 @@ sent by the endpoint.
 | process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
 | process.thread.Ext.start_address_details.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | process.thread.Ext.start_address_details.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| process.thread.Ext.start_address_details.allocation_size | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | unsigned_long |
+| process.thread.Ext.start_address_details.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
 | process.thread.Ext.start_address_details.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
 | process.thread.Ext.start_address_details.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | process.thread.Ext.start_address_details.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
