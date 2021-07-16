@@ -379,14 +379,17 @@ sent by the endpoint.
 | file.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | file.Ext.malware_classification.version | The version of the model used. | keyword |
 | file.Ext.malware_signature.all_names | A sequence of signature names matched. | keyword |
-| file.Ext.malware_signature.identifier | The model's unique identifier. | keyword |
+| file.Ext.malware_signature.malware_signature.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
+| file.Ext.malware_signature.malware_signature.memory_region.allocation_size | Original memory size requested when the memory was allocated. | long |
+| file.Ext.malware_signature.malware_signature.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| file.Ext.malware_signature.malware_signature.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | long |
+| file.Ext.malware_signature.malware_signature.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| file.Ext.malware_signature.malware_signature.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
+| file.Ext.malware_signature.malware_signature.memory_region.region_size | Size of the memory region. | long |
+| file.Ext.malware_signature.malware_signature.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | file.Ext.malware_signature.primary | The first matching details. | object |
-| file.Ext.malware_signature.primary.matches | The matching payload. | keyword |
-| file.Ext.malware_signature.primary.signature.hash.sha256 | The finger print of the first yara rule matched. | keyword |
 | file.Ext.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | file.Ext.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
-| file.Ext.malware_signature.secondary | Additional matching details if available. | array |
-| file.Ext.malware_signature.version | The version of the model used. | keyword |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |

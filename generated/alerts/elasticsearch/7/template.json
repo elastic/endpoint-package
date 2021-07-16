@@ -1843,26 +1843,51 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
-                  "identifier": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
-                  },
-                  "primary": {
+                  "malware_signature": {
                     "properties": {
-                      "matches": {
-                        "ignore_above": 1024,
-                        "type": "keyword"
-                      },
-                      "signature": {
+                      "memory_region": {
                         "properties": {
-                          "hash": {
+                          "allocation_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "allocation_size": {
+                            "type": "long"
+                          },
+                          "allocation_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "bytes_allocation_offset": {
+                            "type": "long"
+                          },
+                          "memory_pe": {
                             "properties": {
-                              "sha256": {
+                              "imphash": {
                                 "ignore_above": 1024,
                                 "type": "keyword"
                               }
                             }
                           },
+                          "region_protection": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "region_size": {
+                            "type": "long"
+                          },
+                          "region_state": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "primary": {
+                    "properties": {
+                      "signature": {
+                        "properties": {
                           "id": {
                             "ignore_above": 1024,
                             "type": "keyword"
@@ -1877,11 +1902,8 @@
                     "type": "object"
                   },
                   "secondary": {
-                    "type": "array"
-                  },
-                  "version": {
-                    "ignore_above": 1024,
-                    "type": "keyword"
+                    "enabled": false,
+                    "type": "nested"
                   }
                 }
               },
