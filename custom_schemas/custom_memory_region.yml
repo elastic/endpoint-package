@@ -9,10 +9,9 @@
     order: 1
     top_level: false
     expected:
+      - process.Ext
       - at: process.thread.Ext
         as: start_address_details
-      - at: process.Ext.malware_signature
-        as: memory_region
   fields:
     - name: allocation_base
       level: custom
@@ -61,8 +60,11 @@
       type: keyword
       index: false
       example: "eJzzSM3JyVcIzy/KSVEEABxJBD4="
+      short: Up to 4MB of raw data from the memory allocation.
       description: >
-        Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+        Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this
+        is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple
+        times.
         
     - name: bytes_compressed_present
       level: custom

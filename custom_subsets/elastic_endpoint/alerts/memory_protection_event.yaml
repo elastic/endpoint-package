@@ -349,27 +349,27 @@ fields:
               sid: {}
               type: {}
               user: {}
-          malware_signature:
+          memory_region:
             fields:
-              all_names: {}
-              primary:
+              allocation_protection: {}
+              allocation_size: {}
+              allocation_type: {}
+              region_protection: {}
+              region_size: {}
+              region_state: {}
+              bytes_allocation_offset: {}
+              memory_pe:
                 fields:
-                  signature:
-                    fields:
-                      id: {}
-                      name: {}
-              memory_region:
+                  imphash: {}
+              malware_signature:
                 fields:
-                  allocation_protection: {}
-                  allocation_size: {}
-                  allocation_type: {}
-                  region_protection: {}
-                  region_size: {}
-                  region_state: {}
-                  bytes_allocation_offset: {}
-                  memory_pe:
+                  all_names: {}
+                  primary:
                     fields:
-                      imphash: {}
+                      signature:
+                        fields:
+                          id: {}
+                          name: {}
       parent:
         fields:
           args: {}
