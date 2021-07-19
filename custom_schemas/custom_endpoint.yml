@@ -153,6 +153,24 @@
         but not a simple sum of the actions
       short: the overall status of malware
 
+    - name: policy.applied.response.configurations.memory_protection
+      level: custom
+      type: object
+      description: overall memory_protection configuration and status of the applied policy
+
+    - name: policy.applied.response.configurations.memory_protection.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for memory_protection
+
+    - name: policy.applied.response.configurations.memory_protection.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of memory_protection, this is correlated to the status of concerned actions
+        but not a simple sum of the actions
+      short: the overall status of memory_protection
+
     - name: policy.applied.response.configurations.streaming
       level: custom
       type: object

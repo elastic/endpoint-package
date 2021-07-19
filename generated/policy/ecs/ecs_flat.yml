@@ -398,6 +398,36 @@ Endpoint.policy.applied.response.configurations.malware.status:
   normalize: []
   short: the overall status of malware
   type: keyword
+Endpoint.policy.applied.response.configurations.memory_protection:
+  dashed_name: Endpoint-policy-applied-response-configurations-memory-protection
+  description: overall memory_protection configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.response.configurations.memory_protection
+  level: custom
+  name: policy.applied.response.configurations.memory_protection
+  normalize: []
+  short: overall memory_protection configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-configurations-memory-protection-concerned-actions
+  description: all actions that were taken for memory_protection
+  flat_name: Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.memory_protection.concerned_actions
+  normalize: []
+  short: all actions that were taken for memory_protection
+  type: keyword
+Endpoint.policy.applied.response.configurations.memory_protection.status:
+  dashed_name: Endpoint-policy-applied-response-configurations-memory-protection-status
+  description: the overall status of memory_protection, this is correlated to the
+    status of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.response.configurations.memory_protection.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.memory_protection.status
+  normalize: []
+  short: the overall status of memory_protection
+  type: keyword
 Endpoint.policy.applied.response.configurations.ransomware.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-configurations-ransomware-concerned-actions
   description: all actions that were taken for ransomware
