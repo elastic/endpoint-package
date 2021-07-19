@@ -14,7 +14,7 @@
     },
     "latest": {
         "unique_key": [
-            "agent.id"
+            "elastic.agent.id"
         ],
         "sort": "@timestamp"
     },
