@@ -819,6 +819,122 @@ file.Ext.header_data:
   norms: false
   short: Header data
   type: text
+file.Ext.malware_signature:
+  dashed_name: file-Ext-malware-signature
+  description: Nested version of malware_signature fieldset.
+  flat_name: file.Ext.malware_signature
+  level: custom
+  name: Ext.malware_signature
+  normalize: []
+  short: Nested version of malware_signature fieldset.
+  type: nested
+file.Ext.malware_signature.all_names:
+  dashed_name: file-Ext-malware-signature-all-names
+  description: The concatenated names of all yara signatures
+  flat_name: file.Ext.malware_signature.all_names
+  level: custom
+  name: Ext.malware_signature.all_names
+  normalize: []
+  norms: false
+  short: Yara signature names
+  type: text
+file.Ext.malware_signature.identifier:
+  dashed_name: file-Ext-malware-signature-identifier
+  description: Malware artifact identifier.
+  flat_name: file.Ext.malware_signature.identifier
+  level: custom
+  name: Ext.malware_signature.identifier
+  normalize: []
+  norms: false
+  short: Malware artifact identifier
+  type: text
+file.Ext.malware_signature.primary:
+  dashed_name: file-Ext-malware-signature-primary
+  description: Primary malware signature match.
+  flat_name: file.Ext.malware_signature.primary
+  level: custom
+  name: Ext.malware_signature.primary
+  normalize: []
+  short: Primary malware signature match
+  type: nested
+file.Ext.malware_signature.primary.matches:
+  dashed_name: file-Ext-malware-signature-primary-matches
+  description: An array of bytes representing yara signature matches
+  flat_name: file.Ext.malware_signature.primary.matches
+  level: custom
+  name: Ext.malware_signature.primary.matches
+  normalize:
+  - array
+  short: signature match bytes
+  type: nested
+file.Ext.malware_signature.primary.signature:
+  dashed_name: file-Ext-malware-signature-primary-signature
+  description: Primary malware signature match.
+  flat_name: file.Ext.malware_signature.primary.signature
+  level: custom
+  name: Ext.malware_signature.primary.signature
+  normalize: []
+  short: Primary malware signature match
+  type: nested
+file.Ext.malware_signature.primary.signature.hash:
+  dashed_name: file-Ext-malware-signature-primary-signature-hash
+  description: Primary malware signature hash.
+  flat_name: file.Ext.malware_signature.primary.signature.hash
+  level: custom
+  name: Ext.malware_signature.primary.signature.hash
+  normalize: []
+  short: Primary malware signature hash
+  type: nested
+file.Ext.malware_signature.primary.signature.hash.sha256:
+  dashed_name: file-Ext-malware-signature-primary-signature-hash-sha256
+  description: Primary malware signature sha256.
+  flat_name: file.Ext.malware_signature.primary.signature.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: Ext.malware_signature.primary.signature.hash.sha256
+  normalize: []
+  short: Primary malware signature sha256
+  type: keyword
+file.Ext.malware_signature.primary.signature.id:
+  dashed_name: file-Ext-malware-signature-primary-signature-id
+  description: Primary malware signature id.
+  flat_name: file.Ext.malware_signature.primary.signature.id
+  ignore_above: 1024
+  level: custom
+  name: Ext.malware_signature.primary.signature.id
+  normalize: []
+  short: Primary malware signature id
+  type: keyword
+file.Ext.malware_signature.primary.signature.name:
+  dashed_name: file-Ext-malware-signature-primary-signature-name
+  description: Primary malware signature name.
+  flat_name: file.Ext.malware_signature.primary.signature.name
+  ignore_above: 1024
+  level: custom
+  name: Ext.malware_signature.primary.signature.name
+  normalize: []
+  short: Primary malware signature name
+  type: keyword
+file.Ext.malware_signature.secondary:
+  dashed_name: file-Ext-malware-signature-secondary
+  description: An array of malware signature matches
+  flat_name: file.Ext.malware_signature.secondary
+  level: custom
+  name: Ext.malware_signature.secondary
+  normalize:
+  - array
+  short: secondary signature matches
+  type: nested
+file.Ext.malware_signature.version:
+  dashed_name: file-Ext-malware-signature-version
+  description: Primary malware signature version.
+  flat_name: file.Ext.malware_signature.version
+  ignore_above: 1024
+  level: custom
+  name: Ext.malware_signature.version
+  normalize: []
+  short: Primary malware signature version
+  type: keyword
 file.Ext.monotonic_id:
   dashed_name: file-Ext-monotonic-id
   description: File event monotonic ID.
