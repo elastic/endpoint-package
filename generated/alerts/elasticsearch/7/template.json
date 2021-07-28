@@ -584,6 +584,9 @@
                   },
                   "memory_region": {
                     "properties": {
+                      "allocation_base": {
+                        "type": "unsigned_long"
+                      },
                       "allocation_protection": {
                         "ignore_above": 1024,
                         "type": "keyword"
@@ -595,8 +598,20 @@
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
+                      "bytes_address": {
+                        "type": "unsigned_long"
+                      },
                       "bytes_allocation_offset": {
                         "type": "unsigned_long"
+                      },
+                      "bytes_compressed": {
+                        "doc_values": false,
+                        "ignore_above": 1024,
+                        "index": false,
+                        "type": "keyword"
+                      },
+                      "bytes_compressed_present": {
+                        "type": "boolean"
                       },
                       "malware_signature": {
                         "properties": {
@@ -623,13 +638,70 @@
                           }
                         }
                       },
-                      "memory_pe": {
+                      "mapped_pe": {
                         "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
                           "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
                             "ignore_above": 1024,
                             "type": "keyword"
                           }
                         }
+                      },
+                      "mapped_pe_detected": {
+                        "type": "boolean"
+                      },
+                      "memory_pe": {
+                        "properties": {
+                          "company": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "description": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "file_version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "imphash": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "original_file_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
+                      },
+                      "memory_pe_detected": {
+                        "type": "boolean"
+                      },
+                      "region_base": {
+                        "type": "unsigned_long"
                       },
                       "region_protection": {
                         "ignore_above": 1024,
@@ -639,6 +711,10 @@
                         "type": "unsigned_long"
                       },
                       "region_state": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "strings": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       }
@@ -2538,6 +2614,9 @@
               },
               "memory_region": {
                 "properties": {
+                  "allocation_base": {
+                    "type": "unsigned_long"
+                  },
                   "allocation_protection": {
                     "ignore_above": 1024,
                     "type": "keyword"
@@ -2549,8 +2628,20 @@
                     "ignore_above": 1024,
                     "type": "keyword"
                   },
+                  "bytes_address": {
+                    "type": "unsigned_long"
+                  },
                   "bytes_allocation_offset": {
                     "type": "unsigned_long"
+                  },
+                  "bytes_compressed": {
+                    "doc_values": false,
+                    "ignore_above": 1024,
+                    "index": false,
+                    "type": "keyword"
+                  },
+                  "bytes_compressed_present": {
+                    "type": "boolean"
                   },
                   "malware_signature": {
                     "properties": {
@@ -2577,13 +2668,70 @@
                       }
                     }
                   },
-                  "memory_pe": {
+                  "mapped_pe": {
                     "properties": {
+                      "company": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "description": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "file_version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "original_file_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "product": {
                         "ignore_above": 1024,
                         "type": "keyword"
                       }
                     }
+                  },
+                  "mapped_pe_detected": {
+                    "type": "boolean"
+                  },
+                  "memory_pe": {
+                    "properties": {
+                      "company": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "description": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "file_version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "imphash": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "original_file_name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "product": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "memory_pe_detected": {
+                    "type": "boolean"
+                  },
+                  "region_base": {
+                    "type": "unsigned_long"
                   },
                   "region_protection": {
                     "ignore_above": 1024,
@@ -2593,6 +2741,10 @@
                     "type": "unsigned_long"
                   },
                   "region_state": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "strings": {
                     "ignore_above": 1024,
                     "type": "keyword"
                   }

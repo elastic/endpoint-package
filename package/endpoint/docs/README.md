@@ -124,18 +124,37 @@ sent by the endpoint.
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.process.Ext.malware_classification.version | The version of the model used. | keyword |
+| Target.process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | Target.process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
 | Target.process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
 | Target.process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| Target.process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | Target.process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| Target.process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| Target.process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | Target.process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.mapped_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.mapped_pe_detected | Whether the file at mapped_path is an executable. | boolean |
+| Target.process.Ext.memory_region.memory_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.memory_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.memory_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| Target.process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| Target.process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
+| Target.process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
 | Target.process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
 | Target.process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
 | Target.process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| Target.process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
 | Target.process.Ext.session | Session information for the current process | keyword |
@@ -516,18 +535,37 @@ sent by the endpoint.
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
+| process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
 | process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
 | process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
+| process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
+| process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
+| process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
 | process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.mapped_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.Ext.memory_region.mapped_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.mapped_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.mapped_pe_detected | Whether the file at mapped_path is an executable. | boolean |
+| process.Ext.memory_region.memory_pe.company | Internal company name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.memory_pe.description | Internal description of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.memory_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.memory_pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
+| process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
+| process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
 | process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
 | process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
 | process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
+| process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |

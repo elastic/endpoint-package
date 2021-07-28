@@ -308,27 +308,6 @@ fields:
                 exceptionable: true
               status:
                 exceptionable: true
-          memory_region:
-            fields:
-              allocation_base: {}
-              allocation_protection: {}
-              allocation_size: {}
-              allocation_type: {}
-              bytes_address: {}
-              bytes_allocation_offset: {}
-              bytes_compressed: {}
-              bytes_compressed_present: {}
-              mapped_pe:
-                fields: *pe-fields
-              mapped_pe_detected: {}
-              memory_pe:
-                fields: *pe-fields
-              memory_pe_detected: {}
-              region_base: {}
-              region_protection: {}
-              region_size: {}
-              region_state: {}
-              strings: {}
           protection: {}
           token:
             fields:
@@ -349,16 +328,14 @@ fields:
               user: {}
           memory_region:
             fields:
+              allocation_base: {}
               allocation_protection: {}
               allocation_size: {}
               allocation_type: {}
-              region_protection: {}
-              region_size: {}
-              region_state: {}
+              bytes_address: {}
               bytes_allocation_offset: {}
-              memory_pe:
-                fields:
-                  imphash: {}
+              bytes_compressed: {}
+              bytes_compressed_present: {}
               malware_signature:
                 fields:
                   all_names: {}
@@ -368,6 +345,17 @@ fields:
                         fields:
                           id: {}
                           name: {}
+              mapped_pe:
+                fields: *pe-fields
+              mapped_pe_detected: {}
+              memory_pe:
+                fields: *pe-fields
+              memory_pe_detected: {}
+              region_base: {}
+              region_protection: {}
+              region_size: {}
+              region_state: {}
+              strings: {}
       parent:
         fields:
           args: {}

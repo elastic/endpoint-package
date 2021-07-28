@@ -817,6 +817,12 @@
       ignore_above: 1024
       description: The version of the model used.
       default_field: false
+    - name: process.Ext.memory_region.allocation_base
+      level: custom
+      type: unsigned_long
+      description: Base address of the memory allocation containing the memory region.
+      example: 2431737462784
+      default_field: false
     - name: process.Ext.memory_region.allocation_protection
       level: custom
       type: keyword
@@ -837,11 +843,31 @@
       description: The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE".
       example: PRIVATE
       default_field: false
+    - name: process.Ext.memory_region.bytes_address
+      level: custom
+      type: unsigned_long
+      description: The address where bytes_compressed begins.
+      example: 2431737462784
+      default_field: false
     - name: process.Ext.memory_region.bytes_allocation_offset
       level: custom
       type: unsigned_long
       description: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
       example: 0
+      default_field: false
+    - name: process.Ext.memory_region.bytes_compressed
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+      example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
+      index: false
+      default_field: false
+    - name: process.Ext.memory_region.bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether bytes_compressed is present in this event.
+      example: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.all_names
       level: custom
@@ -867,6 +893,77 @@
       ignore_above: 1024
       description: The name of the first yara rule matched.
       default_field: false
+    - name: process.Ext.memory_region.mapped_pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: process.Ext.memory_region.mapped_pe_detected
+      level: custom
+      type: boolean
+      description: Whether the file at mapped_path is an executable.
+      example: false
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
     - name: process.Ext.memory_region.memory_pe.imphash
       level: extended
       type: keyword
@@ -875,6 +972,32 @@
 
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: process.Ext.memory_region.memory_pe_detected
+      level: custom
+      type: boolean
+      description: Whether an executable file was found in memory.
+      example: false
+      default_field: false
+    - name: process.Ext.memory_region.region_base
+      level: custom
+      type: unsigned_long
+      description: Base address of the memory region.
+      example: 2431737462784
       default_field: false
     - name: process.Ext.memory_region.region_protection
       level: custom
@@ -895,6 +1018,12 @@
       ignore_above: 1024
       description: State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE".
       example: COMMIT
+      default_field: false
+    - name: process.Ext.memory_region.strings
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Array of strings found within the memory region.
       default_field: false
     - name: process.Ext.protection
       level: custom
@@ -3686,6 +3815,12 @@
       ignore_above: 1024
       description: The version of the model used.
       default_field: false
+    - name: Ext.memory_region.allocation_base
+      level: custom
+      type: unsigned_long
+      description: Base address of the memory allocation containing the memory region.
+      example: 2431737462784
+      default_field: false
     - name: Ext.memory_region.allocation_protection
       level: custom
       type: keyword
@@ -3706,11 +3841,31 @@
       description: The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE".
       example: PRIVATE
       default_field: false
+    - name: Ext.memory_region.bytes_address
+      level: custom
+      type: unsigned_long
+      description: The address where bytes_compressed begins.
+      example: 2431737462784
+      default_field: false
     - name: Ext.memory_region.bytes_allocation_offset
       level: custom
       type: unsigned_long
       description: Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base.
       example: 0
+      default_field: false
+    - name: Ext.memory_region.bytes_compressed
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+      example: eJzzSM3JyVcIzy/KSVEEABxJBD4=
+      index: false
+      default_field: false
+    - name: Ext.memory_region.bytes_compressed_present
+      level: custom
+      type: boolean
+      description: Whether bytes_compressed is present in this event.
+      example: false
       default_field: false
     - name: Ext.memory_region.malware_signature.all_names
       level: custom
@@ -3736,6 +3891,77 @@
       ignore_above: 1024
       description: The name of the first yara rule matched.
       default_field: false
+    - name: Ext.memory_region.mapped_pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: Ext.memory_region.mapped_pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: Ext.memory_region.mapped_pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
+    - name: Ext.memory_region.mapped_pe.imphash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
+      example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: Ext.memory_region.mapped_pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: Ext.memory_region.mapped_pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: Ext.memory_region.mapped_pe_detected
+      level: custom
+      type: boolean
+      description: Whether the file at mapped_path is an executable.
+      example: false
+      default_field: false
+    - name: Ext.memory_region.memory_pe.company
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal company name of the file, provided at compile-time.
+      example: Microsoft Corporation
+      default_field: false
+    - name: Ext.memory_region.memory_pe.description
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal description of the file, provided at compile-time.
+      example: Paint
+      default_field: false
+    - name: Ext.memory_region.memory_pe.file_version
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal version of the file, provided at compile-time.
+      example: 6.3.9600.17415
+      default_field: false
     - name: Ext.memory_region.memory_pe.imphash
       level: extended
       type: keyword
@@ -3744,6 +3970,32 @@
 
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
+      default_field: false
+    - name: Ext.memory_region.memory_pe.original_file_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal name of the file, provided at compile-time.
+      example: MSPAINT.EXE
+      default_field: false
+    - name: Ext.memory_region.memory_pe.product
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Internal product name of the file, provided at compile-time.
+      example: "Microsoft® Windows® Operating System"
+      default_field: false
+    - name: Ext.memory_region.memory_pe_detected
+      level: custom
+      type: boolean
+      description: Whether an executable file was found in memory.
+      example: false
+      default_field: false
+    - name: Ext.memory_region.region_base
+      level: custom
+      type: unsigned_long
+      description: Base address of the memory region.
+      example: 2431737462784
       default_field: false
     - name: Ext.memory_region.region_protection
       level: custom
@@ -3764,6 +4016,12 @@
       ignore_above: 1024
       description: State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE".
       example: COMMIT
+      default_field: false
+    - name: Ext.memory_region.strings
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Array of strings found within the memory region.
       default_field: false
     - name: Ext.protection
       level: custom
