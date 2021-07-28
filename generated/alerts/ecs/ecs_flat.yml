@@ -242,18 +242,193 @@ Memory_protection.unique_key_v1:
   normalize: []
   short: A unique key created by hashing several characteristics of this alert.
   type: keyword
-Ransomware.child_pids:
-  dashed_name: Ransomware-child-pids
-  description: Array of child PIDs for ransomware which spawns numerous processes
-    to handle encryption.
-  flat_name: Ransomware.child_pids
+Ransomware.child_processes.executable:
+  dashed_name: Ransomware-child-processes-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: Ransomware.child_processes.executable
+  ignore_above: 1024
   level: custom
-  name: child_pids
+  multi_fields:
+  - flat_name: Ransomware.child_processes.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  original_fieldset: Ransomware
+  short: Absolute path to the process executable.
+  type: keyword
+Ransomware.child_processes.feature:
+  dashed_name: Ransomware-child-processes-feature
+  description: Ransomware feature which triggered the alert.
+  flat_name: Ransomware.child_processes.feature
+  ignore_above: 1024
+  level: custom
+  name: feature
+  normalize: []
+  original_fieldset: Ransomware
+  short: Ransomware feature which triggered the alert.
+  type: keyword
+Ransomware.child_processes.files:
+  dashed_name: Ransomware-child-processes-files
+  description: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  flat_name: Ransomware.child_processes.files
+  level: custom
+  name: files
   normalize:
   - array
-  short: Array of child PIDs for ransomware which spawns numerous processes to handle
-    encryption.
+  original_fieldset: Ransomware
+  short: Information about each file event attributed to the ransomware. Expected
+    to be an array.
+  type: nested
+Ransomware.child_processes.files.data:
+  dashed_name: Ransomware-child-processes-files-data
+  description: File header or MBR bytes.
+  flat_name: Ransomware.child_processes.files.data
+  level: custom
+  name: files.data
+  normalize: []
+  original_fieldset: Ransomware
+  short: File header or MBR bytes.
+  type: binary
+Ransomware.child_processes.files.entropy:
+  dashed_name: Ransomware-child-processes-files-entropy
+  description: Entropy of file contents.
+  flat_name: Ransomware.child_processes.files.entropy
+  level: custom
+  name: files.entropy
+  normalize: []
+  original_fieldset: Ransomware
+  short: Entropy of file contents.
+  type: double
+Ransomware.child_processes.files.extension:
+  dashed_name: Ransomware-child-processes-files-extension
+  description: File extension, excluding the leading dot.
+  flat_name: Ransomware.child_processes.files.extension
+  ignore_above: 1024
+  level: custom
+  name: files.extension
+  normalize: []
+  original_fieldset: Ransomware
+  short: File extension, excluding the leading dot.
+  type: keyword
+Ransomware.child_processes.files.metrics:
+  dashed_name: Ransomware-child-processes-files-metrics
+  description: Suspicious ransomware behaviours associated with the file event.
+  flat_name: Ransomware.child_processes.files.metrics
+  ignore_above: 1024
+  level: custom
+  name: files.metrics
+  normalize:
+  - array
+  original_fieldset: Ransomware
+  short: Suspicious ransomware behaviours associated with the file event.
+  type: keyword
+Ransomware.child_processes.files.operation:
+  dashed_name: Ransomware-child-processes-files-operation
+  description: Operation applied to file.
+  flat_name: Ransomware.child_processes.files.operation
+  ignore_above: 1024
+  level: custom
+  name: files.operation
+  normalize: []
+  original_fieldset: Ransomware
+  short: Operation applied to file.
+  type: keyword
+Ransomware.child_processes.files.original.extension:
+  dashed_name: Ransomware-child-processes-files-original-extension
+  description: Original file extension prior to the file event.
+  flat_name: Ransomware.child_processes.files.original.extension
+  ignore_above: 1024
+  level: custom
+  name: files.original.extension
+  normalize: []
+  original_fieldset: Ransomware
+  short: Original file extension prior to the file event.
+  type: keyword
+Ransomware.child_processes.files.original.path:
+  dashed_name: Ransomware-child-processes-files-original-path
+  description: Original file path prior to the file event.
+  flat_name: Ransomware.child_processes.files.original.path
+  ignore_above: 1024
+  level: custom
+  name: files.original.path
+  normalize: []
+  original_fieldset: Ransomware
+  short: Original file path prior to the file event.
+  type: keyword
+Ransomware.child_processes.files.path:
+  dashed_name: Ransomware-child-processes-files-path
+  description: Full path to the file, including the file name.
+  flat_name: Ransomware.child_processes.files.path
+  ignore_above: 1024
+  level: custom
+  name: files.path
+  normalize: []
+  original_fieldset: Ransomware
+  short: Full path to the file, including the file name.
+  type: keyword
+Ransomware.child_processes.files.score:
+  dashed_name: Ransomware-child-processes-files-score
+  description: Ransomware score for this particular file event.
+  flat_name: Ransomware.child_processes.files.score
+  level: custom
+  name: files.score
+  normalize: []
+  original_fieldset: Ransomware
+  short: Ransomware score for this particular file event.
+  type: double
+Ransomware.child_processes.pid:
+  dashed_name: Ransomware-child-processes-pid
+  description: Process id.
+  example: 4242
+  flat_name: Ransomware.child_processes.pid
+  format: string
+  level: custom
+  name: pid
+  normalize: []
+  original_fieldset: Ransomware
+  short: Process id.
   type: long
+Ransomware.child_processes.score:
+  dashed_name: Ransomware-child-processes-score
+  description: Total ransomware score for aggregated file events.
+  flat_name: Ransomware.child_processes.score
+  level: custom
+  name: score
+  normalize: []
+  original_fieldset: Ransomware
+  short: Total ransomware score for aggregated file events.
+  type: double
+Ransomware.child_processes.version:
+  dashed_name: Ransomware-child-processes-version
+  description: Ransomware artifact version.
+  flat_name: Ransomware.child_processes.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  original_fieldset: Ransomware
+  short: Ransomware artifact version.
+  type: keyword
+Ransomware.executable:
+  dashed_name: Ransomware-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: Ransomware.executable
+  ignore_above: 1024
+  level: custom
+  multi_fields:
+  - flat_name: Ransomware.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  short: Absolute path to the process executable.
+  type: keyword
 Ransomware.feature:
   dashed_name: Ransomware-feature
   description: Ransomware feature which triggered the alert.
@@ -364,6 +539,17 @@ Ransomware.files.score:
   normalize: []
   short: Ransomware score for this particular file event.
   type: double
+Ransomware.pid:
+  dashed_name: Ransomware-pid
+  description: Process id.
+  example: 4242
+  flat_name: Ransomware.pid
+  format: string
+  level: custom
+  name: pid
+  normalize: []
+  short: Process id.
+  type: long
 Ransomware.score:
   dashed_name: Ransomware-score
   description: Total ransomware score for aggregated file events.

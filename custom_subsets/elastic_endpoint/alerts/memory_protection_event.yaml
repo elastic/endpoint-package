@@ -258,8 +258,6 @@ fields:
               start: {}
               start_address: {}
               start_address_module: {}
-              start_address: {}
-              start_address_module: {}
               start_address_allocation_offset: {}
               start_address_bytes: {}
               start_address_bytes_disasm: {}
@@ -488,6 +486,6 @@ fields:
     fields:
       process:
         fields: *process-fields
-              
+
   Memory_protection:
     fields: "*"
