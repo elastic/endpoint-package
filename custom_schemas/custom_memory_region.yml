@@ -9,8 +9,7 @@
     order: 1
     top_level: false
     expected:
-      - at: process.thread.Ext
-        as: start_address_details
+      - process.Ext
   fields:
     - name: allocation_base
       level: custom
@@ -31,7 +30,7 @@
       type: unsigned_long
       example: 4096
       description: >
-        Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". 
+        Original memory size requested when the memory was allocated.
         
     - name: allocation_type
       level: custom
@@ -59,8 +58,11 @@
       type: keyword
       index: false
       example: "eJzzSM3JyVcIzy/KSVEEABxJBD4="
+      short: Up to 4MB of raw data from the memory allocation.
       description: >
-        Up to 4MB of raw data from the memory allocation. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
+        Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this
+        is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple
+        times.
         
     - name: bytes_compressed_present
       level: custom
@@ -123,4 +125,3 @@
       type: keyword
       description: >
         Array of strings found within the memory region.
-

@@ -257,7 +257,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: the overall status of memory_protection, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      description: the overall status of memory_protection, this is correlated to the status of concerned actions but not a simple sum of the actions
       default_field: false
     - name: policy.applied.response.configurations.ransomware.concerned_actions
       level: custom

@@ -420,7 +420,7 @@ Endpoint.policy.applied.response.configurations.memory_protection.concerned_acti
 Endpoint.policy.applied.response.configurations.memory_protection.status:
   dashed_name: Endpoint-policy-applied-response-configurations-memory-protection-status
   description: the overall status of memory_protection, this is correlated to the
-    status of concerned actions  but not a simple sum of the actions
+    status of concerned actions but not a simple sum of the actions
   flat_name: Endpoint.policy.applied.response.configurations.memory_protection.status
   ignore_above: 1024
   level: custom
