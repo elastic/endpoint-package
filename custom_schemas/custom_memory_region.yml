@@ -10,8 +10,6 @@
     top_level: false
     expected:
       - process.Ext
-      - at: process.thread.Ext
-        as: start_address_details
   fields:
     - name: allocation_base
       level: custom

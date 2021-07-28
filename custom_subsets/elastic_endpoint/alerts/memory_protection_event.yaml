@@ -262,27 +262,6 @@ fields:
               start_address_bytes: {}
               start_address_bytes_disasm: {}
               start_address_bytes_disasm_hash: {}
-              start_address_details:
-                fields:
-                  allocation_base: {}
-                  allocation_protection: {}
-                  allocation_size: {}
-                  allocation_type: {}
-                  bytes_address: {}
-                  bytes_allocation_offset: {}
-                  bytes_compressed: {}
-                  bytes_compressed_present: {}
-                  mapped_pe:
-                    fields: *pe-fields
-                  mapped_pe_detected: {}
-                  memory_pe:
-                    fields: *pe-fields
-                  memory_pe_detected: {}
-                  region_base: {}
-                  region_protection: {}
-                  region_size: {}
-                  region_state: {}
-                  strings: {}
               service: {}
               token:
                 fields:
@@ -329,6 +308,27 @@ fields:
                 exceptionable: true
               status:
                 exceptionable: true
+          memory_region:
+            fields:
+              allocation_base: {}
+              allocation_protection: {}
+              allocation_size: {}
+              allocation_type: {}
+              bytes_address: {}
+              bytes_allocation_offset: {}
+              bytes_compressed: {}
+              bytes_compressed_present: {}
+              mapped_pe:
+                fields: *pe-fields
+              mapped_pe_detected: {}
+              memory_pe:
+                fields: *pe-fields
+              memory_pe_detected: {}
+              region_base: {}
+              region_protection: {}
+              region_size: {}
+              region_state: {}
+              strings: {}
           protection: {}
           token:
             fields:
