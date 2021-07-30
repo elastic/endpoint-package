@@ -1,7 +1,7 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version 
 # we'll discuss whether we need to release a new package and bump the version here
-ECS_GIT_REF ?= v1.6.0
+ECS_GIT_REF ?= v1.10.0
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
@@ -121,7 +121,7 @@ clean:
 	rm -rf $(GO_TOOLS)
 
 $(REAL_ECS_DIR):
-	git clone --branch v1.7.0 https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
+	git clone --branch $(ECS_GIT_REF) https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
 .PHONY: setup-go-tools
 setup-go-tools:

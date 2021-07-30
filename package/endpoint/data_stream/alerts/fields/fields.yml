@@ -1137,11 +1137,7 @@
       description: 'Array of process arguments, starting with the absolute path to the executable.
 
         May be filtered to protect sensitive information.'
-      example:
-        - /usr/bin/ssh
-        - -l
-        - user
-        - 10.0.0.16
+      example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
       default_field: false
     - name: process.args_count
       level: extended
@@ -1555,11 +1551,7 @@
       description: 'Array of process arguments, starting with the absolute path to the executable.
 
         May be filtered to protect sensitive information.'
-      example:
-        - /usr/bin/ssh
-        - -l
-        - user
-        - 10.0.0.16
+      example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
       default_field: false
     - name: process.parent.args_count
       level: extended
@@ -2163,23 +2155,26 @@
       level: custom
       type: constant_keyword
       description: Data stream dataset name.
+      example: nginx.access
       default_field: false
     - name: namespace
       level: custom
       type: constant_keyword
       description: Data stream namespace.
+      example: production
       default_field: false
     - name: type
       level: custom
       type: constant_keyword
       description: Data stream type.
+      example: logs
       default_field: false
 - name: destination
   title: Destination
   group: 2
-  description: 'Destination fields describe details about the destination of a packet/event.
+  description: 'Destination fields capture details about the receiver of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction.
 
-    Destination fields are usually populated in conjunction with source fields.'
+    Destination fields are usually populated in conjunction with source fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
   fields:
     - name: geo.city_name
@@ -2188,6 +2183,13 @@
       ignore_above: 1024
       description: City name.
       example: Montreal
+    - name: geo.continent_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Two-letter code representing continent's name.
+      example: NA
+      default_field: false
     - name: geo.continent_name
       level: core
       type: keyword
@@ -2221,6 +2223,15 @@
 
         Not typically used in automated geolocation.'
       example: boston-dc
+    - name: geo.postal_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Postal code associated with the location.
+
+        Values appropriate for this field may also be known as a postcode or ZIP code and will vary widely from country to country.'
+      example: 94040
+      default_field: false
     - name: geo.region_iso_code
       level: core
       type: keyword
@@ -2233,6 +2244,13 @@
       ignore_above: 1024
       description: Region name.
       example: Quebec
+    - name: geo.timezone
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: The time zone of the location, such as IANA time zone name.
+      example: America/Argentina/Buenos_Aires
+      default_field: false
 - name: dll
   title: DLL
   group: 2
@@ -3043,7 +3061,9 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: File extension.
+      description: 'File extension, excluding the leading dot.
+
+        Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz").'
       example: png
     - name: gid
       level: extended
@@ -3279,6 +3299,13 @@
       ignore_above: 1024
       description: City name.
       example: Montreal
+    - name: geo.continent_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Two-letter code representing continent's name.
+      example: NA
+      default_field: false
     - name: geo.continent_name
       level: core
       type: keyword
@@ -3312,6 +3339,15 @@
 
         Not typically used in automated geolocation.'
       example: boston-dc
+    - name: geo.postal_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Postal code associated with the location.
+
+        Values appropriate for this field may also be known as a postcode or ZIP code and will vary widely from country to country.'
+      example: 94040
+      default_field: false
     - name: geo.region_iso_code
       level: core
       type: keyword
@@ -3324,6 +3360,13 @@
       ignore_above: 1024
       description: Region name.
       example: Quebec
+    - name: geo.timezone
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: The time zone of the location, such as IANA time zone name.
+      example: America/Argentina/Buenos_Aires
+      default_field: false
     - name: hostname
       level: core
       type: keyword
@@ -3348,7 +3391,10 @@
       level: core
       type: keyword
       ignore_above: 1024
-      description: Host mac addresses.
+      description: 'Host MAC addresses.
+
+        The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen.'
+      example: '["00-00-5E-00-53-23", "00-00-5E-00-53-24"]'
     - name: name
       level: core
       type: keyword
@@ -4135,11 +4181,7 @@
       description: 'Array of process arguments, starting with the absolute path to the executable.
 
         May be filtered to protect sensitive information.'
-      example:
-        - /usr/bin/ssh
-        - -l
-        - user
-        - 10.0.0.16
+      example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
     - name: args_count
       level: extended
       type: long
@@ -4550,11 +4592,7 @@
       description: 'Array of process arguments, starting with the absolute path to the executable.
 
         May be filtered to protect sensitive information.'
-      example:
-        - /usr/bin/ssh
-        - -l
-        - user
-        - 10.0.0.16
+      example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
       default_field: false
     - name: parent.args_count
       level: extended
@@ -5106,8 +5144,7 @@
       type: keyword
       ignore_above: 1024
       description: Name, organization, or pseudonym of the author or authors who created the rule used to generate this event.
-      example:
-        - Star-Lord
+      example: '["Star-Lord"]'
       default_field: false
     - name: category
       level: extended
@@ -5177,9 +5214,9 @@
 - name: source
   title: Source
   group: 2
-  description: 'Source fields describe details about the source of a packet/event.
+  description: 'Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction.
 
-    Source fields are usually populated in conjunction with destination fields.'
+    Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
   fields:
     - name: geo.city_name
@@ -5188,6 +5225,13 @@
       ignore_above: 1024
       description: City name.
       example: Montreal
+    - name: geo.continent_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Two-letter code representing continent's name.
+      example: NA
+      default_field: false
     - name: geo.continent_name
       level: core
       type: keyword
@@ -5221,6 +5265,15 @@
 
         Not typically used in automated geolocation.'
       example: boston-dc
+    - name: geo.postal_code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Postal code associated with the location.
+
+        Values appropriate for this field may also be known as a postcode or ZIP code and will vary widely from country to country.'
+      example: 94040
+      default_field: false
     - name: geo.region_iso_code
       level: core
       type: keyword
@@ -5233,6 +5286,13 @@
       ignore_above: 1024
       description: Region name.
       example: Quebec
+    - name: geo.timezone
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: The time zone of the location, such as IANA time zone name.
+      example: America/Argentina/Buenos_Aires
+      default_field: false
 - name: threat
   title: Threat
   group: 2
@@ -5249,26 +5309,26 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
-      example: TA0040
+      description: "The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ )"
+      example: TA0002
     - name: tactic.name
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/)"
-      example: impact
+      description: "Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/)"
+      example: Execution
     - name: tactic.reference
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
-      example: https://attack.mitre.org/tactics/TA0040/
+      description: "The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ )"
+      example: https://attack.mitre.org/tactics/TA0002/
     - name: technique.id
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The id of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
-      example: T1499
+      description: "The id of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+      example: T1059
     - name: technique.name
       level: extended
       type: keyword
@@ -5278,14 +5338,39 @@
           type: text
           norms: false
           default_field: false
-      description: "The name of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
-      example: Endpoint Denial of Service
+      description: "The name of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+      example: Command and Scripting Interpreter
     - name: technique.reference
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The reference url of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1499/ )"
-      example: https://attack.mitre.org/techniques/T1499/
+      description: "The reference url of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+      example: https://attack.mitre.org/techniques/T1059/
+    - name: technique.subtechnique.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: "The full id of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+      example: T1059.001
+      default_field: false
+    - name: technique.subtechnique.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+      description: "The name of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+      example: PowerShell
+      default_field: false
+    - name: technique.subtechnique.reference
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: "The reference url of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+      example: https://attack.mitre.org/techniques/T1059/001/
+      default_field: false
 - name: user
   title: User
   group: 2
