@@ -4,7 +4,7 @@
   ],
   "mappings": {
     "_meta": {
-      "version": "1.6.0"
+      "version": "1.10.0"
     },
     "date_detection": false,
     "dynamic_templates": [
@@ -1508,6 +1508,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "continent_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "continent_name": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -1527,11 +1531,19 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "postal_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "region_iso_code": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
               "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "timezone": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -2224,6 +2236,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "continent_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "continent_name": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -2243,11 +2259,19 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "postal_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "region_iso_code": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
               "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "timezone": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -3543,6 +3567,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "continent_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "continent_name": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -3562,11 +3590,19 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "postal_code": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "region_iso_code": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
               "region_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "timezone": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -3615,6 +3651,28 @@
               "reference": {
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "subtechnique": {
+                "properties": {
+                  "id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "name": {
+                    "fields": {
+                      "text": {
+                        "norms": false,
+                        "type": "text"
+                      }
+                    },
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "reference": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
               }
             }
           }

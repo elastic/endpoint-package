@@ -1217,11 +1217,7 @@ Target.process.args:
     executable.
 
     May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
+  example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
   flat_name: Target.process.args
   ignore_above: 1024
   level: extended
@@ -1975,11 +1971,7 @@ Target.process.parent.args:
     executable.
 
     May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
+  example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
   flat_name: Target.process.parent.args
   ignore_above: 1024
   level: extended
@@ -3050,29 +3042,33 @@ agent.version:
 data_stream.dataset:
   dashed_name: data-stream-dataset
   description: Data stream dataset name.
+  example: nginx.access
   flat_name: data_stream.dataset
   level: custom
   name: dataset
   normalize: []
-  short: Data stream dataset name.
+  short: The field can contain anything that makes sense to signify the source of
+    the data.
   type: constant_keyword
 data_stream.namespace:
   dashed_name: data-stream-namespace
   description: Data stream namespace.
+  example: production
   flat_name: data_stream.namespace
   level: custom
   name: namespace
   normalize: []
-  short: Data stream namespace.
+  short: A user defined namespace. Namespaces are useful to allow grouping of data.
   type: constant_keyword
 data_stream.type:
   dashed_name: data-stream-type
   description: Data stream type.
+  example: logs
   flat_name: data_stream.type
   level: custom
   name: type
   normalize: []
-  short: Data stream type.
+  short: An overarching type for the data stream.
   type: constant_keyword
 destination.geo.city_name:
   dashed_name: destination-geo-city-name
@@ -3085,6 +3081,18 @@ destination.geo.city_name:
   normalize: []
   original_fieldset: geo
   short: City name.
+  type: keyword
+destination.geo.continent_code:
+  dashed_name: destination-geo-continent-code
+  description: Two-letter code representing continent's name.
+  example: NA
+  flat_name: destination.geo.continent_code
+  ignore_above: 1024
+  level: core
+  name: continent_code
+  normalize: []
+  original_fieldset: geo
+  short: Continent code.
   type: keyword
 destination.geo.continent_name:
   dashed_name: destination-geo-continent-name
@@ -3151,6 +3159,21 @@ destination.geo.name:
   original_fieldset: geo
   short: User-defined description of a location.
   type: keyword
+destination.geo.postal_code:
+  dashed_name: destination-geo-postal-code
+  description: 'Postal code associated with the location.
+
+    Values appropriate for this field may also be known as a postcode or ZIP code
+    and will vary widely from country to country.'
+  example: 94040
+  flat_name: destination.geo.postal_code
+  ignore_above: 1024
+  level: core
+  name: postal_code
+  normalize: []
+  original_fieldset: geo
+  short: Postal code.
+  type: keyword
 destination.geo.region_iso_code:
   dashed_name: destination-geo-region-iso-code
   description: Region ISO code.
@@ -3174,6 +3197,18 @@ destination.geo.region_name:
   normalize: []
   original_fieldset: geo
   short: Region name.
+  type: keyword
+destination.geo.timezone:
+  dashed_name: destination-geo-timezone
+  description: The time zone of the location, such as IANA time zone name.
+  example: America/Argentina/Buenos_Aires
+  flat_name: destination.geo.timezone
+  ignore_above: 1024
+  level: core
+  name: timezone
+  normalize: []
+  original_fieldset: geo
+  short: Time zone.
   type: keyword
 dll.Ext:
   dashed_name: dll-Ext
@@ -3494,6 +3529,19 @@ event.category:
     - end
     - info
     name: authentication
+  - description: 'Events in the configuration category have to deal with creating,
+      modifying, or deleting the settings or parameters of an application, process,
+      or system.
+
+      Example sources include security policy change logs, configuration auditing
+      logging, and system integrity monitoring.'
+    expected_event_types:
+    - access
+    - change
+    - creation
+    - deletion
+    - info
+    name: configuration
   - description: The database category denotes events and metrics relating to a data
       storage and retrieval system. Note that use of this category is not limited
       to relational database systems. Examples include event logs from MS SQL, MySQL,
@@ -3608,6 +3656,25 @@ event.category:
     - info
     - start
     name: process
+  - description: Having to do with settings and assets stored in the Windows registry.
+      Use this category to visualize and analyze activity such as registry access
+      and modifications.
+    expected_event_types:
+    - access
+    - change
+    - creation
+    - deletion
+    name: registry
+  - description: The session category is applied to events and metrics regarding logical
+      persistent connections to hosts and services. Use this category to visualize
+      and analyze interactive or automated persistent connections between assets.
+      Data for this category may come from Windows Event logs, SSH logs, or stateless
+      sessions such as HTTP cookie-based sessions, etc.
+    expected_event_types:
+    - start
+    - end
+    - info
+    name: session
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -3776,7 +3843,7 @@ event.kind:
       of this event, and that event data may be missing, inconsistent, or incorrect.
       `event.kind:pipeline_error` is often associated with parsing errors.
     name: pipeline_error
-  - description: 'This value is used by the Elastic SIEM app to denote an Elasticsearch
+  - description: 'This value is used by the Elastic Security app to denote an Elasticsearch
       document that was created by a SIEM detection engine rule.
 
       A signal will typically trigger a notification that something meaningful happened
@@ -4019,12 +4086,6 @@ event.type:
       indicate the name or id of the protocol should not use the protocol value. Further
       note that when the protocol subcategory is used, the identified protocol is
       populated in the ECS `network.protocol` field.
-    expected_event_types:
-    - access
-    - change
-    - end
-    - info
-    - start
     name: protocol
   - description: The start event type is used for the subset of events within a category
       that indicate something has started. A common example is `event.category:process
@@ -4166,6 +4227,18 @@ host.geo.city_name:
   original_fieldset: geo
   short: City name.
   type: keyword
+host.geo.continent_code:
+  dashed_name: host-geo-continent-code
+  description: Two-letter code representing continent's name.
+  example: NA
+  flat_name: host.geo.continent_code
+  ignore_above: 1024
+  level: core
+  name: continent_code
+  normalize: []
+  original_fieldset: geo
+  short: Continent code.
+  type: keyword
 host.geo.continent_name:
   dashed_name: host-geo-continent-name
   description: Name of the continent.
@@ -4231,6 +4304,21 @@ host.geo.name:
   original_fieldset: geo
   short: User-defined description of a location.
   type: keyword
+host.geo.postal_code:
+  dashed_name: host-geo-postal-code
+  description: 'Postal code associated with the location.
+
+    Values appropriate for this field may also be known as a postcode or ZIP code
+    and will vary widely from country to country.'
+  example: 94040
+  flat_name: host.geo.postal_code
+  ignore_above: 1024
+  level: core
+  name: postal_code
+  normalize: []
+  original_fieldset: geo
+  short: Postal code.
+  type: keyword
 host.geo.region_iso_code:
   dashed_name: host-geo-region-iso-code
   description: Region ISO code.
@@ -4254,6 +4342,18 @@ host.geo.region_name:
   normalize: []
   original_fieldset: geo
   short: Region name.
+  type: keyword
+host.geo.timezone:
+  dashed_name: host-geo-timezone
+  description: The time zone of the location, such as IANA time zone name.
+  example: America/Argentina/Buenos_Aires
+  flat_name: host.geo.timezone
+  ignore_above: 1024
+  level: core
+  name: timezone
+  normalize: []
+  original_fieldset: geo
+  short: Time zone.
   type: keyword
 host.hostname:
   dashed_name: host-hostname
@@ -4294,14 +4394,19 @@ host.ip:
   type: ip
 host.mac:
   dashed_name: host-mac
-  description: Host mac addresses.
+  description: 'Host MAC addresses.
+
+    The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte)
+    is represented by two [uppercase] hexadecimal digits giving the value of the octet
+    as an unsigned integer. Successive octets are separated by a hyphen.'
+  example: '["00-00-5E-00-53-23", "00-00-5E-00-53-24"]'
   flat_name: host.mac
   ignore_above: 1024
   level: core
   name: mac
   normalize:
   - array
-  short: Host mac addresses.
+  short: Host MAC addresses.
   type: keyword
 host.name:
   dashed_name: host-name
@@ -5644,11 +5749,7 @@ process.args:
     executable.
 
     May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
+  example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
   flat_name: process.args
   ignore_above: 1024
   level: extended
@@ -6395,11 +6496,7 @@ process.parent.args:
     executable.
 
     May be filtered to protect sensitive information.'
-  example:
-  - /usr/bin/ssh
-  - -l
-  - user
-  - 10.0.0.16
+  example: '["/usr/bin/ssh", "-l", "user", "10.0.0.16"]'
   flat_name: process.parent.args
   ignore_above: 1024
   level: extended
@@ -7377,8 +7474,7 @@ rule.author:
   dashed_name: rule-author
   description: Name, organization, or pseudonym of the author or authors who created
     the rule used to generate this event.
-  example:
-  - Star-Lord
+  example: '["Star-Lord"]'
   flat_name: rule.author
   ignore_above: 1024
   level: extended
@@ -7509,6 +7605,18 @@ source.geo.city_name:
   original_fieldset: geo
   short: City name.
   type: keyword
+source.geo.continent_code:
+  dashed_name: source-geo-continent-code
+  description: Two-letter code representing continent's name.
+  example: NA
+  flat_name: source.geo.continent_code
+  ignore_above: 1024
+  level: core
+  name: continent_code
+  normalize: []
+  original_fieldset: geo
+  short: Continent code.
+  type: keyword
 source.geo.continent_name:
   dashed_name: source-geo-continent-name
   description: Name of the continent.
@@ -7574,6 +7682,21 @@ source.geo.name:
   original_fieldset: geo
   short: User-defined description of a location.
   type: keyword
+source.geo.postal_code:
+  dashed_name: source-geo-postal-code
+  description: 'Postal code associated with the location.
+
+    Values appropriate for this field may also be known as a postcode or ZIP code
+    and will vary widely from country to country.'
+  example: 94040
+  flat_name: source.geo.postal_code
+  ignore_above: 1024
+  level: core
+  name: postal_code
+  normalize: []
+  original_fieldset: geo
+  short: Postal code.
+  type: keyword
 source.geo.region_iso_code:
   dashed_name: source-geo-region-iso-code
   description: Region ISO code.
@@ -7598,6 +7721,18 @@ source.geo.region_name:
   original_fieldset: geo
   short: Region name.
   type: keyword
+source.geo.timezone:
+  dashed_name: source-geo-timezone
+  description: The time zone of the location, such as IANA time zone name.
+  example: America/Argentina/Buenos_Aires
+  flat_name: source.geo.timezone
+  ignore_above: 1024
+  level: core
+  name: timezone
+  normalize: []
+  original_fieldset: geo
+  short: Time zone.
+  type: keyword
 threat.framework:
   dashed_name: threat-framework
   description: Name of the threat framework used to further categorize and classify
@@ -7615,8 +7750,8 @@ threat.framework:
 threat.tactic.id:
   dashed_name: threat-tactic-id
   description: "The id of tactic used by this threat. You can use a MITRE ATT&CK\xAE\
-    \ tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/ )"
-  example: TA0040
+    \ tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ )"
+  example: TA0002
   flat_name: threat.tactic.id
   ignore_above: 1024
   level: extended
@@ -7628,8 +7763,8 @@ threat.tactic.id:
 threat.tactic.name:
   dashed_name: threat-tactic-name
   description: "Name of the type of tactic used by this threat. You can use a MITRE\
-    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/)"
-  example: impact
+    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/)"
+  example: Execution
   flat_name: threat.tactic.name
   ignore_above: 1024
   level: extended
@@ -7641,9 +7776,9 @@ threat.tactic.name:
 threat.tactic.reference:
   dashed_name: threat-tactic-reference
   description: "The reference url of tactic used by this threat. You can use a MITRE\
-    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0040/\
+    \ ATT&CK\xAE tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/\
     \ )"
-  example: https://attack.mitre.org/tactics/TA0040/
+  example: https://attack.mitre.org/tactics/TA0002/
   flat_name: threat.tactic.reference
   ignore_above: 1024
   level: extended
@@ -7655,8 +7790,8 @@ threat.tactic.reference:
 threat.technique.id:
   dashed_name: threat-technique-id
   description: "The id of technique used by this threat. You can use a MITRE ATT&CK\xAE\
-    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
-  example: T1499
+    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+  example: T1059
   flat_name: threat.technique.id
   ignore_above: 1024
   level: extended
@@ -7668,8 +7803,8 @@ threat.technique.id:
 threat.technique.name:
   dashed_name: threat-technique-name
   description: "The name of technique used by this threat. You can use a MITRE ATT&CK\xAE\
-    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1499/)"
-  example: Endpoint Denial of Service
+    \ technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+  example: Command and Scripting Interpreter
   flat_name: threat.technique.name
   ignore_above: 1024
   level: extended
@@ -7686,9 +7821,8 @@ threat.technique.name:
 threat.technique.reference:
   dashed_name: threat-technique-reference
   description: "The reference url of technique used by this threat. You can use a\
-    \ MITRE ATT&CK\xAE technique, for example. (ex. https://attack.mitre.org/techniques/T1499/\
-    \ )"
-  example: https://attack.mitre.org/techniques/T1499/
+    \ MITRE ATT&CK\xAE technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
+  example: https://attack.mitre.org/techniques/T1059/
   flat_name: threat.technique.reference
   ignore_above: 1024
   level: extended
@@ -7696,6 +7830,50 @@ threat.technique.reference:
   normalize:
   - array
   short: Threat technique URL reference.
+  type: keyword
+threat.technique.subtechnique.id:
+  dashed_name: threat-technique-subtechnique-id
+  description: "The full id of subtechnique used by this threat. You can use a MITRE\
+    \ ATT&CK\xAE subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+  example: T1059.001
+  flat_name: threat.technique.subtechnique.id
+  ignore_above: 1024
+  level: extended
+  name: technique.subtechnique.id
+  normalize:
+  - array
+  short: Threat subtechnique id.
+  type: keyword
+threat.technique.subtechnique.name:
+  dashed_name: threat-technique-subtechnique-name
+  description: "The name of subtechnique used by this threat. You can use a MITRE\
+    \ ATT&CK\xAE subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+  example: PowerShell
+  flat_name: threat.technique.subtechnique.name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: threat.technique.subtechnique.name.text
+    name: text
+    norms: false
+    type: text
+  name: technique.subtechnique.name
+  normalize:
+  - array
+  short: Threat subtechnique name.
+  type: keyword
+threat.technique.subtechnique.reference:
+  dashed_name: threat-technique-subtechnique-reference
+  description: "The reference url of subtechnique used by this threat. You can use\
+    \ a MITRE ATT&CK\xAE subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
+  example: https://attack.mitre.org/techniques/T1059/001/
+  flat_name: threat.technique.subtechnique.reference
+  ignore_above: 1024
+  level: extended
+  name: technique.subtechnique.reference
+  normalize:
+  - array
+  short: Threat subtechnique URL reference.
   type: keyword
 user.Ext:
   dashed_name: user-Ext

@@ -20,16 +20,19 @@
       level: custom
       type: constant_keyword
       description: Data stream dataset name.
+      example: nginx.access
       default_field: false
     - name: namespace
       level: custom
       type: constant_keyword
       description: Data stream namespace.
+      example: production
       default_field: false
     - name: type
       level: custom
       type: constant_keyword
       description: Data stream type.
+      example: logs
       default_field: false
 - name: ecs
   title: ECS
