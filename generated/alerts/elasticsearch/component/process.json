@@ -315,9 +315,13 @@
                       "type": "keyword"
                     },
                     "strings": {
+<<<<<<< HEAD
                       "doc_values": false,
                       "ignore_above": 1024,
                       "index": false,
+=======
+                      "ignore_above": 1024,
+>>>>>>> 7311b461f35bb6e1aea598b8f2dd9856bcc9e77e
                       "type": "keyword"
                     }
                   }
