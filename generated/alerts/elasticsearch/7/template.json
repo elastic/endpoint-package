@@ -715,7 +715,9 @@
                         "type": "keyword"
                       },
                       "strings": {
+                        "doc_values": false,
                         "ignore_above": 1024,
+                        "index": false,
                         "type": "keyword"
                       }
                     }
@@ -2769,7 +2771,9 @@
                     "type": "keyword"
                   },
                   "strings": {
+                    "doc_values": false,
                     "ignore_above": 1024,
+                    "index": false,
                     "type": "keyword"
                   }
                 }
