@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "documentation": "https://www.elastic.co/guide/en/ecs/current/ecs-Endpoint.html",
+    "ecs_version": "1.10.0"
+  },
+  "template": {
+    "mappings": {
+      "properties": {
+        "Endpoint": {
+          "properties": {
+            "metrics": {
+              "properties": {
+                "cpu": {
+                  "properties": {
+                    "endpoint": {
+                      "properties": {
+                        "histogram": {
+                          "type": "histogram"
+                        },
+                        "latest": {
+                          "type": "half_float"
+                        },
+                        "mean": {
+                          "type": "half_float"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "disks": {
+                  "enabled": false,
+                  "properties": {
+                    "device": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "endpoint_drive": {
+                      "type": "boolean"
+                    },
+                    "free": {
+                      "type": "long"
+                    },
+                    "fstype": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "mount": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "long"
+                    }
+                  },
+                  "type": "object"
+                },
+                "memory": {
+                  "properties": {
+                    "endpoint": {
+                      "properties": {
+                        "private": {
+                          "properties": {
+                            "latest": {
+                              "type": "long"
+                            },
+                            "mean": {
+                              "type": "long"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "system_impact": {
+                  "enabled": false,
+                  "type": "object"
+                },
+                "threads": {
+                  "enabled": false,
+                  "type": "object"
+                },
+                "uptime": {
+                  "properties": {
+                    "endpoint": {
+                      "type": "long"
+                    },
+                    "system": {
+                      "type": "long"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
