@@ -489,3 +489,10 @@
       level: custom
       type: boolean
       description: Current network isolation state of the host
+
+    - name: capabilities
+      level: custom
+      type: keyword
+      description: Enabled capabilities
+      ignore_above: 128
+      doc_values: false

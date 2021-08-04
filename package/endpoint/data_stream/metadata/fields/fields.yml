@@ -16,6 +16,12 @@
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
   fields:
+    - name: capabilities
+      level: custom
+      type: keyword
+      ignore_above: 128
+      description: Enabled capabilities
+      default_field: false
     - name: configuration
       level: custom
       type: object

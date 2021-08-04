@@ -64,6 +64,11 @@
                         "status": {
                             "type": "keyword",
                             "ignore_above": 1024
+                        },
+                        "capabilities": {
+                            "type": "keyword",
+                            "ignore_above": 128,
+                            "doc_values": false
                         }
                     }
                 },
