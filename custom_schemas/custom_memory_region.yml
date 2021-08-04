@@ -123,5 +123,6 @@
     - name: strings
       level: custom
       type: keyword
+      index: false
       description: >
         Array of strings found within the memory region.

@@ -1788,8 +1788,10 @@ Target.process.Ext.memory_region.region_state:
 Target.process.Ext.memory_region.strings:
   dashed_name: Target-process-Ext-memory-region-strings
   description: Array of strings found within the memory region.
+  doc_values: false
   flat_name: Target.process.Ext.memory_region.strings
   ignore_above: 1024
+  index: false
   level: custom
   name: strings
   normalize: []
@@ -7499,8 +7501,10 @@ process.Ext.memory_region.region_state:
 process.Ext.memory_region.strings:
   dashed_name: process-Ext-memory-region-strings
   description: Array of strings found within the memory region.
+  doc_values: false
   flat_name: process.Ext.memory_region.strings
   ignore_above: 1024
+  index: false
   level: custom
   name: strings
   normalize: []

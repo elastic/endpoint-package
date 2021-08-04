@@ -1024,6 +1024,7 @@
       type: keyword
       ignore_above: 1024
       description: Array of strings found within the memory region.
+      index: false
       default_field: false
     - name: process.Ext.protection
       level: custom
@@ -4068,6 +4069,7 @@
       type: keyword
       ignore_above: 1024
       description: Array of strings found within the memory region.
+      index: false
       default_field: false
     - name: Ext.protection
       level: custom
