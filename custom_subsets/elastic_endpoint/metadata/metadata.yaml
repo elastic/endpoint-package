@@ -42,6 +42,7 @@ fields:
       state:
         fields:
           isolation: {}
+      capabilities: {}
   elastic:
     fields:
       agent:

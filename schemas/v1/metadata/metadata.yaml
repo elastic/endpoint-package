@@ -17,6 +17,17 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Endpoint.capabilities:
+  dashed_name: Endpoint-capabilities
+  description: Enabled capabilities
+  doc_values: false
+  flat_name: Endpoint.capabilities
+  ignore_above: 128
+  level: custom
+  name: capabilities
+  normalize: []
+  short: Enabled capabilities
+  type: keyword
 Endpoint.configuration:
   dashed_name: Endpoint-configuration
   description: Configuration fields represent the intended and applied setting for

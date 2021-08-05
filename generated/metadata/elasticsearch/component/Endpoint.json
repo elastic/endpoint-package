@@ -8,6 +8,10 @@
       "properties": {
         "Endpoint": {
           "properties": {
+            "capabilities": {
+              "ignore_above": 128,
+              "type": "keyword"
+            },
             "configuration": {
               "properties": {
                 "isolation": {
