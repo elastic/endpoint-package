@@ -814,6 +814,18 @@ sent by the endpoint.
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
+| file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
+| file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
+| file.Ext.malware_signature.identifier | Malware artifact identifier. | text |
+| file.Ext.malware_signature.primary | Primary malware signature match. | nested |
+| file.Ext.malware_signature.primary.matches | An array of bytes representing yara signature matches | nested |
+| file.Ext.malware_signature.primary.signature | Primary malware signature match. | nested |
+| file.Ext.malware_signature.primary.signature.hash | Primary malware signature hash. | nested |
+| file.Ext.malware_signature.primary.signature.hash.sha256 | Primary malware signature sha256. | keyword |
+| file.Ext.malware_signature.primary.signature.id | Primary malware signature id. | keyword |
+| file.Ext.malware_signature.primary.signature.name | Primary malware signature name. | keyword |
+| file.Ext.malware_signature.secondary | An array of malware signature matches | nested |
+| file.Ext.malware_signature.version | Primary malware signature version. | keyword |
 | file.Ext.monotonic_id | File event monotonic ID. | unsigned_long |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |

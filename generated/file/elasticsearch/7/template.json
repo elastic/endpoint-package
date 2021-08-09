@@ -199,6 +199,56 @@
                 "norms": false,
                 "type": "text"
               },
+              "malware_signature": {
+                "properties": {
+                  "all_names": {
+                    "norms": false,
+                    "type": "text"
+                  },
+                  "identifier": {
+                    "norms": false,
+                    "type": "text"
+                  },
+                  "primary": {
+                    "properties": {
+                      "matches": {
+                        "type": "nested"
+                      },
+                      "signature": {
+                        "properties": {
+                          "hash": {
+                            "properties": {
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "nested"
+                      }
+                    },
+                    "type": "nested"
+                  },
+                  "secondary": {
+                    "type": "nested"
+                  },
+                  "version": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "nested"
+              },
               "monotonic_id": {
                 "type": "unsigned_long"
               },

@@ -359,6 +359,70 @@
       type: text
       description: First 16 bytes of file used to check file integrity.
       default_field: false
+    - name: Ext.malware_signature
+      level: custom
+      type: nested
+      description: Nested version of malware_signature fieldset.
+      default_field: false
+    - name: Ext.malware_signature.all_names
+      level: custom
+      type: text
+      description: The concatenated names of all yara signatures
+      default_field: false
+    - name: Ext.malware_signature.identifier
+      level: custom
+      type: text
+      description: Malware artifact identifier.
+      default_field: false
+    - name: Ext.malware_signature.primary
+      level: custom
+      type: nested
+      description: Primary malware signature match.
+      default_field: false
+    - name: Ext.malware_signature.primary.matches
+      level: custom
+      type: nested
+      description: An array of bytes representing yara signature matches
+      default_field: false
+    - name: Ext.malware_signature.primary.signature
+      level: custom
+      type: nested
+      description: Primary malware signature match.
+      default_field: false
+    - name: Ext.malware_signature.primary.signature.hash
+      level: custom
+      type: nested
+      description: Primary malware signature hash.
+      default_field: false
+    - name: Ext.malware_signature.primary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Primary malware signature sha256.
+      default_field: false
+    - name: Ext.malware_signature.primary.signature.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Primary malware signature id.
+      default_field: false
+    - name: Ext.malware_signature.primary.signature.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Primary malware signature name.
+      default_field: false
+    - name: Ext.malware_signature.secondary
+      level: custom
+      type: nested
+      description: An array of malware signature matches
+      default_field: false
+    - name: Ext.malware_signature.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Primary malware signature version.
+      default_field: false
     - name: Ext.monotonic_id
       level: custom
       type: unsigned_long

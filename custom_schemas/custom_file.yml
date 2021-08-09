@@ -200,3 +200,90 @@
       short: File event monotonic ID
       description: >
         File event monotonic ID.
+        
+    - name: Ext.malware_signature
+      level: custom
+      type: nested
+      description: Nested version of malware_signature fieldset.
+      
+    - name: Ext.malware_signature.all_names
+      level: custom
+      type: text
+      short: Yara signature names
+      description: >
+        The concatenated names of all yara signatures
+    
+    - name: Ext.malware_signature.identifier
+      level: custom
+      type: text
+      short: Malware artifact identifier
+      description: >
+        Malware artifact identifier.
+
+    - name: Ext.malware_signature.primary
+      level: custom
+      type: nested
+      short: Primary malware signature match
+      description: >
+        Primary malware signature match.
+            
+    - name: Ext.malware_signature.primary.matches
+      level: custom
+      type: nested
+      short: signature match bytes
+      description: >
+        An array of bytes representing yara signature matches
+      normalize:
+        - array
+
+    - name: Ext.malware_signature.primary.signature
+      level: custom
+      type: nested
+      short: Primary malware signature match
+      description: >
+        Primary malware signature match.
+
+    - name: Ext.malware_signature.primary.signature.hash
+      level: custom
+      type: nested
+      short: Primary malware signature hash
+      description: >
+        Primary malware signature hash.
+
+    - name: Ext.malware_signature.primary.signature.hash.sha256
+      level: custom
+      type: keyword
+      short: Primary malware signature sha256
+      description: >
+        Primary malware signature sha256.
+        
+    - name: Ext.malware_signature.primary.signature.id
+      level: custom
+      type: keyword
+      short: Primary malware signature id
+      description: >
+        Primary malware signature id.
+
+    - name: Ext.malware_signature.primary.signature.name
+      level: custom
+      type: keyword
+      short: Primary malware signature name
+      description: >
+        Primary malware signature name.
+
+    - name: Ext.malware_signature.secondary
+      level: custom
+      type: nested
+      short: secondary signature matches
+      description: >
+        An array of malware signature matches
+      normalize:
+        - array
+        
+    - name: Ext.malware_signature.version
+      level: custom
+      type: keyword
+      short: Primary malware signature version
+      description: >
+        Primary malware signature version.
+        
