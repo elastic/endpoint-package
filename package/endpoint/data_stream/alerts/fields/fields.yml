@@ -2252,6 +2252,10 @@
       description: The time zone of the location, such as IANA time zone name.
       example: America/Argentina/Buenos_Aires
       default_field: false
+    - name: ip
+      level: core
+      type: ip
+      description: IP address of the destination (IPv4 or IPv6).
 - name: dll
   title: DLL
   group: 2
@@ -5295,6 +5299,10 @@
       description: The time zone of the location, such as IANA time zone name.
       example: America/Argentina/Buenos_Aires
       default_field: false
+    - name: ip
+      level: core
+      type: ip
+      description: IP address of the source (IPv4 or IPv6).
 - name: threat
   title: Threat
   group: 2
@@ -5488,3 +5496,54 @@
           default_field: false
       description: Short name or login of the user.
       example: albert
+- name: registry
+  title: Registry
+  group: 2
+  description: Fields related to Windows Registry operations.
+  type: group
+  fields:
+    - name: data.strings
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Content when writing string types.
+
+        Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`).'
+      example: '["C:\rta\red_ttp\bin\myapp.exe"]'
+      default_field: false
+    - name: path
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Full path, including hive, key and value
+      example: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\winword.exe\Debugger
+      default_field: false
+    - name: value
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Name of the value written.
+      example: Debugger
+      default_field: false
+- name: dns
+  title: DNS
+  group: 2
+  description: 'Fields describing DNS queries and answers.
+
+    DNS events should either represent a single DNS query prior to getting answers (`dns.type:query`) or they should represent a full exchange and contain the query details as well as all of the answers that were provided for this query (`dns.type:answer`).'
+  type: group
+  fields:
+    - name: question.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The name being queried.
+
+        If the name field contains non-printable characters (below 32 or above 126), those characters should be represented as escaped base 10 integers (\DDD). Back slashes and quotes should be escaped. Tabs, carriage returns, and line feeds should be converted to \t, \r, and \n respectively.'
+      example: www.example.com
+    - name: question.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: The type of record being queried.
+      example: AAAA
