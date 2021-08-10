@@ -22,6 +22,8 @@
     "ecs_1.10.0_process",
     "ecs_1.10.0_target",
     "ecs_1.10.0_user",
+    "ecs_1.10.0_dns",
+    "ecs_1.10.0_registry",
     "ecs_1.10.0_memory_protection",
     "ecs_1.10.0_ransomware"
   ],

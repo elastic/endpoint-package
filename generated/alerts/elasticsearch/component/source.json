@@ -54,6 +54,9 @@
                   "type": "keyword"
                 }
               }
+            },
+            "ip": {
+              "type": "ip"
             }
           }
         }

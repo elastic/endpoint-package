@@ -1550,6 +1550,9 @@
                 "type": "keyword"
               }
             }
+          },
+          "ip": {
+            "type": "ip"
           }
         }
       },
@@ -1684,6 +1687,22 @@
                 "type": "keyword"
               },
               "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "dns": {
+        "properties": {
+          "question": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -3519,6 +3538,26 @@
           }
         }
       },
+      "registry": {
+        "properties": {
+          "data": {
+            "properties": {
+              "strings": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "path": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "value": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "rule": {
         "properties": {
           "author": {
@@ -3611,6 +3650,9 @@
                 "type": "keyword"
               }
             }
+          },
+          "ip": {
+            "type": "ip"
           }
         }
       },
