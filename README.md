@@ -25,7 +25,7 @@ The individual sections below will give more details about how each tool is used
    - debian-based: `sudo apt install python3-pipenv`
    - pip: `pip3 install --user pipenv`
 
-NOTE: If you are using a higher version than python3 the make command may file. You'll have to edit the Makefile and replace `3.7` with your python version.
+NOTE: If you are using a higher version than python3 the make command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
 
 ## Updating the Endpoint Package Mapping
 
