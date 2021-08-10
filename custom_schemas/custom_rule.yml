@@ -1,0 +1,32 @@
+---
+- name: rule
+  title: Rule
+  group: 2
+  short: Fields to capture details about rules used to generate alerts or other notable events.
+  description: >
+   Rule fields are used to capture the specifics of any observer or agent rules that generate alerts or other notable events.
+
+   Examples of data sources that would populate the rule fields include: network admission control platforms, network or
+   host IDS/IPS, network firewalls, web application firewalls, url filters, endpoint detection and response (EDR) systems, etc.
+
+  type: group
+  fields:
+
+    - name: references
+      level: custom
+      type: nested
+      short: Rule References
+      description: >
+        An array of urls that represent references for the specified rule
+
+    - name: tags
+      level: custom
+      type: nested
+      short: Rule tags
+      description: >
+        An array of tags related to the specified rule
+
+    - name: severity
+      level: custom
+      type: keyword
+      description: Rule severity
