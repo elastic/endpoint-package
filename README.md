@@ -14,11 +14,18 @@ The individual sections below will give more details about how each tool is used
 
 - Install go 1.14 from here: <https://golang.org/dl/>
 
-- Install `hub` tool via `brew install hub`
+- Install python 3.7+ * (see note)
 
-- Install python 3.7+
+- Install [hub](https://github.com/github/hub) tool:
+  - mac: `brew install hub`
+  - debian-based: `sudo apt install hub`
 
-- Install pipenv via `brew install pipenv`
+- Install pipenv:
+   - mac: `brew install pipenv`
+   - debian-based: `sudo apt install python3-pipenv`
+   - pip: `pip3 install --user pipenv`
+
+NOTE: If you are using a higher version than python3 the make command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
 
 ## Updating the Endpoint Package Mapping
 
@@ -59,17 +66,27 @@ Use the `make run-registry` command to quickly run a package registry locally on
 Add the follow flags to your `kibana.dev.yaml` file
 
 ```yaml
-xpack.ingestManager.enabled: true
-xpack.ingestManager.registryUrl: "http://127.0.0.1:8080"
-xpack.ingestManager.fleet.enabled: true
+xpack.fleet.enabled: true
+xpack.fleet.registryUrl: "http://127.0.0.1:8080"
+xpack.fleet.fleet.enabled: true
 ```
 
-The `xpack.ingestManager.registryUrl` flag instructs Kibana to look for the package registry at the specified URL.
+The `xpack.fleet.registryUrl` flag instructs Kibana to look for the package registry at the specified URL.
 By default Kibana uses the external package registry.
 
 The Ingest Manager will now use your locally running package registry for retrieving a package. The Ingest Manager
 within Kibana does some caching after it has downloaded a package, so if you are not seeing your changes you might
 need to restart Kibana and Elasticsearch.
+
+If you want to check you are using the correct Ingest manager go to Management -> Integrations in Kibana and search for Endpoint Security. Observe the version number. You should see the `-dev` sufix in the version.
+
+If you don't see your version in the Integration you want to make sure the Ingest Manager is running correctly you can try a request to test it:
+
+```bash
+curl "http://localhost:8080/search?package=endpoint"
+```
+
+If you see a JSON response, the Ingest Manager is running and it is probably a problem in your Kibana configuration. If you don't get a response you should check the running Ingest Manager process you probably started with docker.
 
 ### PR the changes
 
