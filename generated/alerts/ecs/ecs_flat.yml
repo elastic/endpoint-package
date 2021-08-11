@@ -4172,6 +4172,18 @@ dll.Ext.mapped_size:
   normalize: []
   short: The size of this module's memory mapping, in bytes.
   type: unsigned_long
+dll.code_signature.subject_name:
+  dashed_name: dll-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: dll.code_signature.subject_name
+  ignore_above: 1024
+  level: core
+  name: subject_name
+  normalize: []
+  original_fieldset: code_signature
+  short: Subject name of the code signer
+  type: keyword
 dll.hash.md5:
   dashed_name: dll-hash-md5
   description: MD5 hash.
@@ -7769,6 +7781,18 @@ process.args_count:
   normalize: []
   short: Length of the process.args array.
   type: long
+process.code_signature.subject_name:
+  dashed_name: process-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.code_signature.subject_name
+  ignore_above: 1024
+  level: core
+  name: subject_name
+  normalize: []
+  original_fieldset: code_signature
+  short: Subject name of the code signer
+  type: keyword
 process.command_line:
   dashed_name: process-command-line
   description: 'Full command line that started the process, including the absolute

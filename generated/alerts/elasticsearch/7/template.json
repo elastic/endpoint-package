@@ -1636,6 +1636,14 @@
             },
             "type": "object"
           },
+          "code_signature": {
+            "properties": {
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "hash": {
             "properties": {
               "md5": {
@@ -2879,6 +2887,14 @@
           },
           "args_count": {
             "type": "long"
+          },
+          "code_signature": {
+            "properties": {
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
           },
           "command_line": {
             "fields": {

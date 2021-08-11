@@ -335,6 +335,7 @@ sent by the endpoint.
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
 | dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.hash.md5 | MD5 hash. | keyword |
 | dll.hash.sha1 | SHA1 hash. | keyword |
 | dll.hash.sha256 | SHA256 hash. | keyword |
@@ -595,6 +596,7 @@ sent by the endpoint.
 | process.Ext.user | User associated with the running process. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
