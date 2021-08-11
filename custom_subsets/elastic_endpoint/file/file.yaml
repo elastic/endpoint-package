@@ -168,3 +168,19 @@ fields:
               owner: {}
               gid: {}
               group: {}
+          malware_signature:
+            fields:
+              all_names: {}
+              identifier: {}
+              primary:
+                fields:
+                  signature:
+                    fields:
+                      hash:
+                        fields:
+                          sha256: {}
+                      id: {}
+                      name: {}
+                  matches: {}
+              secondary: {}
+              version: {}
