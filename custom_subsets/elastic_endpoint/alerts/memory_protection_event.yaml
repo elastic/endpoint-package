@@ -204,6 +204,22 @@ fields:
                       protection: {}
                   symbol_info: {}
                   rva: {}
+              call_stack_summary: {}
+              final_user_module:
+                fields:
+                  name: {}
+                  path: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                      valid: {}
+                  hash:
+                    fields:
+                      sha256:
+                        exceptionable: true
               parameter: {}
               parameter_bytes_compressed: {}
               parameter_bytes_compressed_present: {}
