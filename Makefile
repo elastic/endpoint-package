@@ -1,5 +1,5 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-# we are intentionally pinning the ECS version here, when ecs releases a new version 
+# we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
 ECS_GIT_REF ?= v1.10.0
 
@@ -130,7 +130,7 @@ setup-go-tools:
 .PHONY: setup-tools
 setup-tools: $(REAL_ECS_DIR) setup-go-tools
 	pipenv install
-	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
+	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3 install -r scripts/requirements.txt
 
 gen-files: $(TARGETS)
 	go run $(ROOT_DIR)/scripts/generate-docs
