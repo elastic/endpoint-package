@@ -319,6 +319,7 @@ sent by the endpoint.
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
+| destination.ip | IP address of the destination (IPv4 or IPv6). | ip |
 | dll.Ext | Object for all custom defined fields to live in. | object |
 | dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -334,6 +335,7 @@ sent by the endpoint.
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
 | dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.hash.md5 | MD5 hash. | keyword |
 | dll.hash.sha1 | SHA1 hash. | keyword |
 | dll.hash.sha256 | SHA256 hash. | keyword |
@@ -346,6 +348,8 @@ sent by the endpoint.
 | dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| dns.question.name | The name being queried. If the name field contains non-printable characters (below 32 or above 126), those characters should be represented as escaped base 10 integers (\DDD). Back slashes and quotes should be escaped. Tabs, carriage returns, and line feeds should be converted to \t, \r, and \n respectively. | keyword |
+| dns.question.type | The type of record being queried. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | elastic.agent | The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host. | object |
 | elastic.agent.id | Unique identifier of this elastic agent (if one exists). | keyword |
@@ -592,6 +596,7 @@ sent by the endpoint.
 | process.Ext.user | User associated with the running process. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
@@ -717,6 +722,9 @@ sent by the endpoint.
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.uptime | Seconds the process has been up. | long |
 | process.working_directory | The working directory of the process. | keyword |
+| registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
+| registry.path | Full path, including hive, key and value | keyword |
+| registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
 | rule.description | The description of the rule generating the event. | keyword |
@@ -738,6 +746,7 @@ sent by the endpoint.
 | source.geo.region_iso_code | Region ISO code. | keyword |
 | source.geo.region_name | Region name. | keyword |
 | source.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
+| source.ip | IP address of the source (IPv4 or IPv6). | ip |
 | threat.framework | Name of the threat framework used to further categorize and classify the tactic and technique of the reported threat. Framework classification can be provided by detecting systems, evaluated at ingest time, or retrospectively tagged to events. | keyword |
 | threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
 | threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |

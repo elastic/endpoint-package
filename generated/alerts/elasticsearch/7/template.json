@@ -1550,6 +1550,9 @@
                 "type": "keyword"
               }
             }
+          },
+          "ip": {
+            "type": "ip"
           }
         }
       },
@@ -1633,6 +1636,14 @@
             },
             "type": "object"
           },
+          "code_signature": {
+            "properties": {
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "hash": {
             "properties": {
               "md5": {
@@ -1684,6 +1695,22 @@
                 "type": "keyword"
               },
               "product": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "dns": {
+        "properties": {
+          "question": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               }
@@ -2861,6 +2888,14 @@
           "args_count": {
             "type": "long"
           },
+          "code_signature": {
+            "properties": {
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
           "command_line": {
             "fields": {
               "caseless": {
@@ -3519,6 +3554,26 @@
           }
         }
       },
+      "registry": {
+        "properties": {
+          "data": {
+            "properties": {
+              "strings": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "path": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "value": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "rule": {
         "properties": {
           "author": {
@@ -3611,6 +3666,9 @@
                 "type": "keyword"
               }
             }
+          },
+          "ip": {
+            "type": "ip"
           }
         }
       },

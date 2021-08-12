@@ -1,5 +1,5 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-# we are intentionally pinning the ECS version here, when ecs releases a new version 
+# we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
 ECS_GIT_REF ?= v1.10.0
 
