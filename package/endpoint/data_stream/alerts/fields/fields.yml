@@ -121,6 +121,12 @@
       ignore_above: 1024
       description: the version of this applied policy
       default_field: false
+- name: Events
+  title: Events
+  group: 2
+  description: Events array contains endpoint events which triggered the rule detection
+  type: group
+  fields: []
 - name: Memory_protection
   title: Memory Protection
   group: 2
@@ -5133,6 +5139,12 @@
           default_field: false
       description: The working directory of the process.
       example: /home/alice
+- name: responses
+  title: Responses
+  group: 2
+  description: responses array contains rule response action results
+  type: group
+  fields: []
 - name: rule
   title: Rule
   group: 2
@@ -5198,6 +5210,12 @@
       ignore_above: 1024
       description: Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member.
       example: Standard_Protocol_Filters
+      default_field: false
+    - name: severity
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Rule severity
       default_field: false
     - name: uuid
       level: extended
