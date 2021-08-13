@@ -12,20 +12,6 @@
   type: group
   fields:
 
-    - name: references
-      level: custom
-      type: nested
-      short: Rule References
-      description: >
-        An array of urls that represent references for the specified rule
-
-    - name: tags
-      level: custom
-      type: nested
-      short: Rule tags
-      description: >
-        An array of tags related to the specified rule
-
     - name: severity
       level: custom
       type: keyword
