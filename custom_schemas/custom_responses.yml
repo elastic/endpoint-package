@@ -1,0 +1,9 @@
+---
+- name: responses
+  title: Responses
+  group: 2
+  short: Fields to capture rule response actions
+  description: >
+   responses array contains rule response action results
+
+  type: group

@@ -1,0 +1,249 @@
+---
+name: rule_detection_event
+fields:
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
+  base:
+    fields:
+      "@timestamp": {}
+      "message": {}
+  data_stream:
+    fields: "*"
+  agent:
+    fields:
+      ephemeral_id: {}
+      id:
+        exceptionable: true
+      name: {}
+      type:
+        exceptionable: true
+      version:
+        exceptionable: true
+  process:
+    fields:
+      args: {}
+      args_count: {}
+      command_line:
+        exceptionable: true
+      entity_id: {}
+      executable:
+        exceptionable: true
+      exit_code: {}
+      hash:
+        fields:
+          md5:
+            exceptionable: true
+          sha1:
+            exceptionable: true
+          sha256:
+            exceptionable: true
+          sha512:
+            exceptionable: true
+      name:
+        exceptionable: true
+      pe:
+        fields:
+          company:
+            exceptionable: true
+          description:
+            exceptionable: true
+          file_version:
+            exceptionable: true
+          imphash:
+            exceptionable: true
+          original_file_name:
+            exceptionable: true
+          product:
+            exceptionable: true
+      pgid:
+        exceptionable: true
+      pid: {}
+      ppid: {}
+      start: {}
+      thread:
+        fields:
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: false
+                fields:
+                  module_path: {}
+                  instruction_pointer: {}
+                  memory_section:
+                    fields:
+                      address: {}
+                      size: {}
+                      protection: {}
+                  symbol_info: {}
+                  rva: {}
+              start: {}
+              start_address: {}
+              start_address_module: {}
+              service: {}
+              token:
+                fields:
+                  domain: {}
+                  elevation: {}
+                  elevation_type: {}
+                  impersonation_level: {}
+                  integrity_level: {}
+                  integrity_level_name: {}
+                  is_appcontainer: {}
+                  privileges:
+                    fields:
+                      name: {}
+                      enabled: {}
+                      description: {}
+                  sid: {}
+                  type: {}
+                  user: {}
+              uptime: {}
+      title: {}
+      uptime: {}
+      working_directory:
+        exceptionable: true
+      Ext:
+        fields:
+          ancestry: {}
+          authentication_id: {}
+          services:
+            exceptionable: true
+          session: {}
+          user:
+            exceptionable: true
+          code_signature:
+            fields:
+              exists: {}
+              subject_name:
+                exceptionable: true
+              valid:
+                exceptionable: true
+              trusted:
+                exceptionable: true
+              status:
+                exceptionable: true
+          protection: {}
+          token:
+            fields:
+              domain: {}
+              elevation: {}
+              elevation_type: {}
+              impersonation_level: {}
+              integrity_level: {}
+              integrity_level_name: {}
+              is_appcontainer: {}
+              privileges:
+                fields:
+                  name: {}
+                  enabled: {}
+                  description: {}
+              sid: {}
+              type: {}
+              user: {}
+      parent:
+        fields:
+          args: {}
+          args_count: {}
+          command_line:
+            exceptionable: true
+          entity_id: {}
+          executable:
+            exceptionable: true
+          exit_code: {}
+          hash:
+            fields:
+              md5:
+                exceptionable: true
+              sha1:
+                exceptionable: true
+              sha256:
+                exceptionable: true
+              sha512:
+                exceptionable: true
+          name:
+            exceptionable: true
+          pgid:
+            exceptionable: true
+          pid: {}
+          ppid: {}
+          start: {}
+          thread:
+            fields:
+              id: {}
+              name: {}
+          title: {}
+          uptime: {}
+          working_directory:
+            exceptionable: true
+          Ext:
+            fields:
+              real:
+                fields:
+                  pid: {}
+              code_signature:
+                fields:
+                  exists: {}
+                  subject_name:
+                    exceptionable: true
+                  valid:
+                    exceptionable: true
+                  trusted:
+                    exceptionable: true
+                  status:
+                    exceptionable: true
+              protection: {}
+  user:
+    fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
+      id: {}
+      name: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  Events:
+    fields: "*"
+  rule:
+    fields:
+      author: {}
+      category: {}
+      description: {}
+      id: {}
+      license: {}
+      name: {}
+      reference:
+        exceptionable: true
+      ruleset: {}
+      uuid:
+        exceptionable: true
+      version: {}
+      severity: {}
+  threat:
+    fields: "*"  
+  responses:
+    fields: "*"
