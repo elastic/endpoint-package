@@ -1,21 +1,21 @@
 {
   "_meta": {
     "description": "Sample composable template that includes all ECS fields",
-    "ecs_version": "1.10.0"
+    "ecs_version": "1.11.0"
   },
   "composed_of": [
-    "ecs_1.10.0_base",
-    "ecs_1.10.0_data_stream",
-    "ecs_1.10.0_ecs",
-    "ecs_1.10.0_source",
-    "ecs_1.10.0_destination",
-    "ecs_1.10.0_host",
-    "ecs_1.10.0_event",
-    "ecs_1.10.0_agent",
-    "ecs_1.10.0_group",
-    "ecs_1.10.0_user",
-    "ecs_1.10.0_process",
-    "ecs_1.10.0_registry"
+    "ecs_1.11.0_base",
+    "ecs_1.11.0_data_stream",
+    "ecs_1.11.0_ecs",
+    "ecs_1.11.0_source",
+    "ecs_1.11.0_destination",
+    "ecs_1.11.0_host",
+    "ecs_1.11.0_event",
+    "ecs_1.11.0_agent",
+    "ecs_1.11.0_group",
+    "ecs_1.11.0_user",
+    "ecs_1.11.0_process",
+    "ecs_1.11.0_registry"
   ],
   "index_patterns": [
     "try-ecs-*"
