@@ -23,7 +23,8 @@
     "ecs_1.10.0_target",
     "ecs_1.10.0_user",
     "ecs_1.10.0_memory_protection",
-    "ecs_1.10.0_ransomware"
+    "ecs_1.10.0_ransomware",
+    "ecs_1.10.0_responses"
   ],
   "index_patterns": [
     "try-ecs-*"

@@ -226,8 +226,8 @@ fields:
             fields:
               id: {}
               name: {}
-  Events:
-    fields: "*"
+#  Events:
+#    fields: "*"
   rule:
     fields:
       author: {}

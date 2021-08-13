@@ -717,6 +717,17 @@ sent by the endpoint.
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.uptime | Seconds the process has been up. | long |
 | process.working_directory | The working directory of the process. | keyword |
+| responses.@timestamp | timestamp in which action was taken | date |
+| responses.action | dictionary representing requested response action | nested |
+| responses.action.action | response action name | keyword |
+| responses.action.field | field in the triggering event to use as input for action | text |
+| responses.action.state | index of event in events array to use for field lookup | long |
+| responses.message | result message | text |
+| responses.process | dictionary representing process information | nested |
+| responses.process.entity_id | entity id of actionable process | text |
+| responses.process.name | name of actionable process | keyword |
+| responses.process.pid | pid of actionable process | long |
+| responses.result | response action result code | long |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
 | rule.description | The description of the rule generating the event. | keyword |
@@ -725,6 +736,7 @@ sent by the endpoint.
 | rule.name | The name of the rule or signature generating the event. | keyword |
 | rule.reference | Reference URL to additional information about the rule used to generate this event. The URL can point to the vendor's documentation about the rule. If that's not available, it can also be a link to a more general page describing this type of alert. | keyword |
 | rule.ruleset | Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. | keyword |
+| rule.severity | Rule severity | keyword |
 | rule.uuid | A rule ID that is unique within the scope of a set or group of agents, observers, or other entities using the rule for detection of this event. | keyword |
 | rule.version | The version / revision of the rule being used for analysis. | keyword |
 | source.geo.city_name | City name. | keyword |

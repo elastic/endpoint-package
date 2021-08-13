@@ -9396,6 +9396,111 @@ process.working_directory:
   normalize: []
   short: The working directory of the process.
   type: keyword
+responses.@timestamp:
+  dashed_name: responses-timestamp
+  description: timestamp in which action was taken
+  flat_name: responses.@timestamp
+  format: string
+  level: custom
+  name: '@timestamp'
+  normalize: []
+  short: timestamp in which action was taken
+  type: date
+responses.action:
+  dashed_name: responses-action
+  description: dictionary representing requested response action
+  flat_name: responses.action
+  level: custom
+  name: action
+  normalize: []
+  short: dictionary representing requested response action
+  type: nested
+responses.action.action:
+  dashed_name: responses-action-action
+  description: response action name
+  flat_name: responses.action.action
+  ignore_above: 1024
+  level: custom
+  name: action.action
+  normalize: []
+  short: response action name
+  type: keyword
+responses.action.field:
+  dashed_name: responses-action-field
+  description: field in the triggering event to use as input for action
+  flat_name: responses.action.field
+  level: custom
+  name: action.field
+  normalize: []
+  norms: false
+  short: field in the triggering event to use as input for action
+  type: text
+responses.action.state:
+  dashed_name: responses-action-state
+  description: index of event in events array to use for field lookup
+  flat_name: responses.action.state
+  level: custom
+  name: action.state
+  normalize: []
+  short: index of event in events array to use for field lookup
+  type: long
+responses.message:
+  dashed_name: responses-message
+  description: result message
+  flat_name: responses.message
+  level: custom
+  name: message
+  normalize: []
+  norms: false
+  short: result message
+  type: text
+responses.process:
+  dashed_name: responses-process
+  description: dictionary representing process information
+  flat_name: responses.process
+  level: custom
+  name: process
+  normalize: []
+  short: dictionary representing process information
+  type: nested
+responses.process.entity_id:
+  dashed_name: responses-process-entity-id
+  description: entity id of actionable process
+  flat_name: responses.process.entity_id
+  level: custom
+  name: process.entity_id
+  normalize: []
+  norms: false
+  short: entity id of actionable process
+  type: text
+responses.process.name:
+  dashed_name: responses-process-name
+  description: name of actionable process
+  flat_name: responses.process.name
+  ignore_above: 1024
+  level: custom
+  name: process.name
+  normalize: []
+  short: name of actionable process
+  type: keyword
+responses.process.pid:
+  dashed_name: responses-process-pid
+  description: pid of actionable process
+  flat_name: responses.process.pid
+  level: custom
+  name: process.pid
+  normalize: []
+  short: pid of actionable process
+  type: long
+responses.result:
+  dashed_name: responses-result
+  description: response action result code
+  flat_name: responses.result
+  level: custom
+  name: result
+  normalize: []
+  short: response action result code
+  type: long
 rule.author:
   dashed_name: rule-author
   description: Name, organization, or pseudonym of the author or authors who created
@@ -9494,6 +9599,16 @@ rule.ruleset:
   name: ruleset
   normalize: []
   short: Rule ruleset
+  type: keyword
+rule.severity:
+  dashed_name: rule-severity
+  description: Rule severity
+  flat_name: rule.severity
+  ignore_above: 1024
+  level: custom
+  name: severity
+  normalize: []
+  short: Rule severity
   type: keyword
 rule.uuid:
   dashed_name: rule-uuid
