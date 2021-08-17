@@ -1,0 +1,69 @@
+---
+- name: responses
+  title: Responses
+  group: 2
+  short: Fields to capture rule response actions
+  description: >
+   responses array contains rule response action results
+
+  type: group
+  
+  fields:
+
+    - name: "@timestamp"
+      format: string
+      level: custom
+      type: date
+      description: timestamp in which action was taken
+
+    - name: action
+      level: custom
+      type: nested
+      description: dictionary representing requested response action
+      
+    - name: action.action
+      level: custom
+      type: keyword
+      description: response action name
+    
+    - name: action.field
+      level: custom
+      type: text
+      description: field in the triggering event to use as input for action
+
+    - name: action.state
+      level: custom
+      type: long
+      description: index of event in events array to use for field lookup
+    
+    - name: message
+      level: custom
+      type: text
+      description: result message
+      
+    - name: process
+      level: custom
+      type: nested
+      description: dictionary representing process information
+      
+    - name: process.entity_id
+      level: custom
+      type: text
+      description: entity id of actionable process
+      
+    - name: process.name
+      level: custom
+      type: keyword
+      description: name of actionable process
+
+    - name: process.pid
+      level: custom
+      type: long
+      description: pid of actionable process
+
+    - name: result
+      level: custom
+      type: long
+      description: response action result code
+      
+      

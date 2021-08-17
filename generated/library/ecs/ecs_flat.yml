@@ -734,11 +734,6 @@ event.category:
     - end
     - info
     name: session
-  - description: Use this category to visualize and analyze events describing threat
-      actors' targets, motives, or behaviors.
-    expected_event_types:
-    - indicator
-    name: threat
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -863,22 +858,12 @@ event.ingested:
   type: date
 event.kind:
   allowed_values:
-  - description: 'This value indicates an event such as an alert or notable event,
-      triggered by a detection rule executing externally to the Elastic Stack.
+  - description: 'This value indicates an event that describes an alert or notable
+      event, triggered by a detection rule.
 
       `event.kind:alert` is often populated for events coming from firewalls, intrusion
-      detection systems, endpoint detection and response systems, and so on.
-
-      This value is not used by Elastic solutions for alert documents that are created
-      by rules executing within the Kibana alerting framework.'
+      detection systems, endpoint detection and response systems, and so on.'
     name: alert
-  - description: 'The `enrichment` value indicates an event collected to provide additional
-      context, often to other events.
-
-      An example is collecting indicators of compromise (IOCs) from a threat intelligence
-      provider with the intent to use those values to enrich other events. The IOC
-      events from the intelligence provider should be categorized as `event.kind:enrichment`.'
-    name: enrichment
   - description: This value is the most general and most common value for this field.
       It is used to represent events that indicate that something happened.
     name: event
@@ -914,12 +899,14 @@ event.kind:
       of this event, and that event data may be missing, inconsistent, or incorrect.
       `event.kind:pipeline_error` is often associated with parsing errors.
     name: pipeline_error
-  - description: 'This value is used by Elastic solutions (e.g., Security, Observability)
-      for alert documents that are created by rules executing within the Kibana alerting
-      framework.
+  - description: 'This value is used by the Elastic Security app to denote an Elasticsearch
+      document that was created by a SIEM detection engine rule.
 
-      Usage of this value is reserved, and data ingestion pipelines must not populate
-      `event.kind` with the value "signal".'
+      A signal will typically trigger a notification that something meaningful happened
+      and should be investigated.
+
+      Usage of this value is reserved, and pipelines should not populate `event.kind`
+      with the value "signal".'
     name: signal
   dashed_name: event-kind
   description: 'This is one of four ECS Categorization Fields, and indicates the highest
@@ -1128,11 +1115,6 @@ event.type:
       AND event.type:group`. You can further distinguish group operations using the
       ECS `event.action` field.'
     name: group
-  - description: 'The indicator event type is used for the subset of events within
-      a category that contain details about indicators of compromise (IOCs).
-
-      A common example is `event.category:threat AND event.type:indicator`.'
-    name: indicator
   - description: The info event type is used for the subset of events within a category
       that indicate that they are purely informational, and don't report a state change,
       or any type of action. For example, an initial run of a file integrity monitoring

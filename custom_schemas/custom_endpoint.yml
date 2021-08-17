@@ -215,6 +215,20 @@
         but not a simple sum of the actions
       short: overall status of ransomware
 
+    - name: policy.applied.response.configurations.behavior_protection.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for behavior_protection
+
+    - name: policy.applied.response.configurations.behavior_protection.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of behavior_protection, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
+      short: overall status of behavior_protection
+
+
     - name: policy.applied.response.diagnostic
       level: custom
       type: object
