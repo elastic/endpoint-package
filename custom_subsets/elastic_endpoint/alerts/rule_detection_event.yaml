@@ -1,0 +1,21 @@
+---
+name: rule_detection_event
+fields:
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
+  base:
+    fields:
+      "@timestamp": {}
+      "message": {}
+      "Events": {}
+  threat:
+    fields: "*"
+  Responses:
+    fields: "*"

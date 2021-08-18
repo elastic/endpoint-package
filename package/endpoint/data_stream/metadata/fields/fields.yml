@@ -21,7 +21,6 @@
       type: keyword
       ignore_above: 128
       description: Enabled capabilities
-      doc_values: false
       default_field: false
     - name: configuration
       level: custom
