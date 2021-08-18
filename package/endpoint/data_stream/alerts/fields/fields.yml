@@ -10,6 +10,12 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+- name: Events
+  level: custom
+  type: keyword
+  ignore_above: 1024
+  description: events array
+  default_field: false
 - name: message
   level: core
   type: text
@@ -347,6 +353,70 @@
       type: keyword
       ignore_above: 1024
       description: Ransomware artifact version.
+      default_field: false
+- name: Responses
+  title: Responses
+  group: 2
+  description: responses array contains rule response action results
+  type: group
+  fields:
+    - name: '@timestamp'
+      level: custom
+      type: date
+      format: string
+      description: timestamp in which action was taken
+      default_field: false
+    - name: action
+      level: custom
+      type: nested
+      description: dictionary representing requested response action
+      default_field: false
+    - name: action.action
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: response action name
+      default_field: false
+    - name: action.field
+      level: custom
+      type: text
+      description: field in the triggering event to use as input for action
+      default_field: false
+    - name: action.state
+      level: custom
+      type: long
+      description: index of event in events array to use for field lookup
+      default_field: false
+    - name: message
+      level: custom
+      type: text
+      description: result message
+      default_field: false
+    - name: process
+      level: custom
+      type: nested
+      description: dictionary representing process information
+      default_field: false
+    - name: process.entity_id
+      level: custom
+      type: text
+      description: entity id of actionable process
+      default_field: false
+    - name: process.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: name of actionable process
+      default_field: false
+    - name: process.pid
+      level: custom
+      type: long
+      description: pid of actionable process
+      default_field: false
+    - name: result
+      level: custom
+      type: long
+      description: response action result code
       default_field: false
 - name: Target
   title: Target

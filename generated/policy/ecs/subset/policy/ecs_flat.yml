@@ -287,6 +287,27 @@ Endpoint.policy.applied.response.configurations.antivirus_registration.status:
   normalize: []
   short: the overall status of antivirus registration
   type: keyword
+Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-configurations-behavior-protection-concerned-actions
+  description: all actions that were taken for behavior_protection
+  flat_name: Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.behavior_protection.concerned_actions
+  normalize: []
+  short: all actions that were taken for behavior_protection
+  type: keyword
+Endpoint.policy.applied.response.configurations.behavior_protection.status:
+  dashed_name: Endpoint-policy-applied-response-configurations-behavior-protection-status
+  description: the overall status of behavior_protection, this is correlated to the
+    status of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.response.configurations.behavior_protection.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.behavior_protection.status
+  normalize: []
+  short: overall status of behavior_protection
+  type: keyword
 Endpoint.policy.applied.response.configurations.events:
   dashed_name: Endpoint-policy-applied-response-configurations-events
   description: overall event collection configuration and status of the applied policy
