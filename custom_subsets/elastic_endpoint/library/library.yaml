@@ -132,21 +132,11 @@ fields:
       Ext:
         fields:
           code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              trusted: {}
-              valid: {}
+            fields: "*"
   dll:
     fields:
       code_signature:
-        fields:
-          exists: {}
-          status: {}
-          subject_name: {}
-          trusted: {}
-          valid: {}
+        fields: "*"
       hash:
         fields:
           md5: {}
@@ -166,11 +156,6 @@ fields:
       Ext:
         fields:
           code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              trusted: {}
-              valid: {}
+            fields: "*"
           load_index: {}
           defense_evasions: {}

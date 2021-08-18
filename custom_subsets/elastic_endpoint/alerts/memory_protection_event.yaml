@@ -50,12 +50,7 @@ fields:
           mapped_size: {}
           compile_time: {}
           code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              trusted: {}
-              valid: {}
+            fields: "*"
   ecs:
     fields:
       version: {}
@@ -298,16 +293,7 @@ fields:
           user:
             exceptionable: true
           code_signature:
-            fields:
-              exists: {}
-              subject_name:
-                exceptionable: true
-              valid:
-                exceptionable: true
-              trusted:
-                exceptionable: true
-              status:
-                exceptionable: true
+            fields: "*"
           protection: {}
           token:
             fields:
@@ -412,16 +398,7 @@ fields:
                 fields:
                   pid: {}
               code_signature:
-                fields:
-                  exists: {}
-                  subject_name:
-                    exceptionable: true
-                  valid:
-                    exceptionable: true
-                  trusted:
-                    exceptionable: true
-                  status:
-                    exceptionable: true
+                fields: "*"
               dll:
                 fields: *dll-fields
               protection: {}

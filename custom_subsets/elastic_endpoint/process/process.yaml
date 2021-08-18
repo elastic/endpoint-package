@@ -104,12 +104,7 @@ fields:
       args: {}
       args_count: {}
       code_signature:
-        fields:
-          exists: {}
-          status: {}
-          subject_name: {}
-          trusted: {}
-          valid: {}
+        fields: "*"
       command_line: {}
       entity_id: {}
       executable: {}
@@ -145,12 +140,7 @@ fields:
           architecture: {}
           authentication_id: {}
           code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              trusted: {}
-              valid: {}
+            fields: "*"
           defense_evasions: {}
           dll:
             fields:
@@ -173,12 +163,7 @@ fields:
           args: {}
           args_count: {}
           code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              trusted: {}
-              valid: {}
+            fields: "*"
           command_line: {}
           entity_id: {}
           executable: {}
@@ -215,12 +200,7 @@ fields:
                 fields:
                   pid: {}
               code_signature:
-                fields:
-                  exists: {}
-                  status: {}
-                  subject_name: {}
-                  trusted: {}
-                  valid: {}
+                fields: "*"
               user: {}
               protection: {}
   package:

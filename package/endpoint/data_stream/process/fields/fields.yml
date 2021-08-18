@@ -681,6 +681,15 @@
       description: Boolean to capture if a signature is present.
       example: 'true'
       default_field: false
+    - name: code_signature.signing_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The identifier used to sign the process.
+
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
     - name: code_signature.status
       level: extended
       type: keyword
@@ -696,6 +705,15 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: code_signature.team_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The team identifier used to sign the process.
+
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
       default_field: false
     - name: code_signature.trusted
       level: extended
@@ -903,6 +921,15 @@
       description: Boolean to capture if a signature is present.
       example: 'true'
       default_field: false
+    - name: parent.code_signature.signing_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The identifier used to sign the process.
+
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
     - name: parent.code_signature.status
       level: extended
       type: keyword
@@ -918,6 +945,15 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: parent.code_signature.team_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The team identifier used to sign the process.
+
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
       default_field: false
     - name: parent.code_signature.trusted
       level: extended

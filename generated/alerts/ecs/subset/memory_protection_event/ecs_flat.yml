@@ -316,7 +316,6 @@ Target.process.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
-  exceptionable: true
   flat_name: Target.process.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -329,7 +328,6 @@ Target.process.Ext.code_signature.subject_name:
   dashed_name: Target-process-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
-  exceptionable: true
   flat_name: Target.process.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -345,7 +343,6 @@ Target.process.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
-  exceptionable: true
   flat_name: Target.process.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -360,7 +357,6 @@ Target.process.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
-  exceptionable: true
   flat_name: Target.process.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -1449,7 +1445,6 @@ Target.process.parent.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
-  exceptionable: true
   flat_name: Target.process.parent.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -1462,7 +1457,6 @@ Target.process.parent.Ext.code_signature.subject_name:
   dashed_name: Target-process-parent-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
-  exceptionable: true
   flat_name: Target.process.parent.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -1478,7 +1472,6 @@ Target.process.parent.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
-  exceptionable: true
   flat_name: Target.process.parent.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -1493,7 +1486,6 @@ Target.process.parent.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
-  exceptionable: true
   flat_name: Target.process.parent.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -4873,7 +4865,6 @@ process.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
-  exceptionable: true
   flat_name: process.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -4885,7 +4876,6 @@ process.Ext.code_signature.subject_name:
   dashed_name: process-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
-  exceptionable: true
   flat_name: process.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -4900,7 +4890,6 @@ process.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
-  exceptionable: true
   flat_name: process.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -4914,7 +4903,6 @@ process.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
-  exceptionable: true
   flat_name: process.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
@@ -5991,7 +5979,6 @@ process.parent.Ext.code_signature.status:
     or trust status. Leave unpopulated if the validity or trust of the certificate
     was unchecked.'
   example: ERROR_UNTRUSTED_ROOT
-  exceptionable: true
   flat_name: process.parent.Ext.code_signature.status
   ignore_above: 1024
   level: custom
@@ -6004,7 +5991,6 @@ process.parent.Ext.code_signature.subject_name:
   dashed_name: process-parent-Ext-code-signature-subject-name
   description: Subject name of the code signer
   example: Microsoft Corporation
-  exceptionable: true
   flat_name: process.parent.Ext.code_signature.subject_name
   ignore_above: 1024
   level: custom
@@ -6020,7 +6006,6 @@ process.parent.Ext.code_signature.trusted:
     Validating the trust of the certificate chain may be complicated, and this field
     should only be populated by tools that actively check the status.'
   example: 'true'
-  exceptionable: true
   flat_name: process.parent.Ext.code_signature.trusted
   level: custom
   name: Ext.code_signature.trusted
@@ -6035,7 +6020,6 @@ process.parent.Ext.code_signature.valid:
 
     Leave unpopulated if a certificate was unchecked.'
   example: 'true'
-  exceptionable: true
   flat_name: process.parent.Ext.code_signature.valid
   level: custom
   name: Ext.code_signature.valid
