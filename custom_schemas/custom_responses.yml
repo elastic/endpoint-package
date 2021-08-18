@@ -1,5 +1,5 @@
 ---
-- name: responses
+- name: Responses
   title: Responses
   group: 2
   short: Fields to capture rule response actions

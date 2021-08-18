@@ -14,8 +14,8 @@ fields:
     fields:
       "@timestamp": {}
       "message": {}
-      "events": {}
+      "Events": {}
   threat:
     fields: "*"
-  responses:
+  Responses:
     fields: "*"

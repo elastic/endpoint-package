@@ -9,7 +9,7 @@
         "@timestamp": {
           "type": "date"
         },
-        "events": {
+        "Events": {
           "ignore_above": 1024,
           "type": "keyword"
         },

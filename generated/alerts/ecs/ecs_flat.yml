@@ -181,6 +181,16 @@ Endpoint.policy.applied.version:
   normalize: []
   short: the version of this applied policy
   type: keyword
+Events:
+  dashed_name: Events
+  description: events array
+  flat_name: Events
+  ignore_above: 1024
+  level: custom
+  name: Events
+  normalize: []
+  short: events array
+  type: keyword
 Memory_protection.cross_session:
   dashed_name: Memory-protection-cross-session
   description: Is this process injecting across operating system sessions?
@@ -569,6 +579,111 @@ Ransomware.version:
   normalize: []
   short: Ransomware artifact version.
   type: keyword
+Responses.@timestamp:
+  dashed_name: Responses-timestamp
+  description: timestamp in which action was taken
+  flat_name: Responses.@timestamp
+  format: string
+  level: custom
+  name: '@timestamp'
+  normalize: []
+  short: timestamp in which action was taken
+  type: date
+Responses.action:
+  dashed_name: Responses-action
+  description: dictionary representing requested response action
+  flat_name: Responses.action
+  level: custom
+  name: action
+  normalize: []
+  short: dictionary representing requested response action
+  type: nested
+Responses.action.action:
+  dashed_name: Responses-action-action
+  description: response action name
+  flat_name: Responses.action.action
+  ignore_above: 1024
+  level: custom
+  name: action.action
+  normalize: []
+  short: response action name
+  type: keyword
+Responses.action.field:
+  dashed_name: Responses-action-field
+  description: field in the triggering event to use as input for action
+  flat_name: Responses.action.field
+  level: custom
+  name: action.field
+  normalize: []
+  norms: false
+  short: field in the triggering event to use as input for action
+  type: text
+Responses.action.state:
+  dashed_name: Responses-action-state
+  description: index of event in events array to use for field lookup
+  flat_name: Responses.action.state
+  level: custom
+  name: action.state
+  normalize: []
+  short: index of event in events array to use for field lookup
+  type: long
+Responses.message:
+  dashed_name: Responses-message
+  description: result message
+  flat_name: Responses.message
+  level: custom
+  name: message
+  normalize: []
+  norms: false
+  short: result message
+  type: text
+Responses.process:
+  dashed_name: Responses-process
+  description: dictionary representing process information
+  flat_name: Responses.process
+  level: custom
+  name: process
+  normalize: []
+  short: dictionary representing process information
+  type: nested
+Responses.process.entity_id:
+  dashed_name: Responses-process-entity-id
+  description: entity id of actionable process
+  flat_name: Responses.process.entity_id
+  level: custom
+  name: process.entity_id
+  normalize: []
+  norms: false
+  short: entity id of actionable process
+  type: text
+Responses.process.name:
+  dashed_name: Responses-process-name
+  description: name of actionable process
+  flat_name: Responses.process.name
+  ignore_above: 1024
+  level: custom
+  name: process.name
+  normalize: []
+  short: name of actionable process
+  type: keyword
+Responses.process.pid:
+  dashed_name: Responses-process-pid
+  description: pid of actionable process
+  flat_name: Responses.process.pid
+  level: custom
+  name: process.pid
+  normalize: []
+  short: pid of actionable process
+  type: long
+Responses.result:
+  dashed_name: Responses-result
+  description: response action result code
+  flat_name: Responses.result
+  level: custom
+  name: result
+  normalize: []
+  short: response action result code
+  type: long
 Target.dll.Ext:
   dashed_name: Target-dll-Ext
   description: Object for all custom defined fields to live in.
@@ -5008,16 +5123,6 @@ event.type:
   normalize:
   - array
   short: Event type. The third categorization field in the hierarchy.
-  type: keyword
-events:
-  dashed_name: events
-  description: events array
-  flat_name: events
-  ignore_above: 1024
-  level: custom
-  name: events
-  normalize: []
-  short: events array
   type: keyword
 file.Ext:
   dashed_name: file-Ext
@@ -9507,111 +9612,6 @@ registry.value:
   normalize: []
   short: Name of the value written.
   type: keyword
-responses.@timestamp:
-  dashed_name: responses-timestamp
-  description: timestamp in which action was taken
-  flat_name: responses.@timestamp
-  format: string
-  level: custom
-  name: '@timestamp'
-  normalize: []
-  short: timestamp in which action was taken
-  type: date
-responses.action:
-  dashed_name: responses-action
-  description: dictionary representing requested response action
-  flat_name: responses.action
-  level: custom
-  name: action
-  normalize: []
-  short: dictionary representing requested response action
-  type: nested
-responses.action.action:
-  dashed_name: responses-action-action
-  description: response action name
-  flat_name: responses.action.action
-  ignore_above: 1024
-  level: custom
-  name: action.action
-  normalize: []
-  short: response action name
-  type: keyword
-responses.action.field:
-  dashed_name: responses-action-field
-  description: field in the triggering event to use as input for action
-  flat_name: responses.action.field
-  level: custom
-  name: action.field
-  normalize: []
-  norms: false
-  short: field in the triggering event to use as input for action
-  type: text
-responses.action.state:
-  dashed_name: responses-action-state
-  description: index of event in events array to use for field lookup
-  flat_name: responses.action.state
-  level: custom
-  name: action.state
-  normalize: []
-  short: index of event in events array to use for field lookup
-  type: long
-responses.message:
-  dashed_name: responses-message
-  description: result message
-  flat_name: responses.message
-  level: custom
-  name: message
-  normalize: []
-  norms: false
-  short: result message
-  type: text
-responses.process:
-  dashed_name: responses-process
-  description: dictionary representing process information
-  flat_name: responses.process
-  level: custom
-  name: process
-  normalize: []
-  short: dictionary representing process information
-  type: nested
-responses.process.entity_id:
-  dashed_name: responses-process-entity-id
-  description: entity id of actionable process
-  flat_name: responses.process.entity_id
-  level: custom
-  name: process.entity_id
-  normalize: []
-  norms: false
-  short: entity id of actionable process
-  type: text
-responses.process.name:
-  dashed_name: responses-process-name
-  description: name of actionable process
-  flat_name: responses.process.name
-  ignore_above: 1024
-  level: custom
-  name: process.name
-  normalize: []
-  short: name of actionable process
-  type: keyword
-responses.process.pid:
-  dashed_name: responses-process-pid
-  description: pid of actionable process
-  flat_name: responses.process.pid
-  level: custom
-  name: process.pid
-  normalize: []
-  short: pid of actionable process
-  type: long
-responses.result:
-  dashed_name: responses-result
-  description: response action result code
-  flat_name: responses.result
-  level: custom
-  name: result
-  normalize: []
-  short: response action result code
-  type: long
 rule.author:
   dashed_name: rule-author
   description: Name, organization, or pseudonym of the author or authors who created
