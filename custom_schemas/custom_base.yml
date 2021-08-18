@@ -1,0 +1,18 @@
+---
+- name: base
+  root: true
+  title: Base
+  group: 2
+  short: All fields defined directly at the root of the events.
+  description: >
+    The `base` field set contains all fields which are at the root of the events.
+    These fields are common across all types of events.
+  type: group
+  fields:
+    - name: "Events"
+      type: keyword
+      level: custom
+      short: events array
+      description: >
+        events array
+            

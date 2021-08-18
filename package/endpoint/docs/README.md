@@ -24,6 +24,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
+| Events | events array | keyword |
 | Memory_protection.cross_session | Is this process injecting across operating system sessions? | boolean |
 | Memory_protection.feature | Memory Protection feature which triggered the alert. | keyword |
 | Memory_protection.parent_to_child | Is this process injecting into its child? | boolean |
@@ -60,6 +61,17 @@ sent by the endpoint.
 | Ransomware.pid | Process id. | long |
 | Ransomware.score | Total ransomware score for aggregated file events. | double |
 | Ransomware.version | Ransomware artifact version. | keyword |
+| Responses.@timestamp | timestamp in which action was taken | date |
+| Responses.action | dictionary representing requested response action | nested |
+| Responses.action.action | response action name | keyword |
+| Responses.action.field | field in the triggering event to use as input for action | text |
+| Responses.action.state | index of event in events array to use for field lookup | long |
+| Responses.message | result message | text |
+| Responses.process | dictionary representing process information | nested |
+| Responses.process.entity_id | entity id of actionable process | text |
+| Responses.process.name | name of actionable process | keyword |
+| Responses.process.pid | pid of actionable process | long |
+| Responses.result | response action result code | long |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |

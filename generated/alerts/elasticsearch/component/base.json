@@ -9,6 +9,10 @@
         "@timestamp": {
           "type": "date"
         },
+        "Events": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
         "message": {
           "norms": false,
           "type": "text"
