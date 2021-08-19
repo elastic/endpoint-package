@@ -19,13 +19,10 @@ fields:
   agent:
     fields:
       ephemeral_id: {}
-      id:
-        exceptionable: true
+      id: {}
       name: {}
-      type:
-        exceptionable: true
-      version:
-        exceptionable: true
+      type: {}
+      version: {}
   dll:
     fields: &dll-fields
       name: {}
@@ -56,38 +53,28 @@ fields:
       version: {}
   event:
     fields:
-      action:
-        exceptionable: true
-      category:
-        exceptionable: true
+      action: {}
+      category: {}
       created: {}
-      code:
-        exceptionable: true
+      code: {}
       dataset: {}
-      hash:
-        exceptionable: true
+      hash: {}
       id: {}
       ingested: {}
-      kind:
-        exceptionable: true
-      module:
-        exceptionable: true
-      outcome:
-        exceptionable: true
-      provider:
-        exceptionable: true
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
       sequence: {}
       severity: {}
-      type:
-        exceptionable: true
+      type: {}
   Endpoint:
     fields:
       policy:
         fields:
           applied:
             fields:
-              id:
-                exceptionable: true
+              id: {}
               status: {}
               version: {}
               name: {}
@@ -97,8 +84,7 @@ fields:
     fields:
       agent:
         fields:
-          id:
-            exceptionable: true
+          id: {}
   rule:
     fields:
       author: {}
@@ -109,46 +95,34 @@ fields:
       name: {}
       reference: {}
       ruleset: {}
-      uuid:
-        exceptionable: true
+      uuid: {}
       version: {}
   threat:
     fields: "*"
   host:
     fields:
-      architecture:
-        exceptionable: true
-      domain:
-        exceptionable: true
+      architecture: {}
+      domain: {}
       hostname: {}
-      id:
-        exceptionable: true
+      id: {}
       ip: {}
       mac: {}
       name: {}
-      type:
-        exceptionable: true
+      type: {}
       uptime: {}
       geo:
         fields: "*"
       os:
         fields:
-          family:
-            exceptionable: true
-          full:
-            exceptionable: true
-          kernel:
-            exceptionable: true
-          name:
-            exceptionable: true
-          platform:
-            exceptionable: true
-          version:
-            exceptionable: true
+          family: {}
+          full: {}
+          kernel: {}
+          name: {}
+          platform: {}
+          version: {}
           Ext:
             fields:
-              variant:
-                exceptionable: true
+              variant: {}
       user:
         fields:
           domain: {}
@@ -176,56 +150,39 @@ fields:
               name: {}
   group:
     fields:
-      domain:
-        exceptionable: true
-      id:
-        exceptionable: true
+      domain: {}
+      id: {}
       name: {}
       Ext:
         fields:
           real:
             fields:
-              id:
-                exceptionable: true
+              id: {}
               name: {}
   process:
     fields: &process-fields
       args: {}
       args_count: {}
-      command_line:
-        exceptionable: true
+      command_line: {}
       entity_id: {}
-      executable:
-        exceptionable: true
+      executable: {}
       exit_code: {}
       hash:
         fields:
-          md5:
-            exceptionable: true
-          sha1:
-            exceptionable: true
-          sha256:
-            exceptionable: true
-          sha512:
-            exceptionable: true
-      name:
-        exceptionable: true
+          md5: {}
+          sha1: {}
+          sha256: {}
+          sha512: {}
+      name: {}
       pe:
         fields:
-          company:
-            exceptionable: true
-          description:
-            exceptionable: true
-          file_version:
-            exceptionable: true
-          imphash:
-            exceptionable: true
-          original_file_name:
-            exceptionable: true
-          product:
-            exceptionable: true
-      pgid:
-        exceptionable: true
+          company: {}
+          description: {}
+          file_version: {}
+          imphash: {}
+          original_file_name: {}
+          product: {}
+      pgid: {}
       pid: {}
       ppid: {}
       start: {}
@@ -278,8 +235,7 @@ fields:
               uptime: {}
       title: {}
       uptime: {}
-      working_directory:
-        exceptionable: true
+      working_directory: {}
       Ext:
         fields:
           ancestry: {}
@@ -287,11 +243,9 @@ fields:
           authentication_id: {}
           dll:
             fields: *dll-fields
-          services:
-            exceptionable: true
+          services: {}
           session: {}
-          user:
-            exceptionable: true
+          user: {}
           code_signature:
             fields: "*"
           protection: {}
@@ -346,40 +300,26 @@ fields:
         fields:
           args: {}
           args_count: {}
-          command_line:
-            exceptionable: true
+          command_line: {}
           entity_id: {}
-          executable:
-            exceptionable: true
+          executable: {}
           exit_code: {}
           hash:
             fields:
-              md5:
-                exceptionable: true
-              sha1:
-                exceptionable: true
-              sha256:
-                exceptionable: true
-              sha512:
-                exceptionable: true
-          name:
-            exceptionable: true
+              md5: {}
+              sha1: {}
+              sha256: {}
+              sha512: {}
+          name: {}
           pe:
             fields:
-              company:
-                exceptionable: true
-              description:
-                exceptionable: true
-              file_version:
-                exceptionable: true
-              imphash:
-                exceptionable: true
-              original_file_name:
-                exceptionable: true
-              product:
-                exceptionable: true
-          pgid:
-            exceptionable: true
+              company: {}
+              description: {}
+              file_version: {}
+              imphash: {}
+              original_file_name: {}
+              product: {}
+          pgid: {}
           pid: {}
           ppid: {}
           start: {}
@@ -389,8 +329,7 @@ fields:
               name: {}
           title: {}
           uptime: {}
-          working_directory:
-            exceptionable: true
+          working_directory: {}
           Ext:
             fields:
               architecture: {}
@@ -419,8 +358,7 @@ fields:
                   sid: {}
                   type: {}
                   user: {}
-              user:
-                exceptionable: true
+              user: {}
   user:
     fields:
       domain: {}
