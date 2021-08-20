@@ -21,6 +21,7 @@ endif
 # the ecs repo will be cloned in the out directory unless this is already set and exists at the specified path
 ECS_DIR ?= $(ROOT_DIR)/out/ecs
 REAL_ECS_DIR := $(abspath $(ECS_DIR))
+ECS_TAG_REF := $(REAL_ECS_DIR)/.git/refs/tags/$(ECS_GIT_REF)
 $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
@@ -30,12 +31,12 @@ PACKAGES_DIR := $(ROOT_DIR)/out/packages
 CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
 SUB_TOP_DIR := $(ROOT_DIR)/custom_subsets
 SUB_ROOT_DIR := $(SUB_TOP_DIR)/elastic_endpoint
-SUB_EVENTS_DIR := $(SUB_TOP_DIR)/elastic_endpoint/events
-SUB_METADATA_DIR := $(SUB_TOP_DIR)/elastic_endpoint/metadata
 EVENT_SCHEMA_GEN := $(ROOT_DIR)/scripts/event_schema_generator
 EXCEPTION_LIST_GEN := $(ROOT_DIR)/scripts/exceptions
 GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
+
+ESTC_PKG_BIN = $(GO_TOOLS)/elastic-package
 
 # Get the package version from the manifest file
 get_pack_version = $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
@@ -113,29 +114,36 @@ mac-deps:
 	@echo Installing gsed for mac
 	brew install gnu-sed
 
-.PHONY: clean
 clean:
 	rm -rf $(ROOT_DIR)/out
 	# this will be produced by running elastic-package check or build
 	rm -rf $(ROOT_DIR)/build
 	rm -rf $(GO_TOOLS)
 
-$(REAL_ECS_DIR):
-	git clone --branch $(ECS_GIT_REF) https://github.com/elastic/ecs.git $(REAL_ECS_DIR)
 
-.PHONY: setup-go-tools
-setup-go-tools:
+
+# tags are omitted so they do not end up in .git/packed-refs. If we fetch separately, then they appear in .git/refs/tags/<>
+$(REAL_ECS_DIR):
+	git clone --no-tags https://github.com/elastic/ecs.git $@
+
+# deleting the tag helps deal with mod time differences between ecs dir and the tag ref file
+$(ECS_TAG_REF): $(REAL_ECS_DIR)
+	rm -rf $@
+	git -C $(REAL_ECS_DIR) fetch -t
+
+$(ESTC_PKG_BIN):
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 .PHONY: setup-tools
-setup-tools: $(REAL_ECS_DIR) setup-go-tools
+setup-tools: $(ECS_TAG_REF)
 	pipenv install
-	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.7 install -r scripts/requirements.txt
+	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
+	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.9 install -r scripts/requirements.txt
 
-gen-files: $(TARGETS)
+gen-files: $(TARGETS) $(ESTC_PKG_BIN)
 	go run $(ROOT_DIR)/scripts/generate-docs
-	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package format
-	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
+	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) format
+	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
 
 %-target:
 	$(call gen_mapping_files,$*)
@@ -158,29 +166,27 @@ build-package: $(ROOT_DIR)/out
 	cp -r $(ROOT_DIR)/package/endpoint/* $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
-.PHONY: run-registry
 run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
 # Use this target to run the linter on the current state of the package
-.PHONY: lint
-lint: setup-go-tools
-	cd $(ROOT_DIR)/package/endpoint && $(GO_TOOLS)/elastic-package lint
+lint: $(ESTC_PKG_BIN)
+	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
 
 # Use this target to release the package (dev or prod) to the package storage repo
-.PHONY: release
 release:
 	pipenv run python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
 # Use this target to promote a package that exists in the package-storage repo from one environment to another
-.PHONY: promote
 promote: setup-go-tools
 	$(GO_TOOLS)/elastic-package promote
 
 # Update elastic-package tooling
-.PHONY: update-elastic-package
 update-elastic-package:
 	GO111MODULE=on go get -u github.com/elastic/elastic-package
 	go mod tidy
 	go mod vendor
+
+# recipes / commands. Not necessarily targets to build
+.PHONY: update-elastic-package promote release lint run-registry clean
