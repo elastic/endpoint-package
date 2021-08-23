@@ -4,3 +4,4 @@ config.mk
 .vscode
 build
 scripts/go-tools/bin
+venv/

@@ -14,16 +14,11 @@ The individual sections below will give more details about how each tool is used
 
 - Install go 1.14 from here: <https://golang.org/dl/>
 
-- Install python 3.7+ * (see note)
+- Install [Python 3.6+](https://www.python.org/)
 
 - Install [hub](https://github.com/github/hub) tool:
   - mac: `brew install hub`
   - debian-based: `sudo apt install hub`
-
-- Install pipenv:
-   - mac: `brew install pipenv`
-   - debian-based: `sudo apt install python3-pipenv`
-   - pip: `pip3 install --user pipenv`
 
 NOTE: If you are using a higher version than python3 the make command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
 

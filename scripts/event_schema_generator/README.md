@@ -11,10 +11,8 @@ Once you have that cloned, you'll need to install the python package `requiremen
 [here](https://github.com/elastic/ecs/blob/master/scripts/requirements.txt).
 
 This project relies on dictionaries being ordered
-so you'll need python 3.6 or greater and pyyaml installed. It's probably easiest to `brew install pipenv` and use
-the pipfile included. If you run into issues installing, it might be because of macOS Catalina, try `brew reinstall python`
-
-Once you have `pipenv` installed, run `pipenv install` in this directory to install the dependencies.
+so you'll need python 3.6 or greater. It's probably easiest to `brew install python` and use
+`python3`. If you run into issues installing, it might be because of macOS Catalina, try `brew reinstall python`
 
 ### Usage
 
@@ -29,8 +27,9 @@ From the `endpoint-app-team/scripts/event_schema_generator` directory
 python main.py --out-schema-dir ../../schemas/v1 ../../../ecs ../../custom_schemas ../../custom_subsets/elastic_endpoint/events/*.yaml test
 ```
 
-With pipenv:
+With virtualenv:
 
 ```bash
-pipenv run python main.py --out-schema-dir ../../schemas/v1 ../../../ecs ../../custom_schemas ../../custom_subsets/elastic_endpoint/events/*.yaml test
+. venv/bin/activate
+python main.py --out-schema-dir ../../schemas/v1 ../../../ecs ../../custom_schemas ../../custom_subsets/elastic_endpoint/events/*.yaml test
 ```
