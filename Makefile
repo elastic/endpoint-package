@@ -33,7 +33,6 @@ SUB_ROOT_DIR := $(SUB_TOP_DIR)/elastic_endpoint
 SUB_EVENTS_DIR := $(SUB_TOP_DIR)/elastic_endpoint/events
 SUB_METADATA_DIR := $(SUB_TOP_DIR)/elastic_endpoint/metadata
 EVENT_SCHEMA_GEN := $(ROOT_DIR)/scripts/event_schema_generator
-EXCEPTION_LIST_GEN := $(ROOT_DIR)/scripts/exceptions
 GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
@@ -46,12 +45,6 @@ schema_name = $(shell basename $(1))
 package_file = $(ROOT_DIR)/out/$(1)/generated/beats/fields.ecs.yml
 TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-target)
 
-# Parameters
-# 1: path to subset specific ecs output files
-define gen_exception_files
-	cd $(EXCEPTION_LIST_GEN) && pipenv run python main.py \
-		$(ROOT_DIR)/out/$(1)
-endef
 
 # Parameters
 # 1: schema name (e.g. events, metadata)
@@ -61,7 +54,6 @@ define gen_mapping_files
 		--include $(CUST_SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
 		--subset $(SUB_ROOT_DIR)/$(1)/*
-	$(call gen_exception_files,$(1))
 	# remove the first 8 lines
 	$(SED) -i $(call package_file,$(1)) -e '1,8d'
 	# remove indentation
