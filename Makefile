@@ -8,10 +8,6 @@ ECS_GIT_REF ?= v1.11.0
 # file.
 PACKAGE_STORAGE_REPO ?= $(ROOT_DIR)/../package-storage
 
-ifeq (, $(shell which pipenv))
-    $(error No pipenv in $(PATH), please install pipenv (brew install pipenv))
-endif
-
 # the config.mk file can be used to override variables in the Makefile
 ifneq (,$(wildcard $(ROOT_DIR)/config.mk))
     $(info loading $(ROOT_DIR)/config.mk file)
@@ -36,6 +32,7 @@ GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
 SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
 ESTC_PKG_BIN = $(GO_TOOLS)/elastic-package
+VENV_DIR ?= venv
 
 # Get the package version from the manifest file
 get_pack_version = $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
@@ -50,7 +47,7 @@ TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-ta
 # Parameters
 # 1: schema name (e.g. events, metadata)
 define gen_mapping_files
-	cd $(REAL_ECS_DIR) && pipenv run python scripts/generator.py \
+	. $(VENV_DIR)/bin/activate; cd $(REAL_ECS_DIR) && python scripts/generator.py \
 		--out $(ROOT_DIR)/out/$(1) \
 		--include $(CUST_SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
@@ -78,7 +75,7 @@ endef
 # 1: schema name (e.g. events, metadata)
 define gen_schema_files
 	mkdir -p $(ROOT_DIR)/schemas/v1/$(1)
-	cd $(EVENT_SCHEMA_GEN) && pipenv run python main.py \
+	. $(VENV_DIR)/bin/activate; cd $(EVENT_SCHEMA_GEN) && python main.py \
 		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(1) \
 		--ecs_git_ref $(ECS_GIT_REF) \
 		$(REAL_ECS_DIR) \
@@ -98,7 +95,7 @@ SED := gsed
 endif
 
 .PHONY: all
-all: setup-tools
+all:
 	$(MAKE) gen-files
 
 .PHONY: mac-deps
@@ -111,6 +108,7 @@ clean:
 	# this will be produced by running elastic-package check or build
 	rm -rf $(ROOT_DIR)/build
 	rm -rf $(GO_TOOLS)
+	rm -rf $(VENV_DIR)
 
 
 
@@ -122,22 +120,28 @@ $(REAL_ECS_DIR):
 $(ECS_TAG_REF): $(REAL_ECS_DIR)
 	rm -rf $@
 	git -C $(REAL_ECS_DIR) fetch -t
+	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
 
 $(ESTC_PKG_BIN):
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
 
 .PHONY: setup-tools
 setup-tools: $(ECS_TAG_REF)
-	pipenv install
 	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
-	cd $(REAL_ECS_DIR) && PIPENV_NO_INHERIT=1 pipenv --python 3.9 install -r scripts/requirements.txt
 
-gen-files: $(TARGETS) $(ESTC_PKG_BIN)
+$(VENV_DIR): $(VENV_DIR)/touchfile
+
+$(VENV_DIR)/touchfile: scripts/requirements.txt
+	test -d $(VENV_DIR) || python3 -m venv $(VENV_DIR)
+	. $(VENV_DIR)/bin/activate; pip install -r $<
+	touch $@
+
+gen-files: $(TARGETS) $(ESTC_PKG_BIN) $(ECS_TAG_REF)
 	go run $(ROOT_DIR)/scripts/generate-docs
 	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) format
 	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
 
-%-target:
+%-target: $(VENV_DIR) $(ECS_TAG_REF)
 	$(call gen_mapping_files,$*)
 	$(call gen_schema_files,$*)
 
@@ -167,8 +171,8 @@ lint: $(ESTC_PKG_BIN)
 	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
 
 # Use this target to release the package (dev or prod) to the package storage repo
-release:
-	pipenv run python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
+release: $(VENV_DIR)
+	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
 # Use this target to promote a package that exists in the package-storage repo from one environment to another
 promote: setup-go-tools
