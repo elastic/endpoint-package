@@ -103,8 +103,7 @@
         }
       },
       "Events": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "type": "object"
       },
       "Memory_protection": {
         "properties": {

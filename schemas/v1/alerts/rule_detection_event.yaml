@@ -21,12 +21,11 @@ Events:
   dashed_name: Events
   description: events array
   flat_name: Events
-  ignore_above: 1024
   level: custom
   name: Events
   normalize: []
   short: events array
-  type: keyword
+  type: object
 Responses.@timestamp:
   dashed_name: Responses-timestamp
   description: timestamp in which action was taken
