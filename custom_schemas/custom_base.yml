@@ -10,7 +10,7 @@
   type: group
   fields:
     - name: "Events"
-      type: keyword
+      type: object
       level: custom
       short: events array
       description: >

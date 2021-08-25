@@ -24,7 +24,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.name | the name of this applied policy | keyword |
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
-| Events | events array | keyword |
+| Events | events array | object |
 | Memory_protection.cross_session | Is this process injecting across operating system sessions? | boolean |
 | Memory_protection.feature | Memory Protection feature which triggered the alert. | keyword |
 | Memory_protection.parent_to_child | Is this process injecting into its child? | boolean |

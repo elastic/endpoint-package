@@ -12,8 +12,7 @@
   example: '2016-05-23T08:05:34.853Z'
 - name: Events
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: object
   description: events array
   default_field: false
 - name: message
