@@ -10,8 +10,7 @@
           "type": "date"
         },
         "Events": {
-          "ignore_above": 1024,
-          "type": "keyword"
+          "type": "object"
         },
         "message": {
           "norms": false,

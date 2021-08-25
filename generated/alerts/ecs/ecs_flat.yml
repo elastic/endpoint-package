@@ -185,12 +185,11 @@ Events:
   dashed_name: Events
   description: events array
   flat_name: Events
-  ignore_above: 1024
   level: custom
   name: Events
   normalize: []
   short: events array
-  type: keyword
+  type: object
 Memory_protection.cross_session:
   dashed_name: Memory-protection-cross-session
   description: Is this process injecting across operating system sessions?
