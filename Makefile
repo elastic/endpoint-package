@@ -21,69 +21,31 @@ ECS_TAG_REF := $(REAL_ECS_DIR)/.git/refs/tags/$(ECS_GIT_REF)
 $(info ecs dir: $(REAL_ECS_DIR))
 $(info ecs git ref: $(ECS_GIT_REF))
 
-SED := sed
-PACKAGES_DIR := $(ROOT_DIR)/out/packages
-# Default location for packages, this will be used in conjunction with the package defined in this repo
-CUST_SCHEMA_DIR := $(ROOT_DIR)/custom_schemas
-SUB_TOP_DIR := $(ROOT_DIR)/custom_subsets
-SUB_ROOT_DIR := $(SUB_TOP_DIR)/elastic_endpoint
-EVENT_SCHEMA_GEN := $(ROOT_DIR)/scripts/event_schema_generator
-GO_TOOLS := $(ROOT_DIR)/scripts/go-tools/bin
-SUB_DIRS := $(sort $(dir $(wildcard $(SUB_ROOT_DIR)/*/)))
 
-ESTC_PKG_BIN = $(GO_TOOLS)/elastic-package
-VENV_DIR ?= venv
+# Package directories
+PKG_DIR = package/endpoint# final package definition that gets shipped in EPR
+PKG_CTR_DIR = out/packages# used for running a local EPR container
+SCHEMA_DIR = custom_schemas
+SUBSET_DIR = custom_subsets/elastic_endpoint
+EVENT_SCHEMA_GEN = scripts/event_schema_generator
+VENV_DIR ?= venv# python virtual env dir, contains the installed pip packages
+GO_TOOLS = $(ROOT_DIR)/scripts/go-tools/bin# where elastic-package gets installed
+ESTC_PKG_BIN = $(GO_TOOLS)/elastic-package# the formatting, linting & promotion tool
+DATA_STREAMS = $(notdir $(wildcard $(SUBSET_DIR)/*))# top-level name of each data_stream we ship
+CUST_SCHEMAS = $(wildcard $(SCHEMA_DIR)/*)# each custom schema file
 
 # Get the package version from the manifest file
-get_pack_version = $(shell awk '/^version: /{print $$2}' $(ROOT_DIR)/package/endpoint/manifest.yml)
-PACKAGE_VERSION := $(call get_pack_version)
+PACKAGE_VERSION := $(shell awk '/^version: /{print $$2}' $(PKG_DIR)/manifest.yml)
 
-# Given a path this returns the directory (e.g. events, metadata)
-schema_name = $(shell basename $(1))
-package_file = $(ROOT_DIR)/out/$(1)/generated/beats/fields.ecs.yml
-TARGETS := $(foreach schema_dir,$(SUB_DIRS),$(call schema_name,$(schema_dir))-target)
+# define some expected final file outputs
+PKG_FIELDS_TARGETS = $(addsuffix /fields/fields.yml,$(addprefix $(PKG_DIR)/data_stream/,$(DATA_STREAMS)))
+ECS_FLAT_TARGETS = $(addsuffix /ecs/ecs_flat.yml,$(addprefix generated/,$(DATA_STREAMS)))
+ES_7_TARGETS = $(addsuffix /elasticsearch/7/template.json,$(addprefix generated/,$(DATA_STREAMS)))
+MANIFESTS = $(addsuffix /manifest.yml,$(addprefix $(PKG_DIR)/data_stream/,$(DATA_STREAMS)))
+SCHEMA_TARGETS = $(subst $(SUBSET_DIR),schemas/v1,$(wildcard $(SUBSET_DIR)/**/*))
+DOC_TARGET = $(PKG_DIR)/docs/README.md
 
-
-# Parameters
-# 1: schema name (e.g. events, metadata)
-define gen_mapping_files
-	. $(VENV_DIR)/bin/activate; cd $(REAL_ECS_DIR) && python scripts/generator.py \
-		--out $(ROOT_DIR)/out/$(1) \
-		--include $(CUST_SCHEMA_DIR) \
-		--ref $(ECS_GIT_REF) \
-		--subset $(SUB_ROOT_DIR)/$(1)/*
-	# remove the first 8 lines
-	$(SED) -i $(call package_file,$(1)) -e '1,8d'
-	# remove indentation
-	$(SED) -i $(call package_file,$(1)) -e 's/^  //g'
-	mkdir -p $(ROOT_DIR)/generated/$(1)
-	cp -r $(ROOT_DIR)/out/$(1)/generated/beats $(ROOT_DIR)/generated/$(1)
-	cp -r $(ROOT_DIR)/out/$(1)/generated/ecs $(ROOT_DIR)/generated/$(1)
-	cp -r $(ROOT_DIR)/out/$(1)/generated/elasticsearch $(ROOT_DIR)/generated/$(1)
-
-	# move the generated ecs file directly to the package
-	mv $(ROOT_DIR)/generated/$(1)/beats/fields.ecs.yml $(ROOT_DIR)/package/endpoint/data_stream/$(1)/fields/fields.yml
-	rm -r $(ROOT_DIR)/generated/$(1)/beats
-
-	# remove unused files
-	rm -r $(ROOT_DIR)/generated/$(1)/elasticsearch/6
-	rm $(ROOT_DIR)/generated/$(1)/ecs/ecs_nested.yml
-	rm $(ROOT_DIR)/generated/$(1)/ecs/subset/*/ecs_nested.yml
-endef
-
-# Parameters
-# 1: schema name (e.g. events, metadata)
-define gen_schema_files
-	mkdir -p $(ROOT_DIR)/schemas/v1/$(1)
-	. $(VENV_DIR)/bin/activate; cd $(EVENT_SCHEMA_GEN) && python main.py \
-		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(1) \
-		--ecs_git_ref $(ECS_GIT_REF) \
-		$(REAL_ECS_DIR) \
-		$(CUST_SCHEMA_DIR) \
-		$(SUB_ROOT_DIR)/$(1)/*.yaml \
-		$(SUB_ROOT_DIR)/$(1)/*.yml \
-		$(ROOT_DIR)/out/schema/$(1)
-endef
+SED := sed
 
 ifeq ($(shell uname -s), Darwin)
 ifeq (, $(shell which gsed))
@@ -94,11 +56,11 @@ endif
 SED := gsed
 endif
 
-.PHONY: all
-all:
-	$(MAKE) gen-files
 
-.PHONY: mac-deps
+all: $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS) $(ECS_FLAT_TARGETS) $(ES_7_TARGETS)
+	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format
+	cd $(PKG_DIR) && $(ESTC_PKG_BIN) lint
+
 mac-deps:
 	@echo Installing gsed for mac
 	brew install gnu-sed
@@ -107,27 +69,70 @@ clean:
 	rm -rf $(ROOT_DIR)/out
 	# this will be produced by running elastic-package check or build
 	rm -rf $(ROOT_DIR)/build
+	rm -rf generated
 	rm -rf $(GO_TOOLS)
 	rm -rf $(VENV_DIR)
 
+# create package/endpoint/docs/README.md based on the template file, and the fields inputs
+$(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)
+	go run $(ROOT_DIR)/scripts/generate-docs
+
+# how to generate the schema files
+schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
+	mkdir -p schemas/v1/$(dir $*)
+	. $(VENV_DIR)/bin/activate; cd $(EVENT_SCHEMA_GEN) && python main.py \
+		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(dir $*) \
+		--ecs_git_ref $(ECS_GIT_REF) \
+		$(REAL_ECS_DIR) \
+		$(ROOT_DIR)/$(SCHEMA_DIR) \
+		$(ROOT_DIR)/$(SUBSET_DIR)/$*.yaml \
+		$(ROOT_DIR)/out/schema
+
+# primary package build step. Runs the ECS generator to create the subsets from the schemas, etc into out/{stream-name}/*
+out/%/generated/beats/fields.ecs.yml out/%/generated/elasticsearch/7/template.json out/%/generated/ecs/ecs_flat.yml: $(SUBSET_DIR)/%/*.yaml $(CUST_SCHEMAS)
+	. $(VENV_DIR)/bin/activate; cd $(REAL_ECS_DIR) && python scripts/generator.py \
+		--out $(ROOT_DIR)/out/$* \
+		--include $(ROOT_DIR)/$(SCHEMA_DIR) \
+		--ref $(ECS_GIT_REF) \
+		--subset $(ROOT_DIR)/$(SUBSET_DIR)/$*/* 2>/dev/null
+	# remove the first 8 lines
+	$(SED) -i out/$*/generated/beats/fields.ecs.yml -e '1,8d'
+	#unindent
+	$(SED) -i out/$*/generated/beats/fields.ecs.yml -e 's/^  //g'
 
 
-# tags are omitted so they do not end up in .git/packed-refs. If we fetch separately, then they appear in .git/refs/tags/<>
+
+# copies some of the stuff generated from out/ into a saved place, for reference purposes
+generated/%/beats/fields.ecs.yml: out/%/generated/beats/fields.ecs.yml
+	mkdir -p generated/$*
+	cp -r out/$*/generated/beats generated/$*
+generated/%/elasticsearch/7/template.json: out/%/generated/elasticsearch/7/template.json
+	mkdir -p generated/$*
+	cp -r out/$*/generated/elasticsearch generated/$*
+	$(RM) -r generated/$*/elasticsearch/6
+	$(RM) -r generated/$*/elasticsearch/component
+generated/%/ecs/ecs_flat.yml: out/%/generated/ecs/ecs_flat.yml
+	mkdir -p generated/$*/ecs
+	cp $< $@
+	$(RM) generated/$*/ecs/ecs_nested.yml
+	$(RM) -r generated/$*/ecs/subset
+
+# copies the fields file into the actual package directory
+$(PKG_DIR)/data_stream/%/fields/fields.yml: generated/%/beats/fields.ecs.yml
+	cp generated/$*/beats/fields.ecs.yml $(PKG_DIR)/data_stream/$*/fields/fields.yml
+
+# tags are omitted so they do not end up in .git/packed-refs. If we fetch separately, then they appear in .git/refs/tags/{}
 $(REAL_ECS_DIR):
 	git clone --no-tags https://github.com/elastic/ecs.git $@
 
 # deleting the tag helps deal with mod time differences between ecs dir and the tag ref file
 $(ECS_TAG_REF): $(REAL_ECS_DIR)
 	rm -rf $@
-	git -C $(REAL_ECS_DIR) fetch -t
+	git -C $(REAL_ECS_DIR) pull -t origin master
 	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
 
 $(ESTC_PKG_BIN):
 	GOBIN=$(GO_TOOLS) go install github.com/elastic/elastic-package
-
-.PHONY: setup-tools
-setup-tools: $(ECS_TAG_REF)
-	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
 
 $(VENV_DIR): $(VENV_DIR)/touchfile
 
@@ -136,30 +141,19 @@ $(VENV_DIR)/touchfile: scripts/requirements.txt
 	. $(VENV_DIR)/bin/activate; pip install -r $<
 	touch $@
 
-gen-files: $(TARGETS) $(ESTC_PKG_BIN) $(ECS_TAG_REF)
-	go run $(ROOT_DIR)/scripts/generate-docs
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) format
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
-
-%-target: $(VENV_DIR) $(ECS_TAG_REF)
-	$(call gen_mapping_files,$*)
-	$(call gen_schema_files,$*)
-
-.PHONY: check-docker
 check-docker:
 	docker -v || { echo "please install docker before running the package registry"; exit 1; }
 	docker-compose -v || { echo "please install docker-compose before running the package registry"; exit 1; }
 
-$(ROOT_DIR)/out:
-	mkdir -p $(ROOT_DIR)/out
+out:
+	mkdir -p $@
 
 # This target removes the current staged package and uses the current changes in package/endpoint
 # It handles parsing out the package version from the manifest.yml file
-.PHONY: build-package
-build-package: $(ROOT_DIR)/out
-	rm -rf $(PACKAGES_DIR)
-	mkdir -p $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
-	cp -r $(ROOT_DIR)/package/endpoint/* $(PACKAGES_DIR)/endpoint/$(PACKAGE_VERSION)
+build-package: out
+	rm -rf $(PKG_CTR_DIR)
+	mkdir -p $(PKG_CTR_DIR)/endpoint/$(PACKAGE_VERSION)
+	cp -r $(ROOT_DIR)/package/endpoint/* $(PKG_CTR_DIR)/endpoint/$(PACKAGE_VERSION)
 
 # Use this target to run the package registry with your modifications to the endpoint package
 run-registry: check-docker build-package
@@ -175,8 +169,8 @@ release: $(VENV_DIR)
 	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
 # Use this target to promote a package that exists in the package-storage repo from one environment to another
-promote: setup-go-tools
-	$(GO_TOOLS)/elastic-package promote
+promote: $(ESTC_PKG_BIN)
+	$(ESTC_PKG_BIN) promote
 
 # Update elastic-package tooling
 update-elastic-package:
@@ -185,4 +179,4 @@ update-elastic-package:
 	go mod vendor
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: update-elastic-package promote release lint run-registry clean
+.PHONY: all update-elastic-package promote release lint run-registry clean setup-tools mac-deps build-package check-docker package

@@ -42,7 +42,13 @@ The essential steps are listed here:
 
 Run `make` (to speed things up try running `make -j8`)
 
-The created files will be in the directory `out`.
+The files will be built into the directory `out`, with the important reference files copied to `generated`, and `schemas`, and the final package file in `package/endpoint/data_stream/*/fields/fields.yml`
+
+If you believe `make` is not picking up your changes, you can force a rebuilt with the `-B` option:
+
+```sh
+make -B -j12
+```
 
 ### Note about the ECS Version
 
