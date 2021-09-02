@@ -179,4 +179,4 @@ update-elastic-package:
 	go mod vendor
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release lint run-registry clean setup-tools mac-deps build-package check-docker package
+.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker
