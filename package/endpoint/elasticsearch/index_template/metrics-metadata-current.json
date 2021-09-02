@@ -23,6 +23,10 @@
                 "@timestamp": {
                     "type": "date"
                 },
+                "updated_at": {
+                    "type": "alias",
+                    "path": "@timestamp"
+                },
                 "Endpoint": {
                     "properties": {
                         "configuration": {
