@@ -126,20 +126,9 @@ If for some reason the `snapshot` branch CI does kick off a new build, you can m
 
 ### Deploying a new registry with the package
 
-Before deploying a new docker image you will need to be granted access. See [here](https://github.com/elastic/observability-dev/blob/master/docs/integrations/ingest-management/package-registry.md#getting-access) for more details.
+Make sure the docker image for the environment you want to deploy to was rebuilt and finished as above. Once complete, you can deploy it with this CI release job:
 
-To see all the available registries run:
-
-`kubectl get deployment -n package-registry`
-
-To deploy the package to the staging registry run: `kubectl rollout restart deployment package-registry-snapshot-vanilla -n package-registry`
-
-Once all the pods restart you should be able to see the new package here: <https://epr-staging.elastic.co/search?package=endpoint>
-
-To deploy a new docker image for `staging` and `production` use the commands below:
-
-kubectl rollout restart deployment package-registry-staging-vanilla -n package-registry
-kubectl rollout restart deployment package-registry-prod-vanilla -n package-registry
+<https://beats-ci.elastic.co/job/Ingest-manager/job/release-distribution/build?delay=0sec>
 
 ### Promoting a package to a new environment
 
