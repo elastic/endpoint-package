@@ -18,7 +18,7 @@
         ],
         "sort": "@timestamp"
     },
-    "description": "collapse and update the latest document for each host",
+    "description": "Latest Endpoint metadata document per host",
     "frequency": "10s",
     "sync": {
         "time": {
