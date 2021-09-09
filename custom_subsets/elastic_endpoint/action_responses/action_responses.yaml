@@ -4,6 +4,12 @@ fields:
   base:
     fields:
       "@timestamp": {}
+      action_id: {}
+      completed_at: {}
+      data:
+        fields: "*"
+      status: {}
+      started_at: {}
   agent:
     fields:
       id: {}
@@ -12,12 +18,6 @@ fields:
   ecs:
     fields:
       version: {}
-  action_id: {}
-  completed_at: {}
-  data:
-    fields: "*"
-  status: {}
-  started_at: {}
   event:
     fields:
       action: {}

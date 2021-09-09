@@ -6,7 +6,6 @@
   short: Endpoint responses for action requests.
   description: >
     Fields to describe the endpoint responses for action requests.
-  type: group
   fields:
     - name: "completed_at"
       type: date

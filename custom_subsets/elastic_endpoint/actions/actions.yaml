@@ -4,6 +4,13 @@ fields:
   base:
     fields:
       "@timestamp": {}
+      action_id: {}
+      data:
+        fields: "*"
+      expiration: {}
+      input_type: {}
+      type: {}
+      user_id: {}
   agent:
     fields:
       id: {}
@@ -12,13 +19,7 @@ fields:
   ecs:
     fields:
       version: {}
-  action_id: {}
-  data:
-    fields: "*"
-  expiration: {}
-  input_type: {}
-  type: {}
-  user_id: {}
+  
   event:
     fields:
       action: {}

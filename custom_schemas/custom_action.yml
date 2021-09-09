@@ -6,7 +6,6 @@
   short: Action request sent from Kibana
   description: >
     Fields describing the action request sent from Kibana
-  type: group
   fields:
     - name: "action_id"
       type: keyword
