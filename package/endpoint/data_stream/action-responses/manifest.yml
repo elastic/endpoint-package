@@ -1,0 +1,8 @@
+title: Endpoint Action Responses
+type: logs
+dataset: endpoint.action.responses
+hidden: true
+elasticsearch:
+  index_template:
+    mappings:
+      dynamic: false
