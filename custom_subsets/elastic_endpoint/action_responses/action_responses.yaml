@@ -1,0 +1,32 @@
+---
+name: action_responses
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+  agent:
+    fields:
+      id: {}
+  data_stream:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  action_id: {}
+  completed_at: {}
+  data:
+    fields: "*"
+  status: {}
+  started_at: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      end: {}
+      hash: {}
+      id: {}
+      ingested: {}
+      outcome: {}
+      start: {}
+      type: {}
