@@ -1,0 +1,30 @@
+---
+- name: action_responses
+  title: Action Responses
+  root: true
+  group: 2
+  short: Endpoint responses for action requests.
+  description: >
+    Fields to describe the endpoint responses for action requests.
+  type: group
+  fields:
+    - name: "completed_at"
+      type: date
+      level: custom
+      short: completed at
+      description: >
+        Request completion timestamp when the response is done executing. Usually matches with @timestamp.
+    
+    - name: "status"
+      type: keyword
+      level: custom
+      short: status
+      description: >
+        The status of the request that distinguishes if the request is queued, running or completed.
+
+    - name: "started_at"
+      type: date
+      level: custom
+      shot: started at
+      description:
+        Timestamp of start of request 
