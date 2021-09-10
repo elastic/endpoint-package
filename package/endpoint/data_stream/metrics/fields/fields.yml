@@ -94,6 +94,131 @@
       type: long
       description: The size of the disk in bytes
       default_field: false
+    - name: metrics.documents_volume
+      level: custom
+      type: object
+      description: Statistics about sent documents
+      default_field: false
+    - name: metrics.documents_volume.file_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.file_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.file_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.file_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.library_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.library_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.library_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.library_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.network_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.network_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.network_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.network_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.overall.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.overall.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.overall.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.overall.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.process_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.process_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.process_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.process_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.registry_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.registry_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.registry_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.registry_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
     - name: metrics.memory
       level: custom
       type: object
