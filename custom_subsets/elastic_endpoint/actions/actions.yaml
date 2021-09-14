@@ -5,6 +5,7 @@ fields:
     fields:
       "@timestamp": {}
       action_id: {}
+      agents: {}
       data:
         fields: "*"
       expiration: {}
@@ -19,7 +20,6 @@ fields:
   ecs:
     fields:
       version: {}
-  
   event:
     fields:
       action: {}

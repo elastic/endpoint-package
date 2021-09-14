@@ -7,6 +7,14 @@
   description: >
     Fields to describe the endpoint responses for action requests.
   fields:
+    - name: agent_id
+      type: alias
+      path: agent.id
+      level: custom
+      short: alias field for agent.id
+      description: >
+        Alias field that maps to {agent: {id}}
+
     - name: "completed_at"
       type: date
       level: custom

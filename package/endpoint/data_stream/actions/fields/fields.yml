@@ -16,6 +16,12 @@
   ignore_above: 1024
   description: The action id
   default_field: false
+- name: agents
+  level: custom
+  type: alias
+  description: 'Alias field that maps to {agent: {id}}'
+  path: agent.id
+  default_field: false
 - name: data
   level: custom
   type: object

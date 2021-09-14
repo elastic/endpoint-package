@@ -10,6 +10,7 @@ fields:
         fields: "*"
       status: {}
       started_at: {}
+      agent_id: {}
   agent:
     fields:
       id: {}

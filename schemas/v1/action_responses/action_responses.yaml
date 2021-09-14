@@ -40,6 +40,16 @@ agent.id:
   normalize: []
   short: Unique identifier of this agent.
   type: keyword
+agent_id:
+  dashed_name: agent-id
+  description: 'Alias field that maps to {agent: {id}}'
+  flat_name: agent_id
+  level: custom
+  name: agent_id
+  normalize: []
+  path: agent.id
+  short: alias field for agent.id
+  type: alias
 completed_at:
   dashed_name: completed-at
   description: Request completion timestamp when the response is done executing. Usually

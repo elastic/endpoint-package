@@ -40,6 +40,16 @@ agent.id:
   normalize: []
   short: Unique identifier of this agent.
   type: keyword
+agents:
+  dashed_name: agents
+  description: 'Alias field that maps to {agent: {id}}'
+  flat_name: agents
+  level: custom
+  name: agents
+  normalize: []
+  path: agent.id
+  short: alias field for agent.id
+  type: alias
 data:
   dashed_name: data
   description: The action request information
