@@ -53,7 +53,7 @@
     - name: "type"
       type: keyword
       level: custom
-      shot: The type of input
+      short: The type of input
       description:
         Distinguishes the type of input. Usually set to `INPUT_ACTION`
 

@@ -605,8 +605,7 @@ started_at:
   level: custom
   name: started_at
   normalize: []
-  short: Timestamp of start of request
-  shot: started at
+  short: started at
   type: date
 status:
   dashed_name: status

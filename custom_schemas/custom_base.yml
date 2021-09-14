@@ -62,7 +62,7 @@
     - name: "type"
       type: keyword
       level: custom
-      shot: The type of input
+      short: The type of input
       description:
         Distinguishes the type of input. Usually set to `INPUT_ACTION`
 
@@ -90,6 +90,6 @@
     - name: "started_at"
       type: date
       level: custom
-      shot: started at
+      short: started at
       description:
         Timestamp of start of request         

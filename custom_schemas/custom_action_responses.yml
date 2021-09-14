@@ -24,6 +24,6 @@
     - name: "started_at"
       type: date
       level: custom
-      shot: started at
+      short: started at
       description:
         Timestamp of start of request 

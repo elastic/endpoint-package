@@ -615,8 +615,7 @@ type:
   level: custom
   name: type
   normalize: []
-  short: Distinguishes the type of input. Usually set to `INPUT_ACTION`
-  shot: The type of input
+  short: The type of input
   type: keyword
 user_id:
   dashed_name: user-id
