@@ -15,7 +15,9 @@
       short: events array
       description: >
         events array
-        
+
+    # endpoint action and responses fields
+    # that are at the root level    
     - name: "action_id"
       type: keyword
       level: custom
