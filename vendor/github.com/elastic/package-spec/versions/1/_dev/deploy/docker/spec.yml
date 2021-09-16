@@ -1,8 +1,0 @@
-spec:
-  additionalContents: true
-  contents:
-    - description: Docker Compose configuration file for deploying package's integration service(s)
-      type: file
-      name: "docker-compose.yml"
-      contentMediaType: "application/x-yaml"
-      required: true

@@ -176,7 +176,6 @@ promote: $(ESTC_PKG_BIN)
 update-elastic-package:
 	GO111MODULE=on go get -u github.com/elastic/elastic-package
 	go mod tidy
-	go mod vendor
 
 # recipes / commands. Not necessarily targets to build
 .PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker
