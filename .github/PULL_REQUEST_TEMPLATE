@@ -1,0 +1,42 @@
+## Change Summary
+
+<!-- please describe your changes. For mapping changes, describe the usage of the changed fields -->
+
+
+### Sample values
+
+<!--  For field/mapping changes, please provide sample values for this field, in JSON format.
+    
+    This ticket is a good reference: https://github.com/elastic/endpoint-dev/issues/9533
+
+    Delete this section if this is not a mapping change
+-->
+
+
+Sample document:
+
+```json
+
+
+```
+
+
+## Release Target
+
+<!-- What is intended Kibana release this is expected to ship with -->
+
+
+## Q/A
+
+<!-- delete any sections that are not applicable to your PR -->
+
+### For mapping changes:
+
+- [ ] I ran `make` after making the schema changes, and committed any generated files (in `schema/`, `generated/`)
+- [ ] Does this field need to be "exceptionable"? (no longer specified in this package, this is now tracked in Kibana)
+- [ ] If this is a `metadata` change, I also updated both transform destination schemas to match
+
+### For Transform changes:
+
+- [ ] The new transform successfully starts in Kibana
+- [ ] The corresponding transform destination schema was updated if necessary
