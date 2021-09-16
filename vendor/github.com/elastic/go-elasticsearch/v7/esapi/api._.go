@@ -1,4 +1,21 @@
-// Code generated from specification version 7.10.0 (51e9d6f2275): DO NOT EDIT
+// Licensed to Elasticsearch B.V. under one or more contributor
+// license agreements. See the NOTICE file distributed with
+// this work for additional information regarding copyright
+// ownership. Elasticsearch B.V. licenses this file to you under
+// the Apache License, Version 2.0 (the "License"); you may
+// not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+//
+// Code generated from specification version 7.14.0 (eb28a49): DO NOT EDIT
 
 package esapi
 
@@ -59,11 +76,15 @@ type API struct {
 	EnrichStats                                   EnrichStats
 	EqlDelete                                     EqlDelete
 	EqlGet                                        EqlGet
+	EqlGetStatus                                  EqlGetStatus
 	EqlSearch                                     EqlSearch
 	Exists                                        Exists
 	ExistsSource                                  ExistsSource
 	Explain                                       Explain
+	FeaturesGetFeatures                           FeaturesGetFeatures
+	FeaturesResetFeatures                         FeaturesResetFeatures
 	FieldCaps                                     FieldCaps
+	FleetGlobalCheckpoints                        FleetGlobalCheckpoints
 	Get                                           Get
 	GetScriptContext                              GetScriptContext
 	GetScriptLanguages                            GetScriptLanguages
@@ -72,6 +93,9 @@ type API struct {
 	GraphExplore                                  GraphExplore
 	Index                                         Index
 	Info                                          Info
+	LogstashDeletePipeline                        LogstashDeletePipeline
+	LogstashGetPipeline                           LogstashGetPipeline
+	LogstashPutPipeline                           LogstashPutPipeline
 	Mget                                          Mget
 	Msearch                                       Msearch
 	MsearchTemplate                               MsearchTemplate
@@ -88,10 +112,14 @@ type API struct {
 	Search                                        Search
 	SearchShards                                  SearchShards
 	SearchTemplate                                SearchTemplate
+	SearchableSnapshotsCacheStats                 SearchableSnapshotsCacheStats
 	SearchableSnapshotsClearCache                 SearchableSnapshotsClearCache
 	SearchableSnapshotsMount                      SearchableSnapshotsMount
 	SearchableSnapshotsRepositoryStats            SearchableSnapshotsRepositoryStats
 	SearchableSnapshotsStats                      SearchableSnapshotsStats
+	ShutdownDeleteNode                            ShutdownDeleteNode
+	ShutdownGetNode                               ShutdownGetNode
+	ShutdownPutNode                               ShutdownPutNode
 	SlmDeleteLifecycle                            SlmDeleteLifecycle
 	SlmExecuteLifecycle                           SlmExecuteLifecycle
 	SlmExecuteRetention                           SlmExecuteRetention
@@ -101,7 +129,9 @@ type API struct {
 	SlmPutLifecycle                               SlmPutLifecycle
 	SlmStart                                      SlmStart
 	SlmStop                                       SlmStop
+	TermsEnum                                     TermsEnum
 	Termvectors                                   Termvectors
+	TextStructureFindStructure                    TextStructureFindStructure
 	TransformDeleteTransform                      TransformDeleteTransform
 	TransformGetTransform                         TransformGetTransform
 	TransformGetTransformStats                    TransformGetTransformStats
@@ -196,7 +226,9 @@ type Indices struct {
 	GetSettings           IndicesGetSettings
 	GetTemplate           IndicesGetTemplate
 	GetUpgrade            IndicesGetUpgrade
+	MigrateToDataStream   IndicesMigrateToDataStream
 	Open                  IndicesOpen
+	PromoteDataStream     IndicesPromoteDataStream
 	PutAlias              IndicesPutAlias
 	PutIndexTemplate      IndicesPutIndexTemplate
 	PutMapping            IndicesPutMapping
@@ -223,6 +255,7 @@ type Indices struct {
 // Ingest contains the Ingest APIs
 type Ingest struct {
 	DeletePipeline IngestDeletePipeline
+	GeoIPStats     IngestGeoIPStats
 	GetPipeline    IngestGetPipeline
 	ProcessorGrok  IngestProcessorGrok
 	PutPipeline    IngestPutPipeline
@@ -252,6 +285,7 @@ type Snapshot struct {
 	Delete            SnapshotDelete
 	GetRepository     SnapshotGetRepository
 	Get               SnapshotGet
+	RepositoryAnalyze SnapshotRepositoryAnalyze
 	Restore           SnapshotRestore
 	Status            SnapshotStatus
 	VerifyRepository  SnapshotVerifyRepository
@@ -291,16 +325,17 @@ type CCR struct {
 
 // ILM contains the ILM APIs
 type ILM struct {
-	DeleteLifecycle  ILMDeleteLifecycle
-	ExplainLifecycle ILMExplainLifecycle
-	GetLifecycle     ILMGetLifecycle
-	GetStatus        ILMGetStatus
-	MoveToStep       ILMMoveToStep
-	PutLifecycle     ILMPutLifecycle
-	RemovePolicy     ILMRemovePolicy
-	Retry            ILMRetry
-	Start            ILMStart
-	Stop             ILMStop
+	DeleteLifecycle    ILMDeleteLifecycle
+	ExplainLifecycle   ILMExplainLifecycle
+	GetLifecycle       ILMGetLifecycle
+	GetStatus          ILMGetStatus
+	MigrateToDataTiers ILMMigrateToDataTiers
+	MoveToStep         ILMMoveToStep
+	PutLifecycle       ILMPutLifecycle
+	RemovePolicy       ILMRemovePolicy
+	Retry              ILMRetry
+	Start              ILMStart
+	Stop               ILMStop
 }
 
 // License contains the License APIs
@@ -332,6 +367,7 @@ type ML struct {
 	DeleteForecast             MLDeleteForecast
 	DeleteJob                  MLDeleteJob
 	DeleteModelSnapshot        MLDeleteModelSnapshot
+	DeleteTrainedModelAlias    MLDeleteTrainedModelAlias
 	DeleteTrainedModel         MLDeleteTrainedModel
 	EstimateModelMemory        MLEstimateModelMemory
 	EvaluateDataFrame          MLEvaluateDataFrame
@@ -360,6 +396,7 @@ type ML struct {
 	OpenJob                    MLOpenJob
 	PostCalendarEvents         MLPostCalendarEvents
 	PostData                   MLPostData
+	PreviewDataFrameAnalytics  MLPreviewDataFrameAnalytics
 	PreviewDatafeed            MLPreviewDatafeed
 	PutCalendarJob             MLPutCalendarJob
 	PutCalendar                MLPutCalendar
@@ -367,7 +404,9 @@ type ML struct {
 	PutDatafeed                MLPutDatafeed
 	PutFilter                  MLPutFilter
 	PutJob                     MLPutJob
+	PutTrainedModelAlias       MLPutTrainedModelAlias
 	PutTrainedModel            MLPutTrainedModel
+	ResetJob                   MLResetJob
 	RevertModelSnapshot        MLRevertModelSnapshot
 	SetUpgradeMode             MLSetUpgradeMode
 	StartDataFrameAnalytics    MLStartDataFrameAnalytics
@@ -379,6 +418,7 @@ type ML struct {
 	UpdateFilter               MLUpdateFilter
 	UpdateJob                  MLUpdateJob
 	UpdateModelSnapshot        MLUpdateModelSnapshot
+	UpgradeJobSnapshot         MLUpgradeJobSnapshot
 	ValidateDetector           MLValidateDetector
 	Validate                   MLValidate
 }
@@ -395,6 +435,7 @@ type Rollup struct {
 	GetCaps      RollupGetRollupCaps
 	GetIndexCaps RollupGetRollupIndexCaps
 	PutJob       RollupPutJob
+	Rollup       RollupRollup
 	Search       RollupRollupSearch
 	StartJob     RollupStartJob
 	StopJob      RollupStopJob
@@ -402,42 +443,56 @@ type Rollup struct {
 
 // Security contains the Security APIs
 type Security struct {
-	Authenticate          SecurityAuthenticate
-	ChangePassword        SecurityChangePassword
-	ClearAPIKeyCache      SecurityClearAPIKeyCache
-	ClearCachedPrivileges SecurityClearCachedPrivileges
-	ClearCachedRealms     SecurityClearCachedRealms
-	ClearCachedRoles      SecurityClearCachedRoles
-	CreateAPIKey          SecurityCreateAPIKey
-	DeletePrivileges      SecurityDeletePrivileges
-	DeleteRoleMapping     SecurityDeleteRoleMapping
-	DeleteRole            SecurityDeleteRole
-	DeleteUser            SecurityDeleteUser
-	DisableUser           SecurityDisableUser
-	EnableUser            SecurityEnableUser
-	GetAPIKey             SecurityGetAPIKey
-	GetBuiltinPrivileges  SecurityGetBuiltinPrivileges
-	GetPrivileges         SecurityGetPrivileges
-	GetRoleMapping        SecurityGetRoleMapping
-	GetRole               SecurityGetRole
-	GetToken              SecurityGetToken
-	GetUserPrivileges     SecurityGetUserPrivileges
-	GetUser               SecurityGetUser
-	GrantAPIKey           SecurityGrantAPIKey
-	HasPrivileges         SecurityHasPrivileges
-	InvalidateAPIKey      SecurityInvalidateAPIKey
-	InvalidateToken       SecurityInvalidateToken
-	PutPrivileges         SecurityPutPrivileges
-	PutRoleMapping        SecurityPutRoleMapping
-	PutRole               SecurityPutRole
-	PutUser               SecurityPutUser
+	Authenticate                SecurityAuthenticate
+	ChangePassword              SecurityChangePassword
+	ClearAPIKeyCache            SecurityClearAPIKeyCache
+	ClearCachedPrivileges       SecurityClearCachedPrivileges
+	ClearCachedRealms           SecurityClearCachedRealms
+	ClearCachedRoles            SecurityClearCachedRoles
+	ClearCachedServiceTokens    SecurityClearCachedServiceTokens
+	CreateAPIKey                SecurityCreateAPIKey
+	CreateServiceToken          SecurityCreateServiceToken
+	DeletePrivileges            SecurityDeletePrivileges
+	DeleteRoleMapping           SecurityDeleteRoleMapping
+	DeleteRole                  SecurityDeleteRole
+	DeleteServiceToken          SecurityDeleteServiceToken
+	DeleteUser                  SecurityDeleteUser
+	DisableUser                 SecurityDisableUser
+	EnableUser                  SecurityEnableUser
+	GetAPIKey                   SecurityGetAPIKey
+	GetBuiltinPrivileges        SecurityGetBuiltinPrivileges
+	GetPrivileges               SecurityGetPrivileges
+	GetRoleMapping              SecurityGetRoleMapping
+	GetRole                     SecurityGetRole
+	GetServiceAccounts          SecurityGetServiceAccounts
+	GetServiceCredentials       SecurityGetServiceCredentials
+	GetToken                    SecurityGetToken
+	GetUserPrivileges           SecurityGetUserPrivileges
+	GetUser                     SecurityGetUser
+	GrantAPIKey                 SecurityGrantAPIKey
+	HasPrivileges               SecurityHasPrivileges
+	InvalidateAPIKey            SecurityInvalidateAPIKey
+	InvalidateToken             SecurityInvalidateToken
+	PutPrivileges               SecurityPutPrivileges
+	PutRoleMapping              SecurityPutRoleMapping
+	PutRole                     SecurityPutRole
+	PutUser                     SecurityPutUser
+	SamlAuthenticate            SecuritySamlAuthenticate
+	SamlCompleteLogout          SecuritySamlCompleteLogout
+	SamlInvalidate              SecuritySamlInvalidate
+	SamlLogout                  SecuritySamlLogout
+	SamlPrepareAuthentication   SecuritySamlPrepareAuthentication
+	SamlServiceProviderMetadata SecuritySamlServiceProviderMetadata
 }
 
 // SQL contains the SQL APIs
 type SQL struct {
-	ClearCursor SQLClearCursor
-	Query       SQLQuery
-	Translate   SQLTranslate
+	ClearCursor    SQLClearCursor
+	DeleteAsync    SQLDeleteAsync
+	GetAsync       SQLGetAsync
+	GetAsyncStatus SQLGetAsyncStatus
+	Query          SQLQuery
+	Translate      SQLTranslate
 }
 
 // SSL contains the SSL APIs
@@ -454,6 +509,7 @@ type Watcher struct {
 	ExecuteWatch    WatcherExecuteWatch
 	GetWatch        WatcherGetWatch
 	PutWatch        WatcherPutWatch
+	QueryWatches    WatcherQueryWatches
 	Start           WatcherStart
 	Stats           WatcherStats
 	Stop            WatcherStop
@@ -501,11 +557,15 @@ func New(t Transport) *API {
 		EnrichStats:                                   newEnrichStatsFunc(t),
 		EqlDelete:                                     newEqlDeleteFunc(t),
 		EqlGet:                                        newEqlGetFunc(t),
+		EqlGetStatus:                                  newEqlGetStatusFunc(t),
 		EqlSearch:                                     newEqlSearchFunc(t),
 		Exists:                                        newExistsFunc(t),
 		ExistsSource:                                  newExistsSourceFunc(t),
 		Explain:                                       newExplainFunc(t),
+		FeaturesGetFeatures:                           newFeaturesGetFeaturesFunc(t),
+		FeaturesResetFeatures:                         newFeaturesResetFeaturesFunc(t),
 		FieldCaps:                                     newFieldCapsFunc(t),
+		FleetGlobalCheckpoints:                        newFleetGlobalCheckpointsFunc(t),
 		Get:                                           newGetFunc(t),
 		GetScriptContext:                              newGetScriptContextFunc(t),
 		GetScriptLanguages:                            newGetScriptLanguagesFunc(t),
@@ -514,6 +574,9 @@ func New(t Transport) *API {
 		GraphExplore:                                  newGraphExploreFunc(t),
 		Index:                                         newIndexFunc(t),
 		Info:                                          newInfoFunc(t),
+		LogstashDeletePipeline:                        newLogstashDeletePipelineFunc(t),
+		LogstashGetPipeline:                           newLogstashGetPipelineFunc(t),
+		LogstashPutPipeline:                           newLogstashPutPipelineFunc(t),
 		Mget:                                          newMgetFunc(t),
 		Msearch:                                       newMsearchFunc(t),
 		MsearchTemplate:                               newMsearchTemplateFunc(t),
@@ -530,10 +593,14 @@ func New(t Transport) *API {
 		Search:                                        newSearchFunc(t),
 		SearchShards:                                  newSearchShardsFunc(t),
 		SearchTemplate:                                newSearchTemplateFunc(t),
+		SearchableSnapshotsCacheStats:                 newSearchableSnapshotsCacheStatsFunc(t),
 		SearchableSnapshotsClearCache:                 newSearchableSnapshotsClearCacheFunc(t),
 		SearchableSnapshotsMount:                      newSearchableSnapshotsMountFunc(t),
 		SearchableSnapshotsRepositoryStats:            newSearchableSnapshotsRepositoryStatsFunc(t),
 		SearchableSnapshotsStats:                      newSearchableSnapshotsStatsFunc(t),
+		ShutdownDeleteNode:                            newShutdownDeleteNodeFunc(t),
+		ShutdownGetNode:                               newShutdownGetNodeFunc(t),
+		ShutdownPutNode:                               newShutdownPutNodeFunc(t),
 		SlmDeleteLifecycle:                            newSlmDeleteLifecycleFunc(t),
 		SlmExecuteLifecycle:                           newSlmExecuteLifecycleFunc(t),
 		SlmExecuteRetention:                           newSlmExecuteRetentionFunc(t),
@@ -543,7 +610,9 @@ func New(t Transport) *API {
 		SlmPutLifecycle:                               newSlmPutLifecycleFunc(t),
 		SlmStart:                                      newSlmStartFunc(t),
 		SlmStop:                                       newSlmStopFunc(t),
+		TermsEnum:                                     newTermsEnumFunc(t),
 		Termvectors:                                   newTermvectorsFunc(t),
+		TextStructureFindStructure:                    newTextStructureFindStructureFunc(t),
 		TransformDeleteTransform:                      newTransformDeleteTransformFunc(t),
 		TransformGetTransform:                         newTransformGetTransformFunc(t),
 		TransformGetTransformStats:                    newTransformGetTransformStatsFunc(t),
@@ -631,7 +700,9 @@ func New(t Transport) *API {
 			GetSettings:           newIndicesGetSettingsFunc(t),
 			GetTemplate:           newIndicesGetTemplateFunc(t),
 			GetUpgrade:            newIndicesGetUpgradeFunc(t),
+			MigrateToDataStream:   newIndicesMigrateToDataStreamFunc(t),
 			Open:                  newIndicesOpenFunc(t),
+			PromoteDataStream:     newIndicesPromoteDataStreamFunc(t),
 			PutAlias:              newIndicesPutAliasFunc(t),
 			PutIndexTemplate:      newIndicesPutIndexTemplateFunc(t),
 			PutMapping:            newIndicesPutMappingFunc(t),
@@ -656,6 +727,7 @@ func New(t Transport) *API {
 		},
 		Ingest: &Ingest{
 			DeletePipeline: newIngestDeletePipelineFunc(t),
+			GeoIPStats:     newIngestGeoIPStatsFunc(t),
 			GetPipeline:    newIngestGetPipelineFunc(t),
 			ProcessorGrok:  newIngestProcessorGrokFunc(t),
 			PutPipeline:    newIngestPutPipelineFunc(t),
@@ -678,6 +750,7 @@ func New(t Transport) *API {
 			Delete:            newSnapshotDeleteFunc(t),
 			GetRepository:     newSnapshotGetRepositoryFunc(t),
 			Get:               newSnapshotGetFunc(t),
+			RepositoryAnalyze: newSnapshotRepositoryAnalyzeFunc(t),
 			Restore:           newSnapshotRestoreFunc(t),
 			Status:            newSnapshotStatusFunc(t),
 			VerifyRepository:  newSnapshotVerifyRepositoryFunc(t),
@@ -709,16 +782,17 @@ func New(t Transport) *API {
 			Unfollow:                newCCRUnfollowFunc(t),
 		},
 		ILM: &ILM{
-			DeleteLifecycle:  newILMDeleteLifecycleFunc(t),
-			ExplainLifecycle: newILMExplainLifecycleFunc(t),
-			GetLifecycle:     newILMGetLifecycleFunc(t),
-			GetStatus:        newILMGetStatusFunc(t),
-			MoveToStep:       newILMMoveToStepFunc(t),
-			PutLifecycle:     newILMPutLifecycleFunc(t),
-			RemovePolicy:     newILMRemovePolicyFunc(t),
-			Retry:            newILMRetryFunc(t),
-			Start:            newILMStartFunc(t),
-			Stop:             newILMStopFunc(t),
+			DeleteLifecycle:    newILMDeleteLifecycleFunc(t),
+			ExplainLifecycle:   newILMExplainLifecycleFunc(t),
+			GetLifecycle:       newILMGetLifecycleFunc(t),
+			GetStatus:          newILMGetStatusFunc(t),
+			MigrateToDataTiers: newILMMigrateToDataTiersFunc(t),
+			MoveToStep:         newILMMoveToStepFunc(t),
+			PutLifecycle:       newILMPutLifecycleFunc(t),
+			RemovePolicy:       newILMRemovePolicyFunc(t),
+			Retry:              newILMRetryFunc(t),
+			Start:              newILMStartFunc(t),
+			Stop:               newILMStopFunc(t),
 		},
 		License: &License{
 			Delete:         newLicenseDeleteFunc(t),
@@ -744,6 +818,7 @@ func New(t Transport) *API {
 			DeleteForecast:             newMLDeleteForecastFunc(t),
 			DeleteJob:                  newMLDeleteJobFunc(t),
 			DeleteModelSnapshot:        newMLDeleteModelSnapshotFunc(t),
+			DeleteTrainedModelAlias:    newMLDeleteTrainedModelAliasFunc(t),
 			DeleteTrainedModel:         newMLDeleteTrainedModelFunc(t),
 			EstimateModelMemory:        newMLEstimateModelMemoryFunc(t),
 			EvaluateDataFrame:          newMLEvaluateDataFrameFunc(t),
@@ -772,6 +847,7 @@ func New(t Transport) *API {
 			OpenJob:                    newMLOpenJobFunc(t),
 			PostCalendarEvents:         newMLPostCalendarEventsFunc(t),
 			PostData:                   newMLPostDataFunc(t),
+			PreviewDataFrameAnalytics:  newMLPreviewDataFrameAnalyticsFunc(t),
 			PreviewDatafeed:            newMLPreviewDatafeedFunc(t),
 			PutCalendarJob:             newMLPutCalendarJobFunc(t),
 			PutCalendar:                newMLPutCalendarFunc(t),
@@ -779,7 +855,9 @@ func New(t Transport) *API {
 			PutDatafeed:                newMLPutDatafeedFunc(t),
 			PutFilter:                  newMLPutFilterFunc(t),
 			PutJob:                     newMLPutJobFunc(t),
+			PutTrainedModelAlias:       newMLPutTrainedModelAliasFunc(t),
 			PutTrainedModel:            newMLPutTrainedModelFunc(t),
+			ResetJob:                   newMLResetJobFunc(t),
 			RevertModelSnapshot:        newMLRevertModelSnapshotFunc(t),
 			SetUpgradeMode:             newMLSetUpgradeModeFunc(t),
 			StartDataFrameAnalytics:    newMLStartDataFrameAnalyticsFunc(t),
@@ -791,6 +869,7 @@ func New(t Transport) *API {
 			UpdateFilter:               newMLUpdateFilterFunc(t),
 			UpdateJob:                  newMLUpdateJobFunc(t),
 			UpdateModelSnapshot:        newMLUpdateModelSnapshotFunc(t),
+			UpgradeJobSnapshot:         newMLUpgradeJobSnapshotFunc(t),
 			ValidateDetector:           newMLValidateDetectorFunc(t),
 			Validate:                   newMLValidateFunc(t),
 		},
@@ -803,45 +882,60 @@ func New(t Transport) *API {
 			GetCaps:      newRollupGetRollupCapsFunc(t),
 			GetIndexCaps: newRollupGetRollupIndexCapsFunc(t),
 			PutJob:       newRollupPutJobFunc(t),
+			Rollup:       newRollupRollupFunc(t),
 			Search:       newRollupRollupSearchFunc(t),
 			StartJob:     newRollupStartJobFunc(t),
 			StopJob:      newRollupStopJobFunc(t),
 		},
 		Security: &Security{
-			Authenticate:          newSecurityAuthenticateFunc(t),
-			ChangePassword:        newSecurityChangePasswordFunc(t),
-			ClearAPIKeyCache:      newSecurityClearAPIKeyCacheFunc(t),
-			ClearCachedPrivileges: newSecurityClearCachedPrivilegesFunc(t),
-			ClearCachedRealms:     newSecurityClearCachedRealmsFunc(t),
-			ClearCachedRoles:      newSecurityClearCachedRolesFunc(t),
-			CreateAPIKey:          newSecurityCreateAPIKeyFunc(t),
-			DeletePrivileges:      newSecurityDeletePrivilegesFunc(t),
-			DeleteRoleMapping:     newSecurityDeleteRoleMappingFunc(t),
-			DeleteRole:            newSecurityDeleteRoleFunc(t),
-			DeleteUser:            newSecurityDeleteUserFunc(t),
-			DisableUser:           newSecurityDisableUserFunc(t),
-			EnableUser:            newSecurityEnableUserFunc(t),
-			GetAPIKey:             newSecurityGetAPIKeyFunc(t),
-			GetBuiltinPrivileges:  newSecurityGetBuiltinPrivilegesFunc(t),
-			GetPrivileges:         newSecurityGetPrivilegesFunc(t),
-			GetRoleMapping:        newSecurityGetRoleMappingFunc(t),
-			GetRole:               newSecurityGetRoleFunc(t),
-			GetToken:              newSecurityGetTokenFunc(t),
-			GetUserPrivileges:     newSecurityGetUserPrivilegesFunc(t),
-			GetUser:               newSecurityGetUserFunc(t),
-			GrantAPIKey:           newSecurityGrantAPIKeyFunc(t),
-			HasPrivileges:         newSecurityHasPrivilegesFunc(t),
-			InvalidateAPIKey:      newSecurityInvalidateAPIKeyFunc(t),
-			InvalidateToken:       newSecurityInvalidateTokenFunc(t),
-			PutPrivileges:         newSecurityPutPrivilegesFunc(t),
-			PutRoleMapping:        newSecurityPutRoleMappingFunc(t),
-			PutRole:               newSecurityPutRoleFunc(t),
-			PutUser:               newSecurityPutUserFunc(t),
+			Authenticate:                newSecurityAuthenticateFunc(t),
+			ChangePassword:              newSecurityChangePasswordFunc(t),
+			ClearAPIKeyCache:            newSecurityClearAPIKeyCacheFunc(t),
+			ClearCachedPrivileges:       newSecurityClearCachedPrivilegesFunc(t),
+			ClearCachedRealms:           newSecurityClearCachedRealmsFunc(t),
+			ClearCachedRoles:            newSecurityClearCachedRolesFunc(t),
+			ClearCachedServiceTokens:    newSecurityClearCachedServiceTokensFunc(t),
+			CreateAPIKey:                newSecurityCreateAPIKeyFunc(t),
+			CreateServiceToken:          newSecurityCreateServiceTokenFunc(t),
+			DeletePrivileges:            newSecurityDeletePrivilegesFunc(t),
+			DeleteRoleMapping:           newSecurityDeleteRoleMappingFunc(t),
+			DeleteRole:                  newSecurityDeleteRoleFunc(t),
+			DeleteServiceToken:          newSecurityDeleteServiceTokenFunc(t),
+			DeleteUser:                  newSecurityDeleteUserFunc(t),
+			DisableUser:                 newSecurityDisableUserFunc(t),
+			EnableUser:                  newSecurityEnableUserFunc(t),
+			GetAPIKey:                   newSecurityGetAPIKeyFunc(t),
+			GetBuiltinPrivileges:        newSecurityGetBuiltinPrivilegesFunc(t),
+			GetPrivileges:               newSecurityGetPrivilegesFunc(t),
+			GetRoleMapping:              newSecurityGetRoleMappingFunc(t),
+			GetRole:                     newSecurityGetRoleFunc(t),
+			GetServiceAccounts:          newSecurityGetServiceAccountsFunc(t),
+			GetServiceCredentials:       newSecurityGetServiceCredentialsFunc(t),
+			GetToken:                    newSecurityGetTokenFunc(t),
+			GetUserPrivileges:           newSecurityGetUserPrivilegesFunc(t),
+			GetUser:                     newSecurityGetUserFunc(t),
+			GrantAPIKey:                 newSecurityGrantAPIKeyFunc(t),
+			HasPrivileges:               newSecurityHasPrivilegesFunc(t),
+			InvalidateAPIKey:            newSecurityInvalidateAPIKeyFunc(t),
+			InvalidateToken:             newSecurityInvalidateTokenFunc(t),
+			PutPrivileges:               newSecurityPutPrivilegesFunc(t),
+			PutRoleMapping:              newSecurityPutRoleMappingFunc(t),
+			PutRole:                     newSecurityPutRoleFunc(t),
+			PutUser:                     newSecurityPutUserFunc(t),
+			SamlAuthenticate:            newSecuritySamlAuthenticateFunc(t),
+			SamlCompleteLogout:          newSecuritySamlCompleteLogoutFunc(t),
+			SamlInvalidate:              newSecuritySamlInvalidateFunc(t),
+			SamlLogout:                  newSecuritySamlLogoutFunc(t),
+			SamlPrepareAuthentication:   newSecuritySamlPrepareAuthenticationFunc(t),
+			SamlServiceProviderMetadata: newSecuritySamlServiceProviderMetadataFunc(t),
 		},
 		SQL: &SQL{
-			ClearCursor: newSQLClearCursorFunc(t),
-			Query:       newSQLQueryFunc(t),
-			Translate:   newSQLTranslateFunc(t),
+			ClearCursor:    newSQLClearCursorFunc(t),
+			DeleteAsync:    newSQLDeleteAsyncFunc(t),
+			GetAsync:       newSQLGetAsyncFunc(t),
+			GetAsyncStatus: newSQLGetAsyncStatusFunc(t),
+			Query:          newSQLQueryFunc(t),
+			Translate:      newSQLTranslateFunc(t),
 		},
 		SSL: &SSL{
 			Certificates: newSSLCertificatesFunc(t),
@@ -854,6 +948,7 @@ func New(t Transport) *API {
 			ExecuteWatch:    newWatcherExecuteWatchFunc(t),
 			GetWatch:        newWatcherGetWatchFunc(t),
 			PutWatch:        newWatcherPutWatchFunc(t),
+			QueryWatches:    newWatcherQueryWatchesFunc(t),
 			Start:           newWatcherStartFunc(t),
 			Stats:           newWatcherStatsFunc(t),
 			Stop:            newWatcherStopFunc(t),

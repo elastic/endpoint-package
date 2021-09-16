@@ -10,9 +10,9 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/elastic/elastic-package/internal/configuration/locations"
 	"github.com/elastic/elastic-package/internal/packages"
 
-	"github.com/elastic/elastic-package/internal/install"
 	"github.com/elastic/elastic-package/internal/logger"
 )
 
@@ -30,17 +30,17 @@ func Stack() (string, error) {
 		return "", errors.Wrapf(err, "reading package manifest failed (path: %s)", packageRoot)
 	}
 
-	stackPackagesDir, err := install.StackPackagesDir()
+	locationManager, err := locations.NewLocationManager()
 	if err != nil {
 		return "", errors.Wrap(err, "can't find stack packages dir")
 	}
-	destinationDir := filepath.Join(stackPackagesDir, m.Name)
+	destinationDir := filepath.Join(locationManager.PackagesDir(), m.Name)
 
 	_, err = os.Stat(destinationDir)
-	if err != nil && !os.IsNotExist(err) {
+	if err != nil && !errors.Is(err, os.ErrNotExist) {
 		return "", errors.Wrapf(err, "stat file failed: %s", destinationDir)
 	}
-	if os.IsNotExist(err) {
+	if errors.Is(err, os.ErrNotExist) {
 		logger.Debugf("Stack package is not part of the development stack (missing path: %s)", destinationDir)
 		return "", nil
 	}

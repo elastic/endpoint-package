@@ -1,0 +1,85 @@
+  spec:
+    additionalContents: false
+    contents:
+    - description: Folder containing Kibana dashboard assets
+      type: folder
+      name: dashboard
+      required: false
+      contents:
+      - description: A dashboard asset file
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^{PACKAGE_NAME}-.+\.json$'
+        forbiddenPatterns:
+          - '^.+-(ecs|ECS)\.json$' # ECS suffix is forbidden
+    - description: Folder containing Kibana visualization assets
+      type: folder
+      name: visualization
+      required: false
+      contents:
+      - description: A visualization asset file
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^{PACKAGE_NAME}-.+\.json$'
+        forbiddenPatterns:
+          - '^.+-(ecs|ECS)\.json$' # ECS suffix is forbidden
+    - description: Folder containing Kibana saved search assets
+      type: folder
+      name: search
+      required: false
+      contents:
+      - description: A saved search asset file
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^{PACKAGE_NAME}-.+\.json$'
+        forbiddenPatterns:
+          - '^.+-(ecs|ECS)\.json$' # ECS suffix is forbidden
+    - description: Folder containing Kibana map assets
+      type: folder
+      name: map
+      required: false
+      contents:
+      - description: A map asset file
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^{PACKAGE_NAME}-.+\.json$'
+        forbiddenPatterns:
+          - '^.+-(ecs|ECS)\.json$' # ECS suffix is forbidden
+    - description: Folder containing Kibana lens assets
+      type: folder
+      name: lens
+      required: false
+      contents:
+        - description: A lens asset file
+          type: file
+          contentMediaType: "application/json"
+          pattern: '^{PACKAGE_NAME}-.+\.json$'
+          forbiddenPatterns:
+            - '^.+-(ecs|ECS)\.json$' # ECS suffix is forbidden
+    - description: Folder containing Kibana index pattern assets
+      type: folder
+      name: "index_pattern"
+      required: false
+      contents:
+      - description: An index pattern asset file
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^.+\.json$'
+    - description: Folder containing rules
+      type: folder
+      name: "security_rule"
+      required: false
+      contents:
+      - description: An individual rule file for the detection engine
+        type: file
+        contentMediaType: "application/json"
+        pattern: '^.+\.json$'
+    - description: Folder containing ML module assets
+      type: folder
+      name: ml_module
+      required: false
+      contents:
+        - description: An ML module asset file
+          type: file
+          contentMediaType: "application/json"
+          pattern: '^{PACKAGE_NAME}-.+\.json$'

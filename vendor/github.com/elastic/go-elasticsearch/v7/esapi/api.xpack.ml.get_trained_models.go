@@ -1,8 +1,21 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V. licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information.
+// Licensed to Elasticsearch B.V. under one or more contributor
+// license agreements. See the NOTICE file distributed with
+// this work for additional information regarding copyright
+// ownership. Elasticsearch B.V. licenses this file to you under
+// the Apache License, Version 2.0 (the "License"); you may
+// not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-// Code generated from specification version 7.10.0: DO NOT EDIT
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+//
+// Code generated from specification version 7.14.0: DO NOT EDIT
 
 package esapi
 
@@ -27,8 +40,6 @@ func newMLGetTrainedModelsFunc(t Transport) MLGetTrainedModels {
 
 // MLGetTrainedModels - Retrieves configuration information for a trained inference model.
 //
-// This API is experimental.
-//
 // See full documentation at https://www.elastic.co/guide/en/elasticsearch/reference/current/get-trained-models.html.
 //
 type MLGetTrainedModels func(o ...func(*MLGetTrainedModelsRequest)) (*Response, error)
@@ -40,7 +51,7 @@ type MLGetTrainedModelsRequest struct {
 
 	AllowNoMatch           *bool
 	DecompressDefinition   *bool
-	ForExport              *bool
+	ExcludeGenerated       *bool
 	From                   *int
 	Include                string
 	IncludeModelDefinition *bool
@@ -88,8 +99,8 @@ func (r MLGetTrainedModelsRequest) Do(ctx context.Context, transport Transport) 
 		params["decompress_definition"] = strconv.FormatBool(*r.DecompressDefinition)
 	}
 
-	if r.ForExport != nil {
-		params["for_export"] = strconv.FormatBool(*r.ForExport)
+	if r.ExcludeGenerated != nil {
+		params["exclude_generated"] = strconv.FormatBool(*r.ExcludeGenerated)
 	}
 
 	if r.From != nil {
@@ -203,11 +214,11 @@ func (f MLGetTrainedModels) WithDecompressDefinition(v bool) func(*MLGetTrainedM
 	}
 }
 
-// WithForExport - omits fields that are illegal to set on model put.
+// WithExcludeGenerated - omits fields that are illegal to set on model put.
 //
-func (f MLGetTrainedModels) WithForExport(v bool) func(*MLGetTrainedModelsRequest) {
+func (f MLGetTrainedModels) WithExcludeGenerated(v bool) func(*MLGetTrainedModelsRequest) {
 	return func(r *MLGetTrainedModelsRequest) {
-		r.ForExport = &v
+		r.ExcludeGenerated = &v
 	}
 }
 

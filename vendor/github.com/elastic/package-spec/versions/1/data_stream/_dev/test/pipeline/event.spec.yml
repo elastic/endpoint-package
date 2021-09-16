@@ -1,0 +1,15 @@
+##
+## Describes the specification for a data stream's various field definition files
+##
+spec:
+  # Everything under here follows JSON schema (https://json-schema.org/), written as YAML for readability
+  type: object
+  additionalProperties: false
+  properties:
+    events:
+      description: Given events
+      type: array
+      items:
+        type: object
+        additionalProperties: true
+  required: [ "events" ]

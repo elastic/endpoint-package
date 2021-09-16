@@ -5,34 +5,63 @@
 package cmd
 
 import (
+	"sort"
+
 	"github.com/spf13/cobra"
 
 	"github.com/elastic/elastic-package/internal/cobraext"
 	"github.com/elastic/elastic-package/internal/logger"
+	"github.com/elastic/elastic-package/internal/version"
 )
+
+var commands = []*cobraext.Command{
+	setupBuildCommand(),
+	setupCheckCommand(),
+	setupCleanCommand(),
+	setupCreateCommand(),
+	setupExportCommand(),
+	setupFormatCommand(),
+	setupInstallCommand(),
+	setupLintCommand(),
+	setupProfilesCommand(),
+	setupPromoteCommand(),
+	setupPublishCommand(),
+	setupServiceCommand(),
+	setupStackCommand(),
+	setupStatusCommand(),
+	setupTestCommand(),
+	setupUninstallCommand(),
+	setupVersionCommand(),
+}
 
 // RootCmd creates and returns root cmd for elastic-package
 func RootCmd() *cobra.Command {
 	rootCmd := &cobra.Command{
-		Use:               "elastic-package",
-		Short:             "elastic-package - Command line tool for developing Elastic Integrations",
-		SilenceUsage:      true,
-		PersistentPreRunE: processPersistentFlags,
+		Use:          "elastic-package",
+		Short:        "elastic-package - Command line tool for developing Elastic Integrations",
+		SilenceUsage: true,
+		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
+			return cobraext.ComposeCommandActions(cmd, args,
+				processPersistentFlags,
+				checkVersionUpdate,
+			)
+		},
 	}
 	rootCmd.PersistentFlags().BoolP(cobraext.VerboseFlagName, "v", false, cobraext.VerboseFlagDescription)
 
-	rootCmd.AddCommand(
-		setupBuildCommand(),
-		setupCheckCommand(),
-		setupCleanCommand(),
-		setupExportCommand(),
-		setupStackCommand(),
-		setupFormatCommand(),
-		setupLintCommand(),
-		setupPromoteCommand(),
-		setupTestCommand(),
-		setupVersionCommand())
+	for _, cmd := range commands {
+		rootCmd.AddCommand(cmd.Command)
+	}
 	return rootCmd
+}
+
+// Commands returns the list of commands that have been setup for elastic-package.
+func Commands() []*cobraext.Command {
+	sort.SliceStable(commands, func(i, j int) bool {
+		return commands[i].Name() < commands[j].Name()
+	})
+
+	return commands
 }
 
 func processPersistentFlags(cmd *cobra.Command, args []string) error {
@@ -44,5 +73,10 @@ func processPersistentFlags(cmd *cobra.Command, args []string) error {
 	if verbose {
 		logger.EnableDebugMode()
 	}
+	return nil
+}
+
+func checkVersionUpdate(cmd *cobra.Command, args []string) error {
+	version.CheckUpdate()
 	return nil
 }

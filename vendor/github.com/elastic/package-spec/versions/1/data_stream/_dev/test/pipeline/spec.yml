@@ -1,0 +1,37 @@
+spec:
+  additionalContents: false
+  contents:
+    - description: Test case in event format
+      type: file
+      pattern: '^test-[a-z0-9-]+\.json$'
+      contentMediaType: "application/json"
+      required: false
+      $ref: "./event.spec.yml"
+    - description: Test case in raw format
+      type: file
+      pattern: '^test-[a-z0-9-]+\.log$'
+      required: false
+    - description: Configuration for a test case in raw format
+      type: file
+      pattern: '^test-[a-z0-9-]+\.log-config.yml$'
+      contentMediaType: "application/x-yaml"
+      required: false
+      $ref: "./config_raw.spec.yml"
+    - description: Configuration for a test case in JSON format
+      type: file
+      pattern: '^test-[a-z0-9-]+\.json-config.yml$'
+      contentMediaType: "application/x-yaml"
+      required: false
+      $ref: "./config_json.spec.yml"
+    - description: Common configuration for a test case
+      type: file
+      pattern: '^test-common-config.yml$'
+      contentMediaType: "application/x-yaml"
+      required: false
+      $ref: "./common_config.spec.yml"
+    - description: Expected test results
+      type: file
+      pattern: '^test-[a-z0-9-]+\.(json|log)-expected.json$'
+      contentMediaType: "application/json"
+      required: false
+      $ref: "./expected.spec.yml"

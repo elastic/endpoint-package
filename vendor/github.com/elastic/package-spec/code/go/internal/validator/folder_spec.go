@@ -1,13 +1,19 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package validator
 
 import (
 	"fmt"
+	"io/fs"
 	"io/ioutil"
-	"net/http"
 	"path"
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	ve "github.com/elastic/package-spec/code/go/internal/errors"
 
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v3"
@@ -22,12 +28,12 @@ const (
 )
 
 type folderSpec struct {
-	fs       http.FileSystem
+	fs       fs.FS
 	specPath string
 	commonSpec
 }
 
-func newFolderSpec(fs http.FileSystem, specPath string) (*folderSpec, error) {
+func newFolderSpec(fs fs.FS, specPath string) (*folderSpec, error) {
 	specFile, err := fs.Open(specPath)
 	if err != nil {
 		return nil, errors.Wrap(err, "could not open folder specification file")
@@ -60,8 +66,8 @@ func newFolderSpec(fs http.FileSystem, specPath string) (*folderSpec, error) {
 	return &spec, nil
 }
 
-func (s *folderSpec) validate(packageName string, folderPath string) ValidationErrors {
-	var errs ValidationErrors
+func (s *folderSpec) validate(packageName string, folderPath string) ve.ValidationErrors {
+	var errs ve.ValidationErrors
 	files, err := ioutil.ReadDir(folderPath)
 	if err != nil {
 		errs = append(errs, errors.Wrapf(err, "could not read folder [%s]", folderPath))

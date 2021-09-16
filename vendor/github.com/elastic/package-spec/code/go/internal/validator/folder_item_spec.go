@@ -1,8 +1,12 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package validator
 
 import (
 	"fmt"
-	"net/http"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -11,10 +15,10 @@ import (
 	"github.com/pkg/errors"
 	"github.com/xeipuuv/gojsonschema"
 
+	ve "github.com/elastic/package-spec/code/go/internal/errors"
+	"github.com/elastic/package-spec/code/go/internal/validator/semantic"
 	"github.com/elastic/package-spec/code/go/internal/yamlschema"
 )
-
-const relativePathFormat = "relative-path"
 
 type folderItemSpec struct {
 	Description       string   `yaml:"description"`
@@ -64,17 +68,17 @@ func (s *folderItemSpec) isSameType(file os.FileInfo) bool {
 	return false
 }
 
-func (s *folderItemSpec) validate(fs http.FileSystem, folderSpecPath string, itemPath string) ValidationErrors {
+func (s *folderItemSpec) validate(fs fs.FS, folderSpecPath string, itemPath string) ve.ValidationErrors {
 	// loading item content
 	itemData, err := loadItemContent(itemPath, s.ContentMediaType)
 	if err != nil {
-		return ValidationErrors{err}
+		return ve.ValidationErrors{err}
 	}
 
 	var schemaLoader gojsonschema.JSONLoader
 	if s.Ref != "" {
 		schemaPath := filepath.Join(filepath.Dir(folderSpecPath), s.Ref)
-		schemaLoader = yamlschema.NewReferenceLoaderFileSystem("file://"+schemaPath, fs)
+		schemaLoader = yamlschema.NewReferenceLoaderFileSystem("file:///"+schemaPath, fs)
 	} else if s.Content != nil {
 		schemaLoader = yamlschema.NewRawLoaderFileSystem(s.Content, fs)
 	} else {
@@ -86,33 +90,25 @@ func (s *folderItemSpec) validate(fs http.FileSystem, folderSpecPath string, ite
 
 	formatCheckersMutex.Lock()
 	defer func() {
-		unloadRelativePathFormatChecker()
+		semantic.UnloadRelativePathFormatChecker()
+		semantic.UnloadDataStreamNameFormatChecker()
 		formatCheckersMutex.Unlock()
 	}()
 
-	loadRelativePathFormatChecker(filepath.Dir(itemPath))
+	semantic.LoadRelativePathFormatChecker(filepath.Dir(itemPath))
+	semantic.LoadDataStreamNameFormatChecker(filepath.Dir(itemPath))
 	result, err := gojsonschema.Validate(schemaLoader, documentLoader)
 	if err != nil {
-		return ValidationErrors{err}
+		return ve.ValidationErrors{err}
 	}
 
 	if result.Valid() {
 		return nil // item content is valid according to the loaded schema
 	}
 
-	var errs ValidationErrors
+	var errs ve.ValidationErrors
 	for _, re := range result.Errors() {
 		errs = append(errs, fmt.Errorf("field %s: %s", re.Field(), adjustErrorDescription(re.Description())))
 	}
 	return errs
-}
-
-func loadRelativePathFormatChecker(currentPath string) {
-	gojsonschema.FormatCheckers.Add(relativePathFormat, RelativePathChecker{
-		currentPath: currentPath,
-	})
-}
-
-func unloadRelativePathFormatChecker() {
-	gojsonschema.FormatCheckers.Remove(relativePathFormat)
 }

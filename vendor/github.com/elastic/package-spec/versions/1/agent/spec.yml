@@ -1,0 +1,13 @@
+spec:
+  additionalContents: false
+  contents:
+  - description: Folder containing input definitions
+    type: folder
+    name: input
+    required: true
+    additionalContents: false
+    contents:
+    - description: Config template file for inputs defined in the policy_templates section of the top level manifest
+      type: file
+      pattern: '^.+.yml.hbs$'
+      required: true

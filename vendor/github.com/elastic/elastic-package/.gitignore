@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# OSX
+.DS_Store
+
 # Test binary, built with `go test -c`
 *.test
 
@@ -22,3 +25,9 @@ elastic-package
 
 # Build directory
 /build
+
+# stack dump
+elastic-stack-dump/
+
+# elastic-package create: default package
+new_package

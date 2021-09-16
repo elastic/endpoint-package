@@ -1,0 +1,52 @@
+##
+## Entrypoint of package specification.
+##
+## Describes the folders and files that make up a package.
+## 
+version: 1.1
+spec:
+  additionalContents: true
+  contents:
+  - description: The main package manifest file
+    type: file
+    contentMediaType: "application/x-yaml"
+    name: "manifest.yml"
+    required: true
+    $ref: "./manifest.spec.yml"
+  - description: The package's CHANGELOG file
+    type: file
+    contentMediaType: "application/x-yaml"
+    name: "changelog.yml"
+    required: true
+    $ref: "./changelog.spec.yml"
+  - description: The package's NOTICE file
+    type: file
+    contentMediaType: "text/plain"
+    name: "NOTICE.txt"
+    required: false
+  - description: Folder containing data stream definitions
+    type: folder
+    name: data_stream
+    required: false
+    $ref: "./data_stream/spec.yml"
+  - description: Folder containing documentation for the package
+    type: folder
+    name: docs
+    required: true
+    $ref: "./docs/spec.yml"
+  - description: Folder containing agent-related definitions
+    type: folder
+    name: agent
+    required: false
+    $ref: "./agent/spec.yml"
+  - description: Folder containing Kibana assets used by the package
+    type: folder
+    name: kibana
+    required: false
+    $ref: "./kibana/spec.yml"
+  - description: Folder containing development resources
+    type: folder
+    name: _dev
+    required: false
+    visibility: private
+    $ref: "./_dev/spec.yml"

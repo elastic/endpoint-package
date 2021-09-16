@@ -6,17 +6,20 @@ package install
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/pkg/errors"
 
+	"github.com/elastic/elastic-package/internal/configuration/locations"
+	"github.com/elastic/elastic-package/internal/logger"
 	"github.com/elastic/elastic-package/internal/version"
 )
 
-func checkIfLatestVersionInstalled(elasticPackagePath string) (bool, error) {
-	versionFile, err := ioutil.ReadFile(filepath.Join(elasticPackagePath, versionFilename))
+func checkIfLatestVersionInstalled(elasticPackagePath *locations.LocationManager) (bool, error) {
+	versionPath := filepath.Join(elasticPackagePath.RootDir(), versionFilename)
+	versionFile, err := os.ReadFile(versionPath)
 	if os.IsExist(err) {
 		return false, nil // old version, no version file
 	}
@@ -24,13 +27,16 @@ func checkIfLatestVersionInstalled(elasticPackagePath string) (bool, error) {
 		return false, errors.Wrap(err, "reading version file failed")
 	}
 	v := string(versionFile)
+	if version.CommitHash == "undefined" && strings.Contains(v, "undefined") {
+		logger.Warnf("CommitHash is undefined, in both %s and the compiled binary, config may be out of date.", versionPath)
+	}
 	return buildVersionFile(version.CommitHash, version.BuildTime) == v, nil
 }
 
-func writeVersionFile(elasticPackagePath string) error {
+func writeVersionFile(elasticPackagePath *locations.LocationManager) error {
 	var err error
 	err = writeStaticResource(err,
-		filepath.Join(elasticPackagePath, versionFilename),
+		filepath.Join(elasticPackagePath.RootDir(), versionFilename),
 		buildVersionFile(version.CommitHash, version.BuildTime))
 	if err != nil {
 		return errors.Wrap(err, "writing static resource failed")

@@ -1,0 +1,19 @@
+spec:
+  # Everything under here follows JSON schema (https://json-schema.org/), written as YAML for readability
+  type: object
+  additionalProperties: false
+  definitions:
+    skip:
+      description: If this test should be skipped, more information about why it was skipped.
+      type: object
+      additionalProperties: false
+      properties:
+        reason:
+          description: Short explanation for why test has been skipped.
+          type: string
+          example: Flaky test
+        link:
+          description: Link to issue with more details about skipped test or to track re-enabling skipped test.
+          type: string
+          example: https://github.com/elastic/integrations/issues/520
+      required: [ "reason", "link" ]

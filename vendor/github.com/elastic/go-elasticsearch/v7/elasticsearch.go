@@ -1,17 +1,37 @@
-// Licensed to Elasticsearch B.V. under one or more agreements.
-// Elasticsearch B.V. licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information.
+// Licensed to Elasticsearch B.V. under one or more contributor
+// license agreements. See the NOTICE file distributed with
+// this work for additional information regarding copyright
+// ownership. Elasticsearch B.V. licenses this file to you under
+// the Apache License, Version 2.0 (the "License"); you may
+// not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
 
 package elasticsearch
 
 import (
+	"context"
 	"encoding/base64"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
+	"regexp"
+	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/elastic/go-elasticsearch/v7/esapi"
@@ -19,8 +39,20 @@ import (
 	"github.com/elastic/go-elasticsearch/v7/internal/version"
 )
 
+var (
+	reVersion *regexp.Regexp
+)
+
+func init() {
+	versionPattern := `^([0-9]+)\.([0-9]+)\.([0-9]+)`
+	reVersion = regexp.MustCompile(versionPattern)
+}
+
 const (
-	defaultURL = "http://localhost:9200"
+	defaultURL         = "http://localhost:9200"
+	tagline            = "You Know, for Search"
+	unknownProduct     = "the client noticed that the server is not Elasticsearch and we do not support this unknown product"
+	unsupportedProduct = "the client noticed that the server is not a supported distribution of Elasticsearch"
 )
 
 // Version returns the package version as a string.
@@ -34,8 +66,9 @@ type Config struct {
 	Username  string   // Username for HTTP Basic Authentication.
 	Password  string   // Password for HTTP Basic Authentication.
 
-	CloudID string // Endpoint for the Elastic Service (https://elastic.co/cloud).
-	APIKey  string // Base64-encoded token for authorization; if set, overrides username and password.
+	CloudID      string // Endpoint for the Elastic Service (https://elastic.co/cloud).
+	APIKey       string // Base64-encoded token for authorization; if set, overrides username/password and service token.
+	ServiceToken string // Service token for authorization; if set, overrides username/password.
 
 	Header http.Header // Global HTTP request header.
 
@@ -55,6 +88,9 @@ type Config struct {
 	EnableMetrics     bool // Enable the metrics collection.
 	EnableDebugLogger bool // Enable the debug logging.
 
+	DisableMetaHeader    bool // Disable the additional "X-Elastic-Client-Meta" HTTP header.
+	UseResponseCheckOnly bool
+
 	RetryBackoff func(attempt int) time.Duration // Optional backoff duration. Default: nil.
 
 	Transport http.RoundTripper    // The HTTP transport object.
@@ -68,9 +104,24 @@ type Config struct {
 // Client represents the Elasticsearch client.
 //
 type Client struct {
-	*esapi.API // Embeds the API methods
-	Transport  estransport.Interface
+	*esapi.API           // Embeds the API methods
+	Transport            estransport.Interface
+	useResponseCheckOnly bool
+
+	productCheckMu      sync.RWMutex
+	productCheckSuccess bool
 }
+
+type esVersion struct {
+	Number      string `json:"number"`
+	BuildFlavor string `json:"build_flavor"`
+}
+
+type info struct {
+	Version esVersion `json:"version"`
+	Tagline string    `json:"tagline"`
+}
+
 
 // NewDefaultClient creates a new client with default options.
 //
@@ -136,10 +187,11 @@ func NewClient(cfg Config) (*Client, error) {
 	}
 
 	tp, err := estransport.New(estransport.Config{
-		URLs:     urls,
-		Username: cfg.Username,
-		Password: cfg.Password,
-		APIKey:   cfg.APIKey,
+		URLs:         urls,
+		Username:     cfg.Username,
+		Password:     cfg.Password,
+		APIKey:       cfg.APIKey,
+		ServiceToken: cfg.ServiceToken,
 
 		Header: cfg.Header,
 		CACert: cfg.CACert,
@@ -153,6 +205,8 @@ func NewClient(cfg Config) (*Client, error) {
 		EnableMetrics:     cfg.EnableMetrics,
 		EnableDebugLogger: cfg.EnableDebugLogger,
 
+		DisableMetaHeader: cfg.DisableMetaHeader,
+
 		DiscoverNodesInterval: cfg.DiscoverNodesInterval,
 
 		Transport:          cfg.Transport,
@@ -164,19 +218,169 @@ func NewClient(cfg Config) (*Client, error) {
 		return nil, fmt.Errorf("error creating transport: %s", err)
 	}
 
-	client := &Client{Transport: tp, API: esapi.New(tp)}
+	client := &Client{Transport: tp, useResponseCheckOnly: cfg.UseResponseCheckOnly}
+	client.API = esapi.New(client)
 
 	if cfg.DiscoverNodesOnStart {
 		go client.DiscoverNodes()
 	}
 
-	return client, nil
+	return client, err
+}
+
+// genuineCheckHeader validates the presence of the X-Elastic-Product header
+//
+func genuineCheckHeader(header http.Header) error {
+	if header.Get("X-Elastic-Product") != "Elasticsearch" {
+		return errors.New(unknownProduct)
+	}
+	return nil
+}
+
+// genuineCheckInfo validates the informations given by Elasticsearch
+//
+func genuineCheckInfo(info info) error {
+	major, minor, _, err := ParseElasticsearchVersion(info.Version.Number)
+	if err != nil {
+		return err
+	}
+
+	if major < 6 {
+		return errors.New(unknownProduct)
+	}
+	if major < 7 {
+		if info.Tagline != tagline {
+			return errors.New(unknownProduct)
+		}
+	}
+	if major >= 7 {
+		if minor < 14 {
+			if info.Tagline != tagline {
+				return errors.New(unknownProduct)
+			} else if info.Version.BuildFlavor != "default" {
+				return errors.New(unsupportedProduct)
+			}
+		}
+	}
+
+	return nil
+}
+
+// ParseElasticsearchVersion returns an int64 representation of Elasticsearch version.
+//
+func ParseElasticsearchVersion(version string) (int64, int64, int64, error) {
+	matches := reVersion.FindStringSubmatch(version)
+
+	if len(matches) < 4 {
+		return 0, 0, 0, fmt.Errorf("")
+	}
+	major, _ := strconv.ParseInt(matches[1], 10, 0)
+	minor, _ := strconv.ParseInt(matches[2], 10, 0)
+	patch, _ := strconv.ParseInt(matches[3], 10, 0)
+
+	return major, minor, patch, nil
 }
 
 // Perform delegates to Transport to execute a request and return a response.
 //
 func (c *Client) Perform(req *http.Request) (*http.Response, error) {
-	return c.Transport.Perform(req)
+	// ProductCheck validation. We skip this validation of we only want the
+	// header validation. ResponseCheck path continues after original request.
+	if !c.useResponseCheckOnly {
+		// Launch product check for 7.x, request info, check header then payload.
+		if err := c.doProductCheck(c.productCheck); err != nil {
+			return nil, err
+		}
+	}
+
+	// Retrieve the original request.
+	res, err := c.Transport.Perform(req)
+
+	// ResponseCheck path continues, we run the header check on the first answer from ES.
+	if err == nil {
+		checkHeader := func() error { return genuineCheckHeader(res.Header) }
+		if err := c.doProductCheck(checkHeader); err != nil {
+			res.Body.Close()
+			return nil, err
+		}
+	}
+	return res, err
+}
+
+// doProductCheck calls f if there as not been a prior successful call to doProductCheck,
+// returning nil otherwise.
+func (c *Client) doProductCheck(f func() error) error {
+	c.productCheckMu.RLock()
+	productCheckSuccess := c.productCheckSuccess
+	c.productCheckMu.RUnlock()
+
+	if productCheckSuccess {
+		return nil
+	}
+
+	c.productCheckMu.Lock()
+	defer c.productCheckMu.Unlock()
+
+	if c.productCheckSuccess {
+		return nil
+	}
+
+	if err := f(); err != nil {
+		return err
+	}
+
+	c.productCheckSuccess = true
+
+	return nil
+}
+
+// productCheck runs an esapi.Info query to retrieve informations of the current cluster
+// decodes the response and decides if the cluster is a genuine Elasticsearch product.
+func (c *Client) productCheck() error {
+	req := esapi.InfoRequest{}
+	res, err := req.Do(context.Background(), c.Transport)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	if res.IsError() {
+		_, err = io.Copy(ioutil.Discard, res.Body)
+		if err != nil {
+			return err
+		}
+		switch res.StatusCode {
+		case http.StatusUnauthorized:
+			return nil
+		case http.StatusForbidden:
+			return nil
+		default:
+			return fmt.Errorf("cannot retrieve informations from Elasticsearch")
+		}
+	}
+
+	err = genuineCheckHeader(res.Header)
+
+	if err != nil {
+		var info info
+		contentType := res.Header.Get("Content-Type")
+		if strings.Contains(contentType, "json") {
+			err = json.NewDecoder(res.Body).Decode(&info)
+			if err != nil {
+				return fmt.Errorf("error decoding Elasticsearch informations: %s", err)
+			}
+		}
+
+		if info.Version.Number != "" {
+			err = genuineCheckInfo(info)
+		}
+	}
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Metrics returns the client metrics.

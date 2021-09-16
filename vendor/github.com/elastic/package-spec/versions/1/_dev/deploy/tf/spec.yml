@@ -1,0 +1,13 @@
+spec:
+  additionalContents: false
+  contents:
+    - description: Terraform infrastructure definition
+      pattern: '^*.tf$'
+      type: file
+      required: true
+    - description: Environment variables exposed for Terraform
+      type: file
+      name: "env.yml"
+      contentMediaType: "application/x-yaml"
+      required: false
+      $ref: "./env.spec.yml"

@@ -1,3 +1,7 @@
+// Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+// or more contributor license agreements. Licensed under the Elastic License;
+// you may not use this file except in compliance with the Elastic License.
+
 package validator
 
 import (
@@ -17,8 +21,11 @@ func loadItemContent(itemPath, mediaType string) ([]byte, error) {
 		return nil, errors.Wrap(err, "reading item file failed")
 	}
 
-	if len(itemData) == 0 {
-		return nil, errors.New("file is empty")
+	// There might be a situation in which we'd like to keep a directory without any file content under version control.
+	// Usually it can be solved by adding the .empty file. There is no media type defined for this file.
+	// It's expected of the file with media type defined not to be empty - the file can be marked as non-required.
+	if len(itemData) == 0 && mediaType != "" {
+		return nil, errors.New("file is empty, but media type is defined")
 	}
 
 	if mediaType == "" {
@@ -50,6 +57,7 @@ func loadItemContent(itemPath, mediaType string) ([]byte, error) {
 		}
 	case "application/json": // no need to convert the item content
 	case "text/markdown": // text/markdown can't be transformed into JSON format
+	case "text/plain": // text/plain should be left as-is
 	default:
 		return nil, fmt.Errorf("unsupported media type (%s)", mediaType)
 	}

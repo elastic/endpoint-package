@@ -6,14 +6,14 @@ package stack
 
 import (
 	"fmt"
-	"io/ioutil"
-	"path/filepath"
+	"os"
 
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v3"
 
 	"github.com/elastic/elastic-package/internal/compose"
 	"github.com/elastic/elastic-package/internal/install"
+	"github.com/elastic/elastic-package/internal/profile"
 )
 
 const (
@@ -37,17 +37,11 @@ type kibanaConfiguration struct {
 }
 
 // ShellInit method exposes environment variables that can be used for testing purposes.
-func ShellInit() (string, error) {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return "", errors.Wrap(err, "locating stack directory failed")
-	}
-
+func ShellInit(elasticStackProfile *profile.Profile) (string, error) {
 	// Read Elasticsearch username and password from Kibana configuration file.
-	kibanaConfigurationPath := filepath.Join(stackDir, "kibana.config.yml")
-	body, err := ioutil.ReadFile(kibanaConfigurationPath)
+	body, err := os.ReadFile(elasticStackProfile.FetchPath(profile.KibanaConfigFile))
 	if err != nil {
-		return "", errors.Wrap(err, "reading Kibana configuration file failed")
+		return "", errors.Wrap(err, "error reading Kibana config file")
 	}
 
 	var kibanaCfg kibanaConfiguration
@@ -57,12 +51,19 @@ func ShellInit() (string, error) {
 	}
 
 	// Read Elasticsearch and Kibana hostnames from Elastic Stack Docker Compose configuration file.
-	p, err := compose.NewProject(DockerComposeProjectName, filepath.Join(stackDir, "snapshot.yml"))
+	p, err := compose.NewProject(DockerComposeProjectName, elasticStackProfile.FetchPath(profile.SnapshotFile))
 	if err != nil {
 		return "", errors.Wrap(err, "could not create docker compose project")
 	}
 
-	serviceComposeConfig, err := p.Config(compose.CommandOptions{})
+	appConfig, err := install.Configuration()
+	if err != nil {
+		return "", errors.Wrap(err, "can't read application configuration")
+	}
+
+	serviceComposeConfig, err := p.Config(compose.CommandOptions{
+		Env: append(appConfig.StackImageRefs(install.DefaultStackVersion).AsEnv(), elasticStackProfile.ComposeEnvVars()...),
+	})
 	if err != nil {
 		return "", errors.Wrap(err, "could not get Docker Compose configuration for service")
 	}

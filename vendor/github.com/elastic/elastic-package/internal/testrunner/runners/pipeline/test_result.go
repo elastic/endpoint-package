@@ -7,7 +7,7 @@ package pipeline
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 
 	"github.com/kylelemons/godebug/diff"
@@ -35,7 +35,7 @@ func writeTestResult(testCasePath string, result *testResult) error {
 	if err != nil {
 		return errors.Wrap(err, "marshalling test result failed")
 	}
-	err = ioutil.WriteFile(filepath.Join(testCaseDir, expectedTestResultFile(testCaseFile)), data, 0644)
+	err = os.WriteFile(filepath.Join(testCaseDir, expectedTestResultFile(testCaseFile)), data, 0644)
 	if err != nil {
 		return errors.Wrap(err, "writing test result failed")
 	}
@@ -78,7 +78,7 @@ func readExpectedTestResult(testCasePath string, config *testConfig) (*testResul
 	testCaseFile := filepath.Base(testCasePath)
 
 	path := filepath.Join(testCaseDir, expectedTestResultFile(testCaseFile))
-	data, err := ioutil.ReadFile(path)
+	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, errors.Wrap(err, "reading test result file failed")
 	}
@@ -103,10 +103,15 @@ func adjustTestResult(result *testResult, config *testConfig) (*testResult, erro
 	// Strip dynamic fields from test result
 	var stripped testResult
 	for _, event := range result.events {
+		if event == nil {
+			stripped.events = append(stripped.events, nil)
+			continue
+		}
+
 		var m common.MapStr
 		err := json.Unmarshal(event, &m)
 		if err != nil {
-			return nil, errors.Wrap(err, "can't unmarshal event")
+			return nil, errors.Wrapf(err, "can't unmarshal event: %s", string(event))
 		}
 
 		for key := range config.DynamicFields {
@@ -120,6 +125,7 @@ func adjustTestResult(result *testResult, config *testConfig) (*testResult, erro
 		if err != nil {
 			return nil, errors.Wrap(err, "can't marshal event")
 		}
+
 		stripped.events = append(stripped.events, b)
 	}
 	return &stripped, nil
@@ -133,9 +139,7 @@ func unmarshalTestResult(body []byte) (*testResult, error) {
 	}
 
 	var tr testResult
-	for _, doc := range trd.Expected {
-		tr.events = append(tr.events, doc)
-	}
+	tr.events = append(tr.events, trd.Expected...)
 	return &tr, nil
 }
 

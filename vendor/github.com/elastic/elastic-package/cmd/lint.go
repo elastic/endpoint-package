@@ -5,32 +5,29 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
 	"github.com/elastic/package-spec/code/go/pkg/validator"
 
+	"github.com/elastic/elastic-package/internal/cobraext"
 	"github.com/elastic/elastic-package/internal/docs"
 	"github.com/elastic/elastic-package/internal/packages"
 )
 
 const lintLongDescription = `Use this command to validate the contents of a package using the package specification (see: https://github.com/elastic/package-spec).
 
-The command ensures that the package is aligned with the package spec and the README file is up-to-date with its template (if present).
+The command ensures that the package is aligned with the package spec and the README file is up-to-date with its template (if present).`
 
-Context:
-  package`
-
-func setupLintCommand() *cobra.Command {
+func setupLintCommand() *cobraext.Command {
 	cmd := &cobra.Command{
 		Use:   "lint",
 		Short: "Lint the package",
 		Long:  lintLongDescription,
 		RunE:  lintCommandAction,
 	}
-	return cmd
+
+	return cobraext.NewCommand(cmd, cobraext.ContextPackage)
 }
 
 func lintCommandAction(cmd *cobra.Command, args []string) error {
@@ -44,12 +41,17 @@ func lintCommandAction(cmd *cobra.Command, args []string) error {
 		return errors.Wrap(err, "locating package root failed")
 	}
 
-	ok, err := docs.IsReadmeUpToDate()
+	readmeFiles, err := docs.AreReadmesUpToDate()
 	if err != nil {
-		return errors.Wrapf(err, "can't check if %s file is up-to-date", docs.ReadmeFile)
-	}
-	if !ok {
-		return fmt.Errorf("%s file is outdated. Rebuild the package with 'elastic-package build'", docs.ReadmeFile)
+		for _, f := range readmeFiles {
+			if !f.UpToDate {
+				cmd.Printf("%s is outdated. Rebuild the package with 'elastic-package build'\n", f.FileName)
+			}
+			if f.Error != nil {
+				cmd.Printf("check if %s is up-to-date failed: %s\n", f.FileName, f.Error)
+			}
+		}
+		return errors.Wrap(err, "checking readme files are up-to-date failed")
 	}
 
 	err = validator.ValidateFromPath(packageRootPath)

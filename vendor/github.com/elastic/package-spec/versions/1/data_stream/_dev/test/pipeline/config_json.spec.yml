@@ -1,0 +1,16 @@
+spec:
+  type: object
+  additionalProperties: false
+  properties:
+    skip:
+      $ref: '../skip.spec.yml#/definitions/skip'
+    fields:
+      description: Field definitions
+      type: object
+      additionalProperties: true
+    dynamic_fields:
+      description: Dynamic fields with regular expressions defining their variable values.
+      type: object
+    numeric_keyword_fields:
+      description: List of keyword type fields allowed to have a numeric value.
+      type: array

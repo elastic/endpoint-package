@@ -6,6 +6,7 @@ package packages
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -20,6 +21,13 @@ const (
 
 	// DataStreamManifestFile is the name of the data stream's manifest file.
 	DataStreamManifestFile = "manifest.yml"
+
+	defaultPipelineName = "default"
+
+	dataStreamTypeLogs       = "logs"
+	dataStreamTypeMetrics    = "metrics"
+	dataStreamTypeSynthetics = "synthetics"
+	dataStreamTypeTraces     = "traces"
 )
 
 // VarValue represents a variable value as defined in a package or data stream
@@ -67,9 +75,24 @@ type Input struct {
 	Vars []Variable `config:"vars" json:"vars" yaml:"vars"`
 }
 
+// KibanaConditions defines conditions for Kibana (e.g. required version).
+type KibanaConditions struct {
+	Version string `config:"version" json:"version" yaml:"version"`
+}
+
+// Conditions define requirements for different parts of the Elastic stack.
+type Conditions struct {
+	Kibana KibanaConditions `config:"kibana" json:"kibana" yaml:"kibana"`
+}
+
 // PolicyTemplate is a configuration of inputs responsible for collecting log or metric data.
 type PolicyTemplate struct {
 	Inputs []Input `config:"inputs" json:"inputs" yaml:"inputs"`
+}
+
+// Owner defines package owners, either a single person or a team.
+type Owner struct {
+	Github string `config:"github" json:"github" yaml:"github"`
 }
 
 // PackageManifest represents the basic structure of a package's manifest
@@ -78,7 +101,14 @@ type PackageManifest struct {
 	Title           string           `config:"title" json:"title" yaml:"title"`
 	Type            string           `config:"type" json:"type" yaml:"type"`
 	Version         string           `config:"version" json:"version" yaml:"version"`
+	Conditions      Conditions       `config:"conditions" json:"conditions" yaml:"conditions"`
 	PolicyTemplates []PolicyTemplate `config:"policy_templates" json:"policy_templates" yaml:"policy_templates"`
+	Vars            []Variable       `config:"vars" json:"vars" yaml:"vars"`
+	Owner           Owner            `config:"owner" json:"owner" yaml:"owner"`
+	Release         string           `config:"release" json:"release" yaml:"release"`
+	Description     string           `config:"description" json:"description" yaml:"description"`
+	License         string           `config:"license" json:"license" yaml:"license"`
+	Categories      []string         `config:"categories" json:"categories" yaml:"categories"`
 }
 
 // DataStreamManifest represents the structure of a data stream's manifest
@@ -86,6 +116,8 @@ type DataStreamManifest struct {
 	Name          string `config:"name" json:"name" yaml:"name"`
 	Title         string `config:"title" json:"title" yaml:"title"`
 	Type          string `config:"type" json:"type" yaml:"type"`
+	Dataset       string `config:"dataset" json:"dataset" yaml:"dataset"`
+	Release       string `config:"release" json:"release" yaml:"release"`
 	Elasticsearch *struct {
 		IngestPipeline *struct {
 			Name string `config:"name" json:"name" yaml:"name"`
@@ -200,6 +232,25 @@ func ReadDataStreamManifest(path string) (*DataStreamManifest, error) {
 	return &m, nil
 }
 
+// GetPipelineNameOrDefault returns the name of the data stream's pipeline, if one is explicitly defined in the
+// data stream manifest. If not, the default pipeline name is returned.
+func (dsm *DataStreamManifest) GetPipelineNameOrDefault() string {
+	if dsm.Elasticsearch != nil && dsm.Elasticsearch.IngestPipeline != nil && dsm.Elasticsearch.IngestPipeline.Name != "" {
+		return dsm.Elasticsearch.IngestPipeline.Name
+	}
+	return defaultPipelineName
+}
+
+// IndexTemplateName returns the name of the Elasticsearch index template that would be installed
+// for this data stream.
+func (dsm *DataStreamManifest) IndexTemplateName(pkgName string) string {
+	if dsm.Dataset == "" {
+		return fmt.Sprintf("%s-%s.%s", dsm.Type, pkgName, dsm.Name)
+	}
+
+	return fmt.Sprintf("%s-%s", dsm.Type, dsm.Dataset)
+}
+
 // FindInputByType returns the input for the provided type.
 func (pt *PolicyTemplate) FindInputByType(inputType string) *Input {
 	for _, input := range pt.Inputs {
@@ -223,5 +274,7 @@ func isDataStreamManifest(path string) (bool, error) {
 	if err != nil {
 		return false, errors.Wrapf(err, "reading package manifest failed (path: %s)", path)
 	}
-	return m.Title != "" && (m.Type == "logs" || m.Type == "metrics"), nil
+	return m.Title != "" &&
+			(m.Type == dataStreamTypeLogs || m.Type == dataStreamTypeMetrics || m.Type == dataStreamTypeSynthetics || m.Type == dataStreamTypeTraces),
+		nil
 }

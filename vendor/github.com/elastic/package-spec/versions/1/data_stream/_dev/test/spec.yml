@@ -1,0 +1,18 @@
+spec:
+  additionalContents: false
+  contents:
+    - description: Folder containing pipeline tests
+      type: folder
+      name: pipeline
+      required: false
+      $ref: "./pipeline/spec.yml"
+    - description: Folder containing tests of static resources
+      type: folder
+      name: static
+      required: false
+      $ref: "./static/spec.yml"
+    - description: Folder containing system tests
+      type: folder
+      name: system
+      required: false
+      $ref: "./system/spec.yml"

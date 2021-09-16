@@ -5,10 +5,10 @@
 package system
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 
 	"github.com/aymerick/raymond"
 	"github.com/pkg/errors"
@@ -17,14 +17,19 @@ import (
 	"github.com/elastic/go-ucfg/yaml"
 
 	"github.com/elastic/elastic-package/internal/packages"
+	"github.com/elastic/elastic-package/internal/testrunner"
 	"github.com/elastic/elastic-package/internal/testrunner/runners/system/servicedeployer"
 )
 
 var systemTestConfigFilePattern = regexp.MustCompile(`^test-([a-z0-9_.-]+)-config.yml$`)
 
 type testConfig struct {
-	Input      string                       `config:"input"`
-	Service    string                       `config:"service"`
+	testrunner.SkippableConfig `config:",inline"`
+
+	Input               string `config:"input"`
+	Service             string `config:"service"`
+	ServiceNotifySignal string `config:"service_notify_signal"` // Signal to send when the agent policy is applied.
+
 	Vars       map[string]packages.VarValue `config:"vars"`
 	DataStream struct {
 		Vars map[string]packages.VarValue `config:"vars"`
@@ -34,7 +39,8 @@ type testConfig struct {
 	// type but can be ingested as numeric type.
 	NumericKeywordFields []string `config:"numeric_keyword_fields"`
 
-	Path string
+	Path               string
+	ServiceVariantName string
 }
 
 func (t testConfig) Name() string {
@@ -42,12 +48,21 @@ func (t testConfig) Name() string {
 	if matches := systemTestConfigFilePattern.FindStringSubmatch(name); len(matches) > 1 {
 		name = matches[1]
 	}
-	return name
+
+	var sb strings.Builder
+	sb.WriteString(name)
+
+	if t.ServiceVariantName != "" {
+		sb.WriteString(" (variant: ")
+		sb.WriteString(t.ServiceVariantName)
+		sb.WriteString(")")
+	}
+	return sb.String()
 }
 
-func newConfig(configFilePath string, ctxt servicedeployer.ServiceContext) (*testConfig, error) {
-	data, err := ioutil.ReadFile(configFilePath)
-	if err != nil && os.IsNotExist(err) {
+func newConfig(configFilePath string, ctxt servicedeployer.ServiceContext, serviceVariantName string) (*testConfig, error) {
+	data, err := os.ReadFile(configFilePath)
+	if err != nil && errors.Is(err, os.ErrNotExist) {
 		return nil, errors.Wrapf(err, "unable to find system test configuration file: %s", configFilePath)
 	}
 
@@ -70,6 +85,7 @@ func newConfig(configFilePath string, ctxt servicedeployer.ServiceContext) (*tes
 	}
 	// Save path
 	c.Path = configFilePath
+	c.ServiceVariantName = serviceVariantName
 	return &c, nil
 }
 

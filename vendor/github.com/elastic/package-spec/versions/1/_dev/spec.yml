@@ -1,0 +1,13 @@
+spec:
+  additionalContents: false
+  contents:
+    - description: Folder containing resources related to building the package.
+      type: folder
+      name: build
+      required: false
+      $ref: "./build/spec.yml"
+    - description: Folder containing configuration related to deploying the package's integration service(s)
+      type: folder
+      name: deploy
+      required: false
+      $ref: "./deploy/spec.yml"

@@ -1,0 +1,12 @@
+spec:
+  additionalContents: false
+  contents:
+    - description: Kubernetes resource definition
+      pattern: '^*.yaml$'
+      type: file
+      contentMediaType: "application/x-yaml"
+      required: false
+    - description: Empty file for versioning purposes (if not custom resources are required to be installed)
+      type: file
+      name: ".empty"
+      required: false

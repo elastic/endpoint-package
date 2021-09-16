@@ -12,30 +12,26 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/elastic/elastic-package/internal/cobraext"
+	"github.com/elastic/elastic-package/internal/common"
 	"github.com/elastic/elastic-package/internal/export"
 	"github.com/elastic/elastic-package/internal/kibana"
 )
 
-const exportLongDescription = `Use this command to export assets relevant for the package, e.g. Kibana dashboards.
-
-Context:
-  package`
+const exportLongDescription = `Use this command to export assets relevant for the package, e.g. Kibana dashboards.`
 
 const exportDashboardsLongDescription = `Use this command to export dashboards with referenced objects from the Kibana instance.
 
-Use this command to download selected dashboards and other associated saved objects from Kibana. This command adjusts the downloaded saved objects according to package naming conventions (prefixes, unique IDs) and writes them locally into folders corresponding to saved object types (dashboard, visualization, map, etc.).
+Use this command to download selected dashboards and other associated saved objects from Kibana. This command adjusts the downloaded saved objects according to package naming conventions (prefixes, unique IDs) and writes them locally into folders corresponding to saved object types (dashboard, visualization, map, etc.).`
 
-Context:
-  package`
-
-func setupExportCommand() *cobra.Command {
+func setupExportCommand() *cobraext.Command {
 	exportDashboardCmd := &cobra.Command{
 		Use:   "dashboards",
 		Short: "Export dashboards from Kibana",
 		Long:  exportDashboardsLongDescription,
 		RunE:  exportDashboardsCmd,
 	}
-	exportDashboardCmd.Flags().StringSliceP(cobraext.DashboardIDsFlagName, "d", nil, cobraext.DashboardIDsFlagDescriptions)
+	exportDashboardCmd.Flags().StringSliceP(cobraext.DashboardIDsFlagName, "d", nil, cobraext.DashboardIDsFlagDescription)
+	exportDashboardCmd.Flags().Bool(cobraext.TLSSkipVerifyFlagName, false, cobraext.TLSSkipVerifyFlagDescription)
 
 	cmd := &cobra.Command{
 		Use:   "export",
@@ -43,7 +39,8 @@ func setupExportCommand() *cobra.Command {
 		Long:  exportLongDescription,
 	}
 	cmd.AddCommand(exportDashboardCmd)
-	return cmd
+
+	return cobraext.NewCommand(cmd, cobraext.ContextPackage)
 }
 
 func exportDashboardsCmd(cmd *cobra.Command, args []string) error {
@@ -54,9 +51,17 @@ func exportDashboardsCmd(cmd *cobra.Command, args []string) error {
 		return cobraext.FlagParsingError(err, cobraext.DashboardIDsFlagName)
 	}
 
-	kibanaClient, err := kibana.NewClient()
+	common.TrimStringSlice(dashboardIDs)
+
+	var opts []kibana.ClientOption
+	tlsSkipVerify, _ := cmd.Flags().GetBool(cobraext.TLSSkipVerifyFlagName)
+	if tlsSkipVerify {
+		opts = append(opts, kibana.TLSSkipVerify())
+	}
+
+	kibanaClient, err := kibana.NewClient(opts...)
 	if err != nil {
-		return errors.Wrap(err, "creating Kibana client failed")
+		return errors.Wrap(err, "can't create Kibana client")
 	}
 
 	if len(dashboardIDs) == 0 {

@@ -6,29 +6,27 @@ package stack
 
 import (
 	"fmt"
-	"path/filepath"
 
 	"github.com/pkg/errors"
 
 	"github.com/elastic/elastic-package/internal/compose"
 	"github.com/elastic/elastic-package/internal/install"
+	"github.com/elastic/elastic-package/internal/profile"
 )
 
-const snapshotDefinitionFile = "snapshot.yml"
-
 func dockerComposeBuild(options Options) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	c, err := compose.NewProject(DockerComposeProjectName, filepath.Join(stackDir, snapshotDefinitionFile))
+	c, err := compose.NewProject(DockerComposeProjectName, options.Profile.FetchPath(profile.SnapshotFile))
 	if err != nil {
 		return errors.Wrap(err, "could not create docker compose project")
 	}
 
+	appConfig, err := install.Configuration()
+	if err != nil {
+		return errors.Wrap(err, "can't read application configuration")
+	}
+
 	opts := compose.CommandOptions{
-		Env:      []string{fmt.Sprintf("STACK_VERSION=%s", options.StackVersion)},
+		Env:      append(appConfig.StackImageRefs(options.StackVersion).AsEnv(), options.Profile.ComposeEnvVars()...),
 		Services: withIsReadyServices(withDependentServices(options.Services)),
 	}
 
@@ -39,18 +37,18 @@ func dockerComposeBuild(options Options) error {
 }
 
 func dockerComposePull(options Options) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	c, err := compose.NewProject(DockerComposeProjectName, filepath.Join(stackDir, snapshotDefinitionFile))
+	c, err := compose.NewProject(DockerComposeProjectName, options.Profile.FetchPath(profile.SnapshotFile))
 	if err != nil {
 		return errors.Wrap(err, "could not create docker compose project")
 	}
 
+	appConfig, err := install.Configuration()
+	if err != nil {
+		return errors.Wrap(err, "can't read application configuration")
+	}
+
 	opts := compose.CommandOptions{
-		Env:      []string{fmt.Sprintf("STACK_VERSION=%s", options.StackVersion)},
+		Env:      append(appConfig.StackImageRefs(options.StackVersion).AsEnv(), options.Profile.ComposeEnvVars()...),
 		Services: withIsReadyServices(withDependentServices(options.Services)),
 	}
 
@@ -61,12 +59,7 @@ func dockerComposePull(options Options) error {
 }
 
 func dockerComposeUp(options Options) error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	c, err := compose.NewProject(DockerComposeProjectName, filepath.Join(stackDir, snapshotDefinitionFile))
+	c, err := compose.NewProject(DockerComposeProjectName, options.Profile.FetchPath(profile.SnapshotFile))
 	if err != nil {
 		return errors.Wrap(err, "could not create docker compose project")
 	}
@@ -76,8 +69,13 @@ func dockerComposeUp(options Options) error {
 		args = append(args, "-d")
 	}
 
+	appConfig, err := install.Configuration()
+	if err != nil {
+		return errors.Wrap(err, "can't read application configuration")
+	}
+
 	opts := compose.CommandOptions{
-		Env:       []string{fmt.Sprintf("STACK_VERSION=%s", options.StackVersion)},
+		Env:       append(appConfig.StackImageRefs(options.StackVersion).AsEnv(), options.Profile.ComposeEnvVars()...),
 		ExtraArgs: args,
 		Services:  withIsReadyServices(withDependentServices(options.Services)),
 	}
@@ -88,24 +86,23 @@ func dockerComposeUp(options Options) error {
 	return nil
 }
 
-func dockerComposeDown() error {
-	stackDir, err := install.StackDir()
-	if err != nil {
-		return errors.Wrap(err, "locating stack directory failed")
-	}
-
-	c, err := compose.NewProject(DockerComposeProjectName, filepath.Join(stackDir, snapshotDefinitionFile))
+func dockerComposeDown(options Options) error {
+	c, err := compose.NewProject(DockerComposeProjectName, options.Profile.FetchPath(profile.SnapshotFile))
 	if err != nil {
 		return errors.Wrap(err, "could not create docker compose project")
 	}
 
-	opts := compose.CommandOptions{
-		// We set the STACK_VERSION env var here to avoid showing a warning to the user about
-		// it not being set.
-		Env: []string{fmt.Sprintf("STACK_VERSION=%s", DefaultVersion)},
+	appConfig, err := install.Configuration()
+	if err != nil {
+		return errors.Wrap(err, "can't read application configuration")
 	}
 
-	if err := c.Down(opts); err != nil {
+	downOptions := compose.CommandOptions{
+		Env: append(appConfig.StackImageRefs(options.StackVersion).AsEnv(), options.Profile.ComposeEnvVars()...),
+		// Remove associated volumes.
+		ExtraArgs: []string{"--volumes"},
+	}
+	if err := c.Down(downOptions); err != nil {
 		return errors.Wrap(err, "running command failed")
 	}
 	return nil

@@ -1,0 +1,20 @@
+##
+## Describes the specification for a data stream's various field definition files
+##
+spec:
+  # Everything under here follows JSON schema (https://json-schema.org/), written as YAML for readability
+  type: object
+  additionalProperties: false
+  definitions:
+    optionalTestResult:
+      anyOf:
+        - type: object
+          additionalProperties: true
+        - type: "null"
+  properties:
+    expected:
+      description: Expected test result
+      type: array
+      items:
+        $ref: "#/definitions/optionalTestResult"
+  required: [ "expected" ]

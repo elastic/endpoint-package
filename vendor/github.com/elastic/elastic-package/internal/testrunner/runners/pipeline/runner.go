@@ -7,7 +7,7 @@ package pipeline
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -29,7 +29,12 @@ const (
 )
 
 type runner struct {
-	options testrunner.TestOptions
+	options   testrunner.TestOptions
+	pipelines []pipelineResource
+}
+
+func (r *runner) TestFolderRequired() bool {
+	return true
 }
 
 // Type returns the type of test that can be run by this test runner.
@@ -48,9 +53,24 @@ func (r *runner) Run(options testrunner.TestOptions) ([]testrunner.TestResult, e
 	return r.run()
 }
 
-// ShutDown shuts down the pipeline test runner.
+// TearDown shuts down the pipeline test runner.
 func (r *runner) TearDown() error {
+	if r.options.DeferCleanup > 0 {
+		logger.Debugf("Waiting for %s before cleanup...", r.options.DeferCleanup)
+		time.Sleep(r.options.DeferCleanup)
+	}
+
+	err := uninstallIngestPipelines(r.options.ESClient, r.pipelines)
+	if err != nil {
+		return errors.Wrap(err, "uninstalling ingest pipelines failed")
+	}
 	return nil
+}
+
+// CanRunPerDataStream returns whether this test runner can run on individual
+// data streams within the package.
+func (r *runner) CanRunPerDataStream() bool {
+	return true
 }
 
 func (r *runner) run() ([]testrunner.TestResult, error) {
@@ -67,21 +87,11 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 		return nil, errors.New("data stream root not found")
 	}
 
-	entryPipeline, pipelineIDs, err := installIngestPipelines(r.options.ESClient, dataStreamPath)
+	var entryPipeline string
+	entryPipeline, r.pipelines, err = installIngestPipelines(r.options.ESClient, dataStreamPath)
 	if err != nil {
 		return nil, errors.Wrap(err, "installing ingest pipelines failed")
 	}
-	defer func() {
-		if r.options.DeferCleanup > 0 {
-			logger.Debugf("Waiting for %s before cleanup...", r.options.DeferCleanup)
-			time.Sleep(r.options.DeferCleanup)
-		}
-
-		err := uninstallIngestPipelines(r.options.ESClient, pipelineIDs)
-		if err != nil {
-			logger.Warnf("Uninstalling ingest pipelines failed: %v", err)
-		}
-	}()
 
 	results := make([]testrunner.TestResult, 0)
 	for _, testCaseFile := range testCaseFiles {
@@ -101,6 +111,16 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 		}
 		tr.Name = tc.name
 
+		if tc.config.Skip != nil {
+			logger.Warnf("skipping %s test for %s/%s: %s (details: %s)",
+				TestType, r.options.TestFolder.Package, r.options.TestFolder.DataStream,
+				tc.config.Skip.Reason, tc.config.Skip.Link.String())
+
+			tr.Skipped = tc.config.Skip
+			results = append(results, tr)
+			continue
+		}
+
 		result, err := simulatePipelineProcessing(r.options.ESClient, entryPipeline, tc)
 		if err != nil {
 			err := errors.Wrap(err, "simulating pipeline processing failed")
@@ -109,7 +129,7 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 			continue
 		}
 
-		tr.TimeElapsed = time.Now().Sub(startTime)
+		tr.TimeElapsed = time.Since(startTime)
 		fieldsValidator, err := fields.CreateValidatorForDataStream(dataStreamPath,
 			fields.WithNumericKeywordFields(tc.config.NumericKeywordFields))
 		if err != nil {
@@ -137,14 +157,15 @@ func (r *runner) run() ([]testrunner.TestResult, error) {
 }
 
 func (r *runner) listTestCaseFiles() ([]string, error) {
-	fis, err := ioutil.ReadDir(r.options.TestFolder.Path)
+	fis, err := os.ReadDir(r.options.TestFolder.Path)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading pipeline tests failed (path: %s)", r.options.TestFolder.Path)
 	}
 
 	var files []string
 	for _, fi := range fis {
-		if strings.HasSuffix(fi.Name(), expectedTestResultSuffix) || strings.HasSuffix(fi.Name(), configTestSuffix) {
+		if strings.HasSuffix(fi.Name(), expectedTestResultSuffix) ||
+			strings.HasSuffix(fi.Name(), configTestSuffixYAML) {
 			continue
 		}
 		files = append(files, fi.Name())
@@ -154,7 +175,7 @@ func (r *runner) listTestCaseFiles() ([]string, error) {
 
 func (r *runner) loadTestCaseFile(testCaseFile string) (*testCase, error) {
 	testCasePath := filepath.Join(r.options.TestFolder.Path, testCaseFile)
-	testCaseData, err := ioutil.ReadFile(testCasePath)
+	testCaseData, err := os.ReadFile(testCasePath)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading input file failed (testCasePath: %s)", testCasePath)
 	}
@@ -162,6 +183,13 @@ func (r *runner) loadTestCaseFile(testCaseFile string) (*testCase, error) {
 	config, err := readConfigForTestCase(testCasePath)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading config for test case failed (testCasePath: %s)", testCasePath)
+	}
+
+	if config.Skip != nil {
+		return &testCase{
+			name:   testCaseFile,
+			config: config,
+		}, nil
 	}
 
 	ext := filepath.Ext(testCaseFile)
@@ -207,6 +235,8 @@ func (r *runner) verifyResults(testCaseFile string, config *testConfig, result *
 		return errors.Wrap(err, "comparing test results failed")
 	}
 
+	result = stripEmptyTestResults(result)
+
 	err = verifyDynamicFields(result, config)
 	if err != nil {
 		return err
@@ -217,6 +247,19 @@ func (r *runner) verifyResults(testCaseFile string, config *testConfig, result *
 		return err
 	}
 	return nil
+}
+
+// stripEmptyTestResults function removes events which are nils. These nils can represent
+// documents processed by a pipeline which potentially used a "drop" processor (to drop the event at all).
+func stripEmptyTestResults(result *testResult) *testResult {
+	var tr testResult
+	for _, event := range result.events {
+		if event == nil {
+			continue
+		}
+		tr.events = append(tr.events, event)
+	}
+	return &tr
 }
 
 func verifyDynamicFields(result *testResult, config *testConfig) error {
@@ -267,6 +310,12 @@ func verifyDynamicFields(result *testResult, config *testConfig) error {
 func verifyFieldsInTestResult(result *testResult, fieldsValidator *fields.Validator) error {
 	var multiErr multierror.Error
 	for _, event := range result.events {
+		err := checkErrorMessage(event)
+		if err != nil {
+			multiErr = append(multiErr, err)
+			continue // all fields can be wrong, no need validate them
+		}
+
 		errs := fieldsValidator.ValidateDocumentBody(event)
 		if errs != nil {
 			multiErr = append(multiErr, errs...)
@@ -278,6 +327,23 @@ func verifyFieldsInTestResult(result *testResult, fieldsValidator *fields.Valida
 			Reason:  "one or more problems with fields found in documents",
 			Details: multiErr.Unique().Error(),
 		}
+	}
+	return nil
+}
+
+func checkErrorMessage(event json.RawMessage) error {
+	var pipelineError = struct {
+		Error struct {
+			Message string
+		}
+	}{}
+	err := json.Unmarshal(event, &pipelineError)
+	if err != nil {
+		return errors.Wrap(err, "can't unmarshal event to check pipeline error")
+	}
+
+	if pipelineError.Error.Message != "" {
+		return fmt.Errorf("unexpected pipeline error: %s", pipelineError.Error.Message)
 	}
 	return nil
 }

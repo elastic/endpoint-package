@@ -9,23 +9,22 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/elastic/elastic-package/internal/cleanup"
+	"github.com/elastic/elastic-package/internal/cobraext"
 )
 
 const cleanLongDescription = `Use this command to clean resources used for building the package.
 
-The command will remove built package files (in build/), files needed for managing the development stack (in ~/.elastic-package/stack/development) and stack service logs (in ~/.elastic-package/tmp/service_logs).
+The command will remove built package files (in build/), files needed for managing the development stack (in ~/.elastic-package/stack/development) and stack service logs (in ~/.elastic-package/tmp/service_logs).`
 
-Context:
-  package`
-
-func setupCleanCommand() *cobra.Command {
+func setupCleanCommand() *cobraext.Command {
 	cmd := &cobra.Command{
 		Use:   "clean",
 		Short: "Clean used resources",
 		Long:  cleanLongDescription,
 		RunE:  cleanCommandAction,
 	}
-	return cmd
+
+	return cobraext.NewCommand(cmd, cobraext.ContextPackage)
 }
 
 func cleanCommandAction(cmd *cobra.Command, args []string) error {

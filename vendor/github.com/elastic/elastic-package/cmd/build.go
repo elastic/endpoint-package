@@ -5,11 +5,15 @@
 package cmd
 
 import (
+	"strings"
+
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
 	"github.com/elastic/elastic-package/internal/builder"
+	"github.com/elastic/elastic-package/internal/cobraext"
 	"github.com/elastic/elastic-package/internal/docs"
+	"github.com/elastic/elastic-package/internal/packages"
 )
 
 const buildLongDescription = `Use this command to build a package. Currently it supports only the "integration" package type.
@@ -20,31 +24,38 @@ Built packages are served up by the Elastic Package Registry running locally (se
 
 Built packages can also be published to the global package registry service.
 
-Context:
-  package`
+For details on how to enable dependency management, see the [HOWTO guide](https://github.com/elastic/elastic-package/blob/master/docs/howto/dependency_management.md).`
 
-func setupBuildCommand() *cobra.Command {
+func setupBuildCommand() *cobraext.Command {
 	cmd := &cobra.Command{
 		Use:   "build",
 		Short: "Build the package",
 		Long:  buildLongDescription,
 		RunE:  buildCommandAction,
 	}
-	return cmd
+
+	return cobraext.NewCommand(cmd, cobraext.ContextPackage)
 }
 
 func buildCommandAction(cmd *cobra.Command, args []string) error {
 	cmd.Println("Build the package")
 
-	target, err := docs.UpdateReadme()
+	packageRoot, err := packages.MustFindPackageRoot()
 	if err != nil {
-		return errors.Wrapf(err, "updating %s file failed", docs.ReadmeFile)
-	}
-	if target != "" {
-		cmd.Printf("%s file rendered: %s\n", docs.ReadmeFile, target)
+		return errors.Wrap(err, "locating package root failed")
 	}
 
-	target, err = builder.BuildPackage()
+	targets, err := docs.UpdateReadmes(packageRoot)
+	if err != nil {
+		return errors.Wrap(err, "updating files failed")
+	}
+
+	for _, target := range targets {
+		splitTarget := strings.Split(target, "/")
+		cmd.Printf("%s file rendered: %s\n", splitTarget[len(splitTarget)-1], target)
+	}
+
+	target, err := builder.BuildPackage(packageRoot)
 	if err != nil {
 		return errors.Wrap(err, "building package failed")
 	}

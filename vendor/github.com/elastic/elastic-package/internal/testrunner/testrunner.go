@@ -6,6 +6,7 @@ package testrunner
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -13,9 +14,6 @@ import (
 
 	"github.com/elastic/go-elasticsearch/v7"
 	"github.com/pkg/errors"
-
-	"github.com/elastic/elastic-package/internal/logger"
-	"github.com/elastic/elastic-package/internal/multierror"
 )
 
 // TestType represents the various supported test types
@@ -28,7 +26,8 @@ type TestOptions struct {
 	GenerateTestResult bool
 	ESClient           *elasticsearch.Client
 
-	DeferCleanup time.Duration
+	DeferCleanup   time.Duration
+	ServiceVariant string
 }
 
 // TestRunner is the interface all test runners must implement.
@@ -45,6 +44,10 @@ type TestRunner interface {
 	// TearDown cleans up any test runner resources. It must be called
 	// after the test runner has finished executing.
 	TearDown() error
+
+	CanRunPerDataStream() bool
+
+	TestFolderRequired() bool
 }
 
 var runners = map[TestType]TestRunner{}
@@ -78,6 +81,54 @@ type TestResult struct {
 	// of the error. An error is when the test cannot complete execution due
 	// to an unexpected runtime error in the test execution.
 	ErrorMsg string
+
+	// If the test was skipped, the reason it was skipped and a link for more
+	// details.
+	Skipped *SkipConfig
+}
+
+// ResultComposer wraps a TestResult and provides convenience methods for
+// manipulating this TestResult.
+type ResultComposer struct {
+	TestResult
+	StartTime time.Time
+}
+
+// NewResultComposer returns a new ResultComposer with the StartTime
+// initialized to now.
+func NewResultComposer(tr TestResult) *ResultComposer {
+	return &ResultComposer{
+		TestResult: tr,
+		StartTime:  time.Now(),
+	}
+}
+
+// WithError sets an error on the test result wrapped by ResultComposer.
+func (rc *ResultComposer) WithError(err error) ([]TestResult, error) {
+	rc.TimeElapsed = time.Since(rc.StartTime)
+	if err == nil {
+		return []TestResult{rc.TestResult}, nil
+	}
+
+	if tcf, ok := err.(ErrTestCaseFailed); ok {
+		rc.FailureMsg += tcf.Reason
+		rc.FailureDetails += tcf.Details
+		return []TestResult{rc.TestResult}, nil
+	}
+
+	rc.ErrorMsg += err.Error()
+	return []TestResult{rc.TestResult}, err
+}
+
+// WithSuccess marks the test result wrapped by ResultComposer as successful.
+func (rc *ResultComposer) WithSuccess() ([]TestResult, error) {
+	return rc.WithError(nil)
+}
+
+// WithSkip marks the test result wrapped by ResultComposer as skipped.
+func (rc *ResultComposer) WithSkip(s *SkipConfig) ([]TestResult, error) {
+	rc.TestResult.Skipped = s
+	return rc.WithError(nil)
 }
 
 // TestFolder encapsulates the test folder path and names of the package + data stream
@@ -88,8 +139,45 @@ type TestFolder struct {
 	DataStream string
 }
 
+// AssumeTestFolders assumes potential test folders for the given package, data streams and test types.
+func AssumeTestFolders(packageRootPath string, dataStreams []string, testType TestType) ([]TestFolder, error) {
+	// Expected folder structure:
+	// <packageRootPath>/
+	//   data_stream/
+	//     <dataStream>/
+
+	dataStreamsPath := filepath.Join(packageRootPath, "data_stream")
+
+	if len(dataStreams) == 0 {
+		fileInfos, err := os.ReadDir(dataStreamsPath)
+		if errors.Is(err, os.ErrNotExist) {
+			return []TestFolder{}, nil // data streams defined
+		}
+		if err != nil {
+			return nil, errors.Wrapf(err, "can't read directory (path: %s)", dataStreamsPath)
+		}
+
+		for _, fi := range fileInfos {
+			if !fi.IsDir() {
+				continue
+			}
+			dataStreams = append(dataStreams, fi.Name())
+		}
+	}
+
+	var folders []TestFolder
+	for _, dataStream := range dataStreams {
+		folders = append(folders, TestFolder{
+			Path:       filepath.Join(dataStreamsPath, dataStream, "_dev", "test", string(testType)),
+			Package:    filepath.Base(packageRootPath),
+			DataStream: dataStream,
+		})
+	}
+	return folders, nil
+}
+
 // FindTestFolders finds test folders for the given package and, optionally, test type and data streams
-func FindTestFolders(packageRootPath string, testType TestType, dataStreams []string) ([]TestFolder, error) {
+func FindTestFolders(packageRootPath string, dataStreams []string, testType TestType) ([]TestFolder, error) {
 	// Expected folder structure:
 	// <packageRootPath>/
 	//   data_stream/
@@ -104,7 +192,7 @@ func FindTestFolders(packageRootPath string, testType TestType, dataStreams []st
 	}
 
 	var paths []string
-	if dataStreams != nil && len(dataStreams) > 0 {
+	if len(dataStreams) > 0 {
 		sort.Strings(dataStreams)
 		for _, dataStream := range dataStreams {
 			p, err := findTestFolderPaths(packageRootPath, dataStream, testTypeGlob)
@@ -154,30 +242,14 @@ func Run(testType TestType, options TestOptions) ([]TestResult, error) {
 		return nil, fmt.Errorf("unregistered runner test: %s", testType)
 	}
 
-	tearDown := func() error {
-		if options.DeferCleanup > 0 {
-			logger.Debugf("waiting for %s before tearing down...", options.DeferCleanup)
-			time.Sleep(options.DeferCleanup)
-		}
-		return runner.TearDown()
-	}
-
 	results, err := runner.Run(options)
+	tdErr := runner.TearDown()
 	if err != nil {
-		tdErr := tearDown()
-		if tdErr != nil {
-			var errs multierror.Error
-			errs = append(errs, err, tdErr)
-			return nil, errors.Wrap(err, "could not complete test run and teardown test runner")
-		}
-
 		return nil, errors.Wrap(err, "could not complete test run")
 	}
-
-	if err := tearDown(); err != nil {
+	if tdErr != nil {
 		return results, errors.Wrap(err, "could not teardown test runner")
 	}
-
 	return results, nil
 }
 
@@ -186,6 +258,8 @@ func TestRunners() map[TestType]TestRunner {
 	return runners
 }
 
+// findTestFoldersPaths can only be called for test runners that require tests to be defined
+// at the data stream level.
 func findTestFolderPaths(packageRootPath, dataStreamGlob, testTypeGlob string) ([]string, error) {
 	testFoldersGlob := filepath.Join(packageRootPath, "data_stream", dataStreamGlob, "_dev", "test", testTypeGlob)
 	paths, err := filepath.Glob(testFoldersGlob)

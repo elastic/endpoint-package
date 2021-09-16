@@ -8,8 +8,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
+	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -24,9 +25,7 @@ import (
 	"github.com/elastic/elastic-package/internal/packages"
 )
 
-const defaultPipelineName = "default"
-
-var ingestPipelineTag = regexp.MustCompile("{{\\s*IngestPipeline.+}}")
+var ingestPipelineTag = regexp.MustCompile(`{{\s*IngestPipeline.+}}`)
 
 type pipelineResource struct {
 	name    string
@@ -58,7 +57,7 @@ func installIngestPipelines(esClient *elasticsearch.Client, dataStreamPath strin
 
 	nonce := time.Now().UnixNano()
 
-	mainPipeline := getWithPipelineNameWithNonce(getPipelineNameOrDefault(dataStreamManifest), nonce)
+	mainPipeline := getWithPipelineNameWithNonce(dataStreamManifest.GetPipelineNameOrDefault(), nonce)
 	pipelines, err := loadIngestPipelineFiles(dataStreamPath, nonce)
 	if err != nil {
 		return "", nil, errors.Wrap(err, "loading ingest pipeline files failed")
@@ -76,26 +75,23 @@ func installIngestPipelines(esClient *elasticsearch.Client, dataStreamPath strin
 	return mainPipeline, jsonPipelines, nil
 }
 
-func getPipelineNameOrDefault(dsm *packages.DataStreamManifest) string {
-	if dsm.Elasticsearch != nil && dsm.Elasticsearch.IngestPipeline != nil && dsm.Elasticsearch.IngestPipeline.Name != "" {
-		return dsm.Elasticsearch.IngestPipeline.Name
-	}
-	return defaultPipelineName
-}
-
 func loadIngestPipelineFiles(dataStreamPath string, nonce int64) ([]pipelineResource, error) {
 	elasticsearchPath := filepath.Join(dataStreamPath, "elasticsearch", "ingest_pipeline")
-	fis, err := ioutil.ReadDir(elasticsearchPath)
-	if err != nil {
-		return nil, errors.Wrapf(err, "reading ingest pipelines directory failed (path: %s)", elasticsearchPath)
+
+	var pipelineFiles []string
+	for _, pattern := range []string{"*.json", "*.yml"} {
+		files, err := filepath.Glob(filepath.Join(elasticsearchPath, pattern))
+		if err != nil {
+			return nil, errors.Wrapf(err, "listing '%s' in '%s'", pattern, elasticsearchPath)
+		}
+		pipelineFiles = append(pipelineFiles, files...)
 	}
 
 	var pipelines []pipelineResource
-	for _, fi := range fis {
-		path := filepath.Join(elasticsearchPath, fi.Name())
-		c, err := ioutil.ReadFile(path)
+	for _, path := range pipelineFiles {
+		c, err := os.ReadFile(path)
 		if err != nil {
-			return nil, errors.Wrap(err, "reading ingest pipeline failed")
+			return nil, errors.Wrapf(err, "reading ingest pipeline failed (path: %s)", path)
 		}
 
 		c = ingestPipelineTag.ReplaceAllFunc(c, func(found []byte) []byte {
@@ -106,9 +102,10 @@ func loadIngestPipelineFiles(dataStreamPath string, nonce int64) ([]pipelineReso
 			pipelineTag := s[1]
 			return []byte(getWithPipelineNameWithNonce(pipelineTag, nonce))
 		})
+		name := filepath.Base(path)
 		pipelines = append(pipelines, pipelineResource{
-			name:    getWithPipelineNameWithNonce(fi.Name()[:strings.Index(fi.Name(), ".")], nonce),
-			format:  filepath.Ext(fi.Name())[1:],
+			name:    getWithPipelineNameWithNonce(name[:strings.Index(name, ".")], nonce),
+			format:  filepath.Ext(path)[1:],
 			content: c,
 		})
 	}
@@ -167,7 +164,7 @@ func putIngestPipeline(esClient *elasticsearch.Client, pipeline pipelineResource
 	}
 	defer r.Body.Close()
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		return errors.Wrapf(err, "failed to read PutPipeline API response body (pipelineName: %s)", pipeline.name)
 	}
@@ -188,7 +185,7 @@ func getIngestPipeline(esClient *elasticsearch.Client, pipelineName string) erro
 	}
 	defer r.Body.Close()
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		return errors.Wrapf(err, "failed to read GetPipeline API response body (pipelineName: %s)", pipelineName)
 	}
@@ -235,7 +232,7 @@ func simulatePipelineProcessing(esClient *elasticsearch.Client, pipelineName str
 	}
 	defer r.Body.Close()
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to read Simulate API response body")
 	}

@@ -12,11 +12,14 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v3"
 
+	"github.com/elastic/elastic-package/internal/docker"
 	"github.com/elastic/elastic-package/internal/logger"
+	"github.com/elastic/elastic-package/internal/signal"
 )
 
 // Project represents a Docker Compose project.
@@ -30,7 +33,8 @@ type Config struct {
 	Services map[string]service
 }
 type service struct {
-	Ports []portMapping
+	Ports       []portMapping
+	Environment map[string]string
 }
 
 type portMapping struct {
@@ -53,6 +57,7 @@ func (p *portMapping) UnmarshalYAML(node *yaml.Node) error {
 		}
 
 		var s struct {
+			HostIP    string `yaml:"host_ip"`
 			Target    int
 			Published int
 			Protocol  string
@@ -65,7 +70,7 @@ func (p *portMapping) UnmarshalYAML(node *yaml.Node) error {
 		p.InternalPort = s.Target
 		p.ExternalPort = s.Published
 		p.Protocol = s.Protocol
-
+		p.ExternalIP = s.HostIP
 		return nil
 	}
 
@@ -123,6 +128,7 @@ type CommandOptions struct {
 
 // NewProject creates a new Docker Compose project given a sequence of Docker Compose configuration files.
 func NewProject(name string, paths ...string) (*Project, error) {
+	// TODO: a lot of the checks in NewProject don't need to happen any more, we might want to rethink how we do this.
 	for _, path := range paths {
 		info, err := os.Stat(path)
 		if err != nil {
@@ -183,6 +189,20 @@ func (p *Project) Build(opts CommandOptions) error {
 	return nil
 }
 
+// Kill sends a signal to a service container.
+func (p *Project) Kill(opts CommandOptions) error {
+	args := p.baseArgs()
+	args = append(args, "kill")
+	args = append(args, opts.ExtraArgs...)
+	args = append(args, opts.Services...)
+
+	if err := p.runDockerComposeCmd(dockerComposeOptions{args: args, env: opts.Env}); err != nil {
+		return errors.Wrap(err, "running Docker Compose kill command failed")
+	}
+
+	return nil
+}
+
 // Config returns the combined configuration for a Docker Compose project.
 func (p *Project) Config(opts CommandOptions) (*Config, error) {
 	args := p.baseArgs()
@@ -217,6 +237,77 @@ func (p *Project) Pull(opts CommandOptions) error {
 	return nil
 }
 
+// Logs returns service logs for the selected service in the Docker Compose project.
+func (p *Project) Logs(opts CommandOptions) ([]byte, error) {
+	args := p.baseArgs()
+	args = append(args, "logs")
+	args = append(args, opts.ExtraArgs...)
+	args = append(args, opts.Services...)
+
+	var b bytes.Buffer
+	if err := p.runDockerComposeCmd(dockerComposeOptions{args: args, env: opts.Env, stdout: &b}); err != nil {
+		return nil, err
+	}
+	return b.Bytes(), nil
+}
+
+// WaitForHealthy method waits until all containers are healthy.
+func (p *Project) WaitForHealthy(opts CommandOptions) error {
+	// Read container IDs
+	args := p.baseArgs()
+	args = append(args, "ps")
+	args = append(args, "-q")
+
+	var b bytes.Buffer
+	if err := p.runDockerComposeCmd(dockerComposeOptions{args: args, env: opts.Env, stdout: &b}); err != nil {
+		return err
+	}
+
+	containerIDs := strings.Split(strings.TrimSpace(b.String()), "\n")
+	for {
+		if signal.SIGINT() {
+			return errors.New("SIGINT: cancel waiting for policy assigned")
+		}
+
+		healthy := true
+
+		logger.Debugf("Wait for healthy containers: %s", strings.Join(containerIDs, ","))
+		descriptions, err := docker.InspectContainers(containerIDs...)
+		if err != nil {
+			return err
+		}
+
+		for _, containerDescription := range descriptions {
+			logger.Debugf("Container status: %s", containerDescription.String())
+
+			// No healthcheck defined for service
+			if containerDescription.State.Status == "running" && containerDescription.State.Health == nil {
+				continue
+			}
+
+			// Service is up and running and it's healthy
+			if containerDescription.State.Status == "running" && containerDescription.State.Health.Status == "healthy" {
+				continue
+			}
+
+			// Container started and finished with exit code 0
+			if containerDescription.State.Status == "exited" && containerDescription.State.ExitCode == 0 {
+				continue
+			}
+
+			// Any different status is considered unhealthy
+			healthy = false
+		}
+
+		if healthy {
+			break
+		}
+
+		time.Sleep(time.Second)
+	}
+	return nil
+}
+
 func (p *Project) baseArgs() []string {
 	var args []string
 	for _, path := range p.composeFilePaths {
@@ -247,4 +338,9 @@ func (p *Project) runDockerComposeCmd(opts dockerComposeOptions) error {
 
 	logger.Debugf("running command: %s", cmd)
 	return cmd.Run()
+}
+
+// ContainerName method the container name for the service.
+func (p *Project) ContainerName(serviceName string) string {
+	return fmt.Sprintf("%s_%s_1", p.name, serviceName)
 }
