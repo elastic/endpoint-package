@@ -1,0 +1,60 @@
+##
+## This file documents the package changelog
+##
+
+- version: 1.2.0-dev.0
+  changes:
+    - description: Set Minimum Kibana version to 7.16
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/179
+    - description: Remove unused exceptionable
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/180
+    - description: Added Endpoint.metrics.documents_volume to metrics stream
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/188
+    - description: Update "metadata_current" transform description
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/190
+- version: 1.1.1
+  changes:
+    - description: convert Events to be an object field
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/185
+- version: 1.1.0
+  changes:
+    - description: Changes for multi process ransomware
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/153
+    - description: Add malware_signature for Memory protection alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/155
+    - description: Add memory_protection fields to policy response
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/162
+    - description: Don't index memory region strings
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/167
+    - description: Add Endpoint.capabilities to metadata
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/168
+    - description: Minimum supported Kibana for this version is 7.15
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/169
+    - description: Add more behavior protection fields (ip, code_signature, dns, registry)
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/170
+    - description: Add Rule detection event schema
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/177
+    - description: Add all code_signature ECS fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/178
+    - description: update to ECS 1.11.0
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/173
+- version: 1.0.0
+  changes:
+    - description: GA Release
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/tree/v1.0.0
