@@ -5,3 +5,4 @@ config.mk
 build
 scripts/go-tools/bin
 venv/
+vendor/
