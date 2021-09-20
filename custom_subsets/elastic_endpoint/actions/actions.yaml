@@ -1,0 +1,34 @@
+---
+name: actions
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      action_id: {}
+      agents: {}
+      data:
+        fields: "*"
+      expiration: {}
+      input_type: {}
+      type: {}
+      user_id: {}
+  agent:
+    fields:
+      id: {}
+  data_stream:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      end: {}
+      hash: {}
+      id: {}
+      ingested: {}
+      outcome: {}
+      start: {}
+      type: {}
