@@ -6,11 +6,18 @@ fields:
       "@timestamp": {}
       action_id: {}
       completed_at: {}
+      data: {}
+      status: {}
+      started_at: {}
+      agent_id: {}
+  response:
+    fields:
+      action_id: {}
+      completed_at: {}
       data:
         fields: "*"
       status: {}
       started_at: {}
-      agent_id: {}
   agent:
     fields:
       id: {}

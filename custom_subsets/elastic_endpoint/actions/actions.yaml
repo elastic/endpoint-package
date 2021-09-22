@@ -6,6 +6,14 @@ fields:
       "@timestamp": {}
       action_id: {}
       agents: {}
+      data: {}
+      expiration: {}
+      input_type: {}
+      type: {}
+      user_id: {}
+  request:
+    fields:
+      action_id: {}
       data:
         fields: "*"
       expiration: {}

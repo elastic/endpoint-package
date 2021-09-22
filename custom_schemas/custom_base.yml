@@ -19,7 +19,8 @@
     # endpoint action and responses fields
     # that are at the root level    
     - name: "action_id"
-      type: keyword
+      type: alias
+      path: request.action_id
       level: custom
       short: action id
       description: >
@@ -42,28 +43,16 @@
         Alias field that maps to {agent: {id}}
 
     - name: "data"
-      type: object
+      type: alias
       level: custom
+      path: request.data
       short: data
       description: >
         The action request information
-    
-    - name: "data.command"
-      type: keyword
-      level: custom
-      short: data.command
-      description: >
-        The action that is requested
-
-    - name: "data.comment"
-      type: text
-      level: custom
-      short: data.comment
-      description: >
-        A comment that describes the action that is requested
 
     - name: "expiration"
-      type: date
+      type: alias
+      path: request.expiration
       level: custom
       short: expiration
       description: >
@@ -71,42 +60,48 @@
     
     # most likely redundant
     - name: "input_type"
-      type: keyword
+      type: alias
+      path: request.input_type
       level: custom
       short: input_type
       description: >
         The input type of the action, distinguishes endpoint actions as `endpoint`
 
     - name: "type"
-      type: keyword
+      type: alias
+      path: request.type
       level: custom
       short: The type of input
       description:
         Distinguishes the type of input. Usually set to `INPUT_ACTION`
 
     - name: "user_id"
-      type: keyword
+      type: alias
+      path: request.user_id
       level: custom
       short: user id
       description: >
         The user id
 
     - name: "completed_at"
-      type: date
+      type: alias
+      path: response.completed_at
       level: custom
       short: completed at
       description: >
         Request completion timestamp when the response is done executing. Usually matches with @timestamp.
     
     - name: "status"
-      type: keyword
+      type: alias
+      path: response.status
       level: custom
       short: status
       description: >
         The status of the request that distinguishes if the request is queued, running or completed.
 
     - name: "started_at"
-      type: date
+      type: alias
+      path: response.started_at
       level: custom
       short: started at
       description:
