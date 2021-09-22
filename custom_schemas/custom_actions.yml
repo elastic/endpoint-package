@@ -1,0 +1,65 @@
+- name: request
+  title: Action Request
+  group: 2
+  short: Endpoint Action requests.
+  description: >
+    Fields to describe the endpoint  action requests.
+  type: group
+  
+  fields:
+    - name: "action_id"
+      type: keyword
+      level: custom
+      short: action id
+      description: >
+        The action id
+
+    - name: "data"
+      type: object
+      level: custom
+      short: data
+      description: >
+        The action request information
+    
+    - name: "data.command"
+      type: keyword
+      level: custom
+      short: data.command
+      description: >
+        The action that is requested
+
+    - name: "data.comment"
+      type: text
+      level: custom
+      short: data.comment
+      description: >
+        A comment that describes the action that is requested
+
+    - name: "expiration"
+      type: date
+      level: custom
+      short: expiration
+      description: >
+        Request expiration timestamp
+    
+    # most likely redundant
+    - name: "input_type"
+      type: keyword
+      level: custom
+      short: input_type
+      description: >
+        The input type of the action, distinguishes endpoint actions as `endpoint`
+
+    - name: "type"
+      type: keyword
+      level: custom
+      short: The type of input
+      description:
+        Distinguishes the type of input. Usually set to `INPUT_ACTION`
+
+    - name: "user_id"
+      type: keyword
+      level: custom
+      short: user id
+      description: >
+        The user id 
