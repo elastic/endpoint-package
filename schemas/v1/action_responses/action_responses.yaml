@@ -21,12 +21,12 @@ action_id:
   dashed_name: action-id
   description: The action id
   flat_name: action_id
-  ignore_above: 1024
   level: custom
   name: action_id
   normalize: []
+  path: request.action_id
   short: action id
-  type: keyword
+  type: alias
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -58,8 +58,9 @@ completed_at:
   level: custom
   name: completed_at
   normalize: []
+  path: response.completed_at
   short: completed at
-  type: date
+  type: alias
 data:
   dashed_name: data
   description: The action request information
@@ -67,28 +68,9 @@ data:
   level: custom
   name: data
   normalize: []
+  path: request.data
   short: data
-  type: object
-data.command:
-  dashed_name: data-command
-  description: The action that is requested
-  flat_name: data.command
-  ignore_above: 1024
-  level: custom
-  name: data.command
-  normalize: []
-  short: data.command
-  type: keyword
-data.comment:
-  dashed_name: data-comment
-  description: A comment that describes the action that is requested
-  flat_name: data.comment
-  level: custom
-  name: data.comment
-  normalize: []
-  norms: false
-  short: data.comment
-  type: text
+  type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset
   description: Data stream dataset name.
@@ -608,6 +590,75 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+response.action_id:
+  dashed_name: response-action-id
+  description: The action id
+  flat_name: response.action_id
+  ignore_above: 1024
+  level: custom
+  name: action_id
+  normalize: []
+  short: action id
+  type: keyword
+response.completed_at:
+  dashed_name: response-completed-at
+  description: Request completion timestamp when the response is done executing. Usually
+    matches with @timestamp.
+  flat_name: response.completed_at
+  level: custom
+  name: completed_at
+  normalize: []
+  short: completed at
+  type: date
+response.data:
+  dashed_name: response-data
+  description: The action request information
+  flat_name: response.data
+  level: custom
+  name: data
+  normalize: []
+  short: data
+  type: object
+response.data.command:
+  dashed_name: response-data-command
+  description: The action that is requested
+  flat_name: response.data.command
+  ignore_above: 1024
+  level: custom
+  name: data.command
+  normalize: []
+  short: data.command
+  type: keyword
+response.data.comment:
+  dashed_name: response-data-comment
+  description: A comment that describes the action that is requested
+  flat_name: response.data.comment
+  level: custom
+  name: data.comment
+  normalize: []
+  norms: false
+  short: data.comment
+  type: text
+response.started_at:
+  dashed_name: response-started-at
+  description: Timestamp of start of request
+  flat_name: response.started_at
+  level: custom
+  name: started_at
+  normalize: []
+  short: started at
+  type: date
+response.status:
+  dashed_name: response-status
+  description: The status of the request that distinguishes if the request is queued,
+    running or completed.
+  flat_name: response.status
+  ignore_above: 1024
+  level: custom
+  name: status
+  normalize: []
+  short: status
+  type: keyword
 started_at:
   dashed_name: started-at
   description: Timestamp of start of request
@@ -615,16 +666,17 @@ started_at:
   level: custom
   name: started_at
   normalize: []
+  path: response.started_at
   short: started at
-  type: date
+  type: alias
 status:
   dashed_name: status
   description: The status of the request that distinguishes if the request is queued,
     running or completed.
   flat_name: status
-  ignore_above: 1024
   level: custom
   name: status
   normalize: []
+  path: response.status
   short: status
-  type: keyword
+  type: alias

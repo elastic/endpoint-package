@@ -23,8 +23,8 @@
         "type": "date"
       },
       "action_id": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "request.action_id",
+        "type": "alias"
       },
       "agent": {
         "properties": {
@@ -39,20 +39,12 @@
         "type": "alias"
       },
       "completed_at": {
-        "type": "date"
+        "path": "response.completed_at",
+        "type": "alias"
       },
       "data": {
-        "properties": {
-          "command": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "comment": {
-            "norms": false,
-            "type": "text"
-          }
-        },
-        "type": "object"
+        "path": "request.data",
+        "type": "alias"
       },
       "data_stream": {
         "properties": {
@@ -115,12 +107,44 @@
           }
         }
       },
+      "response": {
+        "properties": {
+          "action_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "completed_at": {
+            "type": "date"
+          },
+          "data": {
+            "properties": {
+              "command": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "comment": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "type": "object"
+          },
+          "started_at": {
+            "type": "date"
+          },
+          "status": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "started_at": {
-        "type": "date"
+        "path": "response.started_at",
+        "type": "alias"
       },
       "status": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "response.status",
+        "type": "alias"
       }
     }
   },

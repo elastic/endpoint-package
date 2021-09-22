@@ -23,8 +23,8 @@
         "type": "date"
       },
       "action_id": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "request.action_id",
+        "type": "alias"
       },
       "agent": {
         "properties": {
@@ -39,17 +39,8 @@
         "type": "alias"
       },
       "data": {
-        "properties": {
-          "command": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "comment": {
-            "norms": false,
-            "type": "text"
-          }
-        },
-        "type": "object"
+        "path": "request.data",
+        "type": "alias"
       },
       "data_stream": {
         "properties": {
@@ -113,19 +104,56 @@
         }
       },
       "expiration": {
-        "type": "date"
+        "path": "request.expiration",
+        "type": "alias"
       },
       "input_type": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "request.input_type",
+        "type": "alias"
+      },
+      "request": {
+        "properties": {
+          "action_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "data": {
+            "properties": {
+              "command": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "comment": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "type": "object"
+          },
+          "expiration": {
+            "type": "date"
+          },
+          "input_type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "user_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
       },
       "type": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "request.type",
+        "type": "alias"
       },
       "user_id": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "request.user_id",
+        "type": "alias"
       }
     }
   },
