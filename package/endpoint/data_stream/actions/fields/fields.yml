@@ -14,7 +14,7 @@
   level: custom
   type: alias
   description: The action id
-  path: request.action_id
+  path: EndpointActions.request.action_id
   default_field: false
 - name: agents
   level: custom
@@ -22,36 +22,93 @@
   description: 'Alias field that maps to {agent: {id}}'
   path: agent.id
   default_field: false
-- name: data
+- name: data.command
   level: custom
   type: alias
-  description: The action request information
-  path: request.data
+  description: The action that is requested
+  path: EndpointActions.request.data.command
+  default_field: false
+- name: data.comment
+  level: custom
+  type: alias
+  description: A comment that describes the action that is requested
+  path: EndpointActions.request.data.comment
   default_field: false
 - name: expiration
   level: custom
   type: alias
   description: Request expiration timestamp
-  path: request.expiration
+  path: EndpointActions.request.expiration
   default_field: false
 - name: input_type
   level: custom
   type: alias
   description: The input type of the action, distinguishes endpoint actions as `endpoint`
-  path: request.input_type
+  path: EndpointActions.request.input_type
   default_field: false
 - name: type
   level: custom
   type: alias
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
-  path: request.type
+  path: EndpointActions.request.type
   default_field: false
 - name: user_id
   level: custom
   type: alias
   description: The user id
-  path: request.user_id
+  path: user.id
   default_field: false
+- name: EndpointActions
+  title: Endpoint Actions
+  group: 2
+  description: Fields to describe the endpoint  action requests and responses.
+  type: group
+  fields:
+    - name: request
+      level: custom
+      type: object
+      description: Endpoint action request details
+      default_field: false
+    - name: request.action_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action id
+      default_field: false
+    - name: request.data
+      level: custom
+      type: object
+      description: The action request information
+      default_field: false
+    - name: request.data.command
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action that is requested
+      example: isolate
+      default_field: false
+    - name: request.data.comment
+      level: custom
+      type: text
+      description: A comment that describes the action that is requested
+      default_field: false
+    - name: request.expiration
+      level: custom
+      type: date
+      description: Request expiration timestamp
+      default_field: false
+    - name: request.input_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The input type of the action, distinguishes endpoint actions as `endpoint`
+      default_field: false
+    - name: request.type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -198,54 +255,16 @@
         `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization.
 
         This field is an array. This will allow proper categorization of some events that fall in multiple event types.'
-- name: request
-  title: Action Request
+- name: user
+  title: User
   group: 2
-  description: Fields to describe the endpoint  action requests.
+  description: 'The user fields describe information about the user that is relevant to the event.
+
+    Fields can have one entry or multiple entries. If a user has more than one id, provide an array that includes all of them.'
   type: group
   fields:
-    - name: action_id
-      level: custom
+    - name: id
+      level: core
       type: keyword
       ignore_above: 1024
-      description: The action id
-      default_field: false
-    - name: data
-      level: custom
-      type: object
-      description: The action request information
-      default_field: false
-    - name: data.command
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The action that is requested
-      default_field: false
-    - name: data.comment
-      level: custom
-      type: text
-      description: A comment that describes the action that is requested
-      default_field: false
-    - name: expiration
-      level: custom
-      type: date
-      description: Request expiration timestamp
-      default_field: false
-    - name: input_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The input type of the action, distinguishes endpoint actions as `endpoint`
-      default_field: false
-    - name: type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
-      default_field: false
-    - name: user_id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The user id
-      default_field: false
+      description: Unique identifier of the user.

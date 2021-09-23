@@ -17,6 +17,104 @@
   required: true
   short: Date/time when the event originated.
   type: date
+EndpointActions.response:
+  dashed_name: EndpointActions-response
+  description: Endpoint action response details
+  flat_name: EndpointActions.response
+  level: custom
+  name: response
+  normalize: []
+  short: Action response info
+  type: object
+EndpointActions.response.action_id:
+  dashed_name: EndpointActions-response-action-id
+  description: The action id
+  flat_name: EndpointActions.response.action_id
+  ignore_above: 1024
+  level: custom
+  name: response.action_id
+  normalize: []
+  short: action id
+  type: keyword
+EndpointActions.response.completed_at:
+  dashed_name: EndpointActions-response-completed-at
+  description: Request completion timestamp when the response is done executing. Usually
+    matches with @timestamp.
+  flat_name: EndpointActions.response.completed_at
+  level: custom
+  name: response.completed_at
+  normalize: []
+  short: completed at
+  type: date
+EndpointActions.response.data:
+  dashed_name: EndpointActions-response-data
+  description: The action request information
+  flat_name: EndpointActions.response.data
+  level: custom
+  name: response.data
+  normalize: []
+  short: data
+  type: object
+EndpointActions.response.data.command:
+  dashed_name: EndpointActions-response-data-command
+  description: The action that is requested
+  flat_name: EndpointActions.response.data.command
+  ignore_above: 1024
+  level: custom
+  name: response.data.command
+  normalize: []
+  short: data.command
+  type: keyword
+EndpointActions.response.data.comment:
+  dashed_name: EndpointActions-response-data-comment
+  description: A comment that describes the action that is requested
+  flat_name: EndpointActions.response.data.comment
+  level: custom
+  name: response.data.comment
+  normalize: []
+  norms: false
+  short: data.comment
+  type: text
+EndpointActions.response.started_at:
+  dashed_name: EndpointActions-response-started-at
+  description: Timestamp of start of request
+  flat_name: EndpointActions.response.started_at
+  level: custom
+  name: response.started_at
+  normalize: []
+  short: started at
+  type: date
+EndpointActions.response.status:
+  dashed_name: EndpointActions-response-status
+  description: The status of the request that distinguishes if the request is queued,
+    running or completed.
+  flat_name: EndpointActions.response.status
+  ignore_above: 1024
+  level: custom
+  name: response.status
+  normalize: []
+  short: status
+  type: keyword
+action_data.command:
+  dashed_name: action-data-command
+  description: The action that is requested
+  flat_name: action_data.command
+  level: custom
+  name: action_data.command
+  normalize: []
+  path: EndpointActions.response.data.command
+  short: EndpointActions.response.data.command
+  type: alias
+action_data.comment:
+  dashed_name: action-data-comment
+  description: A comment that describes the action that is requested
+  flat_name: action_data.comment
+  level: custom
+  name: action_data.comment
+  normalize: []
+  path: EndpointActions.response.data.comment
+  short: EndpointActions.response.data.comment
+  type: alias
 action_id:
   dashed_name: action-id
   description: The action id
@@ -24,7 +122,7 @@ action_id:
   level: custom
   name: action_id
   normalize: []
-  path: request.action_id
+  path: EndpointActions.request.action_id
   short: action id
   type: alias
 agent.id:
@@ -58,18 +156,8 @@ completed_at:
   level: custom
   name: completed_at
   normalize: []
-  path: response.completed_at
+  path: EndpointActions.response.completed_at
   short: completed at
-  type: alias
-data:
-  dashed_name: data
-  description: The action request information
-  flat_name: data
-  level: custom
-  name: data
-  normalize: []
-  path: request.data
-  short: data
   type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset
@@ -590,75 +678,6 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
-response.action_id:
-  dashed_name: response-action-id
-  description: The action id
-  flat_name: response.action_id
-  ignore_above: 1024
-  level: custom
-  name: action_id
-  normalize: []
-  short: action id
-  type: keyword
-response.completed_at:
-  dashed_name: response-completed-at
-  description: Request completion timestamp when the response is done executing. Usually
-    matches with @timestamp.
-  flat_name: response.completed_at
-  level: custom
-  name: completed_at
-  normalize: []
-  short: completed at
-  type: date
-response.data:
-  dashed_name: response-data
-  description: The action request information
-  flat_name: response.data
-  level: custom
-  name: data
-  normalize: []
-  short: data
-  type: object
-response.data.command:
-  dashed_name: response-data-command
-  description: The action that is requested
-  flat_name: response.data.command
-  ignore_above: 1024
-  level: custom
-  name: data.command
-  normalize: []
-  short: data.command
-  type: keyword
-response.data.comment:
-  dashed_name: response-data-comment
-  description: A comment that describes the action that is requested
-  flat_name: response.data.comment
-  level: custom
-  name: data.comment
-  normalize: []
-  norms: false
-  short: data.comment
-  type: text
-response.started_at:
-  dashed_name: response-started-at
-  description: Timestamp of start of request
-  flat_name: response.started_at
-  level: custom
-  name: started_at
-  normalize: []
-  short: started at
-  type: date
-response.status:
-  dashed_name: response-status
-  description: The status of the request that distinguishes if the request is queued,
-    running or completed.
-  flat_name: response.status
-  ignore_above: 1024
-  level: custom
-  name: status
-  normalize: []
-  short: status
-  type: keyword
 started_at:
   dashed_name: started-at
   description: Timestamp of start of request
@@ -666,7 +685,7 @@ started_at:
   level: custom
   name: started_at
   normalize: []
-  path: response.started_at
+  path: EndpointActions.response.started_at
   short: started at
   type: alias
 status:
@@ -677,6 +696,6 @@ status:
   level: custom
   name: status
   normalize: []
-  path: response.status
+  path: EndpointActions.response.status
   short: status
   type: alias

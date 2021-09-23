@@ -22,8 +22,56 @@
       "@timestamp": {
         "type": "date"
       },
+      "EndpointActions": {
+        "properties": {
+          "response": {
+            "properties": {
+              "action_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "completed_at": {
+                "type": "date"
+              },
+              "data": {
+                "properties": {
+                  "command": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "comment": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "type": "object"
+              },
+              "started_at": {
+                "type": "date"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "action_data": {
+        "properties": {
+          "command": {
+            "path": "EndpointActions.response.data.command",
+            "type": "alias"
+          },
+          "comment": {
+            "path": "EndpointActions.response.data.comment",
+            "type": "alias"
+          }
+        }
+      },
       "action_id": {
-        "path": "request.action_id",
+        "path": "EndpointActions.request.action_id",
         "type": "alias"
       },
       "agent": {
@@ -39,11 +87,7 @@
         "type": "alias"
       },
       "completed_at": {
-        "path": "response.completed_at",
-        "type": "alias"
-      },
-      "data": {
-        "path": "request.data",
+        "path": "EndpointActions.response.completed_at",
         "type": "alias"
       },
       "data_stream": {
@@ -107,43 +151,12 @@
           }
         }
       },
-      "response": {
-        "properties": {
-          "action_id": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "completed_at": {
-            "type": "date"
-          },
-          "data": {
-            "properties": {
-              "command": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "comment": {
-                "norms": false,
-                "type": "text"
-              }
-            },
-            "type": "object"
-          },
-          "started_at": {
-            "type": "date"
-          },
-          "status": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          }
-        }
-      },
       "started_at": {
-        "path": "response.started_at",
+        "path": "EndpointActions.response.started_at",
         "type": "alias"
       },
       "status": {
-        "path": "response.status",
+        "path": "EndpointActions.response.status",
         "type": "alias"
       }
     }

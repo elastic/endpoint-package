@@ -20,7 +20,7 @@
     # that are at the root level    
     - name: "action_id"
       type: alias
-      path: request.action_id
+      path: EndpointActions.request.action_id
       level: custom
       short: action id
       description: >
@@ -44,15 +44,31 @@
 
     - name: "data"
       type: alias
+      path: EndpointActions.request.data
       level: custom
-      path: request.data
       short: data
       description: >
         The action request information
 
+    - name: "data.command"
+      type: alias
+      path: EndpointActions.request.data.command
+      level: custom
+      short: EndpointActions.request.data.command
+      description: >
+        The action that is requested
+
+    - name: "data.comment"
+      type: alias
+      path: EndpointActions.request.data.comment
+      level: custom
+      short: EndpointActions.request.data.comment
+      description: >
+        A comment that describes the action that is requested
+
     - name: "expiration"
       type: alias
-      path: request.expiration
+      path: EndpointActions.request.expiration
       level: custom
       short: expiration
       description: >
@@ -61,7 +77,7 @@
     # most likely redundant
     - name: "input_type"
       type: alias
-      path: request.input_type
+      path: EndpointActions.request.input_type
       level: custom
       short: input_type
       description: >
@@ -69,7 +85,7 @@
 
     - name: "type"
       type: alias
-      path: request.type
+      path: EndpointActions.request.type
       level: custom
       short: The type of input
       description:
@@ -77,15 +93,39 @@
 
     - name: "user_id"
       type: alias
-      path: request.user_id
+      path: user.id
       level: custom
       short: user id
       description: >
         The user id
 
+    - name: "action_data"
+      type: alias
+      path: EndpointActions.response.data
+      level: custom
+      short: action_data
+      description: >
+        The action request information
+
+    - name: "action_data.command"
+      type: alias
+      path: EndpointActions.response.data.command
+      level: custom
+      short: EndpointActions.response.data.command
+      description: >
+        The action that is requested
+
+    - name: "action_data.comment"
+      type: alias
+      path: EndpointActions.response.data.comment
+      level: custom
+      short: EndpointActions.response.data.comment
+      description: >
+        A comment that describes the action that is requested
+
     - name: "completed_at"
       type: alias
-      path: response.completed_at
+      path: EndpointActions.response.completed_at
       level: custom
       short: completed at
       description: >
@@ -93,7 +133,7 @@
     
     - name: "status"
       type: alias
-      path: response.status
+      path: EndpointActions.response.status
       level: custom
       short: status
       description: >
@@ -101,7 +141,7 @@
 
     - name: "started_at"
       type: alias
-      path: response.started_at
+      path: EndpointActions.response.started_at
       level: custom
       short: started at
       description:

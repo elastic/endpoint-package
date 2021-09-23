@@ -10,11 +10,23 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+- name: action_data.command
+  level: custom
+  type: alias
+  description: The action that is requested
+  path: EndpointActions.response.data.command
+  default_field: false
+- name: action_data.comment
+  level: custom
+  type: alias
+  description: A comment that describes the action that is requested
+  path: EndpointActions.response.data.comment
+  default_field: false
 - name: action_id
   level: custom
   type: alias
   description: The action id
-  path: request.action_id
+  path: EndpointActions.request.action_id
   default_field: false
 - name: agent_id
   level: custom
@@ -26,26 +38,69 @@
   level: custom
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-  path: response.completed_at
-  default_field: false
-- name: data
-  level: custom
-  type: alias
-  description: The action request information
-  path: request.data
+  path: EndpointActions.response.completed_at
   default_field: false
 - name: started_at
   level: custom
   type: alias
   description: Timestamp of start of request
-  path: response.started_at
+  path: EndpointActions.response.started_at
   default_field: false
 - name: status
   level: custom
   type: alias
   description: The status of the request that distinguishes if the request is queued, running or completed.
-  path: response.status
+  path: EndpointActions.response.status
   default_field: false
+- name: EndpointActions
+  title: Endpoint Actions
+  group: 2
+  description: Fields to describe the endpoint  action requests and responses.
+  type: group
+  fields:
+    - name: response
+      level: custom
+      type: object
+      description: Endpoint action response details
+      default_field: false
+    - name: response.action_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action id
+      default_field: false
+    - name: response.completed_at
+      level: custom
+      type: date
+      description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
+      default_field: false
+    - name: response.data
+      level: custom
+      type: object
+      description: The action request information
+      default_field: false
+    - name: response.data.command
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action that is requested
+      default_field: false
+    - name: response.data.comment
+      level: custom
+      type: text
+      description: A comment that describes the action that is requested
+      default_field: false
+    - name: response.started_at
+      level: custom
+      type: date
+      description: Timestamp of start of request
+      default_field: false
+    - name: response.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The status of the request that distinguishes if the request is queued, running or completed.
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -192,47 +247,3 @@
         `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization.
 
         This field is an array. This will allow proper categorization of some events that fall in multiple event types.'
-- name: response
-  title: Action Responses
-  group: 2
-  description: Fields to describe the endpoint responses for action requests.
-  type: group
-  fields:
-    - name: action_id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The action id
-      default_field: false
-    - name: completed_at
-      level: custom
-      type: date
-      description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-      default_field: false
-    - name: data
-      level: custom
-      type: object
-      description: The action request information
-      default_field: false
-    - name: data.command
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The action that is requested
-      default_field: false
-    - name: data.comment
-      level: custom
-      type: text
-      description: A comment that describes the action that is requested
-      default_field: false
-    - name: started_at
-      level: custom
-      type: date
-      description: Timestamp of start of request
-      default_field: false
-    - name: status
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The status of the request that distinguishes if the request is queued, running or completed.
-      default_field: false

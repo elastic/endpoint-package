@@ -17,6 +17,84 @@
   required: true
   short: Date/time when the event originated.
   type: date
+EndpointActions.request:
+  dashed_name: EndpointActions-request
+  description: Endpoint action request details
+  flat_name: EndpointActions.request
+  level: custom
+  name: request
+  normalize: []
+  short: Action request info
+  type: object
+EndpointActions.request.action_id:
+  dashed_name: EndpointActions-request-action-id
+  description: The action id
+  flat_name: EndpointActions.request.action_id
+  ignore_above: 1024
+  level: custom
+  name: request.action_id
+  normalize: []
+  short: action id
+  type: keyword
+EndpointActions.request.data:
+  dashed_name: EndpointActions-request-data
+  description: The action request information
+  flat_name: EndpointActions.request.data
+  level: custom
+  name: request.data
+  normalize: []
+  short: data
+  type: object
+EndpointActions.request.data.command:
+  dashed_name: EndpointActions-request-data-command
+  description: The action that is requested
+  example: isolate
+  flat_name: EndpointActions.request.data.command
+  ignore_above: 1024
+  level: custom
+  name: request.data.command
+  normalize: []
+  short: command
+  type: keyword
+EndpointActions.request.data.comment:
+  dashed_name: EndpointActions-request-data-comment
+  description: A comment that describes the action that is requested
+  flat_name: EndpointActions.request.data.comment
+  level: custom
+  name: request.data.comment
+  normalize: []
+  norms: false
+  short: comment text
+  type: text
+EndpointActions.request.expiration:
+  dashed_name: EndpointActions-request-expiration
+  description: Request expiration timestamp
+  flat_name: EndpointActions.request.expiration
+  level: custom
+  name: request.expiration
+  normalize: []
+  short: expiration timestamp
+  type: date
+EndpointActions.request.input_type:
+  dashed_name: EndpointActions-request-input-type
+  description: The input type of the action, distinguishes endpoint actions as `endpoint`
+  flat_name: EndpointActions.request.input_type
+  ignore_above: 1024
+  level: custom
+  name: request.input_type
+  normalize: []
+  short: input_type
+  type: keyword
+EndpointActions.request.type:
+  dashed_name: EndpointActions-request-type
+  description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
+  flat_name: EndpointActions.request.type
+  ignore_above: 1024
+  level: custom
+  name: request.type
+  normalize: []
+  short: The type of input
+  type: keyword
 action_id:
   dashed_name: action-id
   description: The action id
@@ -24,7 +102,7 @@ action_id:
   level: custom
   name: action_id
   normalize: []
-  path: request.action_id
+  path: EndpointActions.request.action_id
   short: action id
   type: alias
 agent.id:
@@ -50,15 +128,25 @@ agents:
   path: agent.id
   short: alias field for agent.id
   type: alias
-data:
-  dashed_name: data
-  description: The action request information
-  flat_name: data
+data.command:
+  dashed_name: data-command
+  description: The action that is requested
+  flat_name: data.command
   level: custom
-  name: data
+  name: data.command
   normalize: []
-  path: request.data
-  short: data
+  path: EndpointActions.request.data.command
+  short: EndpointActions.request.data.command
+  type: alias
+data.comment:
+  dashed_name: data-comment
+  description: A comment that describes the action that is requested
+  flat_name: data.comment
+  level: custom
+  name: data.comment
+  normalize: []
+  path: EndpointActions.request.data.comment
+  short: EndpointActions.request.data.comment
   type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset
@@ -586,7 +674,7 @@ expiration:
   level: custom
   name: expiration
   normalize: []
-  path: request.expiration
+  path: EndpointActions.request.expiration
   short: expiration
   type: alias
 input_type:
@@ -596,87 +684,9 @@ input_type:
   level: custom
   name: input_type
   normalize: []
-  path: request.input_type
+  path: EndpointActions.request.input_type
   short: input_type
   type: alias
-request.action_id:
-  dashed_name: request-action-id
-  description: The action id
-  flat_name: request.action_id
-  ignore_above: 1024
-  level: custom
-  name: action_id
-  normalize: []
-  short: action id
-  type: keyword
-request.data:
-  dashed_name: request-data
-  description: The action request information
-  flat_name: request.data
-  level: custom
-  name: data
-  normalize: []
-  short: data
-  type: object
-request.data.command:
-  dashed_name: request-data-command
-  description: The action that is requested
-  flat_name: request.data.command
-  ignore_above: 1024
-  level: custom
-  name: data.command
-  normalize: []
-  short: data.command
-  type: keyword
-request.data.comment:
-  dashed_name: request-data-comment
-  description: A comment that describes the action that is requested
-  flat_name: request.data.comment
-  level: custom
-  name: data.comment
-  normalize: []
-  norms: false
-  short: data.comment
-  type: text
-request.expiration:
-  dashed_name: request-expiration
-  description: Request expiration timestamp
-  flat_name: request.expiration
-  level: custom
-  name: expiration
-  normalize: []
-  short: expiration
-  type: date
-request.input_type:
-  dashed_name: request-input-type
-  description: The input type of the action, distinguishes endpoint actions as `endpoint`
-  flat_name: request.input_type
-  ignore_above: 1024
-  level: custom
-  name: input_type
-  normalize: []
-  short: input_type
-  type: keyword
-request.type:
-  dashed_name: request-type
-  description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
-  flat_name: request.type
-  ignore_above: 1024
-  level: custom
-  name: type
-  normalize: []
-  short: The type of input
-  type: keyword
-request.user_id:
-  dashed_name: request-user-id
-  description: The user id
-  flat_name: request.user_id
-  ignore_above: 1024
-  level: custom
-  name: user_id
-  normalize: []
-  short: user id
-  type: keyword
 type:
   dashed_name: type
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
@@ -684,9 +694,19 @@ type:
   level: custom
   name: type
   normalize: []
-  path: request.type
+  path: EndpointActions.request.type
   short: The type of input
   type: alias
+user.id:
+  dashed_name: user-id
+  description: Unique identifier of the user.
+  flat_name: user.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  short: Unique identifier of the user.
+  type: keyword
 user_id:
   dashed_name: user-id
   description: The user id
@@ -694,6 +714,6 @@ user_id:
   level: custom
   name: user_id
   normalize: []
-  path: request.user_id
+  path: user.id
   short: user id
   type: alias

@@ -22,8 +22,45 @@
       "@timestamp": {
         "type": "date"
       },
+      "EndpointActions": {
+        "properties": {
+          "request": {
+            "properties": {
+              "action_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "data": {
+                "properties": {
+                  "command": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "comment": {
+                    "norms": false,
+                    "type": "text"
+                  }
+                },
+                "type": "object"
+              },
+              "expiration": {
+                "type": "date"
+              },
+              "input_type": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
       "action_id": {
-        "path": "request.action_id",
+        "path": "EndpointActions.request.action_id",
         "type": "alias"
       },
       "agent": {
@@ -39,8 +76,16 @@
         "type": "alias"
       },
       "data": {
-        "path": "request.data",
-        "type": "alias"
+        "properties": {
+          "command": {
+            "path": "EndpointActions.request.data.command",
+            "type": "alias"
+          },
+          "comment": {
+            "path": "EndpointActions.request.data.comment",
+            "type": "alias"
+          }
+        }
       },
       "data_stream": {
         "properties": {
@@ -104,55 +149,27 @@
         }
       },
       "expiration": {
-        "path": "request.expiration",
+        "path": "EndpointActions.request.expiration",
         "type": "alias"
       },
       "input_type": {
-        "path": "request.input_type",
+        "path": "EndpointActions.request.input_type",
         "type": "alias"
       },
-      "request": {
+      "type": {
+        "path": "EndpointActions.request.type",
+        "type": "alias"
+      },
+      "user": {
         "properties": {
-          "action_id": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "data": {
-            "properties": {
-              "command": {
-                "ignore_above": 1024,
-                "type": "keyword"
-              },
-              "comment": {
-                "norms": false,
-                "type": "text"
-              }
-            },
-            "type": "object"
-          },
-          "expiration": {
-            "type": "date"
-          },
-          "input_type": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "type": {
-            "ignore_above": 1024,
-            "type": "keyword"
-          },
-          "user_id": {
+          "id": {
             "ignore_above": 1024,
             "type": "keyword"
           }
         }
       },
-      "type": {
-        "path": "request.type",
-        "type": "alias"
-      },
       "user_id": {
-        "path": "request.user_id",
+        "path": "user.id",
         "type": "alias"
       }
     }
