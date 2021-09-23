@@ -9,7 +9,7 @@
     These fields are common across all types of events.
   type: group
   fields:
-    - name: "Events"
+    - name: Events
       type: object
       level: custom
       short: events array
@@ -18,7 +18,7 @@
 
     # endpoint action and responses fields
     # that are at the root level    
-    - name: "action_id"
+    - name: action_id
       type: alias
       path: EndpointActions.request.action_id
       level: custom
@@ -26,6 +26,7 @@
       description: >
         The action id
 
+    # response alias field
     - name: agent_id
       type: alias
       path: agent.id
@@ -34,6 +35,7 @@
       description: >
         Alias field that maps to {agent: {id}}
 
+    # request alias field
     - name: agents
       type: alias
       path: agent.id
@@ -42,7 +44,7 @@
       description: >
         Alias field that maps to {agent: {id}}
 
-    - name: "data"
+    - name: data
       type: alias
       path: EndpointActions.request.data
       level: custom
@@ -50,7 +52,7 @@
       description: >
         The action request information
 
-    - name: "data.command"
+    - name: data.command
       type: alias
       path: EndpointActions.request.data.command
       level: custom
@@ -58,7 +60,7 @@
       description: >
         The action that is requested
 
-    - name: "data.comment"
+    - name: data.comment
       type: alias
       path: EndpointActions.request.data.comment
       level: custom
@@ -66,7 +68,7 @@
       description: >
         A comment that describes the action that is requested
 
-    - name: "expiration"
+    - name: expiration
       type: alias
       path: EndpointActions.request.expiration
       level: custom
@@ -75,7 +77,7 @@
         Request expiration timestamp
     
     # most likely redundant
-    - name: "input_type"
+    - name: input_type
       type: alias
       path: EndpointActions.request.input_type
       level: custom
@@ -83,7 +85,7 @@
       description: >
         The input type of the action, distinguishes endpoint actions as `endpoint`
 
-    - name: "type"
+    - name: type
       type: alias
       path: EndpointActions.request.type
       level: custom
@@ -91,7 +93,7 @@
       description:
         Distinguishes the type of input. Usually set to `INPUT_ACTION`
 
-    - name: "user_id"
+    - name: user_id
       type: alias
       path: user.id
       level: custom
@@ -99,7 +101,7 @@
       description: >
         The user id
 
-    - name: "action_data"
+    - name: action_data
       type: alias
       path: EndpointActions.response.data
       level: custom
@@ -107,7 +109,7 @@
       description: >
         The action request information
 
-    - name: "action_data.command"
+    - name: action_data.command
       type: alias
       path: EndpointActions.response.data.command
       level: custom
@@ -115,7 +117,7 @@
       description: >
         The action that is requested
 
-    - name: "action_data.comment"
+    - name: action_data.comment
       type: alias
       path: EndpointActions.response.data.comment
       level: custom
@@ -123,7 +125,7 @@
       description: >
         A comment that describes the action that is requested
 
-    - name: "completed_at"
+    - name: completed_at
       type: alias
       path: EndpointActions.response.completed_at
       level: custom
@@ -131,7 +133,7 @@
       description: >
         Request completion timestamp when the response is done executing. Usually matches with @timestamp.
     
-    - name: "status"
+    - name: status
       type: alias
       path: EndpointActions.response.status
       level: custom
@@ -139,7 +141,7 @@
       description: >
         The status of the request that distinguishes if the request is queued, running or completed.
 
-    - name: "started_at"
+    - name: started_at
       type: alias
       path: EndpointActions.response.started_at
       level: custom
