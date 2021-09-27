@@ -20,12 +20,16 @@ fields:
       data:
         fields: "*"
       type: {} 
-  user:
-    fields:
-      id: {}
   agent:
     fields:
       id: {}
+  error:
+    fields:
+      code: {}
+      id: {}
+      message: {}
+      stack_trace: {}
+      type: {}
   data_stream:
     fields: "*"
   ecs:
@@ -43,3 +47,6 @@ fields:
       outcome: {}
       start: {}
       type: {}
+  user:
+    fields:
+      id: {}
