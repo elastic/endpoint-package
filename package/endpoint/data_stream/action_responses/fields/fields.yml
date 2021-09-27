@@ -40,6 +40,12 @@
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.response.completed_at
   default_field: false
+- name: response_error
+  level: custom
+  type: alias
+  description: The error message that is within the ECS Error field.
+  path: error.message
+  default_field: false
 - name: started_at
   level: custom
   type: alias
@@ -157,6 +163,45 @@
 
         When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events.'
       example: 1.0.0
+- name: error
+  title: Error
+  group: 2
+  description: 'These fields can represent errors of any kind.
+
+    Use them for errors that happen while fetching events or in cases where the event itself contains an error.'
+  type: group
+  fields:
+    - name: code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Error code describing the error.
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the error.
+    - name: message
+      level: core
+      type: text
+      description: Error message.
+    - name: stack_trace
+      level: extended
+      type: keyword
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: The stack trace of this error in plain text.
+      index: false
+      doc_values: false
+    - name: type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: The type of the error, for example the class name of the exception.
+      example: java.lang.NullPointerException
 - name: event
   title: Event
   group: 2

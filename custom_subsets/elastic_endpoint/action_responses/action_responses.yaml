@@ -11,6 +11,7 @@ fields:
       status: {}
       started_at: {}
       agent_id: {}
+      response_error: {}
   EndpointActions:
     fields:
       response:
@@ -24,6 +25,13 @@ fields:
   agent:
     fields:
       id: {}
+  error:
+    fields:
+      code: {}
+      id: {}
+      message: {}
+      stack_trace: {}
+      type: {}
   data_stream:
     fields: "*"
   ecs:

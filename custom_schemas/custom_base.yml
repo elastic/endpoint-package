@@ -125,6 +125,14 @@
       description: >
         A comment that describes the action that is requested
 
+    - name: response_error
+      type: alias
+      path: error.message
+      level: custom
+      short: alias for error.message field
+      description: 
+        The error message that is within the ECS Error field.
+
     - name: completed_at
       type: alias
       path: EndpointActions.response.completed_at

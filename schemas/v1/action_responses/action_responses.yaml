@@ -207,6 +207,63 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+error.code:
+  dashed_name: error-code
+  description: Error code describing the error.
+  flat_name: error.code
+  ignore_above: 1024
+  level: core
+  name: code
+  normalize: []
+  short: Error code describing the error.
+  type: keyword
+error.id:
+  dashed_name: error-id
+  description: Unique identifier for the error.
+  flat_name: error.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  short: Unique identifier for the error.
+  type: keyword
+error.message:
+  dashed_name: error-message
+  description: Error message.
+  flat_name: error.message
+  level: core
+  name: message
+  normalize: []
+  norms: false
+  short: Error message.
+  type: text
+error.stack_trace:
+  dashed_name: error-stack-trace
+  description: The stack trace of this error in plain text.
+  doc_values: false
+  flat_name: error.stack_trace
+  index: false
+  level: extended
+  multi_fields:
+  - flat_name: error.stack_trace.text
+    name: text
+    norms: false
+    type: text
+  name: stack_trace
+  normalize: []
+  short: The stack trace of this error in plain text.
+  type: keyword
+error.type:
+  dashed_name: error-type
+  description: The type of the error, for example the class name of the exception.
+  example: java.lang.NullPointerException
+  flat_name: error.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  short: The type of the error, for example the class name of the exception.
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.
@@ -678,6 +735,16 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+response_error:
+  dashed_name: response-error
+  description: The error message that is within the ECS Error field.
+  flat_name: response_error
+  level: custom
+  name: response_error
+  normalize: []
+  path: error.message
+  short: alias for error.message field
+  type: alias
 started_at:
   dashed_name: started-at
   description: Timestamp of start of request
