@@ -11,7 +11,6 @@ fields:
       status: {}
       started_at: {}
       agent_id: {}
-      response_error: {}
   EndpointActions:
     fields:
       response:

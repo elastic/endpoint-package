@@ -735,16 +735,6 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
-response_error:
-  dashed_name: response-error
-  description: The error message that is within the ECS Error field.
-  flat_name: response_error
-  level: custom
-  name: response_error
-  normalize: []
-  path: error.message
-  short: alias for error.message field
-  type: alias
 started_at:
   dashed_name: started-at
   description: Timestamp of start of request

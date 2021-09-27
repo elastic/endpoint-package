@@ -101,6 +101,7 @@
       description: >
         The user id
 
+    # response alias fields
     - name: action_data
       type: alias
       path: EndpointActions.response.data
@@ -124,14 +125,6 @@
       short: EndpointActions.response.data.comment
       description: >
         A comment that describes the action that is requested
-
-    - name: response_error
-      type: alias
-      path: error.message
-      level: custom
-      short: alias for error.message field
-      description: 
-        The error message that is within the ECS Error field.
 
     - name: completed_at
       type: alias

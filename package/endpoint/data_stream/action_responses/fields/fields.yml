@@ -40,12 +40,6 @@
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.response.completed_at
   default_field: false
-- name: response_error
-  level: custom
-  type: alias
-  description: The error message that is within the ECS Error field.
-  path: error.message
-  default_field: false
 - name: started_at
   level: custom
   type: alias
