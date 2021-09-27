@@ -6,7 +6,7 @@ fields:
       "@timestamp": {}
       action_id: {}
       completed_at: {}
-      action_data:
+      data:
         fields: "*"
       status: {}
       started_at: {}

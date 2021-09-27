@@ -87,26 +87,6 @@ EndpointActions.status:
   normalize: []
   short: status
   type: keyword
-action_data.command:
-  dashed_name: action-data-command
-  description: The action that is requested
-  flat_name: action_data.command
-  level: custom
-  name: action_data.command
-  normalize: []
-  path: EndpointActions.data.command
-  short: EndpointActions.data.command
-  type: alias
-action_data.comment:
-  dashed_name: action-data-comment
-  description: A comment that describes the action that is requested
-  flat_name: action_data.comment
-  level: custom
-  name: action_data.comment
-  normalize: []
-  path: EndpointActions.data.comment
-  short: EndpointActions.data.comment
-  type: alias
 action_id:
   dashed_name: action-id
   description: The action id
@@ -150,6 +130,26 @@ completed_at:
   normalize: []
   path: EndpointActions.completed_at
   short: completed at
+  type: alias
+data.command:
+  dashed_name: data-command
+  description: The action that is requested
+  flat_name: data.command
+  level: custom
+  name: data.command
+  normalize: []
+  path: EndpointActions.data.command
+  short: EndpointActions.data.command
+  type: alias
+data.comment:
+  dashed_name: data-comment
+  description: A comment that describes the action that is requested
+  flat_name: data.comment
+  level: custom
+  name: data.comment
+  normalize: []
+  path: EndpointActions.data.comment
+  short: EndpointActions.data.comment
   type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset

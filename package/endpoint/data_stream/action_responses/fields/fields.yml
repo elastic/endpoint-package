@@ -10,18 +10,6 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
-- name: action_data.command
-  level: custom
-  type: alias
-  description: The action that is requested
-  path: EndpointActions.data.command
-  default_field: false
-- name: action_data.comment
-  level: custom
-  type: alias
-  description: A comment that describes the action that is requested
-  path: EndpointActions.data.comment
-  default_field: false
 - name: action_id
   level: custom
   type: alias
@@ -39,6 +27,18 @@
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.completed_at
+  default_field: false
+- name: data.command
+  level: custom
+  type: alias
+  description: The action that is requested
+  path: EndpointActions.data.command
+  default_field: false
+- name: data.comment
+  level: custom
+  type: alias
+  description: A comment that describes the action that is requested
+  path: EndpointActions.data.comment
   default_field: false
 - name: started_at
   level: custom

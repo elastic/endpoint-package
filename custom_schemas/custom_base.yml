@@ -102,30 +102,6 @@
         The user id
 
     # response alias fields
-    - name: action_data
-      type: alias
-      path: EndpointActions.data
-      level: custom
-      short: action_data
-      description: >
-        The action request information
-
-    - name: action_data.command
-      type: alias
-      path: EndpointActions.data.command
-      level: custom
-      short: EndpointActions.data.command
-      description: >
-        The action that is requested
-
-    - name: action_data.comment
-      type: alias
-      path: EndpointActions.data.comment
-      level: custom
-      short: EndpointActions.data.comment
-      description: >
-        A comment that describes the action that is requested
-
     - name: completed_at
       type: alias
       path: EndpointActions.completed_at
