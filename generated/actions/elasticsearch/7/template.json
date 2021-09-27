@@ -22,9 +22,41 @@
       "@timestamp": {
         "type": "date"
       },
+      "EndpointActions": {
+        "properties": {
+          "action_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "data": {
+            "properties": {
+              "command": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "comment": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "type": "object"
+          },
+          "expiration": {
+            "type": "date"
+          },
+          "input_type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "type": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "action_id": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "EndpointActions.action_id",
+        "type": "alias"
       },
       "agent": {
         "properties": {
@@ -41,15 +73,14 @@
       "data": {
         "properties": {
           "command": {
-            "ignore_above": 1024,
-            "type": "keyword"
+            "path": "EndpointActions.data.command",
+            "type": "alias"
           },
           "comment": {
-            "norms": false,
-            "type": "text"
+            "path": "EndpointActions.data.comment",
+            "type": "alias"
           }
-        },
-        "type": "object"
+        }
       },
       "data_stream": {
         "properties": {
@@ -67,6 +98,37 @@
       "ecs": {
         "properties": {
           "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "error": {
+        "properties": {
+          "code": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "message": {
+            "norms": false,
+            "type": "text"
+          },
+          "stack_trace": {
+            "doc_values": false,
+            "fields": {
+              "text": {
+                "norms": false,
+                "type": "text"
+              }
+            },
+            "index": false,
+            "type": "keyword"
+          },
+          "type": {
             "ignore_above": 1024,
             "type": "keyword"
           }
@@ -113,19 +175,28 @@
         }
       },
       "expiration": {
-        "type": "date"
+        "path": "EndpointActions.expiration",
+        "type": "alias"
       },
       "input_type": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "EndpointActions.input_type",
+        "type": "alias"
       },
       "type": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "EndpointActions.type",
+        "type": "alias"
+      },
+      "user": {
+        "properties": {
+          "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
       },
       "user_id": {
-        "ignore_above": 1024,
-        "type": "keyword"
+        "path": "user.id",
+        "type": "alias"
       }
     }
   },

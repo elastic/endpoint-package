@@ -12,9 +12,9 @@
   example: '2016-05-23T08:05:34.853Z'
 - name: action_id
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The action id
+  path: EndpointActions.action_id
   default_field: false
 - name: agent_id
   level: custom
@@ -24,36 +24,79 @@
   default_field: false
 - name: completed_at
   level: custom
-  type: date
+  type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-  default_field: false
-- name: data
-  level: custom
-  type: object
-  description: The action request information
+  path: EndpointActions.completed_at
   default_field: false
 - name: data.command
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The action that is requested
+  path: EndpointActions.data.command
   default_field: false
 - name: data.comment
   level: custom
-  type: text
+  type: alias
   description: A comment that describes the action that is requested
+  path: EndpointActions.data.comment
   default_field: false
 - name: started_at
   level: custom
-  type: date
+  type: alias
   description: Timestamp of start of request
+  path: EndpointActions.started_at
   default_field: false
 - name: status
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The status of the request that distinguishes if the request is queued, running or completed.
+  path: EndpointActions.status
   default_field: false
+- name: EndpointActions
+  title: Endpoint Actions
+  group: 2
+  description: Fields to describe the endpoint  action requests and responses.
+  type: group
+  fields:
+    - name: action_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action id
+      default_field: false
+    - name: completed_at
+      level: custom
+      type: date
+      description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
+      default_field: false
+    - name: data
+      level: custom
+      type: object
+      description: The action request information
+      default_field: false
+    - name: data.command
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action that is requested
+      example: isolate
+      default_field: false
+    - name: data.comment
+      level: custom
+      type: text
+      description: A comment that describes the action that is requested
+      default_field: false
+    - name: started_at
+      level: custom
+      type: date
+      description: Timestamp of start of request
+      default_field: false
+    - name: status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The status of the request that distinguishes if the request is queued, running or completed.
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -110,6 +153,45 @@
 
         When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events.'
       example: 1.0.0
+- name: error
+  title: Error
+  group: 2
+  description: 'These fields can represent errors of any kind.
+
+    Use them for errors that happen while fetching events or in cases where the event itself contains an error.'
+  type: group
+  fields:
+    - name: code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Error code describing the error.
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the error.
+    - name: message
+      level: core
+      type: text
+      description: Error message.
+    - name: stack_trace
+      level: extended
+      type: keyword
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: The stack trace of this error in plain text.
+      index: false
+      doc_values: false
+    - name: type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: The type of the error, for example the class name of the exception.
+      example: java.lang.NullPointerException
 - name: event
   title: Event
   group: 2

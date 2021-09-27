@@ -17,16 +17,85 @@
   required: true
   short: Date/time when the event originated.
   type: date
-action_id:
-  dashed_name: action-id
+EndpointActions.action_id:
+  dashed_name: EndpointActions-action-id
   description: The action id
-  flat_name: action_id
+  flat_name: EndpointActions.action_id
   ignore_above: 1024
   level: custom
   name: action_id
   normalize: []
   short: action id
   type: keyword
+EndpointActions.data:
+  dashed_name: EndpointActions-data
+  description: The action request information
+  flat_name: EndpointActions.data
+  level: custom
+  name: data
+  normalize: []
+  short: data
+  type: object
+EndpointActions.data.command:
+  dashed_name: EndpointActions-data-command
+  description: The action that is requested
+  example: isolate
+  flat_name: EndpointActions.data.command
+  ignore_above: 1024
+  level: custom
+  name: data.command
+  normalize: []
+  short: command
+  type: keyword
+EndpointActions.data.comment:
+  dashed_name: EndpointActions-data-comment
+  description: A comment that describes the action that is requested
+  flat_name: EndpointActions.data.comment
+  level: custom
+  name: data.comment
+  normalize: []
+  norms: false
+  short: comment text
+  type: text
+EndpointActions.expiration:
+  dashed_name: EndpointActions-expiration
+  description: Request expiration timestamp
+  flat_name: EndpointActions.expiration
+  level: custom
+  name: expiration
+  normalize: []
+  short: expiration timestamp
+  type: date
+EndpointActions.input_type:
+  dashed_name: EndpointActions-input-type
+  description: The input type of the action, distinguishes endpoint actions as `endpoint`
+  flat_name: EndpointActions.input_type
+  ignore_above: 1024
+  level: custom
+  name: input_type
+  normalize: []
+  short: input_type
+  type: keyword
+EndpointActions.type:
+  dashed_name: EndpointActions-type
+  description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
+  flat_name: EndpointActions.type
+  ignore_above: 1024
+  level: custom
+  name: type
+  normalize: []
+  short: The type of input
+  type: keyword
+action_id:
+  dashed_name: action-id
+  description: The action id
+  flat_name: action_id
+  level: custom
+  name: action_id
+  normalize: []
+  path: EndpointActions.action_id
+  short: action id
+  type: alias
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -50,25 +119,16 @@ agents:
   path: agent.id
   short: alias field for agent.id
   type: alias
-data:
-  dashed_name: data
-  description: The action request information
-  flat_name: data
-  level: custom
-  name: data
-  normalize: []
-  short: data
-  type: object
 data.command:
   dashed_name: data-command
   description: The action that is requested
   flat_name: data.command
-  ignore_above: 1024
   level: custom
   name: data.command
   normalize: []
-  short: data.command
-  type: keyword
+  path: EndpointActions.data.command
+  short: EndpointActions.data.command
+  type: alias
 data.comment:
   dashed_name: data-comment
   description: A comment that describes the action that is requested
@@ -76,9 +136,9 @@ data.comment:
   level: custom
   name: data.comment
   normalize: []
-  norms: false
-  short: data.comment
-  type: text
+  path: EndpointActions.data.comment
+  short: EndpointActions.data.comment
+  type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset
   description: Data stream dataset name.
@@ -126,6 +186,63 @@ ecs.version:
   normalize: []
   required: true
   short: ECS version this event conforms to.
+  type: keyword
+error.code:
+  dashed_name: error-code
+  description: Error code describing the error.
+  flat_name: error.code
+  ignore_above: 1024
+  level: core
+  name: code
+  normalize: []
+  short: Error code describing the error.
+  type: keyword
+error.id:
+  dashed_name: error-id
+  description: Unique identifier for the error.
+  flat_name: error.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  short: Unique identifier for the error.
+  type: keyword
+error.message:
+  dashed_name: error-message
+  description: Error message.
+  flat_name: error.message
+  level: core
+  name: message
+  normalize: []
+  norms: false
+  short: Error message.
+  type: text
+error.stack_trace:
+  dashed_name: error-stack-trace
+  description: The stack trace of this error in plain text.
+  doc_values: false
+  flat_name: error.stack_trace
+  index: false
+  level: extended
+  multi_fields:
+  - flat_name: error.stack_trace.text
+    name: text
+    norms: false
+    type: text
+  name: stack_trace
+  normalize: []
+  short: The stack trace of this error in plain text.
+  type: keyword
+error.type:
+  dashed_name: error-type
+  description: The type of the error, for example the class name of the exception.
+  example: java.lang.NullPointerException
+  flat_name: error.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  short: The type of the error, for example the class name of the exception.
   type: keyword
 event.action:
   dashed_name: event-action
@@ -605,35 +722,46 @@ expiration:
   level: custom
   name: expiration
   normalize: []
+  path: EndpointActions.expiration
   short: expiration
-  type: date
+  type: alias
 input_type:
   dashed_name: input-type
   description: The input type of the action, distinguishes endpoint actions as `endpoint`
   flat_name: input_type
-  ignore_above: 1024
   level: custom
   name: input_type
   normalize: []
+  path: EndpointActions.input_type
   short: input_type
-  type: keyword
+  type: alias
 type:
   dashed_name: type
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
   flat_name: type
-  ignore_above: 1024
   level: custom
   name: type
   normalize: []
+  path: EndpointActions.type
   short: The type of input
+  type: alias
+user.id:
+  dashed_name: user-id
+  description: Unique identifier of the user.
+  flat_name: user.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  short: Unique identifier of the user.
   type: keyword
 user_id:
   dashed_name: user-id
   description: The user id
   flat_name: user_id
-  ignore_above: 1024
   level: custom
   name: user_id
   normalize: []
+  path: user.id
   short: user id
-  type: keyword
+  type: alias

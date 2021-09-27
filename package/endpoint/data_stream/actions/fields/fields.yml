@@ -12,9 +12,9 @@
   example: '2016-05-23T08:05:34.853Z'
 - name: action_id
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The action id
+  path: EndpointActions.action_id
   default_field: false
 - name: agents
   level: custom
@@ -22,45 +22,88 @@
   description: 'Alias field that maps to {agent: {id}}'
   path: agent.id
   default_field: false
-- name: data
-  level: custom
-  type: object
-  description: The action request information
-  default_field: false
 - name: data.command
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The action that is requested
+  path: EndpointActions.data.command
   default_field: false
 - name: data.comment
   level: custom
-  type: text
+  type: alias
   description: A comment that describes the action that is requested
+  path: EndpointActions.data.comment
   default_field: false
 - name: expiration
   level: custom
-  type: date
+  type: alias
   description: Request expiration timestamp
+  path: EndpointActions.expiration
   default_field: false
 - name: input_type
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The input type of the action, distinguishes endpoint actions as `endpoint`
+  path: EndpointActions.input_type
   default_field: false
 - name: type
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
+  path: EndpointActions.type
   default_field: false
 - name: user_id
   level: custom
-  type: keyword
-  ignore_above: 1024
+  type: alias
   description: The user id
+  path: user.id
   default_field: false
+- name: EndpointActions
+  title: Endpoint Actions
+  group: 2
+  description: Fields to describe the endpoint  action requests and responses.
+  type: group
+  fields:
+    - name: action_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action id
+      default_field: false
+    - name: data
+      level: custom
+      type: object
+      description: The action request information
+      default_field: false
+    - name: data.command
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The action that is requested
+      example: isolate
+      default_field: false
+    - name: data.comment
+      level: custom
+      type: text
+      description: A comment that describes the action that is requested
+      default_field: false
+    - name: expiration
+      level: custom
+      type: date
+      description: Request expiration timestamp
+      default_field: false
+    - name: input_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The input type of the action, distinguishes endpoint actions as `endpoint`
+      default_field: false
+    - name: type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -117,6 +160,45 @@
 
         When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events.'
       example: 1.0.0
+- name: error
+  title: Error
+  group: 2
+  description: 'These fields can represent errors of any kind.
+
+    Use them for errors that happen while fetching events or in cases where the event itself contains an error.'
+  type: group
+  fields:
+    - name: code
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Error code describing the error.
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the error.
+    - name: message
+      level: core
+      type: text
+      description: Error message.
+    - name: stack_trace
+      level: extended
+      type: keyword
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: The stack trace of this error in plain text.
+      index: false
+      doc_values: false
+    - name: type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: The type of the error, for example the class name of the exception.
+      example: java.lang.NullPointerException
 - name: event
   title: Event
   group: 2
@@ -207,3 +289,16 @@
         `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization.
 
         This field is an array. This will allow proper categorization of some events that fall in multiple event types.'
+- name: user
+  title: User
+  group: 2
+  description: 'The user fields describe information about the user that is relevant to the event.
+
+    Fields can have one entry or multiple entries. If a user has more than one id, provide an array that includes all of them.'
+  type: group
+  fields:
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier of the user.

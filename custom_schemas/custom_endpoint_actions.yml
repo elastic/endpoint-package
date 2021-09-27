@@ -1,0 +1,80 @@
+- name: EndpointActions
+  title: Endpoint Actions
+  group: 2
+  short: Endpoint Action requests/responses
+  description: >
+    Fields to describe the endpoint  action requests and responses.
+  type: group
+  
+  fields:
+    - name: action_id
+      type: keyword
+      level: custom
+      short: action id
+      description: >
+        The action id
+
+    - name: expiration
+      type: date
+      level: custom
+      short: expiration timestamp
+      description: >
+        Request expiration timestamp
+    
+    # most likely redundant
+    - name: input_type
+      type: keyword
+      level: custom
+      short: input_type
+      description: >
+        The input type of the action, distinguishes endpoint actions as `endpoint`
+        
+    - name: data
+      type: object
+      level: custom
+      short: data
+      description: >
+        The action request information
+    
+    - name: data.command
+      type: keyword
+      level: custom
+      short: command
+      example: 'isolate'
+      description: >
+        The action that is requested
+
+    - name: data.comment
+      type: text
+      level: custom
+      short: comment text
+      description: >
+        A comment that describes the action that is requested
+
+    - name: type
+      type: keyword
+      level: custom
+      short: The type of input
+      description:
+        Distinguishes the type of input. Usually set to `INPUT_ACTION`
+            
+    - name: completed_at
+      type: date
+      level: custom
+      short: completed at
+      description: >
+        Request completion timestamp when the response is done executing. Usually matches with @timestamp.
+    
+    - name: status
+      type: keyword
+      level: custom
+      short: status
+      description: >
+        The status of the request that distinguishes if the request is queued, running or completed.
+
+    - name: started_at
+      type: date
+      level: custom
+      short: started at
+      description:
+        Timestamp of start of request  

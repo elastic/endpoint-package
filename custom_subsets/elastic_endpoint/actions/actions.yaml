@@ -6,15 +6,30 @@ fields:
       "@timestamp": {}
       action_id: {}
       agents: {}
-      data:
+      data: 
         fields: "*"
       expiration: {}
       input_type: {}
       type: {}
       user_id: {}
+  EndpointActions:
+    fields:
+      action_id: {}
+      expiration: {}
+      input_type: {}
+      data:
+        fields: "*"
+      type: {} 
   agent:
     fields:
       id: {}
+  error:
+    fields:
+      code: {}
+      id: {}
+      message: {}
+      stack_trace: {}
+      type: {}
   data_stream:
     fields: "*"
   ecs:
@@ -32,3 +47,6 @@ fields:
       outcome: {}
       start: {}
       type: {}
+  user:
+    fields:
+      id: {}
