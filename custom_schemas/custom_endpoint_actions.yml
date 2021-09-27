@@ -28,13 +28,6 @@
       short: input_type
       description: >
         The input type of the action, distinguishes endpoint actions as `endpoint`
-
-    - name: request
-      type: object
-      level: custom
-      short: Action request info
-      description: >
-        Endpoint action request details
         
     - name: data
       type: object
@@ -71,13 +64,6 @@
       short: completed at
       description: >
         Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-
-    - name: response
-      type: object
-      level: custom
-      short: Action response info
-      description: >
-        Endpoint action response details
     
     - name: status
       type: keyword
