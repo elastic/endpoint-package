@@ -13,14 +13,12 @@ fields:
       agent_id: {}
   EndpointActions:
     fields:
-      response:
-        fields:
-          action_id: {}
-          completed_at: {}
-          data:
-            fields: "*"
-          status: {}
-          started_at: {}
+      action_id: {}
+      completed_at: {}
+      data:
+        fields: "*"
+      status: {}
+      started_at: {}
   agent:
     fields:
       id: {}

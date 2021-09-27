@@ -14,14 +14,12 @@ fields:
       user_id: {}
   EndpointActions:
     fields:
-      request:
-        fields:
-          action_id: {}
-          data:
-            fields: "*"
-          expiration: {}
-          input_type: {}
-          type: {}
+      action_id: {}
+      expiration: {}
+      input_type: {}
+      data:
+        fields: "*"
+      type: {} 
   user:
     fields:
       id: {}

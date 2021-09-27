@@ -7,43 +7,14 @@
   type: group
   
   fields:
-    - name: request
-      type: object
-      level: custom
-      short: Action request info
-      description: >
-        Endpoint action request details
-
-    - name: request.action_id
+    - name: action_id
       type: keyword
       level: custom
       short: action id
       description: >
         The action id
 
-    - name: request.data
-      type: object
-      level: custom
-      short: data
-      description: >
-        The action request information
-    
-    - name: request.data.command
-      type: keyword
-      level: custom
-      short: command
-      example: 'isolate'
-      description: >
-        The action that is requested
-
-    - name: request.data.comment
-      type: text
-      level: custom
-      short: comment text
-      description: >
-        A comment that describes the action that is requested
-
-    - name: request.expiration
+    - name: expiration
       type: date
       level: custom
       short: expiration timestamp
@@ -51,19 +22,55 @@
         Request expiration timestamp
     
     # most likely redundant
-    - name: request.input_type
+    - name: input_type
       type: keyword
       level: custom
       short: input_type
       description: >
         The input type of the action, distinguishes endpoint actions as `endpoint`
 
-    - name: request.type
+    - name: request
+      type: object
+      level: custom
+      short: Action request info
+      description: >
+        Endpoint action request details
+        
+    - name: data
+      type: object
+      level: custom
+      short: data
+      description: >
+        The action request information
+    
+    - name: data.command
+      type: keyword
+      level: custom
+      short: command
+      example: 'isolate'
+      description: >
+        The action that is requested
+
+    - name: data.comment
+      type: text
+      level: custom
+      short: comment text
+      description: >
+        A comment that describes the action that is requested
+
+    - name: type
       type: keyword
       level: custom
       short: The type of input
       description:
         Distinguishes the type of input. Usually set to `INPUT_ACTION`
+            
+    - name: completed_at
+      type: date
+      level: custom
+      short: completed at
+      description: >
+        Request completion timestamp when the response is done executing. Usually matches with @timestamp.
 
     - name: response
       type: object
@@ -71,50 +78,15 @@
       short: Action response info
       description: >
         Endpoint action response details
-
-    - name: response.action_id
-      type: keyword
-      level: custom
-      short: action id
-      description: >
-        The action id
-
-    - name: response.data
-      type: object
-      level: custom
-      short: data
-      description: >
-        The action request information
     
-    - name: response.data.command
-      type: keyword
-      level: custom
-      short: data.command
-      description: >
-        The action that is requested
-
-    - name: response.data.comment
-      type: text
-      level: custom
-      short: data.comment
-      description: >
-        A comment that describes the action that is requested
-            
-    - name: response.completed_at
-      type: date
-      level: custom
-      short: completed at
-      description: >
-        Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-    
-    - name: response.status
+    - name: status
       type: keyword
       level: custom
       short: status
       description: >
         The status of the request that distinguishes if the request is queued, running or completed.
 
-    - name: response.started_at
+    - name: started_at
       type: date
       level: custom
       short: started at

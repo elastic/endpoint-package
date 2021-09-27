@@ -14,19 +14,19 @@
   level: custom
   type: alias
   description: The action that is requested
-  path: EndpointActions.response.data.command
+  path: EndpointActions.data.command
   default_field: false
 - name: action_data.comment
   level: custom
   type: alias
   description: A comment that describes the action that is requested
-  path: EndpointActions.response.data.comment
+  path: EndpointActions.data.comment
   default_field: false
 - name: action_id
   level: custom
   type: alias
   description: The action id
-  path: EndpointActions.request.action_id
+  path: EndpointActions.action_id
   default_field: false
 - name: agent_id
   level: custom
@@ -38,19 +38,19 @@
   level: custom
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-  path: EndpointActions.response.completed_at
+  path: EndpointActions.completed_at
   default_field: false
 - name: started_at
   level: custom
   type: alias
   description: Timestamp of start of request
-  path: EndpointActions.response.started_at
+  path: EndpointActions.started_at
   default_field: false
 - name: status
   level: custom
   type: alias
   description: The status of the request that distinguishes if the request is queued, running or completed.
-  path: EndpointActions.response.status
+  path: EndpointActions.status
   default_field: false
 - name: EndpointActions
   title: Endpoint Actions
@@ -58,44 +58,40 @@
   description: Fields to describe the endpoint  action requests and responses.
   type: group
   fields:
-    - name: response
-      level: custom
-      type: object
-      description: Endpoint action response details
-      default_field: false
-    - name: response.action_id
+    - name: action_id
       level: custom
       type: keyword
       ignore_above: 1024
       description: The action id
       default_field: false
-    - name: response.completed_at
+    - name: completed_at
       level: custom
       type: date
       description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
       default_field: false
-    - name: response.data
+    - name: data
       level: custom
       type: object
       description: The action request information
       default_field: false
-    - name: response.data.command
+    - name: data.command
       level: custom
       type: keyword
       ignore_above: 1024
       description: The action that is requested
+      example: isolate
       default_field: false
-    - name: response.data.comment
+    - name: data.comment
       level: custom
       type: text
       description: A comment that describes the action that is requested
       default_field: false
-    - name: response.started_at
+    - name: started_at
       level: custom
       type: date
       description: Timestamp of start of request
       default_field: false
-    - name: response.status
+    - name: status
       level: custom
       type: keyword
       ignore_above: 1024
