@@ -4,3 +4,11 @@ elasticsearch:
   index_template:
     mappings:
       dynamic: false
+    settings:
+      index:
+        sort.field:
+          - "@timestamp"
+          - agent.id
+        sort.order:
+          - desc
+          - asc

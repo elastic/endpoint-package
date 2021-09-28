@@ -72,6 +72,107 @@
                 },
                 "type": "object"
               },
+              "documents_volume": {
+                "properties": {
+                  "file_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "library_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "network_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "overall": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "process_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "registry_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              },
               "memory": {
                 "properties": {
                   "endpoint": {
