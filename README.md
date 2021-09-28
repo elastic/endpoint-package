@@ -67,9 +67,7 @@ Use the `make run-registry` command to quickly run a package registry locally on
 Add the follow flags to your `kibana.dev.yaml` file
 
 ```yaml
-xpack.fleet.enabled: true
 xpack.fleet.registryUrl: "http://127.0.0.1:8080"
-xpack.fleet.fleet.enabled: true
 ```
 
 The `xpack.fleet.registryUrl` flag instructs Kibana to look for the package registry at the specified URL.
