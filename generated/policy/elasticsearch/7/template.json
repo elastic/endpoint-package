@@ -255,6 +255,18 @@
                               }
                             }
                           },
+                          "credential_protection": {
+                            "properties": {
+                              "concerned_actions": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
+                          },
                           "malware": {
                             "properties": {
                               "concerned_actions": {

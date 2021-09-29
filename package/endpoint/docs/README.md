@@ -145,9 +145,14 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | Target.process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| Target.process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| Target.process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | nested |
+| Target.process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
+| Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| Target.process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -574,9 +579,14 @@ sent by the endpoint.
 | process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
 | process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
+| process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | nested |
+| process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
+| process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |

@@ -945,10 +945,32 @@
       description: A sequence of signature names matched.
       example: Windows.EICAR.Not-a-virus
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: malware signature identifier
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.primary
       level: custom
       type: object
       description: The first matching details.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.matches
+      level: custom
+      type: nested
+      description: The first matching details.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.signature.hash
+      level: custom
+      type: nested
+      description: hash of file matching signature.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of file matching signature.
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.signature.id
       level: custom
@@ -961,6 +983,12 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: malware signature version
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.company
       level: extended
@@ -4090,10 +4118,32 @@
       description: A sequence of signature names matched.
       example: Windows.EICAR.Not-a-virus
       default_field: false
+    - name: Ext.memory_region.malware_signature.identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: malware signature identifier
+      default_field: false
     - name: Ext.memory_region.malware_signature.primary
       level: custom
       type: object
       description: The first matching details.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.matches
+      level: custom
+      type: nested
+      description: The first matching details.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.signature.hash
+      level: custom
+      type: nested
+      description: hash of file matching signature.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of file matching signature.
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.signature.id
       level: custom
@@ -4106,6 +4156,12 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: malware signature version
       default_field: false
     - name: Ext.memory_region.mapped_pe.company
       level: extended
