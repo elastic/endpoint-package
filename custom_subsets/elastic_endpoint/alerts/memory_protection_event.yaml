@@ -279,12 +279,18 @@ fields:
               malware_signature:
                 fields:
                   all_names: {}
+                  identifier: {}
                   primary:
                     fields:
                       signature:
                         fields:
                           id: {}
                           name: {}
+                          hash:
+                            fields:
+                              sha256: {}
+                      matches: {}
+                  version: {}
               mapped_pe:
                 fields: *pe-fields
               mapped_pe_detected: {}
