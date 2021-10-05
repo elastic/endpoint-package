@@ -89,44 +89,44 @@
       description: >
         Concatentation of the non-repeated modules in the call stack.
 
-    - name: thread.Ext.final_user_module
+    - name: thread.Ext.call_stack_final_user_module
       level: custom
       type: nested
       description: >
         The final non-win32 module in the call stack.
 
-    - name: thread.Ext.final_user_module.name
+    - name: thread.Ext.call_stack_final_user_module.name
       level: custom
       type: keyword
       example: "example.dll"
       description: >
-        The file name of the final_user_module.
+        The file name of the call_stack_final_user_module.
 
-    - name: thread.Ext.final_user_module.path
+    - name: thread.Ext.call_stack_final_user_module.path
       level: custom
       type: keyword
       example: "C:\\Program Files\\Example\\example.dll"
       description: >
-        The file path of the final_user_module.
+        The file path of the call_stack_final_user_module.
 
-    - name: thread.Ext.final_user_module.code_signature
+    - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
       type: nested
-      description: Code signature of the final_user_module.
+      description: Code signature of the call_stack_final_user_module.
 
-    - name: thread.Ext.final_user_module.code_signature.exists
+    - name: thread.Ext.call_stack_final_user_module.code_signature.exists
       level: custom
       type: boolean
       description: Boolean to capture if a signature is present.
       example: "true"
 
-    - name: thread.Ext.final_user_module.code_signature.subject_name
+    - name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
       level: custom
       type: keyword
       description: Subject name of the code signer
       example: Microsoft Corporation
 
-    - name: thread.Ext.final_user_module.code_signature.valid
+    - name: thread.Ext.call_stack_final_user_module.code_signature.valid
       level: custom
       type: boolean
       short: Boolean to capture if the digital signature is verified against the binary content.
@@ -136,7 +136,7 @@
 
         Leave unpopulated if a certificate was unchecked.
 
-    - name: thread.Ext.final_user_module.code_signature.trusted
+    - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
       level: custom
       type: boolean
       short: Stores the trust status of the certificate chain.
@@ -147,7 +147,7 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
-    - name: thread.Ext.final_user_module.code_signature.status
+    - name: thread.Ext.call_stack_final_user_module.code_signature.status
       level: custom
       type: keyword
       short: Additional information about the certificate status.
@@ -158,15 +158,15 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
-    - name: thread.Ext.final_user_module.hash
+    - name: thread.Ext.call_stack_final_user_module.hash
       level: custom
       type: nested
-      description: Hashes of the final_user_module.
+      description: Hashes of the call_stack_final_user_module.
 
-    - name: thread.Ext.final_user_module.hash.sha256
+    - name: thread.Ext.call_stack_final_user_module.hash.sha256
       level: custom
       type: keyword
-      description: The sha256 of the final_user_module.
+      description: The sha256 of the call_stack_final_user_module.
       example: "d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0"
 
     - name: thread.Ext.start

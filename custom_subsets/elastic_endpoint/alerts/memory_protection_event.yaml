@@ -205,7 +205,7 @@ fields:
                   symbol_info: {}
                   rva: {}
               call_stack_summary: {}
-              final_user_module:
+              call_stack_final_user_module:
                 fields:
                   name: {}
                   path: {}
