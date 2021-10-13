@@ -534,6 +534,30 @@ Endpoint.policy.applied.response.diagnostic.behavior_protection.status:
   normalize: []
   short: overall status of diagnostic behavior protection
   type: keyword
+Endpoint.policy.applied.response.diagnostic.credential_protection.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-diagnostic-credential-protection-concerned-actions
+  description: all actions that were taken for the diagnostic configuration of credential
+    protection
+  flat_name: Endpoint.policy.applied.response.diagnostic.credential_protection.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.diagnostic.credential_protection.concerned_actions
+  normalize: []
+  short: all actions that were taken for the diagnostic configuration of credential
+    protection
+  type: keyword
+Endpoint.policy.applied.response.diagnostic.credential_protection.status:
+  dashed_name: Endpoint-policy-applied-response-diagnostic-credential-protection-status
+  description: the overall status of the diagnostic configuration of credential protection,
+    this is correlated to  the status of concerned actions but not a simple sum of
+    the actions
+  flat_name: Endpoint.policy.applied.response.diagnostic.credential_protection.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.diagnostic.credential_protection.status
+  normalize: []
+  short: overall status of diagnostic behavior protection
+  type: keyword
 Endpoint.policy.applied.response.diagnostic.malware.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-diagnostic-malware-concerned-actions
   description: all actions that were taken for the diagnostic configuration of malware

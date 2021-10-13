@@ -318,6 +318,18 @@
       ignore_above: 1024
       description: the overall status of the diagnostic configuration of behavior protection, this is correlated to  the status of concerned actions but not a simple sum of the actions
       default_field: false
+    - name: policy.applied.response.diagnostic.credential_protection.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of credential protection
+      default_field: false
+    - name: policy.applied.response.diagnostic.credential_protection.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of credential protection, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
     - name: policy.applied.response.diagnostic.malware.concerned_actions
       level: custom
       type: keyword

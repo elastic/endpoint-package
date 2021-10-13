@@ -1642,6 +1642,17 @@ Target.process.Ext.memory_region.malware_signature.all_names:
   original_fieldset: malware_signature
   short: A sequence of signature names matched.
   type: keyword
+Target.process.Ext.memory_region.malware_signature.identifier:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-identifier
+  description: malware signature identifier
+  flat_name: Target.process.Ext.memory_region.malware_signature.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: malware signature identifier
+  type: keyword
 Target.process.Ext.memory_region.malware_signature.primary:
   dashed_name: Target-process-Ext-memory-region-malware-signature-primary
   description: The first matching details.
@@ -1652,6 +1663,37 @@ Target.process.Ext.memory_region.malware_signature.primary:
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
+Target.process.Ext.memory_region.malware_signature.primary.matches:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-matches
+  description: The first matching details.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.matches
+  level: custom
+  name: primary.matches
+  normalize: []
+  original_fieldset: malware_signature
+  short: The first matching details.
+  type: nested
+Target.process.Ext.memory_region.malware_signature.primary.signature.hash:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-signature-hash
+  description: hash of file matching signature.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.signature.hash
+  level: custom
+  name: primary.signature.hash
+  normalize: []
+  original_fieldset: malware_signature
+  short: hash of file matching signature.
+  type: nested
+Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-signature-hash-sha256
+  description: sha256 hash of file matching signature.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.hash.sha256
+  normalize: []
+  original_fieldset: malware_signature
+  short: sha256 hash of file matching signature.
+  type: keyword
 Target.process.Ext.memory_region.malware_signature.primary.signature.id:
   dashed_name: Target-process-Ext-memory-region-malware-signature-primary-signature-id
   description: The id of the first yara rule matched.
@@ -1673,6 +1715,17 @@ Target.process.Ext.memory_region.malware_signature.primary.signature.name:
   normalize: []
   original_fieldset: malware_signature
   short: The name of the first yara rule matched.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.version:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-version
+  description: malware signature version
+  flat_name: Target.process.Ext.memory_region.malware_signature.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  original_fieldset: malware_signature
+  short: malware signature version
   type: keyword
 Target.process.Ext.memory_region.mapped_pe.company:
   dashed_name: Target-process-Ext-memory-region-mapped-pe-company
@@ -7534,6 +7587,17 @@ process.Ext.memory_region.malware_signature.all_names:
   original_fieldset: malware_signature
   short: A sequence of signature names matched.
   type: keyword
+process.Ext.memory_region.malware_signature.identifier:
+  dashed_name: process-Ext-memory-region-malware-signature-identifier
+  description: malware signature identifier
+  flat_name: process.Ext.memory_region.malware_signature.identifier
+  ignore_above: 1024
+  level: custom
+  name: identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: malware signature identifier
+  type: keyword
 process.Ext.memory_region.malware_signature.primary:
   dashed_name: process-Ext-memory-region-malware-signature-primary
   description: The first matching details.
@@ -7544,6 +7608,37 @@ process.Ext.memory_region.malware_signature.primary:
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
+process.Ext.memory_region.malware_signature.primary.matches:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-matches
+  description: The first matching details.
+  flat_name: process.Ext.memory_region.malware_signature.primary.matches
+  level: custom
+  name: primary.matches
+  normalize: []
+  original_fieldset: malware_signature
+  short: The first matching details.
+  type: nested
+process.Ext.memory_region.malware_signature.primary.signature.hash:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-signature-hash
+  description: hash of file matching signature.
+  flat_name: process.Ext.memory_region.malware_signature.primary.signature.hash
+  level: custom
+  name: primary.signature.hash
+  normalize: []
+  original_fieldset: malware_signature
+  short: hash of file matching signature.
+  type: nested
+process.Ext.memory_region.malware_signature.primary.signature.hash.sha256:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-signature-hash-sha256
+  description: sha256 hash of file matching signature.
+  flat_name: process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: primary.signature.hash.sha256
+  normalize: []
+  original_fieldset: malware_signature
+  short: sha256 hash of file matching signature.
+  type: keyword
 process.Ext.memory_region.malware_signature.primary.signature.id:
   dashed_name: process-Ext-memory-region-malware-signature-primary-signature-id
   description: The id of the first yara rule matched.
@@ -7565,6 +7660,17 @@ process.Ext.memory_region.malware_signature.primary.signature.name:
   normalize: []
   original_fieldset: malware_signature
   short: The name of the first yara rule matched.
+  type: keyword
+process.Ext.memory_region.malware_signature.version:
+  dashed_name: process-Ext-memory-region-malware-signature-version
+  description: malware signature version
+  flat_name: process.Ext.memory_region.malware_signature.version
+  ignore_above: 1024
+  level: custom
+  name: version
+  normalize: []
+  original_fieldset: malware_signature
+  short: malware signature version
   type: keyword
 process.Ext.memory_region.mapped_pe.company:
   dashed_name: process-Ext-memory-region-mapped-pe-company
