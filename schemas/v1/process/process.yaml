@@ -1444,6 +1444,20 @@ process.Ext.token.integrity_level_name:
   original_fieldset: token
   short: Human readable integrity level.
   type: keyword
+process.Ext.token.security_attributes:
+  dashed_name: process-Ext-token-security-attributes
+  description: Array of security attributes of the token, retrieved via the  TokenSecurityAttributes
+    class.
+  example: TSA://ProcUnique, LUA://DecHdAutoAp
+  flat_name: process.Ext.token.security_attributes
+  ignore_above: 1024
+  level: custom
+  name: security_attributes
+  normalize: []
+  original_fieldset: token
+  short: Array of security attributes of the token, retrieved via the  TokenSecurityAttributes
+    class.
+  type: keyword
 process.args:
   dashed_name: process-args
   description: 'Array of process arguments, starting with the absolute path to the
