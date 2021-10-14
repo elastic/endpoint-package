@@ -218,8 +218,7 @@ fields:
                       valid: {}
                   hash:
                     fields:
-                      sha256:
-                        exceptionable: true
+                      sha256: {}
               parameter: {}
               parameter_bytes_compressed: {}
               parameter_bytes_compressed_present: {}

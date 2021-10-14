@@ -160,7 +160,7 @@
 
     - name: thread.Ext.call_stack_final_user_module.hash
       level: custom
-      type: nested
+      type: object
       description: Hashes of the call_stack_final_user_module.
 
     - name: thread.Ext.call_stack_final_user_module.hash.sha256
