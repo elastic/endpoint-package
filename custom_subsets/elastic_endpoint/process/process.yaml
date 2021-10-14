@@ -158,6 +158,7 @@ fields:
               elevation_level: {}
               elevation_type: {}
               integrity_level_name: {}
+              security_attributes: {}
       parent:
         fields:
           args: {}

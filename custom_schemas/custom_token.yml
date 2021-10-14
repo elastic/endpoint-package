@@ -109,3 +109,11 @@
       type: keyword
       description: >
         Description of the privilege.
+        
+    - name: security_attributes
+      level: custom
+      type: keyword
+      description: >
+        Array of security attributes of the token, retrieved via the 
+        TokenSecurityAttributes class.
+      example: TSA://ProcUnique, LUA://DecHdAutoAp
