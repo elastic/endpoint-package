@@ -1963,6 +1963,87 @@
       ignore_above: 1024
       description: The nearest symbol for `instruction_pointer`.
       default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module
+      level: custom
+      type: nested
+      description: The final non-win32 module in the call stack.
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature
+      level: custom
+      type: nested
+      description: Code signature of the call_stack_final_user_module.
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.hash
+      level: custom
+      type: object
+      description: Hashes of the call_stack_final_user_module.
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The sha256 of the call_stack_final_user_module.
+      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file name of the call_stack_final_user_module.
+      example: example.dll
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file path of the call_stack_final_user_module.
+      example: C:\Program Files\Example\example.dll
+      default_field: false
+    - name: process.thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      default_field: false
     - name: process.thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -5156,6 +5237,87 @@
       type: keyword
       ignore_above: 1024
       description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module
+      level: custom
+      type: nested
+      description: The final non-win32 module in the call stack.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature
+      level: custom
+      type: nested
+      description: Code signature of the call_stack_final_user_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.hash
+      level: custom
+      type: object
+      description: Hashes of the call_stack_final_user_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The sha256 of the call_stack_final_user_module.
+      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file name of the call_stack_final_user_module.
+      example: example.dll
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file path of the call_stack_final_user_module.
+      example: C:\Program Files\Example\example.dll
+      default_field: false
+    - name: thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
     - name: thread.Ext.parameter
       level: custom

@@ -2549,6 +2549,152 @@ Target.process.thread.Ext.call_stack.symbol_info:
   original_fieldset: call_stack
   short: The nearest symbol for `instruction_pointer`.
   type: keyword
+Target.process.thread.Ext.call_stack_final_user_module:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module
+  description: The final non-win32 module in the call stack.
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module
+  level: custom
+  name: thread.Ext.call_stack_final_user_module
+  normalize: []
+  original_fieldset: process
+  short: The final non-win32 module in the call stack.
+  type: nested
+Target.process.thread.Ext.call_stack_final_user_module.code_signature:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature
+  description: Code signature of the call_stack_final_user_module.
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature
+  normalize: []
+  original_fieldset: process
+  short: Code signature of the call_stack_final_user_module.
+  type: nested
+Target.process.thread.Ext.call_stack_final_user_module.code_signature.exists:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature.exists
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.exists
+  normalize: []
+  original_fieldset: process
+  short: Boolean to capture if a signature is present.
+  type: boolean
+Target.process.thread.Ext.call_stack_final_user_module.code_signature.status:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.status
+  normalize: []
+  original_fieldset: process
+  short: Additional information about the certificate status.
+  type: keyword
+Target.process.thread.Ext.call_stack_final_user_module.code_signature.subject_name:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  normalize: []
+  original_fieldset: process
+  short: Subject name of the code signer
+  type: keyword
+Target.process.thread.Ext.call_stack_final_user_module.code_signature.trusted:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.trusted
+  normalize: []
+  original_fieldset: process
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+Target.process.thread.Ext.call_stack_final_user_module.code_signature.valid:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.code_signature.valid
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.valid
+  normalize: []
+  original_fieldset: process
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+Target.process.thread.Ext.call_stack_final_user_module.hash:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-hash
+  description: Hashes of the call_stack_final_user_module.
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.hash
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash
+  normalize: []
+  original_fieldset: process
+  short: Hashes of the call_stack_final_user_module.
+  type: object
+Target.process.thread.Ext.call_stack_final_user_module.hash.sha256:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-hash-sha256
+  description: The sha256 of the call_stack_final_user_module.
+  example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash.sha256
+  normalize: []
+  original_fieldset: process
+  short: The sha256 of the call_stack_final_user_module.
+  type: keyword
+Target.process.thread.Ext.call_stack_final_user_module.name:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-name
+  description: The file name of the call_stack_final_user_module.
+  example: example.dll
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.name
+  normalize: []
+  original_fieldset: process
+  short: The file name of the call_stack_final_user_module.
+  type: keyword
+Target.process.thread.Ext.call_stack_final_user_module.path:
+  dashed_name: Target-process-thread-Ext-call-stack-final-user-module-path
+  description: The file path of the call_stack_final_user_module.
+  example: C:\Program Files\Example\example.dll
+  flat_name: Target.process.thread.Ext.call_stack_final_user_module.path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.path
+  normalize: []
+  original_fieldset: process
+  short: The file path of the call_stack_final_user_module.
+  type: keyword
+Target.process.thread.Ext.call_stack_summary:
+  dashed_name: Target-process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  flat_name: Target.process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  original_fieldset: process
+  short: Concatentation of the non-repeated modules in the call stack.
+  type: keyword
 Target.process.thread.Ext.parameter:
   dashed_name: Target-process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -7017,6 +7163,140 @@ process.thread.Ext.call_stack.symbol_info:
   normalize: []
   original_fieldset: call_stack
   short: The nearest symbol for `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module:
+  dashed_name: process-thread-Ext-call-stack-final-user-module
+  description: The final non-win32 module in the call stack.
+  flat_name: process.thread.Ext.call_stack_final_user_module
+  level: custom
+  name: thread.Ext.call_stack_final_user_module
+  normalize: []
+  short: The final non-win32 module in the call stack.
+  type: nested
+process.thread.Ext.call_stack_final_user_module.code_signature:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature
+  description: Code signature of the call_stack_final_user_module.
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature
+  normalize: []
+  short: Code signature of the call_stack_final_user_module.
+  type: nested
+process.thread.Ext.call_stack_final_user_module.code_signature.exists:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.exists
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.thread.Ext.call_stack_final_user_module.code_signature.status:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.code_signature.subject_name:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.code_signature.trusted:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.thread.Ext.call_stack_final_user_module.code_signature.valid:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.valid
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.valid
+  normalize: []
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+process.thread.Ext.call_stack_final_user_module.hash:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-hash
+  description: Hashes of the call_stack_final_user_module.
+  flat_name: process.thread.Ext.call_stack_final_user_module.hash
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash
+  normalize: []
+  short: Hashes of the call_stack_final_user_module.
+  type: object
+process.thread.Ext.call_stack_final_user_module.hash.sha256:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-hash-sha256
+  description: The sha256 of the call_stack_final_user_module.
+  example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+  flat_name: process.thread.Ext.call_stack_final_user_module.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash.sha256
+  normalize: []
+  short: The sha256 of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.name:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-name
+  description: The file name of the call_stack_final_user_module.
+  example: example.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.name
+  normalize: []
+  short: The file name of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.path:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-path
+  description: The file path of the call_stack_final_user_module.
+  example: C:\Program Files\Example\example.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.path
+  normalize: []
+  short: The file path of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_summary:
+  dashed_name: process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  flat_name: process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
 process.thread.Ext.parameter:
   dashed_name: process-thread-Ext-parameter
