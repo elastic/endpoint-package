@@ -1387,6 +1387,54 @@
                         },
                         "type": "group"
                       },
+                      "call_stack_final_user_module": {
+                        "properties": {
+                          "code_signature": {
+                            "properties": {
+                              "exists": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "subject_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "trusted": {
+                                "type": "boolean"
+                              },
+                              "valid": {
+                                "type": "boolean"
+                              }
+                            },
+                            "type": "nested"
+                          },
+                          "hash": {
+                            "properties": {
+                              "sha256": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "path": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "nested"
+                      },
+                      "call_stack_summary": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "parameter": {
                         "type": "unsigned_long"
                       },
@@ -3544,6 +3592,54 @@
                       }
                     },
                     "type": "group"
+                  },
+                  "call_stack_final_user_module": {
+                    "properties": {
+                      "code_signature": {
+                        "properties": {
+                          "exists": {
+                            "type": "boolean"
+                          },
+                          "status": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "subject_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "trusted": {
+                            "type": "boolean"
+                          },
+                          "valid": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "nested"
+                      },
+                      "hash": {
+                        "properties": {
+                          "sha256": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "name": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
+                      "path": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "nested"
+                  },
+                  "call_stack_summary": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "parameter": {
                     "type": "unsigned_long"
