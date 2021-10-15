@@ -300,6 +300,19 @@
         the status of concerned actions but not a simple sum of the actions
       short: overall status of diagnostic behavior protection
 
+    - name: policy.applied.response.diagnostic.credential_protection.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the diagnostic configuration of credential protection
+
+    - name: policy.applied.response.diagnostic.credential_protection.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the diagnostic configuration of credential protection, this is correlated to 
+        the status of concerned actions but not a simple sum of the actions
+      short: overall status of diagnostic behavior protection
+
     - name: policy.applied.artifacts
       level: custom
       type: object

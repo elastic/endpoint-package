@@ -667,10 +667,26 @@
                             "ignore_above": 1024,
                             "type": "keyword"
                           },
+                          "identifier": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
                           "primary": {
                             "properties": {
+                              "matches": {
+                                "type": "nested"
+                              },
                               "signature": {
                                 "properties": {
+                                  "hash": {
+                                    "properties": {
+                                      "sha256": {
+                                        "ignore_above": 1024,
+                                        "type": "keyword"
+                                      }
+                                    },
+                                    "type": "nested"
+                                  },
                                   "id": {
                                     "ignore_above": 1024,
                                     "type": "keyword"
@@ -683,6 +699,10 @@
                               }
                             },
                             "type": "object"
+                          },
+                          "version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
                           }
                         }
                       },
@@ -2824,10 +2844,26 @@
                         "ignore_above": 1024,
                         "type": "keyword"
                       },
+                      "identifier": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "primary": {
                         "properties": {
+                          "matches": {
+                            "type": "nested"
+                          },
                           "signature": {
                             "properties": {
+                              "hash": {
+                                "properties": {
+                                  "sha256": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                  }
+                                },
+                                "type": "nested"
+                              },
                               "id": {
                                 "ignore_above": 1024,
                                 "type": "keyword"
@@ -2840,6 +2876,10 @@
                           }
                         },
                         "type": "object"
+                      },
+                      "version": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
                       }
                     }
                   },
