@@ -2,7 +2,7 @@
 ## This file documents the package changelog
 ##
 
-- version: 1.2.0-dev.0
+- version: 1.2.0
   changes:
     - description: Set Minimum Kibana version to 7.16
       type: enhancement
@@ -16,6 +16,18 @@
     - description: Update "metadata_current" transform description
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/190
+    - description: Add metadata-united transform
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/191
+    - description: Add new data streams for endpoint actions
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/198
+    - description: Add endpoint fields for credential protection and memory scan
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/200
+    - description: Add process security_attributes
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/201
 - version: 1.1.1
   changes:
     - description: convert Events to be an object field
