@@ -14,7 +14,7 @@
       link: https://github.com/elastic/endpoint-package/pull/204
     - description: Increase alerts nested_fields limit
       type: bugfix
-      link: https://github.com/elastic/endpoint-package/pull/205s
+      link: https://github.com/elastic/endpoint-package/pull/205
 - version: 1.2.0
   changes:
     - description: Set Minimum Kibana version to 7.16
