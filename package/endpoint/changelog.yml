@@ -7,6 +7,14 @@
     - description: TBD
       type: enhancement
       link: TBD
+- version: 1.2.1
+  changes:
+    - description: remake security_attributes generation
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/204
+    - description: Increase alerts nested_fields limit
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/205s
 - version: 1.2.0
   changes:
     - description: Set Minimum Kibana version to 7.16
