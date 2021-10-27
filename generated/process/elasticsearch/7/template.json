@@ -402,6 +402,10 @@
                   "integrity_level_name": {
                     "ignore_above": 1024,
                     "type": "keyword"
+                  },
+                  "security_attributes": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   }
                 }
               }

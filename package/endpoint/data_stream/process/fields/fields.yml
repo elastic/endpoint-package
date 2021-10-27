@@ -659,6 +659,13 @@
       description: Human readable integrity level.
       example: one of "system", "high", "medium", "low", "untrusted"
       default_field: false
+    - name: Ext.token.security_attributes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class.
+      example: TSA://ProcUnique, LUA://DecHdAutoAp
+      default_field: false
     - name: args
       level: extended
       type: keyword
