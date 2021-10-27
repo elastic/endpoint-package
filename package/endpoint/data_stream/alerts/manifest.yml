@@ -2,5 +2,10 @@ title: Endpoint Alerts
 type: logs
 elasticsearch:
   index_template:
+    settings:
+      index:
+        mapping:
+          nested_fields:
+            limit: 80
     mappings:
       dynamic: false
