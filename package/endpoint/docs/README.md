@@ -1772,6 +1772,7 @@ sent by the endpoint.
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
+| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
