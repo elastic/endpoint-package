@@ -961,6 +961,7 @@
       type: keyword
       ignore_above: 1024
       description: The first matching details.
+      enabled: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.signature.hash
       level: custom
@@ -4216,6 +4217,7 @@
       type: keyword
       ignore_above: 1024
       description: The first matching details.
+      enabled: false
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.signature.hash
       level: custom

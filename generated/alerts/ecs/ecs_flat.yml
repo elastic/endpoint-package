@@ -1666,6 +1666,7 @@ Target.process.Ext.memory_region.malware_signature.primary:
 Target.process.Ext.memory_region.malware_signature.primary.matches:
   dashed_name: Target-process-Ext-memory-region-malware-signature-primary-matches
   description: The first matching details.
+  enabled: false
   flat_name: Target.process.Ext.memory_region.malware_signature.primary.matches
   ignore_above: 1024
   level: custom
@@ -7758,6 +7759,7 @@ process.Ext.memory_region.malware_signature.primary:
 process.Ext.memory_region.malware_signature.primary.matches:
   dashed_name: process-Ext-memory-region-malware-signature-primary-matches
   description: The first matching details.
+  enabled: false
   flat_name: process.Ext.memory_region.malware_signature.primary.matches
   ignore_above: 1024
   level: custom

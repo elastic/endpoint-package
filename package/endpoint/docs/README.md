@@ -147,7 +147,6 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
-| Target.process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
@@ -581,7 +580,6 @@ sent by the endpoint.
 | process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
-| process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
