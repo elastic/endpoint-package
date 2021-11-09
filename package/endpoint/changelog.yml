@@ -7,6 +7,11 @@
     - description: TBD
       type: enhancement
       link: TBD
+- version: 1.2.2
+  changes:
+    - description: malware_signature.primary.matches should be keyword
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/212
 - version: 1.2.1
   changes:
     - description: remake security_attributes generation
