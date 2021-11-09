@@ -674,7 +674,9 @@
                           "primary": {
                             "properties": {
                               "matches": {
-                                "type": "nested"
+                                "doc_values": false,
+                                "index": false,
+                                "type": "keyword"
                               },
                               "signature": {
                                 "properties": {
@@ -2851,7 +2853,9 @@
                       "primary": {
                         "properties": {
                           "matches": {
-                            "type": "nested"
+                            "doc_values": false,
+                            "index": false,
+                            "type": "keyword"
                           },
                           "signature": {
                             "properties": {
