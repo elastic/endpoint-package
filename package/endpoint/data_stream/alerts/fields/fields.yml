@@ -958,8 +958,10 @@
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
       level: custom
-      type: nested
+      type: keyword
       description: The first matching details.
+      index: false
+      doc_values: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.signature.hash
       level: custom
@@ -4212,8 +4214,10 @@
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
       level: custom
-      type: nested
+      type: keyword
       description: The first matching details.
+      index: false
+      doc_values: false
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.signature.hash
       level: custom
