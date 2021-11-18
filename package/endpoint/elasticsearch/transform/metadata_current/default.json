@@ -19,6 +19,9 @@
         "sort": "@timestamp"
     },
     "description": "Latest Endpoint metadata document per host",
+    "_meta": {
+        "managed": true
+    },
     "frequency": "10s",
     "sync": {
         "time": {
