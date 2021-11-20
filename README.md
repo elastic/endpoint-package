@@ -12,7 +12,7 @@ To update the endpoint package clone this repo and make changes as needed
 This section includes a list of tools that should be installed before making changes to the Endpoint's mapping.
 The individual sections below will give more details about how each tool is used and setup.
 
-- Install go 1.14 from here: <https://golang.org/dl/>
+- Install go 1.14 from [here](https://golang.org/dl/)
 
 - Install [Python 3.6+](https://www.python.org/)
 
@@ -20,7 +20,7 @@ The individual sections below will give more details about how each tool is used
   - mac: `brew install hub`
   - debian-based: `sudo apt install hub`
 
-NOTE: If you are using a higher version than python3 the make command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
+NOTE: If you are using a higher version than python3 the `make` command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
 
 ## Updating the Endpoint Package Mapping
 
@@ -29,7 +29,7 @@ To update the endpoint package mapping take a look at the [Custom Schema](./cust
 
 The essential steps are listed here:
 
-- Edit/add custom schema files as needed to define any fields that don't exist in ECS core
+- Edit/add custom schema files as needed to define any fields that doesn't exist in ECS core
 
 - Update the subset files for the particular event that is being changed or create a new subset file
 
