@@ -89,6 +89,22 @@
       description: 'Some event destination addresses are defined ambiguously. The event will sometimes list an IP, a domain or a unix socket.  You should always store the raw address in the `.address` field.
 
         Then it should be duplicated to `.ip` or `.domain`, depending on which one it is.'
+    - name: as.number
+      level: extended
+      type: long
+      description: Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet.
+      example: 15169
+    - name: as.organization.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: Organization name.
+      example: Google LLC
     - name: bytes
       level: core
       type: long
@@ -845,6 +861,22 @@
       description: 'Some event source addresses are defined ambiguously. The event will sometimes list an IP, a domain or a unix socket.  You should always store the raw address in the `.address` field.
 
         Then it should be duplicated to `.ip` or `.domain`, depending on which one it is.'
+    - name: as.number
+      level: extended
+      type: long
+      description: Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet.
+      example: 15169
+    - name: as.organization.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: Organization name.
+      example: Google LLC
     - name: bytes
       level: core
       type: long
