@@ -102,6 +102,35 @@ destination.address:
   normalize: []
   short: Destination network address.
   type: keyword
+destination.as.number:
+  dashed_name: destination-as-number
+  description: Unique number allocated to the autonomous system. The autonomous system
+    number (ASN) uniquely identifies each network on the Internet.
+  example: 15169
+  flat_name: destination.as.number
+  level: extended
+  name: number
+  normalize: []
+  original_fieldset: as
+  short: Unique number allocated to the autonomous system.
+  type: long
+destination.as.organization.name:
+  dashed_name: destination-as-organization-name
+  description: Organization name.
+  example: Google LLC
+  flat_name: destination.as.organization.name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: destination.as.organization.name.text
+    name: text
+    norms: false
+    type: text
+  name: organization.name
+  normalize: []
+  original_fieldset: as
+  short: Organization name.
+  type: keyword
 destination.bytes:
   dashed_name: destination-bytes
   description: Bytes sent from the destination to the source.
@@ -1748,6 +1777,35 @@ source.address:
   name: address
   normalize: []
   short: Source network address.
+  type: keyword
+source.as.number:
+  dashed_name: source-as-number
+  description: Unique number allocated to the autonomous system. The autonomous system
+    number (ASN) uniquely identifies each network on the Internet.
+  example: 15169
+  flat_name: source.as.number
+  level: extended
+  name: number
+  normalize: []
+  original_fieldset: as
+  short: Unique number allocated to the autonomous system.
+  type: long
+source.as.organization.name:
+  dashed_name: source-as-organization-name
+  description: Organization name.
+  example: Google LLC
+  flat_name: source.as.organization.name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: source.as.organization.name.text
+    name: text
+    norms: false
+    type: text
+  name: organization.name
+  normalize: []
+  original_fieldset: as
+  short: Organization name.
   type: keyword
 source.bytes:
   dashed_name: source-bytes
