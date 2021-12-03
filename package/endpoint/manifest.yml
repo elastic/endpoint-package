@@ -16,7 +16,7 @@ policy_templates:
     description: Interact with the endpoint.
     multiple: false
 conditions:
-  kibana.version: "^8.0.0"
+  kibana.version: "^7.17.0"
   # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
   # >= <the version> && < 8.0.0
 icons:
