@@ -29,7 +29,7 @@ To update the endpoint package mapping take a look at the [Custom Schema](./cust
 
 The essential steps are listed here:
 
-- Edit/add custom schema files as needed to define any fields that doesn't exist in ECS core
+- Edit/add custom schema files as needed to define any fields that don't exist in ECS core
 
 - Update the subset files for the particular event that is being changed or create a new subset file
 
