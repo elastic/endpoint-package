@@ -2,7 +2,7 @@ format_version: 1.1.0
 name: endpoint
 title: Endpoint Security
 description: Protect your hosts with threat prevention, detection, and deep security data visibility.
-version: 1.4.1-dev.0
+version: 1.4.1-dev.1
 categories: ["security"]
 # Options are experimental, beta, ga
 release: ga
