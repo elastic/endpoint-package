@@ -527,7 +527,8 @@
                 "codec": "best_compression",
                 "refresh_interval": "5s",
                 "number_of_shards": "1",
-                "number_of_routing_shards": "30"
+                "number_of_routing_shards": "30",
+                "hidden": true
             }
         },
         "aliases": {}
