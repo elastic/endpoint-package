@@ -826,6 +826,18 @@ Target.process.Ext.memory_region.malware_signature.version:
   original_fieldset: malware_signature
   short: malware signature version
   type: keyword
+Target.process.Ext.memory_region.mapped_path:
+  dashed_name: Target-process-Ext-memory-region-mapped-path
+  description: If the memory corresponds to a file mapping, this is the file's path.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: Target.process.Ext.memory_region.mapped_path
+  ignore_above: 1024
+  level: extended
+  name: mapped_path
+  normalize: []
+  original_fieldset: memory_region
+  short: If the memory corresponds to a file mapping, this is the file's path.
+  type: keyword
 Target.process.Ext.memory_region.mapped_pe.company:
   dashed_name: Target-process-Ext-memory-region-mapped-pe-company
   description: Internal company name of the file, provided at compile-time.
@@ -5511,6 +5523,18 @@ process.Ext.memory_region.malware_signature.version:
   normalize: []
   original_fieldset: malware_signature
   short: malware signature version
+  type: keyword
+process.Ext.memory_region.mapped_path:
+  dashed_name: process-Ext-memory-region-mapped-path
+  description: If the memory corresponds to a file mapping, this is the file's path.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: process.Ext.memory_region.mapped_path
+  ignore_above: 1024
+  level: extended
+  name: mapped_path
+  normalize: []
+  original_fieldset: memory_region
+  short: If the memory corresponds to a file mapping, this is the file's path.
   type: keyword
 process.Ext.memory_region.mapped_pe.company:
   dashed_name: process-Ext-memory-region-mapped-pe-company
