@@ -7,5 +7,7 @@ elasticsearch:
         mapping:
           nested_fields:
             limit: 80
+          total_fields:
+            limit: 5000
     mappings:
       dynamic: false
