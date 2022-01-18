@@ -107,13 +107,15 @@
                                 "data_stream": {
                                     "properties": {
                                         "dataset": {
-                                            "type": "constant_keyword"
+                                            "type": "constant_keyword",
+                                            "value": "endpoint.metadata"
                                         },
                                         "namespace": {
                                             "type": "keyword"
                                         },
                                         "type": {
-                                            "type": "constant_keyword"
+                                            "type": "constant_keyword",
+                                            "value": "metrics"
                                         }
                                     }
                                 },
