@@ -306,6 +306,7 @@ fields:
                               sha256: {}
                       matches: {}
                   version: {}
+              mapped_path: {}
               mapped_pe:
                 fields: *pe-fields
               mapped_pe_detected: {}

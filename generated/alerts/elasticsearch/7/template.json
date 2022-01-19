@@ -708,6 +708,10 @@
                           }
                         }
                       },
+                      "mapped_path": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      },
                       "mapped_pe": {
                         "properties": {
                           "company": {
@@ -2886,6 +2890,10 @@
                         "type": "keyword"
                       }
                     }
+                  },
+                  "mapped_path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "mapped_pe": {
                     "properties": {
