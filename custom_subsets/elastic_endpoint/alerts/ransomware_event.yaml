@@ -41,6 +41,8 @@ fields:
           imphash: {}
           original_file_name: {}
           product: {}
+      code_signature:
+        fields: "*"
       Ext:
         fields:
           mapped_address: {}
@@ -229,6 +231,8 @@ fields:
       title: {}
       uptime: {}
       working_directory: {}
+      code_signature:
+        fields: "*"
       Ext:
         fields:
           ancestry: {}
@@ -282,6 +286,8 @@ fields:
           title: {}
           uptime: {}
           working_directory: {}
+          code_signature:
+            fields: "*"
           Ext:
             fields:
               real:

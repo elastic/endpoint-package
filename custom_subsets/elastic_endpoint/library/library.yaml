@@ -104,6 +104,8 @@ fields:
       entity_id: {}
       pid: {}
       name: {}
+      code_signature:
+        fields: "*"
       executable: {}
       thread:
         fields:
@@ -111,6 +113,8 @@ fields:
       Ext:
         fields:
           ancestry: {}
+        code_signature:
+          fields: "*"
   file:
     fields:
       pe:
@@ -129,6 +133,8 @@ fields:
           sha1: {}
           sha256: {}
           sha512: {}
+      code_signature:
+        fields: "*"
       Ext:
         fields:
           code_signature:

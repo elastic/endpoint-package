@@ -347,3 +347,68 @@
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
 
+    - name: code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+    - name: code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+
+    - name: code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV

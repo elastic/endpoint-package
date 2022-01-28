@@ -425,6 +425,72 @@
     These fields provide more context about the target process and thread that are related to the data in the document. Useful in a security context where a target process or thread may be acted on by another process or thread.'
   type: group
   fields:
+    - name: dll.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+      default_field: false
+    - name: dll.code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: dll.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+      default_field: false
+    - name: dll.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+      default_field: false
+    - name: dll.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: dll.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: dll.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
+      default_field: false
     - name: dll.Ext
       level: custom
       type: object
@@ -622,6 +688,72 @@
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
       default_field: false
+    - name: process.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+      default_field: false
+    - name: process.code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+      default_field: false
+    - name: process.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+      default_field: false
+    - name: process.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: process.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: process.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
+      default_field: false
     - name: process.Ext
       level: custom
       type: object
@@ -688,6 +820,72 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: process.Ext.dll.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+      default_field: false
+    - name: process.Ext.dll.code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.Ext.dll.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+      default_field: false
+    - name: process.Ext.dll.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+      default_field: false
+    - name: process.Ext.dll.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: process.Ext.dll.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: process.Ext.dll.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
       default_field: false
     - name: process.Ext.dll.Ext
       level: custom
@@ -1346,6 +1544,72 @@
         Sometimes called program name or similar.'
       example: ssh
       default_field: false
+    - name: process.parent.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+      default_field: false
+    - name: process.parent.code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.parent.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+      default_field: false
+    - name: process.parent.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+      default_field: false
+    - name: process.parent.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: process.parent.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: process.parent.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
+      default_field: false
     - name: process.parent.Ext
       level: custom
       type: object
@@ -1400,6 +1664,72 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.subject_name
+      level: extended
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: process.parent.Ext.dll.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
       default_field: false
     - name: process.parent.Ext.dll.Ext
       level: custom
