@@ -993,11 +993,11 @@
       description: malware signature version
       default_field: false
     - name: process.Ext.memory_region.mapped_path
-      level: extended
+      level: custom
       type: keyword
       ignore_above: 1024
       description: If the memory corresponds to a file mapping, this is the file's path.
-      example: C:\Windows\System32\kernel32.dll
+      example: C:\Windows\System32\mshtml.dll
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.company
       level: extended
@@ -4256,11 +4256,11 @@
       description: malware signature version
       default_field: false
     - name: Ext.memory_region.mapped_path
-      level: extended
+      level: custom
       type: keyword
       ignore_above: 1024
       description: If the memory corresponds to a file mapping, this is the file's path.
-      example: C:\Windows\System32\kernel32.dll
+      example: C:\Windows\System32\mshtml.dll
       default_field: false
     - name: Ext.memory_region.mapped_pe.company
       level: extended
