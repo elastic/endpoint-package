@@ -90,7 +90,7 @@
 
     - name: files.data
       level: custom
-      type: binary
+      type: keyword
       description: File header or MBR bytes.
 
     - name: files.score

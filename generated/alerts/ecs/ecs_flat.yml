@@ -296,12 +296,13 @@ Ransomware.child_processes.files.data:
   dashed_name: Ransomware-child-processes-files-data
   description: File header or MBR bytes.
   flat_name: Ransomware.child_processes.files.data
+  ignore_above: 1024
   level: custom
   name: files.data
   normalize: []
   original_fieldset: Ransomware
   short: File header or MBR bytes.
-  type: binary
+  type: keyword
 Ransomware.child_processes.files.entropy:
   dashed_name: Ransomware-child-processes-files-entropy
   description: Entropy of file contents.
@@ -464,11 +465,12 @@ Ransomware.files.data:
   dashed_name: Ransomware-files-data
   description: File header or MBR bytes.
   flat_name: Ransomware.files.data
+  ignore_above: 1024
   level: custom
   name: files.data
   normalize: []
   short: File header or MBR bytes.
-  type: binary
+  type: keyword
 Ransomware.files.entropy:
   dashed_name: Ransomware-files-entropy
   description: Entropy of file contents.

@@ -150,7 +150,8 @@
               "files": {
                 "properties": {
                   "data": {
-                    "type": "binary"
+                    "ignore_above": 1024,
+                    "type": "keyword"
                   },
                   "entropy": {
                     "type": "double"
@@ -218,7 +219,8 @@
           "files": {
             "properties": {
               "data": {
-                "type": "binary"
+                "ignore_above": 1024,
+                "type": "keyword"
               },
               "entropy": {
                 "type": "double"
