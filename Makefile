@@ -128,7 +128,7 @@ $(REAL_ECS_DIR):
 # deleting the tag helps deal with mod time differences between ecs dir and the tag ref file
 $(ECS_TAG_REF): $(REAL_ECS_DIR)
 	rm -rf $@
-	git -C $(REAL_ECS_DIR) pull -t origin main
+	git -C $(REAL_ECS_DIR) fetch -t origin
 	git -C $(REAL_ECS_DIR) checkout $(ECS_GIT_REF)
 
 $(ESTC_PKG_BIN):
