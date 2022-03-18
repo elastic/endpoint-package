@@ -11,6 +11,15 @@
     user has more than one id, provide an array that includes all of
     them.
   type: group
+  reusable:
+    top_level: true
+    expected:
+      - at: process
+        as: user
+      - at: process
+        as: saved_user
+      - at: process
+        as: real_user
   fields:
     - name: Ext
       level: custom
