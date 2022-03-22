@@ -2228,6 +2228,19 @@ process.entry_leader.working_directory:
   original_fieldset: process
   short: The working directory of the process.
   type: keyword
+process.env_vars:
+  dashed_name: process-env-vars
+  description: 'Environment variables set at the time of the event.
+
+    May be filtered to protect sensitive information.'
+  example: "{\n  \"USER\": \"elastic\",\n  \"LANG\": \"en_US.UTF-8\",\n  \"HOME\"\
+    : \"/home/elastic\"\n}"
+  flat_name: process.env_vars
+  level: extended
+  name: env_vars
+  normalize: []
+  short: Environment variables set at the time of the event.
+  type: object
 process.executable:
   dashed_name: process-executable
   description: Absolute path to the process executable.

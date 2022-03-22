@@ -734,6 +734,9 @@
               }
             }
           },
+          "env_vars": {
+            "type": "object"
+          },
           "executable": {
             "fields": {
               "caseless": {
