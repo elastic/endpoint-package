@@ -30,6 +30,7 @@ fields:
       args_count: {}
       command_line: {}
       entity_id: {}
+      env_vars: {}
       executable: {}
       interactive: {}
       name: {}

@@ -675,6 +675,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
+| process.env_vars | Environment variables set at the time of the event. May be filtered to protect sensitive information. | object |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -1968,6 +1969,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
+| process.env_vars | Environment variables set at the time of the event. May be filtered to protect sensitive information. | object |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
