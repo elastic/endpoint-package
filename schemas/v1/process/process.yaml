@@ -1309,7 +1309,7 @@ process.Ext.code_signature.valid:
   type: boolean
 process.Ext.defense_evasions:
   dashed_name: process-Ext-defense-evasions
-  description: List of defense evasions found in this process.   These defense evasions
+  description: List of defense evasions found in this process. These defense evasions
     can make it harder to inspect a process and/or cause abnormal OS behavior. Examples
     tools that can cause defense evasions include Process Doppelganging and Process
     Herpaderping.

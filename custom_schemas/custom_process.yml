@@ -15,6 +15,15 @@
       - { at: process, as: parent }
       - Target
       - { at: Target.process, as: parent }
+      - { at: process, as: entry_leader }
+      - { at: process, as: session_leader }
+      - { at: process, as: group_leader }
+      - { at: process.parent, as: group_leader }
+      - { at: process.entry_leader, as: parent }
+      - { at: process.session_leader, as: parent }
+      - { at: process.entry_leader.parent, as: session_leader }
+      - { at: process.session_leader.parent, as: session_leader }
+      - { at: process, as: previous }
   type: group
   fields:
     - name: command_line
@@ -58,7 +67,7 @@
       level: custom
       type: keyword
       description: An array of entity_ids indicating the ancestors for this event
-      
+
     - name: Ext.architecture
       level: custom
       type: keyword
@@ -189,28 +198,28 @@
       example: 0
       description: >
         Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base.
-        
+
     - name: thread.Ext.start_address_bytes
       level: custom
       type: keyword
       example: "c3cc0000cccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
       description: >
         A few (typically 32) raw opcode bytes at the thread start address, hex-encoded.
-        
+
     - name: thread.Ext.start_address_bytes_disasm
       level: custom
       type: keyword
       example: "ret\\nint3"
       description: >
         The bytes at the thread start address, disassembled into human-readable assembly code.
-        
+
     - name: thread.Ext.start_address_bytes_disasm_hash
       level: custom
       type: keyword
       example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
       description: >
         The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
-        
+
     - name: thread.Ext.start_address_module
       level: custom
       type: keyword
@@ -223,7 +232,7 @@
       type: object
       description: >
         Additional information about the memory containing the thread start address.
-        
+
     - name: thread.Ext.service
       level: custom
       type: keyword
@@ -236,7 +245,7 @@
       type: long
       description: >
         Seconds since thread started.
-        
+
     - name: thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -249,7 +258,7 @@
       index: false
       description: >
         Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
-        
+
     - name: thread.Ext.parameter_bytes_compressed_present
       level: custom
       type: boolean
@@ -335,7 +344,7 @@
       type: keyword
       short: List of defense evasions found in this process.
       description: >
-        List of defense evasions found in this process.  
+        List of defense evasions found in this process.
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
         Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
 
@@ -346,4 +355,90 @@
       description: >
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+
+    - name: interactive
+      level: extended
+      type: boolean
+      short: Whether the process is connected to an interactive shell.
+      description: >
+        Whether the process is connected to an interactive shell.
+
+        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+
+        Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.
+
+    - name: same_as_process
+      level: extended
+      type: boolean
+      short: This boolean is used to identify if a leader process is the same as the top level process.
+      description: >
+        This boolean is used to identify if a leader process is the same as the top level process.
+
+        For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.*
+
+        The same applies for both process.session_leader and process.entry_leader.
+
+        This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document.
+
+        e.g
+
+        process.entity_id = process.group_leader.entity_id (top level process is the process group leader)
+
+        OR
+
+        process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader)
+
+        Instead these rules could be written like:
+
+        process.group_leader.same_as_process: true
+
+        OR
+
+        process.entry_leader.same_as_process: true
+
+        Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader.
+
+    - name: env_vars
+      level: extended
+      type: object
+      short: Environment variables set at the time of the event.
+      description: >
+        Environment variables set at the time of the event.
+
+        May be filtered to protect sensitive information.
+      example: >
+        {
+          "USER": "elastic",
+          "LANG": "en_US.UTF-8",
+          "HOME": "/home/elastic"
+        }
+
+    - name: entry_meta.type
+      level: extended
+      type: keyword
+      short: The entry type for the entry session leader.
+      description: >
+        The entry type for the entry session leader.
+        Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console
+
+    - name: tty
+      level: extended
+      type: object
+      short: Information about the controlling TTY device.
+      description: >
+        Information about the controlling TTY device. If set, the process belongs to an interactive session.
+
+    - name: tty.char_device.major
+      level: extended
+      type: long
+      short: The TTY character device's major number.
+      description: >
+        The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+
+    - name: tty.char_device.minor
+      level: extended
+      type: long
+      short: The TTY character device's minor number.
+      description: >
+        The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them.
 
