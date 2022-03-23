@@ -47,6 +47,10 @@ fields:
             fields:
               major: {}
               minor: {}
+      user:
+        fields:
+          id: {}
+          name: {}
       working_directory: {}
       real_user:
         fields:
