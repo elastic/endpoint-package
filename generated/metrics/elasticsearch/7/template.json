@@ -74,6 +74,54 @@
               },
               "documents_volume": {
                 "properties": {
+                  "alerts": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "diagnostic_alerts": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "dns_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
                   "file_events": {
                     "properties": {
                       "sent_bytes": {
@@ -155,6 +203,22 @@
                     }
                   },
                   "registry_events": {
+                    "properties": {
+                      "sent_bytes": {
+                        "type": "long"
+                      },
+                      "sent_count": {
+                        "type": "long"
+                      },
+                      "suppressed_bytes": {
+                        "type": "long"
+                      },
+                      "suppressed_count": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "security_events": {
                     "properties": {
                       "sent_bytes": {
                         "type": "long"
