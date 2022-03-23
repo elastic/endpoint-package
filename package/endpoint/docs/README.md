@@ -898,6 +898,8 @@ sent by the endpoint.
 | process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
+| process.user.id | Unique identifier of the user. | keyword |
+| process.user.name | Short name or login of the user. | keyword |
 | process.working_directory | The working directory of the process. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
 | registry.path | Full path, including hive, key and value | keyword |
@@ -2136,6 +2138,8 @@ sent by the endpoint.
 | process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
+| process.user.id | Unique identifier of the user. | keyword |
+| process.user.name | Short name or login of the user. | keyword |
 | process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |

@@ -2503,6 +2503,34 @@ process.tty.char_device.minor:
   normalize: []
   short: The TTY character device's minor number.
   type: long
+process.user.id:
+  dashed_name: process-user-id
+  description: Unique identifier of the user.
+  flat_name: process.user.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  original_fieldset: user
+  short: Unique identifier of the user.
+  type: keyword
+process.user.name:
+  dashed_name: process-user-name
+  description: Short name or login of the user.
+  example: albert
+  flat_name: process.user.name
+  ignore_above: 1024
+  level: core
+  multi_fields:
+  - flat_name: process.user.name.text
+    name: text
+    norms: false
+    type: text
+  name: name
+  normalize: []
+  original_fieldset: user
+  short: Short name or login of the user.
+  type: keyword
 process.working_directory:
   dashed_name: process-working-directory
   description: The working directory of the process.

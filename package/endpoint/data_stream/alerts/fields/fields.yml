@@ -6749,6 +6749,23 @@
       type: long
       description: Seconds the process has been up.
       example: 1325
+    - name: user.id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier of the user.
+      default_field: false
+    - name: user.name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: text
+          norms: false
+      description: Short name or login of the user.
+      example: albert
+      default_field: false
     - name: working_directory
       level: extended
       type: keyword
