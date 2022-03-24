@@ -504,6 +504,86 @@
       type: long
       description: Total size of suppressed documents
 
+    - name: metrics.documents_volume.security_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+
+    - name: metrics.documents_volume.security_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+
+    - name: metrics.documents_volume.security_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+
+    - name: metrics.documents_volume.security_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+
+    - name: metrics.documents_volume.dns_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+
+    - name: metrics.documents_volume.dns_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+
+    - name: metrics.documents_volume.dns_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+
+    - name: metrics.documents_volume.dns_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+
+    - name: metrics.documents_volume.alerts.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+
+    - name: metrics.documents_volume.alerts.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+
+    - name: metrics.documents_volume.alerts.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+
+    - name: metrics.documents_volume.alerts.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+
+    - name: metrics.documents_volume.diagnostic_alerts.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+
+    - name: metrics.documents_volume.diagnostic_alerts.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+
+    - name: metrics.documents_volume.diagnostic_alerts.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+
+    - name: metrics.documents_volume.diagnostic_alerts.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+
     - name: metrics.uptime
       level: custom
       type: object
