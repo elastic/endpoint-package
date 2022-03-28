@@ -195,7 +195,7 @@
       default_field: false
     - name: child_processes.files.data
       level: custom
-      type: binary
+      type: keyword
       description: File header or MBR bytes.
       default_field: false
     - name: child_processes.files.entropy
@@ -286,7 +286,7 @@
       default_field: false
     - name: files.data
       level: custom
-      type: binary
+      type: keyword
       description: File header or MBR bytes.
       default_field: false
     - name: files.entropy

@@ -34,7 +34,7 @@ sent by the endpoint.
 | Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
 | Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
-| Ransomware.child_processes.files.data | File header or MBR bytes. | binary |
+| Ransomware.child_processes.files.data | File header or MBR bytes. | keyword |
 | Ransomware.child_processes.files.entropy | Entropy of file contents. | double |
 | Ransomware.child_processes.files.extension | File extension, excluding the leading dot. | keyword |
 | Ransomware.child_processes.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
@@ -49,7 +49,7 @@ sent by the endpoint.
 | Ransomware.executable | Absolute path to the process executable. | keyword |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
-| Ransomware.files.data | File header or MBR bytes. | binary |
+| Ransomware.files.data | File header or MBR bytes. | keyword |
 | Ransomware.files.entropy | Entropy of file contents. | double |
 | Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
 | Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
