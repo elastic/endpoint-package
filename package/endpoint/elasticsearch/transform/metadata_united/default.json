@@ -11,7 +11,7 @@
     "frequency": "1s",
     "sync": {
         "time": {
-            "delay": "1s",
+            "delay": "4s",
             "field": "updated_at"
         }
     },
