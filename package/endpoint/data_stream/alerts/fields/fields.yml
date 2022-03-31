@@ -446,6 +446,7 @@
         Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.
+
       default_field: false
     - name: dll.code_signature.trusted
       level: extended
@@ -455,8 +456,8 @@
       description: >
         Stores the trust status of the certificate chain.
 
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.
+
       default_field: false
     - name: dll.code_signature.status
       level: extended
@@ -465,8 +466,8 @@
       description: >
         Additional information about the certificate status.
 
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.
+
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: dll.code_signature.signing_id
@@ -476,8 +477,8 @@
       description: >
         'The identifier used to sign the binary.
 
-        This is used to identify the application manufactured by a software vendor. The
-        field is relevant to Apple *OS only.'
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+
       example: com.apple.xpc.proxy
       default_field: false
     - name: dll.code_signature.team_id
@@ -487,8 +488,8 @@
       description: >
         'The team identifier used to sign the binary.
 
-        This is used to identify the team or vendor of a software product. The field is
-        relevant to Apple *OS only.'
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+
       example: EQHXZ8M8AV
       default_field: false
     - name: dll.Ext
@@ -709,6 +710,7 @@
         Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.
+
       default_field: false
     - name: process.code_signature.trusted
       level: extended
@@ -718,8 +720,8 @@
       description: >
         Stores the trust status of the certificate chain.
 
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.
+
       default_field: false
     - name: process.code_signature.status
       level: extended
@@ -728,8 +730,8 @@
       description: >
         Additional information about the certificate status.
 
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.
+
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: process.code_signature.signing_id
@@ -739,8 +741,8 @@
       description: >
         'The identifier used to sign the binary.
 
-        This is used to identify the application manufactured by a software vendor. The
-        field is relevant to Apple *OS only.'
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+
       example: com.apple.xpc.proxy
       default_field: false
     - name: process.code_signature.team_id
@@ -750,8 +752,8 @@
       description: >
         'The team identifier used to sign the binary.
 
-        This is used to identify the team or vendor of a software product. The field is
-        relevant to Apple *OS only.'
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+
       example: EQHXZ8M8AV
       default_field: false
     - name: process.Ext
@@ -842,6 +844,7 @@
         Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.
+
       default_field: false
     - name: process.Ext.dll.code_signature.trusted
       level: extended
@@ -851,8 +854,8 @@
       description: >
         Stores the trust status of the certificate chain.
 
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.
+
       default_field: false
     - name: process.Ext.dll.code_signature.status
       level: extended
@@ -861,8 +864,8 @@
       description: >
         Additional information about the certificate status.
 
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.
+
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: process.Ext.dll.code_signature.signing_id
@@ -872,8 +875,8 @@
       description: >
         'The identifier used to sign the binary.
 
-        This is used to identify the application manufactured by a software vendor. The
-        field is relevant to Apple *OS only.'
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+
       example: com.apple.xpc.proxy
       default_field: false
     - name: process.Ext.dll.code_signature.team_id
@@ -883,8 +886,8 @@
       description: >
         'The team identifier used to sign the binary.
 
-        This is used to identify the team or vendor of a software product. The field is
-        relevant to Apple *OS only.'
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+
       example: EQHXZ8M8AV
       default_field: false
     - name: process.Ext.dll.Ext
@@ -1565,6 +1568,7 @@
         Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.
+
       default_field: false
     - name: process.parent.code_signature.trusted
       level: extended
@@ -1574,8 +1578,8 @@
       description: >
         Stores the trust status of the certificate chain.
 
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.
+
       default_field: false
     - name: process.parent.code_signature.status
       level: extended
@@ -1584,8 +1588,8 @@
       description: >
         Additional information about the certificate status.
 
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.
+
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: process.parent.code_signature.signing_id
@@ -1595,8 +1599,8 @@
       description: >
         'The identifier used to sign the binary.
 
-        This is used to identify the application manufactured by a software vendor. The
-        field is relevant to Apple *OS only.'
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+
       example: com.apple.xpc.proxy
       default_field: false
     - name: process.parent.code_signature.team_id
@@ -1606,8 +1610,8 @@
       description: >
         'The team identifier used to sign the binary.
 
-        This is used to identify the team or vendor of a software product. The field is
-        relevant to Apple *OS only.'
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+
       example: EQHXZ8M8AV
       default_field: false
     - name: process.parent.Ext
@@ -1686,6 +1690,7 @@
         Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.
+
       default_field: false
     - name: process.parent.Ext.dll.code_signature.trusted
       level: extended
@@ -1695,8 +1700,8 @@
       description: >
         Stores the trust status of the certificate chain.
 
-        Validating the trust of the certificate chain may be complicated, and this field should only be populated
-        by tools that actively check the status.
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.
+
       default_field: false
     - name: process.parent.Ext.dll.code_signature.status
       level: extended
@@ -1705,8 +1710,8 @@
       description: >
         Additional information about the certificate status.
 
-        This is useful for logging cryptographic errors with the certificate validity or trust status.
-        Leave unpopulated if the validity or trust of the certificate was unchecked.
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.
+
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: process.parent.Ext.dll.code_signature.signing_id
@@ -1716,8 +1721,8 @@
       description: >
         'The identifier used to sign the binary.
 
-        This is used to identify the application manufactured by a software vendor. The
-        field is relevant to Apple *OS only.'
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+
       example: com.apple.xpc.proxy
       default_field: false
     - name: process.parent.Ext.dll.code_signature.team_id
@@ -1727,8 +1732,8 @@
       description: >
         'The team identifier used to sign the binary.
 
-        This is used to identify the team or vendor of a software product. The field is
-        relevant to Apple *OS only.'
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+
       example: EQHXZ8M8AV
       default_field: false
     - name: process.parent.Ext.dll.Ext
