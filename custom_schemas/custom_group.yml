@@ -7,6 +7,17 @@
     The group fields are meant to represent groups that are relevant to the
     event.
   type: group
+  reusable:
+    top_level: true
+    expected:
+      - at: process
+        as: group
+      - at: process
+        as: real_group
+      - at: process
+        as: saved_group
+      - at: process
+        as: supplemental_groups
   fields:
     - name: Ext
       level: custom

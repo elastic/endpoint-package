@@ -22,11 +22,11 @@
     "_meta": {
         "managed": true
     },
-    "frequency": "10s",
+    "frequency": "1s",
     "sync": {
         "time": {
             "field": "event.ingested",
-            "delay": "10s"
+            "delay": "1s"
         }
     }
 }

@@ -34,7 +34,7 @@ sent by the endpoint.
 | Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
 | Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
-| Ransomware.child_processes.files.data | File header or MBR bytes. | binary |
+| Ransomware.child_processes.files.data | File header or MBR bytes. | keyword |
 | Ransomware.child_processes.files.entropy | Entropy of file contents. | double |
 | Ransomware.child_processes.files.extension | File extension, excluding the leading dot. | keyword |
 | Ransomware.child_processes.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
@@ -49,7 +49,7 @@ sent by the endpoint.
 | Ransomware.executable | Absolute path to the process executable. | keyword |
 | Ransomware.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
-| Ransomware.files.data | File header or MBR bytes. | binary |
+| Ransomware.files.data | File header or MBR bytes. | keyword |
 | Ransomware.files.entropy | Entropy of file contents. | double |
 | Ransomware.files.extension | File extension, excluding the leading dot. | keyword |
 | Ransomware.files.metrics | Suspicious ransomware behaviours associated with the file event. | keyword |
@@ -489,6 +489,7 @@ sent by the endpoint.
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.boot.id | Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the boot_id value from /proc may or may not be the same in containers as on the host. Some container runtimes will bind mount a new boot_id value onto the proc file in each container. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.geo.city_name | City name. | keyword |
 | host.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -514,6 +515,7 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
 | host.user.Ext | Object for all custom defined fields to live in. | object |
@@ -637,12 +639,78 @@ sent by the endpoint.
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
+| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
+| process.entry_leader.executable | Absolute path to the process executable. | keyword |
+| process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.group.name | Name of the group. | keyword |
+| process.entry_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.entry_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.pid | Process id. | long |
+| process.entry_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.session_leader.pid | Process id. | long |
+| process.entry_leader.parent.session_leader.start | The time the process started. | date |
+| process.entry_leader.parent.start | The time the process started. | date |
+| process.entry_leader.pid | Process id. | long |
+| process.entry_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.real_group.name | Name of the group. | keyword |
+| process.entry_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.real_user.name | Short name or login of the user. | keyword |
+| process.entry_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.entry_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.saved_group.name | Name of the group. | keyword |
+| process.entry_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.entry_leader.start | The time the process started. | date |
+| process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.entry_leader.user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.user.name | Short name or login of the user. | keyword |
+| process.entry_leader.working_directory | The working directory of the process. | keyword |
+| process.env_vars | Environment variables set at the time of the event. May be filtered to protect sensitive information. | object |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.group_leader.executable | Absolute path to the process executable. | keyword |
+| process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.group.name | Name of the group. | keyword |
+| process.group_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.group_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.group_leader.pid | Process id. | long |
+| process.group_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.real_group.name | Name of the group. | keyword |
+| process.group_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.group_leader.real_user.name | Short name or login of the user. | keyword |
+| process.group_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.group_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.saved_group.name | Name of the group. | keyword |
+| process.group_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.group_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.group_leader.start | The time the process started. | date |
+| process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.group_leader.user.id | Unique identifier of the user. | keyword |
+| process.group_leader.user.name | Short name or login of the user. | keyword |
+| process.group_leader.working_directory | The working directory of the process. | keyword |
 | process.hash.md5 | MD5 hash. | keyword |
 | process.hash.sha1 | SHA1 hash. | keyword |
 | process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
+| process.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
@@ -698,10 +766,16 @@ sent by the endpoint.
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.group.name | Name of the group. | keyword |
+| process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.parent.group_leader.pid | Process id. | long |
+| process.parent.group_leader.start | The time the process started. | date |
 | process.parent.hash.md5 | MD5 hash. | keyword |
 | process.parent.hash.sha1 | SHA1 hash. | keyword |
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
+| process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -712,11 +786,26 @@ sent by the endpoint.
 | process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
+| process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.real_group.name | Name of the group. | keyword |
+| process.parent.real_user.id | Unique identifier of the user. | keyword |
+| process.parent.real_user.name | Short name or login of the user. | keyword |
+| process.parent.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.saved_group.name | Name of the group. | keyword |
+| process.parent.saved_user.id | Unique identifier of the user. | keyword |
+| process.parent.saved_user.name | Short name or login of the user. | keyword |
 | process.parent.start | The time the process started. | date |
+| process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
+| process.parent.user.id | Unique identifier of the user. | keyword |
+| process.parent.user.name | Short name or login of the user. | keyword |
 | process.parent.working_directory | The working directory of the process. | keyword |
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -727,7 +816,54 @@ sent by the endpoint.
 | process.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.previous.executable | Absolute path to the process executable. | keyword |
+| process.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.real_group.name | Name of the group. | keyword |
+| process.real_user.id | Unique identifier of the user. | keyword |
+| process.real_user.name | Short name or login of the user. | keyword |
+| process.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.saved_group.name | Name of the group. | keyword |
+| process.saved_user.id | Unique identifier of the user. | keyword |
+| process.saved_user.name | Short name or login of the user. | keyword |
+| process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.executable | Absolute path to the process executable. | keyword |
+| process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.group.name | Name of the group. | keyword |
+| process.session_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.session_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.session_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.parent.pid | Process id. | long |
+| process.session_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.parent.session_leader.pid | Process id. | long |
+| process.session_leader.parent.session_leader.start | The time the process started. | date |
+| process.session_leader.parent.start | The time the process started. | date |
+| process.session_leader.pid | Process id. | long |
+| process.session_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.real_group.name | Name of the group. | keyword |
+| process.session_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.session_leader.real_user.name | Short name or login of the user. | keyword |
+| process.session_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.session_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.saved_group.name | Name of the group. | keyword |
+| process.session_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.session_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.session_leader.start | The time the process started. | date |
+| process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.session_leader.user.id | Unique identifier of the user. | keyword |
+| process.session_leader.user.name | Short name or login of the user. | keyword |
+| process.session_leader.working_directory | The working directory of the process. | keyword |
 | process.start | The time the process started. | date |
+| process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
@@ -758,7 +894,12 @@ sent by the endpoint.
 | process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
+| process.user.id | Unique identifier of the user. | keyword |
+| process.user.name | Short name or login of the user. | keyword |
 | process.working_directory | The working directory of the process. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
 | registry.path | Full path, including hive, key and value | keyword |
@@ -1697,7 +1838,9 @@ sent by the endpoint.
 | Field | Description | Type |
 |---|---|---|
 | @timestamp | Date/time when the event originated. This is the date/time extracted from the event, typically representing when the event was generated by the source. If the event source has no original timestamp, this value is typically populated by the first time the event was received by the pipeline. Required field for all events. | date |
+| agent.ephemeral_id | Ephemeral identifier of this agent (if one exists). This id normally changes across restarts, but `agent.id` does not. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
+| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. If no name is given, the name is often left empty. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
 | data_stream.dataset | Data stream dataset name. | constant_keyword |
@@ -1738,6 +1881,7 @@ sent by the endpoint.
 | group.id | Unique identifier for the group on the system/platform. | keyword |
 | group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
+| host.boot.id | Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the boot_id value from /proc may or may not be the same in containers as on the host. Some container runtimes will bind mount a new boot_id value onto the proc file in each container. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
@@ -1752,6 +1896,7 @@ sent by the endpoint.
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
+| host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
@@ -1766,7 +1911,7 @@ sent by the endpoint.
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process.   These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
+| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
@@ -1790,12 +1935,78 @@ sent by the endpoint.
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
+| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
+| process.entry_leader.executable | Absolute path to the process executable. | keyword |
+| process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.group.name | Name of the group. | keyword |
+| process.entry_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.entry_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.pid | Process id. | long |
+| process.entry_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.session_leader.pid | Process id. | long |
+| process.entry_leader.parent.session_leader.start | The time the process started. | date |
+| process.entry_leader.parent.start | The time the process started. | date |
+| process.entry_leader.pid | Process id. | long |
+| process.entry_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.real_group.name | Name of the group. | keyword |
+| process.entry_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.real_user.name | Short name or login of the user. | keyword |
+| process.entry_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.entry_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.saved_group.name | Name of the group. | keyword |
+| process.entry_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.entry_leader.start | The time the process started. | date |
+| process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.entry_leader.user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.user.name | Short name or login of the user. | keyword |
+| process.entry_leader.working_directory | The working directory of the process. | keyword |
+| process.env_vars | Environment variables set at the time of the event. May be filtered to protect sensitive information. | object |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.group_leader.executable | Absolute path to the process executable. | keyword |
+| process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.group.name | Name of the group. | keyword |
+| process.group_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.group_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.group_leader.pid | Process id. | long |
+| process.group_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.real_group.name | Name of the group. | keyword |
+| process.group_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.group_leader.real_user.name | Short name or login of the user. | keyword |
+| process.group_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.group_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.saved_group.name | Name of the group. | keyword |
+| process.group_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.group_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.group_leader.start | The time the process started. | date |
+| process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.group_leader.user.id | Unique identifier of the user. | keyword |
+| process.group_leader.user.name | Short name or login of the user. | keyword |
+| process.group_leader.working_directory | The working directory of the process. | keyword |
 | process.hash.md5 | MD5 hash. | keyword |
 | process.hash.sha1 | SHA1 hash. | keyword |
 | process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
+| process.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
@@ -1822,10 +2033,16 @@ sent by the endpoint.
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.group.name | Name of the group. | keyword |
+| process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.parent.group_leader.pid | Process id. | long |
+| process.parent.group_leader.start | The time the process started. | date |
 | process.parent.hash.md5 | MD5 hash. | keyword |
 | process.parent.hash.sha1 | SHA1 hash. | keyword |
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
+| process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -1836,10 +2053,26 @@ sent by the endpoint.
 | process.parent.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
+| process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.real_group.name | Name of the group. | keyword |
+| process.parent.real_user.id | Unique identifier of the user. | keyword |
+| process.parent.real_user.name | Short name or login of the user. | keyword |
+| process.parent.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.saved_group.name | Name of the group. | keyword |
+| process.parent.saved_user.id | Unique identifier of the user. | keyword |
+| process.parent.saved_user.name | Short name or login of the user. | keyword |
+| process.parent.start | The time the process started. | date |
+| process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
+| process.parent.user.id | Unique identifier of the user. | keyword |
+| process.parent.user.name | Short name or login of the user. | keyword |
 | process.parent.working_directory | The working directory of the process. | keyword |
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -1850,10 +2083,63 @@ sent by the endpoint.
 | process.pgid | Identifier of the group of processes the process belongs to. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.previous.executable | Absolute path to the process executable. | keyword |
+| process.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.real_group.name | Name of the group. | keyword |
+| process.real_user.id | Unique identifier of the user. | keyword |
+| process.real_user.name | Short name or login of the user. | keyword |
+| process.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.saved_group.name | Name of the group. | keyword |
+| process.saved_user.id | Unique identifier of the user. | keyword |
+| process.saved_user.name | Short name or login of the user. | keyword |
+| process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
+| process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.executable | Absolute path to the process executable. | keyword |
+| process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.group.name | Name of the group. | keyword |
+| process.session_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.session_leader.name | Process name. Sometimes called program name or similar. | keyword |
+| process.session_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.parent.pid | Process id. | long |
+| process.session_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.session_leader.parent.session_leader.pid | Process id. | long |
+| process.session_leader.parent.session_leader.start | The time the process started. | date |
+| process.session_leader.parent.start | The time the process started. | date |
+| process.session_leader.pid | Process id. | long |
+| process.session_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.real_group.name | Name of the group. | keyword |
+| process.session_leader.real_user.id | Unique identifier of the user. | keyword |
+| process.session_leader.real_user.name | Short name or login of the user. | keyword |
+| process.session_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.* The same applies for both process.session_leader and process.entry_leader. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g process.entity_id = process.group_leader.entity_id (top level process is the process group leader) OR process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader) Instead these rules could be written like: process.group_leader.same_as_process: true OR process.entry_leader.same_as_process: true Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader. | boolean |
+| process.session_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.saved_group.name | Name of the group. | keyword |
+| process.session_leader.saved_user.id | Unique identifier of the user. | keyword |
+| process.session_leader.saved_user.name | Short name or login of the user. | keyword |
+| process.session_leader.start | The time the process started. | date |
+| process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.session_leader.supplemental_groups.name | Name of the group. | keyword |
+| process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.session_leader.user.id | Unique identifier of the user. | keyword |
+| process.session_leader.user.name | Short name or login of the user. | keyword |
+| process.session_leader.working_directory | The working directory of the process. | keyword |
+| process.start | The time the process started. | date |
+| process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
+| process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
+| process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html | long |
+| process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
+| process.user.id | Unique identifier of the user. | keyword |
+| process.user.name | Short name or login of the user. | keyword |
 | process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -2179,6 +2465,18 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.cpu.endpoint.latest | Average CPU over the last sample interval | half_float |
 | Endpoint.metrics.cpu.endpoint.mean | Average CPU load used by the endpoint | half_float |
 | Endpoint.metrics.documents_volume | Statistics about sent documents | object |
+| Endpoint.metrics.documents_volume.alerts.sent_bytes | Total size of sent documents | long |
+| Endpoint.metrics.documents_volume.alerts.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.alerts.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.documents_volume.alerts.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes | Total size of sent documents | long |
+| Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.dns_events.sent_bytes | Total size of sent documents | long |
+| Endpoint.metrics.documents_volume.dns_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.dns_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.documents_volume.dns_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.file_events.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.file_events.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.file_events.suppressed_bytes | Total size of suppressed documents | long |
@@ -2203,6 +2501,10 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.registry_events.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.registry_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.registry_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.security_events.sent_bytes | Total size of sent documents | long |
+| Endpoint.metrics.documents_volume.security_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.memory | Memory statistics | object |
 | Endpoint.metrics.memory.endpoint | Endpoint memory utilization | object |
 | Endpoint.metrics.memory.endpoint.private | The memory private to the endpoint | object |

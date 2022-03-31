@@ -829,10 +829,10 @@ Target.process.Ext.memory_region.malware_signature.version:
 Target.process.Ext.memory_region.mapped_path:
   dashed_name: Target-process-Ext-memory-region-mapped-path
   description: If the memory corresponds to a file mapping, this is the file's path.
-  example: C:\Windows\System32\kernel32.dll
+  example: C:\Windows\System32\mshtml.dll
   flat_name: Target.process.Ext.memory_region.mapped_path
   ignore_above: 1024
-  level: extended
+  level: custom
   name: mapped_path
   normalize: []
   original_fieldset: memory_region
@@ -5527,10 +5527,10 @@ process.Ext.memory_region.malware_signature.version:
 process.Ext.memory_region.mapped_path:
   dashed_name: process-Ext-memory-region-mapped-path
   description: If the memory corresponds to a file mapping, this is the file's path.
-  example: C:\Windows\System32\kernel32.dll
+  example: C:\Windows\System32\mshtml.dll
   flat_name: process.Ext.memory_region.mapped_path
   ignore_above: 1024
-  level: extended
+  level: custom
   name: mapped_path
   normalize: []
   original_fieldset: memory_region

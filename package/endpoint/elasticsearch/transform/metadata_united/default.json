@@ -8,7 +8,7 @@
     "dest": {
         "index": ".metrics-endpoint.metadata_united_default"
     },
-    "frequency": "4s",
+    "frequency": "1s",
     "sync": {
         "time": {
             "delay": "4s",
