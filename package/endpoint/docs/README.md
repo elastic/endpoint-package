@@ -87,6 +87,13 @@ sent by the endpoint.
 | Target.dll.Ext.malware_classification.version | The version of the model used. | keyword |
 | Target.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | Target.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| Target.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.dll.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Target.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.dll.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.dll.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Target.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.dll.hash.md5 | MD5 hash. | keyword |
 | Target.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -119,6 +126,13 @@ sent by the endpoint.
 | Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
 | Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| Target.process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.Ext.dll.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.Ext.dll.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -193,6 +207,13 @@ sent by the endpoint.
 | Target.process.Ext.user | User associated with the running process. | keyword |
 | Target.process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| Target.process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | Target.process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | Target.process.executable | Absolute path to the process executable. | keyword |
@@ -220,6 +241,13 @@ sent by the endpoint.
 | Target.process.parent.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
 | Target.process.parent.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | Target.process.parent.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| Target.process.parent.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.parent.Ext.dll.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.parent.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.parent.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.parent.Ext.dll.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.parent.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.parent.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.parent.Ext.dll.hash.md5 | MD5 hash. | keyword |
 | Target.process.parent.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
 | Target.process.parent.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
@@ -252,6 +280,13 @@ sent by the endpoint.
 | Target.process.parent.Ext.user | User associated with the running process. | keyword |
 | Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| Target.process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Target.process.parent.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Target.process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
+| Target.process.parent.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Target.process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Target.process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
 | Target.process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | Target.process.parent.executable | Absolute path to the process executable. | keyword |
@@ -1609,6 +1644,13 @@ sent by the endpoint.
 | file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| file.code_signature.signing_id | The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| file.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| file.code_signature.subject_name | Subject name of the code signer | keyword |
+| file.code_signature.team_id | The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| file.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| file.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.hash.md5 | MD5 hash. | keyword |
 | file.hash.sha1 | SHA1 hash. | keyword |
 | file.hash.sha256 | SHA256 hash. | keyword |
@@ -1648,6 +1690,19 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.signing_id | The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.team_id | The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
@@ -1913,8 +1968,21 @@ sent by the endpoint.
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
+| process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.dll.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
+| process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.dll.code_signature.signing_id | The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.dll.code_signature.team_id | The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
