@@ -1,0 +1,87 @@
+#!/usr/bin/env groovy
+
+@Library('apm@current') _
+
+pipeline {
+  agent any
+  //agent { label 'ubuntu-20 && immutable' }
+  environment {
+    BASE_DIR="src/github.com/elastic/endpoint-package"
+    GITHUB_TOKEN_CREDENTIALS = "2a9602aa-ab9f-4e52-baf3-b71ca88469c7"
+    JOB_GIT_CREDENTIALS = "f6c7695a-671e-4f4f-a331-acdce44ff9ba"
+    PACKAGE_STORAGE_BASE_DIR = "src/github.com/elastic/package-storage"
+    AWS_ACCOUNT_SECRET = "secret/observability-team/ci/elastic-observability-aws-account-auth"
+    HOME = "${env.WORKSPACE}"
+    KIND_VERSION = "v0.11.1"
+    K8S_VERSION = "v1.23.0"
+    JOB_GCS_BUCKET = 'beats-ci-temp'
+    JOB_GCS_BUCKET_INTERNAL = 'beats-ci-temp-internal'
+    JOB_GCS_CREDENTIALS = 'beats-ci-gcs-plugin'
+    JOB_GCS_EXT_CREDENTIALS = 'beats-ci-gcs-plugin-file-credentials'
+    STACK_VERSION = "${params.stackVersion}"
+  }
+  options {
+    timeout(time: 2, unit: 'HOURS')
+    buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20', daysToKeepStr: '30'))
+    timestamps()
+    ansiColor('xterm')
+    disableResume()
+    durabilityHint('PERFORMANCE_OPTIMIZED')
+    rateLimitBuilds(throttle: [count: 60, durationName: 'hour', userBoost: true])
+    quietPeriod(10)
+  }
+  triggers {
+    issueCommentTrigger("${obltGitHubComments()}")
+  }
+  parameters {
+    string(name: 'stackVersion', defaultValue: '', description: 'Version of the stack to use for testing.')
+  }
+  stages {
+    stage('Prepare workspace') {
+      steps {
+        deleteDir()
+        gitCheckout(basedir: "${BASE_DIR}")
+        //stashV2(name: 'source', bucket: "${JOB_GCS_BUCKET}", credentialsId: "${JOB_GCS_CREDENTIALS}")
+      }
+    }
+    stage('Build') {
+      steps {
+        dir("${BASE_DIR}"){
+          sh(label: 'Make', script: 'make')
+        }
+      }
+    }
+    stage('Check') {
+      steps {
+        checkGitDiff()
+        lint()
+      }
+    }
+  }
+  post {
+    // always {
+    //  publishCoverageReports()
+    // }
+    cleanup {
+      notifyBuildResult(prComment: true)
+    }
+  }
+}
+
+
+
+// Check if there are non-versioned local changes.
+// For reference: https://stackoverflow.com/questions/34807971/why-does-git-diff-index-head-result-change-for-touched-files-after-git-diff-or-g
+def checkGitDiff() {
+  dir("${BASE_DIR}") {
+    sh(label: "update git index", script: 'git update-index --refresh', returnStatus: true)
+    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
+  }
+}
+
+
+def lint() {
+  dir("${BASE_DIR}") {
+    sh(label: 'lint', script: "make lint")
+  }
+}
