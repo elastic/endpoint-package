@@ -6,7 +6,6 @@
       "command" : "isolate"
     },
     "action_id" : "cfa1d245-24ad-4867-8043-475d4ee2a111",
-    "input_type" : "endpoint",
     "started_at" : "2022-04-04T20:44:08.0Z"
   },
   "agent" : {
