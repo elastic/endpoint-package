@@ -45,6 +45,9 @@ MANIFESTS = $(addsuffix /manifest.yml,$(addprefix $(PKG_DIR)/data_stream/,$(DATA
 SCHEMA_TARGETS = $(subst $(SUBSET_DIR),schemas/v1,$(wildcard $(SUBSET_DIR)/**/*))
 DOC_TARGET = $(PKG_DIR)/docs/README.md
 
+# used in testing
+ES_HOST ?= http://localhost:9200
+
 SED := sed
 
 ifeq ($(shell uname -s), Darwin)
@@ -177,5 +180,16 @@ update-elastic-package:
 	GO111MODULE=on go get -u github.com/elastic/elastic-package
 	go mod tidy
 
+
+static-test: $(ESTC_PKG_BIN)
+	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=void $(ESTC_PKG_BIN) test -v static
+
+# requires a running elasticsearch instance. one can be spun up with elastic-package stack up
+pipeline-test: $(ESTC_PKG_BIN)
+	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=$(ES_HOST) ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME=elastic ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD=changeme $(ESTC_PKG_BIN) test -v pipeline
+
+
+test: static-test pipeline-test
+
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker
+.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker static-test pipeline-test test
