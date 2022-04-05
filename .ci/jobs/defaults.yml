@@ -15,5 +15,5 @@
     concurrent: true
     publishers:
       - email:
-          recipients: infra-root+build@elastic.co
+          recipients: endpoint-management+pkgbuild@elastic.co
     prune-dead-branches: true
