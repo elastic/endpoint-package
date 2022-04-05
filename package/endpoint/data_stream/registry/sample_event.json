@@ -50,11 +50,6 @@
         "type": "logs",
         "dataset": "endpoint.events.registry"
     },
-    "elastic": {
-        "agent": {
-            "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21"
-        }
-    },
     "host": {
         "hostname": "data-viz-win-1",
         "os": {

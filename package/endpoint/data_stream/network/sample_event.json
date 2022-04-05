@@ -72,11 +72,6 @@
         "type": "logs",
         "dataset": "endpoint.events.network"
     },
-    "elastic": {
-        "agent": {
-            "id": "afd348c6-0ec9-4961-805e-8ed2fc4c043b"
-        }
-    },
     "host": {
         "hostname": "mgmt-win-1",
         "os": {

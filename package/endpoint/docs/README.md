@@ -1532,10 +1532,24 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.thread.id | Thread ID. | long |
@@ -1841,6 +1855,19 @@ sent by the endpoint.
 | network.type | In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc The field value must be normalized to lowercase for querying. See the documentation section "Implementing ECS". | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
@@ -2306,6 +2333,19 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
@@ -2415,6 +2455,19 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
+| process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| process.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |

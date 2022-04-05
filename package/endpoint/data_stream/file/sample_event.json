@@ -61,11 +61,6 @@
         "type": "logs",
         "dataset": "endpoint.events.file"
     },
-    "elastic": {
-        "agent": {
-            "id": "ccb7b1a1-303e-416f-b975-311737e8e125"
-        }
-    },
     "host": {
         "hostname": "response-win-1",
         "os": {
