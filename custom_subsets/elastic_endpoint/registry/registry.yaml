@@ -105,12 +105,16 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+      code_signature:
+        fields: "*"
       thread:
         fields:
           id: {}
       Ext:
         fields:
           ancestry: {}
+          code_signature:
+            fields: "*"
   registry:
     fields:
       hive: {}

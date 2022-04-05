@@ -1,0 +1,113 @@
+{
+    "agent": {
+        "id": "ccb7b1a1-303e-416f-b975-311737e8e125",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTYwNC0xMzI5MzU0OTEwOS4zNTg1OTc3MDA=",
+                "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ3Mi0xMzI5MzU0OTEwOS43NjU4MjcwMA=="
+            ],
+            "code_signature": [
+                {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch, Inc.",
+                    "exists": true,
+                    "status": "trusted"
+                }
+            ]
+        },
+        "parent": {
+            "pid": 604
+        },
+        "code_signature": {
+            "trusted": true,
+            "subject_name": "Elasticsearch, Inc.",
+            "exists": true,
+            "status": "trusted"
+        },
+        "name": "winlogbeat.exe",
+        "pid": 4512,
+        "thread": {
+            "id": 340
+        },
+        "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
+        "executable": "C:\\Program Files\\Winlogbeat\\winlogbeat.exe"
+    },
+    "message": "Endpoint file event",
+    "@timestamp": "2022-04-04T18:37:01.5775771Z",
+    "file": {
+        "Ext": {
+            "header_data": [],
+            "entropy": 5.28353871945538,
+            "header_bytes": "7570646174655f74696d653a20323032",
+            "windows": {
+                "zone_identifier": -1
+            },
+            "monotonic_id": 3526
+        },
+        "path": "C:\\ProgramData\\winlogbeat\\.winlogbeat.yml.new",
+        "extension": "new",
+        "size": 1406,
+        "name": ".winlogbeat.yml.new"
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.events.file"
+    },
+    "host": {
+        "hostname": "response-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.9",
+            "fe80::4d1:ef01:c0ed:299a",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "response-win-1",
+        "id": "bcbbe9cb-0278-43f9-aa1b-2dc9839bbf6f",
+        "mac": [
+            "42:01:0a:c9:00:09"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 32114,
+        "ingested": "2022-04-04T18:37:29Z",
+        "created": "2022-04-04T18:37:01.5775771Z",
+        "kind": "event",
+        "module": "endpoint",
+        "action": "creation",
+        "id": "MYfZFpbNKturKgFp+++++AlT",
+        "category": [
+            "file"
+        ],
+        "type": [
+            "creation"
+        ],
+        "dataset": "endpoint.events.file"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM",
+        "id": "S-1-5-18"
+    }
+}

@@ -1,0 +1,125 @@
+{
+    "agent": {
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
+                "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
+            ],
+            "code_signature": [
+                {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows Publisher",
+                    "exists": true,
+                    "status": "trusted"
+                }
+            ],
+            "authentication_id": "0x3e7",
+            "token": {
+                "integrity_level_name": "system",
+                "security_attributes": [
+                    "TSA://ProcUnique"
+                ],
+                "elevation_level": "default"
+            }
+        },
+        "parent": {
+            "args": [],
+            "name": "services.exe",
+            "pid": 600,
+            "args_count": 0,
+            "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
+            "command_line": "",
+            "executable": "C:\\Windows\\System32\\services.exe"
+        },
+        "pid": 2772,
+        "working_directory": "C:\\Windows\\system32\\",
+        "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTI3NzItMTMyOTM1NzE5ODguNjU3ODk4NjAw",
+        "executable": "C:\\Windows\\System32\\svchost.exe",
+        "args": [
+            "C:\\Windows\\System32\\svchost.exe",
+            "-k",
+            "WerSvcGroup"
+        ],
+        "code_signature": {
+            "trusted": true,
+            "subject_name": "Microsoft Windows Publisher",
+            "exists": true,
+            "status": "trusted"
+        },
+        "pe": {
+            "original_file_name": "svchost.exe"
+        },
+        "name": "svchost.exe",
+        "args_count": 3,
+        "command_line": "C:\\Windows\\System32\\svchost.exe -k WerSvcGroup",
+        "hash": {
+            "sha1": "4fbfc6004084d97032837c21d3f426892d868eac",
+            "sha256": "cb19fd67b1d028e01f54c426a0924528c4a8d8ed8996cfe0ee0c6e45285436a1",
+            "md5": "1b280ad032268a636ecfe6f9165431b7"
+        }
+    },
+    "message": "Endpoint process event",
+    "@timestamp": "2022-04-04T18:53:08.6578986Z",
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.events.process"
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 36236,
+        "ingested": "2022-04-04T18:53:18Z",
+        "created": "2022-04-04T18:53:08.6578986Z",
+        "kind": "event",
+        "module": "endpoint",
+        "action": "start",
+        "id": "MYfZG00oEwD2/fqT+++++CLz",
+        "category": [
+            "process"
+        ],
+        "type": [
+            "start"
+        ],
+        "dataset": "endpoint.events.process"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM",
+        "id": "S-1-5-18"
+    }
+}

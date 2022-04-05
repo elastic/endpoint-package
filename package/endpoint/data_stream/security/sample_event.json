@@ -1,0 +1,92 @@
+{
+    "agent": {
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
+            ],
+            "code_signature": [
+                {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows Publisher",
+                    "exists": true,
+                    "status": "trusted"
+                }
+            ]
+        },
+        "code_signature": {
+            "trusted": true,
+            "subject_name": "Microsoft Windows Publisher",
+            "exists": true,
+            "status": "trusted"
+        },
+        "name": "C:\\Windows\\System32\\services.exe",
+        "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
+        "executable": "C:\\Windows\\System32\\services.exe"
+    },
+    "message": "Endpoint security event",
+    "@timestamp": "2022-04-04T18:53:08.6510289Z",
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.events.security"
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 36385,
+        "ingested": "2022-04-04T18:53:18Z",
+        "created": "2022-04-04T18:53:08.6510289Z",
+        "kind": "event",
+        "module": "endpoint",
+        "action": "log_on",
+        "id": "MYfZG00oEwD2/fqT+++++CQ/",
+        "category": [
+            "authentication",
+            "session"
+        ],
+        "type": [
+            "start"
+        ],
+        "dataset": "endpoint.events.security",
+        "outcome": "success"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM",
+        "id": "S-1-5-18"
+    }
+}

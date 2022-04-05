@@ -1,0 +1,87 @@
+{
+    "agent": {
+        "build": {
+            "original": "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+        },
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "@timestamp": "2022-04-04T12:33:36.6664577Z",
+    "Endpoint": {
+        "capabilities": [
+            "isolation"
+        ],
+        "configuration": {
+            "isolation": false
+        },
+        "state": {
+            "isolation": false
+        },
+        "policy": {
+            "applied": {
+                "name": "endpoint-1",
+                "id": "b372bc3f-e9b3-4b2d-9dfe-ae677ed83933",
+                "status": "success"
+            }
+        },
+        "status": "enrolled"
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "metrics",
+        "dataset": "endpoint.metadata"
+    },
+    "elastic": {
+        "agent": {
+            "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21"
+        }
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 5054,
+        "ingested": "2022-04-04T12:33:37Z",
+        "created": "2022-04-04T12:33:36.6664577Z",
+        "kind": "metric",
+        "module": "endpoint",
+        "action": "endpoint_metadata",
+        "id": "MYfZG00oEwD2/fqT+++++/SC",
+        "category": [
+            "host"
+        ],
+        "type": [
+            "info"
+        ],
+        "dataset": "endpoint.metadata"
+    }
+}

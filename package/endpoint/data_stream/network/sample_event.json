@@ -1,0 +1,124 @@
+{
+    "agent": {
+        "id": "afd348c6-0ec9-4961-805e-8ed2fc4c043b",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTYxMi0xMzI5MzU0OTEwOS43MzU5NDk3MDA=",
+                "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTQ3Ni0xMzI5MzU0OTEwOS4zODExMTM3MDA="
+            ],
+            "code_signature": [
+                {
+                    "trusted": false,
+                    "subject_name": "Google LLC",
+                    "exists": true,
+                    "status": "errorExpired"
+                }
+            ]
+        },
+        "code_signature": {
+            "trusted": false,
+            "subject_name": "Google LLC",
+            "exists": true,
+            "status": "errorExpired"
+        },
+        "name": "GCEWindowsAgent.exe",
+        "pid": 580,
+        "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA=",
+        "executable": "C:\\Program Files\\Google\\Compute Engine\\agent\\GCEWindowsAgent.exe"
+    },
+    "destination": {
+        "geo": {
+            "continent_name": "North America",
+            "country_iso_code": "US",
+            "country_name": "United States",
+            "location": {
+                "lon": -97.822,
+                "lat": 37.751
+            }
+        },
+        "as": {
+            "number": 15169,
+            "organization": {
+                "name": "GOOGLE"
+            }
+        },
+        "address": "64.233.191.95",
+        "port": 443,
+        "bytes": 4923,
+        "ip": "64.233.191.95"
+    },
+    "source": {
+        "address": "10.201.0.32",
+        "port": 54924,
+        "bytes": 498,
+        "ip": "10.201.0.32"
+    },
+    "message": "Endpoint network event",
+    "network": {
+        "transport": "tcp",
+        "type": "ipv4",
+        "direction": "egress"
+    },
+    "@timestamp": "2022-04-04T18:52:00.6007809Z",
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.events.network"
+    },
+    "host": {
+        "hostname": "mgmt-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.32",
+            "fe80::f8e6:a511:69ea:27c4",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "mgmt-win-1",
+        "id": "51b19c6c-27e3-4c80-ac2a-b72ed52c40c9",
+        "mac": [
+            "42:01:0a:c9:00:20"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 36090,
+        "ingested": "2022-04-04T18:52:21Z",
+        "created": "2022-04-04T18:52:00.6007809Z",
+        "kind": "event",
+        "module": "endpoint",
+        "action": "disconnect_received",
+        "id": "MYfZG5h8j1qej16H+++++CFe",
+        "category": [
+            "network"
+        ],
+        "type": [
+            "end"
+        ],
+        "dataset": "endpoint.events.network"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM",
+        "id": "S-1-5-18"
+    }
+}

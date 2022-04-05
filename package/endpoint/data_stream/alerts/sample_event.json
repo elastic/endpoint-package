@@ -1,0 +1,269 @@
+{
+    "agent": {
+        "build": {
+            "original": "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+        },
+        "id": "2b1eb7f7-bd61-436a-98af-c2b182043476",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "MmIxZWI3ZjctYmQ2MS00MzZhLTk4YWYtYzJiMTgyMDQzNDc2LTAtMTMyOTM1NDczMTkuOTk5Mjc0NjAw"
+            ],
+            "protection": "PsProtectedSignerWinSystem",
+            "user": "SYSTEM",
+            "architecture": "x86_64",
+            "token": {
+                "elevation": true,
+                "integrity_level_name": "system",
+                "domain": "NT AUTHORITY",
+                "user": "SYSTEM",
+                "elevation_type": "default",
+                "sid": "S-1-5-18"
+            }
+        },
+        "parent": {
+            "Ext": {
+                "protection": "",
+                "user": "",
+                "architecture": "unknown"
+            },
+            "name": "System Idle Process",
+            "start": "2022-04-04T12:15:41.4606245Z",
+            "pid": 0,
+            "entity_id": "MmIxZWI3ZjctYmQ2MS00MzZhLTk4YWYtYzJiMTgyMDQzNDc2LTAtMTMyOTM1NDczMTkuOTk5Mjc0NjAw",
+            "command_line": "",
+            "executable": "",
+            "ppid": 0,
+            "uptime": 822
+        },
+        "pe": {},
+        "name": "System",
+        "start": "2022-04-04T12:15:41.4606245Z",
+        "pid": 4,
+        "entity_id": "MmIxZWI3ZjctYmQ2MS00MzZhLTk4YWYtYzJiMTgyMDQzNDc2LTQtMTMyOTM1NDczMTkuOTk5Mjc0NjAw",
+        "command_line": "",
+        "executable": "",
+        "uptime": 822
+    },
+    "rule": {
+        "ruleset": "production"
+    },
+    "message": "Malware Prevention Alert",
+    "@timestamp": "2022-04-04T12:15:41.5944062Z",
+    "file": {
+        "Ext": {
+            "temp_file_path": "C:\\Windows\\TEMP\\90edbe42-fe6c-4965-8a6b-222aa2b15cf2",
+            "code_signature": [
+                {
+                    "exists": false
+                }
+            ],
+            "quarantine_path": "C:\\.equarantine\\20a65f043449c96f10e538a860a415b55ff46c93",
+            "quarantine_message": "Success",
+            "quarantine_result": true,
+            "malware_classification": {
+                "identifier": "endpointpe-v4-model",
+                "score": 0.692318737506866,
+                "threshold": 0.58,
+                "version": "4.0.19000"
+            }
+        },
+        "owner": "Administrators",
+        "extension": "dll",
+        "drive_letter": "C",
+        "created": "2022-04-04T12:15:41.4606245Z",
+        "accessed": "2022-04-04T12:15:41.4606245Z",
+        "mtime": "2022-04-04T12:15:41.4606245Z",
+        "directory": "C:\\sysmon",
+        "path": "C:\\sysmon\\9C0E42A47D34240A9A4101CC5D3BC5787DC5AD73DEBF08C09D49337FBE7ACDE4D374924290143DFB2E3210F18E1BCC50EB6C3961D11071E3EC024215B8835E468FA63E53DAE02F32A21E03CE65412F6E56942DAA.dll",
+        "code_signature": {
+            "exists": false
+        },
+        "size": 4608,
+        "pe": {
+            "file_version": "0.0.0.0",
+            "description": " ",
+            "original_file_name": "5t5mpwxc.dll"
+        },
+        "name": "9C0E42A47D34240A9A4101CC5D3BC5787DC5AD73DEBF08C09D49337FBE7ACDE4D374924290143DFB2E3210F18E1BCC50EB6C3961D11071E3EC024215B8835E468FA63E53DAE02F32A21E03CE65412F6E56942DAA.dll",
+        "hash": {
+            "sha1": "9c0e42a47d34240a9a4101cc5d3bc5787dc5ad73",
+            "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53",
+            "md5": "debf08c09d49337fbe7acde4d3749242"
+        }
+    },
+    "Endpoint": {
+        "policy": {
+            "applied": {
+                "artifacts": {
+                    "global": {
+                        "identifiers": [
+                            {
+                                "sha256": "e57a7d5638060e9655c64ac1d02f7949b87e5f5f27f2074329608db1e06d645b",
+                                "name": "diagnostic-configuration-v1"
+                            },
+                            {
+                                "sha256": "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
+                                "name": "diagnostic-endpointpe-v4-blocklist"
+                            },
+                            {
+                                "sha256": "d47bfd600e3a8f79e290dfb0306e8abe7be11b75b36ba98132f46b8971f7f071",
+                                "name": "diagnostic-endpointpe-v4-exceptionlist"
+                            },
+                            {
+                                "sha256": "8609faa372f8761bf199a03325f56577d2fd47630d6dba386b6eb33562aef6e3",
+                                "name": "diagnostic-endpointpe-v4-model"
+                            },
+                            {
+                                "sha256": "52bc8b59292b5017bb091f97fa395881b127b07dec6182f91c4b84074ae6e7bc",
+                                "name": "diagnostic-malware-signature-v1-windows"
+                            },
+                            {
+                                "sha256": "dcbaa744fc672d8db32010a1422aafa6e0cf86816d34b1d4df9f273f106be425",
+                                "name": "diagnostic-ransomware-v1-windows"
+                            },
+                            {
+                                "sha256": "b680beed0f3ca83ae78802e972bf4bb12ecea2b1649a7aafd16e6fec8c9a0ede",
+                                "name": "diagnostic-rules-windows-v1"
+                            },
+                            {
+                                "sha256": "1d591a12ce8ae215ebdcdabc81fc912cd51162e7a8e35bcdc1676bc3125cebbf",
+                                "name": "endpointpe-v4-blocklist"
+                            },
+                            {
+                                "sha256": "d784c2aa70a2216dd5bfeecfdd67a83ff5b656e9321bd70cf345a8667a63fb2e",
+                                "name": "endpointpe-v4-exceptionlist"
+                            },
+                            {
+                                "sha256": "c05c025cce1c2b5808c180dc4986eb519c0affd30d7c27f67fdd14bde3224638",
+                                "name": "endpointpe-v4-model"
+                            },
+                            {
+                                "sha256": "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
+                                "name": "global-configuration-v1"
+                            },
+                            {
+                                "sha256": "7acbe147698a40c817775d471ea30c2fe4dfa7a9f54271e6dbc073131c5a3bcb",
+                                "name": "global-exceptionlist-windows"
+                            },
+                            {
+                                "sha256": "dfb2b428357b756d9f5b593c02dce99b026c9e2afeb76cdb8e8c76c6db78290a",
+                                "name": "global-trustlist-windows-v1"
+                            },
+                            {
+                                "sha256": "611a02c398c58ebe2f6d9d63621778de96263ef7fa885098ce62a22c411d67bc",
+                                "name": "production-malware-signature-v1-windows"
+                            },
+                            {
+                                "sha256": "363cb9d7bbc013d9bc171a6a29fdfe486f1c987ef2c0cdfa3c283fc4c5a4a595",
+                                "name": "production-ransomware-v1-windows"
+                            },
+                            {
+                                "sha256": "b07cf3beacd69e6922d344448a8c6d03e96ae6d5ec1e540415fe2f4804bcb631",
+                                "name": "production-rules-windows-v1"
+                            }
+                        ],
+                        "version": "1.0.260"
+                    },
+                    "user": {
+                        "identifiers": [
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-blocklist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-eventfilterlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-exceptionlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-hostisolationexceptionlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-trustlist-windows-v1"
+                            }
+                        ],
+                        "version": "1.0.0"
+                    }
+                }
+            }
+        }
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.alerts"
+    },
+    "elastic": {
+        "agent": {
+            "id": "2b1eb7f7-bd61-436a-98af-c2b182043476"
+        }
+    },
+    "host": {
+        "hostname": "security-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.34",
+            "fe80::4850:4f4f:4b53:8103",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "security-win-1",
+        "id": "bbea673e-eae6-4b03-8724-2183f79da331",
+        "mac": [
+            "42:01:0a:c9:00:22"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "severity": 73,
+        "code": "malicious_file",
+        "risk_score": 73,
+        "created": "2022-04-04T12:15:41.5944062Z",
+        "kind": "alert",
+        "module": "endpoint",
+        "type": [
+            "info",
+            "change",
+            "denied"
+        ],
+        "agent_id_status": "verified",
+        "sequence": 29414,
+        "ingested": "2022-04-04T12:19:33Z",
+        "action": "rename",
+        "id": "MYfSjQEEEFe1o09b+++++D5Q",
+        "category": [
+            "malware",
+            "intrusion_detection",
+            "file"
+        ],
+        "dataset": "endpoint.alerts",
+        "outcome": "success"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM"
+    }
+}

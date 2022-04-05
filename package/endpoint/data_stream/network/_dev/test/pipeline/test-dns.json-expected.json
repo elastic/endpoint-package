@@ -1,0 +1,116 @@
+{
+    "expected": [
+        {
+            "dns": {
+                "question": {
+                    "type": "A"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182820939Z"
+            },
+            "message": "DNS query is completed for the name X type 1",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "NS"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182825987Z"
+            },
+            "message": "DNS query is completed for the name X type 2",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "CNAME"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182829071Z"
+            },
+            "message": "DNS query is completed for the name X type 5",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "SOA"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182832081Z"
+            },
+            "message": "DNS query is completed for the name X type 6",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "PTR"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182835110Z"
+            },
+            "message": "DNS query is completed for the name X type 12",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "MX"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182838100Z"
+            },
+            "message": "DNS query is completed for the name X type 15",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "TXT"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182841044Z"
+            },
+            "message": "DNS query is completed for the name X type 16",
+            "network": {
+                "protocol": "dns"
+            }
+        },
+        {
+            "dns": {
+                "question": {
+                    "type": "AAAA"
+                }
+            },
+            "event": {
+                "ingested": "2022-04-03T20:00:24.182844024Z"
+            },
+            "message": "DNS query is completed for the name X type 28",
+            "network": {
+                "protocol": "dns"
+            }
+        }
+    ]
+}

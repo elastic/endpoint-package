@@ -590,12 +590,63 @@
               "ancestry": {
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "nested"
               }
             },
             "type": "object"
           },
           "args_count": {
             "type": "long"
+          },
+          "code_signature": {
+            "properties": {
+              "exists": {
+                "type": "boolean"
+              },
+              "signing_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "status": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "subject_name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "team_id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            }
           },
           "entity_id": {
             "ignore_above": 1024,
@@ -630,6 +681,13 @@
             },
             "ignore_above": 1024,
             "type": "keyword"
+          },
+          "parent": {
+            "properties": {
+              "pid": {
+                "type": "long"
+              }
+            }
           },
           "pid": {
             "type": "long"

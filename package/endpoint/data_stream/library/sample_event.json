@@ -1,0 +1,123 @@
+{
+    "agent": {
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
+                "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
+            ],
+            "code_signature": [
+                {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows",
+                    "exists": true,
+                    "status": "trusted"
+                }
+            ]
+        },
+        "code_signature": {
+            "trusted": true,
+            "subject_name": "Microsoft Windows",
+            "exists": true,
+            "status": "trusted"
+        },
+        "name": "VSSVC.exe",
+        "pid": 4528,
+        "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ1MjgtMTMyOTM1NzEwODYuNjI4MzM0NzAw",
+        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+    },
+    "dll": {
+        "Ext": {
+            "code_signature": [
+                {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows",
+                    "exists": true,
+                    "status": "trusted"
+                }
+            ],
+            "load_index": 1
+        },
+        "path": "C:\\Windows\\System32\\msxml3.dll",
+        "code_signature": {
+            "trusted": true,
+            "subject_name": "Microsoft Windows",
+            "exists": true,
+            "status": "trusted"
+        },
+        "pe": {
+            "file_version": "8.110.17763.1911",
+            "imphash": "2e1d1e35c17be5497d2de33f06dc41b4",
+            "original_file_name": "MSXML3.dll"
+        },
+        "name": "msxml3.dll",
+        "hash": {
+            "sha1": "02488fb2dbf679a3282338178b451da635b79b54",
+            "sha256": "a9698adcf789d9e30f37dd5e6c9be0441bc37662ba7402e85071ccec2135d36c",
+            "md5": "65e4fd0564411bb60c600fae12cde2f9"
+        }
+    },
+    "message": "Endpoint DLL load event",
+    "@timestamp": "2022-04-04T18:38:08.3185831Z",
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.events.library"
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 34339,
+        "ingested": "2022-04-04T18:38:16Z",
+        "created": "2022-04-04T18:38:08.3185831Z",
+        "kind": "event",
+        "module": "endpoint",
+        "action": "load",
+        "id": "MYfZG00oEwD2/fqT+++++BRi",
+        "category": [
+            "library"
+        ],
+        "type": [
+            "start"
+        ],
+        "dataset": "endpoint.events.library"
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "name": "SYSTEM",
+        "id": "S-1-5-18"
+    }
+}

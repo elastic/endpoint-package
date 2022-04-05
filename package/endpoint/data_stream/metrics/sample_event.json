@@ -1,0 +1,1042 @@
+{
+    "agent": {
+        "build": {
+            "original": "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+        },
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "message": "Endpoint metrics",
+    "@timestamp": "2022-04-04T18:38:15.7178887Z",
+    "Endpoint": {
+        "metrics": {
+            "system_impact": [
+                {
+                    "file_events": {
+                        "week_ms": 418
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows Publisher",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\svchost.exe"
+                    },
+                    "malware": {
+                        "week_ms": 7483
+                    },
+                    "process_events": {
+                        "week_ms": 78
+                    },
+                    "registry_events": {
+                        "week_ms": 248
+                    },
+                    "dns_events": {
+                        "week_ms": 16
+                    },
+                    "network_events": {
+                        "week_ms": 8
+                    },
+                    "overall": {
+                        "week_ms": 11434
+                    },
+                    "authentication_events": {
+                        "week_ms": 155
+                    },
+                    "library_load_events": {
+                        "week_ms": 3028
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 46
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                    },
+                    "malware": {
+                        "week_ms": 2
+                    },
+                    "process_events": {
+                        "week_ms": 19
+                    },
+                    "registry_events": {
+                        "week_ms": 3
+                    },
+                    "overall": {
+                        "week_ms": 7960
+                    },
+                    "library_load_events": {
+                        "week_ms": 7890
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 1641
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Winlogbeat\\winlogbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 2589
+                    },
+                    "process_events": {
+                        "week_ms": 419
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "network_events": {
+                        "week_ms": 32
+                    },
+                    "overall": {
+                        "week_ms": 4686
+                    },
+                    "library_load_events": {
+                        "week_ms": 4
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 2
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows Publisher",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\lsass.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 3
+                    },
+                    "registry_events": {
+                        "week_ms": 83
+                    },
+                    "overall": {
+                        "week_ms": 3291
+                    },
+                    "authentication_events": {
+                        "week_ms": 3177
+                    },
+                    "library_load_events": {
+                        "week_ms": 26
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\conhost.exe"
+                    },
+                    "malware": {
+                        "week_ms": 16
+                    },
+                    "process_events": {
+                        "week_ms": 26
+                    },
+                    "registry_events": {
+                        "week_ms": 3
+                    },
+                    "overall": {
+                        "week_ms": 3011
+                    },
+                    "library_load_events": {
+                        "week_ms": 2966
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 51
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false,
+                                "status": "errorCode_endpoint: Initital state, no attempt to load signature was made"
+                            }
+                        ],
+                        "executable": "System"
+                    },
+                    "malware": {
+                        "week_ms": 1978
+                    },
+                    "overall": {
+                        "week_ms": 2029
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web\\e266326169887aa7cb26b9e2aa421ee4\\System.Web.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 1015
+                    },
+                    "overall": {
+                        "week_ms": 1015
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 8
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\metricbeat-8.3.0-SNAPSHOT-windows-x86_64\\metricbeat.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 502
+                    },
+                    "dns_events": {
+                        "week_ms": 84
+                    },
+                    "network_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 1012
+                    },
+                    "library_load_events": {
+                        "week_ms": 417
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": false,
+                                "subject_name": "Google LLC",
+                                "exists": true,
+                                "status": "errorExpired"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Google\\Compute Engine\\agent\\GCEWindowsAgent.exe"
+                    },
+                    "malware": {
+                        "week_ms": 627
+                    },
+                    "process_events": {
+                        "week_ms": 89
+                    },
+                    "registry_events": {
+                        "week_ms": 2
+                    },
+                    "dns_events": {
+                        "week_ms": 7
+                    },
+                    "network_events": {
+                        "week_ms": 8
+                    },
+                    "overall": {
+                        "week_ms": 818
+                    },
+                    "library_load_events": {
+                        "week_ms": 85
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Microsoft.P521220ea#\\39ce4aafe1a3bc56fb1435f6550dd7a3\\Microsoft.PowerShell.Commands.Utility.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 760
+                    },
+                    "overall": {
+                        "week_ms": 760
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 15
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\metricbeat-7.10.0-windows-x86_64\\metricbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 29
+                    },
+                    "process_events": {
+                        "week_ms": 634
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "dns_events": {
+                        "week_ms": 8
+                    },
+                    "network_events": {
+                        "week_ms": 4
+                    },
+                    "overall": {
+                        "week_ms": 694
+                    },
+                    "library_load_events": {
+                        "week_ms": 3
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\spoolsv.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 8
+                    },
+                    "registry_events": {
+                        "week_ms": 40
+                    },
+                    "overall": {
+                        "week_ms": 675
+                    },
+                    "library_load_events": {
+                        "week_ms": 627
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Packetbeat\\packetbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 74
+                    },
+                    "process_events": {
+                        "week_ms": 432
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "network_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 569
+                    },
+                    "library_load_events": {
+                        "week_ms": 61
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 20
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Corporation",
+                                "exists": true,
+                                "status": "trusted"
+                            },
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Corporation",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe"
+                    },
+                    "malware": {
+                        "week_ms": 350
+                    },
+                    "process_events": {
+                        "week_ms": 19
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 460
+                    },
+                    "library_load_events": {
+                        "week_ms": 70
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 6
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\filebeat-8.3.0-SNAPSHOT-windows-x86_64\\filebeat.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 395
+                    },
+                    "dns_events": {
+                        "week_ms": 51
+                    },
+                    "network_events": {
+                        "week_ms": 2
+                    },
+                    "overall": {
+                        "week_ms": 454
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Google LLC",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Google\\Compute Engine\\vss\\GoogleVssProvider.dll"
+                    },
+                    "malware": {
+                        "week_ms": 439
+                    },
+                    "overall": {
+                        "week_ms": 439
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+                    },
+                    "malware": {
+                        "week_ms": 45
+                    },
+                    "process_events": {
+                        "week_ms": 13
+                    },
+                    "registry_events": {
+                        "week_ms": 124
+                    },
+                    "overall": {
+                        "week_ms": 406
+                    },
+                    "authentication_events": {
+                        "week_ms": 8
+                    },
+                    "library_load_events": {
+                        "week_ms": 216
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\SYSTEM32\\mispace.dll"
+                    },
+                    "malware": {
+                        "week_ms": 353
+                    },
+                    "overall": {
+                        "week_ms": 353
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web.28b9ef5a#\\b1cbeb46534d9974961496306f2f1a28\\System.Web.Extensions.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 305
+                    },
+                    "overall": {
+                        "week_ms": 305
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 25
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\wbem\\WMIADAP.exe"
+                    },
+                    "malware": {
+                        "week_ms": 247
+                    },
+                    "process_events": {
+                        "week_ms": 4
+                    },
+                    "registry_events": {
+                        "week_ms": 5
+                    },
+                    "overall": {
+                        "week_ms": 295
+                    },
+                    "library_load_events": {
+                        "week_ms": 14
+                    }
+                }
+            ],
+            "memory": {
+                "endpoint": {
+                    "private": {
+                        "mean": 288590259,
+                        "latest": 493723648
+                    }
+                }
+            },
+            "disks": [
+                {
+                    "endpoint_drive": true,
+                    "total": 53564403712,
+                    "free": 25891106816,
+                    "device": "\\Device\\HarddiskVolume3",
+                    "mount": "C:\\",
+                    "fstype": "NTFS"
+                },
+                {
+                    "total": 100663296,
+                    "free": 73579520,
+                    "device": "\\Device\\HarddiskVolume2",
+                    "mount": "",
+                    "fstype": "FAT32"
+                }
+            ],
+            "documents_volume": {
+                "file_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 3485,
+                    "sent_bytes": 7302875
+                },
+                "security_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 259,
+                    "sent_bytes": 422247
+                },
+                "library_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 114,
+                    "sent_bytes": 287954
+                },
+                "process_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 201,
+                    "sent_bytes": 602914
+                },
+                "registry_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 605,
+                    "sent_bytes": 1288593
+                },
+                "dns_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 5250,
+                    "sent_bytes": 11364752
+                },
+                "network_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 1753,
+                    "sent_bytes": 3479631
+                },
+                "overall": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 11667,
+                    "sent_bytes": 24748966
+                }
+            },
+            "cpu": {
+                "endpoint": {
+                    "mean": 0.324235176435677,
+                    "latest": 62.6406111450215
+                }
+            },
+            "threads": [
+                {
+                    "name": "actionsAPIThread",
+                    "cpu": {
+                        "mean": 0.00456829602558246
+                    }
+                },
+                {
+                    "name": "stateReportThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "checkinAPIThread",
+                    "cpu": {
+                        "mean": 0.0365463682046597
+                    }
+                },
+                {
+                    "name": "KernelAsyncMessageQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "Cron",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "File Cache",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "FileLogThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "LoggingLimitThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "CredentialAccessEventDispatcherThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "RulesEngineThread",
+                    "cpu": {
+                        "mean": 0.0091324200913242
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelAsyncMessageQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "KernelSyncQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DocumentLoggingThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DocumentLoggingMaintenance",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "BulkConsumerThread",
+                    "cpu": {
+                        "mean": 0.00455871626549964
+                    }
+                },
+                {
+                    "name": "DocumentLoggingConsumerThread",
+                    "cpu": {
+                        "mean": 0.113967906637491
+                    }
+                },
+                {
+                    "name": "DocumentLoggingLimitThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.022822713164141
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.022822713164141
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "ArtifactManifestDownload",
+                    "cpu": {
+                        "mean": 0.12311901504788
+                    }
+                },
+                {
+                    "name": "PolicyReloadThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "CredentialAccessClassifierThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.0136936278984846
+                    }
+                },
+                {
+                    "name": "PerformanceMonitorWorkerThread",
+                    "cpu": {
+                        "mean": 0.00912200684150513
+                    }
+                },
+                {
+                    "name": "MetadataThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "EventsQueueThread",
+                    "cpu": {
+                        "mean": 0.0729760547320411
+                    }
+                },
+                {
+                    "name": "DelayedAlertEnrichment",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "MaintainProcessMap",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "FileScoreThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DiagnosticMalwareThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "QuarantineManagerWorkerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "EventProcessingThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "HostIsolationMonitorThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "serviceCommsThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "grpcConnectionManagerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "RansomwareGlobalUserThread"
+                },
+                {
+                    "name": "RansomwareProcessMonitorThread"
+                },
+                {
+                    "name": "RansomwareFileCacheCleanupThread"
+                },
+                {
+                    "name": "RansomwareParseUnverifiedThread"
+                },
+                {
+                    "name": "RansomwareLuaVerifiedThread"
+                }
+            ],
+            "uptime": {
+                "endpoint": 21930,
+                "system": 21992
+            }
+        }
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "metrics",
+        "dataset": "endpoint.metrics"
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 35124,
+        "ingested": "2022-04-04T18:38:16Z",
+        "created": "2022-04-04T18:38:15.7178887Z",
+        "kind": "metric",
+        "module": "endpoint",
+        "action": "endpoint_metrics",
+        "id": "MYfZG00oEwD2/fqT+++++Byi",
+        "category": [
+            "host"
+        ],
+        "type": [
+            "info"
+        ],
+        "dataset": "endpoint.metrics"
+    }
+}

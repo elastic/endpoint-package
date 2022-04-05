@@ -107,12 +107,19 @@ fields:
       executable: {}
       entity_id: {}
       ppid: {}
+      parent:
+        fields:
+          pid: {}
+      code_signature:
+        fields: "*"
       thread:
         fields:
           id: {}
       Ext:
         fields:
           ancestry: {}
+          code_signature:
+            fields: "*"
   file:
     fields:
       accessed: {}

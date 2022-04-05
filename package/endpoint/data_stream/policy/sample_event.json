@@ -1,0 +1,594 @@
+{
+    "agent": {
+        "build": {
+            "original": "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+        },
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
+    },
+    "message": "Endpoint policy change",
+    "@timestamp": "2022-04-04T18:38:15.7178887Z",
+    "Endpoint": {
+        "configuration": {
+            "isolation": false
+        },
+        "state": {
+            "isolation": false
+        },
+        "policy": {
+            "applied": {
+                "response": {
+                    "configurations": {
+                        "behavior_protection": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_file_events",
+                                "configure_network_events",
+                                "configure_process_events",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "configure_imageload_events",
+                                "configure_dns_events",
+                                "configure_security_events",
+                                "configure_registry_events",
+                                "configure_malicious_behavior"
+                            ],
+                            "status": "success"
+                        },
+                        "streaming": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "configure_output",
+                                "workflow"
+                            ],
+                            "status": "success"
+                        },
+                        "malware": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_malware",
+                                "configure_kernel",
+                                "detect_process_events",
+                                "detect_file_write_events",
+                                "connect_kernel",
+                                "configure_user_notification",
+                                "configure_alerts",
+                                "detect_file_open_events",
+                                "detect_sync_image_load_events"
+                            ],
+                            "status": "success"
+                        },
+                        "logging": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "configure_logging",
+                                "workflow"
+                            ],
+                            "status": "success"
+                        },
+                        "antivirus_registration": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "configure_antivirus_registration",
+                                "workflow"
+                            ],
+                            "status": "unsupported"
+                        },
+                        "host_isolation": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "configure_host_isolation",
+                                "load_config",
+                                "workflow",
+                                "connect_kernel",
+                                "configure_user_notification"
+                            ],
+                            "status": "success"
+                        },
+                        "events": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "detect_process_events",
+                                "detect_file_write_events",
+                                "detect_network_events",
+                                "configure_file_events",
+                                "configure_network_events",
+                                "configure_process_events",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "detect_file_open_events",
+                                "detect_file_access_events",
+                                "detect_async_image_load_events",
+                                "detect_registry_events",
+                                "detect_registry_access_events",
+                                "configure_imageload_events",
+                                "configure_dns_events",
+                                "configure_security_events",
+                                "configure_registry_events"
+                            ],
+                            "status": "success"
+                        },
+                        "ransomware": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "detect_process_events",
+                                "detect_file_write_events",
+                                "configure_process_events",
+                                "configure_file_events",
+                                "configure_ransomware",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "configure_user_notification"
+                            ],
+                            "status": "success"
+                        },
+                        "memory_protection": {
+                            "concerned_actions": [
+                                "agent_connectivity",
+                                "configure_memory_threat",
+                                "configure_process_events",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "workflow",
+                                "load_config",
+                                "detect_process_events",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "detect_thread_events"
+                            ],
+                            "status": "success"
+                        }
+                    },
+                    "diagnostic": {
+                        "behavior_protection": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_file_events",
+                                "configure_network_events",
+                                "configure_process_events",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "configure_imageload_events",
+                                "configure_dns_events",
+                                "configure_security_events",
+                                "configure_registry_events",
+                                "configure_diagnostic_rollback",
+                                "detect_process_handle_events",
+                                "configure_diagnostic_malicious_behavior"
+                            ],
+                            "status": "success"
+                        },
+                        "malware": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_diagnostic_malware",
+                                "detect_process_events",
+                                "detect_file_write_events",
+                                "connect_kernel",
+                                "configure_kernel",
+                                "detect_file_open_events",
+                                "detect_sync_image_load_events",
+                                "configure_diagnostic_rollback"
+                            ],
+                            "status": "success"
+                        },
+                        "ransomware": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "detect_process_events",
+                                "detect_file_write_events",
+                                "configure_process_events",
+                                "configure_file_events",
+                                "configure_diagnostic_ransomware",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "configure_diagnostic_rollback"
+                            ],
+                            "status": "success"
+                        },
+                        "memory_protection": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "detect_process_events",
+                                "configure_process_events",
+                                "configure_diagnostic_memory_threat",
+                                "configure_kernel",
+                                "connect_kernel",
+                                "detect_thread_events",
+                                "configure_diagnostic_rollback"
+                            ],
+                            "status": "success"
+                        }
+                    }
+                },
+                "name": "endpoint-1",
+                "id": "b372bc3f-e9b3-4b2d-9dfe-ae677ed83933",
+                "actions": [
+                    {
+                        "name": "configure_antivirus_registration",
+                        "message": "Antivirus registration is not possible on servers",
+                        "status": "unsupported"
+                    },
+                    {
+                        "name": "configure_ransomware",
+                        "message": "Successfully enabled ransomware prevention with mbr enabled and canaries enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_memory_threat",
+                        "message": "Successfully enabled memory threat prevention with memory scanning enabled and shellcode protection enabled including trampoline monitoring",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_diagnostic_memory_threat",
+                        "message": "Successfully enabled memory threat detection with memory scanning enabled and shellcode protection enabled including trampoline monitoring",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_host_isolation",
+                        "message": "Host is not isolated",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_malicious_behavior",
+                        "message": "Enabled 152 out of 152 malicious behavior rules",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_diagnostic_malicious_behavior",
+                        "message": "Enabled 196 out of 196 diagnostic malicious behavior rules",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_user_notification",
+                        "message": "Successfully configured user notification",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_malware",
+                        "message": "Successfully enabled malware prevention",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_diagnostic_malware",
+                        "message": "Successfully enabled malware detection",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_diagnostic_rollback",
+                        "message": "Diagnostic system rollback is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_kernel",
+                        "message": "Successfully configured kernel",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_output",
+                        "message": "Successfully configured output connection",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_alerts",
+                        "message": "Successfully configured alerts",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_logging",
+                        "message": "Successfully configured logging",
+                        "status": "success"
+                    },
+                    {
+                        "name": "load_config",
+                        "message": "Successfully parsed configuration",
+                        "status": "success"
+                    },
+                    {
+                        "name": "download_user_artifacts",
+                        "message": "Successfully downloaded user artifacts",
+                        "status": "success"
+                    },
+                    {
+                        "name": "download_global_artifacts",
+                        "message": "Global artifacts are available for use",
+                        "status": "success"
+                    },
+                    {
+                        "name": "connect_kernel",
+                        "message": "Successfully connected to kernel",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_process_events",
+                        "message": "Successfully started process event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_sync_image_load_events",
+                        "message": "Successfully started sync image load event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_async_image_load_events",
+                        "message": "Successfully started async image load event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_file_write_events",
+                        "message": "Successfully started file write event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_file_open_events",
+                        "message": "Successfully stopped file open event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_network_events",
+                        "message": "Successfully started network event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_registry_events",
+                        "message": "Successfully started registry event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_thread_events",
+                        "message": "Successfully configured thread events",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_file_access_events",
+                        "message": "Successfully configured file access event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_registry_access_events",
+                        "message": "Successfully configured registry access event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "detect_process_handle_events",
+                        "message": "Successfully started process handle event reporting",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_file_events",
+                        "message": "Success enabling file events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_network_events",
+                        "message": "Success enabling network events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_process_events",
+                        "message": "Success enabling process events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_imageload_events",
+                        "message": "Success enabling image load events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_dns_events",
+                        "message": "Success enabling dns events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_registry_events",
+                        "message": "Success enabling registry events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_security_events",
+                        "message": "Success enabling security events; current state is enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "configure_diagnostic_ransomware",
+                        "message": "Successfully enabled ransomware detection with mbr enabled and canaries enabled",
+                        "status": "success"
+                    },
+                    {
+                        "name": "agent_connectivity",
+                        "message": "Successfully connected to Agent",
+                        "status": "success"
+                    },
+                    {
+                        "name": "workflow",
+                        "message": "Successfully executed all workflows",
+                        "status": "success"
+                    }
+                ],
+                "endpoint_policy_version": "1",
+                "version": "2",
+                "artifacts": {
+                    "global": {
+                        "identifiers": [
+                            {
+                                "sha256": "e57a7d5638060e9655c64ac1d02f7949b87e5f5f27f2074329608db1e06d645b",
+                                "name": "diagnostic-configuration-v1"
+                            },
+                            {
+                                "sha256": "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
+                                "name": "diagnostic-endpointpe-v4-blocklist"
+                            },
+                            {
+                                "sha256": "d47bfd600e3a8f79e290dfb0306e8abe7be11b75b36ba98132f46b8971f7f071",
+                                "name": "diagnostic-endpointpe-v4-exceptionlist"
+                            },
+                            {
+                                "sha256": "8609faa372f8761bf199a03325f56577d2fd47630d6dba386b6eb33562aef6e3",
+                                "name": "diagnostic-endpointpe-v4-model"
+                            },
+                            {
+                                "sha256": "52bc8b59292b5017bb091f97fa395881b127b07dec6182f91c4b84074ae6e7bc",
+                                "name": "diagnostic-malware-signature-v1-windows"
+                            },
+                            {
+                                "sha256": "dcbaa744fc672d8db32010a1422aafa6e0cf86816d34b1d4df9f273f106be425",
+                                "name": "diagnostic-ransomware-v1-windows"
+                            },
+                            {
+                                "sha256": "b680beed0f3ca83ae78802e972bf4bb12ecea2b1649a7aafd16e6fec8c9a0ede",
+                                "name": "diagnostic-rules-windows-v1"
+                            },
+                            {
+                                "sha256": "1d591a12ce8ae215ebdcdabc81fc912cd51162e7a8e35bcdc1676bc3125cebbf",
+                                "name": "endpointpe-v4-blocklist"
+                            },
+                            {
+                                "sha256": "b49fdcd8bf63af07ab1e74352137eb20f1e3710640dfcb1bfff3f7273ee14a7f",
+                                "name": "endpointpe-v4-exceptionlist"
+                            },
+                            {
+                                "sha256": "c05c025cce1c2b5808c180dc4986eb519c0affd30d7c27f67fdd14bde3224638",
+                                "name": "endpointpe-v4-model"
+                            },
+                            {
+                                "sha256": "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
+                                "name": "global-configuration-v1"
+                            },
+                            {
+                                "sha256": "7acbe147698a40c817775d471ea30c2fe4dfa7a9f54271e6dbc073131c5a3bcb",
+                                "name": "global-exceptionlist-windows"
+                            },
+                            {
+                                "sha256": "dfb2b428357b756d9f5b593c02dce99b026c9e2afeb76cdb8e8c76c6db78290a",
+                                "name": "global-trustlist-windows-v1"
+                            },
+                            {
+                                "sha256": "611a02c398c58ebe2f6d9d63621778de96263ef7fa885098ce62a22c411d67bc",
+                                "name": "production-malware-signature-v1-windows"
+                            },
+                            {
+                                "sha256": "363cb9d7bbc013d9bc171a6a29fdfe486f1c987ef2c0cdfa3c283fc4c5a4a595",
+                                "name": "production-ransomware-v1-windows"
+                            },
+                            {
+                                "sha256": "b07cf3beacd69e6922d344448a8c6d03e96ae6d5ec1e540415fe2f4804bcb631",
+                                "name": "production-rules-windows-v1"
+                            }
+                        ],
+                        "version": "1.0.261"
+                    },
+                    "user": {
+                        "identifiers": [
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-blocklist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-eventfilterlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-exceptionlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-hostisolationexceptionlist-windows-v1"
+                            },
+                            {
+                                "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                                "name": "endpoint-trustlist-windows-v1"
+                            }
+                        ],
+                        "version": "1.0.0"
+                    }
+                },
+                "status": "success"
+            }
+        }
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "metrics",
+        "dataset": "endpoint.policy"
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 35122,
+        "ingested": "2022-04-04T18:38:16Z",
+        "created": "2022-04-04T18:38:15.7178887Z",
+        "kind": "state",
+        "module": "endpoint",
+        "action": "endpoint_policy_response",
+        "id": "MYfZG00oEwD2/fqT+++++Bye",
+        "category": [
+            "host"
+        ],
+        "type": [
+            "change"
+        ],
+        "dataset": "endpoint.policy"
+    }
+}

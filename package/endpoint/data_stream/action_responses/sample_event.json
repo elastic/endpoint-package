@@ -1,0 +1,24 @@
+{
+    "EndpointActions": {
+        "completed_at": "2022-04-04T20:44:14.0Z",
+        "data": {
+            "comment": "Action completed successfully",
+            "command": "isolate"
+        },
+        "action_id": "cfa1d245-24ad-4867-8043-475d4ee2a111",
+        "started_at": "2022-04-04T20:44:08.0Z"
+    },
+    "agent": {
+        "id": "c8cad7f3-9e62-43d0-94ed-8c51670fae62"
+    },
+    "@timestamp": "2022-04-04T20:44:14.0Z",
+    "data_stream": {
+        "namespace": "default",
+        "type": ".logs",
+        "dataset": "endpoint.action.responses"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "ingested": "2022-04-04T20:44:45Z"
+    }
+}

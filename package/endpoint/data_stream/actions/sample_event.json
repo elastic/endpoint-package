@@ -1,0 +1,25 @@
+{
+    "EndpointActions": {
+        "data": {
+            "comment": "testing isolation",
+            "command": "isolate"
+        },
+        "action_id": "cfa1d245-24ad-4867-8043-475d4ee2a111",
+        "input_type": "endpoint",
+        "expiration": "2022-04-18T20:44:07.805Z",
+        "type": "INPUT_ACTION"
+    },
+    "agent": {
+        "id": [
+            "c8cad7f3-9e62-43d0-94ed-8c51670fae62"
+        ]
+    },
+    "@timestamp": "2022-04-04T20:44:07.805Z",
+    "event": {
+        "agent_id_status": "auth_metadata_missing",
+        "ingested": "2022-04-04T20:44:07Z"
+    },
+    "user": {
+        "id": "user@elastic.co"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "events": [
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 1"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 2"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 5"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 6"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 12"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 15"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 16"
+        },
+        {
+            "network": {
+                "protocol": "dns"
+            },
+            "message": "DNS query is completed for the name X type 28"
+        }
+    ]
+}
