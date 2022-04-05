@@ -1,2487 +1,2487 @@
 {
-  "agent" : {
-    "build" : {
-      "original" : "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+    "agent": {
+        "build": {
+            "original": "version: 8.3.0-SNAPSHOT, compiled: Fri Apr 1 06:00:00 2022, branch: main, commit: f8b0ed879ad40ee1ae561ced31ec8a4027a2bf53"
+        },
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "type": "endpoint",
+        "version": "8.3.0-SNAPSHOT"
     },
-    "id" : "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
-    "type" : "endpoint",
-    "version" : "8.3.0-SNAPSHOT"
-  },
-  "message" : "Endpoint metrics",
-  "@timestamp" : "2022-04-04T18:38:15.7178887Z",
-  "Endpoint" : {
-    "metrics" : {
-      "system_impact" : [
-        {
-          "file_events" : {
-            "week_ms" : 418
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows Publisher",
-                "exists" : true,
-                "status" : "trusted"
-              }
+    "message": "Endpoint metrics",
+    "@timestamp": "2022-04-04T18:38:15.7178887Z",
+    "Endpoint": {
+        "metrics": {
+            "system_impact": [
+                {
+                    "file_events": {
+                        "week_ms": 418
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows Publisher",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\svchost.exe"
+                    },
+                    "malware": {
+                        "week_ms": 7483
+                    },
+                    "process_events": {
+                        "week_ms": 78
+                    },
+                    "registry_events": {
+                        "week_ms": 248
+                    },
+                    "dns_events": {
+                        "week_ms": 16
+                    },
+                    "network_events": {
+                        "week_ms": 8
+                    },
+                    "overall": {
+                        "week_ms": 11434
+                    },
+                    "authentication_events": {
+                        "week_ms": 155
+                    },
+                    "library_load_events": {
+                        "week_ms": 3028
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 46
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                    },
+                    "malware": {
+                        "week_ms": 2
+                    },
+                    "process_events": {
+                        "week_ms": 19
+                    },
+                    "registry_events": {
+                        "week_ms": 3
+                    },
+                    "overall": {
+                        "week_ms": 7960
+                    },
+                    "library_load_events": {
+                        "week_ms": 7890
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 1641
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Winlogbeat\\winlogbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 2589
+                    },
+                    "process_events": {
+                        "week_ms": 419
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "network_events": {
+                        "week_ms": 32
+                    },
+                    "overall": {
+                        "week_ms": 4686
+                    },
+                    "library_load_events": {
+                        "week_ms": 4
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 2
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows Publisher",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\lsass.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 3
+                    },
+                    "registry_events": {
+                        "week_ms": 83
+                    },
+                    "overall": {
+                        "week_ms": 3291
+                    },
+                    "authentication_events": {
+                        "week_ms": 3177
+                    },
+                    "library_load_events": {
+                        "week_ms": 26
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\conhost.exe"
+                    },
+                    "malware": {
+                        "week_ms": 16
+                    },
+                    "process_events": {
+                        "week_ms": 26
+                    },
+                    "registry_events": {
+                        "week_ms": 3
+                    },
+                    "overall": {
+                        "week_ms": 3011
+                    },
+                    "library_load_events": {
+                        "week_ms": 2966
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 51
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false,
+                                "status": "errorCode_endpoint: Initital state, no attempt to load signature was made"
+                            }
+                        ],
+                        "executable": "System"
+                    },
+                    "malware": {
+                        "week_ms": 1978
+                    },
+                    "overall": {
+                        "week_ms": 2029
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web\\e266326169887aa7cb26b9e2aa421ee4\\System.Web.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 1015
+                    },
+                    "overall": {
+                        "week_ms": 1015
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 8
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\metricbeat-8.3.0-SNAPSHOT-windows-x86_64\\metricbeat.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 502
+                    },
+                    "dns_events": {
+                        "week_ms": 84
+                    },
+                    "network_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 1012
+                    },
+                    "library_load_events": {
+                        "week_ms": 417
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": false,
+                                "subject_name": "Google LLC",
+                                "exists": true,
+                                "status": "errorExpired"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Google\\Compute Engine\\agent\\GCEWindowsAgent.exe"
+                    },
+                    "malware": {
+                        "week_ms": 627
+                    },
+                    "process_events": {
+                        "week_ms": 89
+                    },
+                    "registry_events": {
+                        "week_ms": 2
+                    },
+                    "dns_events": {
+                        "week_ms": 7
+                    },
+                    "network_events": {
+                        "week_ms": 8
+                    },
+                    "overall": {
+                        "week_ms": 818
+                    },
+                    "library_load_events": {
+                        "week_ms": 85
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Microsoft.P521220ea#\\39ce4aafe1a3bc56fb1435f6550dd7a3\\Microsoft.PowerShell.Commands.Utility.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 760
+                    },
+                    "overall": {
+                        "week_ms": 760
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 15
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\metricbeat-7.10.0-windows-x86_64\\metricbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 29
+                    },
+                    "process_events": {
+                        "week_ms": 634
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "dns_events": {
+                        "week_ms": 8
+                    },
+                    "network_events": {
+                        "week_ms": 4
+                    },
+                    "overall": {
+                        "week_ms": 694
+                    },
+                    "library_load_events": {
+                        "week_ms": 3
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\spoolsv.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 8
+                    },
+                    "registry_events": {
+                        "week_ms": 40
+                    },
+                    "overall": {
+                        "week_ms": 675
+                    },
+                    "library_load_events": {
+                        "week_ms": 627
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Packetbeat\\packetbeat.exe"
+                    },
+                    "malware": {
+                        "week_ms": 74
+                    },
+                    "process_events": {
+                        "week_ms": 432
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "network_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 569
+                    },
+                    "library_load_events": {
+                        "week_ms": 61
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 20
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Corporation",
+                                "exists": true,
+                                "status": "trusted"
+                            },
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Corporation",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe"
+                    },
+                    "malware": {
+                        "week_ms": 350
+                    },
+                    "process_events": {
+                        "week_ms": 19
+                    },
+                    "registry_events": {
+                        "week_ms": 1
+                    },
+                    "overall": {
+                        "week_ms": 460
+                    },
+                    "library_load_events": {
+                        "week_ms": 70
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 6
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Elasticsearch, Inc.",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\filebeat-8.3.0-SNAPSHOT-windows-x86_64\\filebeat.exe"
+                    },
+                    "process_events": {
+                        "week_ms": 395
+                    },
+                    "dns_events": {
+                        "week_ms": 51
+                    },
+                    "network_events": {
+                        "week_ms": 2
+                    },
+                    "overall": {
+                        "week_ms": 454
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Google LLC",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Program Files\\Google\\Compute Engine\\vss\\GoogleVssProvider.dll"
+                    },
+                    "malware": {
+                        "week_ms": 439
+                    },
+                    "overall": {
+                        "week_ms": 439
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+                    },
+                    "malware": {
+                        "week_ms": 45
+                    },
+                    "process_events": {
+                        "week_ms": 13
+                    },
+                    "registry_events": {
+                        "week_ms": 124
+                    },
+                    "overall": {
+                        "week_ms": 406
+                    },
+                    "authentication_events": {
+                        "week_ms": 8
+                    },
+                    "library_load_events": {
+                        "week_ms": 216
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\SYSTEM32\\mispace.dll"
+                    },
+                    "malware": {
+                        "week_ms": 353
+                    },
+                    "overall": {
+                        "week_ms": 353
+                    }
+                },
+                {
+                    "process": {
+                        "code_signature": [
+                            {
+                                "exists": false
+                            }
+                        ],
+                        "executable": "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web.28b9ef5a#\\b1cbeb46534d9974961496306f2f1a28\\System.Web.Extensions.ni.dll"
+                    },
+                    "malware": {
+                        "week_ms": 305
+                    },
+                    "overall": {
+                        "week_ms": 305
+                    }
+                },
+                {
+                    "file_events": {
+                        "week_ms": 25
+                    },
+                    "process": {
+                        "code_signature": [
+                            {
+                                "trusted": true,
+                                "subject_name": "Microsoft Windows",
+                                "exists": true,
+                                "status": "trusted"
+                            }
+                        ],
+                        "executable": "C:\\Windows\\System32\\wbem\\WMIADAP.exe"
+                    },
+                    "malware": {
+                        "week_ms": 247
+                    },
+                    "process_events": {
+                        "week_ms": 4
+                    },
+                    "registry_events": {
+                        "week_ms": 5
+                    },
+                    "overall": {
+                        "week_ms": 295
+                    },
+                    "library_load_events": {
+                        "week_ms": 14
+                    }
+                }
             ],
-            "executable" : "C:\\Windows\\System32\\svchost.exe"
-          },
-          "malware" : {
-            "week_ms" : 7483
-          },
-          "process_events" : {
-            "week_ms" : 78
-          },
-          "registry_events" : {
-            "week_ms" : 248
-          },
-          "dns_events" : {
-            "week_ms" : 16
-          },
-          "network_events" : {
-            "week_ms" : 8
-          },
-          "overall" : {
-            "week_ms" : 11434
-          },
-          "authentication_events" : {
-            "week_ms" : 155
-          },
-          "library_load_events" : {
-            "week_ms" : 3028
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 46
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
+            "memory": {
+                "endpoint": {
+                    "private": {
+                        "mean": 288590259,
+                        "latest": 493723648
+                    }
+                }
+            },
+            "disks": [
+                {
+                    "endpoint_drive": true,
+                    "total": 53564403712,
+                    "free": 25891106816,
+                    "device": "\\Device\\HarddiskVolume3",
+                    "mount": "C:\\",
+                    "fstype": "NTFS"
+                },
+                {
+                    "total": 100663296,
+                    "free": 73579520,
+                    "device": "\\Device\\HarddiskVolume2",
+                    "mount": "",
+                    "fstype": "FAT32"
+                }
             ],
-            "executable" : "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-          },
-          "malware" : {
-            "week_ms" : 2
-          },
-          "process_events" : {
-            "week_ms" : 19
-          },
-          "registry_events" : {
-            "week_ms" : 3
-          },
-          "overall" : {
-            "week_ms" : 7960
-          },
-          "library_load_events" : {
-            "week_ms" : 7890
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 1641
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Elasticsearch, Inc.",
-                "exists" : true,
-                "status" : "trusted"
-              }
+            "documents_volume": {
+                "file_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 3485,
+                    "sent_bytes": 7302875
+                },
+                "security_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 259,
+                    "sent_bytes": 422247
+                },
+                "library_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 114,
+                    "sent_bytes": 287954
+                },
+                "process_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 201,
+                    "sent_bytes": 602914
+                },
+                "registry_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 605,
+                    "sent_bytes": 1288593
+                },
+                "dns_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 5250,
+                    "sent_bytes": 11364752
+                },
+                "network_events": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 1753,
+                    "sent_bytes": 3479631
+                },
+                "overall": {
+                    "suppressed_count": 0,
+                    "suppressed_bytes": 0,
+                    "sent_count": 11667,
+                    "sent_bytes": 24748966
+                }
+            },
+            "malicious_behavior_rules": [
+                {
+                    "id": "5fbe5dfc-4273-49e0-9d79-cf899776a08c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "901f0c30-a7c5-40c5-80e3-a50c6744632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6d660b32-23bf-434b-a588-1cdc91224664",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3788c03d-28a5-4466-b157-d6dd4dc449bb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "12e6ac2e-a429-4f54-abb2-eaa5713a4d06",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "17030515-5ed0-43c8-9602-f97cbebd43c0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "e9095298-65e0-40a2-97c9-055de8685645",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "99358f31-a84a-4f92-bb91-4370083acda0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f1008eeb-bc85-4d5e-91ac-e99aaba08ecf",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "825b0e1c-a968-4447-9cf0-dafb807f2009",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "dfe28e03-9b0b-47f5-9753-65ed2666663f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "df9cc41e-4686-4aa0-8f79-60055dd01812",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28969fe6-0ebe-4442-b40c-dbe9b4234f5e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "13fab475-06e4-4ac9-87fc-2105c7441244",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "78e2e5e1-e727-4106-9206-8cf43b9f8919",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d66765b8-010b-4a40-ab62-1d8f13a44878",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "792411bd-59ef-4ac0-89be-786d52d1a5c8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "93438ae3-becd-43fa-81de-645ce17afa8e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "84bbe951-5141-4eb3-b9cf-8dfeea62a94e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "365571bb-2b93-4ae8-8c39-0558f8a6c4cc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f57505bb-a1d2-4d3b-b7b5-1d81d7bdb80e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0b33141a-3f73-4414-ba90-d8410e6ab176",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f5dd34c1-733c-43d7-831c-a4b0affb914a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "fdf66d17-0e2e-4667-a145-620bc1204c69",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3899dd3b-f31a-4634-8467-55326cd87597",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "1487d726-2bd2-4a9e-a9d2-db8aef1d6239",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "093bd845-b59f-4868-a7dd-62d48b737bf6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "51894221-7657-4b56-9406-e080e19ad159",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5e8498bb-8cc0-412f-9017-793d94ab76a5",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "949c72ee-a283-4673-afe0-7fa72bddc2f6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "16c84e67-e5e7-44ff-aefa-4d771bcafc0c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "de3615bc-4e50-485e-b3b5-8548ef6faa3d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f9fd002c-0dab-42ec-8675-0cf5af6b4a85",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "52e4ad92-e09b-4331-b827-cd0f2cbaf576",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "11c67af9-9599-4800-9e84-bd38f2a51581",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3d16f5f9-da4c-4b15-a501-505761b75ca6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8076640d-ec66-4d24-a252-ee2f054e00a1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ccbc4a79-3bae-4623-aaef-e28a96bf538b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "77ca3fcc-f607-45e0-837e-e4173e4ffc2a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28996098-b9be-4aa8-a1f3-4923c84b2649",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "49e47c2a-307f-4591-939a-dfdae6e5156c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ae7812a1-1329-47b4-9d76-8c7359cda4e4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "17cd570a-979a-4806-80b5-9b3854e9d603",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "03758167-3eed-465f-9174-b284d599036d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "321e7877-075a-4582-8eff-777dde15e787",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2c3efa34-fecd-4b3b-bdb6-30d547f2a1a4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ad53a366-161a-4fa7-a75a-cc00658a767f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "24082642-49a7-4072-952b-10c244b24f8e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cbbb130f-d9d3-459d-a796-c61ee27f9f70",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d3588fad-43ae-4f2d-badd-15a27df72132",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28a39a43-e850-4941-8605-ffa23dcfd25a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d448566e-486f-4b61-a76f-945662313d49",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6a714747-2671-4523-b233-744f119949b6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "65f52068-4d08-41af-9fd7-0c1a4f732494",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "60eb5960-b26e-494a-8cf2-35ab5939f6c1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ccdf56a8-697b-497c-ab90-3aa01bfc5f9f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7609ebb3-0154-431b-badc-264b10527d13",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9769d372-4115-4ef8-8d7b-aaad05dad9ae",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5c01669c-e1cc-4acc-95b6-8b5e4a92c970",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a0265178-779d-4bc5-b3f1-abb3bcddedab",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d8b7a157-c98f-42bd-8aac-7d1e4fcd53f4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "377aad38-24e0-4dd7-93c2-bd231cb749e3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "95d13ce1-ffb2-4be8-a56e-cc9a891e81e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f60d4c82-2de5-4c70-95f5-cde9f3ad41a7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5d7328aa-973b-41e7-a6b3-6f40ea3094f1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0dcaa1e9-677a-4d6a-a27a-7af188a98323",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9c3b13f6-bc26-4397-9721-4ba23ddd1014",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "35dedf0c-8db6-4d70-b2dc-a133b808211f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "58a08390-e69d-4b32-9487-1d1ddb16ba09",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "779b9502-7912-4773-95a1-51cd702a71c8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6518cdaf-e6cd-4cf9-a51e-043117c3dbeb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0d4454a7-c682-4085-995c-300973c5bdea",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9ed4ee4a-bc91-4d38-b6dd-11467b774460",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a0a82ad6-98ed-4426-abd8-52e7b052e297",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "1a88b997-bcae-430a-8a24-7378e8bf5cc4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "33962262-436f-43d7-86e9-06dbddfffb5d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "75b80e66-90d0-4ab6-9e6b-976f7d690906",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "93ef8a09-0f8d-4aa1-b0fb-47d5d5b40cf2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "18371ec4-ee2f-465b-8757-ee726914006c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a2a3d803-5c25-43cc-84b9-a4ae2a4dab27",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "18ffee0c-5f40-4dd8-aa9a-28251a308dbc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "dc27190a-688b-4f9b-88f0-1f13deccd67f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "905f4c30-a8c5-40a5-80e3-a50c5613432f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "fb6939a2-1b54-428c-92a2-3a831585af2a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "e4b2be9f-d479-48f7-86e3-d21eb7fed725",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "901f0c30-a7c5-40a5-80e3-a50c6744632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "4cd6f758-0057-4e8a-9701-20b6116c2118",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "bc8949e6-98e0-4b50-96d4-88fdbb29f0d4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0783f666-75ad-4015-9dd5-d39baec8f6b0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "92d720dd-93b2-49e0-b68a-d5d6acbe4910",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "adaf95d2-28ce-4880-af16-f3041b624440",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7200673e-588c-45d5-be48-bc5c7a908d6b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b2fcbb09-d9bd-4f6c-a08e-247548b4edcd",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7c0048d5-356d-4f69-839e-10c1e194958f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "be42f9fc-bdca-41cd-b125-f223d09eef69",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "727db78e-e1dd-4bc0-89b0-885cd99e069e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ffbab5db-73ae-42fd-a33f-36bf649f41cc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5dba1130-72df-46f1-b581-18d9c866cb23",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "e13a65b7-f46f-4c7f-85cf-7e59170071fa",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "25c41954-5d42-4530-b9cb-bdaf9d028ce7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "39f60a36-8c5a-4703-8576-ad3e8c800a0f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "153f52e2-2fe5-420b-8691-ddb8562b99d7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3bd31cbf-b581-41b7-b021-020cc64cfd9d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cc60be0e-2c6c-4dc9-9902-e97103ff8df9",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f0630213-c4c4-4898-9514-746395eb9962",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c567240c-445b-4000-9612-b5531e21e050",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cd25c529-73b4-4a9d-84a9-e24c4a3540d1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "beebd95c-93f4-46d2-a902-053bfe78686b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8adfa9ad-0ed2-4b1b-bdad-f2c52e1d2a00",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8b4791a8-2355-4f43-8b60-d367b5c2aa51",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f488cd1b-2407-4ec8-8705-7adf99ccbd33",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "92f114fb-7113-4e82-b021-6c2c4ca0a507",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2e708541-c6e8-4ded-923f-78a6c160987e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "30a90136-7831-41c3-a2aa-1a303c1186ac",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2b8ea430-897d-486c-85a8-add9d7072ff3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "905f4c30-a8c5-40a5-80e3-a50c6714632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c5ee8453-bc89-42e7-a414-1ba4bec85119",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b76c0a04-b504-4a2f-a0cf-b4175a2f3eea",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "af5fb14d-ec20-42fa-832c-96dc00efd42a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "676ac66c-4899-498f-ae21-ed5620af5477",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "1efc0496-106b-4c09-b99b-91cdd17ba7b3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d3588fad-43ae-4f2d-badd-15a27df72133",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b5c0058e-2bca-4ed5-84b3-4e017c039c57",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b707de5c-8e4d-4d2c-be22-b09a7e82b73f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9389bb8e-fadc-42ca-8598-28e2bb94edee",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cfaf983e-1129-464c-b0aa-270f42e20d3d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8f237d98-1825-4c27-a5cd-e38bde70882a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "392b0c89-1427-4601-8b32-01e8e40600a6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c4539c79-9f55-4b36-b06f-8aff82563bca",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "934232e5-66d3-4e80-a4ee-a9f1b7d2a7bc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c11cad45-3d8c-4b2a-bcec-b6dd182f4224",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0545f127-b1ae-478a-a68a-84f477f765e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "74be6307-2d15-4c71-8072-fc606f337a51",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "11d374d8-2dad-4d9b-83a2-ee908eac8269",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d487049e-381d-44ad-9ec9-d23e88dbf573",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c6a9046e-7ca3-460b-9707-f17e6dfabcb6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5b00c9ba-9546-47cc-8f9f-1c1a3e95f65c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9fdd772b-b483-404f-bc02-7ec87e332bec",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2fbbd139-3919-4b6b-9c50-9452b0aef005",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2aac12a2-23e7-4557-950e-a7b9ab96a26d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0524c24c-e45e-4220-b21a-abdba0c46c4d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "15b1d979-5be0-4e7f-9202-0c4cfd76b146",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "816ba7e7-519a-4f85-be2a-bacd6ccde57f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3c44fc50-2672-48b3-af77-ff43b895ac70",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "84595d39-df78-49d6-a999-48792482b255",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8ba98e28-d83e-451e-8df7-f0964f7e69b6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8bc4f22c-9bb1-4c76-a7b6-195bee3579db",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "242ccb88-5e28-4a74-ac6a-ff0e4c814ad8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "706bf4ca-45b7-4eb1-acae-b1228124594a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2a396a3c-b343-42a9-b74b-c5b9925b6ee2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "dec8781c-ef73-4037-9684-ef28c0322fa4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "83da4fac-563a-4af8-8f32-5a3797a9068e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c34a9dca-66cf-4283-944d-1800b28ae690",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2ad8b514-baf0-4e29-a712-d6734868aa57",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b6e8c090-f0ec-4c4c-af00-55ac2a9f9b41",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5a898048-d98c-44c6-b7ba-f63a31eb3571",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "42d2bbfb-a2fb-4327-b701-89ead6044ca1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a85000c8-3eac-413b-8353-079343c2b6f0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "94d35931-5c48-49ed-8c18-d601c4f8aeaa",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "99f2327e-871f-4b8a-ae75-d1c4697aefe4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8c69476a-d8ea-46da-8052-6a4f9254125c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "badd95ba-2416-4785-8f7f-787952b58a1d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3de7dc4a-9c3d-459d-b760-670ec240078e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "831c1cda-8d8c-4c21-a84e-c428469e7d93",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f7e6d239-9af5-42e3-8d23-91e7188a5cb0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a4862afb-1292-4f65-a15f-8d6a8019b5e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "740ad26d-3e67-47e1-aff1-adb47a697375",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7615ca4b-c291-4f05-9488-114b6bf99157",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ab29a79a-b3c2-4ae4-9670-70dd0ea68a4a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "86bf5d50-7f5d-44b4-977b-dff222379727",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8e65930c-ebde-454e-808d-010b56061dcf",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "38210b91-f593-4c1c-a582-e5309c5b5168",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "54aabea0-3687-4ef1-b70c-015ca588e563",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ce8a6302-7248-457a-8427-3d6bad14e2f0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "74c1fd79-5961-4f1d-8ff8-b810b7c88545",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "71ad1420-ed83-46d0-835b-63d4b2008427",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9401d27c-200a-4d72-ad36-f7051c4b3dcb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "39827014-4836-498e-8b16-bf62f7aae4bf",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "926b6cd1-c0c7-46d4-82d6-9deb6ae431d6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9ac68ab0-d251-4c84-a8df-85779ccc728f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7e554c18-6435-41ce-b57b-d0ac3b73817f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5b39f347-077c-4a1e-8d3c-6f7789ca09e8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "bb23a662-2d75-4714-837d-4ec9c2e772a5",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8eb74917-9363-4073-a09b-c47101f52c40",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c8776070-eca6-4370-8438-f2b6282615ef",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c01cddb6-bbcf-437c-8256-6b4d44c6bdc3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "102f340f-1839-4bad-8493-824cc02c4e69",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b0207677-5041-470b-981d-13ab956cf5b4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ccdc5d3e-6322-4bcf-b970-d173e0610604",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5db08297-bf72-49f4-b426-f405c2b01326",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "196f4c30-a8c5-40a5-80e3-a50c6714632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8d11d741-7a06-41a1-a525-feaaa07ebbae",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "95601d8b-b969-4189-9744-090140ae29e6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "76da5dca-ffe5-4756-85ba-3ac2e6ccf623",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b8a0a3aa-0345-4035-b41d-f758a6c59a78",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "999e7a9a-334f-4b74-834f-a652f91531f2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6d660b32-23bf-434b-a588-1cdc91224664",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3788c03d-28a5-4466-b157-d6dd4dc449bb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "17030515-5ed0-43c8-9602-f97cbebd43c0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "e9095298-65e0-40a2-97c9-055de8685645",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "46952f58-6741-4280-8e74-fa43f63c9604",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "99358f31-a84a-4f92-bb91-4370083acda0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f1008eeb-bc85-4d5e-91ac-e99aaba08ecf",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "dfe28e03-9b0b-47f5-9753-65ed2666663f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28969fe6-0ebe-4442-b40c-dbe9b4234f5e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "13fab475-06e4-4ac9-87fc-2105c7441244",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "78e2e5e1-e727-4106-9206-8cf43b9f8919",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "792411bd-59ef-4ac0-89be-786d52d1a5c8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "93438ae3-becd-43fa-81de-645ce17afa8e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "84bbe951-5141-4eb3-b9cf-8dfeea62a94e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "365571bb-2b93-4ae8-8c39-0558f8a6c4cc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f57505bb-a1d2-4d3b-b7b5-1d81d7bdb80e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0b33141a-3f73-4414-ba90-d8410e6ab176",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f5dd34c1-733c-43d7-831c-a4b0affb914a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3899dd3b-f31a-4634-8467-55326cd87597",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "093bd845-b59f-4868-a7dd-62d48b737bf6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "51894221-7657-4b56-9406-e080e19ad159",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "16c84e67-e5e7-44ff-aefa-4d771bcafc0c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "de3615bc-4e50-485e-b3b5-8548ef6faa3d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "11c67af9-9599-4800-9e84-bd38f2a51581",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3d16f5f9-da4c-4b15-a501-505761b75ca6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8076640d-ec66-4d24-a252-ee2f054e00a1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ccbc4a79-3bae-4623-aaef-e28a96bf538b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "77ca3fcc-f607-45e0-837e-e4173e4ffc2a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28996098-b9be-4aa8-a1f3-4923c84b2649",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "49e47c2a-307f-4591-939a-dfdae6e5156c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "321e7877-075a-4582-8eff-777dde15e787",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ad53a366-161a-4fa7-a75a-cc00658a767f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "24082642-49a7-4072-952b-10c244b24f8e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cbbb130f-d9d3-459d-a796-c61ee27f9f70",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d3588fad-43ae-4f2d-badd-15a27df72132",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "28a39a43-e850-4941-8605-ffa23dcfd25a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d448566e-486f-4b61-a76f-945662313d49",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6a714747-2671-4523-b233-744f119949b6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "65f52068-4d08-41af-9fd7-0c1a4f732494",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "60eb5960-b26e-494a-8cf2-35ab5939f6c1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ccdf56a8-697b-497c-ab90-3aa01bfc5f9f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7609ebb3-0154-431b-badc-264b10527d13",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9769d372-4115-4ef8-8d7b-aaad05dad9ae",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5c01669c-e1cc-4acc-95b6-8b5e4a92c970",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a0265178-779d-4bc5-b3f1-abb3bcddedab",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d8b7a157-c98f-42bd-8aac-7d1e4fcd53f4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "377aad38-24e0-4dd7-93c2-bd231cb749e3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "95d13ce1-ffb2-4be8-a56e-cc9a891e81e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f60d4c82-2de5-4c70-95f5-cde9f3ad41a7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9c3b13f6-bc26-4397-9721-4ba23ddd1014",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "35dedf0c-8db6-4d70-b2dc-a133b808211f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "58a08390-e69d-4b32-9487-1d1ddb16ba09",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "779b9502-7912-4773-95a1-51cd702a71c8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "6518cdaf-e6cd-4cf9-a51e-043117c3dbeb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0d4454a7-c682-4085-995c-300973c5bdea",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a0a82ad6-98ed-4426-abd8-52e7b052e297",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "1a88b997-bcae-430a-8a24-7378e8bf5cc4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "33962262-436f-43d7-86e9-06dbddfffb5d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "75b80e66-90d0-4ab6-9e6b-976f7d690906",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "93ef8a09-0f8d-4aa1-b0fb-47d5d5b40cf2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "18371ec4-ee2f-465b-8757-ee726914006c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a2a3d803-5c25-43cc-84b9-a4ae2a4dab27",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "18ffee0c-5f40-4dd8-aa9a-28251a308dbc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "dc27190a-688b-4f9b-88f0-1f13deccd67f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "905f4c30-a8c5-40a5-80e3-a50c5613432f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "fb6939a2-1b54-428c-92a2-3a831585af2a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "901f0c30-a7c5-40a5-80e3-a50c6744632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "4cd6f758-0057-4e8a-9701-20b6116c2118",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "92d720dd-93b2-49e0-b68a-d5d6acbe4910",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "adaf95d2-28ce-4880-af16-f3041b624440",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7200673e-588c-45d5-be48-bc5c7a908d6b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b2fcbb09-d9bd-4f6c-a08e-247548b4edcd",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7c0048d5-356d-4f69-839e-10c1e194958f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "be42f9fc-bdca-41cd-b125-f223d09eef69",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "727db78e-e1dd-4bc0-89b0-885cd99e069e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ffbab5db-73ae-42fd-a33f-36bf649f41cc",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "e13a65b7-f46f-4c7f-85cf-7e59170071fa",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "25c41954-5d42-4530-b9cb-bdaf9d028ce7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "153f52e2-2fe5-420b-8691-ddb8562b99d7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cc60be0e-2c6c-4dc9-9902-e97103ff8df9",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f0630213-c4c4-4898-9514-746395eb9962",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c567240c-445b-4000-9612-b5531e21e050",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cd25c529-73b4-4a9d-84a9-e24c4a3540d1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "beebd95c-93f4-46d2-a902-053bfe78686b",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8adfa9ad-0ed2-4b1b-bdad-f2c52e1d2a00",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8b4791a8-2355-4f43-8b60-d367b5c2aa51",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f488cd1b-2407-4ec8-8705-7adf99ccbd33",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2e708541-c6e8-4ded-923f-78a6c160987e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f60455df-5054-49ff-9ff7-1dc4e37b6ea7",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "905f4c30-a8c5-40a5-80e3-a50c6714632f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c5ee8453-bc89-42e7-a414-1ba4bec85119",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b76c0a04-b504-4a2f-a0cf-b4175a2f3eea",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "676ac66c-4899-498f-ae21-ed5620af5477",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "1efc0496-106b-4c09-b99b-91cdd17ba7b3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d3588fad-43ae-4f2d-badd-15a27df72133",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b5c0058e-2bca-4ed5-84b3-4e017c039c57",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b707de5c-8e4d-4d2c-be22-b09a7e82b73f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9389bb8e-fadc-42ca-8598-28e2bb94edee",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "cfaf983e-1129-464c-b0aa-270f42e20d3d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8f237d98-1825-4c27-a5cd-e38bde70882a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "392b0c89-1427-4601-8b32-01e8e40600a6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0545f127-b1ae-478a-a68a-84f477f765e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "d487049e-381d-44ad-9ec9-d23e88dbf573",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c6a9046e-7ca3-460b-9707-f17e6dfabcb6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5b00c9ba-9546-47cc-8f9f-1c1a3e95f65c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9fdd772b-b483-404f-bc02-7ec87e332bec",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2fbbd139-3919-4b6b-9c50-9452b0aef005",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2aac12a2-23e7-4557-950e-a7b9ab96a26d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "0524c24c-e45e-4220-b21a-abdba0c46c4d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "15b1d979-5be0-4e7f-9202-0c4cfd76b146",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "816ba7e7-519a-4f85-be2a-bacd6ccde57f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "3c44fc50-2672-48b3-af77-ff43b895ac70",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8ba98e28-d83e-451e-8df7-f0964f7e69b6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8bc4f22c-9bb1-4c76-a7b6-195bee3579db",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "242ccb88-5e28-4a74-ac6a-ff0e4c814ad8",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2a396a3c-b343-42a9-b74b-c5b9925b6ee2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "83da4fac-563a-4af8-8f32-5a3797a9068e",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c34a9dca-66cf-4283-944d-1800b28ae690",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "2ad8b514-baf0-4e29-a712-d6734868aa57",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b6e8c090-f0ec-4c4c-af00-55ac2a9f9b41",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5a898048-d98c-44c6-b7ba-f63a31eb3571",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "42d2bbfb-a2fb-4327-b701-89ead6044ca1",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a85000c8-3eac-413b-8353-079343c2b6f0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "94d35931-5c48-49ed-8c18-d601c4f8aeaa",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "99f2327e-871f-4b8a-ae75-d1c4697aefe4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8c69476a-d8ea-46da-8052-6a4f9254125c",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "badd95ba-2416-4785-8f7f-787952b58a1d",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "831c1cda-8d8c-4c21-a84e-c428469e7d93",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "f7e6d239-9af5-42e3-8d23-91e7188a5cb0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "a4862afb-1292-4f65-a15f-8d6a8019b5e2",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "740ad26d-3e67-47e1-aff1-adb47a697375",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "7615ca4b-c291-4f05-9488-114b6bf99157",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ab29a79a-b3c2-4ae4-9670-70dd0ea68a4a",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "86bf5d50-7f5d-44b4-977b-dff222379727",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "38210b91-f593-4c1c-a582-e5309c5b5168",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "54aabea0-3687-4ef1-b70c-015ca588e563",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "ce8a6302-7248-457a-8427-3d6bad14e2f0",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "71ad1420-ed83-46d0-835b-63d4b2008427",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9401d27c-200a-4d72-ad36-f7051c4b3dcb",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "39827014-4836-498e-8b16-bf62f7aae4bf",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "926b6cd1-c0c7-46d4-82d6-9deb6ae431d6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "9ac68ab0-d251-4c84-a8df-85779ccc728f",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "bb23a662-2d75-4714-837d-4ec9c2e772a5",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "8eb74917-9363-4073-a09b-c47101f52c40",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c8776070-eca6-4370-8438-f2b6282615ef",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "c01cddb6-bbcf-437c-8256-6b4d44c6bdc3",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "102f340f-1839-4bad-8493-824cc02c4e69",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b0207677-5041-470b-981d-13ab956cf5b4",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "5db08297-bf72-49f4-b426-f405c2b01326",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "95601d8b-b969-4189-9744-090140ae29e6",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "b8a0a3aa-0345-4035-b41d-f758a6c59a78",
+                    "endpoint_uptime_percent": 0.0
+                },
+                {
+                    "id": "999e7a9a-334f-4b74-834f-a652f91531f2",
+                    "endpoint_uptime_percent": 0.0
+                }
             ],
-            "executable" : "C:\\Program Files\\Winlogbeat\\winlogbeat.exe"
-          },
-          "malware" : {
-            "week_ms" : 2589
-          },
-          "process_events" : {
-            "week_ms" : 419
-          },
-          "registry_events" : {
-            "week_ms" : 1
-          },
-          "network_events" : {
-            "week_ms" : 32
-          },
-          "overall" : {
-            "week_ms" : 4686
-          },
-          "library_load_events" : {
-            "week_ms" : 4
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 2
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows Publisher",
-                "exists" : true,
-                "status" : "trusted"
-              }
+            "cpu": {
+                "endpoint": {
+                    "histogram": {
+                        "counts": [
+                            4350,
+                            1,
+                            6,
+                            3,
+                            1,
+                            2,
+                            2,
+                            0,
+                            1,
+                            4,
+                            1,
+                            2,
+                            1,
+                            3,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "values": [
+                            5,
+                            10,
+                            15,
+                            20,
+                            25,
+                            30,
+                            35,
+                            40,
+                            45,
+                            50,
+                            55,
+                            60,
+                            65,
+                            70,
+                            75,
+                            80,
+                            85,
+                            90,
+                            95,
+                            100
+                        ]
+                    },
+                    "mean": 0.324235176435677,
+                    "latest": 62.6406111450215
+                }
+            },
+            "threads": [
+                {
+                    "name": "actionsAPIThread",
+                    "cpu": {
+                        "mean": 0.00456829602558246
+                    }
+                },
+                {
+                    "name": "stateReportThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "checkinAPIThread",
+                    "cpu": {
+                        "mean": 0.0365463682046597
+                    }
+                },
+                {
+                    "name": "KernelAsyncMessageQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "Cron",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "File Cache",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "FileLogThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "LoggingLimitThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "CredentialAccessEventDispatcherThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "RulesEngineThread",
+                    "cpu": {
+                        "mean": 0.0091324200913242
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelAsyncMessageQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.00456454263282819
+                    }
+                },
+                {
+                    "name": "KernelSyncQueueConsumerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DocumentLoggingThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DocumentLoggingMaintenance",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "BulkConsumerThread",
+                    "cpu": {
+                        "mean": 0.00455871626549964
+                    }
+                },
+                {
+                    "name": "DocumentLoggingConsumerThread",
+                    "cpu": {
+                        "mean": 0.113967906637491
+                    }
+                },
+                {
+                    "name": "DocumentLoggingLimitThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.022822713164141
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.022822713164141
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelSyncMessageThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "ArtifactManifestDownload",
+                    "cpu": {
+                        "mean": 0.12311901504788
+                    }
+                },
+                {
+                    "name": "PolicyReloadThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "CredentialAccessClassifierThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "KernelPortConsumerThread",
+                    "cpu": {
+                        "mean": 0.0136936278984846
+                    }
+                },
+                {
+                    "name": "PerformanceMonitorWorkerThread",
+                    "cpu": {
+                        "mean": 0.00912200684150513
+                    }
+                },
+                {
+                    "name": "MetadataThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "EventsQueueThread",
+                    "cpu": {
+                        "mean": 0.0729760547320411
+                    }
+                },
+                {
+                    "name": "DelayedAlertEnrichment",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "MaintainProcessMap",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "FileScoreThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "DiagnosticMalwareThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "QuarantineManagerWorkerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "EventProcessingThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "HostIsolationMonitorThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "serviceCommsThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "grpcConnectionManagerThread",
+                    "cpu": {
+                        "mean": 0.0
+                    }
+                },
+                {
+                    "name": "RansomwareGlobalUserThread"
+                },
+                {
+                    "name": "RansomwareProcessMonitorThread"
+                },
+                {
+                    "name": "RansomwareFileCacheCleanupThread"
+                },
+                {
+                    "name": "RansomwareParseUnverifiedThread"
+                },
+                {
+                    "name": "RansomwareLuaVerifiedThread"
+                }
             ],
-            "executable" : "C:\\Windows\\System32\\lsass.exe"
-          },
-          "process_events" : {
-            "week_ms" : 3
-          },
-          "registry_events" : {
-            "week_ms" : 83
-          },
-          "overall" : {
-            "week_ms" : 3291
-          },
-          "authentication_events" : {
-            "week_ms" : 3177
-          },
-          "library_load_events" : {
-            "week_ms" : 26
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\System32\\conhost.exe"
-          },
-          "malware" : {
-            "week_ms" : 16
-          },
-          "process_events" : {
-            "week_ms" : 26
-          },
-          "registry_events" : {
-            "week_ms" : 3
-          },
-          "overall" : {
-            "week_ms" : 3011
-          },
-          "library_load_events" : {
-            "week_ms" : 2966
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 51
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "exists" : false,
-                "status" : "errorCode_endpoint: Initital state, no attempt to load signature was made"
-              }
-            ],
-            "executable" : "System"
-          },
-          "malware" : {
-            "week_ms" : 1978
-          },
-          "overall" : {
-            "week_ms" : 2029
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "exists" : false
-              }
-            ],
-            "executable" : "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web\\e266326169887aa7cb26b9e2aa421ee4\\System.Web.ni.dll"
-          },
-          "malware" : {
-            "week_ms" : 1015
-          },
-          "overall" : {
-            "week_ms" : 1015
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 8
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Elasticsearch, Inc.",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\metricbeat-8.3.0-SNAPSHOT-windows-x86_64\\metricbeat.exe"
-          },
-          "process_events" : {
-            "week_ms" : 502
-          },
-          "dns_events" : {
-            "week_ms" : 84
-          },
-          "network_events" : {
-            "week_ms" : 1
-          },
-          "overall" : {
-            "week_ms" : 1012
-          },
-          "library_load_events" : {
-            "week_ms" : 417
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : false,
-                "subject_name" : "Google LLC",
-                "exists" : true,
-                "status" : "errorExpired"
-              }
-            ],
-            "executable" : "C:\\Program Files\\Google\\Compute Engine\\agent\\GCEWindowsAgent.exe"
-          },
-          "malware" : {
-            "week_ms" : 627
-          },
-          "process_events" : {
-            "week_ms" : 89
-          },
-          "registry_events" : {
-            "week_ms" : 2
-          },
-          "dns_events" : {
-            "week_ms" : 7
-          },
-          "network_events" : {
-            "week_ms" : 8
-          },
-          "overall" : {
-            "week_ms" : 818
-          },
-          "library_load_events" : {
-            "week_ms" : 85
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "exists" : false
-              }
-            ],
-            "executable" : "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\Microsoft.P521220ea#\\39ce4aafe1a3bc56fb1435f6550dd7a3\\Microsoft.PowerShell.Commands.Utility.ni.dll"
-          },
-          "malware" : {
-            "week_ms" : 760
-          },
-          "overall" : {
-            "week_ms" : 760
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 15
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "exists" : false
-              }
-            ],
-            "executable" : "C:\\Program Files\\metricbeat-7.10.0-windows-x86_64\\metricbeat.exe"
-          },
-          "malware" : {
-            "week_ms" : 29
-          },
-          "process_events" : {
-            "week_ms" : 634
-          },
-          "registry_events" : {
-            "week_ms" : 1
-          },
-          "dns_events" : {
-            "week_ms" : 8
-          },
-          "network_events" : {
-            "week_ms" : 4
-          },
-          "overall" : {
-            "week_ms" : 694
-          },
-          "library_load_events" : {
-            "week_ms" : 3
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\System32\\spoolsv.exe"
-          },
-          "process_events" : {
-            "week_ms" : 8
-          },
-          "registry_events" : {
-            "week_ms" : 40
-          },
-          "overall" : {
-            "week_ms" : 675
-          },
-          "library_load_events" : {
-            "week_ms" : 627
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Elasticsearch, Inc.",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Program Files\\Packetbeat\\packetbeat.exe"
-          },
-          "malware" : {
-            "week_ms" : 74
-          },
-          "process_events" : {
-            "week_ms" : 432
-          },
-          "registry_events" : {
-            "week_ms" : 1
-          },
-          "network_events" : {
-            "week_ms" : 1
-          },
-          "overall" : {
-            "week_ms" : 569
-          },
-          "library_load_events" : {
-            "week_ms" : 61
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 20
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Corporation",
-                "exists" : true,
-                "status" : "trusted"
-              },
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Corporation",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe"
-          },
-          "malware" : {
-            "week_ms" : 350
-          },
-          "process_events" : {
-            "week_ms" : 19
-          },
-          "registry_events" : {
-            "week_ms" : 1
-          },
-          "overall" : {
-            "week_ms" : 460
-          },
-          "library_load_events" : {
-            "week_ms" : 70
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 6
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Elasticsearch, Inc.",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-e80913\\install\\filebeat-8.3.0-SNAPSHOT-windows-x86_64\\filebeat.exe"
-          },
-          "process_events" : {
-            "week_ms" : 395
-          },
-          "dns_events" : {
-            "week_ms" : 51
-          },
-          "network_events" : {
-            "week_ms" : 2
-          },
-          "overall" : {
-            "week_ms" : 454
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Google LLC",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Program Files\\Google\\Compute Engine\\vss\\GoogleVssProvider.dll"
-          },
-          "malware" : {
-            "week_ms" : 439
-          },
-          "overall" : {
-            "week_ms" : 439
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\System32\\VSSVC.exe"
-          },
-          "malware" : {
-            "week_ms" : 45
-          },
-          "process_events" : {
-            "week_ms" : 13
-          },
-          "registry_events" : {
-            "week_ms" : 124
-          },
-          "overall" : {
-            "week_ms" : 406
-          },
-          "authentication_events" : {
-            "week_ms" : 8
-          },
-          "library_load_events" : {
-            "week_ms" : 216
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\SYSTEM32\\mispace.dll"
-          },
-          "malware" : {
-            "week_ms" : 353
-          },
-          "overall" : {
-            "week_ms" : 353
-          }
-        },
-        {
-          "process" : {
-            "code_signature" : [
-              {
-                "exists" : false
-              }
-            ],
-            "executable" : "C:\\Windows\\assembly\\NativeImages_v4.0.30319_64\\System.Web.28b9ef5a#\\b1cbeb46534d9974961496306f2f1a28\\System.Web.Extensions.ni.dll"
-          },
-          "malware" : {
-            "week_ms" : 305
-          },
-          "overall" : {
-            "week_ms" : 305
-          }
-        },
-        {
-          "file_events" : {
-            "week_ms" : 25
-          },
-          "process" : {
-            "code_signature" : [
-              {
-                "trusted" : true,
-                "subject_name" : "Microsoft Windows",
-                "exists" : true,
-                "status" : "trusted"
-              }
-            ],
-            "executable" : "C:\\Windows\\System32\\wbem\\WMIADAP.exe"
-          },
-          "malware" : {
-            "week_ms" : 247
-          },
-          "process_events" : {
-            "week_ms" : 4
-          },
-          "registry_events" : {
-            "week_ms" : 5
-          },
-          "overall" : {
-            "week_ms" : 295
-          },
-          "library_load_events" : {
-            "week_ms" : 14
-          }
+            "uptime": {
+                "endpoint": 21930,
+                "system": 21992
+            }
         }
-      ],
-      "memory" : {
-        "endpoint" : {
-          "private" : {
-            "mean" : 288590259,
-            "latest" : 493723648
-          }
-        }
-      },
-      "disks" : [
-        {
-          "endpoint_drive" : true,
-          "total" : 53564403712,
-          "free" : 25891106816,
-          "device" : "\\Device\\HarddiskVolume3",
-          "mount" : "C:\\",
-          "fstype" : "NTFS"
-        },
-        {
-          "total" : 100663296,
-          "free" : 73579520,
-          "device" : "\\Device\\HarddiskVolume2",
-          "mount" : "",
-          "fstype" : "FAT32"
-        }
-      ],
-      "documents_volume" : {
-        "file_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 3485,
-          "sent_bytes" : 7302875
-        },
-        "security_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 259,
-          "sent_bytes" : 422247
-        },
-        "library_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 114,
-          "sent_bytes" : 287954
-        },
-        "process_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 201,
-          "sent_bytes" : 602914
-        },
-        "registry_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 605,
-          "sent_bytes" : 1288593
-        },
-        "dns_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 5250,
-          "sent_bytes" : 11364752
-        },
-        "network_events" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 1753,
-          "sent_bytes" : 3479631
-        },
-        "overall" : {
-          "suppressed_count" : 0,
-          "suppressed_bytes" : 0,
-          "sent_count" : 11667,
-          "sent_bytes" : 24748966
-        }
-      },
-      "malicious_behavior_rules" : [
-        {
-          "id" : "5fbe5dfc-4273-49e0-9d79-cf899776a08c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "901f0c30-a7c5-40c5-80e3-a50c6744632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6d660b32-23bf-434b-a588-1cdc91224664",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3788c03d-28a5-4466-b157-d6dd4dc449bb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "12e6ac2e-a429-4f54-abb2-eaa5713a4d06",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "17030515-5ed0-43c8-9602-f97cbebd43c0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "e9095298-65e0-40a2-97c9-055de8685645",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "99358f31-a84a-4f92-bb91-4370083acda0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f1008eeb-bc85-4d5e-91ac-e99aaba08ecf",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "825b0e1c-a968-4447-9cf0-dafb807f2009",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "dfe28e03-9b0b-47f5-9753-65ed2666663f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "df9cc41e-4686-4aa0-8f79-60055dd01812",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28969fe6-0ebe-4442-b40c-dbe9b4234f5e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "13fab475-06e4-4ac9-87fc-2105c7441244",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "78e2e5e1-e727-4106-9206-8cf43b9f8919",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d66765b8-010b-4a40-ab62-1d8f13a44878",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "792411bd-59ef-4ac0-89be-786d52d1a5c8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "93438ae3-becd-43fa-81de-645ce17afa8e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "84bbe951-5141-4eb3-b9cf-8dfeea62a94e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "365571bb-2b93-4ae8-8c39-0558f8a6c4cc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f57505bb-a1d2-4d3b-b7b5-1d81d7bdb80e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0b33141a-3f73-4414-ba90-d8410e6ab176",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f5dd34c1-733c-43d7-831c-a4b0affb914a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "fdf66d17-0e2e-4667-a145-620bc1204c69",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3899dd3b-f31a-4634-8467-55326cd87597",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "1487d726-2bd2-4a9e-a9d2-db8aef1d6239",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "093bd845-b59f-4868-a7dd-62d48b737bf6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "51894221-7657-4b56-9406-e080e19ad159",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5e8498bb-8cc0-412f-9017-793d94ab76a5",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "949c72ee-a283-4673-afe0-7fa72bddc2f6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "16c84e67-e5e7-44ff-aefa-4d771bcafc0c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "de3615bc-4e50-485e-b3b5-8548ef6faa3d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f9fd002c-0dab-42ec-8675-0cf5af6b4a85",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "52e4ad92-e09b-4331-b827-cd0f2cbaf576",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "11c67af9-9599-4800-9e84-bd38f2a51581",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3d16f5f9-da4c-4b15-a501-505761b75ca6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8076640d-ec66-4d24-a252-ee2f054e00a1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ccbc4a79-3bae-4623-aaef-e28a96bf538b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "77ca3fcc-f607-45e0-837e-e4173e4ffc2a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28996098-b9be-4aa8-a1f3-4923c84b2649",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "49e47c2a-307f-4591-939a-dfdae6e5156c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ae7812a1-1329-47b4-9d76-8c7359cda4e4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "17cd570a-979a-4806-80b5-9b3854e9d603",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "03758167-3eed-465f-9174-b284d599036d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "321e7877-075a-4582-8eff-777dde15e787",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2c3efa34-fecd-4b3b-bdb6-30d547f2a1a4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ad53a366-161a-4fa7-a75a-cc00658a767f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "24082642-49a7-4072-952b-10c244b24f8e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cbbb130f-d9d3-459d-a796-c61ee27f9f70",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d3588fad-43ae-4f2d-badd-15a27df72132",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28a39a43-e850-4941-8605-ffa23dcfd25a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d448566e-486f-4b61-a76f-945662313d49",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6a714747-2671-4523-b233-744f119949b6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "65f52068-4d08-41af-9fd7-0c1a4f732494",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "60eb5960-b26e-494a-8cf2-35ab5939f6c1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ccdf56a8-697b-497c-ab90-3aa01bfc5f9f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7609ebb3-0154-431b-badc-264b10527d13",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9769d372-4115-4ef8-8d7b-aaad05dad9ae",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5c01669c-e1cc-4acc-95b6-8b5e4a92c970",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a0265178-779d-4bc5-b3f1-abb3bcddedab",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d8b7a157-c98f-42bd-8aac-7d1e4fcd53f4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "377aad38-24e0-4dd7-93c2-bd231cb749e3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "95d13ce1-ffb2-4be8-a56e-cc9a891e81e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f60d4c82-2de5-4c70-95f5-cde9f3ad41a7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5d7328aa-973b-41e7-a6b3-6f40ea3094f1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0dcaa1e9-677a-4d6a-a27a-7af188a98323",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9c3b13f6-bc26-4397-9721-4ba23ddd1014",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "35dedf0c-8db6-4d70-b2dc-a133b808211f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "58a08390-e69d-4b32-9487-1d1ddb16ba09",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "779b9502-7912-4773-95a1-51cd702a71c8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6518cdaf-e6cd-4cf9-a51e-043117c3dbeb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0d4454a7-c682-4085-995c-300973c5bdea",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9ed4ee4a-bc91-4d38-b6dd-11467b774460",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a0a82ad6-98ed-4426-abd8-52e7b052e297",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "1a88b997-bcae-430a-8a24-7378e8bf5cc4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "33962262-436f-43d7-86e9-06dbddfffb5d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "75b80e66-90d0-4ab6-9e6b-976f7d690906",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "93ef8a09-0f8d-4aa1-b0fb-47d5d5b40cf2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "18371ec4-ee2f-465b-8757-ee726914006c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a2a3d803-5c25-43cc-84b9-a4ae2a4dab27",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "18ffee0c-5f40-4dd8-aa9a-28251a308dbc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "dc27190a-688b-4f9b-88f0-1f13deccd67f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "905f4c30-a8c5-40a5-80e3-a50c5613432f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "fb6939a2-1b54-428c-92a2-3a831585af2a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "e4b2be9f-d479-48f7-86e3-d21eb7fed725",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "901f0c30-a7c5-40a5-80e3-a50c6744632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "4cd6f758-0057-4e8a-9701-20b6116c2118",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "bc8949e6-98e0-4b50-96d4-88fdbb29f0d4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0783f666-75ad-4015-9dd5-d39baec8f6b0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "92d720dd-93b2-49e0-b68a-d5d6acbe4910",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "adaf95d2-28ce-4880-af16-f3041b624440",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7200673e-588c-45d5-be48-bc5c7a908d6b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b2fcbb09-d9bd-4f6c-a08e-247548b4edcd",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7c0048d5-356d-4f69-839e-10c1e194958f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "be42f9fc-bdca-41cd-b125-f223d09eef69",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "727db78e-e1dd-4bc0-89b0-885cd99e069e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ffbab5db-73ae-42fd-a33f-36bf649f41cc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5dba1130-72df-46f1-b581-18d9c866cb23",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "e13a65b7-f46f-4c7f-85cf-7e59170071fa",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "25c41954-5d42-4530-b9cb-bdaf9d028ce7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "39f60a36-8c5a-4703-8576-ad3e8c800a0f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "153f52e2-2fe5-420b-8691-ddb8562b99d7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3bd31cbf-b581-41b7-b021-020cc64cfd9d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cc60be0e-2c6c-4dc9-9902-e97103ff8df9",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f0630213-c4c4-4898-9514-746395eb9962",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c567240c-445b-4000-9612-b5531e21e050",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cd25c529-73b4-4a9d-84a9-e24c4a3540d1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "beebd95c-93f4-46d2-a902-053bfe78686b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8adfa9ad-0ed2-4b1b-bdad-f2c52e1d2a00",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8b4791a8-2355-4f43-8b60-d367b5c2aa51",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f488cd1b-2407-4ec8-8705-7adf99ccbd33",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "92f114fb-7113-4e82-b021-6c2c4ca0a507",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2e708541-c6e8-4ded-923f-78a6c160987e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "30a90136-7831-41c3-a2aa-1a303c1186ac",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2b8ea430-897d-486c-85a8-add9d7072ff3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "905f4c30-a8c5-40a5-80e3-a50c6714632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c5ee8453-bc89-42e7-a414-1ba4bec85119",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b76c0a04-b504-4a2f-a0cf-b4175a2f3eea",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "af5fb14d-ec20-42fa-832c-96dc00efd42a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "676ac66c-4899-498f-ae21-ed5620af5477",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "1efc0496-106b-4c09-b99b-91cdd17ba7b3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d3588fad-43ae-4f2d-badd-15a27df72133",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b5c0058e-2bca-4ed5-84b3-4e017c039c57",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b707de5c-8e4d-4d2c-be22-b09a7e82b73f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9389bb8e-fadc-42ca-8598-28e2bb94edee",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cfaf983e-1129-464c-b0aa-270f42e20d3d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8f237d98-1825-4c27-a5cd-e38bde70882a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "392b0c89-1427-4601-8b32-01e8e40600a6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c4539c79-9f55-4b36-b06f-8aff82563bca",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "934232e5-66d3-4e80-a4ee-a9f1b7d2a7bc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c11cad45-3d8c-4b2a-bcec-b6dd182f4224",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0545f127-b1ae-478a-a68a-84f477f765e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "74be6307-2d15-4c71-8072-fc606f337a51",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "11d374d8-2dad-4d9b-83a2-ee908eac8269",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d487049e-381d-44ad-9ec9-d23e88dbf573",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c6a9046e-7ca3-460b-9707-f17e6dfabcb6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5b00c9ba-9546-47cc-8f9f-1c1a3e95f65c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9fdd772b-b483-404f-bc02-7ec87e332bec",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2fbbd139-3919-4b6b-9c50-9452b0aef005",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2aac12a2-23e7-4557-950e-a7b9ab96a26d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0524c24c-e45e-4220-b21a-abdba0c46c4d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "15b1d979-5be0-4e7f-9202-0c4cfd76b146",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "816ba7e7-519a-4f85-be2a-bacd6ccde57f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3c44fc50-2672-48b3-af77-ff43b895ac70",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "84595d39-df78-49d6-a999-48792482b255",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8ba98e28-d83e-451e-8df7-f0964f7e69b6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8bc4f22c-9bb1-4c76-a7b6-195bee3579db",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "242ccb88-5e28-4a74-ac6a-ff0e4c814ad8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "706bf4ca-45b7-4eb1-acae-b1228124594a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2a396a3c-b343-42a9-b74b-c5b9925b6ee2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "dec8781c-ef73-4037-9684-ef28c0322fa4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "83da4fac-563a-4af8-8f32-5a3797a9068e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c34a9dca-66cf-4283-944d-1800b28ae690",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2ad8b514-baf0-4e29-a712-d6734868aa57",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b6e8c090-f0ec-4c4c-af00-55ac2a9f9b41",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5a898048-d98c-44c6-b7ba-f63a31eb3571",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "42d2bbfb-a2fb-4327-b701-89ead6044ca1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a85000c8-3eac-413b-8353-079343c2b6f0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "94d35931-5c48-49ed-8c18-d601c4f8aeaa",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "99f2327e-871f-4b8a-ae75-d1c4697aefe4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8c69476a-d8ea-46da-8052-6a4f9254125c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "badd95ba-2416-4785-8f7f-787952b58a1d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3de7dc4a-9c3d-459d-b760-670ec240078e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "831c1cda-8d8c-4c21-a84e-c428469e7d93",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f7e6d239-9af5-42e3-8d23-91e7188a5cb0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a4862afb-1292-4f65-a15f-8d6a8019b5e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "740ad26d-3e67-47e1-aff1-adb47a697375",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7615ca4b-c291-4f05-9488-114b6bf99157",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ab29a79a-b3c2-4ae4-9670-70dd0ea68a4a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "86bf5d50-7f5d-44b4-977b-dff222379727",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8e65930c-ebde-454e-808d-010b56061dcf",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "38210b91-f593-4c1c-a582-e5309c5b5168",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "54aabea0-3687-4ef1-b70c-015ca588e563",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ce8a6302-7248-457a-8427-3d6bad14e2f0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "74c1fd79-5961-4f1d-8ff8-b810b7c88545",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "71ad1420-ed83-46d0-835b-63d4b2008427",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9401d27c-200a-4d72-ad36-f7051c4b3dcb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "39827014-4836-498e-8b16-bf62f7aae4bf",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "926b6cd1-c0c7-46d4-82d6-9deb6ae431d6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9ac68ab0-d251-4c84-a8df-85779ccc728f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7e554c18-6435-41ce-b57b-d0ac3b73817f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5b39f347-077c-4a1e-8d3c-6f7789ca09e8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "bb23a662-2d75-4714-837d-4ec9c2e772a5",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8eb74917-9363-4073-a09b-c47101f52c40",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c8776070-eca6-4370-8438-f2b6282615ef",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c01cddb6-bbcf-437c-8256-6b4d44c6bdc3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "102f340f-1839-4bad-8493-824cc02c4e69",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b0207677-5041-470b-981d-13ab956cf5b4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ccdc5d3e-6322-4bcf-b970-d173e0610604",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5db08297-bf72-49f4-b426-f405c2b01326",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "196f4c30-a8c5-40a5-80e3-a50c6714632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8d11d741-7a06-41a1-a525-feaaa07ebbae",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "95601d8b-b969-4189-9744-090140ae29e6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "76da5dca-ffe5-4756-85ba-3ac2e6ccf623",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b8a0a3aa-0345-4035-b41d-f758a6c59a78",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "999e7a9a-334f-4b74-834f-a652f91531f2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6d660b32-23bf-434b-a588-1cdc91224664",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3788c03d-28a5-4466-b157-d6dd4dc449bb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "17030515-5ed0-43c8-9602-f97cbebd43c0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "e9095298-65e0-40a2-97c9-055de8685645",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "46952f58-6741-4280-8e74-fa43f63c9604",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "99358f31-a84a-4f92-bb91-4370083acda0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f1008eeb-bc85-4d5e-91ac-e99aaba08ecf",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "dfe28e03-9b0b-47f5-9753-65ed2666663f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28969fe6-0ebe-4442-b40c-dbe9b4234f5e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "13fab475-06e4-4ac9-87fc-2105c7441244",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "78e2e5e1-e727-4106-9206-8cf43b9f8919",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "792411bd-59ef-4ac0-89be-786d52d1a5c8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "93438ae3-becd-43fa-81de-645ce17afa8e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "84bbe951-5141-4eb3-b9cf-8dfeea62a94e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "365571bb-2b93-4ae8-8c39-0558f8a6c4cc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f57505bb-a1d2-4d3b-b7b5-1d81d7bdb80e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0b33141a-3f73-4414-ba90-d8410e6ab176",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f5dd34c1-733c-43d7-831c-a4b0affb914a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3899dd3b-f31a-4634-8467-55326cd87597",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "093bd845-b59f-4868-a7dd-62d48b737bf6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "51894221-7657-4b56-9406-e080e19ad159",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "16c84e67-e5e7-44ff-aefa-4d771bcafc0c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "de3615bc-4e50-485e-b3b5-8548ef6faa3d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "11c67af9-9599-4800-9e84-bd38f2a51581",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3d16f5f9-da4c-4b15-a501-505761b75ca6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8076640d-ec66-4d24-a252-ee2f054e00a1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ccbc4a79-3bae-4623-aaef-e28a96bf538b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "77ca3fcc-f607-45e0-837e-e4173e4ffc2a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28996098-b9be-4aa8-a1f3-4923c84b2649",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "49e47c2a-307f-4591-939a-dfdae6e5156c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "321e7877-075a-4582-8eff-777dde15e787",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ad53a366-161a-4fa7-a75a-cc00658a767f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "24082642-49a7-4072-952b-10c244b24f8e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cbbb130f-d9d3-459d-a796-c61ee27f9f70",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d3588fad-43ae-4f2d-badd-15a27df72132",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "28a39a43-e850-4941-8605-ffa23dcfd25a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d448566e-486f-4b61-a76f-945662313d49",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6a714747-2671-4523-b233-744f119949b6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "65f52068-4d08-41af-9fd7-0c1a4f732494",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "60eb5960-b26e-494a-8cf2-35ab5939f6c1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ccdf56a8-697b-497c-ab90-3aa01bfc5f9f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7609ebb3-0154-431b-badc-264b10527d13",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9769d372-4115-4ef8-8d7b-aaad05dad9ae",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5c01669c-e1cc-4acc-95b6-8b5e4a92c970",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a0265178-779d-4bc5-b3f1-abb3bcddedab",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d8b7a157-c98f-42bd-8aac-7d1e4fcd53f4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "377aad38-24e0-4dd7-93c2-bd231cb749e3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "95d13ce1-ffb2-4be8-a56e-cc9a891e81e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f60d4c82-2de5-4c70-95f5-cde9f3ad41a7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9c3b13f6-bc26-4397-9721-4ba23ddd1014",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "35dedf0c-8db6-4d70-b2dc-a133b808211f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "58a08390-e69d-4b32-9487-1d1ddb16ba09",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "779b9502-7912-4773-95a1-51cd702a71c8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "6518cdaf-e6cd-4cf9-a51e-043117c3dbeb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0d4454a7-c682-4085-995c-300973c5bdea",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a0a82ad6-98ed-4426-abd8-52e7b052e297",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "1a88b997-bcae-430a-8a24-7378e8bf5cc4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "33962262-436f-43d7-86e9-06dbddfffb5d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "75b80e66-90d0-4ab6-9e6b-976f7d690906",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "93ef8a09-0f8d-4aa1-b0fb-47d5d5b40cf2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "18371ec4-ee2f-465b-8757-ee726914006c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a2a3d803-5c25-43cc-84b9-a4ae2a4dab27",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "18ffee0c-5f40-4dd8-aa9a-28251a308dbc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "dc27190a-688b-4f9b-88f0-1f13deccd67f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "905f4c30-a8c5-40a5-80e3-a50c5613432f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "fb6939a2-1b54-428c-92a2-3a831585af2a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "901f0c30-a7c5-40a5-80e3-a50c6744632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "4cd6f758-0057-4e8a-9701-20b6116c2118",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "92d720dd-93b2-49e0-b68a-d5d6acbe4910",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "adaf95d2-28ce-4880-af16-f3041b624440",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7200673e-588c-45d5-be48-bc5c7a908d6b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b2fcbb09-d9bd-4f6c-a08e-247548b4edcd",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7c0048d5-356d-4f69-839e-10c1e194958f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "be42f9fc-bdca-41cd-b125-f223d09eef69",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "727db78e-e1dd-4bc0-89b0-885cd99e069e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ffbab5db-73ae-42fd-a33f-36bf649f41cc",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "e13a65b7-f46f-4c7f-85cf-7e59170071fa",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "25c41954-5d42-4530-b9cb-bdaf9d028ce7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "153f52e2-2fe5-420b-8691-ddb8562b99d7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cc60be0e-2c6c-4dc9-9902-e97103ff8df9",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f0630213-c4c4-4898-9514-746395eb9962",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c567240c-445b-4000-9612-b5531e21e050",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cd25c529-73b4-4a9d-84a9-e24c4a3540d1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "beebd95c-93f4-46d2-a902-053bfe78686b",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8adfa9ad-0ed2-4b1b-bdad-f2c52e1d2a00",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8b4791a8-2355-4f43-8b60-d367b5c2aa51",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f488cd1b-2407-4ec8-8705-7adf99ccbd33",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2e708541-c6e8-4ded-923f-78a6c160987e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f60455df-5054-49ff-9ff7-1dc4e37b6ea7",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "905f4c30-a8c5-40a5-80e3-a50c6714632f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c5ee8453-bc89-42e7-a414-1ba4bec85119",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b76c0a04-b504-4a2f-a0cf-b4175a2f3eea",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "676ac66c-4899-498f-ae21-ed5620af5477",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "1efc0496-106b-4c09-b99b-91cdd17ba7b3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d3588fad-43ae-4f2d-badd-15a27df72133",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b5c0058e-2bca-4ed5-84b3-4e017c039c57",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b707de5c-8e4d-4d2c-be22-b09a7e82b73f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9389bb8e-fadc-42ca-8598-28e2bb94edee",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "cfaf983e-1129-464c-b0aa-270f42e20d3d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8f237d98-1825-4c27-a5cd-e38bde70882a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "392b0c89-1427-4601-8b32-01e8e40600a6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0545f127-b1ae-478a-a68a-84f477f765e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "d487049e-381d-44ad-9ec9-d23e88dbf573",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c6a9046e-7ca3-460b-9707-f17e6dfabcb6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5b00c9ba-9546-47cc-8f9f-1c1a3e95f65c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9fdd772b-b483-404f-bc02-7ec87e332bec",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2fbbd139-3919-4b6b-9c50-9452b0aef005",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2aac12a2-23e7-4557-950e-a7b9ab96a26d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "0524c24c-e45e-4220-b21a-abdba0c46c4d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "15b1d979-5be0-4e7f-9202-0c4cfd76b146",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "816ba7e7-519a-4f85-be2a-bacd6ccde57f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "3c44fc50-2672-48b3-af77-ff43b895ac70",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8ba98e28-d83e-451e-8df7-f0964f7e69b6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8bc4f22c-9bb1-4c76-a7b6-195bee3579db",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "242ccb88-5e28-4a74-ac6a-ff0e4c814ad8",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2a396a3c-b343-42a9-b74b-c5b9925b6ee2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "83da4fac-563a-4af8-8f32-5a3797a9068e",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c34a9dca-66cf-4283-944d-1800b28ae690",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "2ad8b514-baf0-4e29-a712-d6734868aa57",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b6e8c090-f0ec-4c4c-af00-55ac2a9f9b41",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5a898048-d98c-44c6-b7ba-f63a31eb3571",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "42d2bbfb-a2fb-4327-b701-89ead6044ca1",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a85000c8-3eac-413b-8353-079343c2b6f0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "94d35931-5c48-49ed-8c18-d601c4f8aeaa",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "99f2327e-871f-4b8a-ae75-d1c4697aefe4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8c69476a-d8ea-46da-8052-6a4f9254125c",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "badd95ba-2416-4785-8f7f-787952b58a1d",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "831c1cda-8d8c-4c21-a84e-c428469e7d93",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "f7e6d239-9af5-42e3-8d23-91e7188a5cb0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "a4862afb-1292-4f65-a15f-8d6a8019b5e2",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "740ad26d-3e67-47e1-aff1-adb47a697375",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "7615ca4b-c291-4f05-9488-114b6bf99157",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ab29a79a-b3c2-4ae4-9670-70dd0ea68a4a",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "86bf5d50-7f5d-44b4-977b-dff222379727",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "38210b91-f593-4c1c-a582-e5309c5b5168",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "54aabea0-3687-4ef1-b70c-015ca588e563",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "ce8a6302-7248-457a-8427-3d6bad14e2f0",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "71ad1420-ed83-46d0-835b-63d4b2008427",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9401d27c-200a-4d72-ad36-f7051c4b3dcb",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "39827014-4836-498e-8b16-bf62f7aae4bf",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "926b6cd1-c0c7-46d4-82d6-9deb6ae431d6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "9ac68ab0-d251-4c84-a8df-85779ccc728f",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "bb23a662-2d75-4714-837d-4ec9c2e772a5",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "8eb74917-9363-4073-a09b-c47101f52c40",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c8776070-eca6-4370-8438-f2b6282615ef",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "c01cddb6-bbcf-437c-8256-6b4d44c6bdc3",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "102f340f-1839-4bad-8493-824cc02c4e69",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b0207677-5041-470b-981d-13ab956cf5b4",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "5db08297-bf72-49f4-b426-f405c2b01326",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "95601d8b-b969-4189-9744-090140ae29e6",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "b8a0a3aa-0345-4035-b41d-f758a6c59a78",
-          "endpoint_uptime_percent" : 0.0
-        },
-        {
-          "id" : "999e7a9a-334f-4b74-834f-a652f91531f2",
-          "endpoint_uptime_percent" : 0.0
-        }
-      ],
-      "cpu" : {
-        "endpoint" : {
-          "histogram" : {
-            "counts" : [
-              4350,
-              1,
-              6,
-              3,
-              1,
-              2,
-              2,
-              0,
-              1,
-              4,
-              1,
-              2,
-              1,
-              3,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "values" : [
-              5,
-              10,
-              15,
-              20,
-              25,
-              30,
-              35,
-              40,
-              45,
-              50,
-              55,
-              60,
-              65,
-              70,
-              75,
-              80,
-              85,
-              90,
-              95,
-              100
-            ]
-          },
-          "mean" : 0.324235176435677,
-          "latest" : 62.6406111450215
-        }
-      },
-      "threads" : [
-        {
-          "name" : "actionsAPIThread",
-          "cpu" : {
-            "mean" : 0.00456829602558246
-          }
-        },
-        {
-          "name" : "stateReportThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "checkinAPIThread",
-          "cpu" : {
-            "mean" : 0.0365463682046597
-          }
-        },
-        {
-          "name" : "KernelAsyncMessageQueueConsumerThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "Cron",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "File Cache",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "FileLogThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "LoggingLimitThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "CredentialAccessEventDispatcherThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelPortConsumerThread",
-          "cpu" : {
-            "mean" : 0.00456454263282819
-          }
-        },
-        {
-          "name" : "KernelPortConsumerThread",
-          "cpu" : {
-            "mean" : 0.00456454263282819
-          }
-        },
-        {
-          "name" : "RulesEngineThread",
-          "cpu" : {
-            "mean" : 0.0091324200913242
-          }
-        },
-        {
-          "name" : "KernelPortConsumerThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelAsyncMessageQueueConsumerThread",
-          "cpu" : {
-            "mean" : 0.00456454263282819
-          }
-        },
-        {
-          "name" : "KernelSyncQueueConsumerThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "DocumentLoggingThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "DocumentLoggingMaintenance",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "BulkConsumerThread",
-          "cpu" : {
-            "mean" : 0.00455871626549964
-          }
-        },
-        {
-          "name" : "DocumentLoggingConsumerThread",
-          "cpu" : {
-            "mean" : 0.113967906637491
-          }
-        },
-        {
-          "name" : "DocumentLoggingLimitThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.022822713164141
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.022822713164141
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelSyncMessageThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "ArtifactManifestDownload",
-          "cpu" : {
-            "mean" : 0.12311901504788
-          }
-        },
-        {
-          "name" : "PolicyReloadThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "CredentialAccessClassifierThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "KernelPortConsumerThread",
-          "cpu" : {
-            "mean" : 0.0136936278984846
-          }
-        },
-        {
-          "name" : "PerformanceMonitorWorkerThread",
-          "cpu" : {
-            "mean" : 0.00912200684150513
-          }
-        },
-        {
-          "name" : "MetadataThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "EventsQueueThread",
-          "cpu" : {
-            "mean" : 0.0729760547320411
-          }
-        },
-        {
-          "name" : "DelayedAlertEnrichment",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "MaintainProcessMap",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "FileScoreThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "DiagnosticMalwareThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "QuarantineManagerWorkerThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "EventProcessingThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "HostIsolationMonitorThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "serviceCommsThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "grpcConnectionManagerThread",
-          "cpu" : {
-            "mean" : 0.0
-          }
-        },
-        {
-          "name" : "RansomwareGlobalUserThread"
-        },
-        {
-          "name" : "RansomwareProcessMonitorThread"
-        },
-        {
-          "name" : "RansomwareFileCacheCleanupThread"
-        },
-        {
-          "name" : "RansomwareParseUnverifiedThread"
-        },
-        {
-          "name" : "RansomwareLuaVerifiedThread"
-        }
-      ],
-      "uptime" : {
-        "endpoint" : 21930,
-        "system" : 21992
-      }
-    }
-  },
-  "ecs" : {
-    "version" : "1.11.0"
-  },
-  "data_stream" : {
-    "namespace" : "default",
-    "type" : "metrics",
-    "dataset" : "endpoint.metrics"
-  },
-  "elastic" : {
-    "agent" : {
-      "id" : "4c9c9cb3-f80f-44d8-9c89-6168243b7f21"
-    }
-  },
-  "host" : {
-    "hostname" : "data-viz-win-1",
-    "os" : {
-      "Ext" : {
-        "variant" : "Windows Server 2019 Datacenter"
-      },
-      "kernel" : "1809 (10.0.17763.2686)",
-      "name" : "Windows",
-      "family" : "windows",
-      "type" : "windows",
-      "version" : "1809 (10.0.17763.2686)",
-      "platform" : "windows",
-      "full" : "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
     },
-    "ip" : [
-      "10.201.0.13",
-      "fe80::f40a:aed0:618a:972d",
-      "127.0.0.1",
-      "::1"
-    ],
-    "name" : "data-viz-win-1",
-    "id" : "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
-    "mac" : [
-      "42:01:0a:c9:00:0d"
-    ],
-    "architecture" : "x86_64"
-  },
-  "event" : {
-    "agent_id_status" : "verified",
-    "sequence" : 35124,
-    "ingested" : "2022-04-04T18:38:16Z",
-    "created" : "2022-04-04T18:38:15.7178887Z",
-    "kind" : "metric",
-    "module" : "endpoint",
-    "action" : "endpoint_metrics",
-    "id" : "MYfZG00oEwD2/fqT+++++Byi",
-    "category" : [
-      "host"
-    ],
-    "type" : [
-      "info"
-    ],
-    "dataset" : "endpoint.metrics"
-  }
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "data_stream": {
+        "namespace": "default",
+        "type": "metrics",
+        "dataset": "endpoint.metrics"
+    },
+    "elastic": {
+        "agent": {
+            "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21"
+        }
+    },
+    "host": {
+        "hostname": "data-viz-win-1",
+        "os": {
+            "Ext": {
+                "variant": "Windows Server 2019 Datacenter"
+            },
+            "kernel": "1809 (10.0.17763.2686)",
+            "name": "Windows",
+            "family": "windows",
+            "type": "windows",
+            "version": "1809 (10.0.17763.2686)",
+            "platform": "windows",
+            "full": "Windows Server 2019 Datacenter 1809 (10.0.17763.2686)"
+        },
+        "ip": [
+            "10.201.0.13",
+            "fe80::f40a:aed0:618a:972d",
+            "127.0.0.1",
+            "::1"
+        ],
+        "name": "data-viz-win-1",
+        "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
+        "mac": [
+            "42:01:0a:c9:00:0d"
+        ],
+        "architecture": "x86_64"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "sequence": 35124,
+        "ingested": "2022-04-04T18:38:16Z",
+        "created": "2022-04-04T18:38:15.7178887Z",
+        "kind": "metric",
+        "module": "endpoint",
+        "action": "endpoint_metrics",
+        "id": "MYfZG00oEwD2/fqT+++++Byi",
+        "category": [
+            "host"
+        ],
+        "type": [
+            "info"
+        ],
+        "dataset": "endpoint.metrics"
+    }
 }
