@@ -91,6 +91,12 @@ If you see a JSON response, the Ingest Manager is running and it is probably a p
 
 After making and testing the necessary changes, PR them to this repo.
 
+
+### Exceptionable
+
+In the Kibana UI, if you want to add a field to appear as "exceptionable", appearing in the Exceptions drop-down autofill menu, that change is made in Kibana. Here is an [example PR](https://github.com/elastic/kibana/pull/129401) of a similar change to follow.
+
+
 ## Updating the package in the remote registry
 
 There are three environments that provide different functionality for packages: snapshot, staging, and production.

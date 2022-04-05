@@ -33,7 +33,7 @@ Sample document:
 ### For mapping changes:
 
 - [ ] I ran `make` after making the schema changes, and committed any generated files (in `schema/`, `generated/`)
-- [ ] Does this field need to be "exceptionable"? (no longer specified in this package, this is now tracked in Kibana)
+- [ ] If these field(s) are "exception"-able, I made a companion PR to Kibana adding it (see [Readme](/README.md#Exceptionable))
 - [ ] If this is a `metadata` change, I also updated both transform destination schemas to match
 
 ### For Transform changes:
