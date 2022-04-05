@@ -37,24 +37,21 @@ pipeline {
     string(name: 'stackVersion', defaultValue: '', description: 'Version of the stack to use for testing.')
   }
   stages {
-    stage('Prepare workspace') {
-      steps {
-        deleteDir()
-        gitCheckout(basedir: "${BASE_DIR}")
-        //stashV2(name: 'source', bucket: "${JOB_GCS_BUCKET}", credentialsId: "${JOB_GCS_CREDENTIALS}")
-      }
-    }
     stage('Build') {
       steps {
-        dir("${BASE_DIR}"){
-          sh(label: 'Make', script: 'make')
-        }
+        sh(label: 'Make', script: 'make')
       }
     }
     stage('Check') {
       steps {
         checkGitDiff()
-        lint()
+        sh(label: 'lint', script: "make lint")
+      }
+    }
+    stage('Test') {
+      steps {
+          sh(label: "static tests", script: "make static-test")
+          sh(label: "pipeline tests", script: "make pipeline-test")
       }
     }
   }
@@ -73,15 +70,6 @@ pipeline {
 // Check if there are non-versioned local changes.
 // For reference: https://stackoverflow.com/questions/34807971/why-does-git-diff-index-head-result-change-for-touched-files-after-git-diff-or-g
 def checkGitDiff() {
-  dir("${BASE_DIR}") {
-    sh(label: "update git index", script: 'git update-index --refresh', returnStatus: true)
-    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
-  }
-}
-
-
-def lint() {
-  dir("${BASE_DIR}") {
-    sh(label: 'lint', script: "make lint")
-  }
+  sh(label: "update git index", script: 'git update-index --refresh', returnStatus: true)
+  sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
 }
