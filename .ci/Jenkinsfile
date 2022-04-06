@@ -61,7 +61,11 @@ pipeline {
             // - transform & index_templates added to spec
             //lint()
             cmd(label: "static tests", script: "make static-test")
-            cmd(label: "pipeline tests", script: "make pipeline-test")
+            prepareStack()
+            cmd(label: "pipeline tests", script: '''
+                eval "$(./scripts/go-tools/bin/elastic-package stack shellinit)"
+                make pipeline-test
+            ''')
           }
         }
       }
@@ -92,4 +96,25 @@ def lint() {
   dir("${BASE_DIR}") {
     sh(label: 'lint', script: "make lint")
   }
+}
+
+def prepareStack() {
+  def stackArgs = '-v'
+
+  if ( env.STACK_VERSION?.trim() ) {
+    stackArgs += " --version ${env.STACK_VERSION}"
+  } else {
+    def manifest = readYaml(file: "package/endpoint/manifest.yml")
+
+    if (manifest != null && manifest["conditions"] != null) {
+      def kibanaVersionCondition = manifest["conditions"]["kibana.version"]
+      if (kibanaVersionCondition != null) {
+        def version = findOldestSupportedVersion(versionCondition: kibanaVersionCondition)
+        stackArgs += " --version ${version}"
+      }
+    }
+  }
+
+  sh(label: "Update the Elastic stack", script: "./scripts/go-tools/bin/elastic-package stack update ${stackArgs}")
+  sh(label: "Boot up the Elastic stack", script: "./scripts/go-tools/bin/elastic-package stack up -d ${stackArgs}")
 }
