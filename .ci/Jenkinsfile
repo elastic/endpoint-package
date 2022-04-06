@@ -42,7 +42,11 @@ pipeline {
           deleteDir()
           unstash 'source'
           dir("${BASE_DIR}"){
-            cmd(label: 'Make', script: 'make')
+            withGoEnv(){
+              // "go" is used during doc generation
+              // and make should also perform installation of elastic-package
+              cmd(label: 'Make', script: 'make')
+            }
           }
         }
       }
