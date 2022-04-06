@@ -56,7 +56,7 @@ pipeline {
         withGithubNotify(context: "Check") {
           dir("${BASE_DIR}"){
             withGoEnv(){
-              //checkGitDiff()
+              checkGitDiff()
               // disable until backlog addressed:
               // - changelog matchup
               // - update versioning to use -previewN instead of -dev.N
@@ -92,7 +92,8 @@ pipeline {
 def checkGitDiff() {
   dir("${BASE_DIR}") {
     sh(label: "update git index", script: 'git update-index -q --really-refresh', returnStatus: true)
-    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
+    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --', returnStatus: true)
+    sh(label: "print diff", script: "git diff", returnStatus: true)
   }
 }
 
