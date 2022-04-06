@@ -104,7 +104,7 @@ def lint() {
 }
 
 def prepareStack() {
-  def stackArgs = '-v'
+  def stackArgs = '-v --services elasticsearch'
 
   if ( env.STACK_VERSION?.trim() ) {
     stackArgs += " --version ${env.STACK_VERSION}"
