@@ -54,10 +54,8 @@ pipeline {
     stage('Check') {
       steps {
         withGithubNotify(context: "Check") {
-          deleteDir()
-          unstash 'source'
           dir("${BASE_DIR}"){
-            checkGitDiff()
+            //checkGitDiff()
             // disable until backlog addressed:
             // - changelog matchup
             // - update versioning to use -previewN instead of -dev.N
@@ -91,7 +89,7 @@ pipeline {
 // For reference: https://stackoverflow.com/questions/34807971/why-does-git-diff-index-head-result-change-for-touched-files-after-git-diff-or-g
 def checkGitDiff() {
   dir("${BASE_DIR}") {
-    sh(label: "update git index", script: 'git update-index --refresh', returnStatus: true)
+    sh(label: "update git index", script: 'git update-index -q --really-refresh', returnStatus: true)
     sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
   }
 }
