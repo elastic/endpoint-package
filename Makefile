@@ -62,7 +62,6 @@ endif
 
 all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS) $(ECS_FLAT_TARGETS) $(ES_7_TARGETS)
 	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format
-	cd $(PKG_DIR) && $(ESTC_PKG_BIN) lint
 
 mac-deps:
 	@echo Installing gsed for mac
