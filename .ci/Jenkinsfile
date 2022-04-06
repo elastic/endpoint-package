@@ -92,8 +92,7 @@ pipeline {
 def checkGitDiff() {
   dir("${BASE_DIR}") {
     sh(label: "update git index", script: 'git update-index -q --really-refresh', returnStatus: true)
-    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --', returnStatus: true)
-    sh(label: "print diff", script: "git diff", returnStatus: true)
+    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
   }
 }
 
