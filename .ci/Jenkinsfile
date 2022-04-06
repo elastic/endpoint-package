@@ -55,6 +55,8 @@ pipeline {
           dir("${BASE_DIR}"){
             checkGitDiff()
             lint()
+            cmd(label: "static tests", script: "make static-test")
+            cmd(label: "pipeline tests", script: "make pipeline-test")
           }
         }
       }
