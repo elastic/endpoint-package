@@ -1659,10 +1659,10 @@ sent by the endpoint.
 | file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| file.code_signature.signing_id | The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| file.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | file.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | file.code_signature.subject_name | Subject name of the code signer | keyword |
-| file.code_signature.team_id | The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| file.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | file.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.hash.md5 | MD5 hash. | keyword |
@@ -1711,10 +1711,10 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.code_signature.signing_id | The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.code_signature.team_id | The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |

@@ -562,6 +562,28 @@
               "ancestry": {
                 "ignore_above": 1024,
                 "type": "keyword"
+              },
+              "code_signature": {
+                "properties": {
+                  "exists": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "subject_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "trusted": {
+                    "type": "boolean"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "nested"
               }
             },
             "type": "object"
