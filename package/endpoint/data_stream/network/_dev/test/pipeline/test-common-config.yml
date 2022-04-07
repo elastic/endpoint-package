@@ -1,2 +1,5 @@
 dynamic_fields:
   event.ingested: ".*"
+skip:
+  reason: geoIP broken
+  link: http://how-dare-you

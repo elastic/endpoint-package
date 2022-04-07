@@ -9,6 +9,7 @@ pipeline {
     BASE_DIR = "src/github.com/elastic/${env.REPO}"
     JOB_GIT_CREDENTIALS = "f6c7695a-671e-4f4f-a331-acdce44ff9ba"
     PIPELINE_LOG_LEVEL = 'INFO'
+    STACK_VERSION = "${params.stackVersion}"
   }
   options {
     timeout(time: 1, unit: 'HOURS')
@@ -23,6 +24,9 @@ pipeline {
   triggers {
     issueCommentTrigger("${obltGitHubComments()}")
   }
+  parameters {
+    string(name: 'stackVersion', defaultValue: '', description: 'Version of the stack to use for testing.')
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -32,42 +36,39 @@ pipeline {
         stash allowEmpty: true, name: 'source', useDefaultExcludes: false
       }
     }
-    stage('Lint'){
-      steps {
-        withGithubNotify(context: "Lint") {
-          dir("${BASE_DIR}"){
-            withGoEnv(){
-              sh(label: 'lint', script: '''
-                go mod tidy && git diff --exit-code
-                gofmt -l . | read && echo "Code differs from gofmt's style. Run 'gofmt -w .'" 1>&2 && exit 1 || true
-              ''')
-              sh(label: 'Go vet', script: 'go vet')
-            }
-          }
-        }
-      }
-    }
-    stage('build'){
+    stage('Build'){
       steps {
         withGithubNotify(context: "Build") {
           deleteDir()
           unstash 'source'
           dir("${BASE_DIR}"){
             withGoEnv(){
-              cmd(label: 'Go build', script: 'go build')
+              // "go" is used during doc generation
+              // and make should also perform installation of elastic-package
+              cmd(label: 'Make', script: 'make')
             }
           }
         }
       }
     }
-    stage('Test') {
+    stage('Check') {
       steps {
-        withGithubNotify(context: "Test") {
-          deleteDir()
-          unstash 'source'
+        withGithubNotify(context: "Check") {
           dir("${BASE_DIR}"){
             withGoEnv(){
-              goTestJUnit(options: '-v ./...', output: 'junit-report.xml')
+              checkGitDiff()
+              // disable until backlog addressed:
+              // - changelog matchup
+              // - update versioning to use -previewN instead of -dev.N
+              // - 1024 field limit workaround
+              // - transform & index_templates added to spec
+              //lint()
+              cmd(label: "static tests", script: "make static-test")
+              prepareStack()
+              cmd(label: "pipeline tests", script: '''
+                  eval "$(./scripts/go-tools/bin/elastic-package stack shellinit)"
+                  make pipeline-test
+              ''')
             }
           }
         }
@@ -84,4 +85,40 @@ pipeline {
       notifyBuildResult(prComment: true)
     }
   }
+}
+
+// Check if there are non-versioned local changes.
+// For reference: https://stackoverflow.com/questions/34807971/why-does-git-diff-index-head-result-change-for-touched-files-after-git-diff-or-g
+def checkGitDiff() {
+  dir("${BASE_DIR}") {
+    sh(label: "update git index", script: 'git update-index -q --really-refresh', returnStatus: true)
+    sh(label: "check for uncommitted build artifacts", script: 'git diff-index --exit-code HEAD --')
+  }
+}
+
+def lint() {
+  dir("${BASE_DIR}") {
+    sh(label: 'lint', script: "make lint")
+  }
+}
+
+def prepareStack() {
+  def stackArgs = '-v'
+
+  if ( env.STACK_VERSION?.trim() ) {
+    stackArgs += " --version ${env.STACK_VERSION}"
+  } else {
+    def manifest = readYaml(file: "package/endpoint/manifest.yml")
+
+    if (manifest != null && manifest["conditions"] != null) {
+      def kibanaVersionCondition = manifest["conditions"]["kibana.version"]
+      if (kibanaVersionCondition != null) {
+        def version = findOldestSupportedVersion(versionCondition: kibanaVersionCondition)
+        stackArgs += " --version ${version}"
+      }
+    }
+  }
+
+  sh(label: "Update the Elastic stack", script: "./scripts/go-tools/bin/elastic-package stack update ${stackArgs}")
+  sh(label: "Boot up the Elastic stack", script: "./scripts/go-tools/bin/elastic-package stack up --services elasticsearch -d ${stackArgs}")
 }
