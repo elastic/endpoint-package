@@ -1882,6 +1882,78 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.code_signature:
+  dashed_name: process-Ext-code-signature
+  description: Nested version of ECS code_signature fieldset.
+  flat_name: process.Ext.code_signature
+  level: custom
+  name: Ext.code_signature
+  normalize: []
+  short: Nested version of ECS code_signature fieldset.
+  type: nested
+process.Ext.code_signature.exists:
+  dashed_name: process-Ext-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.Ext.code_signature.exists
+  level: custom
+  name: Ext.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.Ext.code_signature.status:
+  dashed_name: process-Ext-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.Ext.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.Ext.code_signature.subject_name:
+  dashed_name: process-Ext-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.Ext.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.Ext.code_signature.trusted:
+  dashed_name: process-Ext-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.Ext.code_signature.trusted
+  level: custom
+  name: Ext.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.Ext.code_signature.valid:
+  dashed_name: process-Ext-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: process.Ext.code_signature.valid
+  level: custom
+  name: Ext.code_signature.valid
+  normalize: []
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
 process.code_signature.exists:
   dashed_name: process-code-signature-exists
   description: Boolean to capture if a signature is present.

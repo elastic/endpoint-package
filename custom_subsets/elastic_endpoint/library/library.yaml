@@ -113,8 +113,8 @@ fields:
       Ext:
         fields:
           ancestry: {}
-        code_signature:
-          fields: "*"
+          code_signature:
+            fields: "*"
   file:
     fields:
       pe:

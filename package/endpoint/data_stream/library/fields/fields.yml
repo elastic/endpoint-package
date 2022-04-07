@@ -596,7 +596,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'The identifier used to sign the binary.
+      description: 'The identifier used to sign the process.
 
         This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
       example: com.apple.xpc.proxy
@@ -611,7 +611,7 @@
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: code_signature.subject_name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Subject name of the code signer
@@ -621,7 +621,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'The team identifier used to sign the binary.
+      description: 'The team identifier used to sign the process.
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
@@ -983,7 +983,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'The identifier used to sign the binary.
+      description: 'The identifier used to sign the process.
 
         This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
       example: com.apple.xpc.proxy
@@ -998,7 +998,7 @@
       example: ERROR_UNTRUSTED_ROOT
       default_field: false
     - name: code_signature.subject_name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Subject name of the code signer
@@ -1008,7 +1008,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'The team identifier used to sign the binary.
+      description: 'The team identifier used to sign the process.
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
