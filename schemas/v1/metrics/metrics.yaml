@@ -754,6 +754,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -1580,6 +1589,5 @@ message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Log message optimized for viewing in a log viewer.
-  type: text
+  type: match_only_text

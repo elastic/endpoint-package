@@ -214,25 +214,21 @@ error.message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Error message.
-  type: text
+  type: match_only_text
 error.stack_trace:
   dashed_name: error-stack-trace
   description: The stack trace of this error in plain text.
-  doc_values: false
   flat_name: error.stack_trace
-  index: false
   level: extended
   multi_fields:
   - flat_name: error.stack_trace.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: stack_trace
   normalize: []
   short: The stack trace of this error in plain text.
-  type: keyword
+  type: wildcard
 error.type:
   dashed_name: error-type
   description: The type of the error, for example the class name of the exception.
@@ -307,6 +303,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -748,9 +753,10 @@ type:
 user.id:
   dashed_name: user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   short: Unique identifier of the user.

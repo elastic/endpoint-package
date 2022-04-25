@@ -1,0 +1,271 @@
+{
+  "_meta": {
+    "ecs_version": "8.1.0"
+  },
+  "template": {
+    "mappings": {
+      "properties": {
+        "Endpoint": {
+          "properties": {
+            "metrics": {
+              "properties": {
+                "cpu": {
+                  "properties": {
+                    "endpoint": {
+                      "properties": {
+                        "histogram": {
+                          "type": "histogram"
+                        },
+                        "latest": {
+                          "type": "half_float"
+                        },
+                        "mean": {
+                          "type": "half_float"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "disks": {
+                  "enabled": false,
+                  "properties": {
+                    "device": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "endpoint_drive": {
+                      "type": "boolean"
+                    },
+                    "free": {
+                      "type": "long"
+                    },
+                    "fstype": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "mount": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "long"
+                    }
+                  },
+                  "type": "object"
+                },
+                "documents_volume": {
+                  "properties": {
+                    "alerts": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "diagnostic_alerts": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "dns_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "file_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "library_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "network_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "overall": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "process_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "registry_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "security_events": {
+                      "properties": {
+                        "sent_bytes": {
+                          "type": "long"
+                        },
+                        "sent_count": {
+                          "type": "long"
+                        },
+                        "suppressed_bytes": {
+                          "type": "long"
+                        },
+                        "suppressed_count": {
+                          "type": "long"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "memory": {
+                  "properties": {
+                    "endpoint": {
+                      "properties": {
+                        "private": {
+                          "properties": {
+                            "latest": {
+                              "type": "long"
+                            },
+                            "mean": {
+                              "type": "long"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "system_impact": {
+                  "enabled": false,
+                  "type": "object"
+                },
+                "threads": {
+                  "enabled": false,
+                  "type": "object"
+                },
+                "uptime": {
+                  "properties": {
+                    "endpoint": {
+                      "type": "long"
+                    },
+                    "system": {
+                      "type": "long"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

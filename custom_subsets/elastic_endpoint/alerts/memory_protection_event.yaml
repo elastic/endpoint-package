@@ -42,14 +42,26 @@ fields:
           original_file_name: {}
           product: {}
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       Ext:
         fields:
           mapped_address: {}
           mapped_size: {}
           compile_time: {}
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
   ecs:
     fields:
       version: {}
@@ -100,7 +112,239 @@ fields:
       uuid: {}
       version: {}
   threat:
-    fields: "*"
+    fields:
+      enrichments:
+        fields:
+          indicator:
+            fields:
+              file:
+                fields:
+                  code_signature:
+                    fields:
+                      exists: {}
+                      signing_id: {}
+                      status: {}
+                      subject_name: {}
+                      team_id: {}
+                      trusted: {}
+                      valid: {}
+                  accessed: {}
+                  attributes: {}
+                  created: {}
+                  ctime: {}
+                  device: {}
+                  directory: {}
+                  drive_letter: {}
+                  elf:
+                    fields: "*"
+                  extension: {}
+                  gid: {}
+                  group: {}
+                  hash:
+                    fields:
+                      md5: {}
+                      sha1: {}
+                      sha256: {}
+                      sha512: {}
+                      ssdeep: {}
+                  inode: {}
+                  mime_type: {}
+                  mode: {}
+                  mtime: {}
+                  name: {}
+                  owner: {}
+                  path: {}
+                  pe:
+                    fields:
+                      architecture: {}
+                      company: {}
+                      description: {}
+                      file_version: {}
+                      imphash: {}
+                      original_file_name: {}
+                      product: {}
+                  size: {}
+                  target_path: {}
+                  type: {}
+                  uid: {}
+                  Ext:
+                    fields: "*"
+              first_seen: {}
+              last_seen: {}
+              geo:
+                fields:
+                  city_name: {}
+                  continent_code: {}
+                  continent_name: {}
+                  country_iso_code: {}
+                  country_name: {}
+                  location: {}
+                  name: {}
+                  postal_code: {}
+                  region_iso_code: {}
+                  region_name: {}
+                  timezone: {}
+              ip: {}
+              marking:
+                fields:
+                  tlp: {}
+              modified_at: {}
+              port: {}
+              provider: {}
+              reference: {}
+              registry:
+                fields:
+                  data:
+                    fields:
+                      bytes: {}
+                      strings: {}
+                      type: {}
+                  hive: {}
+                  key: {}
+                  path: {}
+                  value: {}
+              scanner_stats: {}
+              sightings: {}
+              type: {}
+              url:
+                fields:
+                  domain: {}
+                  extension: {}
+                  fragment: {}
+                  full: {}
+                  original: {}
+                  password: {}
+                  path: {}
+                  port: {}
+                  query: {}
+                  registered_domain: {}
+                  scheme: {}
+                  subdomain: {}
+                  top_level_domain: {}
+                  username: {}
+              x509:
+                fields: "*"
+          matched:
+            fields:
+              atomic: {}
+              field: {}
+              id: {}
+              index: {}
+              type: {}
+      framework: {}
+      group:
+        fields: "*"
+      indicator:
+        fields:
+          as:
+            fields:
+              number: {}
+              organization:
+                fields:
+                  name: {}
+          confidence: {}
+          description: {}
+          email:
+            fields:
+              address: {}
+          file:
+            fields:
+              Ext:
+                fields: "*"
+              accessed: {}
+              attributes: {}
+              code_signature:
+                fields:
+                  exists: {}
+                  signing_id: {}
+                  status: {}
+                  subject_name: {}
+                  team_id: {}
+                  trusted: {}
+                  valid: {}
+              created: {}
+              ctime: {}
+              device: {}
+              directory: {}
+              drive_letter: {}
+              elf:
+                fields: "*"
+              extension: {}
+              gid: {}
+              group: {}
+              hash:
+                fields:
+                  md5: {}
+                  sha1: {}
+                  sha256: {}
+                  sha512: {}
+                  ssdeep: {}
+              inode: {}
+              mime_type: {}
+              mode: {}
+              mtime: {}
+              name: {}
+              owner: {}
+              path: {}
+              pe:
+                fields:
+                  architecture: {}
+                  company: {}
+                  description: {}
+                  file_version: {}
+                  imphash: {}
+                  original_file_name: {}
+                  product: {}
+              size: {}
+              target_path: {}
+              type: {}
+              uid: {}
+          first_seen: {}
+          geo:
+            fields: "*"
+          ip: {}
+          last_seen: {}
+          marking:
+            fields:
+              tlp: {}
+          modified_at: {}
+          port: {}
+          provider: {}
+          reference: {}
+          registry:
+            fields: "*"
+          scanner_stats: {}
+          sightings: {}
+          type: {}
+          url:
+            fields:
+              domain: {}
+              extension: {}
+              fragment: {}
+              full: {}
+              original: {}
+              password: {}
+              path: {}
+              port: {}
+              query: {}
+              registered_domain: {}
+              scheme: {}
+              subdomain: {}
+              top_level_domain: {}
+              username: {}
+          x509:
+            fields: "*"
+      software:
+        fields:
+          id: {}
+          name: {}
+          platforms: {}
+          reference: {}
+          type: {}
+      tactic:
+        fields: "*"
+      technique:
+        fields: "*"
   host:
     fields:
       architecture: {}
@@ -254,7 +498,14 @@ fields:
       uptime: {}
       working_directory: {}
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       Ext:
         fields:
           ancestry: {}
@@ -266,7 +517,12 @@ fields:
           session: {}
           user: {}
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
           protection: {}
           token:
             fields:
@@ -357,7 +613,14 @@ fields:
           uptime: {}
           working_directory: {}
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              signing_id: {}
+              status: {}
+              subject_name: {}
+              team_id: {}
+              trusted: {}
+              valid: {}
           Ext:
             fields:
               architecture: {}
@@ -365,7 +628,12 @@ fields:
                 fields:
                   pid: {}
               code_signature:
-                fields: "*"
+                fields:
+                  exists: {}
+                  status: {}
+                  subject_name: {}
+                  trusted: {}
+                  valid: {}
               dll:
                 fields: *dll-fields
               protection: {}

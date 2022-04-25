@@ -10,15 +10,17 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+  default_field: true
 - name: message
   level: core
-  type: text
+  type: match_only_text
   description: 'For log events the message field contains the log message, optimized for viewing in a log viewer.
 
     For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event.
 
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
+  default_field: true
 - name: agent
   title: Agent
   group: 2
@@ -27,6 +29,7 @@
     Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
+  default_field: true
   fields:
     - name: id
       level: core
@@ -55,6 +58,7 @@
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
+  default_field: true
   fields:
     - name: dataset
       level: custom
@@ -81,6 +85,7 @@
 
     Destination fields are usually populated in conjunction with source fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
+  default_field: true
   fields:
     - name: geo.city_name
       level: core
@@ -161,6 +166,7 @@
   group: 2
   description: Meta-information specific to ECS.
   type: group
+  default_field: true
   fields:
     - name: version
       level: core
@@ -178,6 +184,7 @@
 
     A log is defined as an event containing details of something that happened. Log events must include the time at which the thing happened. Examples of log events include a process starting on a host, a network packet being sent from a source to a destination, or a network connection between a client and a server being initiated or closed. A metric is defined as an event containing one or more numerical measurements and the time at which the measurement was taken. Examples of metric events include memory pressure measured on a host and device temperature. See the `event.kind` definition in this section for additional details about metric and state events.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -337,6 +344,7 @@
 
     File objects can be associated with host events, network events, and/or file events (e.g., those produced by File Integrity Monitoring [FIM] products or services). File fields provide details about the affected file associated with the event or metric.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -619,9 +627,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -686,9 +694,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -711,6 +719,7 @@
   group: 2
   description: The group fields are meant to represent groups that are relevant to the event.
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -738,9 +747,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name.
     - name: id
       level: extended
       type: keyword
@@ -758,6 +765,7 @@
 
     ECS host.* fields should be populated with details about the host on which the event happened, or from which the measurement was taken. Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.'
   type: group
+  default_field: true
   fields:
     - name: architecture
       level: core
@@ -834,9 +842,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -856,9 +864,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -896,6 +904,7 @@
 
     These fields can help you correlate metrics information with a process id/name from a log message.  The `process.pid` often stays in the metric itself and is copied to the global field for correlation.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -1033,9 +1042,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -1049,9 +1058,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -1090,6 +1099,7 @@
   group: 2
   description: Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction. Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.
   type: group
+  default_field: true
   fields:
     - name: geo.city_name
       level: core
@@ -1172,6 +1182,7 @@
 
     Fields can have one entry or multiple entries. If a user has more than one id, provide an array that includes all of them.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -1199,9 +1210,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the user is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
     - name: email
       level: extended
       type: keyword
@@ -1244,9 +1253,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name.
     - name: group.id
       level: extended
       type: keyword
@@ -1261,16 +1268,15 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Unique user hash to correlate information for a user in anonymized form.
-
-        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
+      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
     - name: id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:

@@ -337,6 +337,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -937,9 +946,8 @@ group.Ext.real.name:
   type: keyword
 group.domain:
   dashed_name: group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: group.domain
   ignore_above: 1024
   level: extended
@@ -1235,9 +1243,8 @@ message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Log message optimized for viewing in a log viewer.
-  type: text
+  type: match_only_text
 package.name:
   dashed_name: package-name
   description: Package name
@@ -1647,7 +1654,6 @@ process.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.command_line.caseless
@@ -1662,7 +1668,7 @@ process.command_line:
   name: command_line
   normalize: []
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.
@@ -1721,7 +1727,6 @@ process.entry_leader.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.entry_leader.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.entry_leader.command_line.caseless
@@ -1737,7 +1742,7 @@ process.entry_leader.command_line:
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.entry_leader.entity_id:
   dashed_name: process-entry-leader-entity-id
   description: 'Unique identifier for the process.
@@ -1991,9 +1996,10 @@ process.entry_leader.real_group.name:
 process.entry_leader.real_user.id:
   dashed_name: process-entry-leader-real-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.real_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2005,9 +2011,10 @@ process.entry_leader.real_user.name:
   example: albert
   flat_name: process.entry_leader.real_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.entry_leader.real_user.name.text
+  - default_field: false
+    flat_name: process.entry_leader.real_user.name.text
     name: text
     norms: false
     type: text
@@ -2083,9 +2090,10 @@ process.entry_leader.saved_group.name:
 process.entry_leader.saved_user.id:
   dashed_name: process-entry-leader-saved-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.saved_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2097,9 +2105,10 @@ process.entry_leader.saved_user.name:
   example: albert
   flat_name: process.entry_leader.saved_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.entry_leader.saved_user.name.text
+  - default_field: false
+    flat_name: process.entry_leader.saved_user.name.text
     name: text
     norms: false
     type: text
@@ -2181,9 +2190,10 @@ process.entry_leader.tty.char_device.minor:
 process.entry_leader.user.id:
   dashed_name: process-entry-leader-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2195,9 +2205,10 @@ process.entry_leader.user.name:
   example: albert
   flat_name: process.entry_leader.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.entry_leader.user.name.text
+  - default_field: false
+    flat_name: process.entry_leader.user.name.text
     name: text
     norms: false
     type: text
@@ -2314,7 +2325,6 @@ process.group_leader.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.group_leader.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.group_leader.command_line.caseless
@@ -2330,7 +2340,7 @@ process.group_leader.command_line:
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.group_leader.entity_id:
   dashed_name: process-group-leader-entity-id
   description: 'Unique identifier for the process.
@@ -2476,9 +2486,10 @@ process.group_leader.real_group.name:
 process.group_leader.real_user.id:
   dashed_name: process-group-leader-real-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.real_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2490,9 +2501,10 @@ process.group_leader.real_user.name:
   example: albert
   flat_name: process.group_leader.real_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.group_leader.real_user.name.text
+  - default_field: false
+    flat_name: process.group_leader.real_user.name.text
     name: text
     norms: false
     type: text
@@ -2568,9 +2580,10 @@ process.group_leader.saved_group.name:
 process.group_leader.saved_user.id:
   dashed_name: process-group-leader-saved-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.saved_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2582,9 +2595,10 @@ process.group_leader.saved_user.name:
   example: albert
   flat_name: process.group_leader.saved_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.group_leader.saved_user.name.text
+  - default_field: false
+    flat_name: process.group_leader.saved_user.name.text
     name: text
     norms: false
     type: text
@@ -2666,9 +2680,10 @@ process.group_leader.tty.char_device.minor:
 process.group_leader.user.id:
   dashed_name: process-group-leader-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2680,9 +2695,10 @@ process.group_leader.user.name:
   example: albert
   flat_name: process.group_leader.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.group_leader.user.name.text
+  - default_field: false
+    flat_name: process.group_leader.user.name.text
     name: text
     norms: false
     type: text
@@ -3083,7 +3099,6 @@ process.parent.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.parent.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.parent.command_line.caseless
@@ -3099,7 +3114,7 @@ process.parent.command_line:
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.parent.entity_id:
   dashed_name: process-parent-entity-id
   description: 'Unique identifier for the process.
@@ -3445,9 +3460,10 @@ process.parent.real_group.name:
 process.parent.real_user.id:
   dashed_name: process-parent-real-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.real_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -3459,9 +3475,10 @@ process.parent.real_user.name:
   example: albert
   flat_name: process.parent.real_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.parent.real_user.name.text
+  - default_field: false
+    flat_name: process.parent.real_user.name.text
     name: text
     norms: false
     type: text
@@ -3495,9 +3512,10 @@ process.parent.saved_group.name:
 process.parent.saved_user.id:
   dashed_name: process-parent-saved-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.saved_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -3509,9 +3527,10 @@ process.parent.saved_user.name:
   example: albert
   flat_name: process.parent.saved_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.parent.saved_user.name.text
+  - default_field: false
+    flat_name: process.parent.saved_user.name.text
     name: text
     norms: false
     type: text
@@ -3589,8 +3608,7 @@ process.parent.title:
   multi_fields:
   - flat_name: process.parent.title.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: title
   normalize: []
   original_fieldset: process
@@ -3647,9 +3665,10 @@ process.parent.uptime:
 process.parent.user.id:
   dashed_name: process-parent-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -3661,9 +3680,10 @@ process.parent.user.name:
   example: albert
   flat_name: process.parent.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.parent.user.name.text
+  - default_field: false
+    flat_name: process.parent.user.name.text
     name: text
     norms: false
     type: text
@@ -3880,9 +3900,10 @@ process.real_group.name:
 process.real_user.id:
   dashed_name: process-real-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.real_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -3894,9 +3915,10 @@ process.real_user.name:
   example: albert
   flat_name: process.real_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.real_user.name.text
+  - default_field: false
+    flat_name: process.real_user.name.text
     name: text
     norms: false
     type: text
@@ -3930,9 +3952,10 @@ process.saved_group.name:
 process.saved_user.id:
   dashed_name: process-saved-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.saved_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -3944,9 +3967,10 @@ process.saved_user.name:
   example: albert
   flat_name: process.saved_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.saved_user.name.text
+  - default_field: false
+    flat_name: process.saved_user.name.text
     name: text
     norms: false
     type: text
@@ -3994,7 +4018,6 @@ process.session_leader.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.session_leader.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.session_leader.command_line.caseless
@@ -4010,7 +4033,7 @@ process.session_leader.command_line:
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.session_leader.entity_id:
   dashed_name: process-session-leader-entity-id
   description: 'Unique identifier for the process.
@@ -4242,9 +4265,10 @@ process.session_leader.real_group.name:
 process.session_leader.real_user.id:
   dashed_name: process-session-leader-real-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.real_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -4256,9 +4280,10 @@ process.session_leader.real_user.name:
   example: albert
   flat_name: process.session_leader.real_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.session_leader.real_user.name.text
+  - default_field: false
+    flat_name: process.session_leader.real_user.name.text
     name: text
     norms: false
     type: text
@@ -4334,9 +4359,10 @@ process.session_leader.saved_group.name:
 process.session_leader.saved_user.id:
   dashed_name: process-session-leader-saved-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.saved_user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -4348,9 +4374,10 @@ process.session_leader.saved_user.name:
   example: albert
   flat_name: process.session_leader.saved_user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.session_leader.saved_user.name.text
+  - default_field: false
+    flat_name: process.session_leader.saved_user.name.text
     name: text
     norms: false
     type: text
@@ -4432,9 +4459,10 @@ process.session_leader.tty.char_device.minor:
 process.session_leader.user.id:
   dashed_name: process-session-leader-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -4446,9 +4474,10 @@ process.session_leader.user.name:
   example: albert
   flat_name: process.session_leader.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.session_leader.user.name.text
+  - default_field: false
+    flat_name: process.session_leader.user.name.text
     name: text
     norms: false
     type: text
@@ -4545,8 +4574,7 @@ process.title:
   multi_fields:
   - flat_name: process.title.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: title
   normalize: []
   short: Process title.
@@ -4598,9 +4626,10 @@ process.uptime:
 process.user.id:
   dashed_name: process-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -4612,9 +4641,10 @@ process.user.name:
   example: albert
   flat_name: process.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: process.user.name.text
+  - default_field: false
+    flat_name: process.user.name.text
     name: text
     norms: false
     type: text
@@ -4824,9 +4854,8 @@ user.Ext.real.name:
   type: keyword
 user.domain:
   dashed_name: user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the user is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.domain
   ignore_above: 1024
   level: extended
@@ -4852,7 +4881,8 @@ user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: user.full_name.text
+  - default_field: false
+    flat_name: user.full_name.text
     name: text
     norms: false
     type: text
@@ -4904,9 +4934,8 @@ user.group.Ext.real.name:
   type: keyword
 user.group.domain:
   dashed_name: user-group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.group.domain
   ignore_above: 1024
   level: extended
@@ -4939,11 +4968,9 @@ user.group.name:
   type: keyword
 user.hash:
   dashed_name: user-hash
-  description: 'Unique user hash to correlate information for a user in anonymized
-    form.
-
-    Useful if `user.id` or `user.name` contain confidential information and cannot
-    be used.'
+  description: Unique user hash to correlate information for a user in anonymized
+    form. Useful if `user.id` or `user.name` contain confidential information and
+    cannot be used.
   flat_name: user.hash
   ignore_above: 1024
   level: extended
@@ -4954,9 +4981,10 @@ user.hash:
 user.id:
   dashed_name: user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   short: Unique identifier of the user.
@@ -4967,9 +4995,10 @@ user.name:
   example: albert
   flat_name: user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: user.name.text
+  - default_field: false
+    flat_name: user.name.text
     name: text
     norms: false
     type: text

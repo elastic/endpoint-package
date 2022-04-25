@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "ecs_version": "8.1.0"
+  },
+  "template": {
+    "mappings": {
+      "properties": {
+        "EndpointActions": {
+          "properties": {
+            "action_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "data": {
+              "properties": {
+                "command": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "comment": {
+                  "norms": false,
+                  "type": "text"
+                }
+              },
+              "type": "object"
+            },
+            "expiration": {
+              "type": "date"
+            },
+            "input_type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}

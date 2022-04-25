@@ -307,6 +307,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -907,9 +916,8 @@ group.Ext.real.name:
   type: keyword
 group.domain:
   dashed_name: group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: group.domain
   ignore_above: 1024
   level: extended
@@ -1181,9 +1189,8 @@ message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Log message optimized for viewing in a log viewer.
-  type: text
+  type: match_only_text
 process.Ext:
   dashed_name: process-Ext
   description: Object for all custom defined fields to live in.
@@ -1638,9 +1645,8 @@ user.Ext.real.name:
   type: keyword
 user.domain:
   dashed_name: user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the user is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.domain
   ignore_above: 1024
   level: extended
@@ -1666,7 +1672,8 @@ user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: user.full_name.text
+  - default_field: false
+    flat_name: user.full_name.text
     name: text
     norms: false
     type: text
@@ -1718,9 +1725,8 @@ user.group.Ext.real.name:
   type: keyword
 user.group.domain:
   dashed_name: user-group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.group.domain
   ignore_above: 1024
   level: extended
@@ -1753,11 +1759,9 @@ user.group.name:
   type: keyword
 user.hash:
   dashed_name: user-hash
-  description: 'Unique user hash to correlate information for a user in anonymized
-    form.
-
-    Useful if `user.id` or `user.name` contain confidential information and cannot
-    be used.'
+  description: Unique user hash to correlate information for a user in anonymized
+    form. Useful if `user.id` or `user.name` contain confidential information and
+    cannot be used.
   flat_name: user.hash
   ignore_above: 1024
   level: extended
@@ -1768,9 +1772,10 @@ user.hash:
 user.id:
   dashed_name: user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   short: Unique identifier of the user.
@@ -1781,9 +1786,10 @@ user.name:
   example: albert
   flat_name: user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: user.name.text
+  - default_field: false
+    flat_name: user.name.text
     name: text
     norms: false
     type: text

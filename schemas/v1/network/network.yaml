@@ -124,8 +124,7 @@ destination.as.organization.name:
   multi_fields:
   - flat_name: destination.as.organization.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: organization.name
   normalize: []
   original_fieldset: as
@@ -144,13 +143,17 @@ destination.bytes:
   type: long
 destination.domain:
   dashed_name: destination-domain
-  description: Destination domain.
+  description: 'The domain name of the destination system.
+
+    This value may be a host name, a fully qualified domain name, or another host
+    naming format. The value may derive from the original event or be added from enrichment.'
+  example: foo.example.com
   flat_name: destination.domain
   ignore_above: 1024
   level: core
   name: domain
   normalize: []
-  short: Destination domain.
+  short: The domain name of the destination.
   type: keyword
 destination.geo.city_name:
   dashed_name: destination-geo-city-name
@@ -556,6 +559,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -1156,9 +1168,8 @@ group.Ext.real.name:
   type: keyword
 group.domain:
   dashed_name: group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: group.domain
   ignore_above: 1024
   level: extended
@@ -1432,17 +1443,15 @@ http.request.body.content:
   description: The full HTTP request body.
   example: Hello world
   flat_name: http.request.body.content
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: http.request.body.content.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: request.body.content
   normalize: []
   short: The full HTTP request body.
-  type: keyword
+  type: wildcard
 http.request.bytes:
   dashed_name: http-request-bytes
   description: Total size in bytes of the request (body and headers).
@@ -1489,17 +1498,15 @@ http.response.body.content:
   description: The full HTTP response body.
   example: Hello world
   flat_name: http.response.body.content
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: http.response.body.content.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: response.body.content
   normalize: []
   short: The full HTTP response body.
-  type: keyword
+  type: wildcard
 http.response.bytes:
   dashed_name: http-response-bytes
   description: Total size in bytes of the response (body and headers).
@@ -1536,9 +1543,8 @@ message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Log message optimized for viewing in a log viewer.
-  type: text
+  type: match_only_text
 network.bytes:
   dashed_name: network-bytes
   description: 'Total bytes transferred in both directions.
@@ -1616,25 +1622,24 @@ network.packets:
   type: long
 network.protocol:
   dashed_name: network-protocol
-  description: 'L7 Network protocol name. ex. http, lumberjack, transport protocol.
+  description: 'In the OSI Model this would be the Application Layer protocol. For
+    example, `http`, `dns`, or `ssh`.
 
-    The field value must be normalized to lowercase for querying. See the documentation
-    section "Implementing ECS".'
+    The field value must be normalized to lowercase for querying.'
   example: http
   flat_name: network.protocol
   ignore_above: 1024
   level: core
   name: protocol
   normalize: []
-  short: L7 Network protocol name.
+  short: Application protocol name.
   type: keyword
 network.transport:
   dashed_name: network-transport
   description: 'Same as network.iana_number, but instead using the Keyword name of
     the transport layer (udp, tcp, ipv6-icmp, etc.)
 
-    The field value must be normalized to lowercase for querying. See the documentation
-    section "Implementing ECS".'
+    The field value must be normalized to lowercase for querying.'
   example: tcp
   flat_name: network.transport
   ignore_above: 1024
@@ -1648,8 +1653,7 @@ network.type:
   description: 'In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec,
     pim, etc
 
-    The field value must be normalized to lowercase for querying. See the documentation
-    section "Implementing ECS".'
+    The field value must be normalized to lowercase for querying.'
   example: ipv4
   flat_name: network.type
   ignore_above: 1024
@@ -1970,8 +1974,7 @@ source.as.organization.name:
   multi_fields:
   - flat_name: source.as.organization.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: organization.name
   normalize: []
   original_fieldset: as
@@ -1990,13 +1993,17 @@ source.bytes:
   type: long
 source.domain:
   dashed_name: source-domain
-  description: Source domain.
+  description: 'The domain name of the source system.
+
+    This value may be a host name, a fully qualified domain name, or another host
+    naming format. The value may derive from the original event or be added from enrichment.'
+  example: foo.example.com
   flat_name: source.domain
   ignore_above: 1024
   level: core
   name: domain
   normalize: []
-  short: Source domain.
+  short: The domain name of the source.
   type: keyword
 source.geo.city_name:
   dashed_name: source-geo-city-name
@@ -2241,9 +2248,8 @@ user.Ext.real.name:
   type: keyword
 user.domain:
   dashed_name: user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the user is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.domain
   ignore_above: 1024
   level: extended
@@ -2269,7 +2275,8 @@ user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: user.full_name.text
+  - default_field: false
+    flat_name: user.full_name.text
     name: text
     norms: false
     type: text
@@ -2321,9 +2328,8 @@ user.group.Ext.real.name:
   type: keyword
 user.group.domain:
   dashed_name: user-group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.group.domain
   ignore_above: 1024
   level: extended
@@ -2356,11 +2362,9 @@ user.group.name:
   type: keyword
 user.hash:
   dashed_name: user-hash
-  description: 'Unique user hash to correlate information for a user in anonymized
-    form.
-
-    Useful if `user.id` or `user.name` contain confidential information and cannot
-    be used.'
+  description: Unique user hash to correlate information for a user in anonymized
+    form. Useful if `user.id` or `user.name` contain confidential information and
+    cannot be used.
   flat_name: user.hash
   ignore_above: 1024
   level: extended
@@ -2371,9 +2375,10 @@ user.hash:
 user.id:
   dashed_name: user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   short: Unique identifier of the user.
@@ -2384,9 +2389,10 @@ user.name:
   example: albert
   flat_name: user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: user.name.text
+  - default_field: false
+    flat_name: user.name.text
     name: text
     norms: false
     type: text

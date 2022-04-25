@@ -20,7 +20,63 @@
         as: saved_user
       - at: process
         as: real_user
+      - host
   fields:
+    - name: domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the directory the user is a member of.
+        For example, an LDAP or Active Directory domain name.'
+
+    - name: email
+      level: extended
+      type: keyword
+      description: User email address.
+
+    - name: full_name
+      level: extended
+      type: keyword
+      multi_fields:
+      - name: text
+        type: text
+        norms: false
+        default_field: false
+      description: User's full name, if available.
+      example: Albert Einstein
+
+    - name: hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique user hash to correlate information for a user in anonymized
+        form.
+        Useful if `user.id` or `user.name` contain confidential information and cannot
+        be used.'
+
+    - name: id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier of the user.
+
+    - name: name
+      level: extended
+      type: keyword
+      multi_fields:
+      - name: text
+        type: text
+        norms: false
+        default_field: false
+      description: Short name or login of the user.
+      example: albert
+
+    - name: group
+      level: extended
+      type: object
+      description: 'The group fields are meant to represent groups that are
+        relevant to the event.'
+
     - name: Ext
       level: custom
       type: object

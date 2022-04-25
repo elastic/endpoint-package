@@ -10,59 +10,53 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+  default_field: true
 - name: action_id
   level: custom
   type: alias
   description: The action id
   path: EndpointActions.action_id
-  default_field: false
 - name: agents
   level: custom
   type: alias
   description: 'Alias field that maps to {agent: {id}}'
   path: agent.id
-  default_field: false
 - name: data.command
   level: custom
   type: alias
   description: The action that is requested
   path: EndpointActions.data.command
-  default_field: false
 - name: data.comment
   level: custom
   type: alias
   description: A comment that describes the action that is requested
   path: EndpointActions.data.comment
-  default_field: false
 - name: expiration
   level: custom
   type: alias
   description: Request expiration timestamp
   path: EndpointActions.expiration
-  default_field: false
 - name: input_type
   level: custom
   type: alias
   description: The input type of the action, distinguishes endpoint actions as `endpoint`
   path: EndpointActions.input_type
-  default_field: false
 - name: type
   level: custom
   type: alias
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`
   path: EndpointActions.type
-  default_field: false
 - name: user_id
   level: custom
   type: alias
   description: The user id
   path: user.id
-  default_field: false
 - name: EndpointActions
   title: Endpoint Actions
   group: 2
   description: Fields to describe the endpoint  action requests and responses.
   type: group
+  default_field: true
   fields:
     - name: action_id
       level: custom
@@ -112,6 +106,7 @@
     Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
+  default_field: true
   fields:
     - name: id
       level: core
@@ -126,6 +121,7 @@
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
+  default_field: true
   fields:
     - name: dataset
       level: custom
@@ -150,6 +146,7 @@
   group: 2
   description: Meta-information specific to ECS.
   type: group
+  default_field: true
   fields:
     - name: version
       level: core
@@ -167,6 +164,7 @@
 
     Use them for errors that happen while fetching events or in cases where the event itself contains an error.'
   type: group
+  default_field: true
   fields:
     - name: code
       level: core
@@ -180,19 +178,16 @@
       description: Unique identifier for the error.
     - name: message
       level: core
-      type: text
+      type: match_only_text
       description: Error message.
     - name: stack_trace
       level: extended
-      type: keyword
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: The stack trace of this error in plain text.
-      index: false
-      doc_values: false
     - name: type
       level: extended
       type: keyword
@@ -206,6 +201,7 @@
 
     A log is defined as an event containing details of something that happened. Log events must include the time at which the thing happened. Examples of log events include a process starting on a host, a network packet being sent from a source to a destination, or a network connection between a client and a server being initiated or closed. A metric is defined as an event containing one or more numerical measurements and the time at which the measurement was taken. Examples of metric events include memory pressure measured on a host and device temperature. See the `event.kind` definition in this section for additional details about metric and state events.'
   type: group
+  default_field: true
   fields:
     - name: action
       level: core
@@ -296,9 +292,11 @@
 
     Fields can have one entry or multiple entries. If a user has more than one id, provide an array that includes all of them.'
   type: group
+  default_field: true
   fields:
     - name: id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
