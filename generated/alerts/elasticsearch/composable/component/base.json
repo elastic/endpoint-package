@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "ecs_version": "8.1.0"
+  },
+  "template": {
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "Events": {
+          "type": "object"
+        },
+        "message": {
+          "type": "match_only_text"
+        }
+      }
+    }
+  }
+}

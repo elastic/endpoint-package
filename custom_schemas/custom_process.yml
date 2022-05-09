@@ -58,6 +58,21 @@
         - name: text
           type: text
 
+    - name: ppid
+      level: extended
+      type: long
+      format: string
+      description: Parent process' pid.
+      example: 4241
+
+    - name: parent.ppid
+      level: extended
+      type: long
+      format: string
+      description: Parent process' pid.
+      example: 4241
+      default_field: false
+
     - name: Ext
       level: custom
       type: object

@@ -10,25 +10,27 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+  default_field: true
 - name: Events
   level: custom
   type: object
   description: events array
-  default_field: false
 - name: message
   level: core
-  type: text
+  type: match_only_text
   description: 'For log events the message field contains the log message, optimized for viewing in a log viewer.
 
     For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event.
 
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
+  default_field: true
 - name: Endpoint
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
+  default_field: true
   fields:
     - name: policy
       level: custom
@@ -131,6 +133,7 @@
   group: 2
   description: These fields contain information specific to Memory Protection alerts.
   type: group
+  default_field: true
   fields:
     - name: cross_session
       level: custom
@@ -170,6 +173,7 @@
   group: 2
   description: These fields contain information specific to ransomware alerts.
   type: group
+  default_field: true
   fields:
     - name: child_processes.executable
       level: custom
@@ -360,6 +364,7 @@
   group: 2
   description: responses array contains rule response action results
   type: group
+  default_field: true
   fields:
     - name: '@timestamp'
       level: custom
@@ -426,6 +431,7 @@
 
     These fields provide more context about the target process and thread that are related to the data in the document. Useful in a security context where a target process or thread may be acted on by another process or thread.'
   type: group
+  default_field: true
   fields:
     - name: dll.Ext
       level: custom
@@ -1426,8 +1432,7 @@
       default_field: false
     - name: process.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -1952,8 +1957,7 @@
       default_field: false
     - name: process.parent.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -2132,8 +2136,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: 'Process title.
 
         The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
@@ -2236,7 +2239,7 @@
       default_field: false
     - name: process.thread.Ext.call_stack
       level: custom
-      type: group
+      type: object
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
@@ -2539,8 +2542,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: 'Process title.
 
         The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
@@ -2574,6 +2576,7 @@
     Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
+  default_field: true
   fields:
     - name: ephemeral_id
       level: extended
@@ -2620,6 +2623,7 @@
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
+  default_field: true
   fields:
     - name: dataset
       level: custom
@@ -2646,6 +2650,7 @@
 
     Destination fields are usually populated in conjunction with source fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
+  default_field: true
   fields:
     - name: geo.city_name
       level: core
@@ -2739,6 +2744,7 @@
 
     * Dynamic library (`.dylib`) commonly used on macOS'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -3000,6 +3006,7 @@
 
     DNS events should either represent a single DNS query prior to getting answers (`dns.type:query`) or they should represent a full exchange and contain the query details as well as all of the answers that were provided for this query (`dns.type:answer`).'
   type: group
+  default_field: true
   fields:
     - name: question.name
       level: extended
@@ -3020,6 +3027,7 @@
   group: 2
   description: Meta-information specific to ECS.
   type: group
+  default_field: true
   fields:
     - name: version
       level: core
@@ -3035,6 +3043,7 @@
   group: 2
   description: Holds fields and properties of data points and concepts in the elastic domain or namespace.
   type: group
+  default_field: true
   fields:
     - name: agent
       level: custom
@@ -3055,6 +3064,7 @@
 
     A log is defined as an event containing details of something that happened. Log events must include the time at which the thing happened. Examples of log events include a process starting on a host, a network packet being sent from a source to a destination, or a network connection between a client and a server being initiated or closed. A metric is defined as an event containing one or more numerical measurements and the time at which the measurement was taken. Examples of metric events include memory pressure measured on a host and device temperature. See the `event.kind` definition in this section for additional details about metric and state events.'
   type: group
+  default_field: true
   fields:
     - name: action
       level: core
@@ -3202,6 +3212,7 @@
 
     File objects can be associated with host events, network events, and/or file events (e.g., those produced by File Integrity Monitoring [FIM] products or services). File fields provide details about the affected file associated with the event or metric.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -3708,9 +3719,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -3775,9 +3786,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -3800,6 +3811,7 @@
   group: 2
   description: The group fields are meant to represent groups that are relevant to the event.
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -3827,9 +3839,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name.
     - name: id
       level: extended
       type: keyword
@@ -3847,6 +3857,7 @@
 
     ECS host.* fields should be populated with details about the host on which the event happened, or from which the measurement was taken. Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.'
   type: group
+  default_field: true
   fields:
     - name: architecture
       level: core
@@ -4003,9 +4014,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -4025,9 +4036,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -4090,9 +4101,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the user is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
     - name: user.email
       level: extended
       type: keyword
@@ -4135,9 +4144,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name.
     - name: user.group.id
       level: extended
       type: keyword
@@ -4152,16 +4159,15 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Unique user hash to correlate information for a user in anonymized form.
-
-        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
+      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
     - name: user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
@@ -4178,6 +4184,7 @@
 
     These fields can help you correlate metrics information with a process id/name from a log message.  The `process.pid` often stays in the metric itself and is copied to the global field for correlation.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -4924,8 +4931,7 @@
       default_field: false
     - name: command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -4969,8 +4975,7 @@
       default_field: false
     - name: entry_leader.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -5127,19 +5132,21 @@
       description: Name of the group.
       default_field: false
     - name: entry_leader.real_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.real_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5185,19 +5192,21 @@
       description: Name of the group.
       default_field: false
     - name: entry_leader.saved_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.saved_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5235,19 +5244,21 @@
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
       default_field: false
     - name: entry_leader.user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5281,9 +5292,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -5317,8 +5328,7 @@
       default_field: false
     - name: group_leader.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -5416,19 +5426,21 @@
       description: Name of the group.
       default_field: false
     - name: group_leader.real_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.real_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5474,19 +5486,21 @@
       description: Name of the group.
       default_field: false
     - name: group_leader.saved_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.saved_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5524,19 +5538,21 @@
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
       default_field: false
     - name: group_leader.user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -5591,9 +5607,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -6038,8 +6054,7 @@
       default_field: false
     - name: parent.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -6250,19 +6265,21 @@
       description: Name of the group.
       default_field: false
     - name: parent.real_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.real_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6279,19 +6296,21 @@
       description: Name of the group.
       default_field: false
     - name: parent.saved_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.saved_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6333,8 +6352,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: 'Process title.
 
         The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
@@ -6361,19 +6379,21 @@
       example: 1325
       default_field: false
     - name: parent.user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6498,19 +6518,21 @@
       description: Name of the group.
       default_field: false
     - name: real_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: real_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6527,19 +6549,21 @@
       description: Name of the group.
       default_field: false
     - name: saved_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: saved_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6562,8 +6586,7 @@
       default_field: false
     - name: session_leader.command_line
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: caseless
           type: keyword
@@ -6709,19 +6732,21 @@
       description: Name of the group.
       default_field: false
     - name: session_leader.real_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.real_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6767,19 +6792,21 @@
       description: Name of the group.
       default_field: false
     - name: session_leader.saved_user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.saved_user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6817,19 +6844,21 @@
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
       default_field: false
     - name: session_leader.user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -6872,7 +6901,7 @@
       default_field: false
     - name: thread.Ext.call_stack
       level: custom
-      type: group
+      type: object
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
@@ -7173,8 +7202,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: 'Process title.
 
@@ -7200,19 +7228,21 @@
       description: Seconds the process has been up.
       example: 1325
     - name: user.id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: user.name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
           type: text
           norms: false
+          default_field: false
       description: Short name or login of the user.
       example: albert
       default_field: false
@@ -7223,9 +7253,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -7237,11 +7267,11 @@
   group: 2
   description: Fields related to Windows Registry operations.
   type: group
+  default_field: true
   fields:
     - name: data.strings
       level: core
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       description: 'Content when writing string types.
 
         Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`).'
@@ -7268,6 +7298,7 @@
 
     Examples of data sources that would populate the rule fields include: network admission control platforms, network or host IDS/IPS, network firewalls, web application firewalls, url filters, endpoint detection and response (EDR) systems, etc.'
   type: group
+  default_field: true
   fields:
     - name: author
       level: extended
@@ -7346,6 +7377,7 @@
   group: 2
   description: Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction. Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.
   type: group
+  default_field: true
   fields:
     - name: geo.city_name
       level: core
@@ -7428,8 +7460,9 @@
 - name: threat
   title: Threat
   group: 2
-  description: "Fields to classify events and alerts according to a threat taxonomy such as the MITRE ATT&CK® framework.\nThese fields are for users to classify alerts from all of their sources (e.g. IDS, NGFW, etc.) within a common taxonomy. The threat.tactic.* are meant to capture the high level category of the threat (e.g. \"impact\"). The threat.technique.* fields are meant to capture which kind of approach is used by this detected threat, to accomplish the goal (e.g. \"endpoint denial of service\")."
+  description: "Fields to classify events and alerts according to a threat taxonomy such as the MITRE ATT&CK® framework.\nThese fields are for users to classify alerts from all of their sources (e.g. IDS, NGFW, etc.) within a common taxonomy. The threat.tactic.* fields are meant to capture the high level category of the threat (e.g. \"impact\"). The threat.technique.* fields are meant to capture which kind of approach is used by this detected threat, to accomplish the goal (e.g. \"endpoint denial of service\")."
   type: group
+  default_field: true
   fields:
     - name: enrichments
       level: extended
@@ -7440,44 +7473,6 @@
       level: extended
       type: object
       description: Object containing associated indicators enriching the event.
-      default_field: false
-    - name: enrichments.indicator.as.number
-      level: extended
-      type: long
-      description: Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet.
-      example: 15169
-      default_field: false
-    - name: enrichments.indicator.as.organization.name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      multi_fields:
-        - name: text
-          type: text
-          norms: false
-      description: Organization name.
-      example: Google LLC
-      default_field: false
-    - name: enrichments.indicator.confidence
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: "Identifies the confidence rating assigned by the provider using STIX confidence scales. Expected values:\n  * Not Specified, None, Low, Medium, High\n  * 0-10\n  * Admirality Scale (1-6)\n  * DNI Scale (5-95)\n  * WEP Scale (Impossible - Certain)"
-      example: High
-      default_field: false
-    - name: enrichments.indicator.description
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Describes the type of action conducted by the threat.
-      example: IP x.x.x.x was observed delivering the Angler EK.
-      default_field: false
-    - name: enrichments.indicator.email.address
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Identifies a threat indicator as an email address (irrespective of direction).
-      example: phish@example.com
       default_field: false
     - name: enrichments.indicator.file.Ext
       level: custom
@@ -8313,36 +8308,6 @@
       description: The time zone of the location, such as IANA time zone name.
       example: America/Argentina/Buenos_Aires
       default_field: false
-    - name: enrichments.indicator.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: enrichments.indicator.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: enrichments.indicator.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: enrichments.indicator.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: enrichments.indicator.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
     - name: enrichments.indicator.ip
       level: extended
       type: ip
@@ -8367,57 +8332,6 @@
       type: date
       description: The date and time when intelligence source last modified information for this indicator.
       example: '2020-11-05T17:25:47.000Z'
-      default_field: false
-    - name: enrichments.indicator.pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
-      default_field: false
-    - name: enrichments.indicator.pe.company
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal company name of the file, provided at compile-time.
-      example: Microsoft Corporation
-      default_field: false
-    - name: enrichments.indicator.pe.description
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal description of the file, provided at compile-time.
-      example: Paint
-      default_field: false
-    - name: enrichments.indicator.pe.file_version
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal version of the file, provided at compile-time.
-      example: 6.3.9600.17415
-      default_field: false
-    - name: enrichments.indicator.pe.imphash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-      example: 0c6803c4e922103c4dca5963aad36ddf
-      default_field: false
-    - name: enrichments.indicator.pe.original_file_name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal name of the file, provided at compile-time.
-      example: MSPAINT.EXE
-      default_field: false
-    - name: enrichments.indicator.pe.product
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal product name of the file, provided at compile-time.
-      example: "Microsoft® Windows® Operating System"
       default_field: false
     - name: enrichments.indicator.port
       level: extended
@@ -8450,8 +8364,7 @@
       default_field: false
     - name: enrichments.indicator.registry.data.strings
       level: core
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       description: 'Content when writing string types.
 
         Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`).'
@@ -8545,23 +8458,19 @@
       default_field: false
     - name: enrichments.indicator.url.full
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source.
       example: https://www.elastic.co:443/search?q=elasticsearch#top
       default_field: false
     - name: enrichments.indicator.url.original
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: 'Unmodified original url as seen in the event source.
 
         Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path.
@@ -8577,8 +8486,7 @@
       default_field: false
     - name: enrichments.indicator.url.path
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       description: Path of the request, such as "/search".
       default_field: false
     - name: enrichments.indicator.url.port
@@ -8850,28 +8758,28 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The alias(es) of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group alias(es)."
+      description: "The alias(es) of the group for a set of related intrusion activity that are tracked by a common name in the security community.\nWhile not required, you can use a MITRE ATT&CK® group alias(es)."
       example: '[ "Magecart Group 6" ]'
       default_field: false
     - name: group.id
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The id of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group id."
+      description: "The id of the group for a set of related intrusion activity that are tracked by a common name in the security community.\nWhile not required, you can use a MITRE ATT&CK® group id."
       example: G0037
       default_field: false
     - name: group.name
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The name of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group name."
+      description: "The name of the group for a set of related intrusion activity that are tracked by a common name in the security community.\nWhile not required, you can use a MITRE ATT&CK® group name."
       example: FIN6
       default_field: false
     - name: group.reference
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The reference URL of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group reference URL."
+      description: "The reference URL of the group for a set of related intrusion activity that are tracked by a common name in the security community.\nWhile not required, you can use a MITRE ATT&CK® group reference URL."
       example: https://attack.mitre.org/groups/G0037/
       default_field: false
     - name: indicator.as.number
@@ -8886,8 +8794,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: Organization name.
       example: Google LLC
       default_field: false
@@ -8895,8 +8802,8 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Identifies the confidence rating assigned by the provider using STIX confidence scales.\nRecommended values:\n  * Not Specified, None, Low, Medium, High\n  * 0-10\n  * Admirality Scale (1-6)\n  * DNI Scale (5-95)\n  * WEP Scale (Impossible - Certain)"
-      example: High
+      description: "Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields.\nExpected values are:\n  * Not Specified\n  * None\n  * Low\n  * Medium\n  * High"
+      example: Medium
       default_field: false
     - name: indicator.description
       level: extended
@@ -9746,36 +9653,6 @@
       description: The time zone of the location, such as IANA time zone name.
       example: America/Argentina/Buenos_Aires
       default_field: false
-    - name: indicator.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: indicator.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: indicator.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: indicator.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: indicator.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
     - name: indicator.ip
       level: extended
       type: ip
@@ -9800,57 +9677,6 @@
       type: date
       description: The date and time when intelligence source last modified information for this indicator.
       example: '2020-11-05T17:25:47.000Z'
-      default_field: false
-    - name: indicator.pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
-      default_field: false
-    - name: indicator.pe.company
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal company name of the file, provided at compile-time.
-      example: Microsoft Corporation
-      default_field: false
-    - name: indicator.pe.description
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal description of the file, provided at compile-time.
-      example: Paint
-      default_field: false
-    - name: indicator.pe.file_version
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal version of the file, provided at compile-time.
-      example: 6.3.9600.17415
-      default_field: false
-    - name: indicator.pe.imphash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-      example: 0c6803c4e922103c4dca5963aad36ddf
-      default_field: false
-    - name: indicator.pe.original_file_name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal name of the file, provided at compile-time.
-      example: MSPAINT.EXE
-      default_field: false
-    - name: indicator.pe.product
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: Internal product name of the file, provided at compile-time.
-      example: "Microsoft® Windows® Operating System"
       default_field: false
     - name: indicator.port
       level: extended
@@ -9883,8 +9709,7 @@
       default_field: false
     - name: indicator.registry.data.strings
       level: core
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       description: 'Content when writing string types.
 
         Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`).'
@@ -9978,23 +9803,19 @@
       default_field: false
     - name: indicator.url.full
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source.
       example: https://www.elastic.co:443/search?q=elasticsearch#top
       default_field: false
     - name: indicator.url.original
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: 'Unmodified original url as seen in the event source.
 
         Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path.
@@ -10010,8 +9831,7 @@
       default_field: false
     - name: indicator.url.path
       level: extended
-      type: keyword
-      ignore_above: 1024
+      type: wildcard
       description: Path of the request, such as "/search".
       default_field: false
     - name: indicator.url.port
@@ -10242,35 +10062,35 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The id of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software id."
+      description: "The id of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nWhile not required, you can use a MITRE ATT&CK® software id."
       example: S0552
       default_field: false
     - name: software.name
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The name of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software name."
+      description: "The name of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nWhile not required, you can use a MITRE ATT&CK® software name."
       example: AdFind
       default_field: false
     - name: software.platforms
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software platforms.\nRecommended Values:\n  * AWS\n  * Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office 365\n  * SaaS\n  * Windows"
+      description: "The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nRecommended Values:\n  * AWS\n  * Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office 365\n  * SaaS\n  * Windows\n\nWhile not required, you can use a MITRE ATT&CK® software platforms."
       example: '[ "Windows" ]'
       default_field: false
     - name: software.reference
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL."
+      description: "The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nWhile not required, you can use a MITRE ATT&CK® software reference URL."
       example: https://attack.mitre.org/software/S0552/
       default_field: false
     - name: software.type
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type.\nRecommended values\n  * Malware\n  * Tool"
+      description: "The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nRecommended values\n  * Malware\n  * Tool\n\n While not required, you can use a MITRE ATT&CK® software type."
       example: Tool
       default_field: false
     - name: tactic.id
@@ -10303,8 +10123,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: "The name of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/)"
       example: Command and Scripting Interpreter
@@ -10327,8 +10146,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
       description: "The name of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/)"
       example: PowerShell
       default_field: false
@@ -10346,6 +10164,7 @@
 
     Fields can have one entry or multiple entries. If a user has more than one id, provide an array that includes all of them.'
   type: group
+  default_field: true
   fields:
     - name: Ext
       level: custom
@@ -10373,9 +10192,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the user is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
     - name: email
       level: extended
       type: keyword
@@ -10418,9 +10235,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Name of the directory the group is a member of.
-
-        For example, an LDAP or Active Directory domain name.'
+      description: Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name.
     - name: group.id
       level: extended
       type: keyword
@@ -10435,16 +10250,15 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Unique user hash to correlate information for a user in anonymized form.
-
-        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
+      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
     - name: id
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: name
-      level: core
+      level: extended
       type: keyword
       ignore_above: 1024
       multi_fields:

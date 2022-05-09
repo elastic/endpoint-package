@@ -106,7 +106,14 @@ fields:
       executable: {}
       entity_id: {}
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       thread:
         fields:
           id: {}
@@ -114,4 +121,9 @@ fields:
         fields:
           ancestry: {}
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}

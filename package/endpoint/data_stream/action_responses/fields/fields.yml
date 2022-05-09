@@ -10,53 +10,48 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+  default_field: true
 - name: action_id
   level: custom
   type: alias
   description: The action id
   path: EndpointActions.action_id
-  default_field: false
 - name: agent_id
   level: custom
   type: alias
   description: 'Alias field that maps to {agent: {id}}'
   path: agent.id
-  default_field: false
 - name: completed_at
   level: custom
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.completed_at
-  default_field: false
 - name: data.command
   level: custom
   type: alias
   description: The action that is requested
   path: EndpointActions.data.command
-  default_field: false
 - name: data.comment
   level: custom
   type: alias
   description: A comment that describes the action that is requested
   path: EndpointActions.data.comment
-  default_field: false
 - name: started_at
   level: custom
   type: alias
   description: Timestamp of start of request
   path: EndpointActions.started_at
-  default_field: false
 - name: status
   level: custom
   type: alias
   description: The status of the request that distinguishes if the request is queued, running or completed.
   path: EndpointActions.status
-  default_field: false
 - name: EndpointActions
   title: Endpoint Actions
   group: 2
   description: Fields to describe the endpoint  action requests and responses.
   type: group
+  default_field: true
   fields:
     - name: action_id
       level: custom
@@ -105,6 +100,7 @@
     Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
+  default_field: true
   fields:
     - name: id
       level: core
@@ -119,6 +115,7 @@
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
+  default_field: true
   fields:
     - name: dataset
       level: custom
@@ -143,6 +140,7 @@
   group: 2
   description: Meta-information specific to ECS.
   type: group
+  default_field: true
   fields:
     - name: version
       level: core
@@ -160,6 +158,7 @@
 
     Use them for errors that happen while fetching events or in cases where the event itself contains an error.'
   type: group
+  default_field: true
   fields:
     - name: code
       level: core
@@ -173,19 +172,16 @@
       description: Unique identifier for the error.
     - name: message
       level: core
-      type: text
+      type: match_only_text
       description: Error message.
     - name: stack_trace
       level: extended
-      type: keyword
+      type: wildcard
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: The stack trace of this error in plain text.
-      index: false
-      doc_values: false
     - name: type
       level: extended
       type: keyword
@@ -199,6 +195,7 @@
 
     A log is defined as an event containing details of something that happened. Log events must include the time at which the thing happened. Examples of log events include a process starting on a host, a network packet being sent from a source to a destination, or a network connection between a client and a server being initiated or closed. A metric is defined as an event containing one or more numerical measurements and the time at which the measurement was taken. Examples of metric events include memory pressure measured on a host and device temperature. See the `event.kind` definition in this section for additional details about metric and state events.'
   type: group
+  default_field: true
   fields:
     - name: action
       level: core

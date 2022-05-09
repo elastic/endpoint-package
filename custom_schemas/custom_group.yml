@@ -18,7 +18,27 @@
         as: saved_group
       - at: process
         as: supplemental_groups
+      - user
   fields:
+    - name: domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the directory the group is a member of.
+        For example, an LDAP or Active Directory domain name.'
+
+    - name: id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the group on the system/platform.
+
+    - name: name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the group.
+
     - name: Ext
       level: custom
       type: object

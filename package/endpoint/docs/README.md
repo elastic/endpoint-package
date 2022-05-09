@@ -214,7 +214,7 @@ sent by the endpoint.
 | Target.process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | Target.process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| Target.process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | Target.process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | Target.process.executable | Absolute path to the process executable. | keyword |
 | Target.process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
@@ -287,7 +287,7 @@ sent by the endpoint.
 | Target.process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | Target.process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | Target.process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | Target.process.parent.executable | Absolute path to the process executable. | keyword |
 | Target.process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
@@ -570,7 +570,7 @@ sent by the endpoint.
 | host.user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | host.user.id | Unique identifier of the user. | keyword |
 | host.user.name | Short name or login of the user. | keyword |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
@@ -679,11 +679,11 @@ sent by the endpoint.
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
 | process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
@@ -722,7 +722,7 @@ sent by the endpoint.
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.group_leader.executable | Absolute path to the process executable. | keyword |
 | process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -818,7 +818,7 @@ sent by the endpoint.
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
@@ -885,7 +885,7 @@ sent by the endpoint.
 | process.saved_user.name | Short name or login of the user. | keyword |
 | process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.executable | Absolute path to the process executable. | keyword |
 | process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -957,7 +957,7 @@ sent by the endpoint.
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
 | process.working_directory | The working directory of the process. | keyword |
-| registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
+| registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
 | registry.path | Full path, including hive, key and value | keyword |
 | registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
@@ -984,11 +984,6 @@ sent by the endpoint.
 | source.ip | IP address of the source (IPv4 or IPv6). | ip |
 | threat.enrichments | A list of associated indicators objects enriching the event, and the context of that association/enrichment. | nested |
 | threat.enrichments.indicator | Object containing associated indicators enriching the event. | object |
-| threat.enrichments.indicator.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
-| threat.enrichments.indicator.as.organization.name | Organization name. | keyword |
-| threat.enrichments.indicator.confidence | Identifies the confidence rating assigned by the provider using STIX confidence scales. Expected values:   * Not Specified, None, Low, Medium, High   * 0-10   * Admirality Scale (1-6)   * DNI Scale (5-95)   * WEP Scale (Impossible - Certain) | keyword |
-| threat.enrichments.indicator.description | Describes the type of action conducted by the threat. | keyword |
-| threat.enrichments.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.enrichments.indicator.file.Ext | Object for all custom defined fields to live in. | object |
 | threat.enrichments.indicator.file.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | threat.enrichments.indicator.file.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -1116,27 +1111,15 @@ sent by the endpoint.
 | threat.enrichments.indicator.geo.region_iso_code | Region ISO code. | keyword |
 | threat.enrichments.indicator.geo.region_name | Region name. | keyword |
 | threat.enrichments.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| threat.enrichments.indicator.hash.md5 | MD5 hash. | keyword |
-| threat.enrichments.indicator.hash.sha1 | SHA1 hash. | keyword |
-| threat.enrichments.indicator.hash.sha256 | SHA256 hash. | keyword |
-| threat.enrichments.indicator.hash.sha512 | SHA512 hash. | keyword |
-| threat.enrichments.indicator.hash.ssdeep | SSDEEP hash. | keyword |
 | threat.enrichments.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.enrichments.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
 | threat.enrichments.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
 | threat.enrichments.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
-| threat.enrichments.indicator.pe.architecture | CPU architecture target for the file. | keyword |
-| threat.enrichments.indicator.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| threat.enrichments.indicator.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| threat.enrichments.indicator.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| threat.enrichments.indicator.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| threat.enrichments.indicator.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| threat.enrichments.indicator.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | threat.enrichments.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.enrichments.indicator.provider | The name of the indicator's provider. | keyword |
 | threat.enrichments.indicator.reference | Reference URL linking to additional information about this indicator. | keyword |
 | threat.enrichments.indicator.registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
-| threat.enrichments.indicator.registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
+| threat.enrichments.indicator.registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
 | threat.enrichments.indicator.registry.data.type | Standard registry type for encoding contents | keyword |
 | threat.enrichments.indicator.registry.hive | Abbreviated name for the hive. | keyword |
 | threat.enrichments.indicator.registry.key | Hive-relative path of keys. | keyword |
@@ -1148,10 +1131,10 @@ sent by the endpoint.
 | threat.enrichments.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.enrichments.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.enrichments.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
-| threat.enrichments.indicator.url.full | If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source. | keyword |
-| threat.enrichments.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | keyword |
+| threat.enrichments.indicator.url.full | If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source. | wildcard |
+| threat.enrichments.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | wildcard |
 | threat.enrichments.indicator.url.password | Password of the request. | keyword |
-| threat.enrichments.indicator.url.path | Path of the request, such as "/search". | keyword |
+| threat.enrichments.indicator.url.path | Path of the request, such as "/search". | wildcard |
 | threat.enrichments.indicator.url.port | Port of the request, such as 443. | long |
 | threat.enrichments.indicator.url.query | The query field describes the query string of the request, such as "q=elasticsearch". The `?` is excluded from the query string. If a URL contains no `?`, there is no query field. If there is a `?` but no query, the query field exists with an empty string. The `exists` query can be used to differentiate between the two cases. | keyword |
 | threat.enrichments.indicator.url.registered_domain | The highest registered url domain, stripped of the subdomain. For example, the registered domain for "foo.example.com" is "example.com". This value can be determined precisely with a list like the public suffix list (http://publicsuffix.org). Trying to approximate this by simply taking the last two labels will not work well for TLDs such as "co.uk". | keyword |
@@ -1195,7 +1178,7 @@ sent by the endpoint.
 | threat.group.reference | The reference URL of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group reference URL. | keyword |
 | threat.indicator.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
 | threat.indicator.as.organization.name | Organization name. | keyword |
-| threat.indicator.confidence | Identifies the confidence rating assigned by the provider using STIX confidence scales. Recommended values:   * Not Specified, None, Low, Medium, High   * 0-10   * Admirality Scale (1-6)   * DNI Scale (5-95)   * WEP Scale (Impossible - Certain) | keyword |
+| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. Expected values are:   * Not Specified   * None   * Low   * Medium   * High | keyword |
 | threat.indicator.description | Describes the type of action conducted by the threat. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.indicator.file.Ext | Object for all custom defined fields to live in. | object |
@@ -1325,27 +1308,15 @@ sent by the endpoint.
 | threat.indicator.geo.region_iso_code | Region ISO code. | keyword |
 | threat.indicator.geo.region_name | Region name. | keyword |
 | threat.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| threat.indicator.hash.md5 | MD5 hash. | keyword |
-| threat.indicator.hash.sha1 | SHA1 hash. | keyword |
-| threat.indicator.hash.sha256 | SHA256 hash. | keyword |
-| threat.indicator.hash.sha512 | SHA512 hash. | keyword |
-| threat.indicator.hash.ssdeep | SSDEEP hash. | keyword |
 | threat.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
 | threat.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
 | threat.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
-| threat.indicator.pe.architecture | CPU architecture target for the file. | keyword |
-| threat.indicator.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| threat.indicator.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| threat.indicator.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| threat.indicator.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| threat.indicator.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| threat.indicator.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | threat.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.indicator.provider | The name of the indicator's provider. | keyword |
 | threat.indicator.reference | Reference URL linking to additional information about this indicator. | keyword |
 | threat.indicator.registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
-| threat.indicator.registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
+| threat.indicator.registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
 | threat.indicator.registry.data.type | Standard registry type for encoding contents | keyword |
 | threat.indicator.registry.hive | Abbreviated name for the hive. | keyword |
 | threat.indicator.registry.key | Hive-relative path of keys. | keyword |
@@ -1357,10 +1328,10 @@ sent by the endpoint.
 | threat.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
-| threat.indicator.url.full | If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source. | keyword |
-| threat.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | keyword |
+| threat.indicator.url.full | If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source. | wildcard |
+| threat.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | wildcard |
 | threat.indicator.url.password | Password of the request. | keyword |
-| threat.indicator.url.path | Path of the request, such as "/search". | keyword |
+| threat.indicator.url.path | Path of the request, such as "/search". | wildcard |
 | threat.indicator.url.port | Port of the request, such as 443. | long |
 | threat.indicator.url.query | The query field describes the query string of the request, such as "q=elasticsearch". The `?` is excluded from the query string. If a URL contains no `?`, there is no query field. If there is a `?` but no query, the query field exists with an empty string. The `exists` query can be used to differentiate between the two cases. | keyword |
 | threat.indicator.url.registered_domain | The highest registered url domain, stripped of the subdomain. For example, the registered domain for "foo.example.com" is "example.com". This value can be determined precisely with a list like the public suffix list (http://publicsuffix.org). Trying to approximate this by simply taking the last two labels will not work well for TLDs such as "co.uk". | keyword |
@@ -1394,9 +1365,9 @@ sent by the endpoint.
 | threat.indicator.x509.version_number | Version of x509 format. | keyword |
 | threat.software.id | The id of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software id. | keyword |
 | threat.software.name | The name of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software name. | keyword |
-| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software platforms. Recommended Values:   * AWS   * Azure   * Azure AD   * GCP   * Linux   * macOS   * Network   * Office 365   * SaaS   * Windows | keyword |
+| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended Values:   * AWS   * Azure   * Azure AD   * GCP   * Linux   * macOS   * Network   * Office 365   * SaaS   * Windows  While not required, you can use a MITRE ATT&CK® software platforms. | keyword |
 | threat.software.reference | The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL. | keyword |
-| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type. Recommended values   * Malware   * Tool | keyword |
+| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended values   * Malware   * Tool   While not required, you can use a MITRE ATT&CK® software type. | keyword |
 | threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
 | threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |
 | threat.tactic.reference | The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
@@ -1550,7 +1521,7 @@ sent by the endpoint.
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1722,7 +1693,7 @@ sent by the endpoint.
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1790,7 +1761,7 @@ sent by the endpoint.
 | destination.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
 | destination.as.organization.name | Organization name. | keyword |
 | destination.bytes | Bytes sent from the destination to the source. | long |
-| destination.domain | Destination domain. | keyword |
+| destination.domain | The domain name of the destination system. This value may be a host name, a fully qualified domain name, or another host naming format. The value may derive from the original event or be added from enrichment. | keyword |
 | destination.geo.city_name | City name. | keyword |
 | destination.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | destination.geo.continent_name | Name of the continent. | keyword |
@@ -1857,23 +1828,23 @@ sent by the endpoint.
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
 | http.request.body.bytes | Size in bytes of the request body. | long |
-| http.request.body.content | The full HTTP request body. | keyword |
+| http.request.body.content | The full HTTP request body. | wildcard |
 | http.request.bytes | Total size in bytes of the request (body and headers). | long |
 | http.response.Ext | Object for all custom defined fields to live in. | object |
 | http.response.Ext.version | HTTP version | keyword |
 | http.response.body.bytes | Size in bytes of the response body. | long |
-| http.response.body.content | The full HTTP response body. | keyword |
+| http.response.body.content | The full HTTP response body. | wildcard |
 | http.response.bytes | Total size in bytes of the response (body and headers). | long |
 | http.response.status_code | HTTP response status code. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | network.bytes | Total bytes transferred in both directions. If `source.bytes` and `destination.bytes` are known, `network.bytes` is their sum. | long |
 | network.community_id | A hash of source and destination IPs and ports, as well as the protocol used in a communication. This is a tool-agnostic standard to identify flows. Learn more at https://github.com/corelight/community-id-spec. | keyword |
 | network.direction | Direction of the network traffic. Recommended values are:   * ingress   * egress   * inbound   * outbound   * internal   * external   * unknown  When mapping events from a host-based monitoring context, populate this field from the host's point of view, using the values "ingress" or "egress". When mapping events from a network or perimeter-based monitoring context, populate this field from the point of view of the network perimeter, using the values "inbound", "outbound", "internal" or "external". Note that "internal" is not crossing perimeter boundaries, and is meant to describe communication between two hosts within the perimeter. Note also that "external" is meant to describe traffic between two hosts that are external to the perimeter. This could for example be useful for ISPs or VPN service providers. | keyword |
 | network.iana_number | IANA Protocol Number (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Standardized list of protocols. This aligns well with NetFlow and sFlow related logs which use the IANA Protocol Number. | keyword |
 | network.packets | Total packets transferred in both directions. If `source.packets` and `destination.packets` are known, `network.packets` is their sum. | long |
-| network.protocol | L7 Network protocol name. ex. http, lumberjack, transport protocol. The field value must be normalized to lowercase for querying. See the documentation section "Implementing ECS". | keyword |
-| network.transport | Same as network.iana_number, but instead using the Keyword name of the transport layer (udp, tcp, ipv6-icmp, etc.) The field value must be normalized to lowercase for querying. See the documentation section "Implementing ECS". | keyword |
-| network.type | In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc The field value must be normalized to lowercase for querying. See the documentation section "Implementing ECS". | keyword |
+| network.protocol | In the OSI Model this would be the Application Layer protocol. For example, `http`, `dns`, or `ssh`. The field value must be normalized to lowercase for querying. | keyword |
+| network.transport | Same as network.iana_number, but instead using the Keyword name of the transport layer (udp, tcp, ipv6-icmp, etc.) The field value must be normalized to lowercase for querying. | keyword |
+| network.type | In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc The field value must be normalized to lowercase for querying. | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1898,7 +1869,7 @@ sent by the endpoint.
 | source.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
 | source.as.organization.name | Organization name. | keyword |
 | source.bytes | Bytes sent from the source to the destination. | long |
-| source.domain | Source domain. | keyword |
+| source.domain | The domain name of the source system. This value may be a host name, a fully qualified domain name, or another host naming format. The value may derive from the original event or be added from enrichment. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -2002,7 +1973,7 @@ sent by the endpoint.
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
@@ -2036,11 +2007,11 @@ sent by the endpoint.
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
 | process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
@@ -2079,7 +2050,7 @@ sent by the endpoint.
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.group_leader.executable | Absolute path to the process executable. | keyword |
 | process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -2132,7 +2103,7 @@ sent by the endpoint.
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
@@ -2199,7 +2170,7 @@ sent by the endpoint.
 | process.saved_user.name | Short name or login of the user. | keyword |
 | process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | keyword |
+| process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.executable | Absolute path to the process executable. | keyword |
 | process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -2338,7 +2309,7 @@ sent by the endpoint.
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -2360,7 +2331,7 @@ sent by the endpoint.
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
-| registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | keyword |
+| registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
 | registry.data.type | Standard registry type for encoding contents | keyword |
 | registry.hive | Abbreviated name for the hive. | keyword |
 | registry.key | Hive-relative path of keys. | keyword |
@@ -2460,7 +2431,7 @@ sent by the endpoint.
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -2683,7 +2654,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 
 
 ### policy response
@@ -2741,5 +2712,5 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
-| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | text |
+| message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 

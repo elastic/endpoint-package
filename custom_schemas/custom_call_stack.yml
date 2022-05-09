@@ -3,6 +3,7 @@
   title: Call Stack
   group: 2
   short: Fields describing a stack frame.
+  type: object
   description: >
     Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
   reusable:

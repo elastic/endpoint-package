@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "ecs_version": "8.1.0"
+  },
+  "template": {
+    "mappings": {
+      "properties": {
+        "data_stream": {
+          "properties": {
+            "dataset": {
+              "type": "constant_keyword"
+            },
+            "namespace": {
+              "type": "constant_keyword"
+            },
+            "type": {
+              "type": "constant_keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}

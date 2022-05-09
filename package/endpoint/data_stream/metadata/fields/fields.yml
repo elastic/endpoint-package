@@ -10,11 +10,13 @@
 
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
+  default_field: true
 - name: Endpoint
   title: Endpoint
   group: 2
   description: Fields describing the state of the Elastic Endpoint when an event occurs.
   type: group
+  default_field: true
   fields:
     - name: capabilities
       level: custom
@@ -85,6 +87,7 @@
     Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
   footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
   type: group
+  default_field: true
   fields:
     - name: id
       level: core
@@ -123,6 +126,7 @@
   group: 2
   description: Fields describing the new indexing strategy <type>-<dataset>-<namespace>
   type: group
+  default_field: true
   fields:
     - name: dataset
       level: custom
@@ -147,6 +151,7 @@
   group: 2
   description: Meta-information specific to ECS.
   type: group
+  default_field: true
   fields:
     - name: version
       level: core
@@ -162,6 +167,7 @@
   group: 2
   description: Holds fields and properties of data points and concepts in the elastic domain or namespace.
   type: group
+  default_field: true
   fields:
     - name: agent
       level: custom
@@ -182,6 +188,7 @@
 
     A log is defined as an event containing details of something that happened. Log events must include the time at which the thing happened. Examples of log events include a process starting on a host, a network packet being sent from a source to a destination, or a network connection between a client and a server being initiated or closed. A metric is defined as an event containing one or more numerical measurements and the time at which the measurement was taken. Examples of metric events include memory pressure measured on a host and device temperature. See the `event.kind` definition in this section for additional details about metric and state events.'
   type: group
+  default_field: true
   fields:
     - name: action
       level: core
@@ -325,6 +332,7 @@
 
     ECS host.* fields should be populated with details about the host on which the event happened, or from which the measurement was taken. Host types include hardware, virtual machines, Docker containers, and Kubernetes nodes.'
   type: group
+  default_field: true
   fields:
     - name: architecture
       level: core
@@ -401,9 +409,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false
@@ -423,9 +431,9 @@
       multi_fields:
         - name: caseless
           type: keyword
-          default_field: false
           normalizer: lowercase
           ignore_above: 1024
+          default_field: false
         - name: text
           type: text
           norms: false

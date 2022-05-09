@@ -1201,6 +1201,15 @@ event.category:
     - info
     - start
     name: driver
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This category is used for events relating to email messages, email
+      attachments, and email network or protocol activity.
+
+      Emails events can be produced by email security gateways, mail transfer agents,
+      email cloud service providers, or mail server monitoring applications.'
+    expected_event_types:
+    - info
+    name: email
   - description: Relating to a set of information that has been created on, or has
       existed on a filesystem. Use this category of events to visualize and analyze
       the creation, access, and deletions of files. Events in this category can come
@@ -1801,9 +1810,8 @@ group.Ext.real.name:
   type: keyword
 group.domain:
   dashed_name: group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: group.domain
   ignore_above: 1024
   level: extended
@@ -2245,9 +2253,8 @@ host.user.Ext.real.name:
   type: keyword
 host.user.domain:
   dashed_name: host-user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the user is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: host.user.domain
   ignore_above: 1024
   level: extended
@@ -2275,7 +2282,8 @@ host.user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: host.user.full_name.text
+  - default_field: false
+    flat_name: host.user.full_name.text
     name: text
     norms: false
     type: text
@@ -2328,9 +2336,8 @@ host.user.group.Ext.real.name:
   type: keyword
 host.user.group.domain:
   dashed_name: host-user-group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: host.user.group.domain
   ignore_above: 1024
   level: extended
@@ -2363,11 +2370,9 @@ host.user.group.name:
   type: keyword
 host.user.hash:
   dashed_name: host-user-hash
-  description: 'Unique user hash to correlate information for a user in anonymized
-    form.
-
-    Useful if `user.id` or `user.name` contain confidential information and cannot
-    be used.'
+  description: Unique user hash to correlate information for a user in anonymized
+    form. Useful if `user.id` or `user.name` contain confidential information and
+    cannot be used.
   flat_name: host.user.hash
   ignore_above: 1024
   level: extended
@@ -2379,9 +2384,10 @@ host.user.hash:
 host.user.id:
   dashed_name: host-user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: host.user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   original_fieldset: user
@@ -2393,9 +2399,10 @@ host.user.name:
   example: albert
   flat_name: host.user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: host.user.name.text
+  - default_field: false
+    flat_name: host.user.name.text
     name: text
     norms: false
     type: text
@@ -2418,9 +2425,8 @@ message:
   level: core
   name: message
   normalize: []
-  norms: false
   short: Log message optimized for viewing in a log viewer.
-  type: text
+  type: match_only_text
 process.Ext:
   dashed_name: process-Ext
   description: Object for all custom defined fields to live in.
@@ -2850,7 +2856,6 @@ process.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.command_line.caseless
@@ -2865,7 +2870,7 @@ process.command_line:
   name: command_line
   normalize: []
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.
@@ -3247,7 +3252,6 @@ process.parent.command_line:
     Some arguments may be filtered to protect sensitive information.'
   example: /usr/bin/ssh -l user 10.0.0.16
   flat_name: process.parent.command_line
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: process.parent.command_line.caseless
@@ -3263,7 +3267,7 @@ process.parent.command_line:
   normalize: []
   original_fieldset: process
   short: Full command line that started the process.
-  type: keyword
+  type: wildcard
 process.parent.entity_id:
   dashed_name: process-parent-entity-id
   description: 'Unique identifier for the process.
@@ -3470,8 +3474,7 @@ process.parent.title:
   multi_fields:
   - flat_name: process.parent.title.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: title
   normalize: []
   original_fieldset: process
@@ -3648,7 +3651,7 @@ process.thread.Ext.call_stack:
   normalize: []
   original_fieldset: call_stack
   short: Fields describing a stack frame.
-  type: group
+  type: object
 process.thread.Ext.call_stack.instruction_pointer:
   dashed_name: process-thread-Ext-call-stack-instruction-pointer
   description: The return address of this stack frame.
@@ -3966,8 +3969,7 @@ process.title:
   multi_fields:
   - flat_name: process.title.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: title
   normalize: []
   short: Process title.
@@ -4273,7 +4275,8 @@ threat.enrichments:
   flat_name: threat.enrichments
   level: extended
   name: enrichments
-  normalize: []
+  normalize:
+  - array
   short: List of objects containing indicators enriching the event.
   type: nested
 threat.enrichments.indicator:
@@ -4286,75 +4289,6 @@ threat.enrichments.indicator:
   normalize: []
   short: Object containing indicators enriching the event.
   type: object
-threat.enrichments.indicator.as.number:
-  dashed_name: threat-enrichments-indicator-as-number
-  description: Unique number allocated to the autonomous system. The autonomous system
-    number (ASN) uniquely identifies each network on the Internet.
-  example: 15169
-  flat_name: threat.enrichments.indicator.as.number
-  level: extended
-  name: number
-  normalize: []
-  original_fieldset: as
-  short: Unique number allocated to the autonomous system.
-  type: long
-threat.enrichments.indicator.as.organization.name:
-  dashed_name: threat-enrichments-indicator-as-organization-name
-  description: Organization name.
-  example: Google LLC
-  flat_name: threat.enrichments.indicator.as.organization.name
-  ignore_above: 1024
-  level: extended
-  multi_fields:
-  - flat_name: threat.enrichments.indicator.as.organization.name.text
-    name: text
-    norms: false
-    type: text
-  name: organization.name
-  normalize: []
-  original_fieldset: as
-  short: Organization name.
-  type: keyword
-threat.enrichments.indicator.confidence:
-  beta: This field is beta and subject to change.
-  dashed_name: threat-enrichments-indicator-confidence
-  description: "Identifies\_the\_confidence\_rating\_assigned\_by\_the\_provider\_\
-    using\_STIX\_confidence scales. Expected values:\n  * Not Specified, None, Low,\
-    \ Medium, High\n  * 0-10\n  * Admirality Scale (1-6)\n  * DNI Scale (5-95)\n \
-    \ * WEP Scale (Impossible - Certain)"
-  example: High
-  flat_name: threat.enrichments.indicator.confidence
-  ignore_above: 1024
-  level: extended
-  name: enrichments.indicator.confidence
-  normalize: []
-  short: Indicator confidence rating
-  type: keyword
-threat.enrichments.indicator.description:
-  beta: This field is beta and subject to change.
-  dashed_name: threat-enrichments-indicator-description
-  description: Describes the type of action conducted by the threat.
-  example: IP x.x.x.x was observed delivering the Angler EK.
-  flat_name: threat.enrichments.indicator.description
-  ignore_above: 1024
-  level: extended
-  name: enrichments.indicator.description
-  normalize: []
-  short: Indicator description
-  type: keyword
-threat.enrichments.indicator.email.address:
-  beta: This field is beta and subject to change.
-  dashed_name: threat-enrichments-indicator-email-address
-  description: Identifies a threat indicator as an email address (irrespective of
-    direction).
-  example: phish@example.com
-  flat_name: threat.enrichments.indicator.email.address
-  ignore_above: 1024
-  level: extended
-  name: enrichments.indicator.email.address
-  normalize: []
-  short: Indicator email address
-  type: keyword
 threat.enrichments.indicator.file.Ext:
   dashed_name: threat-enrichments-indicator-file-Ext
   description: Object for all custom defined fields to live in.
@@ -5877,61 +5811,6 @@ threat.enrichments.indicator.geo.timezone:
   original_fieldset: geo
   short: Time zone.
   type: keyword
-threat.enrichments.indicator.hash.md5:
-  dashed_name: threat-enrichments-indicator-hash-md5
-  description: MD5 hash.
-  flat_name: threat.enrichments.indicator.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-threat.enrichments.indicator.hash.sha1:
-  dashed_name: threat-enrichments-indicator-hash-sha1
-  description: SHA1 hash.
-  flat_name: threat.enrichments.indicator.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-threat.enrichments.indicator.hash.sha256:
-  dashed_name: threat-enrichments-indicator-hash-sha256
-  description: SHA256 hash.
-  flat_name: threat.enrichments.indicator.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-threat.enrichments.indicator.hash.sha512:
-  dashed_name: threat-enrichments-indicator-hash-sha512
-  description: SHA512 hash.
-  flat_name: threat.enrichments.indicator.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-threat.enrichments.indicator.hash.ssdeep:
-  dashed_name: threat-enrichments-indicator-hash-ssdeep
-  description: SSDEEP hash.
-  flat_name: threat.enrichments.indicator.hash.ssdeep
-  ignore_above: 1024
-  level: extended
-  name: ssdeep
-  normalize: []
-  original_fieldset: hash
-  short: SSDEEP hash.
-  type: keyword
 threat.enrichments.indicator.ip:
   beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-ip
@@ -5980,94 +5859,6 @@ threat.enrichments.indicator.modified_at:
   normalize: []
   short: Date/time indicator was last updated.
   type: date
-threat.enrichments.indicator.pe.architecture:
-  dashed_name: threat-enrichments-indicator-pe-architecture
-  description: CPU architecture target for the file.
-  example: x64
-  flat_name: threat.enrichments.indicator.pe.architecture
-  ignore_above: 1024
-  level: extended
-  name: architecture
-  normalize: []
-  original_fieldset: pe
-  short: CPU architecture target for the file.
-  type: keyword
-threat.enrichments.indicator.pe.company:
-  dashed_name: threat-enrichments-indicator-pe-company
-  description: Internal company name of the file, provided at compile-time.
-  example: Microsoft Corporation
-  flat_name: threat.enrichments.indicator.pe.company
-  ignore_above: 1024
-  level: extended
-  name: company
-  normalize: []
-  original_fieldset: pe
-  short: Internal company name of the file, provided at compile-time.
-  type: keyword
-threat.enrichments.indicator.pe.description:
-  dashed_name: threat-enrichments-indicator-pe-description
-  description: Internal description of the file, provided at compile-time.
-  example: Paint
-  flat_name: threat.enrichments.indicator.pe.description
-  ignore_above: 1024
-  level: extended
-  name: description
-  normalize: []
-  original_fieldset: pe
-  short: Internal description of the file, provided at compile-time.
-  type: keyword
-threat.enrichments.indicator.pe.file_version:
-  dashed_name: threat-enrichments-indicator-pe-file-version
-  description: Internal version of the file, provided at compile-time.
-  example: 6.3.9600.17415
-  flat_name: threat.enrichments.indicator.pe.file_version
-  ignore_above: 1024
-  level: extended
-  name: file_version
-  normalize: []
-  original_fieldset: pe
-  short: Process name.
-  type: keyword
-threat.enrichments.indicator.pe.imphash:
-  dashed_name: threat-enrichments-indicator-pe-imphash
-  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
-    can be used to fingerprint binaries even after recompilation or other code-level
-    transformations have occurred, which would change more traditional hash values.
-
-    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-  example: 0c6803c4e922103c4dca5963aad36ddf
-  flat_name: threat.enrichments.indicator.pe.imphash
-  ignore_above: 1024
-  level: extended
-  name: imphash
-  normalize: []
-  original_fieldset: pe
-  short: A hash of the imports in a PE file.
-  type: keyword
-threat.enrichments.indicator.pe.original_file_name:
-  dashed_name: threat-enrichments-indicator-pe-original-file-name
-  description: Internal name of the file, provided at compile-time.
-  example: MSPAINT.EXE
-  flat_name: threat.enrichments.indicator.pe.original_file_name
-  ignore_above: 1024
-  level: extended
-  name: original_file_name
-  normalize: []
-  original_fieldset: pe
-  short: Internal name of the file, provided at compile-time.
-  type: keyword
-threat.enrichments.indicator.pe.product:
-  dashed_name: threat-enrichments-indicator-pe-product
-  description: Internal product name of the file, provided at compile-time.
-  example: "Microsoft\xAE Windows\xAE Operating System"
-  flat_name: threat.enrichments.indicator.pe.product
-  ignore_above: 1024
-  level: extended
-  name: product
-  normalize: []
-  original_fieldset: pe
-  short: Internal product name of the file, provided at compile-time.
-  type: keyword
 threat.enrichments.indicator.port:
   beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-port
@@ -6130,14 +5921,13 @@ threat.enrichments.indicator.registry.data.strings:
     the decimal representation (e.g `"1"`).'
   example: '["C:\rta\red_ttp\bin\myapp.exe"]'
   flat_name: threat.enrichments.indicator.registry.data.strings
-  ignore_above: 1024
   level: core
   name: data.strings
   normalize:
   - array
   original_fieldset: registry
   short: List of strings representing what was written to the registry.
-  type: keyword
+  type: wildcard
 threat.enrichments.indicator.registry.data.type:
   dashed_name: threat-enrichments-indicator-registry-data-type
   description: Standard registry type for encoding contents
@@ -6296,18 +6086,16 @@ threat.enrichments.indicator.url.full:
     in `url.full`, whether this field is reconstructed or present in the event source.
   example: https://www.elastic.co:443/search?q=elasticsearch#top
   flat_name: threat.enrichments.indicator.url.full
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: threat.enrichments.indicator.url.full.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: full
   normalize: []
   original_fieldset: url
   short: Full unparsed URL.
-  type: keyword
+  type: wildcard
 threat.enrichments.indicator.url.original:
   dashed_name: threat-enrichments-indicator-url-original
   description: 'Unmodified original url as seen in the event source.
@@ -6318,18 +6106,16 @@ threat.enrichments.indicator.url.original:
     This field is meant to represent the URL as it was observed, complete or not.'
   example: https://www.elastic.co:443/search?q=elasticsearch#top or /search?q=elasticsearch
   flat_name: threat.enrichments.indicator.url.original
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: threat.enrichments.indicator.url.original.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: original
   normalize: []
   original_fieldset: url
   short: Unmodified original url as seen in the event source.
-  type: keyword
+  type: wildcard
 threat.enrichments.indicator.url.password:
   dashed_name: threat-enrichments-indicator-url-password
   description: Password of the request.
@@ -6345,13 +6131,12 @@ threat.enrichments.indicator.url.path:
   dashed_name: threat-enrichments-indicator-url-path
   description: Path of the request, such as "/search".
   flat_name: threat.enrichments.indicator.url.path
-  ignore_above: 1024
   level: extended
   name: path
   normalize: []
   original_fieldset: url
   short: Path of the request, such as "/search".
-  type: keyword
+  type: wildcard
 threat.enrichments.indicator.url.port:
   dashed_name: threat-enrichments-indicator-url-port
   description: Port of the request, such as 443.
@@ -6845,10 +6630,9 @@ threat.framework:
   short: Threat classification framework.
   type: keyword
 threat.group.alias:
-  beta: This field is beta and subject to change.
   dashed_name: threat-group-alias
   description: "The alias(es) of the group for a set of related intrusion activity\
-    \ that are tracked by a common name in the security community. While not required,\
+    \ that are tracked by a common name in the security community.\nWhile not required,\
     \ you can use a MITRE ATT&CK\xAE group alias(es)."
   example: '[ "Magecart Group 6" ]'
   flat_name: threat.group.alias
@@ -6860,10 +6644,9 @@ threat.group.alias:
   short: Alias of the group.
   type: keyword
 threat.group.id:
-  beta: This field is beta and subject to change.
   dashed_name: threat-group-id
   description: "The id of the group for a set of related intrusion activity that are\
-    \ tracked by a common name in the security community. While not required, you\
+    \ tracked by a common name in the security community.\nWhile not required, you\
     \ can use a MITRE ATT&CK\xAE group id."
   example: G0037
   flat_name: threat.group.id
@@ -6874,10 +6657,9 @@ threat.group.id:
   short: ID of the group.
   type: keyword
 threat.group.name:
-  beta: This field is beta and subject to change.
   dashed_name: threat-group-name
   description: "The name of the group for a set of related intrusion activity that\
-    \ are tracked by a common name in the security community. While not required,\
+    \ are tracked by a common name in the security community.\nWhile not required,\
     \ you can use a MITRE ATT&CK\xAE group name."
   example: FIN6
   flat_name: threat.group.name
@@ -6888,10 +6670,9 @@ threat.group.name:
   short: Name of the group.
   type: keyword
 threat.group.reference:
-  beta: This field is beta and subject to change.
   dashed_name: threat-group-reference
   description: "The reference URL of the group for a set of related intrusion activity\
-    \ that are tracked by a common name in the security community. While not required,\
+    \ that are tracked by a common name in the security community.\nWhile not required,\
     \ you can use a MITRE ATT&CK\xAE group reference URL."
   example: https://attack.mitre.org/groups/G0037/
   flat_name: threat.group.reference
@@ -6923,21 +6704,19 @@ threat.indicator.as.organization.name:
   multi_fields:
   - flat_name: threat.indicator.as.organization.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: organization.name
   normalize: []
   original_fieldset: as
   short: Organization name.
   type: keyword
 threat.indicator.confidence:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-confidence
-  description: "Identifies the confidence rating assigned by the provider using STIX\
-    \ confidence scales.\nRecommended values:\n  * Not Specified, None, Low, Medium,\
-    \ High\n  * 0-10\n  * Admirality Scale (1-6)\n  * DNI Scale (5-95)\n  * WEP Scale\
-    \ (Impossible - Certain)"
-  example: High
+  description: "Identifies\_the\_vendor-neutral confidence\_rating\_using\_the None/Low/Medium/High\_\
+    scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence\
+    \ scales may be added as custom fields.\nExpected values are:\n  * Not Specified\n\
+    \  * None\n  * Low\n  * Medium\n  * High"
+  example: Medium
   flat_name: threat.indicator.confidence
   ignore_above: 1024
   level: extended
@@ -6946,7 +6725,6 @@ threat.indicator.confidence:
   short: Indicator confidence rating
   type: keyword
 threat.indicator.description:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-description
   description: Describes the type of action conducted by the threat.
   example: IP x.x.x.x was observed delivering the Angler EK.
@@ -6958,7 +6736,6 @@ threat.indicator.description:
   short: Indicator description
   type: keyword
 threat.indicator.email.address:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-email-address
   description: Identifies a threat indicator as an email address (irrespective of
     direction).
@@ -8341,7 +8118,6 @@ threat.indicator.file.uid:
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
 threat.indicator.first_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-first-seen
   description: The date and time when intelligence source first reported sighting
     this indicator.
@@ -8492,63 +8268,7 @@ threat.indicator.geo.timezone:
   original_fieldset: geo
   short: Time zone.
   type: keyword
-threat.indicator.hash.md5:
-  dashed_name: threat-indicator-hash-md5
-  description: MD5 hash.
-  flat_name: threat.indicator.hash.md5
-  ignore_above: 1024
-  level: extended
-  name: md5
-  normalize: []
-  original_fieldset: hash
-  short: MD5 hash.
-  type: keyword
-threat.indicator.hash.sha1:
-  dashed_name: threat-indicator-hash-sha1
-  description: SHA1 hash.
-  flat_name: threat.indicator.hash.sha1
-  ignore_above: 1024
-  level: extended
-  name: sha1
-  normalize: []
-  original_fieldset: hash
-  short: SHA1 hash.
-  type: keyword
-threat.indicator.hash.sha256:
-  dashed_name: threat-indicator-hash-sha256
-  description: SHA256 hash.
-  flat_name: threat.indicator.hash.sha256
-  ignore_above: 1024
-  level: extended
-  name: sha256
-  normalize: []
-  original_fieldset: hash
-  short: SHA256 hash.
-  type: keyword
-threat.indicator.hash.sha512:
-  dashed_name: threat-indicator-hash-sha512
-  description: SHA512 hash.
-  flat_name: threat.indicator.hash.sha512
-  ignore_above: 1024
-  level: extended
-  name: sha512
-  normalize: []
-  original_fieldset: hash
-  short: SHA512 hash.
-  type: keyword
-threat.indicator.hash.ssdeep:
-  dashed_name: threat-indicator-hash-ssdeep
-  description: SSDEEP hash.
-  flat_name: threat.indicator.hash.ssdeep
-  ignore_above: 1024
-  level: extended
-  name: ssdeep
-  normalize: []
-  original_fieldset: hash
-  short: SSDEEP hash.
-  type: keyword
 threat.indicator.ip:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-ip
   description: Identifies a threat indicator as an IP address (irrespective of direction).
   example: 1.2.3.4
@@ -8559,7 +8279,6 @@ threat.indicator.ip:
   short: Indicator IP address
   type: ip
 threat.indicator.last_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-last-seen
   description: The date and time when intelligence source last reported sighting this
     indicator.
@@ -8571,7 +8290,6 @@ threat.indicator.last_seen:
   short: Date/time indicator was last reported.
   type: date
 threat.indicator.marking.tlp:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-marking-tlp
   description: "Traffic Light Protocol sharing markings.\nRecommended values are:\n\
     \  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
@@ -8584,7 +8302,6 @@ threat.indicator.marking.tlp:
   short: Indicator TLP marking
   type: keyword
 threat.indicator.modified_at:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-modified-at
   description: The date and time when intelligence source last modified information
     for this indicator.
@@ -8595,96 +8312,7 @@ threat.indicator.modified_at:
   normalize: []
   short: Date/time indicator was last updated.
   type: date
-threat.indicator.pe.architecture:
-  dashed_name: threat-indicator-pe-architecture
-  description: CPU architecture target for the file.
-  example: x64
-  flat_name: threat.indicator.pe.architecture
-  ignore_above: 1024
-  level: extended
-  name: architecture
-  normalize: []
-  original_fieldset: pe
-  short: CPU architecture target for the file.
-  type: keyword
-threat.indicator.pe.company:
-  dashed_name: threat-indicator-pe-company
-  description: Internal company name of the file, provided at compile-time.
-  example: Microsoft Corporation
-  flat_name: threat.indicator.pe.company
-  ignore_above: 1024
-  level: extended
-  name: company
-  normalize: []
-  original_fieldset: pe
-  short: Internal company name of the file, provided at compile-time.
-  type: keyword
-threat.indicator.pe.description:
-  dashed_name: threat-indicator-pe-description
-  description: Internal description of the file, provided at compile-time.
-  example: Paint
-  flat_name: threat.indicator.pe.description
-  ignore_above: 1024
-  level: extended
-  name: description
-  normalize: []
-  original_fieldset: pe
-  short: Internal description of the file, provided at compile-time.
-  type: keyword
-threat.indicator.pe.file_version:
-  dashed_name: threat-indicator-pe-file-version
-  description: Internal version of the file, provided at compile-time.
-  example: 6.3.9600.17415
-  flat_name: threat.indicator.pe.file_version
-  ignore_above: 1024
-  level: extended
-  name: file_version
-  normalize: []
-  original_fieldset: pe
-  short: Process name.
-  type: keyword
-threat.indicator.pe.imphash:
-  dashed_name: threat-indicator-pe-imphash
-  description: 'A hash of the imports in a PE file. An imphash -- or import hash --
-    can be used to fingerprint binaries even after recompilation or other code-level
-    transformations have occurred, which would change more traditional hash values.
-
-    Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
-  example: 0c6803c4e922103c4dca5963aad36ddf
-  flat_name: threat.indicator.pe.imphash
-  ignore_above: 1024
-  level: extended
-  name: imphash
-  normalize: []
-  original_fieldset: pe
-  short: A hash of the imports in a PE file.
-  type: keyword
-threat.indicator.pe.original_file_name:
-  dashed_name: threat-indicator-pe-original-file-name
-  description: Internal name of the file, provided at compile-time.
-  example: MSPAINT.EXE
-  flat_name: threat.indicator.pe.original_file_name
-  ignore_above: 1024
-  level: extended
-  name: original_file_name
-  normalize: []
-  original_fieldset: pe
-  short: Internal name of the file, provided at compile-time.
-  type: keyword
-threat.indicator.pe.product:
-  dashed_name: threat-indicator-pe-product
-  description: Internal product name of the file, provided at compile-time.
-  example: "Microsoft\xAE Windows\xAE Operating System"
-  flat_name: threat.indicator.pe.product
-  ignore_above: 1024
-  level: extended
-  name: product
-  normalize: []
-  original_fieldset: pe
-  short: Internal product name of the file, provided at compile-time.
-  type: keyword
 threat.indicator.port:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-port
   description: Identifies a threat indicator as a port number (irrespective of direction).
   example: 443
@@ -8695,7 +8323,6 @@ threat.indicator.port:
   short: Indicator port
   type: long
 threat.indicator.provider:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-provider
   description: The name of the indicator's provider.
   example: lrz_urlhaus
@@ -8707,7 +8334,6 @@ threat.indicator.provider:
   short: Indicator provider
   type: keyword
 threat.indicator.reference:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-reference
   description: Reference URL linking to additional information about this indicator.
   example: https://system.example.com/indicator/0001234
@@ -8745,14 +8371,13 @@ threat.indicator.registry.data.strings:
     the decimal representation (e.g `"1"`).'
   example: '["C:\rta\red_ttp\bin\myapp.exe"]'
   flat_name: threat.indicator.registry.data.strings
-  ignore_above: 1024
   level: core
   name: data.strings
   normalize:
   - array
   original_fieldset: registry
   short: List of strings representing what was written to the registry.
-  type: keyword
+  type: wildcard
 threat.indicator.registry.data.type:
   dashed_name: threat-indicator-registry-data-type
   description: Standard registry type for encoding contents
@@ -8815,7 +8440,6 @@ threat.indicator.registry.value:
   short: Name of the value written.
   type: keyword
 threat.indicator.scanner_stats:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-scanner-stats
   description: Count of AV/EDR vendors that successfully detected malicious file or
     URL.
@@ -8827,7 +8451,6 @@ threat.indicator.scanner_stats:
   short: Scanner statistics
   type: long
 threat.indicator.sightings:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-sightings
   description: Number of times this indicator was observed conducting threat activity.
   example: 20
@@ -8838,7 +8461,6 @@ threat.indicator.sightings:
   short: Number of times indicator observed
   type: long
 threat.indicator.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-indicator-type
   description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\n\
     Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  * domain-name\n\
@@ -8911,18 +8533,16 @@ threat.indicator.url.full:
     in `url.full`, whether this field is reconstructed or present in the event source.
   example: https://www.elastic.co:443/search?q=elasticsearch#top
   flat_name: threat.indicator.url.full
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: threat.indicator.url.full.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: full
   normalize: []
   original_fieldset: url
   short: Full unparsed URL.
-  type: keyword
+  type: wildcard
 threat.indicator.url.original:
   dashed_name: threat-indicator-url-original
   description: 'Unmodified original url as seen in the event source.
@@ -8933,18 +8553,16 @@ threat.indicator.url.original:
     This field is meant to represent the URL as it was observed, complete or not.'
   example: https://www.elastic.co:443/search?q=elasticsearch#top or /search?q=elasticsearch
   flat_name: threat.indicator.url.original
-  ignore_above: 1024
   level: extended
   multi_fields:
   - flat_name: threat.indicator.url.original.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: original
   normalize: []
   original_fieldset: url
   short: Unmodified original url as seen in the event source.
-  type: keyword
+  type: wildcard
 threat.indicator.url.password:
   dashed_name: threat-indicator-url-password
   description: Password of the request.
@@ -8960,13 +8578,12 @@ threat.indicator.url.path:
   dashed_name: threat-indicator-url-path
   description: Path of the request, such as "/search".
   flat_name: threat.indicator.url.path
-  ignore_above: 1024
   level: extended
   name: path
   normalize: []
   original_fieldset: url
   short: Path of the request, such as "/search".
-  type: keyword
+  type: wildcard
 threat.indicator.url.port:
   dashed_name: threat-indicator-url-port
   description: Port of the request, such as 443.
@@ -9383,10 +9000,9 @@ threat.indicator.x509.version_number:
   short: Version of x509 format.
   type: keyword
 threat.software.id:
-  beta: This field is beta and subject to change.
   dashed_name: threat-software-id
   description: "The id of the software used by this threat to conduct behavior commonly\
-    \ modeled using MITRE ATT&CK\xAE. While not required, you can use a MITRE ATT&CK\xAE\
+    \ modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use a MITRE ATT&CK\xAE\
     \ software id."
   example: S0552
   flat_name: threat.software.id
@@ -9397,10 +9013,9 @@ threat.software.id:
   short: ID of the software
   type: keyword
 threat.software.name:
-  beta: This field is beta and subject to change.
   dashed_name: threat-software-name
   description: "The name of the software used by this threat to conduct behavior commonly\
-    \ modeled using MITRE ATT&CK\xAE. While not required, you can use a MITRE ATT&CK\xAE\
+    \ modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use a MITRE ATT&CK\xAE\
     \ software name."
   example: AdFind
   flat_name: threat.software.name
@@ -9411,13 +9026,12 @@ threat.software.name:
   short: Name of the software.
   type: keyword
 threat.software.platforms:
-  beta: This field is beta and subject to change.
   dashed_name: threat-software-platforms
   description: "The platforms of the software used by this threat to conduct behavior\
-    \ commonly modeled using MITRE ATT&CK\xAE. While not required, you can use a MITRE\
-    \ ATT&CK\xAE software platforms.\nRecommended Values:\n  * AWS\n  * Azure\n  *\
-    \ Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office 365\n  * SaaS\n\
-    \  * Windows"
+    \ commonly modeled using MITRE ATT&CK\xAE.\nRecommended Values:\n  * AWS\n  *\
+    \ Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office\
+    \ 365\n  * SaaS\n  * Windows\n\nWhile not required, you can use a MITRE ATT&CK\xAE\
+    \ software platforms."
   example: '[ "Windows" ]'
   flat_name: threat.software.platforms
   ignore_above: 1024
@@ -9428,11 +9042,10 @@ threat.software.platforms:
   short: Platforms of the software.
   type: keyword
 threat.software.reference:
-  beta: This field is beta and subject to change.
   dashed_name: threat-software-reference
   description: "The reference URL of the software used by this threat to conduct behavior\
-    \ commonly modeled using MITRE ATT&CK\xAE. While not required, you can use a MITRE\
-    \ ATT&CK\xAE software reference URL."
+    \ commonly modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use a\
+    \ MITRE ATT&CK\xAE software reference URL."
   example: https://attack.mitre.org/software/S0552/
   flat_name: threat.software.reference
   ignore_above: 1024
@@ -9442,11 +9055,10 @@ threat.software.reference:
   short: Software reference URL.
   type: keyword
 threat.software.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-software-type
   description: "The type of software used by this threat to conduct behavior commonly\
-    \ modeled using MITRE ATT&CK\xAE. While not required, you can use a MITRE ATT&CK\xAE\
-    \ software type.\nRecommended values\n  * Malware\n  * Tool"
+    \ modeled using MITRE ATT&CK\xAE.\nRecommended values\n  * Malware\n  * Tool\n\
+    \n While not required, you can use a MITRE ATT&CK\xAE software type."
   example: Tool
   flat_name: threat.software.type
   ignore_above: 1024
@@ -9519,8 +9131,7 @@ threat.technique.name:
   multi_fields:
   - flat_name: threat.technique.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: technique.name
   normalize:
   - array
@@ -9563,8 +9174,7 @@ threat.technique.subtechnique.name:
   multi_fields:
   - flat_name: threat.technique.subtechnique.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: technique.subtechnique.name
   normalize:
   - array
@@ -9623,9 +9233,8 @@ user.Ext.real.name:
   type: keyword
 user.domain:
   dashed_name: user-domain
-  description: 'Name of the directory the user is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the user is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.domain
   ignore_above: 1024
   level: extended
@@ -9651,7 +9260,8 @@ user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - flat_name: user.full_name.text
+  - default_field: false
+    flat_name: user.full_name.text
     name: text
     norms: false
     type: text
@@ -9703,9 +9313,8 @@ user.group.Ext.real.name:
   type: keyword
 user.group.domain:
   dashed_name: user-group-domain
-  description: 'Name of the directory the group is a member of.
-
-    For example, an LDAP or Active Directory domain name.'
+  description: Name of the directory the group is a member of. For example, an LDAP
+    or Active Directory domain name.
   flat_name: user.group.domain
   ignore_above: 1024
   level: extended
@@ -9738,11 +9347,9 @@ user.group.name:
   type: keyword
 user.hash:
   dashed_name: user-hash
-  description: 'Unique user hash to correlate information for a user in anonymized
-    form.
-
-    Useful if `user.id` or `user.name` contain confidential information and cannot
-    be used.'
+  description: Unique user hash to correlate information for a user in anonymized
+    form. Useful if `user.id` or `user.name` contain confidential information and
+    cannot be used.
   flat_name: user.hash
   ignore_above: 1024
   level: extended
@@ -9753,9 +9360,10 @@ user.hash:
 user.id:
   dashed_name: user-id
   description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: core
+  level: extended
   name: id
   normalize: []
   short: Unique identifier of the user.
@@ -9766,9 +9374,10 @@ user.name:
   example: albert
   flat_name: user.name
   ignore_above: 1024
-  level: core
+  level: extended
   multi_fields:
-  - flat_name: user.name.text
+  - default_field: false
+    flat_name: user.name.text
     name: text
     norms: false
     type: text

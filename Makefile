@@ -1,7 +1,7 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-ECS_GIT_REF ?= v1.11.0
+ECS_GIT_REF ?= v8.1.0
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
@@ -96,7 +96,7 @@ out/%/generated/beats/fields.ecs.yml out/%/generated/elasticsearch/7/template.js
 		--out $(ROOT_DIR)/out/$* \
 		--include $(ROOT_DIR)/$(SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
-		--subset $(ROOT_DIR)/$(SUBSET_DIR)/$*/* 2>/dev/null
+		--subset $(ROOT_DIR)/$(SUBSET_DIR)/$*/*
 	# remove the first 8 lines
 	$(SED) -i out/$*/generated/beats/fields.ecs.yml -e '1,8d'
 	#unindent

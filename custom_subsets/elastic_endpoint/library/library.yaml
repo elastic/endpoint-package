@@ -105,7 +105,14 @@ fields:
       pid: {}
       name: {}
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       executable: {}
       thread:
         fields:
@@ -114,7 +121,12 @@ fields:
         fields:
           ancestry: {}
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
   file:
     fields:
       pe:
@@ -134,15 +146,34 @@ fields:
           sha256: {}
           sha512: {}
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       Ext:
         fields:
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
   dll:
     fields:
       code_signature:
-        fields: "*"
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
       hash:
         fields:
           md5: {}
@@ -162,6 +193,11 @@ fields:
       Ext:
         fields:
           code_signature:
-            fields: "*"
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
           load_index: {}
           defense_evasions: {}
