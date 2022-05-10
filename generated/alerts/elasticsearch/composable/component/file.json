@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "ecs_version": "8.1.0"
+    "ecs_version": "8.2.0"
   },
   "template": {
     "mappings": {

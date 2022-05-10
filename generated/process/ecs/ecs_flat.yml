@@ -337,8 +337,7 @@ event.category:
     - info
     - start
     name: driver
-  - beta: This event categorization value is beta and subject to change.
-    description: 'This category is used for events relating to email messages, email
+  - description: 'This category is used for events relating to email messages, email
       attachments, and email network or protocol activity.
 
       Emails events can be produced by email security gateways, mail transfer agents,
@@ -987,11 +986,13 @@ host.architecture:
   short: Operating system architecture.
   type: keyword
 host.boot.id:
+  beta: This field is beta and subject to change.
   dashed_name: host-boot-id
   description: Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the
     boot_id value from /proc may or may not be the same in containers as on the host.
     Some container runtimes will bind mount a new boot_id value onto the proc file
     in each container.
+  example: 88a1f0ed-5ae5-41ee-af6b-41921c311872
   flat_name: host.boot.id
   ignore_above: 1024
   level: extended
@@ -1196,9 +1197,11 @@ host.os.version:
   short: Operating system version as a raw string.
   type: keyword
 host.pid_ns_ino:
+  beta: This field is beta and subject to change.
   dashed_name: host-pid-ns-ino
   description: This is the inode number of the namespace in the namespace file system
     (nsfs). Unsigned int inum in include/linux/ns_common.h.
+  example: 256383
   flat_name: host.pid_ns_ino
   ignore_above: 1024
   level: extended
@@ -1774,6 +1777,7 @@ process.entry_leader.entry_meta.source.ip:
   short: IP address of the source.
   type: ip
 process.entry_leader.entry_meta.type:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-entry-meta-type
   description: 'The entry type for the entry session leader. Values include: init(e.g
     systemd), sshd, ssm, kubelet, teleport, terminal, console'
@@ -1830,18 +1834,20 @@ process.entry_leader.group.name:
   short: Name of the group.
   type: keyword
 process.entry_leader.interactive:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
-    Process interactivity is infered from the processes file descriptors. If the character
-    device for the controlling tty is the same as stdin and stderr for the process,
-    the process is considered interactive.
+    Process interactivity is inferred from the processes file descriptors. If the
+    character device for the controlling tty is the same as stdin and stderr for the
+    process, the process is considered interactive.
 
     Note: A non-interactive process can belong to an interactive session and is simply
     one that does not have open file descriptors reading the controlling TTY on FD
     0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process
     is still considered interactive if stdin and stderr are connected to the controlling
     TTY.'
+  example: true
   flat_name: process.entry_leader.interactive
   level: extended
   name: interactive
@@ -1999,7 +2005,7 @@ process.entry_leader.real_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.real_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2008,55 +2014,42 @@ process.entry_leader.real_user.id:
 process.entry_leader.real_user.name:
   dashed_name: process-entry-leader-real-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.entry_leader.real_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.entry_leader.real_user.name.text
+  - flat_name: process.entry_leader.real_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
   short: Short name or login of the user.
   type: keyword
 process.entry_leader.same_as_process:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
 
-    For example, if process.group_leader.same_as_process = true, it means the process
-    event in question is the leader of its process group. Details under process.*
-    like pid would be the same under process.group_leader.*
-
-    The same applies for both process.session_leader and process.entry_leader.
+    For example, if `process.group_leader.same_as_process = true`, it means the process
+    event in question is the leader of its process group. Details under `process.*`
+    like `pid` would be the same under `process.group_leader.*` The same applies for
+    both `process.session_leader` and `process.entry_leader`.
 
     This field exists to the benefit of EQL and other rule engines since it''s not
-    possible to compare equality between two fields in a single document.
+    possible to compare equality between two fields in a single document. e.g `process.entity_id`
+    = `process.group_leader.entity_id` (top level process is the process group leader)
+    OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is
+    the entry session leader)
 
-    e.g
+    Instead these rules could be written like: `process.group_leader.same_as_process:
+    true` OR `process.entry_leader.same_as_process: true`
 
-    process.entity_id = process.group_leader.entity_id (top level process is the process
-    group leader)
-
-    OR
-
-    process.entity_id = process.entry_leader.entity_id (top level process is the entry
-    session leader)
-
-    Instead these rules could be written like:
-
-    process.group_leader.same_as_process: true
-
-    OR
-
-    process.entry_leader.same_as_process: true
-
-    Note: This field is only set on process.entry_leader, process.session_leader and
-    process.group_leader.'
+    Note: This field is only set on `process.entry_leader`, `process.session_leader`
+    and `process.group_leader`.'
+  example: true
   flat_name: process.entry_leader.same_as_process
   level: extended
   name: same_as_process
@@ -2093,7 +2086,7 @@ process.entry_leader.saved_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.saved_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2102,16 +2095,14 @@ process.entry_leader.saved_user.id:
 process.entry_leader.saved_user.name:
   dashed_name: process-entry-leader-saved-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.entry_leader.saved_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.entry_leader.saved_user.name.text
+  - flat_name: process.entry_leader.saved_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -2151,6 +2142,7 @@ process.entry_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.entry_leader.tty:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -2162,11 +2154,13 @@ process.entry_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.entry_leader.tty.char_device.major:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
     to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
-    For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+    For more details, please refer to the Linux kernel documentation.
+  example: 1
   flat_name: process.entry_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -2175,11 +2169,13 @@ process.entry_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.entry_leader.tty.char_device.minor:
+  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
+  example: 128
   flat_name: process.entry_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -2193,7 +2189,7 @@ process.entry_leader.user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.entry_leader.user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2202,16 +2198,14 @@ process.entry_leader.user.id:
 process.entry_leader.user.name:
   dashed_name: process-entry-leader-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.entry_leader.user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.entry_leader.user.name.text
+  - flat_name: process.entry_leader.user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -2240,12 +2234,13 @@ process.entry_leader.working_directory:
   short: The working directory of the process.
   type: keyword
 process.env_vars:
+  beta: This field is beta and subject to change.
   dashed_name: process-env-vars
-  description: 'Environment variables set at the time of the event.
+  description: 'Environment variables (`env_vars`) set at the time of the event. May
+    be filtered to protect sensitive information.
 
-    May be filtered to protect sensitive information.'
-  example: "{\n  \"USER\": \"elastic\",\n  \"LANG\": \"en_US.UTF-8\",\n  \"HOME\"\
-    : \"/home/elastic\"\n}"
+    The field should not contain nested objects. All values should use `keyword`.'
+  example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
   flat_name: process.env_vars
   level: extended
   name: env_vars
@@ -2406,18 +2401,20 @@ process.group_leader.group.name:
   short: Name of the group.
   type: keyword
 process.group_leader.interactive:
+  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
-    Process interactivity is infered from the processes file descriptors. If the character
-    device for the controlling tty is the same as stdin and stderr for the process,
-    the process is considered interactive.
+    Process interactivity is inferred from the processes file descriptors. If the
+    character device for the controlling tty is the same as stdin and stderr for the
+    process, the process is considered interactive.
 
     Note: A non-interactive process can belong to an interactive session and is simply
     one that does not have open file descriptors reading the controlling TTY on FD
     0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process
     is still considered interactive if stdin and stderr are connected to the controlling
     TTY.'
+  example: true
   flat_name: process.group_leader.interactive
   level: extended
   name: interactive
@@ -2489,7 +2486,7 @@ process.group_leader.real_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.real_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2498,55 +2495,42 @@ process.group_leader.real_user.id:
 process.group_leader.real_user.name:
   dashed_name: process-group-leader-real-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.group_leader.real_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.group_leader.real_user.name.text
+  - flat_name: process.group_leader.real_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
   short: Short name or login of the user.
   type: keyword
 process.group_leader.same_as_process:
+  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
 
-    For example, if process.group_leader.same_as_process = true, it means the process
-    event in question is the leader of its process group. Details under process.*
-    like pid would be the same under process.group_leader.*
-
-    The same applies for both process.session_leader and process.entry_leader.
+    For example, if `process.group_leader.same_as_process = true`, it means the process
+    event in question is the leader of its process group. Details under `process.*`
+    like `pid` would be the same under `process.group_leader.*` The same applies for
+    both `process.session_leader` and `process.entry_leader`.
 
     This field exists to the benefit of EQL and other rule engines since it''s not
-    possible to compare equality between two fields in a single document.
+    possible to compare equality between two fields in a single document. e.g `process.entity_id`
+    = `process.group_leader.entity_id` (top level process is the process group leader)
+    OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is
+    the entry session leader)
 
-    e.g
+    Instead these rules could be written like: `process.group_leader.same_as_process:
+    true` OR `process.entry_leader.same_as_process: true`
 
-    process.entity_id = process.group_leader.entity_id (top level process is the process
-    group leader)
-
-    OR
-
-    process.entity_id = process.entry_leader.entity_id (top level process is the entry
-    session leader)
-
-    Instead these rules could be written like:
-
-    process.group_leader.same_as_process: true
-
-    OR
-
-    process.entry_leader.same_as_process: true
-
-    Note: This field is only set on process.entry_leader, process.session_leader and
-    process.group_leader.'
+    Note: This field is only set on `process.entry_leader`, `process.session_leader`
+    and `process.group_leader`.'
+  example: true
   flat_name: process.group_leader.same_as_process
   level: extended
   name: same_as_process
@@ -2583,7 +2567,7 @@ process.group_leader.saved_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.saved_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2592,16 +2576,14 @@ process.group_leader.saved_user.id:
 process.group_leader.saved_user.name:
   dashed_name: process-group-leader-saved-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.group_leader.saved_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.group_leader.saved_user.name.text
+  - flat_name: process.group_leader.saved_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -2641,6 +2623,7 @@ process.group_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.group_leader.tty:
+  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -2652,11 +2635,13 @@ process.group_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.group_leader.tty.char_device.major:
+  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
     to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
-    For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+    For more details, please refer to the Linux kernel documentation.
+  example: 1
   flat_name: process.group_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -2665,11 +2650,13 @@ process.group_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.group_leader.tty.char_device.minor:
+  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
+  example: 128
   flat_name: process.group_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -2683,7 +2670,7 @@ process.group_leader.user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.group_leader.user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -2692,16 +2679,14 @@ process.group_leader.user.id:
 process.group_leader.user.name:
   dashed_name: process-group-leader-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.group_leader.user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.group_leader.user.name.text
+  - flat_name: process.group_leader.user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -2774,18 +2759,20 @@ process.hash.sha512:
   short: SHA512 hash.
   type: keyword
 process.interactive:
+  beta: This field is beta and subject to change.
   dashed_name: process-interactive
   description: 'Whether the process is connected to an interactive shell.
 
-    Process interactivity is infered from the processes file descriptors. If the character
-    device for the controlling tty is the same as stdin and stderr for the process,
-    the process is considered interactive.
+    Process interactivity is inferred from the processes file descriptors. If the
+    character device for the controlling tty is the same as stdin and stderr for the
+    process, the process is considered interactive.
 
     Note: A non-interactive process can belong to an interactive session and is simply
     one that does not have open file descriptors reading the controlling TTY on FD
     0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process
     is still considered interactive if stdin and stderr are connected to the controlling
     TTY.'
+  example: true
   flat_name: process.interactive
   level: extended
   name: interactive
@@ -3281,18 +3268,20 @@ process.parent.hash.sha512:
   short: SHA512 hash.
   type: keyword
 process.parent.interactive:
+  beta: This field is beta and subject to change.
   dashed_name: process-parent-interactive
   description: 'Whether the process is connected to an interactive shell.
 
-    Process interactivity is infered from the processes file descriptors. If the character
-    device for the controlling tty is the same as stdin and stderr for the process,
-    the process is considered interactive.
+    Process interactivity is inferred from the processes file descriptors. If the
+    character device for the controlling tty is the same as stdin and stderr for the
+    process, the process is considered interactive.
 
     Note: A non-interactive process can belong to an interactive session and is simply
     one that does not have open file descriptors reading the controlling TTY on FD
     0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process
     is still considered interactive if stdin and stderr are connected to the controlling
     TTY.'
+  example: true
   flat_name: process.parent.interactive
   level: extended
   name: interactive
@@ -3402,14 +3391,17 @@ process.parent.pe.product:
   type: keyword
 process.parent.pgid:
   dashed_name: process-parent-pgid
-  description: Identifier of the group of processes the process belongs to.
+  description: 'Deprecated for removal in next major version release. This field is
+    superseded by `process.group_leader.pid`.
+
+    Identifier of the group of processes the process belongs to.'
   flat_name: process.parent.pgid
   format: string
   level: extended
   name: pgid
   normalize: []
   original_fieldset: process
-  short: Identifier of the group of processes the process belongs to.
+  short: Deprecated identifier of the group of processes the process belongs to.
   type: long
 process.parent.pid:
   dashed_name: process-parent-pid
@@ -3463,7 +3455,7 @@ process.parent.real_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.real_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -3472,16 +3464,14 @@ process.parent.real_user.id:
 process.parent.real_user.name:
   dashed_name: process-parent-real-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.parent.real_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.parent.real_user.name.text
+  - flat_name: process.parent.real_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -3515,7 +3505,7 @@ process.parent.saved_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.saved_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -3524,16 +3514,14 @@ process.parent.saved_user.id:
 process.parent.saved_user.name:
   dashed_name: process-parent-saved-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.parent.saved_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.parent.saved_user.name.text
+  - flat_name: process.parent.saved_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -3615,6 +3603,7 @@ process.parent.title:
   short: Process title.
   type: keyword
 process.parent.tty:
+  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -3626,11 +3615,13 @@ process.parent.tty:
   short: Information about the controlling TTY device.
   type: object
 process.parent.tty.char_device.major:
+  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
     to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
-    For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+    For more details, please refer to the Linux kernel documentation.
+  example: 1
   flat_name: process.parent.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -3639,11 +3630,13 @@ process.parent.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.parent.tty.char_device.minor:
+  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
+  example: 128
   flat_name: process.parent.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -3668,7 +3661,7 @@ process.parent.user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.parent.user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -3677,16 +3670,14 @@ process.parent.user.id:
 process.parent.user.name:
   dashed_name: process-parent-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.parent.user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.parent.user.name.text
+  - flat_name: process.parent.user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -3792,13 +3783,16 @@ process.pe.product:
   type: keyword
 process.pgid:
   dashed_name: process-pgid
-  description: Identifier of the group of processes the process belongs to.
+  description: 'Deprecated for removal in next major version release. This field is
+    superseded by `process.group_leader.pid`.
+
+    Identifier of the group of processes the process belongs to.'
   flat_name: process.pgid
   format: string
   level: extended
   name: pgid
   normalize: []
-  short: Identifier of the group of processes the process belongs to.
+  short: Deprecated identifier of the group of processes the process belongs to.
   type: long
 process.pid:
   dashed_name: process-pid
@@ -3903,7 +3897,7 @@ process.real_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.real_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -3912,16 +3906,14 @@ process.real_user.id:
 process.real_user.name:
   dashed_name: process-real-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.real_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.real_user.name.text
+  - flat_name: process.real_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -3955,7 +3947,7 @@ process.saved_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.saved_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -3964,16 +3956,14 @@ process.saved_user.id:
 process.saved_user.name:
   dashed_name: process-saved-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.saved_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.saved_user.name.text
+  - flat_name: process.saved_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -4099,18 +4089,20 @@ process.session_leader.group.name:
   short: Name of the group.
   type: keyword
 process.session_leader.interactive:
+  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
-    Process interactivity is infered from the processes file descriptors. If the character
-    device for the controlling tty is the same as stdin and stderr for the process,
-    the process is considered interactive.
+    Process interactivity is inferred from the processes file descriptors. If the
+    character device for the controlling tty is the same as stdin and stderr for the
+    process, the process is considered interactive.
 
     Note: A non-interactive process can belong to an interactive session and is simply
     one that does not have open file descriptors reading the controlling TTY on FD
     0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process
     is still considered interactive if stdin and stderr are connected to the controlling
     TTY.'
+  example: true
   flat_name: process.session_leader.interactive
   level: extended
   name: interactive
@@ -4268,7 +4260,7 @@ process.session_leader.real_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.real_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -4277,55 +4269,42 @@ process.session_leader.real_user.id:
 process.session_leader.real_user.name:
   dashed_name: process-session-leader-real-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.session_leader.real_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.session_leader.real_user.name.text
+  - flat_name: process.session_leader.real_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
   short: Short name or login of the user.
   type: keyword
 process.session_leader.same_as_process:
+  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
 
-    For example, if process.group_leader.same_as_process = true, it means the process
-    event in question is the leader of its process group. Details under process.*
-    like pid would be the same under process.group_leader.*
-
-    The same applies for both process.session_leader and process.entry_leader.
+    For example, if `process.group_leader.same_as_process = true`, it means the process
+    event in question is the leader of its process group. Details under `process.*`
+    like `pid` would be the same under `process.group_leader.*` The same applies for
+    both `process.session_leader` and `process.entry_leader`.
 
     This field exists to the benefit of EQL and other rule engines since it''s not
-    possible to compare equality between two fields in a single document.
+    possible to compare equality between two fields in a single document. e.g `process.entity_id`
+    = `process.group_leader.entity_id` (top level process is the process group leader)
+    OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is
+    the entry session leader)
 
-    e.g
+    Instead these rules could be written like: `process.group_leader.same_as_process:
+    true` OR `process.entry_leader.same_as_process: true`
 
-    process.entity_id = process.group_leader.entity_id (top level process is the process
-    group leader)
-
-    OR
-
-    process.entity_id = process.entry_leader.entity_id (top level process is the entry
-    session leader)
-
-    Instead these rules could be written like:
-
-    process.group_leader.same_as_process: true
-
-    OR
-
-    process.entry_leader.same_as_process: true
-
-    Note: This field is only set on process.entry_leader, process.session_leader and
-    process.group_leader.'
+    Note: This field is only set on `process.entry_leader`, `process.session_leader`
+    and `process.group_leader`.'
+  example: true
   flat_name: process.session_leader.same_as_process
   level: extended
   name: same_as_process
@@ -4362,7 +4341,7 @@ process.session_leader.saved_user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.saved_user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -4371,16 +4350,14 @@ process.session_leader.saved_user.id:
 process.session_leader.saved_user.name:
   dashed_name: process-session-leader-saved-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.session_leader.saved_user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.session_leader.saved_user.name.text
+  - flat_name: process.session_leader.saved_user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -4420,6 +4397,7 @@ process.session_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.session_leader.tty:
+  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -4431,11 +4409,13 @@ process.session_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.session_leader.tty.char_device.major:
+  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
     to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
-    For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+    For more details, please refer to the Linux kernel documentation.
+  example: 1
   flat_name: process.session_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -4444,11 +4424,13 @@ process.session_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.session_leader.tty.char_device.minor:
+  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
+  example: 128
   flat_name: process.session_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -4462,7 +4444,7 @@ process.session_leader.user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.session_leader.user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -4471,16 +4453,14 @@ process.session_leader.user.id:
 process.session_leader.user.name:
   dashed_name: process-session-leader-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.session_leader.user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.session_leader.user.name.text
+  - flat_name: process.session_leader.user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -4580,6 +4560,7 @@ process.title:
   short: Process title.
   type: keyword
 process.tty:
+  beta: This field is beta and subject to change.
   dashed_name: process-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -4590,11 +4571,13 @@ process.tty:
   short: Information about the controlling TTY device.
   type: object
 process.tty.char_device.major:
+  beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
     to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
-    For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+    For more details, please refer to the Linux kernel documentation.
+  example: 1
   flat_name: process.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -4602,11 +4585,13 @@ process.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.tty.char_device.minor:
+  beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
+  example: 128
   flat_name: process.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -4629,7 +4614,7 @@ process.user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: process.user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   original_fieldset: user
@@ -4638,16 +4623,14 @@ process.user.id:
 process.user.name:
   dashed_name: process-user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: process.user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: process.user.name.text
+  - flat_name: process.user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   original_fieldset: user
@@ -4854,8 +4837,9 @@ user.Ext.real.name:
   type: keyword
 user.domain:
   dashed_name: user-domain
-  description: Name of the directory the user is a member of. For example, an LDAP
-    or Active Directory domain name.
+  description: 'Name of the directory the user is a member of.
+
+    For example, an LDAP or Active Directory domain name.'
   flat_name: user.domain
   ignore_above: 1024
   level: extended
@@ -4881,11 +4865,9 @@ user.full_name:
   ignore_above: 1024
   level: extended
   multi_fields:
-  - default_field: false
-    flat_name: user.full_name.text
+  - flat_name: user.full_name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: full_name
   normalize: []
   short: User's full name, if available.
@@ -4968,9 +4950,11 @@ user.group.name:
   type: keyword
 user.hash:
   dashed_name: user-hash
-  description: Unique user hash to correlate information for a user in anonymized
-    form. Useful if `user.id` or `user.name` contain confidential information and
-    cannot be used.
+  description: 'Unique user hash to correlate information for a user in anonymized
+    form.
+
+    Useful if `user.id` or `user.name` contain confidential information and cannot
+    be used.'
   flat_name: user.hash
   ignore_above: 1024
   level: extended
@@ -4984,7 +4968,7 @@ user.id:
   example: S-1-5-21-202424912787-2692429404-2351956786-1000
   flat_name: user.id
   ignore_above: 1024
-  level: extended
+  level: core
   name: id
   normalize: []
   short: Unique identifier of the user.
@@ -4992,16 +4976,14 @@ user.id:
 user.name:
   dashed_name: user-name
   description: Short name or login of the user.
-  example: albert
+  example: a.einstein
   flat_name: user.name
   ignore_above: 1024
-  level: extended
+  level: core
   multi_fields:
-  - default_field: false
-    flat_name: user.name.text
+  - flat_name: user.name.text
     name: text
-    norms: false
-    type: text
+    type: match_only_text
   name: name
   normalize: []
   short: Short name or login of the user.

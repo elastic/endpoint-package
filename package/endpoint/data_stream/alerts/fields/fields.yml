@@ -2094,7 +2094,9 @@
       level: extended
       type: long
       format: string
-      description: Identifier of the group of processes the process belongs to.
+      description: 'Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`.
+
+        Identifier of the group of processes the process belongs to.'
       default_field: false
     - name: process.parent.pid
       level: core
@@ -2210,7 +2212,9 @@
       level: extended
       type: long
       format: string
-      description: Identifier of the group of processes the process belongs to.
+      description: 'Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`.
+
+        Identifier of the group of processes the process belongs to.'
       default_field: false
     - name: process.pid
       level: core
@@ -3870,6 +3874,7 @@
       type: keyword
       ignore_above: 1024
       description: Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the boot_id value from /proc may or may not be the same in containers as on the host. Some container runtimes will bind mount a new boot_id value onto the proc file in each container.
+      example: 88a1f0ed-5ae5-41ee-af6b-41921c311872
       default_field: false
     - name: domain
       level: extended
@@ -4062,6 +4067,7 @@
       type: keyword
       ignore_above: 1024
       description: This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h.
+      example: 256383
       default_field: false
     - name: type
       level: core
@@ -4101,7 +4107,9 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
+      description: 'Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
     - name: user.email
       level: extended
       type: keyword
@@ -4113,8 +4121,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: User's full name, if available.
       example: Albert Einstein
@@ -4159,24 +4166,25 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
+      description: 'Unique user hash to correlate information for a user in anonymized form.
+
+        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
     - name: user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
 - name: process
   title: Process
   group: 2
@@ -5043,9 +5051,10 @@
       type: boolean
       description: 'Whether the process is connected to an interactive shell.
 
-        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+        Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
+      example: true
       default_field: false
     - name: entry_leader.name
       level: extended
@@ -5132,52 +5141,35 @@
       description: Name of the group.
       default_field: false
     - name: entry_leader.real_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.real_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: entry_leader.same_as_process
       level: extended
       type: boolean
       description: 'This boolean is used to identify if a leader process is the same as the top level process.
 
-        For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.*
+        For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`.
 
-        The same applies for both process.session_leader and process.entry_leader.
+        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader)
 
-        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document.
+        Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true`
 
-        e.g
-
-        process.entity_id = process.group_leader.entity_id (top level process is the process group leader)
-
-        OR
-
-        process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader)
-
-        Instead these rules could be written like:
-
-        process.group_leader.same_as_process: true
-
-        OR
-
-        process.entry_leader.same_as_process: true
-
-        Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader.'
+        Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`.'
+      example: true
       default_field: false
     - name: entry_leader.saved_group.id
       level: extended
@@ -5192,23 +5184,21 @@
       description: Name of the group.
       default_field: false
     - name: entry_leader.saved_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.saved_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: entry_leader.start
       level: extended
@@ -5236,31 +5226,31 @@
     - name: entry_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
+      example: 1
       default_field: false
     - name: entry_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
+      example: 128
       default_field: false
     - name: entry_leader.user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: entry_leader.user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: entry_leader.working_directory
       level: extended
@@ -5280,10 +5270,10 @@
     - name: env_vars
       level: extended
       type: object
-      description: 'Environment variables set at the time of the event.
+      description: 'Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information.
 
-        May be filtered to protect sensitive information.'
-      example: "{\n  \"USER\": \"elastic\",\n  \"LANG\": \"en_US.UTF-8\",\n  \"HOME\": \"/home/elastic\"\n}"
+        The field should not contain nested objects. All values should use `keyword`.'
+      example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
       default_field: false
     - name: executable
       level: extended
@@ -5385,9 +5375,10 @@
       type: boolean
       description: 'Whether the process is connected to an interactive shell.
 
-        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+        Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
+      example: true
       default_field: false
     - name: group_leader.name
       level: extended
@@ -5426,52 +5417,35 @@
       description: Name of the group.
       default_field: false
     - name: group_leader.real_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.real_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: group_leader.same_as_process
       level: extended
       type: boolean
       description: 'This boolean is used to identify if a leader process is the same as the top level process.
 
-        For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.*
+        For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`.
 
-        The same applies for both process.session_leader and process.entry_leader.
+        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader)
 
-        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document.
+        Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true`
 
-        e.g
-
-        process.entity_id = process.group_leader.entity_id (top level process is the process group leader)
-
-        OR
-
-        process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader)
-
-        Instead these rules could be written like:
-
-        process.group_leader.same_as_process: true
-
-        OR
-
-        process.entry_leader.same_as_process: true
-
-        Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader.'
+        Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`.'
+      example: true
       default_field: false
     - name: group_leader.saved_group.id
       level: extended
@@ -5486,23 +5460,21 @@
       description: Name of the group.
       default_field: false
     - name: group_leader.saved_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.saved_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: group_leader.start
       level: extended
@@ -5530,31 +5502,31 @@
     - name: group_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
+      example: 1
       default_field: false
     - name: group_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
+      example: 128
       default_field: false
     - name: group_leader.user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: group_leader.user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: group_leader.working_directory
       level: extended
@@ -5596,9 +5568,10 @@
       type: boolean
       description: 'Whether the process is connected to an interactive shell.
 
-        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+        Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
+      example: true
       default_field: false
     - name: name
       level: extended
@@ -6167,9 +6140,10 @@
       type: boolean
       description: 'Whether the process is connected to an interactive shell.
 
-        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+        Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
+      example: true
       default_field: false
     - name: parent.name
       level: extended
@@ -6236,7 +6210,9 @@
       level: extended
       type: long
       format: string
-      description: Identifier of the group of processes the process belongs to.
+      description: 'Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`.
+
+        Identifier of the group of processes the process belongs to.'
       default_field: false
     - name: parent.pid
       level: core
@@ -6265,23 +6241,21 @@
       description: Name of the group.
       default_field: false
     - name: parent.real_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.real_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: parent.saved_group.id
       level: extended
@@ -6296,23 +6270,21 @@
       description: Name of the group.
       default_field: false
     - name: parent.saved_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.saved_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: parent.start
       level: extended
@@ -6365,12 +6337,14 @@
     - name: parent.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
+      example: 1
       default_field: false
     - name: parent.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
+      example: 128
       default_field: false
     - name: parent.uptime
       level: extended
@@ -6379,23 +6353,21 @@
       example: 1325
       default_field: false
     - name: parent.user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: parent.user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: parent.working_directory
       level: extended
@@ -6460,7 +6432,9 @@
       level: extended
       type: long
       format: string
-      description: Identifier of the group of processes the process belongs to.
+      description: 'Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`.
+
+        Identifier of the group of processes the process belongs to.'
     - name: pid
       level: core
       type: long
@@ -6518,23 +6492,21 @@
       description: Name of the group.
       default_field: false
     - name: real_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: real_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: saved_group.id
       level: extended
@@ -6549,23 +6521,21 @@
       description: Name of the group.
       default_field: false
     - name: saved_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: saved_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: session_leader.args
       level: extended
@@ -6643,9 +6613,10 @@
       type: boolean
       description: 'Whether the process is connected to an interactive shell.
 
-        Process interactivity is infered from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
+        Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive.
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
+      example: true
       default_field: false
     - name: session_leader.name
       level: extended
@@ -6732,52 +6703,35 @@
       description: Name of the group.
       default_field: false
     - name: session_leader.real_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.real_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: session_leader.same_as_process
       level: extended
       type: boolean
       description: 'This boolean is used to identify if a leader process is the same as the top level process.
 
-        For example, if process.group_leader.same_as_process = true, it means the process event in question is the leader of its process group. Details under process.* like pid would be the same under process.group_leader.*
+        For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`.
 
-        The same applies for both process.session_leader and process.entry_leader.
+        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader)
 
-        This field exists to the benefit of EQL and other rule engines since it''s not possible to compare equality between two fields in a single document.
+        Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true`
 
-        e.g
-
-        process.entity_id = process.group_leader.entity_id (top level process is the process group leader)
-
-        OR
-
-        process.entity_id = process.entry_leader.entity_id (top level process is the entry session leader)
-
-        Instead these rules could be written like:
-
-        process.group_leader.same_as_process: true
-
-        OR
-
-        process.entry_leader.same_as_process: true
-
-        Note: This field is only set on process.entry_leader, process.session_leader and process.group_leader.'
+        Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`.'
+      example: true
       default_field: false
     - name: session_leader.saved_group.id
       level: extended
@@ -6792,23 +6746,21 @@
       description: Name of the group.
       default_field: false
     - name: session_leader.saved_user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.saved_user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: session_leader.start
       level: extended
@@ -6836,31 +6788,31 @@
     - name: session_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
+      example: 1
       default_field: false
     - name: session_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
+      example: 128
       default_field: false
     - name: session_leader.user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: session_leader.user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: session_leader.working_directory
       level: extended
@@ -7215,12 +7167,14 @@
     - name: tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details see https://www.kernel.org/doc/html/v4.11/admin-guide/devices.html
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
+      example: 1
       default_field: false
     - name: tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
+      example: 128
       default_field: false
     - name: uptime
       level: extended
@@ -7228,23 +7182,21 @@
       description: Seconds the process has been up.
       example: 1325
     - name: user.id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
       default_field: false
     - name: user.name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
-          default_field: false
+          type: match_only_text
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
       default_field: false
     - name: working_directory
       level: extended
@@ -7375,7 +7327,9 @@
 - name: source
   title: Source
   group: 2
-  description: Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction. Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.
+  description: 'Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction.
+
+    Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
   default_field: true
   fields:
@@ -10192,7 +10146,9 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
+      description: 'Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
     - name: email
       level: extended
       type: keyword
@@ -10204,8 +10160,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: User's full name, if available.
       example: Albert Einstein
@@ -10250,21 +10205,22 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
+      description: 'Unique user hash to correlate information for a user in anonymized form.
+
+        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
     - name: id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein
