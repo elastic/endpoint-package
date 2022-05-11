@@ -683,7 +683,9 @@
 - name: source
   title: Source
   group: 2
-  description: Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction. Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.
+  description: 'Source fields capture details about the sender of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction.
+
+    Source fields are usually populated in conjunction with destination fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
   type: group
   default_field: true
   fields:
@@ -796,7 +798,9 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name.
+      description: 'Name of the directory the user is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
     - name: email
       level: extended
       type: keyword
@@ -808,8 +812,7 @@
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: User's full name, if available.
       example: Albert Einstein
@@ -854,21 +857,22 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used.
+      description: 'Unique user hash to correlate information for a user in anonymized form.
+
+        Useful if `user.id` or `user.name` contain confidential information and cannot be used.'
     - name: id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
       example: S-1-5-21-202424912787-2692429404-2351956786-1000
     - name: name
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       multi_fields:
         - name: text
-          type: text
-          norms: false
+          type: match_only_text
           default_field: false
       description: Short name or login of the user.
-      example: albert
+      example: a.einstein

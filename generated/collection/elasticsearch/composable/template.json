@@ -1,13 +1,13 @@
 {
   "_meta": {
     "description": "Sample composable template that includes all ECS fields",
-    "ecs_version": "8.1.0"
+    "ecs_version": "8.2.0"
   },
   "composed_of": [
-    "ecs_8.1.0_base",
-    "ecs_8.1.0_data_stream",
-    "ecs_8.1.0_ecs",
-    "ecs_8.1.0_event"
+    "ecs_8.2.0_base",
+    "ecs_8.2.0_data_stream",
+    "ecs_8.2.0_ecs",
+    "ecs_8.2.0_event"
   ],
   "index_patterns": [
     "try-ecs-*"

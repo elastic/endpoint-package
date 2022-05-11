@@ -4,7 +4,7 @@
   ],
   "mappings": {
     "_meta": {
-      "version": "8.1.0"
+      "version": "8.2.0"
     },
     "date_detection": false,
     "dynamic_templates": [
@@ -744,8 +744,7 @@
           "full_name": {
             "fields": {
               "text": {
-                "norms": false,
-                "type": "text"
+                "type": "match_only_text"
               }
             },
             "ignore_above": 1024,
@@ -796,8 +795,7 @@
           "name": {
             "fields": {
               "text": {
-                "norms": false,
-                "type": "text"
+                "type": "match_only_text"
               }
             },
             "ignore_above": 1024,

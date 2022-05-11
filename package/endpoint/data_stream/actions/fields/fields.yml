@@ -295,7 +295,7 @@
   default_field: true
   fields:
     - name: id
-      level: extended
+      level: core
       type: keyword
       ignore_above: 1024
       description: Unique identifier of the user.
