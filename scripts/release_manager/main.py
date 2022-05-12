@@ -109,7 +109,8 @@ def create_pr(env, version, package_dir, package_storage_path):
     os.makedirs(endpoint_path, exist_ok=True)
 
     click.echo('Copying package to: {}'.format(package_ver_path))
-    shutil.copytree(os.path.join(package_dir, 'endpoint') + os.path.sep, package_ver_path)
+    ignored_patterns = shutil.ignore_patterns('_dev*')
+    shutil.copytree(os.path.join(package_dir, 'endpoint') + os.path.sep, package_ver_path, ignore=ignored_patterns)
     repo.git.add(package_ver_path)
     repo.git.commit(m='Adding endpoint package version {}'.format(version))
     repo.git.push(branch_name, u='origin')
