@@ -1,9 +1,9 @@
 format_version: 1.1.0
 name: endpoint
-title: Endpoint Security
-description: Protect your hosts with threat prevention, detection, and deep security data visibility.
+title: Endpoint and Cloud Security
+description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
 version: 8.3.0-dev.1
-categories: ["security"]
+categories: ["security", "cloud"]
 # Options are experimental, beta, ga
 release: ga
 # The package type. The options for now are [integration, solution], more type might be added in the future.
