@@ -1,6 +1,6 @@
-# Endpoint Security Integration
+# Endpoint and Cloud Security Integration
 
-This integration sets up templates and index patterns required for Endpoint Security.
+This integration sets up templates and index patterns required for Endpoint and Cloud Security.
 
 ## Compatibility
 
