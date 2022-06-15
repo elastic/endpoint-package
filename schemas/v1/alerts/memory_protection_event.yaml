@@ -5182,6 +5182,26 @@ host.os.name:
   original_fieldset: os
   short: Operating system name, without the version.
   type: keyword
+host.os.type:
+  dashed_name: host-os-type
+  description: 'Use the `os.type` field to categorize the operating system into
+    one of the broad commercial families.
+
+    One of these following values should be used (lowercase): linux, macos, unix,
+    windows.
+
+    If the OS you''re dealing with is not in the list, the field should not be
+    populated. Please let us know by opening an issue with ECS, to propose its
+    addition.'
+  example: macos
+  flat_name: host.os.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  original_fieldset: os
+  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  type: keyword
 host.os.platform:
   dashed_name: host-os-platform
   description: Operating system platform (such centos, ubuntu, windows).
