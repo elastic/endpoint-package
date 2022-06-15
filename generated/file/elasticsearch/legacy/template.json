@@ -22,6 +22,25 @@
       "@timestamp": {
         "type": "date"
       },
+      "Effective_process": {
+        "properties": {
+          "entity_id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "executable": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "pid": {
+            "type": "long"
+          }
+        }
+      },
       "agent": {
         "properties": {
           "id": {
