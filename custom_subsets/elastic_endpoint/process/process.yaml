@@ -38,6 +38,7 @@ fields:
           platform: {}
           version: {}
           name: {}
+          type: {}
           Ext:
             fields:
               variant: {}
@@ -116,6 +117,10 @@ fields:
       entity_id: {}
       executable: {}
       exit_code: {}
+      group:
+        fields:
+          id: {}
+          name: {}
       hash:
         fields:
           md5: {}

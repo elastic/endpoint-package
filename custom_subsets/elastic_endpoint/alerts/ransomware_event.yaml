@@ -366,6 +366,7 @@ fields:
           name: {}
           platform: {}
           version: {}
+          type: {}
           Ext:
             fields:
               variant: {}

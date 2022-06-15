@@ -1127,26 +1127,6 @@ host.os.name:
   original_fieldset: os
   short: Operating system name, without the version.
   type: keyword
-host.os.type:
-  dashed_name: host-os-type
-  description: 'Use the `os.type` field to categorize the operating system into
-    one of the broad commercial families.
-
-    One of these following values should be used (lowercase): linux, macos, unix,
-    windows.
-
-    If the OS you''re dealing with is not in the list, the field should not be
-    populated. Please let us know by opening an issue with ECS, to propose its
-    addition.'
-  example: macos
-  flat_name: host.os.type
-  ignore_above: 1024
-  level: extended
-  name: type
-  normalize: []
-  original_fieldset: os
-  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
-  type: keyword
 host.os.platform:
   dashed_name: host-os-platform
   description: Operating system platform (such centos, ubuntu, windows).
@@ -1158,6 +1138,25 @@ host.os.platform:
   normalize: []
   original_fieldset: os
   short: Operating system platform (such centos, ubuntu, windows).
+  type: keyword
+host.os.type:
+  dashed_name: host-os-type
+  description: 'Use the `os.type` field to categorize the operating system into one
+    of the broad commercial families.
+
+    One of these following values should be used (lowercase): linux, macos, unix,
+    windows.
+
+    If the OS you''re dealing with is not in the list, the field should not be populated.
+    Please let us know by opening an issue with ECS, to propose its addition.'
+  example: macos
+  flat_name: host.os.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  original_fieldset: os
+  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version
@@ -1687,6 +1686,28 @@ process.exit_code:
   normalize: []
   short: The exit code of the process.
   type: long
+process.group.id:
+  dashed_name: process-group-id
+  description: Unique identifier for the group on the system/platform.
+  flat_name: process.group.id
+  ignore_above: 1024
+  level: extended
+  name: id
+  normalize: []
+  original_fieldset: group
+  short: Unique identifier for the group on the system/platform.
+  type: keyword
+process.group.name:
+  dashed_name: process-group-name
+  description: Name of the group.
+  flat_name: process.group.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
 process.hash.md5:
   dashed_name: process-hash-md5
   description: MD5 hash.
