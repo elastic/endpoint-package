@@ -9071,6 +9071,72 @@ threat.enrichments.indicator.file.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+threat.enrichments.indicator.file.Ext.device.bus_type:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-bus-type
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.dos_name:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-dos-name
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.nt_name:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-nt-name
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.product_id:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-product-id
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.serial_number:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-serial-number
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.vendor_id:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-vendor-id
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
 threat.enrichments.indicator.file.Ext.entropy:
   dashed_name: threat-enrichments-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
@@ -11529,6 +11595,72 @@ threat.indicator.file.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+threat.indicator.file.Ext.device.bus_type:
+  dashed_name: threat-indicator-file-Ext-device-bus-type
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.indicator.file.Ext.device.dos_name:
+  dashed_name: threat-indicator-file-Ext-device-dos-name
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.indicator.file.Ext.device.nt_name:
+  dashed_name: threat-indicator-file-Ext-device-nt-name
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.indicator.file.Ext.device.product_id:
+  dashed_name: threat-indicator-file-Ext-device-product-id
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.indicator.file.Ext.device.serial_number:
+  dashed_name: threat-indicator-file-Ext-device-serial-number
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
+threat.indicator.file.Ext.device.vendor_id:
+  dashed_name: threat-indicator-file-Ext-device-vendor-id
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
 threat.indicator.file.Ext.entropy:
   dashed_name: threat-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file

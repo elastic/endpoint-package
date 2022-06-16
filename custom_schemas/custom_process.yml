@@ -361,6 +361,49 @@
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
 
+    - name: Ext.device.bus_type
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+    - name: Ext.device.dos_name
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+    - name: Ext.device.nt_name
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+    - name: Ext.device.product_id
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+    - name: Ext.device.serial_number
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+    - name: Ext.device.vendor_id
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
+
     - name: code_signature.exists
       level: core
       type: boolean

@@ -1345,6 +1345,66 @@ process.Ext.defense_evasions:
   normalize: []
   short: List of defense evasions found in this process.
   type: keyword
+process.Ext.device.bus_type:
+  dashed_name: process-Ext-device-bus-type
+  description: FILL ME IN
+  flat_name: process.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  short: FILL ME IN
+  type: keyword
+process.Ext.device.dos_name:
+  dashed_name: process-Ext-device-dos-name
+  description: FILL ME IN
+  flat_name: process.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  short: FILL ME IN
+  type: keyword
+process.Ext.device.nt_name:
+  dashed_name: process-Ext-device-nt-name
+  description: FILL ME IN
+  flat_name: process.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  short: FILL ME IN
+  type: keyword
+process.Ext.device.product_id:
+  dashed_name: process-Ext-device-product-id
+  description: FILL ME IN
+  flat_name: process.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  short: FILL ME IN
+  type: keyword
+process.Ext.device.serial_number:
+  dashed_name: process-Ext-device-serial-number
+  description: FILL ME IN
+  flat_name: process.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  short: FILL ME IN
+  type: keyword
+process.Ext.device.vendor_id:
+  dashed_name: process-Ext-device-vendor-id
+  description: FILL ME IN
+  flat_name: process.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  short: FILL ME IN
+  type: keyword
 process.Ext.dll.Ext:
   dashed_name: process-Ext-dll-Ext
   description: Object for all custom defined fields to live in.
