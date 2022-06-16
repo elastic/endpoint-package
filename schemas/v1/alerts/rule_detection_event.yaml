@@ -74,6 +74,16 @@ Responses.action.state:
   normalize: []
   short: Index of event in events array to use for field lookup
   type: long
+Responses.action.tree:
+  dashed_name: Responses-action-tree
+  description: Indicates whether or not an action was taken against an entire process
+    tree
+  flat_name: Responses.action.tree
+  level: custom
+  name: action.tree
+  normalize: []
+  short: Indicates whether or not an action was taken against an entire process tree
+  type: boolean
 Responses.message:
   dashed_name: Responses-message
   description: Result message
@@ -131,16 +141,6 @@ Responses.result:
   normalize: []
   short: Response action result code
   type: long
-Responses.tree:
-  dashed_name: Responses-tree
-  description: Indicates whether or not an action was taken against an entire process
-    tree
-  flat_name: Responses.tree
-  level: custom
-  name: tree
-  normalize: []
-  short: Indicates whether or not an action was taken against an entire process tree
-  type: boolean
 destination.geo.city_name:
   dashed_name: destination-geo-city-name
   description: City name.

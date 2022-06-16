@@ -403,6 +403,19 @@
       description: >
         FILL ME IN
 
+    - name: Ext.trusted
+      level: custom
+      type: boolean
+      short: Whether or not the process is a trusted application
+      description: >
+        Whether or not the process is a trusted application
+
+    - name: Ext.trusted_descendant
+      level: custom
+      type: boolean
+      short: Whether or not the process is a descendent of a trusted application
+      description: >
+        Whether or not the process is a descendent of a trusted application
 
     - name: code_signature.exists
       level: core

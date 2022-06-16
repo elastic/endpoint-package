@@ -36,6 +36,11 @@
       type: long
       description: Index of event in events array to use for field lookup
 
+    - name: action.tree
+      level: custom
+      type: boolean
+      description: Indicates whether or not an action was taken against an entire process tree
+
     - name: message
       level: custom
       type: text
@@ -65,8 +70,3 @@
       level: custom
       type: long
       description: Response action result code
-
-    - name: tree
-      level: custom
-      type: boolean
-      description: Indicates whether or not an action was taken against an entire process tree
