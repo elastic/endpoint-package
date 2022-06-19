@@ -41,6 +41,26 @@
       type: boolean
       description: Indicates whether or not an action was taken against an entire process tree
 
+    - name: action.file.path
+      level: custom
+      type: keyword
+      description: Destination file path
+
+    - name: action.file.attributes
+      level: custom
+      type: keyword
+      description: Destination file attributes
+
+    - name: action.source.path
+      level: custom
+      type: keyword
+      description: Source file path
+
+    - name: action.source.attributes
+      level: custom
+      type: keyword
+      description: Source file attributes
+
     - name: message
       level: custom
       type: text

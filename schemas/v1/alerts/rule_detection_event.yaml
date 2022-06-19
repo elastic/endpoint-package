@@ -65,6 +65,46 @@ Responses.action.field:
   norms: false
   short: Field in the triggering event to use as input for action
   type: text
+Responses.action.file.attributes:
+  dashed_name: Responses-action-file-attributes
+  description: Destination file attributes
+  flat_name: Responses.action.file.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.file.attributes
+  normalize: []
+  short: Destination file attributes
+  type: keyword
+Responses.action.file.path:
+  dashed_name: Responses-action-file-path
+  description: Destination file path
+  flat_name: Responses.action.file.path
+  ignore_above: 1024
+  level: custom
+  name: action.file.path
+  normalize: []
+  short: Destination file path
+  type: keyword
+Responses.action.source.attributes:
+  dashed_name: Responses-action-source-attributes
+  description: Source file attributes
+  flat_name: Responses.action.source.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.source.attributes
+  normalize: []
+  short: Source file attributes
+  type: keyword
+Responses.action.source.path:
+  dashed_name: Responses-action-source-path
+  description: Source file path
+  flat_name: Responses.action.source.path
+  ignore_above: 1024
+  level: custom
+  name: action.source.path
+  normalize: []
+  short: Source file path
+  type: keyword
 Responses.action.state:
   dashed_name: Responses-action-state
   description: Index of event in events array to use for field lookup
