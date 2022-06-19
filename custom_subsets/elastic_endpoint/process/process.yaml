@@ -151,6 +151,8 @@ fields:
           ancestry: {}
           architecture: {}
           authentication_id: {}
+          trusted: {}
+          trusted_descendant: {}
           code_signature:
             fields:
               exists: {}
