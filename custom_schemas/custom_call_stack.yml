@@ -12,11 +12,17 @@
     expected:
       - process.thread.Ext
   fields:
+    - name: module_name
+      level: custom
+      type: keyword
+      description: >
+        The name of the DLL/module containing `instruction_pointer`.
+
     - name: module_path
       level: custom
       type: keyword
       description: >
-        The DLL/module containing `instruction_pointer`.
+        The path to the DLL/module containing `instruction_pointer`.
 
     - name: instruction_pointer
       level: custom

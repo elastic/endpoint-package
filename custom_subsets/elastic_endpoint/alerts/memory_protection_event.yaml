@@ -443,6 +443,7 @@ fields:
                 enabled: false
                 fields:
                   module_path: {}
+                  module_name: {}
                   instruction_pointer: {}
                   memory_section:
                     fields:

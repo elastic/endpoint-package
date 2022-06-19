@@ -3002,16 +3002,27 @@ Target.process.thread.Ext.call_stack.memory_section.size:
   short: Size of the memory region containing `instruction_pointer`.  Corresponds
     to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
+Target.process.thread.Ext.call_stack.module_name:
+  dashed_name: Target-process-thread-Ext-call-stack-module-name
+  description: The name of the DLL/module containing `instruction_pointer`.
+  flat_name: Target.process.thread.Ext.call_stack.module_name
+  ignore_above: 1024
+  level: custom
+  name: module_name
+  normalize: []
+  original_fieldset: call_stack
+  short: The name of the DLL/module containing `instruction_pointer`.
+  type: keyword
 Target.process.thread.Ext.call_stack.module_path:
   dashed_name: Target-process-thread-Ext-call-stack-module-path
-  description: The DLL/module containing `instruction_pointer`.
+  description: The path to the DLL/module containing `instruction_pointer`.
   flat_name: Target.process.thread.Ext.call_stack.module_path
   ignore_above: 1024
   level: custom
   name: module_path
   normalize: []
   original_fieldset: call_stack
-  short: The DLL/module containing `instruction_pointer`.
+  short: The path to the DLL/module containing `instruction_pointer`.
   type: keyword
 Target.process.thread.Ext.call_stack.rva:
   dashed_name: Target-process-thread-Ext-call-stack-rva
@@ -8224,16 +8235,27 @@ process.thread.Ext.call_stack.memory_section.size:
   short: Size of the memory region containing `instruction_pointer`.  Corresponds
     to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
+process.thread.Ext.call_stack.module_name:
+  dashed_name: process-thread-Ext-call-stack-module-name
+  description: The name of the DLL/module containing `instruction_pointer`.
+  flat_name: process.thread.Ext.call_stack.module_name
+  ignore_above: 1024
+  level: custom
+  name: module_name
+  normalize: []
+  original_fieldset: call_stack
+  short: The name of the DLL/module containing `instruction_pointer`.
+  type: keyword
 process.thread.Ext.call_stack.module_path:
   dashed_name: process-thread-Ext-call-stack-module-path
-  description: The DLL/module containing `instruction_pointer`.
+  description: The path to the DLL/module containing `instruction_pointer`.
   flat_name: process.thread.Ext.call_stack.module_path
   ignore_above: 1024
   level: custom
   name: module_path
   normalize: []
   original_fieldset: call_stack
-  short: The DLL/module containing `instruction_pointer`.
+  short: The path to the DLL/module containing `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.rva:
   dashed_name: process-thread-Ext-call-stack-rva
