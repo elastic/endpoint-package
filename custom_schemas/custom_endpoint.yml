@@ -754,7 +754,12 @@
     - name: metrics.system_impact.library_load_events.week_ms
       level: custom
       type: long
-      description: The total milliseconds spent on library events for the process over the last week
+      description: The total milliseconds spent on library load events for the process over the last week
+
+    - name: metrics.system_impact.library_load_events.week_idle_ms
+      level: custom
+      type: long
+      description: The total milliseconds spent queueing library load events for the process over the last week
 
     - name: metrics.system_impact.malware.week_ms
       level: custom

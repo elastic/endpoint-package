@@ -2953,6 +2953,31 @@ Target.process.thread.Ext.call_stack.memory_section.address:
   original_fieldset: call_stack
   short: Base address of the memory region containing `instruction_pointer`.
   type: keyword
+Target.process.thread.Ext.call_stack.memory_section.memory_address:
+  dashed_name: Target-process-thread-Ext-call-stack-memory-section-memory-address
+  description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.BaseAddress`
+  flat_name: Target.process.thread.Ext.call_stack.memory_section.memory_address
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_address
+  normalize: []
+  original_fieldset: call_stack
+  short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+Target.process.thread.Ext.call_stack.memory_section.memory_size:
+  dashed_name: Target-process-thread-Ext-call-stack-memory-section-memory-size
+  description: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  flat_name: Target.process.thread.Ext.call_stack.memory_section.memory_size
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  original_fieldset: call_stack
+  short: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  type: keyword
 Target.process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: Target-process-thread-Ext-call-stack-memory-section-protection
   description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
@@ -8149,6 +8174,31 @@ process.thread.Ext.call_stack.memory_section.address:
   normalize: []
   original_fieldset: call_stack
   short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack.memory_section.memory_address:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-address
+  description: Base address of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.BaseAddress`
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_address
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_address
+  normalize: []
+  original_fieldset: call_stack
+  short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack.memory_section.memory_size:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-size
+  description: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_size
+  ignore_above: 1024
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  original_fieldset: call_stack
+  short: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
 process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: process-thread-Ext-call-stack-memory-section-protection

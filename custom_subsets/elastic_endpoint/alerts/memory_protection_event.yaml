@@ -446,7 +446,9 @@ fields:
                   instruction_pointer: {}
                   memory_section:
                     fields:
+                      memory_address: {}
                       address: {}
+                      memory_size: {}
                       size: {}
                       protection: {}
                   symbol_info: {}

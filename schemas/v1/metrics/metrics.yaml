@@ -702,16 +702,27 @@ Endpoint.metrics.system_impact.file_events.week_ms:
   short: The total milliseconds spent on file events for the process over the last
     week
   type: long
+Endpoint.metrics.system_impact.library_load_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-library-load-events-week-idle-ms
+  description: The total milliseconds spent queueing library load events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.library_load_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.library_load_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing library load events for the process
+    over the last week
+  type: long
 Endpoint.metrics.system_impact.library_load_events.week_ms:
   dashed_name: Endpoint-metrics-system-impact-library-load-events-week-ms
-  description: The total milliseconds spent on library events for the process over
-    the last week
+  description: The total milliseconds spent on library load events for the process
+    over the last week
   flat_name: Endpoint.metrics.system_impact.library_load_events.week_ms
   level: custom
   name: metrics.system_impact.library_load_events.week_ms
   normalize: []
-  short: The total milliseconds spent on library events for the process over the last
-    week
+  short: The total milliseconds spent on library load events for the process over
+    the last week
   type: long
 Endpoint.metrics.system_impact.malware.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-malware-week-idle-ms

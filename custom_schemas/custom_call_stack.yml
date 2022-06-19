@@ -24,12 +24,25 @@
       description: >
         The return address of this stack frame.
 
+    - name: memory_section.memory_address
+      level: custom
+      type: keyword
+      description: >
+        Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      short: Base address of the memory region containing `instruction_pointer`.
+
     - name: memory_section.address
       level: custom
       type: keyword
       description: >
         Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
       short: Base address of the memory region containing `instruction_pointer`.
+
+    - name: memory_section.memory_size
+      level: custom
+      type: keyword
+      description: >
+        Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
 
     - name: memory_section.size
       level: custom
