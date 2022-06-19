@@ -826,6 +826,56 @@
       type: keyword
       description: Path to the process executable for the impact entry
 
+    - name: metrics.system_impact.process.code_signature
+      level: custom
+      type: nested
+      description: Code signature of the process
+
+    - name: metrics.system_impact.process.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: metrics.system_impact.process.code_signature.subject_name
+      level: custom
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: metrics.system_impact.process.code_signature.valid
+      level: custom
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: metrics.system_impact.process.code_signature.trusted
+      level: custom
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+    - name: metrics.system_impact.process.code_signature.status
+      level: custom
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+
+      example: ERROR_UNTRUSTED_ROOT
+
     - name: metrics.threads
       level: custom
       # using an object here even though it is actually an array because you can only have a limited number

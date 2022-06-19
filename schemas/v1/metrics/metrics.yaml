@@ -788,6 +788,78 @@ Endpoint.metrics.system_impact.overall.week_ms:
   normalize: []
   short: The total milliseconds spent monitoring the process over the last week
   type: long
+Endpoint.metrics.system_impact.process.code_signature:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature
+  description: Code signature of the process
+  flat_name: Endpoint.metrics.system_impact.process.code_signature
+  level: custom
+  name: metrics.system_impact.process.code_signature
+  normalize: []
+  short: Code signature of the process
+  type: nested
+Endpoint.metrics.system_impact.process.code_signature.exists:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.exists
+  level: custom
+  name: metrics.system_impact.process.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+Endpoint.metrics.system_impact.process.code_signature.status:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: metrics.system_impact.process.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.subject_name:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: metrics.system_impact.process.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.trusted:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.trusted
+  level: custom
+  name: metrics.system_impact.process.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+Endpoint.metrics.system_impact.process.code_signature.valid:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.valid
+  level: custom
+  name: metrics.system_impact.process.code_signature.valid
+  normalize: []
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
 Endpoint.metrics.system_impact.process.executable:
   dashed_name: Endpoint-metrics-system-impact-process-executable
   description: Path to the process executable for the impact entry
