@@ -1382,6 +1382,53 @@ process.Ext.dll.path:
   original_fieldset: dll
   short: Full file path of the library.
   type: keyword
+process.Ext.effective_parent.entity_id:
+  dashed_name: process-Ext-effective-parent-entity-id
+  description: Unique identifier for the effective process.
+  example: c2c455d9f99375d
+  flat_name: process.Ext.effective_parent.entity_id
+  ignore_above: 1024
+  level: custom
+  name: entity_id
+  normalize: []
+  original_fieldset: Effective_process
+  short: Unique identifier for the effective process.
+  type: keyword
+process.Ext.effective_parent.executable:
+  dashed_name: process-Ext-effective-parent-executable
+  description: Executable name for the effective process.
+  example: C:\Windows\System32\wbem\WMIC.exe
+  flat_name: process.Ext.effective_parent.executable
+  ignore_above: 1024
+  level: custom
+  name: executable
+  normalize: []
+  original_fieldset: Effective_process
+  short: Executable name for the effective process.
+  type: keyword
+process.Ext.effective_parent.name:
+  dashed_name: process-Ext-effective-parent-name
+  description: Process name for the effective process.
+  example: WMIC.exe
+  flat_name: process.Ext.effective_parent.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  original_fieldset: Effective_process
+  short: Process name for the effective process.
+  type: keyword
+process.Ext.effective_parent.pid:
+  dashed_name: process-Ext-effective-parent-pid
+  description: Process ID.
+  example: 4242
+  flat_name: process.Ext.effective_parent.pid
+  level: custom
+  name: pid
+  normalize: []
+  original_fieldset: Effective_process
+  short: Process ID.
+  type: long
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax

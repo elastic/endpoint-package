@@ -1,0 +1,56 @@
+---
+- name: Effective_process
+  title: Effective_process
+  group: 2
+  short: These fields contain information about an effective process.
+  description: >
+    These fields contain information about an effective process.
+
+    The effective process is the process that requested the a specific action, without directly performing it.
+
+    Processes can have effective parents that differ from their regular parents.
+    For example, on Windows, "wmic process call create notepad" will ask WmiPrvSE.exe to launch notepad.exe.
+    WmiPrvSE will be notepad's parent, but the wmic will be the effective parent.
+    
+    Events can have effective processes that differ from their regular processes.
+    For example, on Windows, "reg add \\localhost\HKLM\Software\Foo /v Data /t REG_SZ /d 123" 
+    will result in a registry event from the Remote Registry service (svchost.exe).
+    In this case, the effective process will be reg.exe.
+  reusable:
+    top_level: true
+    expected:
+      - { at: process.Ext, as: effective_parent }
+  type: group
+
+  fields:
+    - name: pid
+      level: custom
+      type: long
+      short: Process ID.
+      description: >
+        Process ID.
+      example: 4242
+
+    - name: entity_id
+      level: custom
+      type: keyword
+      short: Unique identifier for the effective process.
+      description: >
+        Unique identifier for the effective process.
+      example: c2c455d9f99375d
+
+    - name: name
+      level: custom
+      type: keyword
+      short: Process name for the effective process.
+      description: >
+        Process name for the effective process.
+      example: WMIC.exe
+
+    - name: executable
+      level: custom
+      type: keyword
+      short: Executable name for the effective process.
+      description: >
+        Executable name for the effective process.
+      example: C:\Windows\System32\wbem\WMIC.exe

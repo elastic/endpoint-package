@@ -17,6 +17,49 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Effective_process.entity_id:
+  dashed_name: Effective-process-entity-id
+  description: Unique identifier for the effective process.
+  example: c2c455d9f99375d
+  flat_name: Effective_process.entity_id
+  ignore_above: 1024
+  level: custom
+  name: entity_id
+  normalize: []
+  short: Unique identifier for the effective process.
+  type: keyword
+Effective_process.executable:
+  dashed_name: Effective-process-executable
+  description: Executable name for the effective process.
+  example: C:\Windows\System32\wbem\WMIC.exe
+  flat_name: Effective_process.executable
+  ignore_above: 1024
+  level: custom
+  name: executable
+  normalize: []
+  short: Executable name for the effective process.
+  type: keyword
+Effective_process.name:
+  dashed_name: Effective-process-name
+  description: Process name for the effective process.
+  example: WMIC.exe
+  flat_name: Effective_process.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  short: Process name for the effective process.
+  type: keyword
+Effective_process.pid:
+  dashed_name: Effective-process-pid
+  description: Process ID.
+  example: 4242
+  flat_name: Effective_process.pid
+  level: custom
+  name: pid
+  normalize: []
+  short: Process ID.
+  type: long
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
