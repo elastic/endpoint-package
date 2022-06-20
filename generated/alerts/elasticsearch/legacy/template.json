@@ -1753,6 +1753,66 @@
           }
         }
       },
+      "cloud": {
+        "properties": {
+          "account": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "instance": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "project": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "provider": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "region": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "container": {
+        "properties": {
+          "id": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "image": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "tag": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "name": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
       "data_stream": {
         "properties": {
           "dataset": {
@@ -2790,6 +2850,30 @@
       },
       "message": {
         "type": "match_only_text"
+      },
+      "orchestrator": {
+        "properties": {
+          "cluster": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          },
+          "resource": {
+            "properties": {
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
+          }
+        }
       },
       "process": {
         "properties": {
