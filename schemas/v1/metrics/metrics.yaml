@@ -807,6 +807,20 @@ Endpoint.metrics.system_impact.process.code_signature.exists:
   normalize: []
   short: Boolean to capture if a signature is present.
   type: boolean
+Endpoint.metrics.system_impact.process.code_signature.signing_id:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-signing-id
+  description: '''The identifier used to sign the binary.
+
+    This is used to identify the application manufactured by a software vendor. The
+    field is relevant to Apple *OS only.'''
+  example: com.apple.xpc.proxy
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.signing_id
+  ignore_above: 1024
+  level: extended
+  name: metrics.system_impact.process.code_signature.signing_id
+  normalize: []
+  short: The identifier used to sign the binary.
+  type: keyword
 Endpoint.metrics.system_impact.process.code_signature.status:
   dashed_name: Endpoint-metrics-system-impact-process-code-signature-status
   description: 'Additional information about the certificate status.
@@ -832,6 +846,20 @@ Endpoint.metrics.system_impact.process.code_signature.subject_name:
   name: metrics.system_impact.process.code_signature.subject_name
   normalize: []
   short: Subject name of the code signer
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.team_id:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-team-id
+  description: '''The team identifier used to sign the binary.
+
+    This is used to identify the team or vendor of a software product. The field is
+    relevant to Apple *OS only.'''
+  example: EQHXZ8M8AV
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.team_id
+  ignore_above: 1024
+  level: extended
+  name: metrics.system_impact.process.code_signature.team_id
+  normalize: []
+  short: The team identifier used to sign the binary.
   type: keyword
 Endpoint.metrics.system_impact.process.code_signature.trusted:
   dashed_name: Endpoint-metrics-system-impact-process-code-signature-trusted

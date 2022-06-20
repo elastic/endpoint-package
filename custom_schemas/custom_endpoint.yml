@@ -876,6 +876,28 @@
 
       example: ERROR_UNTRUSTED_ROOT
 
+    - name: metrics.system_impact.process.code_signature.signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+
+    - name: metrics.system_impact.process.code_signature.team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
+
     - name: metrics.threads
       level: custom
       # using an object here even though it is actually an array because you can only have a limited number
