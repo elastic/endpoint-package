@@ -997,12 +997,12 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | threat.enrichments.indicator.file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| threat.enrichments.indicator.file.Ext.device.bus_type | FILL ME IN | keyword |
-| threat.enrichments.indicator.file.Ext.device.dos_name | FILL ME IN | keyword |
-| threat.enrichments.indicator.file.Ext.device.nt_name | FILL ME IN | keyword |
-| threat.enrichments.indicator.file.Ext.device.product_id | FILL ME IN | keyword |
-| threat.enrichments.indicator.file.Ext.device.serial_number | FILL ME IN | keyword |
-| threat.enrichments.indicator.file.Ext.device.vendor_id | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
+| threat.enrichments.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.enrichments.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
+| threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
+| threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
+| threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1200,12 +1200,12 @@ sent by the endpoint.
 | threat.indicator.file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | threat.indicator.file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| threat.indicator.file.Ext.device.bus_type | FILL ME IN | keyword |
-| threat.indicator.file.Ext.device.dos_name | FILL ME IN | keyword |
-| threat.indicator.file.Ext.device.nt_name | FILL ME IN | keyword |
-| threat.indicator.file.Ext.device.product_id | FILL ME IN | keyword |
-| threat.indicator.file.Ext.device.serial_number | FILL ME IN | keyword |
-| threat.indicator.file.Ext.device.vendor_id | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
+| threat.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
+| threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
+| threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
+| threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1462,12 +1462,12 @@ sent by the endpoint.
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
-| file.Ext.device.bus_type | FILL ME IN | keyword |
-| file.Ext.device.dos_name | FILL ME IN | keyword |
-| file.Ext.device.nt_name | FILL ME IN | keyword |
-| file.Ext.device.product_id | FILL ME IN | keyword |
-| file.Ext.device.serial_number | FILL ME IN | keyword |
-| file.Ext.device.vendor_id | FILL ME IN | keyword |
+| file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
+| file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
+| file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
+| file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
+| file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
@@ -1636,12 +1636,12 @@ sent by the endpoint.
 | dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
-| dll.Ext.device.bus_type | FILL ME IN | keyword |
-| dll.Ext.device.dos_name | FILL ME IN | keyword |
-| dll.Ext.device.nt_name | FILL ME IN | keyword |
-| dll.Ext.device.product_id | FILL ME IN | keyword |
-| dll.Ext.device.serial_number | FILL ME IN | keyword |
-| dll.Ext.device.vendor_id | FILL ME IN | keyword |
+| dll.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
+| dll.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| dll.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
+| dll.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
+| dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
+| dll.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | dll.Ext.load_index | A DLL can be loaded into a process multiple times. This field indicates the Nth time that this DLL has been loaded. The first load index is 1. | unsigned_long |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
@@ -2024,12 +2024,12 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
-| process.Ext.device.bus_type | FILL ME IN | keyword |
-| process.Ext.device.dos_name | FILL ME IN | keyword |
-| process.Ext.device.nt_name | FILL ME IN | keyword |
-| process.Ext.device.product_id | FILL ME IN | keyword |
-| process.Ext.device.serial_number | FILL ME IN | keyword |
-| process.Ext.device.vendor_id | FILL ME IN | keyword |
+| process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
+| process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
+| process.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
+| process.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
+| process.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |

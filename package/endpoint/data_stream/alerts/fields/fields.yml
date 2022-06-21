@@ -7556,37 +7556,37 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
       default_field: false
     - name: enrichments.indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
     - name: enrichments.indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
       default_field: false
     - name: enrichments.indicator.file.Ext.device.product_id
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: ProductID of the device. It is provided by the vendor of the device if any.
       default_field: false
     - name: enrichments.indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: Serial Number of the device. It is provided by the vendor of the device if any.
       default_field: false
     - name: enrichments.indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -8937,37 +8937,37 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
       default_field: false
     - name: indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
     - name: indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
       default_field: false
     - name: indicator.file.Ext.device.product_id
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: ProductID of the device. It is provided by the vendor of the device if any.
       default_field: false
     - name: indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: Serial Number of the device. It is provided by the vendor of the device if any.
       default_field: false
     - name: indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
       ignore_above: 1024
-      description: FILL ME IN
+      description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom
