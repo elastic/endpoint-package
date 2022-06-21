@@ -169,6 +169,12 @@ fields:
                 fields:
                   mapped_address: {}
                   mapped_size: {}
+          effective_parent:
+            fields:
+              pid: {}
+              name: {}
+              executable: {}
+              entity_id: {}
           protection: {}
           session: {}
           token:

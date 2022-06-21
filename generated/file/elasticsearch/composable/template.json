@@ -15,6 +15,7 @@
     "ecs_8.2.0_group",
     "ecs_8.2.0_user",
     "ecs_8.2.0_process",
+    "ecs_8.2.0_effective_process",
     "ecs_8.2.0_file"
   ],
   "index_patterns": [

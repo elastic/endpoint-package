@@ -70,6 +70,25 @@
                     }
                   }
                 },
+                "effective_parent": {
+                  "properties": {
+                    "entity_id": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "executable": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "name": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    },
+                    "pid": {
+                      "type": "long"
+                    }
+                  }
+                },
                 "protection": {
                   "ignore_above": 1024,
                   "type": "keyword"

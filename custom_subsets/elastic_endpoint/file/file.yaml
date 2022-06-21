@@ -133,6 +133,12 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
   file:
     fields:
       accessed: {}
