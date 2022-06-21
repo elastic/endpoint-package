@@ -71,6 +71,79 @@
       ignore_above: 1024
       description: Version of the agent.
       example: 6.0.0-rc2
+- name: cloud
+  title: Cloud
+  group: 2
+  description: Fields related to the cloud or infrastructure the events are coming from.
+  footnote: 'Examples: If Metricbeat is running on an EC2 host and fetches data from its host, the cloud info contains the data about this machine. If Metricbeat runs on a remote machine outside the cloud and fetches data from a service running in the cloud, the field contains cloud data from the machine the service is running on.
+
+    The cloud fields may be self-nested under cloud.origin.* and cloud.target.* to describe origin or target service''s cloud information in the context of incoming or outgoing requests, respectively. However, the fieldsets cloud.origin.* and cloud.target.* must not be confused with the root cloud fieldset that is used to describe the cloud context of the actual service under observation. The fieldset cloud.origin.* may only be used in the context of incoming requests or events to provide the originating service''s cloud information. The fieldset cloud.target.* may only be used in the context of outgoing requests or events to describe the target service''s cloud information.'
+  type: group
+  default_field: true
+  fields:
+    - name: account.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The cloud account or organization id used to identify different entities in a multi-tenant environment.
+
+        Examples: AWS account id, Google Cloud ORG Id, or other unique identifier.'
+      example: 666777888999
+    - name: instance.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Instance name of the host machine.
+    - name: project.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The cloud project identifier.
+
+        Examples: Google Cloud Project id, Azure Project id.'
+      example: my-project
+      default_field: false
+    - name: provider
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the cloud provider. Example values are aws, azure, gcp, or digitalocean.
+      example: aws
+    - name: region
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Region in which this host, resource, or service is located.
+      example: us-east-1
+- name: container
+  title: Container
+  group: 2
+  description: 'Container fields are used for meta information about the specific container that is the source of information.
+
+    These fields help correlate data based containers from any runtime.'
+  type: group
+  default_field: true
+  fields:
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique container id.
+    - name: image.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the image the container was built on.
+    - name: image.tag
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Container image tags.
+    - name: name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Container name.
 - name: data_stream
   title: data_stream
   group: 2
@@ -536,6 +609,40 @@
       type: long
       description: Seconds the host has been up.
       example: 1325
+- name: orchestrator
+  title: Orchestrator
+  group: 2
+  description: Fields that describe the resources which container orchestrators manage or act upon.
+  type: group
+  default_field: true
+  fields:
+    - name: cluster.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the cluster.
+      default_field: false
+    - name: namespace
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Namespace in which the action is taking place.
+      example: kube-system
+      default_field: false
+    - name: resource.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the resource being acted upon.
+      example: test-pod-cdcws
+      default_field: false
+    - name: resource.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Type of resource being acted upon.
+      example: service
+      default_field: false
 - name: package
   title: Package
   group: 2

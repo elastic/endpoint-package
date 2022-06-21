@@ -7,6 +7,37 @@
         "type": "endpoint",
         "version": "8.3.0-SNAPSHOT"
     },
+    "container": {
+        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "image": {
+            "name": "docker.io/library/nginx",
+            "tag": "latest"
+        },
+        "name": "nginx"
+    },
+    "cloud": {
+        "account": {
+            "id": "1234"
+        },
+        "instance": {
+            "name": "webserver-12"
+        },
+        "project": {
+            "id": "1234"
+        },
+        "provider": "aws",
+        "region": "us-east-1"
+    },
+    "orchestrator": {
+        "cluster": {
+            "name": "webservers"
+        },
+        "namespace": "webapp",
+        "resource": {
+            "name": "webservers",
+            "type": "kubernetes"
+        }
+    },
     "process": {
         "Ext": {
             "ancestry": [
