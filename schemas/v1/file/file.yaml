@@ -929,63 +929,66 @@ file.Ext:
   type: object
 file.Ext.device.bus_type:
   dashed_name: file-Ext-device-bus-type
-  description: FILL ME IN
+  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
   flat_name: file.Ext.device.bus_type
   ignore_above: 1024
   level: custom
   name: Ext.device.bus_type
   normalize: []
-  short: FILL ME IN
+  short: Bus type of the device.
   type: keyword
 file.Ext.device.dos_name:
   dashed_name: file-Ext-device-dos-name
-  description: FILL ME IN
+  description: DOS name of the device. DOS device name is in the format of driver
+    letters such as C:, D:,...
   flat_name: file.Ext.device.dos_name
   ignore_above: 1024
   level: custom
   name: Ext.device.dos_name
   normalize: []
-  short: FILL ME IN
+  short: DOS name of the device.
   type: keyword
 file.Ext.device.nt_name:
   dashed_name: file-Ext-device-nt-name
-  description: FILL ME IN
+  description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
   flat_name: file.Ext.device.nt_name
   ignore_above: 1024
   level: custom
   name: Ext.device.nt_name
   normalize: []
-  short: FILL ME IN
+  short: NT name of the device.
   type: keyword
 file.Ext.device.product_id:
   dashed_name: file-Ext-device-product-id
-  description: FILL ME IN
+  description: ProductID of the device. It is provided by the vendor of the device
+    if any.
   flat_name: file.Ext.device.product_id
   ignore_above: 1024
   level: custom
   name: Ext.device.product_id
   normalize: []
-  short: FILL ME IN
+  short: ProductID of the device.
   type: keyword
 file.Ext.device.serial_number:
   dashed_name: file-Ext-device-serial-number
-  description: FILL ME IN
+  description: Serial Number of the device. It is provided by the vendor of the device
+    if any.
   flat_name: file.Ext.device.serial_number
   ignore_above: 1024
   level: custom
   name: Ext.device.serial_number
   normalize: []
-  short: FILL ME IN
+  short: Serial Number of the device.
   type: keyword
 file.Ext.device.vendor_id:
   dashed_name: file-Ext-device-vendor-id
-  description: FILL ME IN
+  description: VendorID of the device. It is provided by the vendor of the device.
   flat_name: file.Ext.device.vendor_id
   ignore_above: 1024
   level: custom
   name: Ext.device.vendor_id
   normalize: []
-  short: FILL ME IN
+  short: VendorID of the device.
   type: keyword
 file.Ext.entropy:
   dashed_name: file-Ext-entropy
