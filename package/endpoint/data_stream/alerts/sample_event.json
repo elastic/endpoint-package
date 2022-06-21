@@ -29,9 +29,10 @@
         "region": "us-east-1"
     },
     "orchestrator": {
-      "cluster": {
-        "name": "webservers",
-        "type": "kubernetes"
+        "cluster": {
+            "name": "webservers",
+            "type": "kubernetes"
+        }
     },
     "process": {
         "Ext": {
