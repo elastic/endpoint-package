@@ -112,44 +112,47 @@
     - name: Ext.device.bus_type
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: Bus type of the device.
       description: >
-        FILL ME IN
+        Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
 
     - name: Ext.device.dos_name
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: DOS name of the device.
       description: >
-        FILL ME IN
+        DOS name of the device.
+        DOS device name is in the format of driver letters such as C:, D:,...
 
     - name: Ext.device.nt_name
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: NT name of the device.
       description: >
-        FILL ME IN
+        NT name of the device.
+        NT device name is in the format such as:
+        \Device\HarddiskVolume2
 
     - name: Ext.device.product_id
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: ProductID of the device.
       description: >
-        FILL ME IN
+        ProductID of the device. It is provided by the vendor of the device if any.
 
     - name: Ext.device.serial_number
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: Serial Number of the device.
       description: >
-        FILL ME IN
+        Serial Number of the device. It is provided by the vendor of the device if any.
 
     - name: Ext.device.vendor_id
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: VendorID of the device.
       description: >
-        FILL ME IN
+        VendorID of the device. It is provided by the vendor of the device.
 
     - name: code_signature.exists
       level: core
