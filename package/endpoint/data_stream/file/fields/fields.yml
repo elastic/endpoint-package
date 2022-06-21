@@ -391,6 +391,42 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: Ext.device.bus_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
+    - name: Ext.device.dos_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
+    - name: Ext.device.nt_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
+    - name: Ext.device.product_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
+    - name: Ext.device.serial_number
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
+    - name: Ext.device.vendor_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
     - name: Ext.entropy
       level: custom
       type: double
@@ -919,6 +955,17 @@
       ignore_above: 1024
       description: Operating system platform (such centos, ubuntu, windows).
       example: darwin
+    - name: os.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
+
+        One of these following values should be used (lowercase): linux, macos, unix, windows.
+
+        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+      example: macos
+      default_field: false
     - name: os.version
       level: extended
       type: keyword

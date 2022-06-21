@@ -512,6 +512,53 @@ Endpoint.metrics.documents_volume.security_events.suppressed_count:
   normalize: []
   short: Number of suppressed documents
   type: long
+Endpoint.metrics.event_filter.active_global_count:
+  dashed_name: Endpoint-metrics-event-filter-active-global-count
+  description: The number of active global event filters
+  flat_name: Endpoint.metrics.event_filter.active_global_count
+  level: custom
+  name: metrics.event_filter.active_global_count
+  normalize: []
+  short: The number of active global event filters
+  type: long
+Endpoint.metrics.event_filter.active_user_count:
+  dashed_name: Endpoint-metrics-event-filter-active-user-count
+  description: The number of active user event filters
+  flat_name: Endpoint.metrics.event_filter.active_user_count
+  level: custom
+  name: metrics.event_filter.active_user_count
+  normalize: []
+  short: The number of active user event filters
+  type: long
+Endpoint.metrics.malicious_behavior_rules:
+  dashed_name: Endpoint-metrics-malicious-behavior-rules
+  description: An array of performance information about each malicious behavior rule
+  enabled: false
+  flat_name: Endpoint.metrics.malicious_behavior_rules
+  level: custom
+  name: metrics.malicious_behavior_rules
+  normalize: []
+  short: An array of performance information about each malicious behavior rule
+  type: object
+Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent:
+  dashed_name: Endpoint-metrics-malicious-behavior-rules-endpoint-uptime-percent
+  description: Perfect of Endpoint's update spent running the rule
+  flat_name: Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent
+  level: custom
+  name: metrics.malicious_behavior_rules.endpoint_uptime_percent
+  normalize: []
+  short: Perfect of Endpoint's update spent running the rule
+  type: half_float
+Endpoint.metrics.malicious_behavior_rules.id:
+  dashed_name: Endpoint-metrics-malicious-behavior-rules-id
+  description: The rule id
+  flat_name: Endpoint.metrics.malicious_behavior_rules.id
+  ignore_above: 1024
+  level: custom
+  name: metrics.malicious_behavior_rules.id
+  normalize: []
+  short: The rule id
+  type: keyword
 Endpoint.metrics.memory:
   dashed_name: Endpoint-metrics-memory
   description: Memory statistics
@@ -567,16 +614,363 @@ Endpoint.metrics.system_impact:
   normalize: []
   short: An array of system impact information
   type: object
+Endpoint.metrics.system_impact.authentication_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-authentication-events-week-idle-ms
+  description: The total milliseconds spent queueing authentication events for the
+    process over the last week
+  flat_name: Endpoint.metrics.system_impact.authentication_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.authentication_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing authentication events for the process
+    over the last week
+  type: long
+Endpoint.metrics.system_impact.authentication_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-authentication-events-week-ms
+  description: The total milliseconds spent on authentication events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.authentication_events.week_ms
+  level: custom
+  name: metrics.system_impact.authentication_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on authentication events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.dns_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-dns-events-week-idle-ms
+  description: The total milliseconds spent queueing DNS events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.dns_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.dns_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing DNS events for the process over the
+    last week
+  type: long
+Endpoint.metrics.system_impact.dns_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-dns-events-week-ms
+  description: The total milliseconds spent on DNS events for the process over the
+    last week
+  flat_name: Endpoint.metrics.system_impact.dns_events.week_ms
+  level: custom
+  name: metrics.system_impact.dns_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on DNS events for the process over the last
+    week
+  type: long
+Endpoint.metrics.system_impact.etw_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-etw-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW-based events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.etw_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.etw_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW-based events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.etw_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-etw-events-week-ms
+  description: The total milliseconds spent on ETW-based events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.etw_events.week_ms
+  level: custom
+  name: metrics.system_impact.etw_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW-based events for the process over the
+    last week
+  type: long
+Endpoint.metrics.system_impact.file_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-file-events-week-idle-ms
+  description: The total milliseconds spent queueing file events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.file_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.file_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing file events for the process over the
+    last week
+  type: long
+Endpoint.metrics.system_impact.file_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-file-events-week-ms
+  description: The total milliseconds spent on file events for the process over the
+    last week
+  flat_name: Endpoint.metrics.system_impact.file_events.week_ms
+  level: custom
+  name: metrics.system_impact.file_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on file events for the process over the last
+    week
+  type: long
+Endpoint.metrics.system_impact.library_load_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-library-load-events-week-idle-ms
+  description: The total milliseconds spent queueing library load events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.library_load_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.library_load_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing library load events for the process
+    over the last week
+  type: long
+Endpoint.metrics.system_impact.library_load_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-library-load-events-week-ms
+  description: The total milliseconds spent on library load events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.library_load_events.week_ms
+  level: custom
+  name: metrics.system_impact.library_load_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on library load events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.malware.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-malware-week-idle-ms
+  description: The total milliseconds spent queueing malware scanning due to the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.malware.week_idle_ms
+  level: custom
+  name: metrics.system_impact.malware.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing malware scanning due to the process
+    over the last week
+  type: long
+Endpoint.metrics.system_impact.malware.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-malware-week-ms
+  description: The total milliseconds spent on malware scanning due to the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.malware.week_ms
+  level: custom
+  name: metrics.system_impact.malware.week_ms
+  normalize: []
+  short: The total milliseconds spent on malware scanning due to the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.network_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-network-events-week-idle-ms
+  description: The total milliseconds spent queueing network events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.network_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.network_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing network events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.network_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-network-events-week-ms
+  description: The total milliseconds spent on network events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.network_events.week_ms
+  level: custom
+  name: metrics.system_impact.network_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on network events for the process over the last
+    week
+  type: long
+Endpoint.metrics.system_impact.overall.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-overall-week-idle-ms
+  description: The total milliseconds spent queueing activity for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.overall.week_idle_ms
+  level: custom
+  name: metrics.system_impact.overall.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing activity for the process over the last
+    week
+  type: long
+Endpoint.metrics.system_impact.overall.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-overall-week-ms
+  description: The total milliseconds spent monitoring the process over the last week
+  flat_name: Endpoint.metrics.system_impact.overall.week_ms
+  level: custom
+  name: metrics.system_impact.overall.week_ms
+  normalize: []
+  short: The total milliseconds spent monitoring the process over the last week
+  type: long
+Endpoint.metrics.system_impact.process.code_signature:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature
+  description: Code signature of the process
+  flat_name: Endpoint.metrics.system_impact.process.code_signature
+  level: custom
+  name: metrics.system_impact.process.code_signature
+  normalize: []
+  short: Code signature of the process
+  type: nested
+Endpoint.metrics.system_impact.process.code_signature.exists:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.exists
+  level: custom
+  name: metrics.system_impact.process.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+Endpoint.metrics.system_impact.process.code_signature.signing_id:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-signing-id
+  description: '''The identifier used to sign the binary.
+
+    This is used to identify the application manufactured by a software vendor. The
+    field is relevant to Apple *OS only.'''
+  example: com.apple.xpc.proxy
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.signing_id
+  ignore_above: 1024
+  level: extended
+  name: metrics.system_impact.process.code_signature.signing_id
+  normalize: []
+  short: The identifier used to sign the binary.
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.status:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: metrics.system_impact.process.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.subject_name:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: metrics.system_impact.process.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.team_id:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-team-id
+  description: '''The team identifier used to sign the binary.
+
+    This is used to identify the team or vendor of a software product. The field is
+    relevant to Apple *OS only.'''
+  example: EQHXZ8M8AV
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.team_id
+  ignore_above: 1024
+  level: extended
+  name: metrics.system_impact.process.code_signature.team_id
+  normalize: []
+  short: The team identifier used to sign the binary.
+  type: keyword
+Endpoint.metrics.system_impact.process.code_signature.trusted:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.trusted
+  level: custom
+  name: metrics.system_impact.process.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+Endpoint.metrics.system_impact.process.code_signature.valid:
+  dashed_name: Endpoint-metrics-system-impact-process-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: Endpoint.metrics.system_impact.process.code_signature.valid
+  level: custom
+  name: metrics.system_impact.process.code_signature.valid
+  normalize: []
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+Endpoint.metrics.system_impact.process.executable:
+  dashed_name: Endpoint-metrics-system-impact-process-executable
+  description: Path to the process executable for the impact entry
+  flat_name: Endpoint.metrics.system_impact.process.executable
+  ignore_above: 1024
+  level: custom
+  name: metrics.system_impact.process.executable
+  normalize: []
+  short: Path to the process executable for the impact entry
+  type: keyword
+Endpoint.metrics.system_impact.process_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-process-events-week-idle-ms
+  description: The total milliseconds spent queueing process events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.process_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.process_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing process events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.process_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-process-events-week-ms
+  description: The total milliseconds spent on process events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.process_events.week_ms
+  level: custom
+  name: metrics.system_impact.process_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on process events for the process over the last
+    week
+  type: long
+Endpoint.metrics.system_impact.registry_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-registry-events-week-idle-ms
+  description: The total milliseconds spent queueing registry events for the process
+    over the last week
+  flat_name: Endpoint.metrics.system_impact.registry_events.week_idle_ms
+  level: custom
+  name: metrics.system_impact.registry_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing registry events for the process over
+    the last week
+  type: long
+Endpoint.metrics.system_impact.registry_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-registry-events-week-ms
+  description: The total milliseconds spent on registry events for the process over
+    the last week
+  flat_name: Endpoint.metrics.system_impact.registry_events.week_ms
+  level: custom
+  name: metrics.system_impact.registry_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on registry events for the process over the
+    last week
+  type: long
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
-  description: Statistics about the individual threads of the system (array)
+  description: Statistics about the individual Endpoint threads (array)
   enabled: false
   flat_name: Endpoint.metrics.threads
   level: custom
   name: metrics.threads
   normalize: []
-  short: Statistics about the individual threads of the system (array)
+  short: Statistics about the individual Endpoint threads (array)
   type: object
+Endpoint.metrics.threads.cpu.mean:
+  dashed_name: Endpoint-metrics-threads-cpu-mean
+  description: The thread's average CPU use
+  flat_name: Endpoint.metrics.threads.cpu.mean
+  level: custom
+  name: metrics.threads.cpu.mean
+  normalize: []
+  short: The thread's average CPU use
+  type: half_float
+Endpoint.metrics.threads.name:
+  dashed_name: Endpoint-metrics-threads-name
+  description: The thread name
+  flat_name: Endpoint.metrics.threads.name
+  ignore_above: 1024
+  level: custom
+  name: metrics.threads.name
+  normalize: []
+  short: The thread name
+  type: keyword
 Endpoint.metrics.uptime:
   dashed_name: Endpoint-metrics-uptime
   description: Number of seconds since boot
@@ -1538,6 +1932,25 @@ host.os.platform:
   normalize: []
   original_fieldset: os
   short: Operating system platform (such centos, ubuntu, windows).
+  type: keyword
+host.os.type:
+  dashed_name: host-os-type
+  description: 'Use the `os.type` field to categorize the operating system into one
+    of the broad commercial families.
+
+    One of these following values should be used (lowercase): linux, macos, unix,
+    windows.
+
+    If the OS you''re dealing with is not in the list, the field should not be populated.
+    Please let us know by opening an issue with ECS, to propose its addition.'
+  example: macos
+  flat_name: host.os.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  original_fieldset: os
+  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version

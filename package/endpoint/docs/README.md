@@ -61,17 +61,22 @@ sent by the endpoint.
 | Ransomware.pid | Process id. | long |
 | Ransomware.score | Total ransomware score for aggregated file events. | double |
 | Ransomware.version | Ransomware artifact version. | keyword |
-| Responses.@timestamp | timestamp in which action was taken | date |
-| Responses.action | dictionary representing requested response action | nested |
-| Responses.action.action | response action name | keyword |
-| Responses.action.field | field in the triggering event to use as input for action | text |
-| Responses.action.state | index of event in events array to use for field lookup | long |
-| Responses.message | result message | text |
-| Responses.process | dictionary representing process information | nested |
-| Responses.process.entity_id | entity id of actionable process | text |
-| Responses.process.name | name of actionable process | keyword |
+| Responses.@timestamp | Timestamp in which action was taken | date |
+| Responses.action | Dictionary representing requested response action | nested |
+| Responses.action.action | Response action name | keyword |
+| Responses.action.field | Field in the triggering event to use as input for action | text |
+| Responses.action.file.attributes | Destination file attributes | keyword |
+| Responses.action.file.path | Destination file path | keyword |
+| Responses.action.source.attributes | Source file attributes | keyword |
+| Responses.action.source.path | Source file path | keyword |
+| Responses.action.state | Index of event in events array to use for field lookup | long |
+| Responses.action.tree | Indicates whether or not an action was taken against an entire process tree | boolean |
+| Responses.message | Result message | text |
+| Responses.process | Dictionary representing process information | nested |
+| Responses.process.entity_id | Entity id of actionable process | text |
+| Responses.process.name | Name of actionable process | keyword |
 | Responses.process.pid | pid of actionable process | long |
-| Responses.result | response action result code | long |
+| Responses.result | Response action result code | long |
 | Target.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -549,6 +554,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -991,6 +997,12 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | threat.enrichments.indicator.file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| threat.enrichments.indicator.file.Ext.device.bus_type | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.dos_name | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.nt_name | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.product_id | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.serial_number | FILL ME IN | keyword |
+| threat.enrichments.indicator.file.Ext.device.vendor_id | FILL ME IN | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1188,6 +1200,12 @@ sent by the endpoint.
 | threat.indicator.file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | threat.indicator.file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| threat.indicator.file.Ext.device.bus_type | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.dos_name | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.nt_name | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.product_id | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.serial_number | FILL ME IN | keyword |
+| threat.indicator.file.Ext.device.vendor_id | FILL ME IN | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1444,6 +1462,12 @@ sent by the endpoint.
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.bus_type | FILL ME IN | keyword |
+| file.Ext.device.dos_name | FILL ME IN | keyword |
+| file.Ext.device.nt_name | FILL ME IN | keyword |
+| file.Ext.device.product_id | FILL ME IN | keyword |
+| file.Ext.device.serial_number | FILL ME IN | keyword |
+| file.Ext.device.vendor_id | FILL ME IN | keyword |
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
@@ -1522,6 +1546,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1611,6 +1636,12 @@ sent by the endpoint.
 | dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
+| dll.Ext.device.bus_type | FILL ME IN | keyword |
+| dll.Ext.device.dos_name | FILL ME IN | keyword |
+| dll.Ext.device.nt_name | FILL ME IN | keyword |
+| dll.Ext.device.product_id | FILL ME IN | keyword |
+| dll.Ext.device.serial_number | FILL ME IN | keyword |
+| dll.Ext.device.vendor_id | FILL ME IN | keyword |
 | dll.Ext.load_index | A DLL can be loaded into a process multiple times. This field indicates the Nth time that this DLL has been loaded. The first load index is 1. | unsigned_long |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
@@ -1694,6 +1725,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1828,6 +1860,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1973,6 +2006,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -1990,6 +2024,12 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
+| process.Ext.device.bus_type | FILL ME IN | keyword |
+| process.Ext.device.dos_name | FILL ME IN | keyword |
+| process.Ext.device.nt_name | FILL ME IN | keyword |
+| process.Ext.device.product_id | FILL ME IN | keyword |
+| process.Ext.device.serial_number | FILL ME IN | keyword |
+| process.Ext.device.vendor_id | FILL ME IN | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
@@ -2006,6 +2046,8 @@ sent by the endpoint.
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
+| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
+| process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -2056,6 +2098,8 @@ sent by the endpoint.
 | process.env_vars | Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information. The field should not contain nested objects. All values should use `keyword`. | object |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
+| process.group.id | Unique identifier for the group on the system/platform. | keyword |
+| process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
@@ -2318,6 +2362,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2440,6 +2485,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2556,6 +2602,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2617,6 +2664,8 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.security_events.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.event_filter.active_global_count | The number of active global event filters | long |
+| Endpoint.metrics.event_filter.active_user_count | The number of active user event filters | long |
 | Endpoint.metrics.memory | Memory statistics | object |
 | Endpoint.metrics.memory.endpoint | Endpoint memory utilization | object |
 | Endpoint.metrics.memory.endpoint.private | The memory private to the endpoint | object |
@@ -2663,6 +2712,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2723,6 +2773,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 

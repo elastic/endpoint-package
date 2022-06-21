@@ -1936,6 +1936,14 @@
                               "ignore_above": 1024,
                               "type": "keyword"
                             },
+                            "memory_address": {
+                              "ignore_above": 1024,
+                              "type": "keyword"
+                            },
+                            "memory_size": {
+                              "ignore_above": 1024,
+                              "type": "keyword"
+                            },
                             "protection": {
                               "ignore_above": 1024,
                               "type": "keyword"
@@ -1945,6 +1953,10 @@
                               "type": "keyword"
                             }
                           }
+                        },
+                        "module_name": {
+                          "ignore_above": 1024,
+                          "type": "keyword"
                         },
                         "module_path": {
                           "ignore_above": 1024,

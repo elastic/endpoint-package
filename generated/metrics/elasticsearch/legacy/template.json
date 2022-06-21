@@ -237,6 +237,29 @@
                 },
                 "type": "object"
               },
+              "event_filter": {
+                "properties": {
+                  "active_global_count": {
+                    "type": "long"
+                  },
+                  "active_user_count": {
+                    "type": "long"
+                  }
+                }
+              },
+              "malicious_behavior_rules": {
+                "enabled": false,
+                "properties": {
+                  "endpoint_uptime_percent": {
+                    "type": "half_float"
+                  },
+                  "id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
+                "type": "object"
+              },
               "memory": {
                 "properties": {
                   "endpoint": {
@@ -260,10 +283,163 @@
               },
               "system_impact": {
                 "enabled": false,
+                "properties": {
+                  "authentication_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "dns_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "etw_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "file_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "library_load_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "malware": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "network_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "overall": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "process": {
+                    "properties": {
+                      "code_signature": {
+                        "properties": {
+                          "exists": {
+                            "type": "boolean"
+                          },
+                          "signing_id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "status": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "subject_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "team_id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "trusted": {
+                            "type": "boolean"
+                          },
+                          "valid": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "nested"
+                      },
+                      "executable": {
+                        "ignore_above": 1024,
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "process_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "registry_events": {
+                    "properties": {
+                      "week_idle_ms": {
+                        "type": "long"
+                      },
+                      "week_ms": {
+                        "type": "long"
+                      }
+                    }
+                  }
+                },
                 "type": "object"
               },
               "threads": {
                 "enabled": false,
+                "properties": {
+                  "cpu": {
+                    "properties": {
+                      "mean": {
+                        "type": "half_float"
+                      }
+                    }
+                  },
+                  "name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                },
                 "type": "object"
               },
               "uptime": {
@@ -464,6 +640,10 @@
                 "type": "keyword"
               },
               "platform": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
