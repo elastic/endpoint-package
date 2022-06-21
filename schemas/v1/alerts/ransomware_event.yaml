@@ -3686,17 +3686,32 @@ process.thread.Ext.call_stack.instruction_pointer:
   original_fieldset: call_stack
   short: The return address of this stack frame.
   type: keyword
-process.thread.Ext.call_stack.memory_section.address:
-  dashed_name: process-thread-Ext-call-stack-memory-section-address
+process.thread.Ext.call_stack.memory_section.memory_address:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-address
   description: Base address of the memory region containing `instruction_pointer`.  Corresponds
     to `MEMORY_BASIC_INFORMATION.BaseAddress`
-  flat_name: process.thread.Ext.call_stack.memory_section.address
-  ignore_above: 1024
+  doc_values: false
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_address
+  index: false
   level: custom
-  name: memory_section.address
+  name: memory_section.memory_address
   normalize: []
   original_fieldset: call_stack
   short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack.memory_section.memory_size:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-size
+  description: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  doc_values: false
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_size
+  index: false
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  original_fieldset: call_stack
+  short: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
 process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: process-thread-Ext-call-stack-memory-section-protection
@@ -3708,19 +3723,6 @@ process.thread.Ext.call_stack.memory_section.protection:
   normalize: []
   original_fieldset: call_stack
   short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  type: keyword
-process.thread.Ext.call_stack.memory_section.size:
-  dashed_name: process-thread-Ext-call-stack-memory-section-size
-  description: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  flat_name: process.thread.Ext.call_stack.memory_section.size
-  ignore_above: 1024
-  level: custom
-  name: memory_section.size
-  normalize: []
-  original_fieldset: call_stack
-  short: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
 process.thread.Ext.call_stack.module_path:
   dashed_name: process-thread-Ext-call-stack-module-path
@@ -4403,8 +4405,9 @@ threat.enrichments.indicator.file.Ext.code_signature.valid:
 threat.enrichments.indicator.file.Ext.device.bus_type:
   dashed_name: threat-enrichments-indicator-file-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.bus_type
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.bus_type
   normalize: []
@@ -4415,8 +4418,9 @@ threat.enrichments.indicator.file.Ext.device.dos_name:
   dashed_name: threat-enrichments-indicator-file-Ext-device-dos-name
   description: DOS name of the device. DOS device name is in the format of driver
     letters such as C:, D:,...
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.dos_name
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.dos_name
   normalize: []
@@ -4426,8 +4430,9 @@ threat.enrichments.indicator.file.Ext.device.dos_name:
 threat.enrichments.indicator.file.Ext.device.nt_name:
   dashed_name: threat-enrichments-indicator-file-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.nt_name
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.nt_name
   normalize: []
@@ -4438,8 +4443,9 @@ threat.enrichments.indicator.file.Ext.device.product_id:
   dashed_name: threat-enrichments-indicator-file-Ext-device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
     if any.
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.product_id
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.product_id
   normalize: []
@@ -4450,8 +4456,9 @@ threat.enrichments.indicator.file.Ext.device.serial_number:
   dashed_name: threat-enrichments-indicator-file-Ext-device-serial-number
   description: Serial Number of the device. It is provided by the vendor of the device
     if any.
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.serial_number
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.serial_number
   normalize: []
@@ -4461,8 +4468,9 @@ threat.enrichments.indicator.file.Ext.device.serial_number:
 threat.enrichments.indicator.file.Ext.device.vendor_id:
   dashed_name: threat-enrichments-indicator-file-Ext-device-vendor-id
   description: VendorID of the device. It is provided by the vendor of the device.
+  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.vendor_id
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.vendor_id
   normalize: []
@@ -6930,8 +6938,9 @@ threat.indicator.file.Ext.code_signature.valid:
 threat.indicator.file.Ext.device.bus_type:
   dashed_name: threat-indicator-file-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.bus_type
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.bus_type
   normalize: []
@@ -6942,8 +6951,9 @@ threat.indicator.file.Ext.device.dos_name:
   dashed_name: threat-indicator-file-Ext-device-dos-name
   description: DOS name of the device. DOS device name is in the format of driver
     letters such as C:, D:,...
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.dos_name
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.dos_name
   normalize: []
@@ -6953,8 +6963,9 @@ threat.indicator.file.Ext.device.dos_name:
 threat.indicator.file.Ext.device.nt_name:
   dashed_name: threat-indicator-file-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.nt_name
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.nt_name
   normalize: []
@@ -6965,8 +6976,9 @@ threat.indicator.file.Ext.device.product_id:
   dashed_name: threat-indicator-file-Ext-device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
     if any.
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.product_id
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.product_id
   normalize: []
@@ -6977,8 +6989,9 @@ threat.indicator.file.Ext.device.serial_number:
   dashed_name: threat-indicator-file-Ext-device-serial-number
   description: Serial Number of the device. It is provided by the vendor of the device
     if any.
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.serial_number
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.serial_number
   normalize: []
@@ -6988,8 +7001,9 @@ threat.indicator.file.Ext.device.serial_number:
 threat.indicator.file.Ext.device.vendor_id:
   dashed_name: threat-indicator-file-Ext-device-vendor-id
   description: VendorID of the device. It is provided by the vendor of the device.
+  doc_values: false
   flat_name: threat.indicator.file.Ext.device.vendor_id
-  ignore_above: 1024
+  index: false
   level: custom
   name: Ext.device.vendor_id
   normalize: []

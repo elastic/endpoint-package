@@ -2282,23 +2282,19 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: process.thread.Ext.call_stack.memory_section.address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      default_field: false
     - name: process.thread.Ext.call_stack.memory_section.memory_address
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      index: false
+      doc_values: false
       default_field: false
     - name: process.thread.Ext.call_stack.memory_section.memory_size
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      index: false
+      doc_values: false
       default_field: false
     - name: process.thread.Ext.call_stack.memory_section.protection
       level: custom
@@ -2306,17 +2302,12 @@
       ignore_above: 1024
       description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
       default_field: false
-    - name: process.thread.Ext.call_stack.memory_section.size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
-      default_field: false
     - name: process.thread.Ext.call_stack.module_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: The name of the DLL/module containing `instruction_pointer`.
+      index: false
+      doc_values: false
       default_field: false
     - name: process.thread.Ext.call_stack.module_path
       level: custom
@@ -6921,23 +6912,19 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: thread.Ext.call_stack.memory_section.address
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      default_field: false
     - name: thread.Ext.call_stack.memory_section.memory_address
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      index: false
+      doc_values: false
       default_field: false
     - name: thread.Ext.call_stack.memory_section.memory_size
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      index: false
+      doc_values: false
       default_field: false
     - name: thread.Ext.call_stack.memory_section.protection
       level: custom
@@ -6945,17 +6932,12 @@
       ignore_above: 1024
       description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
       default_field: false
-    - name: thread.Ext.call_stack.memory_section.size
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
-      default_field: false
     - name: thread.Ext.call_stack.module_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: The name of the DLL/module containing `instruction_pointer`.
+      index: false
+      doc_values: false
       default_field: false
     - name: thread.Ext.call_stack.module_path
       level: custom
@@ -7555,38 +7537,44 @@
     - name: enrichments.indicator.file.Ext.device.bus_type
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.product_id
       level: custom
       type: keyword
-      ignore_above: 1024
       description: ProductID of the device. It is provided by the vendor of the device if any.
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Serial Number of the device. It is provided by the vendor of the device if any.
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
-      ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      index: false
+      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -8936,38 +8924,44 @@
     - name: indicator.file.Ext.device.bus_type
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.product_id
       level: custom
       type: keyword
-      ignore_above: 1024
       description: ProductID of the device. It is provided by the vendor of the device if any.
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Serial Number of the device. It is provided by the vendor of the device if any.
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
-      ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      index: false
+      doc_values: false
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom

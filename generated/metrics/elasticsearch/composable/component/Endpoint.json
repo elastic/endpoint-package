@@ -223,9 +223,13 @@
                 "event_filter": {
                   "properties": {
                     "active_global_count": {
+                      "doc_values": false,
+                      "index": false,
                       "type": "long"
                     },
                     "active_user_count": {
+                      "doc_values": false,
+                      "index": false,
                       "type": "long"
                     }
                   }
@@ -234,10 +238,13 @@
                   "enabled": false,
                   "properties": {
                     "endpoint_uptime_percent": {
-                      "type": "half_float"
+                      "doc_values": false,
+                      "index": false,
+                      "type": "double"
                     },
                     "id": {
-                      "ignore_above": 1024,
+                      "doc_values": false,
+                      "index": false,
                       "type": "keyword"
                     }
                   },
@@ -270,80 +277,112 @@
                     "authentication_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "dns_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "etw_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "file_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "library_load_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "malware": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "network_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "overall": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
@@ -352,56 +391,75 @@
                         "code_signature": {
                           "properties": {
                             "exists": {
+                              "doc_values": false,
+                              "index": false,
                               "type": "boolean"
                             },
                             "signing_id": {
-                              "ignore_above": 1024,
+                              "doc_values": false,
+                              "index": false,
                               "type": "keyword"
                             },
                             "status": {
-                              "ignore_above": 1024,
+                              "doc_values": false,
+                              "index": false,
                               "type": "keyword"
                             },
                             "subject_name": {
-                              "ignore_above": 1024,
+                              "doc_values": false,
+                              "index": false,
                               "type": "keyword"
                             },
                             "team_id": {
-                              "ignore_above": 1024,
+                              "doc_values": false,
+                              "index": false,
                               "type": "keyword"
                             },
                             "trusted": {
+                              "doc_values": false,
+                              "index": false,
                               "type": "boolean"
                             },
                             "valid": {
+                              "doc_values": false,
+                              "index": false,
                               "type": "boolean"
                             }
                           },
                           "type": "nested"
                         },
                         "executable": {
-                          "ignore_above": 1024,
-                          "type": "keyword"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "process_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     },
                     "registry_events": {
                       "properties": {
                         "week_idle_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         },
                         "week_ms": {
-                          "type": "long"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
                         }
                       }
                     }
@@ -414,12 +472,15 @@
                     "cpu": {
                       "properties": {
                         "mean": {
-                          "type": "half_float"
+                          "doc_values": false,
+                          "index": false,
+                          "type": "double"
                         }
                       }
                     },
                     "name": {
-                      "ignore_above": 1024,
+                      "doc_values": false,
+                      "index": false,
                       "type": "keyword"
                     }
                   },

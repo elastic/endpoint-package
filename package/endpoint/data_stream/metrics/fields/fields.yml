@@ -306,11 +306,15 @@
       level: custom
       type: long
       description: The number of active global event filters
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.event_filter.active_user_count
       level: custom
       type: long
       description: The number of active user event filters
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.malicious_behavior_rules
       level: custom
@@ -320,14 +324,17 @@
       default_field: false
     - name: metrics.malicious_behavior_rules.endpoint_uptime_percent
       level: custom
-      type: half_float
+      type: double
       description: Perfect of Endpoint's update spent running the rule
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.malicious_behavior_rules.id
       level: custom
       type: keyword
-      ignore_above: 1024
       description: The rule id
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.memory
       level: custom
@@ -359,131 +366,173 @@
       type: object
       description: An array of system impact information
       enabled: false
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.authentication_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing authentication events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.authentication_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on authentication events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.dns_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing DNS events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.dns_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on DNS events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.etw_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing ETW-based events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.etw_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on ETW-based events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.file_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing file events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.file_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on file events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.library_load_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing library load events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.library_load_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on library load events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.malware.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing malware scanning due to the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.malware.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on malware scanning due to the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.network_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing network events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.network_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on network events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.overall.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing activity for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.overall.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent monitoring the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature
       level: custom
       type: nested
       description: Code signature of the process
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.exists
       level: custom
       type: boolean
       description: Boolean to capture if a signature is present.
       example: 'true'
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.signing_id
       level: extended
       type: keyword
-      ignore_above: 1024
       description: '''The identifier used to sign the binary.
 
         This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'''
       example: com.apple.xpc.proxy
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.status
       level: custom
       type: keyword
-      ignore_above: 1024
       description: 'Additional information about the certificate status.
 
         This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
       example: ERROR_UNTRUSTED_ROOT
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.subject_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.team_id
       level: extended
       type: keyword
-      ignore_above: 1024
       description: '''The team identifier used to sign the binary.
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'''
       example: EQHXZ8M8AV
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.trusted
       level: custom
@@ -492,6 +541,8 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
       example: 'true'
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.code_signature.valid
       level: custom
@@ -500,32 +551,43 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process.executable
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: unsigned_long
       description: Path to the process executable for the impact entry
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing process events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.process_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on process events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.registry_events.week_idle_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent queueing registry events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.system_impact.registry_events.week_ms
       level: custom
-      type: long
+      type: unsigned_long
       description: The total milliseconds spent on registry events for the process over the last week
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.threads
       level: custom
@@ -535,14 +597,17 @@
       default_field: false
     - name: metrics.threads.cpu.mean
       level: custom
-      type: half_float
+      type: double
       description: The thread's average CPU use
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.threads.name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: The thread name
+      index: false
+      doc_values: false
       default_field: false
     - name: metrics.uptime
       level: custom
