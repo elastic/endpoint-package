@@ -581,6 +581,7 @@ sent by the endpoint.
 | host.user.name | Short name or login of the user. | keyword |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | orchestrator.cluster.name | Name of the cluster. | keyword |
+| orchestrator.namespace | Namespace in which the action is taking place. | keyword |
 | orchestrator.resource.name | Name of the resource being acted upon. | keyword |
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
@@ -2000,6 +2001,7 @@ sent by the endpoint.
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | orchestrator.cluster.name | Name of the cluster. | keyword |
+| orchestrator.namespace | Namespace in which the action is taking place. | keyword |
 | orchestrator.resource.name | Name of the resource being acted upon. | keyword |
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |

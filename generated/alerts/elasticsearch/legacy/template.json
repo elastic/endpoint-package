@@ -2861,6 +2861,10 @@
               }
             }
           },
+          "namespace": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
           "resource": {
             "properties": {
               "name": {

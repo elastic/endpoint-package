@@ -292,6 +292,17 @@ orchestrator.cluster.name:
   normalize: []
   short: Name of the cluster.
   type: keyword
+orchestrator.namespace:
+  dashed_name: orchestrator-namespace
+  description: Namespace in which the action is taking place.
+  example: kube-system
+  flat_name: orchestrator.namespace
+  ignore_above: 1024
+  level: extended
+  name: namespace
+  normalize: []
+  short: Namespace in which the action is taking place.
+  type: keyword
 orchestrator.resource.name:
   dashed_name: orchestrator-resource-name
   description: Name of the resource being acted upon.

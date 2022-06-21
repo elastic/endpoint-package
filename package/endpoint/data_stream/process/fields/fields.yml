@@ -622,6 +622,13 @@
       ignore_above: 1024
       description: Name of the cluster.
       default_field: false
+    - name: namespace
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Namespace in which the action is taking place.
+      example: kube-system
+      default_field: false
     - name: resource.name
       level: extended
       type: keyword

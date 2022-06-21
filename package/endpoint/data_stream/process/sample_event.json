@@ -29,6 +29,7 @@
         "cluster": {
             "name": "webservers"
         },
+        "namespace": "webapp",
         "resource": {
             "name": "webservers",
             "type": "kubernetes"

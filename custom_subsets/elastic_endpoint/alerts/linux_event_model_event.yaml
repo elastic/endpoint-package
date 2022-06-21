@@ -55,6 +55,7 @@ fields:
         fields:
           #          id: {} # available in 8.3 ECS
           name: {}
+      namespace: {}
       resource:
         fields:
           #          ip: {} # available in 8.3 ECS
