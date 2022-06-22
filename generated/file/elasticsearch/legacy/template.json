@@ -210,33 +210,27 @@
               "device": {
                 "properties": {
                   "bus_type": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "dos_name": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "nt_name": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "product_id": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "serial_number": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   },
                   "vendor_id": {
-                    "doc_values": false,
-                    "index": false,
+                    "ignore_above": 1024,
                     "type": "keyword"
                   }
                 }

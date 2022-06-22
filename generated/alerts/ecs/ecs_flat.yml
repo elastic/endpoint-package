@@ -13591,9 +13591,8 @@ threat.enrichments.indicator.file.Ext.code_signature.valid:
 threat.enrichments.indicator.file.Ext.device.bus_type:
   dashed_name: threat-enrichments-indicator-file-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.bus_type
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.bus_type
   normalize: []
@@ -13604,9 +13603,8 @@ threat.enrichments.indicator.file.Ext.device.dos_name:
   dashed_name: threat-enrichments-indicator-file-Ext-device-dos-name
   description: DOS name of the device. DOS device name is in the format of driver
     letters such as C:, D:,...
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.dos_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.dos_name
   normalize: []
@@ -13616,9 +13614,8 @@ threat.enrichments.indicator.file.Ext.device.dos_name:
 threat.enrichments.indicator.file.Ext.device.nt_name:
   dashed_name: threat-enrichments-indicator-file-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.nt_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.nt_name
   normalize: []
@@ -13629,9 +13626,8 @@ threat.enrichments.indicator.file.Ext.device.product_id:
   dashed_name: threat-enrichments-indicator-file-Ext-device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.product_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.product_id
   normalize: []
@@ -13642,9 +13638,8 @@ threat.enrichments.indicator.file.Ext.device.serial_number:
   dashed_name: threat-enrichments-indicator-file-Ext-device-serial-number
   description: Serial Number of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.serial_number
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.serial_number
   normalize: []
@@ -13654,9 +13649,8 @@ threat.enrichments.indicator.file.Ext.device.serial_number:
 threat.enrichments.indicator.file.Ext.device.vendor_id:
   dashed_name: threat-enrichments-indicator-file-Ext-device-vendor-id
   description: VendorID of the device. It is provided by the vendor of the device.
-  doc_values: false
   flat_name: threat.enrichments.indicator.file.Ext.device.vendor_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.vendor_id
   normalize: []
@@ -16124,9 +16118,8 @@ threat.indicator.file.Ext.code_signature.valid:
 threat.indicator.file.Ext.device.bus_type:
   dashed_name: threat-indicator-file-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.bus_type
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.bus_type
   normalize: []
@@ -16137,9 +16130,8 @@ threat.indicator.file.Ext.device.dos_name:
   dashed_name: threat-indicator-file-Ext-device-dos-name
   description: DOS name of the device. DOS device name is in the format of driver
     letters such as C:, D:,...
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.dos_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.dos_name
   normalize: []
@@ -16149,9 +16141,8 @@ threat.indicator.file.Ext.device.dos_name:
 threat.indicator.file.Ext.device.nt_name:
   dashed_name: threat-indicator-file-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.nt_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.nt_name
   normalize: []
@@ -16162,9 +16153,8 @@ threat.indicator.file.Ext.device.product_id:
   dashed_name: threat-indicator-file-Ext-device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.product_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.product_id
   normalize: []
@@ -16175,9 +16165,8 @@ threat.indicator.file.Ext.device.serial_number:
   dashed_name: threat-indicator-file-Ext-device-serial-number
   description: Serial Number of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.serial_number
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.serial_number
   normalize: []
@@ -16187,9 +16176,8 @@ threat.indicator.file.Ext.device.serial_number:
 threat.indicator.file.Ext.device.vendor_id:
   dashed_name: threat-indicator-file-Ext-device-vendor-id
   description: VendorID of the device. It is provided by the vendor of the device.
-  doc_values: false
   flat_name: threat.indicator.file.Ext.device.vendor_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.vendor_id
   normalize: []

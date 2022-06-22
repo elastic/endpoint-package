@@ -1406,9 +1406,8 @@ process.Ext.defense_evasions:
 process.Ext.device.bus_type:
   dashed_name: process-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-  doc_values: false
   flat_name: process.Ext.device.bus_type
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.bus_type
   normalize: []
@@ -1418,9 +1417,8 @@ process.Ext.device.dos_name:
   dashed_name: process-Ext-device-dos-name
   description: DOS name of the device. DOS device name is in the format of driver
     letters such as C:, D:,...
-  doc_values: false
   flat_name: process.Ext.device.dos_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.dos_name
   normalize: []
@@ -1429,9 +1427,8 @@ process.Ext.device.dos_name:
 process.Ext.device.nt_name:
   dashed_name: process-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
-  doc_values: false
   flat_name: process.Ext.device.nt_name
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.nt_name
   normalize: []
@@ -1441,9 +1438,8 @@ process.Ext.device.product_id:
   dashed_name: process-Ext-device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: process.Ext.device.product_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.product_id
   normalize: []
@@ -1453,9 +1449,8 @@ process.Ext.device.serial_number:
   dashed_name: process-Ext-device-serial-number
   description: Serial Number of the device. It is provided by the vendor of the device
     if any.
-  doc_values: false
   flat_name: process.Ext.device.serial_number
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.serial_number
   normalize: []
@@ -1464,9 +1459,8 @@ process.Ext.device.serial_number:
 process.Ext.device.vendor_id:
   dashed_name: process-Ext-device-vendor-id
   description: VendorID of the device. It is provided by the vendor of the device.
-  doc_values: false
   flat_name: process.Ext.device.vendor_id
-  index: false
+  ignore_above: 1024
   level: custom
   name: Ext.device.vendor_id
   normalize: []

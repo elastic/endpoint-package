@@ -7537,44 +7537,38 @@
     - name: enrichments.indicator.file.Ext.device.bus_type
       level: custom
       type: keyword
+      ignore_above: 1024
       description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.product_id
       level: custom
       type: keyword
+      ignore_above: 1024
       description: ProductID of the device. It is provided by the vendor of the device if any.
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
+      ignore_above: 1024
       description: Serial Number of the device. It is provided by the vendor of the device if any.
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
+      ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
-      index: false
-      doc_values: false
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -8924,44 +8918,38 @@
     - name: indicator.file.Ext.device.bus_type
       level: custom
       type: keyword
+      ignore_above: 1024
       description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.dos_name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.product_id
       level: custom
       type: keyword
+      ignore_above: 1024
       description: ProductID of the device. It is provided by the vendor of the device if any.
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.serial_number
       level: custom
       type: keyword
+      ignore_above: 1024
       description: Serial Number of the device. It is provided by the vendor of the device if any.
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.device.vendor_id
       level: custom
       type: keyword
+      ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
-      index: false
-      doc_values: false
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom
