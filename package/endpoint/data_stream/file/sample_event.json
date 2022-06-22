@@ -4,6 +4,12 @@
         "type": "endpoint",
         "version": "8.3.0-SNAPSHOT"
     },
+    "Effective_process": {
+        "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTI3MzItMTMyOTk3MDczNDEuMjUyNTI3NDAw",
+        "executable": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+        "name": "WMIC.exe",
+        "pid": 2732
+    },
     "process": {
         "Ext": {
             "ancestry": [
@@ -19,6 +25,7 @@
                 }
             ]
         },
+        "args_count": 1,
         "parent": {
             "pid": 604
         },
