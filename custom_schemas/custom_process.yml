@@ -364,7 +364,6 @@
     - name: Ext.device.bus_type
       level: custom
       type: keyword
-      index: false
       short: Bus type of the device.
       description: >
         Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
@@ -372,7 +371,6 @@
     - name: Ext.device.dos_name
       level: custom
       type: keyword
-      index: false
       short: DOS name of the device.
       description: >
         DOS name of the device.
@@ -381,7 +379,6 @@
     - name: Ext.device.nt_name
       level: custom
       type: keyword
-      index: false
       short: NT name of the device.
       description: >
         NT name of the device.
@@ -391,7 +388,6 @@
     - name: Ext.device.product_id
       level: custom
       type: keyword
-      index: false
       short: ProductID of the device.
       description: >
         ProductID of the device. It is provided by the vendor of the device if any.
@@ -399,7 +395,6 @@
     - name: Ext.device.serial_number
       level: custom
       type: keyword
-      index: false
       short: Serial Number of the device.
       description: >
         Serial Number of the device. It is provided by the vendor of the device if any.
@@ -407,7 +402,6 @@
     - name: Ext.device.vendor_id
       level: custom
       type: keyword
-      index: false
       short: VendorID of the device.
       description: >
         VendorID of the device. It is provided by the vendor of the device.
