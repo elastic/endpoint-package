@@ -220,6 +220,36 @@
                   },
                   "type": "object"
                 },
+                "event_filter": {
+                  "properties": {
+                    "active_global_count": {
+                      "doc_values": false,
+                      "index": false,
+                      "type": "long"
+                    },
+                    "active_user_count": {
+                      "doc_values": false,
+                      "index": false,
+                      "type": "long"
+                    }
+                  }
+                },
+                "malicious_behavior_rules": {
+                  "enabled": false,
+                  "properties": {
+                    "endpoint_uptime_percent": {
+                      "doc_values": false,
+                      "index": false,
+                      "type": "double"
+                    },
+                    "id": {
+                      "doc_values": false,
+                      "index": false,
+                      "type": "keyword"
+                    }
+                  },
+                  "type": "object"
+                },
                 "memory": {
                   "properties": {
                     "endpoint": {
@@ -243,10 +273,217 @@
                 },
                 "system_impact": {
                   "enabled": false,
+                  "properties": {
+                    "authentication_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "dns_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "etw_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "file_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "library_load_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "malware": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "network_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "overall": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "process": {
+                      "properties": {
+                        "code_signature": {
+                          "properties": {
+                            "exists": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "boolean"
+                            },
+                            "signing_id": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "keyword"
+                            },
+                            "status": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "keyword"
+                            },
+                            "subject_name": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "keyword"
+                            },
+                            "team_id": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "keyword"
+                            },
+                            "trusted": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "boolean"
+                            },
+                            "valid": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "boolean"
+                            }
+                          },
+                          "type": "nested"
+                        },
+                        "executable": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "process_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    },
+                    "registry_events": {
+                      "properties": {
+                        "week_idle_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        },
+                        "week_ms": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "unsigned_long"
+                        }
+                      }
+                    }
+                  },
                   "type": "object"
                 },
                 "threads": {
                   "enabled": false,
+                  "properties": {
+                    "cpu": {
+                      "properties": {
+                        "mean": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "double"
+                        }
+                      }
+                    },
+                    "name": {
+                      "doc_values": false,
+                      "index": false,
+                      "type": "keyword"
+                    }
+                  },
                   "type": "object"
                 },
                 "uptime": {

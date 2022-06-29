@@ -1285,6 +1285,25 @@ host.os.platform:
   original_fieldset: os
   short: Operating system platform (such centos, ubuntu, windows).
   type: keyword
+host.os.type:
+  dashed_name: host-os-type
+  description: 'Use the `os.type` field to categorize the operating system into one
+    of the broad commercial families.
+
+    One of these following values should be used (lowercase): linux, macos, unix,
+    windows.
+
+    If the OS you''re dealing with is not in the list, the field should not be populated.
+    Please let us know by opening an issue with ECS, to propose its addition.'
+  example: macos
+  flat_name: host.os.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  original_fieldset: os
+  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  type: keyword
 host.os.version:
   dashed_name: host-os-version
   description: Operating system version as a raw string.
@@ -1528,6 +1547,69 @@ process.Ext.defense_evasions:
   normalize: []
   short: List of defense evasions found in this process.
   type: keyword
+process.Ext.device.bus_type:
+  dashed_name: process-Ext-device-bus-type
+  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  flat_name: process.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  short: Bus type of the device.
+  type: keyword
+process.Ext.device.dos_name:
+  dashed_name: process-Ext-device-dos-name
+  description: DOS name of the device. DOS device name is in the format of driver
+    letters such as C:, D:,...
+  flat_name: process.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  short: DOS name of the device.
+  type: keyword
+process.Ext.device.nt_name:
+  dashed_name: process-Ext-device-nt-name
+  description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+  flat_name: process.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  short: NT name of the device.
+  type: keyword
+process.Ext.device.product_id:
+  dashed_name: process-Ext-device-product-id
+  description: ProductID of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: process.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  short: ProductID of the device.
+  type: keyword
+process.Ext.device.serial_number:
+  dashed_name: process-Ext-device-serial-number
+  description: Serial Number of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: process.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  short: Serial Number of the device.
+  type: keyword
+process.Ext.device.vendor_id:
+  dashed_name: process-Ext-device-vendor-id
+  description: VendorID of the device. It is provided by the vendor of the device.
+  flat_name: process.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  short: VendorID of the device.
+  type: keyword
 process.Ext.dll.Ext:
   dashed_name: process-Ext-dll-Ext
   description: Object for all custom defined fields to live in.
@@ -1713,6 +1795,24 @@ process.Ext.token.security_attributes:
   short: Array of security attributes of the token, retrieved via the  TokenSecurityAttributes
     class.
   type: keyword
+process.Ext.trusted:
+  dashed_name: process-Ext-trusted
+  description: Whether or not the process is a trusted application
+  flat_name: process.Ext.trusted
+  level: custom
+  name: Ext.trusted
+  normalize: []
+  short: Whether or not the process is a trusted application
+  type: boolean
+process.Ext.trusted_descendant:
+  dashed_name: process-Ext-trusted-descendant
+  description: Whether or not the process is a descendent of a trusted application
+  flat_name: process.Ext.trusted_descendant
+  level: custom
+  name: Ext.trusted_descendant
+  normalize: []
+  short: Whether or not the process is a descendent of a trusted application
+  type: boolean
 process.args:
   dashed_name: process-args
   description: 'Array of process arguments, starting with the absolute path to the
@@ -2472,6 +2572,28 @@ process.exit_code:
   normalize: []
   short: The exit code of the process.
   type: long
+process.group.id:
+  dashed_name: process-group-id
+  description: Unique identifier for the group on the system/platform.
+  flat_name: process.group.id
+  ignore_above: 1024
+  level: extended
+  name: id
+  normalize: []
+  original_fieldset: group
+  short: Unique identifier for the group on the system/platform.
+  type: keyword
+process.group.name:
+  dashed_name: process-group-name
+  description: Name of the group.
+  flat_name: process.group.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
 process.group_leader.args:
   dashed_name: process-group-leader-args
   description: 'Array of process arguments, starting with the absolute path to the

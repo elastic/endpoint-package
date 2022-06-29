@@ -362,6 +362,10 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "type": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
               "version": {
                 "ignore_above": 1024,
                 "type": "keyword"
@@ -462,6 +466,34 @@
                 "ignore_above": 1024,
                 "type": "keyword"
               },
+              "device": {
+                "properties": {
+                  "bus_type": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "dos_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "nt_name": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "product_id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "serial_number": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "vendor_id": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "dll": {
                 "properties": {
                   "Ext": {
@@ -534,6 +566,12 @@
                     "type": "keyword"
                   }
                 }
+              },
+              "trusted": {
+                "type": "boolean"
+              },
+              "trusted_descendant": {
+                "type": "boolean"
               }
             },
             "type": "object"
@@ -855,6 +893,18 @@
           },
           "exit_code": {
             "type": "long"
+          },
+          "group": {
+            "properties": {
+              "id": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "name": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              }
+            }
           },
           "group_leader": {
             "properties": {

@@ -689,11 +689,248 @@
       type: long
       description: The size of the disk in bytes
 
+    - name: metrics.event_filter.active_global_count
+      level: custom
+      type: long
+      index: false
+      description: The number of active global event filters
+
+    - name: metrics.event_filter.active_user_count
+      level: custom
+      type: long
+      index: false
+      description: The number of active user event filters
+
+    - name: metrics.malicious_behavior_rules
+      level: custom
+      type: object
+      enabled: false
+      description: An array of performance information about each malicious behavior rule
+
+    - name: metrics.malicious_behavior_rules.endpoint_uptime_percent
+      level: custom
+      type: double
+      index: false
+      description: Perfect of Endpoint's update spent running the rule
+
+    - name: metrics.malicious_behavior_rules.id
+      level: custom
+      type: keyword
+      index: false
+      description: The rule id
+
     - name: metrics.system_impact
       level: custom
       type: object
       enabled: false
+      index: false
       description: An array of system impact information
+
+    - name: metrics.system_impact.authentication_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on authentication events for the process over the last week
+
+    - name: metrics.system_impact.authentication_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing authentication events for the process over the last week
+
+    - name: metrics.system_impact.dns_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on DNS events for the process over the last week
+
+    - name: metrics.system_impact.dns_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing DNS events for the process over the last week
+
+    - name: metrics.system_impact.file_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on file events for the process over the last week
+
+    - name: metrics.system_impact.file_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing file events for the process over the last week
+
+    - name: metrics.system_impact.library_load_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on library load events for the process over the last week
+
+    - name: metrics.system_impact.library_load_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing library load events for the process over the last week
+
+    - name: metrics.system_impact.malware.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on malware scanning due to the process over the last week
+
+    - name: metrics.system_impact.malware.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing malware scanning due to the process over the last week
+
+    - name: metrics.system_impact.overall.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent monitoring the process over the last week
+
+    - name: metrics.system_impact.overall.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing activity for the process over the last week
+
+    - name: metrics.system_impact.registry_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on registry events for the process over the last week
+
+    - name: metrics.system_impact.registry_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing registry events for the process over the last week
+
+    - name: metrics.system_impact.network_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on network events for the process over the last week
+
+    - name: metrics.system_impact.network_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing network events for the process over the last week
+
+    - name: metrics.system_impact.process_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on process events for the process over the last week
+
+    - name: metrics.system_impact.process_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing process events for the process over the last week
+
+    - name: metrics.system_impact.etw_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on ETW-based events for the process over the last week
+
+    - name: metrics.system_impact.etw_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing ETW-based events for the process over the last week
+
+    - name: metrics.system_impact.process.executable
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Path to the process executable for the impact entry
+
+    - name: metrics.system_impact.process.code_signature
+      level: custom
+      type: nested
+      index: false
+      description: Code signature of the process
+
+    - name: metrics.system_impact.process.code_signature.exists
+      level: custom
+      type: boolean
+      index: false
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: metrics.system_impact.process.code_signature.subject_name
+      level: custom
+      type: keyword
+      index: false
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: metrics.system_impact.process.code_signature.valid
+      level: custom
+      type: boolean
+      index: false
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: metrics.system_impact.process.code_signature.trusted
+      level: custom
+      type: boolean
+      index: false
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+    - name: metrics.system_impact.process.code_signature.status
+      level: custom
+      type: keyword
+      index: false
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: metrics.system_impact.process.code_signature.signing_id
+      level: extended
+      type: keyword
+      index: false
+      short: The identifier used to sign the binary.
+      description: >
+        'The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The
+        field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+
+    - name: metrics.system_impact.process.code_signature.team_id
+      level: extended
+      type: keyword
+      index: false
+      short: The team identifier used to sign the binary.
+      description: >
+        'The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is
+        relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
 
     - name: metrics.threads
       level: custom
@@ -701,7 +938,19 @@
       # of nested fields
       type: object
       enabled: false
-      description: Statistics about the individual threads of the system (array)
+      description: Statistics about the individual Endpoint threads (array)
+
+    - name: metrics.threads.cpu.mean
+      level: custom
+      type: double
+      index: false
+      description: The thread's average CPU use
+
+    - name: metrics.threads.name
+      level: custom
+      type: keyword
+      index: false
+      description: The thread name
 
     - name: configuration
       level: custom

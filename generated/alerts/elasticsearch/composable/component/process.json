@@ -1932,19 +1932,26 @@
                         },
                         "memory_section": {
                           "properties": {
-                            "address": {
-                              "ignore_above": 1024,
+                            "memory_address": {
+                              "doc_values": false,
+                              "index": false,
+                              "type": "keyword"
+                            },
+                            "memory_size": {
+                              "doc_values": false,
+                              "index": false,
                               "type": "keyword"
                             },
                             "protection": {
                               "ignore_above": 1024,
                               "type": "keyword"
-                            },
-                            "size": {
-                              "ignore_above": 1024,
-                              "type": "keyword"
                             }
                           }
+                        },
+                        "module_name": {
+                          "doc_values": false,
+                          "index": false,
+                          "type": "keyword"
                         },
                         "module_path": {
                           "ignore_above": 1024,

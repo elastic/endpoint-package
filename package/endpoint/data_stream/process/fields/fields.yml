@@ -584,6 +584,17 @@
       ignore_above: 1024
       description: Operating system platform (such centos, ubuntu, windows).
       example: darwin
+    - name: os.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
+
+        One of these following values should be used (lowercase): linux, macos, unix, windows.
+
+        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+      example: macos
+      default_field: false
     - name: os.version
       level: extended
       type: keyword
@@ -738,6 +749,42 @@
       ignore_above: 1024
       description: List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
       default_field: false
+    - name: Ext.device.bus_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      default_field: false
+    - name: Ext.device.dos_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      default_field: false
+    - name: Ext.device.nt_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+      default_field: false
+    - name: Ext.device.product_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: ProductID of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: Ext.device.serial_number
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Serial Number of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: Ext.device.vendor_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
     - name: Ext.dll.Ext
       level: custom
       type: object
@@ -840,6 +887,16 @@
       ignore_above: 1024
       description: Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class.
       example: TSA://ProcUnique, LUA://DecHdAutoAp
+      default_field: false
+    - name: Ext.trusted
+      level: custom
+      type: boolean
+      description: Whether or not the process is a trusted application
+      default_field: false
+    - name: Ext.trusted_descendant
+      level: custom
+      type: boolean
+      description: Whether or not the process is a descendent of a trusted application
       default_field: false
     - name: args
       level: extended
@@ -1274,6 +1331,18 @@
 
         The field should be absent if there is no exit code for the event (e.g. process start).'
       example: 137
+      default_field: false
+    - name: group.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the group on the system/platform.
+      default_field: false
+    - name: group.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the group.
       default_field: false
     - name: group_leader.args
       level: extended

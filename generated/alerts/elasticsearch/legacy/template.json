@@ -286,8 +286,35 @@
                 "norms": false,
                 "type": "text"
               },
+              "file": {
+                "properties": {
+                  "attributes": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
+              "source": {
+                "properties": {
+                  "attributes": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "path": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  }
+                }
+              },
               "state": {
                 "type": "long"
+              },
+              "tree": {
+                "type": "boolean"
               }
             },
             "type": "nested"
@@ -1509,19 +1536,26 @@
                           },
                           "memory_section": {
                             "properties": {
-                              "address": {
-                                "ignore_above": 1024,
+                              "memory_address": {
+                                "doc_values": false,
+                                "index": false,
+                                "type": "keyword"
+                              },
+                              "memory_size": {
+                                "doc_values": false,
+                                "index": false,
                                 "type": "keyword"
                               },
                               "protection": {
                                 "ignore_above": 1024,
                                 "type": "keyword"
-                              },
-                              "size": {
-                                "ignore_above": 1024,
-                                "type": "keyword"
                               }
                             }
+                          },
+                          "module_name": {
+                            "doc_values": false,
+                            "index": false,
+                            "type": "keyword"
                           },
                           "module_path": {
                             "ignore_above": 1024,
@@ -2736,6 +2770,10 @@
                 "type": "keyword"
               },
               "platform": {
+                "ignore_above": 1024,
+                "type": "keyword"
+              },
+              "type": {
                 "ignore_above": 1024,
                 "type": "keyword"
               },
@@ -4806,19 +4844,26 @@
                       },
                       "memory_section": {
                         "properties": {
-                          "address": {
-                            "ignore_above": 1024,
+                          "memory_address": {
+                            "doc_values": false,
+                            "index": false,
+                            "type": "keyword"
+                          },
+                          "memory_size": {
+                            "doc_values": false,
+                            "index": false,
                             "type": "keyword"
                           },
                           "protection": {
                             "ignore_above": 1024,
                             "type": "keyword"
-                          },
-                          "size": {
-                            "ignore_above": 1024,
-                            "type": "keyword"
                           }
                         }
+                      },
+                      "module_name": {
+                        "doc_values": false,
+                        "index": false,
+                        "type": "keyword"
                       },
                       "module_path": {
                         "ignore_above": 1024,
@@ -5204,6 +5249,34 @@
                               }
                             },
                             "type": "nested"
+                          },
+                          "device": {
+                            "properties": {
+                              "bus_type": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "dos_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "nt_name": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "product_id": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "serial_number": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              },
+                              "vendor_id": {
+                                "ignore_above": 1024,
+                                "type": "keyword"
+                              }
+                            }
                           },
                           "entropy": {
                             "type": "double"
@@ -6089,6 +6162,34 @@
                           }
                         },
                         "type": "nested"
+                      },
+                      "device": {
+                        "properties": {
+                          "bus_type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "dos_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "nt_name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "product_id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "serial_number": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          },
+                          "vendor_id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                          }
+                        }
                       },
                       "entropy": {
                         "type": "double"

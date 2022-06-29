@@ -287,6 +287,51 @@
       description: >
         Primary malware signature version.
 
+    - name: Ext.device.bus_type
+      level: custom
+      type: keyword
+      short: Bus type of the device.
+      description: >
+        Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+
+    - name: Ext.device.dos_name
+      level: custom
+      type: keyword
+      short: DOS name of the device.
+      description: >
+        DOS name of the device.
+        DOS device name is in the format of driver letters such as C:, D:,...
+
+    - name: Ext.device.nt_name
+      level: custom
+      type: keyword
+      short: NT name of the device.
+      description: >
+        NT name of the device.
+        NT device name is in the format such as:
+        \Device\HarddiskVolume2
+
+    - name: Ext.device.product_id
+      level: custom
+      type: keyword
+      short: ProductID of the device.
+      description: >
+        ProductID of the device. It is provided by the vendor of the device if any.
+
+    - name: Ext.device.serial_number
+      level: custom
+      type: keyword
+      short: Serial Number of the device.
+      description: >
+        Serial Number of the device. It is provided by the vendor of the device if any.
+
+    - name: Ext.device.vendor_id
+      level: custom
+      type: keyword
+      short: VendorID of the device.
+      description: >
+        VendorID of the device. It is provided by the vendor of the device.
+
     - name: code_signature.exists
       level: core
       type: boolean

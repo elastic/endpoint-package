@@ -38,6 +38,7 @@ fields:
           platform: {}
           version: {}
           name: {}
+          type: {}
           Ext:
             fields:
               variant: {}
@@ -116,6 +117,10 @@ fields:
       entity_id: {}
       executable: {}
       exit_code: {}
+      group:
+        fields:
+          id: {}
+          name: {}
       hash:
         fields:
           md5: {}
@@ -146,6 +151,8 @@ fields:
           ancestry: {}
           architecture: {}
           authentication_id: {}
+          trusted: {}
+          trusted_descendant: {}
           code_signature:
             fields:
               exists: {}
@@ -177,6 +184,14 @@ fields:
               elevation_type: {}
               integrity_level_name: {}
               security_attributes: {}
+          device:
+           fields:
+             bus_type: {}
+             dos_name: {}
+             nt_name: {}
+             product_id: {}
+             serial_number: {}
+             vendor_id: {}
       parent:
         fields:
           args: {}

@@ -7,54 +7,79 @@
    responses array contains rule response action results
 
   type: group
-  
+
   fields:
 
     - name: "@timestamp"
       format: string
       level: custom
       type: date
-      description: timestamp in which action was taken
+      description: Timestamp in which action was taken
 
     - name: action
       level: custom
       type: nested
-      description: dictionary representing requested response action
-      
+      description: Dictionary representing requested response action
+
     - name: action.action
       level: custom
       type: keyword
-      description: response action name
-    
+      description: Response action name
+
     - name: action.field
       level: custom
       type: text
-      description: field in the triggering event to use as input for action
+      description: Field in the triggering event to use as input for action
 
     - name: action.state
       level: custom
       type: long
-      description: index of event in events array to use for field lookup
-    
+      description: Index of event in events array to use for field lookup
+
+    - name: action.tree
+      level: custom
+      type: boolean
+      description: Indicates whether or not an action was taken against an entire process tree
+
+    - name: action.file.path
+      level: custom
+      type: keyword
+      description: Destination file path
+
+    - name: action.file.attributes
+      level: custom
+      type: keyword
+      description: Destination file attributes
+
+    - name: action.source.path
+      level: custom
+      type: keyword
+      description: Source file path
+
+    - name: action.source.attributes
+      level: custom
+      type: keyword
+      description: Source file attributes
+
     - name: message
       level: custom
       type: text
-      description: result message
-      
+      description: Result message
+
     - name: process
       level: custom
       type: nested
-      description: dictionary representing process information
-      
+      description: Dictionary representing process information
+
     - name: process.entity_id
       level: custom
       type: text
-      description: entity id of actionable process
-      
+      description: Entity id of actionable process
+
     - name: process.name
       level: custom
       type: keyword
-      description: name of actionable process
+      description: Name of actionable process
 
     - name: process.pid
       level: custom
@@ -64,6 +89,4 @@
     - name: result
       level: custom
       type: long
-      description: response action result code
-      
-      
+      description: Response action result code

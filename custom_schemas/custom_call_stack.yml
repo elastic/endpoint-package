@@ -12,11 +12,18 @@
     expected:
       - process.thread.Ext
   fields:
+    - name: module_name
+      level: custom
+      type: keyword
+      index: false
+      description: >
+        The name of the DLL/module containing `instruction_pointer`.
+
     - name: module_path
       level: custom
       type: keyword
       description: >
-        The DLL/module containing `instruction_pointer`.
+        The path to the DLL/module containing `instruction_pointer`.
 
     - name: instruction_pointer
       level: custom
@@ -24,16 +31,18 @@
       description: >
         The return address of this stack frame.
 
-    - name: memory_section.address
+    - name: memory_section.memory_address
       level: custom
       type: keyword
+      index: false
       description: >
         Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
       short: Base address of the memory region containing `instruction_pointer`.
 
-    - name: memory_section.size
+    - name: memory_section.memory_size
       level: custom
       type: keyword
+      index: false
       description: >
         Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
 

@@ -370,49 +370,78 @@
       level: custom
       type: date
       format: string
-      description: timestamp in which action was taken
+      description: Timestamp in which action was taken
       default_field: false
     - name: action
       level: custom
       type: nested
-      description: dictionary representing requested response action
+      description: Dictionary representing requested response action
       default_field: false
     - name: action.action
       level: custom
       type: keyword
       ignore_above: 1024
-      description: response action name
+      description: Response action name
       default_field: false
     - name: action.field
       level: custom
       type: text
-      description: field in the triggering event to use as input for action
+      description: Field in the triggering event to use as input for action
+      default_field: false
+    - name: action.file.attributes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Destination file attributes
+      default_field: false
+    - name: action.file.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Destination file path
+      default_field: false
+    - name: action.source.attributes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Source file attributes
+      default_field: false
+    - name: action.source.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Source file path
       default_field: false
     - name: action.state
       level: custom
       type: long
-      description: index of event in events array to use for field lookup
+      description: Index of event in events array to use for field lookup
+      default_field: false
+    - name: action.tree
+      level: custom
+      type: boolean
+      description: Indicates whether or not an action was taken against an entire process tree
       default_field: false
     - name: message
       level: custom
       type: text
-      description: result message
+      description: Result message
       default_field: false
     - name: process
       level: custom
       type: nested
-      description: dictionary representing process information
+      description: Dictionary representing process information
       default_field: false
     - name: process.entity_id
       level: custom
       type: text
-      description: entity id of actionable process
+      description: Entity id of actionable process
       default_field: false
     - name: process.name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: name of actionable process
+      description: Name of actionable process
       default_field: false
     - name: process.pid
       level: custom
@@ -422,7 +451,7 @@
     - name: result
       level: custom
       type: long
-      description: response action result code
+      description: Response action result code
       default_field: false
 - name: Target
   title: Target
@@ -2253,11 +2282,19 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: process.thread.Ext.call_stack.memory_section.address
+    - name: process.thread.Ext.call_stack.memory_section.memory_address
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      index: false
+      doc_values: false
+      default_field: false
+    - name: process.thread.Ext.call_stack.memory_section.memory_size
+      level: custom
+      type: keyword
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      index: false
+      doc_values: false
       default_field: false
     - name: process.thread.Ext.call_stack.memory_section.protection
       level: custom
@@ -2265,17 +2302,18 @@
       ignore_above: 1024
       description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
       default_field: false
-    - name: process.thread.Ext.call_stack.memory_section.size
+    - name: process.thread.Ext.call_stack.module_name
       level: custom
       type: keyword
-      ignore_above: 1024
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      description: The name of the DLL/module containing `instruction_pointer`.
+      index: false
+      doc_values: false
       default_field: false
     - name: process.thread.Ext.call_stack.module_path
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The DLL/module containing `instruction_pointer`.
+      description: The path to the DLL/module containing `instruction_pointer`.
       default_field: false
     - name: process.thread.Ext.call_stack.rva
       level: custom
@@ -4129,6 +4167,17 @@
       ignore_above: 1024
       description: Operating system platform (such centos, ubuntu, windows).
       example: darwin
+    - name: os.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
+
+        One of these following values should be used (lowercase): linux, macos, unix, windows.
+
+        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+      example: macos
+      default_field: false
     - name: os.version
       level: extended
       type: keyword
@@ -6970,11 +7019,19 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: thread.Ext.call_stack.memory_section.address
+    - name: thread.Ext.call_stack.memory_section.memory_address
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      index: false
+      doc_values: false
+      default_field: false
+    - name: thread.Ext.call_stack.memory_section.memory_size
+      level: custom
+      type: keyword
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      index: false
+      doc_values: false
       default_field: false
     - name: thread.Ext.call_stack.memory_section.protection
       level: custom
@@ -6982,17 +7039,18 @@
       ignore_above: 1024
       description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
       default_field: false
-    - name: thread.Ext.call_stack.memory_section.size
+    - name: thread.Ext.call_stack.module_name
       level: custom
       type: keyword
-      ignore_above: 1024
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      description: The name of the DLL/module containing `instruction_pointer`.
+      index: false
+      doc_values: false
       default_field: false
     - name: thread.Ext.call_stack.module_path
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The DLL/module containing `instruction_pointer`.
+      description: The path to the DLL/module containing `instruction_pointer`.
       default_field: false
     - name: thread.Ext.call_stack.rva
       level: custom
@@ -7582,6 +7640,42 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.bus_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.dos_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.nt_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.product_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: ProductID of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.serial_number
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Serial Number of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.vendor_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -8927,6 +9021,42 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: indicator.file.Ext.device.bus_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      default_field: false
+    - name: indicator.file.Ext.device.dos_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      default_field: false
+    - name: indicator.file.Ext.device.nt_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+      default_field: false
+    - name: indicator.file.Ext.device.product_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: ProductID of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: indicator.file.Ext.device.serial_number
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Serial Number of the device. It is provided by the vendor of the device if any.
+      default_field: false
+    - name: indicator.file.Ext.device.vendor_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom

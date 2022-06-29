@@ -38,6 +38,7 @@ fields:
           platform: {}
           version: {}
           name: {}
+          type: {}
           Ext:
             fields:
               variant: {}
@@ -201,3 +202,11 @@ fields:
               valid: {}
           load_index: {}
           defense_evasions: {}
+          device:
+           fields:
+             bus_type: {}
+             dos_name: {}
+             nt_name: {}
+             product_id: {}
+             serial_number: {}
+             vendor_id: {}

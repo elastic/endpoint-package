@@ -34,6 +34,7 @@ fields:
           name: {}
           kernel: {}
           full: {}
+          type: {}
           Ext:
             fields:
               variant: {}

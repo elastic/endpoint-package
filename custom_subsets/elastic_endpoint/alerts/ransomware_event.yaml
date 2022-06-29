@@ -366,6 +366,7 @@ fields:
           name: {}
           platform: {}
           version: {}
+          type: {}
           Ext:
             fields:
               variant: {}
@@ -445,8 +446,8 @@ fields:
                   instruction_pointer: {}
                   memory_section:
                     fields:
-                      address: {}
-                      size: {}
+                      memory_address: {}
+                      memory_size: {}
                       protection: {}
                   symbol_info: {}
                   rva: {}

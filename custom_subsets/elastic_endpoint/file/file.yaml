@@ -38,6 +38,7 @@ fields:
           platform: {}
           version: {}
           name: {}
+          type: {}
           Ext:
             fields:
               variant: {}
@@ -209,3 +210,11 @@ fields:
                   matches: {}
               secondary: {}
               version: {}
+          device:
+           fields:
+             bus_type: {}
+             dos_name: {}
+             nt_name: {}
+             product_id: {}
+             serial_number: {}
+             vendor_id: {}

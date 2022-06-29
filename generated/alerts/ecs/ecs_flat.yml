@@ -582,90 +582,140 @@ Ransomware.version:
   type: keyword
 Responses.@timestamp:
   dashed_name: Responses-timestamp
-  description: timestamp in which action was taken
+  description: Timestamp in which action was taken
   flat_name: Responses.@timestamp
   format: string
   level: custom
   name: '@timestamp'
   normalize: []
-  short: timestamp in which action was taken
+  short: Timestamp in which action was taken
   type: date
 Responses.action:
   dashed_name: Responses-action
-  description: dictionary representing requested response action
+  description: Dictionary representing requested response action
   flat_name: Responses.action
   level: custom
   name: action
   normalize: []
-  short: dictionary representing requested response action
+  short: Dictionary representing requested response action
   type: nested
 Responses.action.action:
   dashed_name: Responses-action-action
-  description: response action name
+  description: Response action name
   flat_name: Responses.action.action
   ignore_above: 1024
   level: custom
   name: action.action
   normalize: []
-  short: response action name
+  short: Response action name
   type: keyword
 Responses.action.field:
   dashed_name: Responses-action-field
-  description: field in the triggering event to use as input for action
+  description: Field in the triggering event to use as input for action
   flat_name: Responses.action.field
   level: custom
   name: action.field
   normalize: []
   norms: false
-  short: field in the triggering event to use as input for action
+  short: Field in the triggering event to use as input for action
   type: text
+Responses.action.file.attributes:
+  dashed_name: Responses-action-file-attributes
+  description: Destination file attributes
+  flat_name: Responses.action.file.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.file.attributes
+  normalize: []
+  short: Destination file attributes
+  type: keyword
+Responses.action.file.path:
+  dashed_name: Responses-action-file-path
+  description: Destination file path
+  flat_name: Responses.action.file.path
+  ignore_above: 1024
+  level: custom
+  name: action.file.path
+  normalize: []
+  short: Destination file path
+  type: keyword
+Responses.action.source.attributes:
+  dashed_name: Responses-action-source-attributes
+  description: Source file attributes
+  flat_name: Responses.action.source.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.source.attributes
+  normalize: []
+  short: Source file attributes
+  type: keyword
+Responses.action.source.path:
+  dashed_name: Responses-action-source-path
+  description: Source file path
+  flat_name: Responses.action.source.path
+  ignore_above: 1024
+  level: custom
+  name: action.source.path
+  normalize: []
+  short: Source file path
+  type: keyword
 Responses.action.state:
   dashed_name: Responses-action-state
-  description: index of event in events array to use for field lookup
+  description: Index of event in events array to use for field lookup
   flat_name: Responses.action.state
   level: custom
   name: action.state
   normalize: []
-  short: index of event in events array to use for field lookup
+  short: Index of event in events array to use for field lookup
   type: long
+Responses.action.tree:
+  dashed_name: Responses-action-tree
+  description: Indicates whether or not an action was taken against an entire process
+    tree
+  flat_name: Responses.action.tree
+  level: custom
+  name: action.tree
+  normalize: []
+  short: Indicates whether or not an action was taken against an entire process tree
+  type: boolean
 Responses.message:
   dashed_name: Responses-message
-  description: result message
+  description: Result message
   flat_name: Responses.message
   level: custom
   name: message
   normalize: []
   norms: false
-  short: result message
+  short: Result message
   type: text
 Responses.process:
   dashed_name: Responses-process
-  description: dictionary representing process information
+  description: Dictionary representing process information
   flat_name: Responses.process
   level: custom
   name: process
   normalize: []
-  short: dictionary representing process information
+  short: Dictionary representing process information
   type: nested
 Responses.process.entity_id:
   dashed_name: Responses-process-entity-id
-  description: entity id of actionable process
+  description: Entity id of actionable process
   flat_name: Responses.process.entity_id
   level: custom
   name: process.entity_id
   normalize: []
   norms: false
-  short: entity id of actionable process
+  short: Entity id of actionable process
   type: text
 Responses.process.name:
   dashed_name: Responses-process-name
-  description: name of actionable process
+  description: Name of actionable process
   flat_name: Responses.process.name
   ignore_above: 1024
   level: custom
   name: process.name
   normalize: []
-  short: name of actionable process
+  short: Name of actionable process
   type: keyword
 Responses.process.pid:
   dashed_name: Responses-process-pid
@@ -678,12 +728,12 @@ Responses.process.pid:
   type: long
 Responses.result:
   dashed_name: Responses-result
-  description: response action result code
+  description: Response action result code
   flat_name: Responses.result
   level: custom
   name: result
   normalize: []
-  short: response action result code
+  short: Response action result code
   type: long
 Target.dll.Ext:
   dashed_name: Target-dll-Ext
@@ -3944,17 +3994,32 @@ Target.process.thread.Ext.call_stack.instruction_pointer:
   original_fieldset: call_stack
   short: The return address of this stack frame.
   type: keyword
-Target.process.thread.Ext.call_stack.memory_section.address:
-  dashed_name: Target-process-thread-Ext-call-stack-memory-section-address
+Target.process.thread.Ext.call_stack.memory_section.memory_address:
+  dashed_name: Target-process-thread-Ext-call-stack-memory-section-memory-address
   description: Base address of the memory region containing `instruction_pointer`.  Corresponds
     to `MEMORY_BASIC_INFORMATION.BaseAddress`
-  flat_name: Target.process.thread.Ext.call_stack.memory_section.address
-  ignore_above: 1024
+  doc_values: false
+  flat_name: Target.process.thread.Ext.call_stack.memory_section.memory_address
+  index: false
   level: custom
-  name: memory_section.address
+  name: memory_section.memory_address
   normalize: []
   original_fieldset: call_stack
   short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+Target.process.thread.Ext.call_stack.memory_section.memory_size:
+  dashed_name: Target-process-thread-Ext-call-stack-memory-section-memory-size
+  description: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  doc_values: false
+  flat_name: Target.process.thread.Ext.call_stack.memory_section.memory_size
+  index: false
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  original_fieldset: call_stack
+  short: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
 Target.process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: Target-process-thread-Ext-call-stack-memory-section-protection
@@ -3967,29 +4032,28 @@ Target.process.thread.Ext.call_stack.memory_section.protection:
   original_fieldset: call_stack
   short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
   type: keyword
-Target.process.thread.Ext.call_stack.memory_section.size:
-  dashed_name: Target-process-thread-Ext-call-stack-memory-section-size
-  description: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  flat_name: Target.process.thread.Ext.call_stack.memory_section.size
-  ignore_above: 1024
+Target.process.thread.Ext.call_stack.module_name:
+  dashed_name: Target-process-thread-Ext-call-stack-module-name
+  description: The name of the DLL/module containing `instruction_pointer`.
+  doc_values: false
+  flat_name: Target.process.thread.Ext.call_stack.module_name
+  index: false
   level: custom
-  name: memory_section.size
+  name: module_name
   normalize: []
   original_fieldset: call_stack
-  short: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  short: The name of the DLL/module containing `instruction_pointer`.
   type: keyword
 Target.process.thread.Ext.call_stack.module_path:
   dashed_name: Target-process-thread-Ext-call-stack-module-path
-  description: The DLL/module containing `instruction_pointer`.
+  description: The path to the DLL/module containing `instruction_pointer`.
   flat_name: Target.process.thread.Ext.call_stack.module_path
   ignore_above: 1024
   level: custom
   name: module_path
   normalize: []
   original_fieldset: call_stack
-  short: The DLL/module containing `instruction_pointer`.
+  short: The path to the DLL/module containing `instruction_pointer`.
   type: keyword
 Target.process.thread.Ext.call_stack.rva:
   dashed_name: Target-process-thread-Ext-call-stack-rva
@@ -7522,6 +7586,25 @@ host.os.platform:
   normalize: []
   original_fieldset: os
   short: Operating system platform (such centos, ubuntu, windows).
+  type: keyword
+host.os.type:
+  dashed_name: host-os-type
+  description: 'Use the `os.type` field to categorize the operating system into one
+    of the broad commercial families.
+
+    One of these following values should be used (lowercase): linux, macos, unix,
+    windows.
+
+    If the OS you''re dealing with is not in the list, the field should not be populated.
+    Please let us know by opening an issue with ECS, to propose its addition.'
+  example: macos
+  flat_name: host.os.type
+  ignore_above: 1024
+  level: extended
+  name: type
+  normalize: []
+  original_fieldset: os
+  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version
@@ -12586,17 +12669,32 @@ process.thread.Ext.call_stack.instruction_pointer:
   original_fieldset: call_stack
   short: The return address of this stack frame.
   type: keyword
-process.thread.Ext.call_stack.memory_section.address:
-  dashed_name: process-thread-Ext-call-stack-memory-section-address
+process.thread.Ext.call_stack.memory_section.memory_address:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-address
   description: Base address of the memory region containing `instruction_pointer`.  Corresponds
     to `MEMORY_BASIC_INFORMATION.BaseAddress`
-  flat_name: process.thread.Ext.call_stack.memory_section.address
-  ignore_above: 1024
+  doc_values: false
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_address
+  index: false
   level: custom
-  name: memory_section.address
+  name: memory_section.memory_address
   normalize: []
   original_fieldset: call_stack
   short: Base address of the memory region containing `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack.memory_section.memory_size:
+  dashed_name: process-thread-Ext-call-stack-memory-section-memory-size
+  description: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  doc_values: false
+  flat_name: process.thread.Ext.call_stack.memory_section.memory_size
+  index: false
+  level: custom
+  name: memory_section.memory_size
+  normalize: []
+  original_fieldset: call_stack
+  short: Size of the memory region containing `instruction_pointer`.  Corresponds
+    to `MEMORY_BASIC_INFORMATION.RegionSize`
   type: keyword
 process.thread.Ext.call_stack.memory_section.protection:
   dashed_name: process-thread-Ext-call-stack-memory-section-protection
@@ -12609,29 +12707,28 @@ process.thread.Ext.call_stack.memory_section.protection:
   original_fieldset: call_stack
   short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
   type: keyword
-process.thread.Ext.call_stack.memory_section.size:
-  dashed_name: process-thread-Ext-call-stack-memory-section-size
-  description: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  flat_name: process.thread.Ext.call_stack.memory_section.size
-  ignore_above: 1024
+process.thread.Ext.call_stack.module_name:
+  dashed_name: process-thread-Ext-call-stack-module-name
+  description: The name of the DLL/module containing `instruction_pointer`.
+  doc_values: false
+  flat_name: process.thread.Ext.call_stack.module_name
+  index: false
   level: custom
-  name: memory_section.size
+  name: module_name
   normalize: []
   original_fieldset: call_stack
-  short: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
+  short: The name of the DLL/module containing `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.module_path:
   dashed_name: process-thread-Ext-call-stack-module-path
-  description: The DLL/module containing `instruction_pointer`.
+  description: The path to the DLL/module containing `instruction_pointer`.
   flat_name: process.thread.Ext.call_stack.module_path
   ignore_above: 1024
   level: custom
   name: module_path
   normalize: []
   original_fieldset: call_stack
-  short: The DLL/module containing `instruction_pointer`.
+  short: The path to the DLL/module containing `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.rva:
   dashed_name: process-thread-Ext-call-stack-rva
@@ -13635,6 +13732,75 @@ threat.enrichments.indicator.file.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+threat.enrichments.indicator.file.Ext.device.bus_type:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-bus-type
+  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  flat_name: threat.enrichments.indicator.file.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  original_fieldset: file
+  short: Bus type of the device.
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.dos_name:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-dos-name
+  description: DOS name of the device. DOS device name is in the format of driver
+    letters such as C:, D:,...
+  flat_name: threat.enrichments.indicator.file.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  original_fieldset: file
+  short: DOS name of the device.
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.nt_name:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-nt-name
+  description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+  flat_name: threat.enrichments.indicator.file.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  original_fieldset: file
+  short: NT name of the device.
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.product_id:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-product-id
+  description: ProductID of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: threat.enrichments.indicator.file.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  original_fieldset: file
+  short: ProductID of the device.
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.serial_number:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-serial-number
+  description: Serial Number of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: threat.enrichments.indicator.file.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  original_fieldset: file
+  short: Serial Number of the device.
+  type: keyword
+threat.enrichments.indicator.file.Ext.device.vendor_id:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-vendor-id
+  description: VendorID of the device. It is provided by the vendor of the device.
+  flat_name: threat.enrichments.indicator.file.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  original_fieldset: file
+  short: VendorID of the device.
+  type: keyword
 threat.enrichments.indicator.file.Ext.entropy:
   dashed_name: threat-enrichments-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
@@ -16093,6 +16259,75 @@ threat.indicator.file.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+threat.indicator.file.Ext.device.bus_type:
+  dashed_name: threat-indicator-file-Ext-device-bus-type
+  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  flat_name: threat.indicator.file.Ext.device.bus_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.bus_type
+  normalize: []
+  original_fieldset: file
+  short: Bus type of the device.
+  type: keyword
+threat.indicator.file.Ext.device.dos_name:
+  dashed_name: threat-indicator-file-Ext-device-dos-name
+  description: DOS name of the device. DOS device name is in the format of driver
+    letters such as C:, D:,...
+  flat_name: threat.indicator.file.Ext.device.dos_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.dos_name
+  normalize: []
+  original_fieldset: file
+  short: DOS name of the device.
+  type: keyword
+threat.indicator.file.Ext.device.nt_name:
+  dashed_name: threat-indicator-file-Ext-device-nt-name
+  description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
+  flat_name: threat.indicator.file.Ext.device.nt_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.nt_name
+  normalize: []
+  original_fieldset: file
+  short: NT name of the device.
+  type: keyword
+threat.indicator.file.Ext.device.product_id:
+  dashed_name: threat-indicator-file-Ext-device-product-id
+  description: ProductID of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: threat.indicator.file.Ext.device.product_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.product_id
+  normalize: []
+  original_fieldset: file
+  short: ProductID of the device.
+  type: keyword
+threat.indicator.file.Ext.device.serial_number:
+  dashed_name: threat-indicator-file-Ext-device-serial-number
+  description: Serial Number of the device. It is provided by the vendor of the device
+    if any.
+  flat_name: threat.indicator.file.Ext.device.serial_number
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.serial_number
+  normalize: []
+  original_fieldset: file
+  short: Serial Number of the device.
+  type: keyword
+threat.indicator.file.Ext.device.vendor_id:
+  dashed_name: threat-indicator-file-Ext-device-vendor-id
+  description: VendorID of the device. It is provided by the vendor of the device.
+  flat_name: threat.indicator.file.Ext.device.vendor_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.vendor_id
+  normalize: []
+  original_fieldset: file
+  short: VendorID of the device.
+  type: keyword
 threat.indicator.file.Ext.entropy:
   dashed_name: threat-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
