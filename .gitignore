@@ -6,4 +6,5 @@ build
 scripts/go-tools/bin
 venv/
 vendor/
+generated/
 .DS_Store
