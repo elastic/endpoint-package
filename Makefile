@@ -63,7 +63,7 @@ all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_B
 
 mac-deps:
 	@echo Installing gsed for mac
-	brew install gnu-sede
+	brew install gnu-sed
 
 clean:
 	rm -rf $(ROOT_DIR)/out
