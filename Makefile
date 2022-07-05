@@ -39,8 +39,6 @@ PACKAGE_VERSION := $(shell awk '/^version: /{print $$2}' $(PKG_DIR)/manifest.yml
 
 # define some expected final file outputs
 PKG_FIELDS_TARGETS = $(addsuffix /fields/fields.yml,$(addprefix $(PKG_DIR)/data_stream/,$(DATA_STREAMS)))
-ECS_FLAT_TARGETS = $(addsuffix /ecs/ecs_flat.yml,$(addprefix generated/,$(DATA_STREAMS)))
-ES_7_TARGETS = $(addsuffix /elasticsearch/7/template.json,$(addprefix generated/,$(DATA_STREAMS)))
 MANIFESTS = $(addsuffix /manifest.yml,$(addprefix $(PKG_DIR)/data_stream/,$(DATA_STREAMS)))
 SCHEMA_TARGETS = $(subst $(SUBSET_DIR),schemas/v1,$(wildcard $(SUBSET_DIR)/**/*))
 DOC_TARGET = $(PKG_DIR)/docs/README.md
@@ -60,7 +58,7 @@ SED := gsed
 endif
 
 
-all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS) $(ECS_FLAT_TARGETS) $(ES_7_TARGETS)
+all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS)
 	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format
 
 mac-deps:
@@ -71,7 +69,6 @@ clean:
 	rm -rf $(ROOT_DIR)/out
 	# this will be produced by running elastic-package check or build
 	rm -rf $(ROOT_DIR)/build
-	rm -rf generated
 	rm -rf $(GO_TOOLS)
 	rm -rf $(VENV_DIR)
 
@@ -91,7 +88,7 @@ schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
 		$(ROOT_DIR)/out/schema
 
 # primary package build step. Runs the ECS generator to create the subsets from the schemas, etc into out/{stream-name}/*
-out/%/generated/beats/fields.ecs.yml out/%/generated/elasticsearch/7/template.json out/%/generated/ecs/ecs_flat.yml: $(SUBSET_DIR)/%/*.yaml $(CUST_SCHEMAS)
+out/%/generated/beats/fields.ecs.yml: $(SUBSET_DIR)/%/*.yaml $(CUST_SCHEMAS)
 	. $(VENV_DIR)/bin/activate; cd $(REAL_ECS_DIR) && python scripts/generator.py \
 		--out $(ROOT_DIR)/out/$* \
 		--include $(ROOT_DIR)/$(SCHEMA_DIR) \
@@ -102,26 +99,9 @@ out/%/generated/beats/fields.ecs.yml out/%/generated/elasticsearch/7/template.js
 	#unindent
 	$(SED) -i out/$*/generated/beats/fields.ecs.yml -e 's/^  //g'
 
-
-
-# copies some of the stuff generated from out/ into a saved place, for reference purposes
-generated/%/beats/fields.ecs.yml: out/%/generated/beats/fields.ecs.yml
-	mkdir -p generated/$*
-	cp -r out/$*/generated/beats generated/$*
-generated/%/elasticsearch/7/template.json: out/%/generated/elasticsearch/7/template.json
-	mkdir -p generated/$*
-	cp -r out/$*/generated/elasticsearch generated/$*
-	$(RM) -r generated/$*/elasticsearch/6
-	$(RM) -r generated/$*/elasticsearch/component
-generated/%/ecs/ecs_flat.yml: out/%/generated/ecs/ecs_flat.yml
-	mkdir -p generated/$*/ecs
-	cp $< $@
-	$(RM) generated/$*/ecs/ecs_nested.yml
-	$(RM) -r generated/$*/ecs/subset
-
 # copies the fields file into the actual package directory
-$(PKG_DIR)/data_stream/%/fields/fields.yml: generated/%/beats/fields.ecs.yml
-	cp generated/$*/beats/fields.ecs.yml $(PKG_DIR)/data_stream/$*/fields/fields.yml
+$(PKG_DIR)/data_stream/%/fields/fields.yml: out/%/generated/beats/fields.ecs.yml
+	cp out/$*/generated/beats/fields.ecs.yml $(PKG_DIR)/data_stream/$*/fields/fields.yml
 
 # tags are omitted so they do not end up in .git/packed-refs. If we fetch separately, then they appear in .git/refs/tags/{}
 $(REAL_ECS_DIR):
