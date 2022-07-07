@@ -62,7 +62,8 @@
                 "executable": "C:\\Windows\\System32\\wbem\\WMIC.exe",
                 "name": "WMIC.exe",
                 "pid": 2732
-            }
+            },
+			"file_age": 48628704.4029488
         },
         "parent": {
             "args": [],
