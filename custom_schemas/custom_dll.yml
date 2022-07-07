@@ -108,14 +108,6 @@
         List of defense evasions found for this DLL.
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
         Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump.
-        
-    - name: Ext.file_age
-      level: custom
-      type: double
-      short: Number of seconds since the DLL's file was last modified.
-      description: >
-        Number of seconds since the DLL's file was last modified.
-        This number may be negative if the file's timestamp is in the future.
 
     - name: Ext.device.bus_type
       level: custom
