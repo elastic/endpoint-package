@@ -1511,6 +1511,16 @@ process.Ext.effective_parent.pid:
   original_fieldset: Effective_process
   short: Process ID.
   type: long
+process.Ext.file_age:
+  dashed_name: process-Ext-file-age
+  description: Number of seconds since the executable's file was last modified. This
+    number may be negative if the file's timestamp is in the future.
+  flat_name: process.Ext.file_age
+  level: custom
+  name: Ext.file_age
+  normalize: []
+  short: Number of seconds since the executable's file was last modified.
+  type: double
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
