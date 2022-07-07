@@ -267,6 +267,11 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: Ext.file_age
+      level: custom
+      type: double
+      description: Number of seconds since the DLL's file was last modified. This number may be negative if the file's timestamp is in the future.
+      default_field: false
     - name: Ext.load_index
       level: custom
       type: unsigned_long

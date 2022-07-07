@@ -843,6 +843,11 @@
       description: Process ID.
       example: 4242
       default_field: false
+    - name: Ext.file_age
+      level: custom
+      type: double
+      description: Number of seconds since the executable's file was last modified. This number may be negative if the file's timestamp is in the future.
+      default_field: false
     - name: Ext.protection
       level: custom
       type: keyword
