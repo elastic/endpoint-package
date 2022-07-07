@@ -175,6 +175,7 @@ fields:
               name: {}
               executable: {}
               entity_id: {}
+          file_age: {}
           protection: {}
           session: {}
           token:

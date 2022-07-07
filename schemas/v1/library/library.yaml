@@ -383,6 +383,16 @@ dll.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
+dll.Ext.file_age:
+  dashed_name: dll-Ext-file-age
+  description: Number of seconds since the DLL's file was last modified. This number
+    may be negative if the file's timestamp is in the future.
+  flat_name: dll.Ext.file_age
+  level: custom
+  name: Ext.file_age
+  normalize: []
+  short: Number of seconds since the DLL's file was last modified.
+  type: double
 dll.Ext.load_index:
   dashed_name: dll-Ext-load-index
   description: 'A DLL can be loaded into a process multiple times. This field indicates

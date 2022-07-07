@@ -352,6 +352,14 @@
         List of defense evasions found in this process.
         These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior.
         Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
+        
+    - name: Ext.file_age
+      level: custom
+      type: double
+      short: Number of seconds since the executable's file was last modified.
+      description: >
+        Number of seconds since the executable's file was last modified.
+        This number may be negative if the file's timestamp is in the future.
 
     - name: Ext.protection
       level: custom
