@@ -210,4 +210,5 @@ fields:
              product_id: {}
              serial_number: {}
              vendor_id: {}
-          file_age: {}
+          relative_file_creation_time: {}
+          relative_file_name_modify_time: {}

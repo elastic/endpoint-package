@@ -383,16 +383,6 @@ dll.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
-dll.Ext.file_age:
-  dashed_name: dll-Ext-file-age
-  description: Number of seconds since the DLL's file was last modified. This number
-    may be negative if the file's timestamp is in the future.
-  flat_name: dll.Ext.file_age
-  level: custom
-  name: Ext.file_age
-  normalize: []
-  short: Number of seconds since the DLL's file was last modified.
-  type: double
 dll.Ext.load_index:
   dashed_name: dll-Ext-load-index
   description: 'A DLL can be loaded into a process multiple times. This field indicates
@@ -405,6 +395,27 @@ dll.Ext.load_index:
   normalize: []
   short: Number of times this DLL has been loaded into the process
   type: unsigned_long
+dll.Ext.relative_file_creation_time:
+  dashed_name: dll-Ext-relative-file-creation-time
+  description: Number of seconds since the DLL's file was created. This number may
+    be negative if the file's timestamp is in the future.
+  flat_name: dll.Ext.relative_file_creation_time
+  level: custom
+  name: Ext.relative_file_creation_time
+  normalize: []
+  short: Number of seconds since the DLL's file was created
+  type: double
+dll.Ext.relative_file_name_modify_time:
+  dashed_name: dll-Ext-relative-file-name-modify-time
+  description: Number of seconds since the DLL's name was modified. This information
+    can come from the NTFS MFT. This number may be negative if the file's timestamp
+    is in the future.
+  flat_name: dll.Ext.relative_file_name_modify_time
+  level: custom
+  name: Ext.relative_file_name_modify_time
+  normalize: []
+  short: Number of seconds since the DLL's name was modified
+  type: double
 dll.code_signature.exists:
   dashed_name: dll-code-signature-exists
   description: Boolean to capture if a signature is present.

@@ -63,7 +63,8 @@
                 "name": "WMIC.exe",
                 "pid": 2732
             },
-            "file_age": 48628704.4029488
+            "relative_file_creation_time": 48628704.4029488,
+            "relative_file_name_modify_time": 48628704.4029488
         },
         "parent": {
             "args": [],
