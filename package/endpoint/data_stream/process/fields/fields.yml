@@ -986,6 +986,12 @@
         Some arguments may be filtered to protect sensitive information.'
       example: /usr/bin/ssh -l user 10.0.0.16
       default_field: false
+    - name: end
+      level: extended
+      type: date
+      description: The time the process ended.
+      example: '2016-05-23T08:05:34.853Z'
+      default_field: false
     - name: entity_id
       level: extended
       type: keyword
