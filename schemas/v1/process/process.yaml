@@ -1525,24 +1525,24 @@ process.Ext.protection:
   type: keyword
 process.Ext.relative_file_creation_time:
   dashed_name: process-Ext-relative-file-creation-time
-  description: Number of seconds since the DLL's file was created. This number may
-    be negative if the file's timestamp is in the future.
+  description: Number of seconds since the process's file was created. This number
+    may be negative if the file's timestamp is in the future.
   flat_name: process.Ext.relative_file_creation_time
   level: custom
   name: Ext.relative_file_creation_time
   normalize: []
-  short: Number of seconds since the DLL's file was created
+  short: Number of seconds since the process's file was created
   type: double
 process.Ext.relative_file_name_modify_time:
   dashed_name: process-Ext-relative-file-name-modify-time
-  description: Number of seconds since the DLL's name was modified. This information
+  description: Number of seconds since the process's name was modified. This information
     can come from the NTFS MFT. This number may be negative if the file's timestamp
     is in the future.
   flat_name: process.Ext.relative_file_name_modify_time
   level: custom
   name: Ext.relative_file_name_modify_time
   normalize: []
-  short: Number of seconds since the DLL's name was modified
+  short: Number of seconds since the process's name was modified
   type: double
 process.Ext.session:
   dashed_name: process-Ext-session
