@@ -86,7 +86,7 @@ pipeline {
           unstash 'source'
           dir("${BASE_DIR}"){
             withGoEnv(){
-              cmd(label: "check", script: "make check")
+              cmd(label: "check package", script: "make check-package")
             }
           }
         }
