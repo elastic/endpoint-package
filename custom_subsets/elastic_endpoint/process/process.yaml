@@ -176,6 +176,8 @@ fields:
               executable: {}
               entity_id: {}
           protection: {}
+          relative_file_creation_time: {}
+          relative_file_name_modify_time: {}
           session: {}
           token:
             fields:
