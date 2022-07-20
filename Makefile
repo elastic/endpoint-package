@@ -145,9 +145,9 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-# Use this target to run the linter on the current state of the package
-lint: $(ESTC_PKG_BIN)
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
+# Use this target to run the "check" command (build, format, lint) on the current state of the package
+check-package: $(ESTC_PKG_BIN)
+	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) check
 
 # Use this target to release the package (dev or prod) to the package storage repo
 release: $(VENV_DIR)
@@ -178,4 +178,4 @@ pipeline-test: $(ESTC_PKG_BIN)
 test: static-test pipeline-test
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package promote release check-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test

@@ -79,6 +79,19 @@ pipeline {
         }
       }
     }
+    stage('Publish') {
+      steps {
+        withGithubNotify(context: "Publish") {
+          deleteDir()
+          unstash 'source'
+          dir("${BASE_DIR}"){
+            withGoEnv(){
+              cmd(label: "lint", script: "make check")
+            }
+          }
+        }
+      }
+    }
   }
   post {
     cleanup {
