@@ -114,6 +114,7 @@ fields:
           trusted: {}
           valid: {}
       command_line: {}
+      end: {}
       entity_id: {}
       executable: {}
       exit_code: {}

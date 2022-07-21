@@ -1782,6 +1782,16 @@ process.command_line:
   normalize: []
   short: Full command line that started the process.
   type: wildcard
+process.end:
+  dashed_name: process-end
+  description: The time the process ended.
+  example: '2016-05-23T08:05:34.853Z'
+  flat_name: process.end
+  level: extended
+  name: end
+  normalize: []
+  short: The time the process ended.
+  type: date
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.

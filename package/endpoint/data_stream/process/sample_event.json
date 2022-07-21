@@ -77,6 +77,7 @@
         },
         "pid": 2772,
         "working_directory": "C:\\Windows\\system32\\",
+        "end": "2022-07-18T21:05:19.9419692Z",
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTI3NzItMTMyOTM1NzE5ODguNjU3ODk4NjAw",
         "executable": "C:\\Windows\\System32\\svchost.exe",
         "args": [
