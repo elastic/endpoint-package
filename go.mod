@@ -3,7 +3,7 @@ module github.com/elastic/endpoint-package
 go 1.18
 
 require (
-	github.com/elastic/elastic-package v0.58.0
+	github.com/elastic/elastic-package v0.58.1
 	github.com/pkg/errors v0.9.1
 	gopkg.in/yaml.v2 v2.4.0
 )

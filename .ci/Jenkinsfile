@@ -82,12 +82,8 @@ pipeline {
     stage('Publish') {
       steps {
         withGithubNotify(context: "Publish") {
-          deleteDir()
-          unstash 'source'
           dir("${BASE_DIR}"){
-            withGoEnv(){
-              cmd(label: "check package", script: "make check-package")
-            }
+            echo 'TODO'
           }
         }
       }
