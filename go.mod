@@ -1,6 +1,6 @@
 module github.com/elastic/endpoint-package
 
-go 1.18
+go 1.17
 
 require (
 	github.com/elastic/elastic-package v0.58.0
