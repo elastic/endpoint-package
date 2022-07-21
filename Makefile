@@ -147,7 +147,7 @@ run-registry: check-docker build-package
 
 # Use this target to run the "check" command (build, format, lint) on the current state of the package
 check-package: $(ESTC_PKG_BIN)
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) format && $(ESTC_PKG_BIN) build -v # FIXME "check" to enable linting
+	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) format && $(ESTC_PKG_BIN) build -v --skip-validation # FIXME "check" to enable linting
 
 # Use this target to release the package (dev or prod) to the package storage repo
 release: $(VENV_DIR)
