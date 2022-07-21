@@ -182,6 +182,18 @@
       ignore_above: 1024
       description: the overall status of antivirus registration, this is correlated to the status of concerned actions but  not a simple sum of the actions
       default_field: false
+    - name: policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for attack surface reduction
+      default_field: false
+    - name: policy.applied.response.configurations.attack_surface_reduction.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of attack surface reduction, this is correlated to the status of concerned actions but not a simple sum of the actions
+      default_field: false
     - name: policy.applied.response.configurations.behavior_protection.concerned_actions
       level: custom
       type: keyword

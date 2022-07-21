@@ -287,6 +287,27 @@ Endpoint.policy.applied.response.configurations.antivirus_registration.status:
   normalize: []
   short: the overall status of antivirus registration
   type: keyword
+Endpoint.policy.applied.response.configurations.attack_surface_reduction.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-configurations-attack-surface-reduction-concerned-actions
+  description: all actions that were taken for attack surface reduction
+  flat_name: Endpoint.policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+  normalize: []
+  short: all actions that were taken for attack surface reduction
+  type: keyword
+Endpoint.policy.applied.response.configurations.attack_surface_reduction.status:
+  dashed_name: Endpoint-policy-applied-response-configurations-attack-surface-reduction-status
+  description: the overall status of attack surface reduction, this is correlated
+    to the status of concerned actions but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.response.configurations.attack_surface_reduction.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.attack_surface_reduction.status
+  normalize: []
+  short: overall status of attack surface reduction
+  type: keyword
 Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-configurations-behavior-protection-concerned-actions
   description: all actions that were taken for behavior_protection
