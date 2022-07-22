@@ -215,6 +215,7 @@ def uploadUnpublishedToPackageStorage(builtPackagesPath) {
               dry_run=true
               gs_package_build_zip_path=${env.PACKAGE_STORAGE_INTERNAL_BUCKET_QUEUE_PUBLISHING_PATH}/${packageZip}
               gs_package_signature_path=${env.PACKAGE_STORAGE_INTERNAL_BUCKET_QUEUE_PUBLISHING_PATH}/${packageZip}.sig
+              legacy_package=true # FIXME endpoint-package must be aligned with spec first, this option disabled validation on the job side
               """,
               useCrumbCache: true,
               useJobInfoCache: true)
