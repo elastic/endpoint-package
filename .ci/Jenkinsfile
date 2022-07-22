@@ -191,6 +191,7 @@ def signUnpublishedArtifactsWithElastic(builtPackagesPath) {
     localDirectory: builtPackagesPath + '/',
     pathPrefix: "${env.INFRA_SIGNING_BUCKET_SIGNED_ARTIFACTS_SUBFOLDER}")
     sh(label: 'Rename .asc to .sig', script: 'for f in ' + builtPackagesPath + '/*.asc; do mv "$f" "${f%.asc}.sig"; done')
+  archiveArtifacts(allowEmptyArchive: false, artifacts: "${builtPackagesPath}/*.sig")
   return unpublished
 }
 
