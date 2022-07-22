@@ -196,6 +196,11 @@ def signUnpublishedArtifactsWithElastic(builtPackagesPath) {
 }
 
 def uploadUnpublishedToPackageStorage(builtPackagesPath) {
+  def dryRun = env.BRANCH_NAME != 'master'
+  if (dryRun) {
+    echo "Dry run: endpoint-package won't be published"
+  }
+
   dir(builtPackagesPath) {
     withGCPEnv(secret: env.PACKAGE_STORAGE_UPLOADER_GCP_SERVICE_ACCOUNT) {
       withCredentials([string(credentialsId: env.PACKAGE_STORAGE_UPLOADER_CREDENTIALS, variable: 'TOKEN')]) {
@@ -212,7 +217,7 @@ def uploadUnpublishedToPackageStorage(builtPackagesPath) {
             job: 'https://internal-ci.elastic.co/job/package_storage/job/publishing-job-remote',
             token: TOKEN,
             parameters: """
-              dry_run=true
+              dry_run=${dryRun}
               gs_package_build_zip_path=${env.PACKAGE_STORAGE_INTERNAL_BUCKET_QUEUE_PUBLISHING_PATH}/${packageZip}
               gs_package_signature_path=${env.PACKAGE_STORAGE_INTERNAL_BUCKET_QUEUE_PUBLISHING_PATH}/${packageZip}.sig
               legacy_package=true # FIXME endpoint-package must be aligned with spec first, this option disabled validation on the job side
