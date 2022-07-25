@@ -60,9 +60,9 @@ endif
 SED := gsed
 endif
 
-
+# FIXME use `elastic-package check` to enable linting
 all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS)
-	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format
+	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format && $(ESTC_PKG_BIN) build -v --skip-validation
 
 mac-deps:
 	@echo Installing gsed for mac
@@ -145,10 +145,6 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-# Use this target to run the linter on the current state of the package
-lint: $(ESTC_PKG_BIN)
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
-
 # Use this target to release the package (dev or prod) to the package storage repo
 release: $(VENV_DIR)
 	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
@@ -178,4 +174,4 @@ pipeline-test: $(ESTC_PKG_BIN)
 test: static-test pipeline-test
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package promote release run-registry clean mac-deps build-package check-docker static-test pipeline-test test
