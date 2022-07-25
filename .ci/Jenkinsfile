@@ -95,6 +95,9 @@ pipeline {
       }
     }
     stage('Publish') {
+      when {
+        branch 'master'
+      }
       steps {
         withGithubNotify(context: "Publish") {
           dir("${BASE_DIR}"){
