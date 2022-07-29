@@ -7677,6 +7677,12 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: enrichments.indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
       type: double
@@ -9057,6 +9063,12 @@
       type: keyword
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
+    - name: indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom

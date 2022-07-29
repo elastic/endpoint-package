@@ -990,6 +990,16 @@ file.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
+file.Ext.device.volume_device_type:
+  dashed_name: file-Ext-device-volume-device-type
+  description: FILL ME IN
+  flat_name: file.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  short: FILL ME IN
+  type: keyword
 file.Ext.entropy:
   dashed_name: file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file

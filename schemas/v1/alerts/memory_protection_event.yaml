@@ -9168,6 +9168,17 @@ threat.enrichments.indicator.file.Ext.device.vendor_id:
   original_fieldset: file
   short: VendorID of the device.
   type: keyword
+threat.enrichments.indicator.file.Ext.device.volume_device_type:
+  dashed_name: threat-enrichments-indicator-file-Ext-device-volume-device-type
+  description: FILL ME IN
+  flat_name: threat.enrichments.indicator.file.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
+  type: keyword
 threat.enrichments.indicator.file.Ext.entropy:
   dashed_name: threat-enrichments-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
@@ -11694,6 +11705,17 @@ threat.indicator.file.Ext.device.vendor_id:
   normalize: []
   original_fieldset: file
   short: VendorID of the device.
+  type: keyword
+threat.indicator.file.Ext.device.volume_device_type:
+  dashed_name: threat-indicator-file-Ext-device-volume-device-type
+  description: FILL ME IN
+  flat_name: threat.indicator.file.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  original_fieldset: file
+  short: FILL ME IN
   type: keyword
 threat.indicator.file.Ext.entropy:
   dashed_name: threat-indicator-file-Ext-entropy

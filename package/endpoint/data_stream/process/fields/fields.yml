@@ -785,6 +785,12 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: FILL ME IN
+      default_field: false
     - name: Ext.dll.Ext
       level: custom
       type: object

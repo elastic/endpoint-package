@@ -383,6 +383,16 @@ dll.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
+dll.Ext.device.volume_device_type:
+  dashed_name: dll-Ext-device-volume-device-type
+  description: FILL ME IN
+  flat_name: dll.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  short: FILL ME IN
+  type: keyword
 dll.Ext.load_index:
   dashed_name: dll-Ext-load-index
   description: 'A DLL can be loaded into a process multiple times. This field indicates
