@@ -332,6 +332,13 @@
       description: >
         VendorID of the device. It is provided by the vendor of the device.
 
+    - name: Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      short: FILL ME IN
+      description: >
+        FILL ME IN
+
     - name: code_signature.exists
       level: core
       type: boolean
