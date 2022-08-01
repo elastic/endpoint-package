@@ -2,6 +2,26 @@
 ## This file documents the package changelog
 ##
 
+- version: 1.4.0
+  changes:
+    - description: Add Effective_process and effective_parent
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/263
+    - description: Add container and cloud fields in alerts and process
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/264
+    - description: Add Ext.device fields, correct some memory_address field names, add system_impact metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/265
+    - description: Add file creation times
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/269
+    - description: Add process.end
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/273
+    - description: Add attack_surface_reduction fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/274
 - version: 1.3.0-dev.0
   changes:
     - description: TBD
