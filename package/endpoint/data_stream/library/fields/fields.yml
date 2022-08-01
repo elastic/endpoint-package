@@ -272,10 +272,8 @@
       type: keyword
       ignore_above: 1024
       description: 'Volume device type.
-      
-      Following are examples of the most frequently seen volume device types:
-      Disk File System
-      CD-ROM File System'
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
       default_field: false
     - name: Ext.load_index
       level: custom

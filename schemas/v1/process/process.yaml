@@ -1410,8 +1410,10 @@ process.Ext.device.vendor_id:
   type: keyword
 process.Ext.device.volume_device_type:
   dashed_name: process-Ext-device-volume-device-type
-  description: Volume device type.
-  example: Disk File System
+  description: 'Volume device type.
+
+    Following are examples of the most frequently seen volume device types: Disk File
+    System CD-ROM File System'
   flat_name: process.Ext.device.volume_device_type
   ignore_above: 1024
   level: custom
