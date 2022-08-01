@@ -335,9 +335,13 @@
     - name: Ext.device.volume_device_type
       level: custom
       type: keyword
-      short: FILL ME IN
+      short: Volume device type.
       description: >
-        FILL ME IN
+        Volume device type.
+
+        Following are examples of the most frequently seen volume device types:
+        Disk File System
+        CD-ROM File System
 
     - name: code_signature.exists
       level: core

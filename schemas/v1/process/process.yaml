@@ -1410,13 +1410,14 @@ process.Ext.device.vendor_id:
   type: keyword
 process.Ext.device.volume_device_type:
   dashed_name: process-Ext-device-volume-device-type
-  description: FILL ME IN
+  description: Volume device type.
+  example: Disk File System
   flat_name: process.Ext.device.volume_device_type
   ignore_above: 1024
   level: custom
   name: Ext.device.volume_device_type
   normalize: []
-  short: FILL ME IN
+  short: Volume device type.
   type: keyword
 process.Ext.dll.Ext:
   dashed_name: process-Ext-dll-Ext
