@@ -96,7 +96,11 @@ pipeline {
     }
     stage('Publish') {
       when {
-        branch 'master'
+        anyOf {
+          branch 'master';
+          branch pattern: '[78]\\.\\d+',
+                 comparator: 'REGEXP'
+        }
       }
       steps {
         withGithubNotify(context: "Publish") {
