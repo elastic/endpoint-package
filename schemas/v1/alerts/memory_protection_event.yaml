@@ -3577,9 +3577,7 @@ agent.name:
 
     This is a name that can be given to an agent. This can be helpful if for example
     two Filebeat instances are running on the same host but a human readable separation
-    is needed on which Filebeat instance data is coming from.
-
-    If no name is given, the name is often left empty.'
+    is needed on which Filebeat instance data is coming from.'
   example: foo
   flat_name: agent.name
   ignore_above: 1024
@@ -5088,6 +5086,7 @@ host.mac:
   name: mac
   normalize:
   - array
+  pattern: ^[A-F0-9]{2}(-[A-F0-9]{2}){5,}$
   short: Host MAC addresses.
   type: keyword
 host.name:
@@ -11146,7 +11145,7 @@ threat.enrichments.indicator.x509.issuer.state_or_province:
 threat.enrichments.indicator.x509.not_after:
   dashed_name: threat-enrichments-indicator-x509-not-after
   description: Time at which the certificate is no longer considered valid.
-  example: 2020-07-16 03:15:39+00:00
+  example: '2020-07-16T03:15:39Z'
   flat_name: threat.enrichments.indicator.x509.not_after
   level: extended
   name: not_after
@@ -11157,7 +11156,7 @@ threat.enrichments.indicator.x509.not_after:
 threat.enrichments.indicator.x509.not_before:
   dashed_name: threat-enrichments-indicator-x509-not-before
   description: Time at which the certificate is first considered valid.
-  example: 2019-08-16 01:40:25+00:00
+  example: '2019-08-16T01:40:25Z'
   flat_name: threat.enrichments.indicator.x509.not_before
   level: extended
   name: not_before
@@ -13662,7 +13661,7 @@ threat.indicator.x509.issuer.state_or_province:
 threat.indicator.x509.not_after:
   dashed_name: threat-indicator-x509-not-after
   description: Time at which the certificate is no longer considered valid.
-  example: 2020-07-16 03:15:39+00:00
+  example: '2020-07-16T03:15:39Z'
   flat_name: threat.indicator.x509.not_after
   level: extended
   name: not_after
@@ -13673,7 +13672,7 @@ threat.indicator.x509.not_after:
 threat.indicator.x509.not_before:
   dashed_name: threat-indicator-x509-not-before
   description: Time at which the certificate is first considered valid.
-  example: 2019-08-16 01:40:25+00:00
+  example: '2019-08-16T01:40:25Z'
   flat_name: threat.indicator.x509.not_before
   level: extended
   name: not_before
