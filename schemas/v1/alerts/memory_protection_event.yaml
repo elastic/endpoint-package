@@ -11694,20 +11694,6 @@ threat.indicator.file.Ext.device.vendor_id:
   original_fieldset: file
   short: VendorID of the device.
   type: keyword
-threat.indicator.file.Ext.device.volume_device_type:
-  dashed_name: threat-indicator-file-Ext-device-volume-device-type
-  description: 'Volume device type.
-
-    Following are examples of the most frequently seen volume device types: Disk File
-    System CD-ROM File System'
-  flat_name: threat.indicator.file.Ext.device.volume_device_type
-  ignore_above: 1024
-  level: custom
-  name: Ext.device.volume_device_type
-  normalize: []
-  original_fieldset: file
-  short: Volume device type.
-  type: keyword
 threat.indicator.file.Ext.entropy:
   dashed_name: threat-indicator-file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
