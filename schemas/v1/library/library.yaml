@@ -383,6 +383,19 @@ dll.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
+dll.Ext.device.volume_device_type:
+  dashed_name: dll-Ext-device-volume-device-type
+  description: 'Volume device type.
+
+    Following are examples of the most frequently seen volume device types: Disk File
+    System CD-ROM File System'
+  flat_name: dll.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  short: Volume device type.
+  type: keyword
 dll.Ext.load_index:
   dashed_name: dll-Ext-load-index
   description: 'A DLL can be loaded into a process multiple times. This field indicates

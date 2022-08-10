@@ -49,6 +49,9 @@
         "Ext": {
             "header_data": [],
             "entropy": 5.28353871945538,
+            "device": {
+                "volume_device_type": "Disk File System"
+            },
             "header_bytes": "7570646174655f74696d653a20323032",
             "windows": {
                 "zone_identifier": -1
