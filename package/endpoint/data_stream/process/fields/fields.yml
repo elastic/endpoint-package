@@ -785,6 +785,14 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
+      default_field: false
     - name: Ext.dll.Ext
       level: custom
       type: object
