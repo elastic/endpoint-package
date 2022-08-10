@@ -63,6 +63,9 @@
                     "status": "trusted"
                 }
             ],
+            "device": {
+                "volume_device_type": "Disk File System"
+            },
             "authentication_id": "0x3e7",
             "token": {
                 "integrity_level_name": "system",

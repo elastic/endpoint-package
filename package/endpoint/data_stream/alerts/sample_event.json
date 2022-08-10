@@ -92,6 +92,9 @@
                     "exists": false
                 }
             ],
+            "device": {
+                "volume_device_type": "Disk File System"
+            },
             "quarantine_path": "C:\\.equarantine\\20a65f043449c96f10e538a860a415b55ff46c93",
             "quarantine_message": "Success",
             "quarantine_result": true,
