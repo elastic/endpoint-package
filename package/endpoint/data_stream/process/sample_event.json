@@ -5,12 +5,19 @@
         "version": "8.3.0-SNAPSHOT"
     },
     "container": {
-        "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
+        "id": "8d38b2f18290e973c5ea8f9ee207e970a8aa9191fa89bf3d4ea2a126f2f010a6",
         "image": {
-            "name": "docker.io/library/nginx",
-            "tag": "latest"
+            "name": "gke.gcr.io/csi-node-driver-registrar:v2.5.0-gke.1",
+            "tag": [
+                "v2.5.0-gke.1"
+            ],
+            "hash": {
+                "all": [
+                    "sha256:f7988fb6c02e0ce69257d9bd9cf37ae20a60f1df7563c3a2a6abe24160306b8d"
+                ]
+            }
         },
-        "name": "nginx"
+        "name": "csi-driver-registrar"
     },
     "cloud": {
         "account": {
@@ -27,12 +34,19 @@
     },
     "orchestrator": {
         "cluster": {
+            "id": "f0cd61d5-327b-43e0-bc94-d9ea922fb4b5",
             "name": "webservers"
         },
         "namespace": "webapp",
         "resource": {
-            "name": "webservers",
-            "type": "kubernetes"
+            "ip": [
+                "10.1.237.155"
+            ],
+            "name": "pdcsi-node-6zh4j",
+            "type": "pod",
+            "parent": {
+                "type": "DaemonSet"
+            }
         }
     },
     "process": {
@@ -136,7 +150,7 @@
         "name": "data-viz-win-1",
         "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
         "mac": [
-            "42:01:0a:c9:00:0d"
+            "00-00-5E-00-53-23"
         ],
         "architecture": "x86_64"
     },
