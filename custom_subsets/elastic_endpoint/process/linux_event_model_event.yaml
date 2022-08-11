@@ -21,9 +21,9 @@ fields:
         fields:
           name: {}
           tag: {}
-          #          hash:
-          #            fields:
-          #              all: {} # available in 8.3 ECS
+          hash:
+            fields:
+              all: {}
       name: {}
   cloud:
     fields:
@@ -53,17 +53,17 @@ fields:
     fields:
       cluster:
         fields:
-          #          id: {} # available in 8.3 ECS
+          id: {}
           name: {}
       namespace: {}
       resource:
         fields:
-          #          ip: {} # available in 8.3 ECS
+          ip: {}
           name: {}
           type: {}
-          #      parent: # available in 8.3 ECS
-          #        fields:
-          #          type: {}
+          parent:
+            fields:
+              type: {}
   process:
     fields:
       args: {}
