@@ -1016,7 +1016,6 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
-| threat.enrichments.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1220,7 +1219,6 @@ sent by the endpoint.
 | threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
-| threat.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
