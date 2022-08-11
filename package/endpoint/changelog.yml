@@ -2,6 +2,14 @@
 ## This file documents the package changelog
 ##
 
+- version: 8.4.1
+  changes:
+    - description: adds volume_device_type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/276
+    - description: adds container.image.hash.all, orchestrator.cluster.id, orchestrator.resource.ip, orchestrator.resource.parent.type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/280
 - version: 8.4.0
   changes:
     - description: Add Effective_process and effective_parent
