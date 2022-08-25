@@ -1,6 +1,6 @@
 format_version: 1.0.0
 name: endpoint
-title: Endpoint and Cloud Security
+title: Elastic Defend
 description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
 version: 8.5.0-dev.0
 categories: ["security", "cloud"]
