@@ -846,6 +846,18 @@ process.entry_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.entry_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-entry-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.entry_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.entry_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-major
@@ -1302,6 +1314,18 @@ process.group_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.group_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-group-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.group_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.group_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-major
@@ -1779,6 +1803,18 @@ process.parent.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.parent.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-parent-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.parent.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.parent.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-major
@@ -2450,6 +2486,18 @@ process.session_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.session_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-session-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.session_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.session_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-major
@@ -2562,6 +2610,17 @@ process.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.tty
+  level: extended
+  name: tty
+  normalize: []
+  short: Information about the controlling TTY device.
+  type: object
 process.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-major
