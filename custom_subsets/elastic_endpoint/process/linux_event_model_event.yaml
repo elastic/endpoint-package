@@ -87,6 +87,13 @@ fields:
             fields:
               major: {}
               minor: {}
+          rows: {}
+          columns: {}
+      io:
+        fields:
+          text: {}
+          total_bytes_captured: {}
+          max_bytes_per_process_exceeded: {}
       user:
         fields:
           id: {}
