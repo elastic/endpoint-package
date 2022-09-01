@@ -2175,6 +2175,7 @@ sent by the endpoint.
 | process.io.max_bytes_per_process_exceeded | If true, the process producing the output has exceeded the max_kilobytes_per_process configuration setting. | boolean |
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | number |
+| process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | number |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |

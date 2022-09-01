@@ -1692,6 +1692,11 @@
       type: number
       description: The total number of bytes captured in this event.
       default_field: false
+    - name: io.total_bytes_skipped
+      level: extended
+      type: number
+      description: The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero
+      default_field: false
     - name: name
       level: extended
       type: keyword

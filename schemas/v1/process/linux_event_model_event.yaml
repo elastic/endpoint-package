@@ -1477,6 +1477,7 @@ process.interactive:
   short: Whether the process is connected to an interactive shell.
   type: boolean
 process.io:
+  beta: This field is beta and subject to change.
   dashed_name: process-io
   description: 'A chunk of input or output (IO) from a single process.
 
@@ -1489,6 +1490,7 @@ process.io:
   short: A chunk of input or output (IO) from a single process.
   type: object
 process.io.max_bytes_per_process_exceeded:
+  beta: This field is beta and subject to change.
   dashed_name: process-io-max-bytes-per-process-exceeded
   description: If true, the process producing the output has exceeded the max_kilobytes_per_process
     configuration setting.
@@ -1500,6 +1502,7 @@ process.io.max_bytes_per_process_exceeded:
     configuration setting.
   type: boolean
 process.io.text:
+  beta: This field is beta and subject to change.
   dashed_name: process-io-text
   description: 'A chunk of output or input sanitized to UTF-8.
 
@@ -1514,6 +1517,7 @@ process.io.text:
   short: A chunk of output or input sanitized to UTF-8.
   type: wildcard
 process.io.total_bytes_captured:
+  beta: This field is beta and subject to change.
   dashed_name: process-io-total-bytes-captured
   description: The total number of bytes captured in this event.
   flat_name: process.io.total_bytes_captured
@@ -1521,6 +1525,19 @@ process.io.total_bytes_captured:
   name: io.total_bytes_captured
   normalize: []
   short: The total number of bytes captured in this event.
+  type: number
+process.io.total_bytes_skipped:
+  beta: This field is beta and subject to change.
+  dashed_name: process-io-total-bytes-skipped
+  description: The total number of bytes that were not captured due to implementation
+    restrictions such as buffer size limits. Implementors should strive to ensure
+    this value is always zero
+  flat_name: process.io.total_bytes_skipped
+  level: extended
+  name: io.total_bytes_skipped
+  normalize: []
+  short: The total number of bytes that were not captured due to implementation restrictions
+    such as buffer size limits.
   type: number
 process.name:
   dashed_name: process-name
@@ -2745,6 +2762,7 @@ process.tty.char_device.minor:
   short: The TTY character device's minor number.
   type: long
 process.tty.columns:
+  beta: This field is beta and subject to change.
   dashed_name: process-tty-columns
   description: 'The number of character columns per line. e.g terminal width
 
@@ -2758,6 +2776,7 @@ process.tty.columns:
   short: The number of character columns per line. e.g terminal width
   type: long
 process.tty.rows:
+  beta: This field is beta and subject to change.
   dashed_name: process-tty-rows
   description: 'The number of character rows in the terminal. e.g terminal height
 
