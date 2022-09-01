@@ -846,14 +846,26 @@ process.entry_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.entry_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-entry-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.entry_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.entry_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
-    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
+    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0".
     For more details, please refer to the Linux kernel documentation.
-  example: 1
+  example: 4
   flat_name: process.entry_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -868,7 +880,7 @@ process.entry_leader.tty.char_device.minor:
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
-  example: 128
+  example: 1
   flat_name: process.entry_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -1302,14 +1314,26 @@ process.group_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.group_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-group-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.group_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.group_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
-    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
+    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0".
     For more details, please refer to the Linux kernel documentation.
-  example: 1
+  example: 4
   flat_name: process.group_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -1324,7 +1348,7 @@ process.group_leader.tty.char_device.minor:
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
-  example: 128
+  example: 1
   flat_name: process.group_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -1779,14 +1803,26 @@ process.parent.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.parent.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-parent-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.parent.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.parent.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
-    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
+    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0".
     For more details, please refer to the Linux kernel documentation.
-  example: 1
+  example: 4
   flat_name: process.parent.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -1801,7 +1837,7 @@ process.parent.tty.char_device.minor:
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
-  example: 128
+  example: 1
   flat_name: process.parent.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -2450,14 +2486,26 @@ process.session_leader.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.session_leader.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-session-leader-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.session_leader.tty
+  level: extended
+  name: tty
+  normalize: []
+  original_fieldset: process
+  short: Information about the controlling TTY device.
+  type: object
 process.session_leader.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
-    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
+    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0".
     For more details, please refer to the Linux kernel documentation.
-  example: 1
+  example: 4
   flat_name: process.session_leader.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -2472,7 +2520,7 @@ process.session_leader.tty.char_device.minor:
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
-  example: 128
+  example: 1
   flat_name: process.session_leader.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
@@ -2562,14 +2610,25 @@ process.supplemental_groups.name:
   original_fieldset: group
   short: Name of the group.
   type: keyword
+process.tty:
+  beta: This field is beta and subject to change.
+  dashed_name: process-tty
+  description: Information about the controlling TTY device. If set, the process belongs
+    to an interactive session.
+  flat_name: process.tty
+  level: extended
+  name: tty
+  normalize: []
+  short: Information about the controlling TTY device.
+  type: object
 process.tty.char_device.major:
   beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
-    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0.
+    to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0".
     For more details, please refer to the Linux kernel documentation.
-  example: 1
+  example: 4
   flat_name: process.tty.char_device.major
   level: extended
   name: tty.char_device.major
@@ -2583,7 +2642,7 @@ process.tty.char_device.minor:
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
     \ to the driver. It is common for a driver to control several devices; the minor\
     \ number provides a way for the driver to differentiate among them."
-  example: 128
+  example: 1
   flat_name: process.tty.char_device.minor
   level: extended
   name: tty.char_device.minor
