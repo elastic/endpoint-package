@@ -730,7 +730,8 @@ sent by the endpoint.
 | process.entry_leader.start | The time the process started. | date |
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
@@ -760,7 +761,8 @@ sent by the endpoint.
 | process.group_leader.start | The time the process started. | date |
 | process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
@@ -873,7 +875,8 @@ sent by the endpoint.
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
 | process.parent.user.id | Unique identifier of the user. | keyword |
@@ -927,7 +930,8 @@ sent by the endpoint.
 | process.session_leader.start | The time the process started. | date |
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.session_leader.user.id | Unique identifier of the user. | keyword |
 | process.session_leader.user.name | Short name or login of the user. | keyword |
@@ -965,7 +969,8 @@ sent by the endpoint.
 | process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
@@ -2122,7 +2127,8 @@ sent by the endpoint.
 | process.entry_leader.start | The time the process started. | date |
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
@@ -2154,7 +2160,8 @@ sent by the endpoint.
 | process.group_leader.start | The time the process started. | date |
 | process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
@@ -2228,7 +2235,8 @@ sent by the endpoint.
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
 | process.parent.user.id | Unique identifier of the user. | keyword |
@@ -2282,7 +2290,8 @@ sent by the endpoint.
 | process.session_leader.start | The time the process started. | date |
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
-| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.session_leader.user.id | Unique identifier of the user. | keyword |
 | process.session_leader.user.name | Short name or login of the user. | keyword |
@@ -2293,7 +2302,8 @@ sent by the endpoint.
 | process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.tty.columns | The number of character columns per line. e.g terminal width Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = 'text_output' | long |
 | process.tty.rows | The number of character rows in the terminal. e.g terminal height Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = 'text_output' | long |

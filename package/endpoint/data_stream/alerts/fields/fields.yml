@@ -5375,17 +5375,22 @@
       ignore_above: 1024
       description: Name of the group.
       default_field: false
+    - name: entry_leader.tty
+      level: extended
+      type: object
+      description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
+      default_field: false
     - name: entry_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: entry_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: entry_leader.user.id
       level: core
@@ -5646,17 +5651,22 @@
       ignore_above: 1024
       description: Name of the group.
       default_field: false
+    - name: group_leader.tty
+      level: extended
+      type: object
+      description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
+      default_field: false
     - name: group_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: group_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: group_leader.user.id
       level: core
@@ -6476,17 +6486,22 @@
 
         The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
       default_field: false
+    - name: parent.tty
+      level: extended
+      type: object
+      description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
+      default_field: false
     - name: parent.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: parent.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: parent.uptime
       level: extended
@@ -6922,17 +6937,22 @@
       ignore_above: 1024
       description: Name of the group.
       default_field: false
+    - name: session_leader.tty
+      level: extended
+      type: object
+      description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
+      default_field: false
     - name: session_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: session_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: session_leader.user.id
       level: core
@@ -7305,17 +7325,22 @@
       description: 'Process title.
 
         The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
+    - name: tty
+      level: extended
+      type: object
+      description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
+      default_field: false
     - name: tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: uptime
       level: extended
