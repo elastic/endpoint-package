@@ -334,6 +334,10 @@
                                 "last_checkin_status": {
                                     "type": "keyword"
                                 },
+                                "last_checkin_message": {
+                                    "type": "text",
+                                    "enabled": false
+                                },
                                 "last_updated": {
                                     "type": "date"
                                 },
@@ -515,6 +519,10 @@
                                     "type": "date"
                                 },
                                 "user_provided_metadata": {
+                                    "type": "object",
+                                    "enabled": false
+                                },
+                                "components": {
                                     "type": "object",
                                     "enabled": false
                                 }
