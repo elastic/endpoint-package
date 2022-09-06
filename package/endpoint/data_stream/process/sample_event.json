@@ -118,6 +118,20 @@
             "sha1": "4fbfc6004084d97032837c21d3f426892d868eac",
             "sha256": "cb19fd67b1d028e01f54c426a0924528c4a8d8ed8996cfe0ee0c6e45285436a1",
             "md5": "1b280ad032268a636ecfe6f9165431b7"
+        },
+        "tty": {
+            "char_device": {
+                "major": 4,
+                "minor": 1
+            },
+            "rows": 24,
+            "columns": 80
+        },
+        "io": {
+            "text": "helloworld",
+            "total_bytes_captured": 10,
+            "total_bytes_skipped": 0,
+            "max_bytes_per_process_exceeded": false
         }
     },
     "message": "Endpoint process event",
