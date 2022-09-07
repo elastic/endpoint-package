@@ -1,6 +1,6 @@
-# Endpoint and Cloud Security Integration
+# Elastic Defend Integration
 
-This integration sets up templates and index patterns required for Endpoint and Cloud Security.
+This integration sets up templates and index patterns required for Elastic Defend.
 
 ## Compatibility
 
