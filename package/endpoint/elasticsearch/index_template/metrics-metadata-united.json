@@ -336,11 +336,11 @@
                                 },
                                 "last_checkin_message": {
                                     "type": "text",
-                                    "enabled": false
+                                    "index": false
                                 },
                                 "last_updated": {
                                     "type": "date"
-                                },
+                                },                                
                                 "local_metadata": {
                                     "properties": {
                                         "elastic": {
