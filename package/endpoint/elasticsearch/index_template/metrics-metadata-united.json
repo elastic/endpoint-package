@@ -340,7 +340,7 @@
                                 },
                                 "last_updated": {
                                     "type": "date"
-                                },                                
+                                },
                                 "local_metadata": {
                                     "properties": {
                                         "elastic": {
