@@ -132,7 +132,7 @@ assumes a release branch was being used (e.g. 7.9, 7.10, etc).
 Once the PR is merged to the `snapshot` branch CI will kick off a new build for that branch that will release a new docker image.
 The images can be located here: <https://container-library.elastic.co/r/package-registry/distribution>
 
-If for some reason the `snapshot` branch CI does kick off a new build, you can manually trigger it here: <https://beats-ci.elastic.co/blue/organizations/jenkins/Beats%2Fpackage-storage/branches>
+If for some reason the `snapshot` branch CI does kick off a new build, you can manually trigger it here: <https://fleet-ci.elastic.co/blue/organizations/jenkins/Beats%2Fpackage-storage/branches>
 
 ### Deploying a new registry with the package
 
