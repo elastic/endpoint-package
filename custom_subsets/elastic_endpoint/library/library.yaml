@@ -210,3 +210,6 @@ fields:
              product_id: {}
              serial_number: {}
              vendor_id: {}
+             volume_device_type: {}
+          relative_file_creation_time: {}
+          relative_file_name_modify_time: {}

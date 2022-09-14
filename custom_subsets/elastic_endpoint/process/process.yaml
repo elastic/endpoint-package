@@ -114,6 +114,7 @@ fields:
           trusted: {}
           valid: {}
       command_line: {}
+      end: {}
       entity_id: {}
       executable: {}
       exit_code: {}
@@ -176,6 +177,8 @@ fields:
               executable: {}
               entity_id: {}
           protection: {}
+          relative_file_creation_time: {}
+          relative_file_name_modify_time: {}
           session: {}
           token:
             fields:
@@ -192,6 +195,7 @@ fields:
              product_id: {}
              serial_number: {}
              vendor_id: {}
+             volume_device_type: {}
       parent:
         fields:
           args: {}

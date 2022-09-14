@@ -232,6 +232,9 @@
           type: date
         - name: last_checkin_status
           type: keyword
+        - name: last_checkin_message
+          type: text
+          index: false
         - name: last_updated
           type: date
         - name: local_metadata
@@ -355,5 +358,8 @@
         - name: upgraded_at
           type: date
         - name: user_provided_metadata
+          type: object
+          enabled: false
+        - name: components
           type: object
           enabled: false

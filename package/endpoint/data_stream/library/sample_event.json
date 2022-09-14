@@ -40,7 +40,12 @@
                     "status": "trusted"
                 }
             ],
-            "load_index": 1
+            "device": {
+                "volume_device_type": "Disk File System"
+            },
+            "load_index": 1,
+            "relative_file_creation_time": 48628704.4029488,
+            "relative_file_name_modify_time": 48628704.4029488
         },
         "path": "C:\\Windows\\System32\\msxml3.dll",
         "code_signature": {
@@ -94,7 +99,7 @@
         "name": "data-viz-win-1",
         "id": "2beebb8e-e5f0-46ca-8635-97ba7bb8ccca",
         "mac": [
-            "42:01:0a:c9:00:0d"
+            "00-00-5E-00-53-23"
         ],
         "architecture": "x86_64"
     },

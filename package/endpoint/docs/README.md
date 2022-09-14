@@ -1,6 +1,6 @@
-# Endpoint and Cloud Security Integration
+# Elastic Defend Integration
 
-This integration sets up templates and index patterns required for Endpoint and Cloud Security.
+This integration sets up templates and index patterns required for Elastic Defend.
 
 ## Compatibility
 
@@ -360,7 +360,7 @@ sent by the endpoint.
 | Target.process.working_directory | The working directory of the process. | keyword |
 | agent.ephemeral_id | Ephemeral identifier of this agent (if one exists). This id normally changes across restarts, but `agent.id` does not. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
-| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. If no name is given, the name is often left empty. | keyword |
+| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
 | cloud.account.id | The cloud account or organization id used to identify different entities in a multi-tenant environment. Examples: AWS account id, Google Cloud ORG Id, or other unique identifier. | keyword |
@@ -705,7 +705,7 @@ sent by the endpoint.
 | process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
-| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
+| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console Note: This field is only set on process.session_leader. | keyword |
 | process.entry_leader.executable | Absolute path to the process executable. | keyword |
 | process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.group.name | Name of the group. | keyword |
@@ -731,7 +731,7 @@ sent by the endpoint.
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
@@ -762,7 +762,7 @@ sent by the endpoint.
 | process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
@@ -876,7 +876,7 @@ sent by the endpoint.
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
 | process.parent.user.id | Unique identifier of the user. | keyword |
@@ -931,7 +931,7 @@ sent by the endpoint.
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.session_leader.user.id | Unique identifier of the user. | keyword |
 | process.session_leader.user.name | Short name or login of the user. | keyword |
@@ -970,7 +970,7 @@ sent by the endpoint.
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
@@ -1481,6 +1481,7 @@ sent by the endpoint.
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
@@ -1655,7 +1656,10 @@ sent by the endpoint.
 | dll.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| dll.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | dll.Ext.load_index | A DLL can be loaded into a process multiple times. This field indicates the Nth time that this DLL has been loaded. The first load index is 1. | unsigned_long |
+| dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
+| dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1964,7 +1968,7 @@ sent by the endpoint.
 | @timestamp | Date/time when the event originated. This is the date/time extracted from the event, typically representing when the event was generated by the source. If the event source has no original timestamp, this value is typically populated by the first time the event was received by the pipeline. Required field for all events. | date |
 | agent.ephemeral_id | Ephemeral identifier of this agent (if one exists). This id normally changes across restarts, but `agent.id` does not. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
-| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. If no name is given, the name is often left empty. | keyword |
+| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
 | cloud.account.id | The cloud account or organization id used to identify different entities in a multi-tenant environment. Examples: AWS account id, Google Cloud ORG Id, or other unique identifier. | keyword |
@@ -1973,6 +1977,7 @@ sent by the endpoint.
 | cloud.provider | Name of the cloud provider. Example values are aws, azure, gcp, or digitalocean. | keyword |
 | cloud.region | Region in which this host, resource, or service is located. | keyword |
 | container.id | Unique container id. | keyword |
+| container.image.hash.all | An array of digests of the image the container was built on. Each digest consists of the hash algorithm and value in this format: `algorithm:value`. Algorithm names should align with the field names in the ECS hash field set. | keyword |
 | container.image.name | Name of the image the container was built on. | keyword |
 | container.image.tag | Container image tags. | keyword |
 | container.name | Container name. | keyword |
@@ -2034,9 +2039,12 @@ sent by the endpoint.
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
+| orchestrator.cluster.id | Unique ID of the cluster. | keyword |
 | orchestrator.cluster.name | Name of the cluster. | keyword |
 | orchestrator.namespace | Namespace in which the action is taking place. | keyword |
+| orchestrator.resource.ip | IP address assigned to the resource associated with the event being observed. In the case of a Kubernetes Pod, this array would contain only one element: the IP of the Pod (as opposed to the Node on which the Pod is running). | ip |
 | orchestrator.resource.name | Name of the resource being acted upon. | keyword |
+| orchestrator.resource.parent.type | Type or kind of the parent resource associated with the event being observed. In Kubernetes, this will be the name of a built-in workload resource (e.g., Deployment, StatefulSet, DaemonSet). | keyword |
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
@@ -2056,6 +2064,7 @@ sent by the endpoint.
 | process.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | process.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | process.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| process.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
@@ -2066,6 +2075,8 @@ sent by the endpoint.
 | process.Ext.effective_parent.name | Process name for the effective process. | keyword |
 | process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
+| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
+| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
@@ -2084,13 +2095,14 @@ sent by the endpoint.
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
+| process.end | The time the process ended. | date |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
-| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console | keyword |
+| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console Note: This field is only set on process.session_leader. | keyword |
 | process.entry_leader.executable | Absolute path to the process executable. | keyword |
 | process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.group.name | Name of the group. | keyword |
@@ -2116,7 +2128,7 @@ sent by the endpoint.
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
@@ -2149,7 +2161,7 @@ sent by the endpoint.
 | process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
@@ -2159,6 +2171,11 @@ sent by the endpoint.
 | process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
+| process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
+| process.io.max_bytes_per_process_exceeded | If true, the process producing the output has exceeded the max_kilobytes_per_process configuration setting. | boolean |
+| process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
+| process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
+| process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
@@ -2220,7 +2237,7 @@ sent by the endpoint.
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.parent.uptime | Seconds the process has been up. | long |
 | process.parent.user.id | Unique identifier of the user. | keyword |
@@ -2275,7 +2292,7 @@ sent by the endpoint.
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.session_leader.user.id | Unique identifier of the user. | keyword |
 | process.session_leader.user.name | Short name or login of the user. | keyword |
@@ -2287,8 +2304,10 @@ sent by the endpoint.
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation. | long |
+| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
+| process.tty.columns | The number of character columns per line. e.g terminal width Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = 'text_output' | long |
+| process.tty.rows | The number of character rows in the terminal. e.g terminal height Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = 'text_output' | long |
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
@@ -2590,7 +2609,7 @@ sent by the endpoint.
 | Endpoint.state.isolation | Current network isolation state of the host | boolean |
 | Endpoint.status | The current status of the endpoint e.g. enrolled, unenrolled. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
-| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. If no name is given, the name is often left empty. | keyword |
+| agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
 | data_stream.dataset | Data stream dataset name. | constant_keyword |

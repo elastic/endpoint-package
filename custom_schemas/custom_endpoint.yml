@@ -228,6 +228,18 @@
         but not a simple sum of the actions
       short: overall status of behavior_protection
 
+    - name: policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for attack surface reduction
+
+    - name: policy.applied.response.configurations.attack_surface_reduction.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of attack surface reduction, this is correlated to the status of
+        concerned actions but not a simple sum of the actions
+      short: overall status of attack surface reduction
 
     - name: policy.applied.response.diagnostic
       level: custom

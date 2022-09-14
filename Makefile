@@ -1,7 +1,7 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-ECS_GIT_REF ?= v8.2.0
+ECS_GIT_REF ?= v8.3.1
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
@@ -60,9 +60,9 @@ endif
 SED := gsed
 endif
 
-
+# FIXME use `elastic-package check` to enable linting
 all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS)
-	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format
+	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format && $(ESTC_PKG_BIN) build -v --skip-validation
 
 mac-deps:
 	@echo Installing gsed for mac
@@ -145,10 +145,6 @@ run-registry: check-docker build-package
 	docker-compose pull
 	docker-compose up
 
-# Use this target to run the linter on the current state of the package
-lint: $(ESTC_PKG_BIN)
-	cd $(ROOT_DIR)/package/endpoint && $(ESTC_PKG_BIN) lint
-
 # Use this target to release the package (dev or prod) to the package storage repo
 release: $(VENV_DIR)
 	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
@@ -178,4 +174,4 @@ pipeline-test: $(ESTC_PKG_BIN)
 test: static-test pipeline-test
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release lint run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package promote release run-registry clean mac-deps build-package check-docker static-test pipeline-test test

@@ -990,6 +990,19 @@ file.Ext.device.vendor_id:
   normalize: []
   short: VendorID of the device.
   type: keyword
+file.Ext.device.volume_device_type:
+  dashed_name: file-Ext-device-volume-device-type
+  description: 'Volume device type.
+
+    Following are examples of the most frequently seen volume device types: Disk File
+    System CD-ROM File System'
+  flat_name: file.Ext.device.volume_device_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.volume_device_type
+  normalize: []
+  short: Volume device type.
+  type: keyword
 file.Ext.entropy:
   dashed_name: file-Ext-entropy
   description: Entropy calculation of file's header and footer used to check file
@@ -1776,6 +1789,7 @@ host.mac:
   name: mac
   normalize:
   - array
+  pattern: ^[A-F0-9]{2}(-[A-F0-9]{2}){5,}$
   short: Host MAC addresses.
   type: keyword
 host.name:

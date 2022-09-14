@@ -264,7 +264,7 @@
         "name": "security-win-1",
         "id": "bbea673e-eae6-4b03-8724-2183f79da331",
         "mac": [
-            "42:01:0a:c9:00:22"
+            "00-00-5E-00-53-23"
         ],
         "architecture": "x86_64"
     },

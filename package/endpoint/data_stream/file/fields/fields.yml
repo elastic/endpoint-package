@@ -427,6 +427,14 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
+      default_field: false
     - name: Ext.entropy
       level: custom
       type: double
@@ -886,6 +894,7 @@
 
         The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen.'
       example: '["00-00-5E-00-53-23", "00-00-5E-00-53-24"]'
+      pattern: ^[A-F0-9]{2}(-[A-F0-9]{2}){5,}$
     - name: name
       level: core
       type: keyword

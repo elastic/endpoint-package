@@ -53,9 +53,7 @@
       ignore_above: 1024
       description: 'Custom name of the agent.
 
-        This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from.
-
-        If no name is given, the name is often left empty.'
+        This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from.'
       example: foo
     - name: type
       level: core
@@ -129,6 +127,13 @@
       type: keyword
       ignore_above: 1024
       description: Unique container id.
+    - name: image.hash.all
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'An array of digests of the image the container was built on. Each digest consists of the hash algorithm and value in this format: `algorithm:value`. Algorithm names should align with the field names in the ECS hash field set.'
+      example: '[sha256:f8fefc80e3273dc756f288a63945820d6476ad64883892c771b5e2ece6bf1b26]'
+      default_field: false
     - name: image.name
       level: extended
       type: keyword
@@ -515,6 +520,7 @@
 
         The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen.'
       example: '["00-00-5E-00-53-23", "00-00-5E-00-53-24"]'
+      pattern: ^[A-F0-9]{2}(-[A-F0-9]{2}){5,}$
     - name: name
       level: core
       type: keyword
@@ -627,6 +633,12 @@
   type: group
   default_field: true
   fields:
+    - name: cluster.id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Unique ID of the cluster.
+      default_field: false
     - name: cluster.name
       level: extended
       type: keyword
@@ -640,12 +652,24 @@
       description: Namespace in which the action is taking place.
       example: kube-system
       default_field: false
+    - name: resource.ip
+      level: extended
+      type: ip
+      description: 'IP address assigned to the resource associated with the event being observed. In the case of a Kubernetes Pod, this array would contain only one element: the IP of the Pod (as opposed to the Node on which the Pod is running).'
+      default_field: false
     - name: resource.name
       level: extended
       type: keyword
       ignore_above: 1024
       description: Name of the resource being acted upon.
       example: test-pod-cdcws
+      default_field: false
+    - name: resource.parent.type
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Type or kind of the parent resource associated with the event being observed. In Kubernetes, this will be the name of a built-in workload resource (e.g., Deployment, StatefulSet, DaemonSet).
+      example: DaemonSet
       default_field: false
     - name: resource.type
       level: extended
@@ -785,6 +809,14 @@
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
       default_field: false
+    - name: Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
+      default_field: false
     - name: Ext.dll.Ext
       level: custom
       type: object
@@ -848,6 +880,16 @@
       type: keyword
       ignore_above: 1024
       description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
+    - name: Ext.relative_file_creation_time
+      level: custom
+      type: double
+      description: Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future.
+      default_field: false
+    - name: Ext.relative_file_name_modify_time
+      level: custom
+      type: double
+      description: Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future.
       default_field: false
     - name: Ext.session
       level: custom
@@ -986,6 +1028,12 @@
         Some arguments may be filtered to protect sensitive information.'
       example: /usr/bin/ssh -l user 10.0.0.16
       default_field: false
+    - name: end
+      level: extended
+      type: date
+      description: The time the process ended.
+      example: '2016-05-23T08:05:34.853Z'
+      default_field: false
     - name: entity_id
       level: extended
       type: keyword
@@ -1050,7 +1098,9 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console'
+      description: 'The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console
+
+        Note: This field is only set on process.session_leader.'
       default_field: false
     - name: entry_leader.executable
       level: extended
@@ -1259,14 +1309,14 @@
     - name: entry_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: entry_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: entry_leader.user.id
       level: core
@@ -1547,14 +1597,14 @@
     - name: group_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: group_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: group_leader.user.id
       level: core
@@ -1617,6 +1667,35 @@
 
         Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY.'
       example: true
+      default_field: false
+    - name: io
+      level: extended
+      type: object
+      description: 'A chunk of input or output (IO) from a single process.
+
+        This field only appears on the top level process object, which is the process that wrote the output or read the input.'
+      default_field: false
+    - name: io.max_bytes_per_process_exceeded
+      level: extended
+      type: boolean
+      description: If true, the process producing the output has exceeded the max_kilobytes_per_process configuration setting.
+      default_field: false
+    - name: io.text
+      level: extended
+      type: wildcard
+      description: 'A chunk of output or input sanitized to UTF-8.
+
+        Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word.'
+      default_field: false
+    - name: io.total_bytes_captured
+      level: extended
+      type: long
+      description: The total number of bytes captured in this event.
+      default_field: false
+    - name: io.total_bytes_skipped
+      level: extended
+      type: long
+      description: The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero
       default_field: false
     - name: name
       level: extended
@@ -2098,14 +2177,14 @@
     - name: parent.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: parent.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: parent.uptime
       level: extended
@@ -2549,14 +2628,14 @@
     - name: session_leader.tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: session_leader.tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
       default_field: false
     - name: session_leader.user.id
       level: core
@@ -2638,14 +2717,30 @@
     - name: tty.char_device.major
       level: extended
       type: long
-      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0. For more details, please refer to the Linux kernel documentation.
-      example: 1
+      description: The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation.
+      example: 4
       default_field: false
     - name: tty.char_device.minor
       level: extended
       type: long
       description: "The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them."
-      example: 128
+      example: 1
+      default_field: false
+    - name: tty.columns
+      level: extended
+      type: long
+      description: 'The number of character columns per line. e.g terminal width
+
+        Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = ''text_output'''
+      example: 80
+      default_field: false
+    - name: tty.rows
+      level: extended
+      type: long
+      description: 'The number of character rows in the terminal. e.g terminal height
+
+        Terminal sizes can change, so this value reflects the maximum value for a given IO event. i.e. where event.action = ''text_output'''
+      example: 24
       default_field: false
     - name: uptime
       level: extended
