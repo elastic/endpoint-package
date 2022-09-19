@@ -50,6 +50,15 @@
         }
     },
     "process": {
+        "entry_leader": {
+            "attested_user": {
+                "id": "123",
+                "name": "userA"
+            },
+            "attested_groups": {
+                "name": "groupA"
+            }
+        },
         "Ext": {
             "ancestry": [
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
