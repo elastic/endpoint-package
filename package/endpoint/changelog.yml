@@ -2,6 +2,20 @@
 ## This file documents the package changelog
 ##
 
+- version: 8.5.0
+  changes:
+    - description: rename integration to Elastic Defend
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/292
+    - description: add process.tty and process.io fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/294
+    - description: update united index to include new fleet agents fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/295
+    - description: add attested fields to process.entry_leader
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/299
 - version: 8.4.1
   changes:
     - description: adds volume_device_type
