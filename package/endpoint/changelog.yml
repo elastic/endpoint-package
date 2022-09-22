@@ -2,6 +2,8 @@
 ## This file documents the package changelog
 ##
 
+- version: 8.6.0
+  changes:
 - version: 8.5.0
   changes:
     - description: rename integration to Elastic Defend
