@@ -26,9 +26,9 @@
             }
         },
         "entry_leader": {
-            "entity_id":"YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA=",
+            "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA=",
             "parent": {
-                "entity_id":"YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
+                "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
             }
         },
         "session_leader": {
