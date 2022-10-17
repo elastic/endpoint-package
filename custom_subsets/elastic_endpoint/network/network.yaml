@@ -97,6 +97,24 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+      parent:
+        fields:
+          entity_id: {}
+          group_leader:
+            fields:
+              entity_id: {}
+      entry_leader:
+        fields:
+          entity_id: {}
+          parent: 
+            fields:
+              entity_id: {}
+      session_leader:
+        fields:
+          entity_id: {}
+      group_leader:
+        fields:
+          entity_id: {}
       code_signature:
         fields:
           exists: {}
