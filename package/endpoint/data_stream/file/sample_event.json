@@ -27,7 +27,23 @@
         },
         "args_count": 1,
         "parent": {
-            "pid": 604
+            "pid": 604,
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
+            "group_leader": {
+                "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+            }
+        },
+        "entry_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
+            "parent": {
+                "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+            }
+        },
+        "session_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+        },
+        "group_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
         },
         "code_signature": {
             "trusted": true,

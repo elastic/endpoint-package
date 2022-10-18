@@ -2202,6 +2202,46 @@ process.entity_id:
   normalize: []
   short: Unique identifier for the process.
   type: keyword
+process.entry_leader.entity_id:
+  dashed_name: process-entry-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.entry_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
+process.entry_leader.parent.entity_id:
+  dashed_name: process-entry-leader-parent-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.entry_leader.parent.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
 process.executable:
   dashed_name: process-executable
   description: Absolute path to the process executable.
@@ -2222,6 +2262,26 @@ process.executable:
   name: executable
   normalize: []
   short: Absolute path to the process executable.
+  type: keyword
+process.group_leader.entity_id:
+  dashed_name: process-group-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.group_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
   type: keyword
 process.name:
   dashed_name: process-name
@@ -2245,6 +2305,46 @@ process.name:
   name: name
   normalize: []
   short: Process name.
+  type: keyword
+process.parent.entity_id:
+  dashed_name: process-parent-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.parent.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
+process.parent.group_leader.entity_id:
+  dashed_name: process-parent-group-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.parent.group_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
   type: keyword
 process.parent.pid:
   dashed_name: process-parent-pid
@@ -2280,6 +2380,26 @@ process.ppid:
   normalize: []
   short: Parent process' pid.
   type: long
+process.session_leader.entity_id:
+  dashed_name: process-session-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.session_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.
