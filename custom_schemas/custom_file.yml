@@ -343,6 +343,48 @@
         Disk File System
         CD-ROM File System
 
+    - name: Ext.sections.name
+      level: custom
+      type: keyword
+      short: Name of a file's section (e.g. .reloc)
+      description: >
+        Name of a file's section (e.g. .reloc)
+
+    - name: Ext.sections.hash.md5
+      level: custom
+      type: keyword
+      short: MD5 of the section
+      description: >
+        MD5 of the section
+
+    - name: Ext.sections.hash.sha256
+      level: custom
+      type: keyword
+      short: SHA256 of the section
+      description: >
+        SHA256 of the section
+        
+    - name: Ext.streams.name
+      level: custom
+      type: keyword
+      short: Name of a file's stream (e.g. #Strings)
+      description: >
+        Name of a file's stream (e.g. #Strings)
+
+    - name: Ext.streams.hash.md5
+      level: custom
+      type: keyword
+      short: MD5 of the stream
+      description: >
+        MD5 of the section
+
+    - name: Ext.streams.hash.sha256
+      level: custom
+      type: keyword
+      short: SHA256 of the stream
+      description: >
+        SHA256 of the section
+
     - name: code_signature.exists
       level: core
       type: boolean

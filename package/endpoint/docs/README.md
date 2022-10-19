@@ -489,6 +489,12 @@ sent by the endpoint.
 | file.Ext.quarantine_message | Message describing quarantine results. | keyword |
 | file.Ext.quarantine_path | Path on endpoint the quarantined file was originally. | keyword |
 | file.Ext.quarantine_result | Boolean representing whether or not file quarantine succeeded. | boolean |
+| file.Ext.sections.hash.md5 | MD5 of the section | keyword |
+| file.Ext.sections.hash.sha256 | SHA256 of the section | keyword |
+| file.Ext.sections.name | Name of a file's section (e.g. .reloc) | keyword |
+| file.Ext.streams.hash.md5 | MD5 of the section | keyword |
+| file.Ext.streams.hash.sha256 | SHA256 of the section | keyword |
+| file.Ext.streams.name | Name of a file's stream (e.g. #Strings) | keyword |
 | file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |

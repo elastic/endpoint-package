@@ -3630,6 +3630,42 @@
       type: boolean
       description: Boolean representing whether or not file quarantine succeeded.
       default_field: false
+    - name: Ext.sections.hash.md5
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: MD5 of the section
+      default_field: false
+    - name: Ext.sections.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 of the section
+      default_field: false
+    - name: Ext.sections.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of a file's section (e.g. .reloc)
+      default_field: false
+    - name: Ext.streams.hash.md5
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: MD5 of the section
+      default_field: false
+    - name: Ext.streams.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 of the section
+      default_field: false
+    - name: Ext.streams.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of a file''s stream (e.g. #Strings)'
+      default_field: false
     - name: Ext.temp_file_path
       level: custom
       type: keyword

@@ -100,7 +100,32 @@
                 "score": 0.692318737506866,
                 "threshold": 0.58,
                 "version": "4.0.19000"
-            }
+            },
+            "streams": [
+                {
+                    "name": "#~",
+                    "hash": {
+                        "md5": "debf08c09d49337fbe7acde4d3749242",
+                        "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                    }
+                },
+                {
+                    "name": "#Blob",
+                    "hash": {
+                        "md5": "debf08c09d49337fbe7acde4d3749242",
+                        "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                    }
+                }
+            ],
+            "sections": [
+                {
+                    "name": ".reloc",
+                    "hash": {
+                        "md5": "debf08c09d49337fbe7acde4d3749242",
+                        "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                    }
+                }
+            ]
         },
         "owner": "Administrators",
         "extension": "dll",
