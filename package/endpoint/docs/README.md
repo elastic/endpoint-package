@@ -492,8 +492,8 @@ sent by the endpoint.
 | file.Ext.sections.hash.md5 | MD5 of the section | keyword |
 | file.Ext.sections.hash.sha256 | SHA256 of the section | keyword |
 | file.Ext.sections.name | Name of a file's section (e.g. .reloc) | keyword |
-| file.Ext.streams.hash.md5 | MD5 of the section | keyword |
-| file.Ext.streams.hash.sha256 | SHA256 of the section | keyword |
+| file.Ext.streams.hash.md5 | MD5 of the stream | keyword |
+| file.Ext.streams.hash.sha256 | SHA256 of the stream | keyword |
 | file.Ext.streams.name | Name of a file's stream (e.g. #Strings) | keyword |
 | file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |

@@ -3652,13 +3652,13 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: MD5 of the section
+      description: MD5 of the stream
       default_field: false
     - name: Ext.streams.hash.sha256
       level: custom
       type: keyword
       ignore_above: 1024
-      description: SHA256 of the section
+      description: SHA256 of the stream
       default_field: false
     - name: Ext.streams.name
       level: custom

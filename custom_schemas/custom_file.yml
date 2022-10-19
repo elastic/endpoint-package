@@ -376,14 +376,14 @@
       type: keyword
       short: MD5 of the stream
       description: >
-        MD5 of the section
+        MD5 of the stream
 
     - name: Ext.streams.hash.sha256
       level: custom
       type: keyword
       short: SHA256 of the stream
       description: >
-        SHA256 of the section
+        SHA256 of the stream
 
     - name: code_signature.exists
       level: core
