@@ -349,34 +349,6 @@
       description: Whether this file is a .NET PE
       example: "true"
 
-    - name: Ext.sections
-      level: custom
-      type: object
-      short: The file's sections, if it is a PE
-      description: >
-        The file's sections, if it is a PE
-
-    - name: Ext.sections.hash
-      level: custom
-      type: object
-      short: The section's hashes
-      description: >
-        The section's hashes
-        
-    - name: Ext.streams
-      level: custom
-      type: object
-      short: The file's streams, if it is a PE
-      description: >
-        The file's streams, if it is a PE
-        
-    - name: Ext.streams.hash
-      level: custom
-      type: object
-      short: The streams's hashes
-      description: >
-        The streams's hashes
-
     - name: code_signature.exists
       level: core
       type: boolean

@@ -9,8 +9,8 @@
     order: 2
     top_level: false
     expected:
-      - file.Ext.sections
-      - file.Ext.streams
+      - { at: file.Ext, as: sections }
+      - { at: file.Ext, as: streams }
   fields:
     - name: name
       level: custom
@@ -18,9 +18,21 @@
       example: ".reloc"
       description: >
         The section or stream's name
-        
+
     - name: hash
       level: custom
       type: object
       description: >
-        Hashes associated with this section or stream.
+        Hashes
+        
+    - name: hash.md5
+      level: custom
+      type: keyword
+      description: >
+        MD5 hash of this section or stream
+
+    - name: hash.sha256
+      level: custom
+      type: keyword
+      description: >
+        SHA256 hash of this section or stream

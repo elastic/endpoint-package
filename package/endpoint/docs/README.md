@@ -449,6 +449,7 @@ sent by the endpoint.
 | file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| file.Ext.dotnet | Whether this file is a .NET PE | boolean |
 | file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | file.Ext.macro.code_page | Identifies the character encoding used for this macro.  https://docs.microsoft.com/en-us/windows/win32/intl/code-page-identifiers | long |
 | file.Ext.macro.collection | Object containing hashes for the macro collection. | object |
@@ -489,12 +490,14 @@ sent by the endpoint.
 | file.Ext.quarantine_message | Message describing quarantine results. | keyword |
 | file.Ext.quarantine_path | Path on endpoint the quarantined file was originally. | keyword |
 | file.Ext.quarantine_result | Boolean representing whether or not file quarantine succeeded. | boolean |
-| file.Ext.sections.hash.md5 | MD5 of the section | keyword |
-| file.Ext.sections.hash.sha256 | SHA256 of the section | keyword |
-| file.Ext.sections.name | Name of a file's section (e.g. .reloc) | keyword |
-| file.Ext.streams.hash.md5 | MD5 of the stream | keyword |
-| file.Ext.streams.hash.sha256 | SHA256 of the stream | keyword |
-| file.Ext.streams.name | Name of a file's stream (e.g. #Strings) | keyword |
+| file.Ext.sections.hash | Hashes | object |
+| file.Ext.sections.hash.md5 | MD5 hash of this section or stream | keyword |
+| file.Ext.sections.hash.sha256 | SHA256 hash of this section or stream | keyword |
+| file.Ext.sections.name | The section or stream's name | keyword |
+| file.Ext.streams.hash | Hashes | object |
+| file.Ext.streams.hash.md5 | MD5 hash of this section or stream | keyword |
+| file.Ext.streams.hash.sha256 | SHA256 hash of this section or stream | keyword |
+| file.Ext.streams.name | The section or stream's name | keyword |
 | file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
