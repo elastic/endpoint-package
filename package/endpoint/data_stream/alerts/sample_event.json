@@ -101,7 +101,7 @@
                 "threshold": 0.58,
                 "version": "4.0.19000"
             },
-			"dotnet": true,
+            "dotnet": true,
             "streams": [
                 {
                     "name": "#~",
