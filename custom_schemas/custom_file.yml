@@ -343,47 +343,39 @@
         Disk File System
         CD-ROM File System
 
-    - name: Ext.sections.name
+    - name: Ext.dotnet
       level: custom
-      type: keyword
-      short: Name of a file's section (e.g. .reloc)
-      description: >
-        Name of a file's section (e.g. .reloc)
+      type: boolean
+      description: Whether this file is a .NET PE
+      example: "true"
 
-    - name: Ext.sections.hash.md5
+    - name: Ext.sections
       level: custom
-      type: keyword
-      short: MD5 of the section
+      type: object
+      short: The file's sections, if it is a PE
       description: >
-        MD5 of the section
+        The file's sections, if it is a PE
 
-    - name: Ext.sections.hash.sha256
+    - name: Ext.sections.hash
       level: custom
-      type: keyword
-      short: SHA256 of the section
+      type: object
+      short: The section's hashes
       description: >
-        SHA256 of the section
+        The section's hashes
         
-    - name: Ext.streams.name
+    - name: Ext.streams
       level: custom
-      type: keyword
-      short: Name of a file's stream (e.g. #Strings)
+      type: object
+      short: The file's streams, if it is a PE
       description: >
-        Name of a file's stream (e.g. #Strings)
-
-    - name: Ext.streams.hash.md5
+        The file's streams, if it is a PE
+        
+    - name: Ext.streams.hash
       level: custom
-      type: keyword
-      short: MD5 of the stream
+      type: object
+      short: The streams's hashes
       description: >
-        MD5 of the stream
-
-    - name: Ext.streams.hash.sha256
-      level: custom
-      type: keyword
-      short: SHA256 of the stream
-      description: >
-        SHA256 of the stream
+        The streams's hashes
 
     - name: code_signature.exists
       level: core

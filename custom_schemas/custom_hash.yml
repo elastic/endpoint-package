@@ -18,3 +18,5 @@
       - macro.collection
       - macro.project_file
       - macro.stream
+      - file.Ext.sections.hash
+      - file.Ext.streams.hash

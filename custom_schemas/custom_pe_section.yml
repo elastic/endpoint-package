@@ -1,0 +1,26 @@
+---
+- name: pe_section
+  title: PE section or stream
+  group: 2
+  short: Fields describing a section or stream in a PE file
+  description: >
+    Fields describing a section or stream in a PE file
+  reusable:
+    order: 2
+    top_level: false
+    expected:
+      - file.Ext.sections
+      - file.Ext.streams
+  fields:
+    - name: name
+      level: custom
+      type: keyword
+      example: ".reloc"
+      description: >
+        The section or stream's name
+        
+    - name: hash
+      level: custom
+      type: object
+      description: >
+        Hashes associated with this section or stream.
