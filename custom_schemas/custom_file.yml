@@ -349,6 +349,70 @@
       description: Whether this file is a .NET PE
       example: "true"
 
+    - name: Ext.sections
+      level: custom
+      type: object
+      short: The file's sections, if it is a PE
+      description: >
+        The file's relevant sections, if it is a PE
+        
+    - name: Ext.sections.name
+      level: custom
+      type: keyword
+      example: ".reloc"
+      description: >
+        The section's name
+
+    - name: Ext.sections.hash
+      level: custom
+      type: object
+      description: >
+        Hashes
+        
+    - name: Ext.sections.hash.md5
+      level: custom
+      type: keyword
+      description: >
+        MD5 hash of this section
+
+    - name: Ext.sections.hash.sha256
+      level: custom
+      type: keyword
+      description: >
+        SHA256 hash of this section
+        
+    - name: Ext.streams
+      level: custom
+      type: object
+      short: The file's streams, if it is a PE
+      description: >
+        The file's streams, if it is a PE
+        
+    - name: Ext.streams.name
+      level: custom
+      type: keyword
+      example: ".reloc"
+      description: >
+        The stream's name
+
+    - name: Ext.streams.hash
+      level: custom
+      type: object
+      description: >
+        Hashes
+        
+    - name: Ext.streams.hash.md5
+      level: custom
+      type: keyword
+      description: >
+        MD5 hash of this stream
+
+    - name: Ext.streams.hash.sha256
+      level: custom
+      type: keyword
+      description: >
+        SHA256 hash of this stream
+
     - name: code_signature.exists
       level: core
       type: boolean

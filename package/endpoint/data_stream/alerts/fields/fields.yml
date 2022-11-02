@@ -3636,6 +3636,11 @@
       type: boolean
       description: Boolean representing whether or not file quarantine succeeded.
       default_field: false
+    - name: Ext.sections
+      level: custom
+      type: object
+      description: The file's relevant sections, if it is a PE
+      default_field: false
     - name: Ext.sections.hash
       level: custom
       type: object
@@ -3645,20 +3650,25 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: MD5 hash of this section or stream
+      description: MD5 hash of this section
       default_field: false
     - name: Ext.sections.hash.sha256
       level: custom
       type: keyword
       ignore_above: 1024
-      description: SHA256 hash of this section or stream
+      description: SHA256 hash of this section
       default_field: false
     - name: Ext.sections.name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The section or stream's name
+      description: The section's name
       example: .reloc
+      default_field: false
+    - name: Ext.streams
+      level: custom
+      type: object
+      description: The file's streams, if it is a PE
       default_field: false
     - name: Ext.streams.hash
       level: custom
@@ -3669,19 +3679,19 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: MD5 hash of this section or stream
+      description: MD5 hash of this stream
       default_field: false
     - name: Ext.streams.hash.sha256
       level: custom
       type: keyword
       ignore_above: 1024
-      description: SHA256 hash of this section or stream
+      description: SHA256 hash of this stream
       default_field: false
     - name: Ext.streams.name
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The section or stream's name
+      description: The stream's name
       example: .reloc
       default_field: false
     - name: Ext.temp_file_path
