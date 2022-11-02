@@ -343,52 +343,6 @@
         Disk File System
         CD-ROM File System
 
-    - name: Ext.dotnet
-      level: custom
-      type: boolean
-      description: Whether this file is a .NET PE
-      example: "true"
-
-    - name: Ext.sections
-      level: custom
-      type: object
-      short: The file's sections, if it is a PE
-      description: >
-        The file's relevant sections, if it is a PE
-        
-    - name: Ext.sections.name
-      level: custom
-      type: keyword
-      example: ".reloc"
-      description: >
-        The section's name
-
-    - name: Ext.sections.hash
-      level: custom
-      type: object
-      description: >
-        Hashes
-        
-    - name: Ext.streams
-      level: custom
-      type: object
-      short: The file's streams, if it is a PE
-      description: >
-        The file's streams, if it is a PE
-        
-    - name: Ext.streams.name
-      level: custom
-      type: keyword
-      example: ".reloc"
-      description: >
-        The stream's name
-
-    - name: Ext.streams.hash
-      level: custom
-      type: object
-      description: >
-        Hashes
-
     - name: code_signature.exists
       level: core
       type: boolean
@@ -454,3 +408,8 @@
         This is used to identify the team or vendor of a software product. The field is
         relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+
+    - name: pe
+      level: custom
+      type: object
+      description: PE fields
