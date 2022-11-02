@@ -3641,22 +3641,17 @@
       type: object
       description: The file's relevant sections, if it is a PE
       default_field: false
-    - name: Ext.sections.hash
-      level: custom
-      type: object
-      description: Hashes
-      default_field: false
     - name: Ext.sections.hash.md5
-      level: custom
+      level: extended
       type: keyword
       ignore_above: 1024
-      description: MD5 hash of this section
+      description: MD5 hash.
       default_field: false
     - name: Ext.sections.hash.sha256
-      level: custom
+      level: extended
       type: keyword
       ignore_above: 1024
-      description: SHA256 hash of this section
+      description: SHA256 hash.
       default_field: false
     - name: Ext.sections.name
       level: custom
@@ -3670,22 +3665,17 @@
       type: object
       description: The file's streams, if it is a PE
       default_field: false
-    - name: Ext.streams.hash
-      level: custom
-      type: object
-      description: Hashes
-      default_field: false
     - name: Ext.streams.hash.md5
-      level: custom
+      level: extended
       type: keyword
       ignore_above: 1024
-      description: MD5 hash of this stream
+      description: MD5 hash.
       default_field: false
     - name: Ext.streams.hash.sha256
-      level: custom
+      level: extended
       type: keyword
       ignore_above: 1024
-      description: SHA256 hash of this stream
+      description: SHA256 hash.
       default_field: false
     - name: Ext.streams.name
       level: custom

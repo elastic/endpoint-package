@@ -369,18 +369,6 @@
       description: >
         Hashes
         
-    - name: Ext.sections.hash.md5
-      level: custom
-      type: keyword
-      description: >
-        MD5 hash of this section
-
-    - name: Ext.sections.hash.sha256
-      level: custom
-      type: keyword
-      description: >
-        SHA256 hash of this section
-        
     - name: Ext.streams
       level: custom
       type: object
@@ -400,18 +388,6 @@
       type: object
       description: >
         Hashes
-        
-    - name: Ext.streams.hash.md5
-      level: custom
-      type: keyword
-      description: >
-        MD5 hash of this stream
-
-    - name: Ext.streams.hash.sha256
-      level: custom
-      type: keyword
-      description: >
-        SHA256 hash of this stream
 
     - name: code_signature.exists
       level: core

@@ -491,14 +491,12 @@ sent by the endpoint.
 | file.Ext.quarantine_path | Path on endpoint the quarantined file was originally. | keyword |
 | file.Ext.quarantine_result | Boolean representing whether or not file quarantine succeeded. | boolean |
 | file.Ext.sections | The file's relevant sections, if it is a PE | object |
-| file.Ext.sections.hash | Hashes | object |
-| file.Ext.sections.hash.md5 | MD5 hash of this section | keyword |
-| file.Ext.sections.hash.sha256 | SHA256 hash of this section | keyword |
+| file.Ext.sections.hash.md5 | MD5 hash. | keyword |
+| file.Ext.sections.hash.sha256 | SHA256 hash. | keyword |
 | file.Ext.sections.name | The section's name | keyword |
 | file.Ext.streams | The file's streams, if it is a PE | object |
-| file.Ext.streams.hash | Hashes | object |
-| file.Ext.streams.hash.md5 | MD5 hash of this stream | keyword |
-| file.Ext.streams.hash.sha256 | SHA256 hash of this stream | keyword |
+| file.Ext.streams.hash.md5 | MD5 hash. | keyword |
+| file.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
 | file.Ext.streams.name | The stream's name | keyword |
 | file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
