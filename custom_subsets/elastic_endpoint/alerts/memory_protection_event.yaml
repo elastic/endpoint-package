@@ -648,7 +648,6 @@ fields:
           dll:
             fields: *dll-fields
           services: {}
-          session: {}
           user: {}
           code_signature:
             fields:

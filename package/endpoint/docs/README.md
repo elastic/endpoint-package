@@ -194,7 +194,6 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
-| Target.process.Ext.session | Session information for the current process | keyword |
 | Target.process.Ext.token.domain | Domain of token user. | keyword |
 | Target.process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | Target.process.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -673,7 +672,6 @@ sent by the endpoint.
 | process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.services | Services running in this process. | keyword |
-| process.Ext.session | Session information for the current process | keyword |
 | process.Ext.token.domain | Domain of token user. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -2089,7 +2087,13 @@ sent by the endpoint.
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.session | Session information for the current process | keyword |
+| process.Ext.session.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
+| process.Ext.session.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
+| process.Ext.session.id | Session ID | unsigned_long |
+| process.Ext.session.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
+| process.Ext.session.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
+| process.Ext.session.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
+| process.Ext.session.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |

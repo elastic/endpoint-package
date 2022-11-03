@@ -276,12 +276,6 @@
       description: >
         Process authentication ID
 
-    - name: Ext.session
-      level: custom
-      type: keyword
-      description: >
-        Session information for the current process
-
     - name: Ext.code_signature
       level: custom
       type: nested
@@ -377,6 +371,49 @@
       description: >
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+
+    - name: Ext.session.logon_type
+      level: custom
+      type: keyword
+      description: >
+        Session logon type.  Examples include Interactive, Network, and Service.
+        
+    - name: Ext.session.client_address
+      level: custom
+      type: keyword
+      description: >
+        Client's IPv4 or IPv6 address as a string, if available.
+        
+    - name: Ext.session.id
+      level: custom
+      type: unsigned_long
+      description: >
+        Session ID
+        
+    - name: Ext.session.authentication_package
+      level: custom
+      type: keyword
+      description: >
+        Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+
+    - name: Ext.session.relative_logon_time
+      level: custom
+      type: double
+      description: >
+        Process creation time, relative to logon time, in seconds.
+        
+    - name: Ext.session.relative_password_age
+      level: custom
+      type: double
+      description: >
+        Process creation time, relative to the last time the password was changed, in seconds.
+
+    - name: Ext.session.user_flags
+      level: custom
+      type: keyword
+      description: >
+        List of user flags associated with this logon session.
+        Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
 
     - name: Ext.device.bus_type
       level: custom
