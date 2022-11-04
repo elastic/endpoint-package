@@ -66,7 +66,7 @@
     - name: parent.thread.Ext.call_stack_contains_unbacked
       level: extended
       type: boolean
-      description: True if parent process on stack belonging to thread that created child process contains frames that points outside image
+      description: indicates if process has been created by parent that on it's thread stack contains frames pointing outside image
 
     - name: Ext
       level: custom
