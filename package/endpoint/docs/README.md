@@ -312,7 +312,7 @@ sent by the endpoint.
 | Target.process.parent.ppid | Parent process' pid. | long |
 | Target.process.parent.start | The time the process started. | date |
 | Target.process.parent.thread.id | Thread ID. | long |
-| Target.process.parent.thread.Ext.call_stack_contains_unbacked | indicates if process has been created by parent that on it's thread stack contains frames pointing outside image | boolean |
+| Target.process.parent.thread.Ext.call_stack_contains_unbacked | indicates if process has been created by parent that it's thread stack contains frames pointing outside image | boolean |
 | Target.process.parent.thread.name | Thread name. | keyword |
 | Target.process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | Target.process.parent.uptime | Seconds the process has been up. | long |
