@@ -74,6 +74,7 @@ clean:
 	rm -rf $(ROOT_DIR)/build
 	rm -rf $(GO_TOOLS)
 	rm -rf $(VENV_DIR)
+	find $(ROOT_DIR)/package/endpoint/data_stream -name fields.yml -delete
 
 # create package/endpoint/docs/README.md based on the template file, and the fields inputs
 $(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)

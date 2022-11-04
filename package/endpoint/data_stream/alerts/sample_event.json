@@ -117,7 +117,35 @@
         "pe": {
             "file_version": "0.0.0.0",
             "description": " ",
-            "original_file_name": "5t5mpwxc.dll"
+            "original_file_name": "5t5mpwxc.dll",
+            "Ext": {
+                "dotnet": true,
+                "streams": [
+                    {
+                        "name": "#~",
+                        "hash": {
+                            "md5": "debf08c09d49337fbe7acde4d3749242",
+                            "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                        }
+                    },
+                    {
+                        "name": "#Blob",
+                        "hash": {
+                            "md5": "debf08c09d49337fbe7acde4d3749242",
+                            "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                        }
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": ".reloc",
+                        "hash": {
+                            "md5": "debf08c09d49337fbe7acde4d3749242",
+                            "sha256": "90143dfb2e3210f18e1bcc50eb6c3961d11071e3ec024215b8835e468fa63e53"
+                        }
+                    }
+                ]
+            }
         },
         "name": "9C0E42A47D34240A9A4101CC5D3BC5787DC5AD73DEBF08C09D49337FBE7ACDE4D374924290143DFB2E3210F18E1BCC50EB6C3961D11071E3EC024215B8835E468FA63E53DAE02F32A21E03CE65412F6E56942DAA.dll",
         "hash": {
