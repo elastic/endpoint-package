@@ -62,6 +62,11 @@
       description: Parent process' pid.
       example: 4241
       default_field: false
+      
+    - name: parent.thread.Ext.call_stack_contains_unbacked
+      level: extended
+      type: boolean
+      description: True if parent process on stack belonging to thread that created child process contains frames that points outside image
 
     - name: Ext
       level: custom
