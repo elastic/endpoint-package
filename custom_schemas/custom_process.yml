@@ -63,11 +63,6 @@
       example: 4241
       default_field: false
       
-    - name: parent.thread.Ext.call_stack_contains_unbacked
-      level: extended
-      type: boolean
-      description: indicates if process has been created by parent that it's thread stack contains frames pointing outside image
-
     - name: Ext
       level: custom
       type: object
@@ -100,6 +95,11 @@
       level: custom
       type: object
       description: Object for all custom defined fields to live in.
+      
+    - name: thread.Ext.call_stack_contains_unbacked
+      level: custom
+      type: boolean
+      description: indicates if process has been created by parent that it's thread stack contains frames pointing outside image
 
     - name: thread.Ext.call_stack_summary
       level: custom
