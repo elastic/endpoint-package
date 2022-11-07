@@ -408,3 +408,8 @@
         This is used to identify the team or vendor of a software product. The field is
         relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+
+    - name: pe
+      level: custom
+      type: object
+      description: PE fields

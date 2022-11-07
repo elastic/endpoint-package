@@ -519,6 +519,15 @@ sent by the endpoint.
 | file.name | Name of the file including the extension, without the directory. | keyword |
 | file.owner | File owner's username. | keyword |
 | file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
+| file.pe.Ext.dotnet | Whether this file is a .NET PE | boolean |
+| file.pe.Ext.sections | The file's relevant sections, if it is a PE | object |
+| file.pe.Ext.sections.hash.md5 | MD5 hash. | keyword |
+| file.pe.Ext.sections.hash.sha256 | SHA256 hash. | keyword |
+| file.pe.Ext.sections.name | The section's name | keyword |
+| file.pe.Ext.streams | The file's streams, if it is a PE | object |
+| file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
+| file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
+| file.pe.Ext.streams.name | The stream's name | keyword |
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
