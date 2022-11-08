@@ -312,7 +312,6 @@ sent by the endpoint.
 | Target.process.parent.ppid | Parent process' pid. | long |
 | Target.process.parent.start | The time the process started. | date |
 | Target.process.parent.thread.id | Thread ID. | long |
-| Target.process.parent.thread.Ext.call_stack_contains_unbacked | indicates if process has been created by parent that it's thread stack contains frames pointing outside image | boolean |
 | Target.process.parent.thread.name | Thread name. | keyword |
 | Target.process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | Target.process.parent.uptime | Seconds the process has been up. | long |
@@ -2249,6 +2248,7 @@ sent by the endpoint.
 | process.parent.start | The time the process started. | date |
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
+| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates if process has been created by parent that it's thread stack contains frames pointing outside image | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
