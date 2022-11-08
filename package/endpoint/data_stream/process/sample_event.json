@@ -99,12 +99,12 @@
             "args_count": 0,
             "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
             "command_line": "",
-            "executable": "C:\\Windows\\System32\\services.exe"
-			"thread": {
-				"Ext": {
-					"call_stack_contains_unbacked": true
-				}
-			}
+            "executable": "C:\\Windows\\System32\\services.exe",
+            "thread": {
+                "Ext": {
+                    "call_stack_contains_unbacked": true
+                }
+            }
         },
         "pid": 2772,
         "working_directory": "C:\\Windows\\system32\\",
