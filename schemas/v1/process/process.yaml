@@ -2505,7 +2505,7 @@ process.parent.thread.Ext.call_stack_contains_unbacked:
   name: thread.Ext.call_stack_contains_unbacked
   normalize: []
   original_fieldset: process
-  short: indicates if process has been created by parent that it's thread stack contains
+  short: Indicates if process has been created by parent that it's thread stack contains
     frames pointing outside image
   type: boolean
 process.parent.thread.id:
