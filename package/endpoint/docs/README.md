@@ -2257,6 +2257,7 @@ sent by the endpoint.
 | process.parent.start | The time the process started. | date |
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
+| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |

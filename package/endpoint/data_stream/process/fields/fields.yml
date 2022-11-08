@@ -2181,6 +2181,11 @@
       description: Thread name.
       example: thread-0
       default_field: false
+    - name: parent.thread.Ext.call_stack_contains_unbacked
+      level: custom
+      type: boolean
+      description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
+      default_field: false
     - name: parent.title
       level: extended
       type: keyword

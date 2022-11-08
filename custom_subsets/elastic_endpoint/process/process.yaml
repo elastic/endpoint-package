@@ -233,6 +233,9 @@ fields:
           ppid: {}
           thread:
             fields:
+              Ext:
+                fields:
+                  call_stack_contains_unbacked: {}
               id: {}
               name: {}
           title: {}
