@@ -2175,7 +2175,7 @@
       example: 4242
       default_field: false
     - name: parent.thread.Ext.call_stack_contains_unbacked
-      level: extended
+      level: custom
       type: boolean
       description: Indicates if process has been created by parent that it's thread stack contains frames pointing outside image
       example: true

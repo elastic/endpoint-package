@@ -2501,7 +2501,7 @@ process.parent.thread.Ext.call_stack_contains_unbacked:
   description: indicates if process has been created by parent that it's thread stack
     contains frames pointing outside image
   flat_name: process.parent.thread.Ext.call_stack_contains_unbacked
-  level: extended
+  level: custom
   name: thread.Ext.call_stack_contains_unbacked
   normalize: []
   original_fieldset: process
