@@ -97,7 +97,7 @@
       description: Object for all custom defined fields to live in.
       
     - name: thread.Ext.call_stack_contains_unbacked
-      level: custom
+      level: extended
       type: boolean
       description: indicates if process has been created by parent that it's thread stack contains frames pointing outside image
 
