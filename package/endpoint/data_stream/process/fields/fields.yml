@@ -2167,6 +2167,16 @@
       ignore_above: 1024
       description: Name of the group.
       default_field: false
+    - name: parent.thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: parent.thread.Ext.call_stack_contains_unbacked
+      level: custom
+      type: boolean
+      description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
+      default_field: false
     - name: parent.thread.id
       level: extended
       type: long

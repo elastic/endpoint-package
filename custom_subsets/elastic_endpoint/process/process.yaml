@@ -235,6 +235,9 @@ fields:
             fields:
               id: {}
               name: {}
+              Ext:
+                fields:
+                  call_stack_contains_unbacked: {}
           title: {}
           uptime: {}
           working_directory: {}
