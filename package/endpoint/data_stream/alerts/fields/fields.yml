@@ -3841,6 +3841,60 @@
           default_field: false
       description: Full path to the file, including the file name. It should include the drive letter, when appropriate.
       example: /home/alice/example.png
+    - name: pe.Ext.dotnet
+      level: custom
+      type: boolean
+      description: Whether this file is a .NET PE
+      example: 'true'
+      default_field: false
+    - name: pe.Ext.sections
+      level: custom
+      type: object
+      description: The file's relevant sections, if it is a PE
+      default_field: false
+    - name: pe.Ext.sections.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: pe.Ext.sections.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: pe.Ext.sections.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The section's name
+      example: .reloc
+      default_field: false
+    - name: pe.Ext.streams
+      level: custom
+      type: object
+      description: The file's streams, if it is a PE
+      default_field: false
+    - name: pe.Ext.streams.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: pe.Ext.streams.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: pe.Ext.streams.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The stream's name
+      example: .reloc
+      default_field: false
     - name: pe.company
       level: extended
       type: keyword
