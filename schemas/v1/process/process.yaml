@@ -2549,6 +2549,28 @@ process.parent.ppid:
   original_fieldset: process
   short: Parent process' pid.
   type: long
+process.parent.thread.Ext:
+  dashed_name: process-parent-thread-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.parent.thread.Ext
+  level: custom
+  name: thread.Ext
+  normalize: []
+  original_fieldset: process
+  short: Object for all custom defined fields to live in.
+  type: object
+process.parent.thread.Ext.call_stack_contains_unbacked:
+  dashed_name: process-parent-thread-Ext-call-stack-contains-unbacked
+  description: Indicates whether the creating thread's stack contains frames pointing
+    outside any known executable image.
+  flat_name: process.parent.thread.Ext.call_stack_contains_unbacked
+  level: custom
+  name: thread.Ext.call_stack_contains_unbacked
+  normalize: []
+  original_fieldset: process
+  short: Indicates whether the creating thread's stack contains frames pointing outside
+    any known executable image.
+  type: boolean
 process.parent.thread.id:
   dashed_name: process-parent-thread-id
   description: Thread ID.
