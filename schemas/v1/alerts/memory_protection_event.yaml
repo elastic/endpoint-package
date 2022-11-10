@@ -1196,17 +1196,6 @@ Target.process.Ext.services:
   original_fieldset: process
   short: Services running in this process.
   type: keyword
-Target.process.Ext.session:
-  dashed_name: Target-process-Ext-session
-  description: Session information for the current process
-  flat_name: Target.process.Ext.session
-  ignore_above: 1024
-  level: custom
-  name: Ext.session
-  normalize: []
-  original_fieldset: process
-  short: Session information for the current process
-  type: keyword
 Target.process.Ext.token.domain:
   dashed_name: Target-process-Ext-token-domain
   description: Domain of token user.
@@ -6419,16 +6408,6 @@ process.Ext.services:
   name: Ext.services
   normalize: []
   short: Services running in this process.
-  type: keyword
-process.Ext.session:
-  dashed_name: process-Ext-session
-  description: Session information for the current process
-  flat_name: process.Ext.session
-  ignore_above: 1024
-  level: custom
-  name: Ext.session
-  normalize: []
-  short: Session information for the current process
   type: keyword
 process.Ext.token.domain:
   dashed_name: process-Ext-token-domain

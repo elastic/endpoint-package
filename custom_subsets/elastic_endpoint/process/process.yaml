@@ -179,7 +179,15 @@ fields:
           protection: {}
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
-          session: {}
+          session:
+            fields:
+              logon_type: {}
+              client_address: {}
+              id: {}
+              authentication_package: {}
+              relative_logon_time: {}
+              relative_password_age: {}
+              user_flags: {}
           token:
             fields:
               elevation: {}

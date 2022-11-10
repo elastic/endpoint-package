@@ -891,11 +891,44 @@
       type: double
       description: Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future.
       default_field: false
-    - name: Ext.session
+    - name: Ext.session.authentication_package
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Session information for the current process
+      description: Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+      default_field: false
+    - name: Ext.session.client_address
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Client's IPv4 or IPv6 address as a string, if available.
+      default_field: false
+    - name: Ext.session.id
+      level: custom
+      type: unsigned_long
+      description: Session ID
+      default_field: false
+    - name: Ext.session.logon_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session logon type.  Examples include Interactive, Network, and Service.
+      default_field: false
+    - name: Ext.session.relative_logon_time
+      level: custom
+      type: double
+      description: Process creation time, relative to logon time, in seconds.
+      default_field: false
+    - name: Ext.session.relative_password_age
+      level: custom
+      type: double
+      description: Process creation time, relative to the last time the password was changed, in seconds.
+      default_field: false
+    - name: Ext.session.user_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
       default_field: false
     - name: Ext.token.elevation
       level: custom
