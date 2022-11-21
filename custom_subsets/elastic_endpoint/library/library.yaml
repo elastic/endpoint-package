@@ -118,6 +118,9 @@ fields:
       thread:
         fields:
           id: {}
+          Ext:
+            fields:
+              call_stack_contains_unbacked: {}
       Ext:
         fields:
           ancestry: {}

@@ -28,7 +28,12 @@
         "name": "VSSVC.exe",
         "pid": 4528,
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ1MjgtMTMyOTM1NzEwODYuNjI4MzM0NzAw",
-        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+        "executable": "C:\\Windows\\System32\\VSSVC.exe",
+        "thread": {
+            "Ext": {
+                "call_stack_contains_unbacked": true
+            }
+        }
     },
     "dll": {
         "Ext": {

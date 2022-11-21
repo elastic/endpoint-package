@@ -1779,6 +1779,8 @@ sent by the endpoint.
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |

@@ -2249,6 +2249,26 @@ process.pid:
   normalize: []
   short: Process id.
   type: long
+process.thread.Ext:
+  dashed_name: process-thread-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.thread.Ext
+  level: custom
+  name: thread.Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+process.thread.Ext.call_stack_contains_unbacked:
+  dashed_name: process-thread-Ext-call-stack-contains-unbacked
+  description: Indicates whether the creating thread's stack contains frames pointing
+    outside any known executable image.
+  flat_name: process.thread.Ext.call_stack_contains_unbacked
+  level: custom
+  name: thread.Ext.call_stack_contains_unbacked
+  normalize: []
+  short: Indicates whether the creating thread's stack contains frames pointing outside
+    any known executable image.
+  type: boolean
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.
