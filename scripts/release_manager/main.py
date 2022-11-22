@@ -33,8 +33,8 @@ def print_capture(res):
 
 def prompt_bump(current_version, released_branch):
     click.echo('Current version is: {}'.format(current_version))
-    if released_branch != 'master':
-        click.echo('Bumping the patch version because the base release branch was not master')
+    if released_branch != 'main':
+        click.echo('Bumping the patch version because the base release branch was not main')
         part = 'patch'
     else:
         part = click.prompt('Bump which version part?', default='minor', type=click.Choice(['major', 'minor', 'patch'],
@@ -158,14 +158,14 @@ def add_remote(repo, name, url):
 
 def get_upstream_branch(repo):
     branches = [b.name.split('/')[1] for b in repo.remote(UPSTREAM).refs]
-    upstream_branch = click.prompt('Which upstream branch should we release from?', default='master',
+    upstream_branch = click.prompt('Which upstream branch should we release from?', default='main',
                                    type=click.Choice(branches))
     return upstream_branch
 
 
 def delete_old_branch(repo, name, remote='origin'):
     # switch to a different branch before deleting
-    repo.git.checkout('master')
+    repo.git.checkout('main')
     try:
         repo.git.branch(D=name)
     except git.exc.GitCommandError as e:
@@ -205,9 +205,9 @@ def get_release_branch(repo):
 
 
 def update_backport(repo, release_branch, upstream_branch):
-    # backporting only applies to commits that go to master so if the original release
-    # was not targeting master then don't add anything to the .backportrc.json file
-    if upstream_branch != 'master':
+    # backporting only applies to commits that go to main so if the original release
+    # was not targeting main then don't add anything to the .backportrc.json file
+    if upstream_branch != 'main':
         return
 
     click.echo('Updating .backportrc.json file')
