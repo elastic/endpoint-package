@@ -1,9 +1,17 @@
-##
-## This file documents the package changelog
-##
-
-- version: 8.6.0
+- version: "8.6.0"
   changes:
+    - description: Add entity_id to file and network
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/306
+    - description: Add .NET metadata hashes to malware alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/307
+    - description: Add call_stack_contains_unbacked
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/308
+    - description: Add session data to Windows process creation events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/309
 - version: 8.5.0
   changes:
     - description: rename integration to Elastic Defend
