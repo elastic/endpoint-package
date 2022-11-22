@@ -144,4 +144,4 @@
   changes:
     - description: GA Release
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/tree/v1.0.0
+      link: https://github.com/elastic/endpoint-package/pull/160
