@@ -101,7 +101,7 @@ In the Kibana UI, if you want to add a field to appear as "exceptionable", appea
 
 There are three environments that provide different functionality for packages: snapshot, staging, and production.
 
-Snapshot is used for testing packages. It is mainly used by running kibana from source off the `master` branch. The endpoint package's
+Snapshot is used for testing packages. It is mainly used by running kibana from source off the `main` branch. The endpoint package's
 release manager script releases to `snapshot`.
 
 Staging is for packages that need a little more testing but are almost ready for production.
@@ -121,10 +121,10 @@ release is a little different in that it will remove the `-dev.#` portion of the
 endpoint-package repo.
 
 After choosing the type of release, the script will prompt for the remote branch in the endpoint-package repo that should be released. Most release will
-probably come from the `master` branch because this is where the latest package code is developed. If a bugfix is needed for an already released package,
+probably come from the `main` branch because this is where the latest package code is developed. If a bugfix is needed for an already released package,
 then we'll need to use a release branch (e.g. 7.9). Once the remote branch is chosen a draft PR will be opened to the `snapshot` branch for the package-storage repo.
-If this is a `prod` release and the branch used was `master`, the script will prompt for which version part (`major`, `minor`, or `patch`) should be increased for the next
-future release. If the branch was not `master` then the script only increments the `patch` part of the version because it
+If this is a `prod` release and the branch used was `main`, the script will prompt for which version part (`major`, `minor`, or `patch`) should be increased for the next
+future release. If the branch was not `main` then the script only increments the `patch` part of the version because it
 assumes a release branch was being used (e.g. 7.9, 7.10, etc).
 
 ### Creating new docker images
