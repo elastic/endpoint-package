@@ -2,7 +2,7 @@ format_version: 1.0.0
 name: endpoint
 title: Elastic Defend
 description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
-version: 8.6.0-dev.0
+version: 8.6.0
 categories: ["security", "cloud"]
 # The package type. The options for now are [integration, input], more type might be added in the future.
 # The default type is integration and will be set if empty.
