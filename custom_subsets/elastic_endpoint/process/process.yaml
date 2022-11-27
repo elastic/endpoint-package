@@ -162,6 +162,7 @@ fields:
               trusted: {}
               valid: {}
           defense_evasions: {}
+          mitigation_policies: {}
           dll:
             fields:
               name: {}
