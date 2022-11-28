@@ -1,3 +1,8 @@
+- version: "8.6.1-next"
+  changes:
+    - description: ""
+      type: enhancement
+      link: ""
 - version: "8.6.0"
   changes:
     - description: Add entity_id to file and network
