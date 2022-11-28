@@ -2566,6 +2566,16 @@ process.Ext.services:
   normalize: []
   short: Services running in this process.
   type: keyword
+process.Ext.session:
+  dashed_name: process-Ext-session
+  description: Session information for the current process
+  flat_name: process.Ext.session
+  ignore_above: 1024
+  level: custom
+  name: Ext.session
+  normalize: []
+  short: Session information for the current process
+  type: keyword
 process.Ext.token.domain:
   dashed_name: process-Ext-token-domain
   description: Domain of token user.

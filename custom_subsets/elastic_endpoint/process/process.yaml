@@ -179,7 +179,8 @@ fields:
           protection: {}
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
-          session:
+          session: {}
+          session_info:
             fields:
               logon_type: {}
               client_address: {}
