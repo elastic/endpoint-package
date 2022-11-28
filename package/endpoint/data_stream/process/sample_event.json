@@ -72,6 +72,11 @@
                     "status": "trusted"
                 }
             ],
+            "mitigation_policies": [
+                "Microsoft only, Opt-in to restrict to Microsoft, Windows Store and WHQL",
+                "Cet dynamic APIs can only be called out of proc",
+                "CF Guard"
+            ],
             "device": {
                 "volume_device_type": "Disk File System"
             },
