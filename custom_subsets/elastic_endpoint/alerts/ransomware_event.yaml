@@ -622,6 +622,7 @@ fields:
           ancestry: {}
           authentication_id: {}
           services: {}
+          session: {}
           user: {}
           code_signature:
             fields:

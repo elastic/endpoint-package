@@ -1293,6 +1293,12 @@
       ignore_above: 1024
       description: Services running in this process.
       default_field: false
+    - name: process.Ext.session
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session information for the current process
+      default_field: false
     - name: process.Ext.token.domain
       level: custom
       type: keyword
@@ -4974,6 +4980,12 @@
       type: keyword
       ignore_above: 1024
       description: Services running in this process.
+      default_field: false
+    - name: Ext.session
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session information for the current process
       default_field: false
     - name: Ext.token.domain
       level: custom

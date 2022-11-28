@@ -1558,75 +1558,85 @@ process.Ext.relative_file_name_modify_time:
   normalize: []
   short: Number of seconds since the process's name was modified
   type: double
-process.Ext.session.authentication_package:
-  dashed_name: process-Ext-session-authentication-package
-  description: Name of authentication package used to log on, such as NTLM, Kerberos,
-    or CloudAP
-  flat_name: process.Ext.session.authentication_package
+process.Ext.session:
+  dashed_name: process-Ext-session
+  description: Session information for the current process
+  flat_name: process.Ext.session
   ignore_above: 1024
   level: custom
-  name: Ext.session.authentication_package
+  name: Ext.session
+  normalize: []
+  short: Session information for the current process
+  type: keyword
+process.Ext.session_info.authentication_package:
+  dashed_name: process-Ext-session-info-authentication-package
+  description: Name of authentication package used to log on, such as NTLM, Kerberos,
+    or CloudAP
+  flat_name: process.Ext.session_info.authentication_package
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.authentication_package
   normalize: []
   short: Name of authentication package used to log on, such as NTLM, Kerberos, or
     CloudAP
   type: keyword
-process.Ext.session.client_address:
-  dashed_name: process-Ext-session-client-address
+process.Ext.session_info.client_address:
+  dashed_name: process-Ext-session-info-client-address
   description: Client's IPv4 or IPv6 address as a string, if available.
-  flat_name: process.Ext.session.client_address
+  flat_name: process.Ext.session_info.client_address
   ignore_above: 1024
   level: custom
-  name: Ext.session.client_address
+  name: Ext.session_info.client_address
   normalize: []
   short: Client's IPv4 or IPv6 address as a string, if available.
   type: keyword
-process.Ext.session.id:
-  dashed_name: process-Ext-session-id
+process.Ext.session_info.id:
+  dashed_name: process-Ext-session-info-id
   description: Session ID
-  flat_name: process.Ext.session.id
+  flat_name: process.Ext.session_info.id
   level: custom
-  name: Ext.session.id
+  name: Ext.session_info.id
   normalize: []
   short: Session ID
   type: unsigned_long
-process.Ext.session.logon_type:
-  dashed_name: process-Ext-session-logon-type
+process.Ext.session_info.logon_type:
+  dashed_name: process-Ext-session-info-logon-type
   description: Session logon type.  Examples include Interactive, Network, and Service.
-  flat_name: process.Ext.session.logon_type
+  flat_name: process.Ext.session_info.logon_type
   ignore_above: 1024
   level: custom
-  name: Ext.session.logon_type
+  name: Ext.session_info.logon_type
   normalize: []
   short: Session logon type.  Examples include Interactive, Network, and Service.
   type: keyword
-process.Ext.session.relative_logon_time:
-  dashed_name: process-Ext-session-relative-logon-time
+process.Ext.session_info.relative_logon_time:
+  dashed_name: process-Ext-session-info-relative-logon-time
   description: Process creation time, relative to logon time, in seconds.
-  flat_name: process.Ext.session.relative_logon_time
+  flat_name: process.Ext.session_info.relative_logon_time
   level: custom
-  name: Ext.session.relative_logon_time
+  name: Ext.session_info.relative_logon_time
   normalize: []
   short: Process creation time, relative to logon time, in seconds.
   type: double
-process.Ext.session.relative_password_age:
-  dashed_name: process-Ext-session-relative-password-age
+process.Ext.session_info.relative_password_age:
+  dashed_name: process-Ext-session-info-relative-password-age
   description: Process creation time, relative to the last time the password was changed,
     in seconds.
-  flat_name: process.Ext.session.relative_password_age
+  flat_name: process.Ext.session_info.relative_password_age
   level: custom
-  name: Ext.session.relative_password_age
+  name: Ext.session_info.relative_password_age
   normalize: []
   short: Process creation time, relative to the last time the password was changed,
     in seconds.
   type: double
-process.Ext.session.user_flags:
-  dashed_name: process-Ext-session-user-flags
+process.Ext.session_info.user_flags:
+  dashed_name: process-Ext-session-info-user-flags
   description: List of user flags associated with this logon session. Examples include
     LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
-  flat_name: process.Ext.session.user_flags
+  flat_name: process.Ext.session_info.user_flags
   ignore_above: 1024
   level: custom
-  name: Ext.session.user_flags
+  name: Ext.session_info.user_flags
   normalize: []
   short: List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED
     and LOGON_WINLOGON.

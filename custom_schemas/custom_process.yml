@@ -281,6 +281,12 @@
       description: >
         Process authentication ID
 
+    - name: Ext.session
+      level: custom
+      type: keyword
+      description: >
+        Session information for the current process
+
     - name: Ext.code_signature
       level: custom
       type: nested
@@ -377,43 +383,43 @@
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
 
-    - name: Ext.session.logon_type
+    - name: Ext.session_info.logon_type
       level: custom
       type: keyword
       description: >
         Session logon type.  Examples include Interactive, Network, and Service.
         
-    - name: Ext.session.client_address
+    - name: Ext.session_info.client_address
       level: custom
       type: keyword
       description: >
         Client's IPv4 or IPv6 address as a string, if available.
         
-    - name: Ext.session.id
+    - name: Ext.session_info.id
       level: custom
       type: unsigned_long
       description: >
         Session ID
         
-    - name: Ext.session.authentication_package
+    - name: Ext.session_info.authentication_package
       level: custom
       type: keyword
       description: >
         Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
 
-    - name: Ext.session.relative_logon_time
+    - name: Ext.session_info.relative_logon_time
       level: custom
       type: double
       description: >
         Process creation time, relative to logon time, in seconds.
         
-    - name: Ext.session.relative_password_age
+    - name: Ext.session_info.relative_password_age
       level: custom
       type: double
       description: >
         Process creation time, relative to the last time the password was changed, in seconds.
 
-    - name: Ext.session.user_flags
+    - name: Ext.session_info.user_flags
       level: custom
       type: keyword
       description: >
