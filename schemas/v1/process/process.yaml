@@ -1525,6 +1525,18 @@ process.Ext.effective_parent.pid:
   original_fieldset: Effective_process
   short: Process ID.
   type: long
+process.Ext.mitigation_policies:
+  dashed_name: process-Ext-mitigation-policies
+  description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy,
+    UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft
+    only, CF Guard, User Shadow Stack enabled
+  flat_name: process.Ext.mitigation_policies
+  ignore_above: 1024
+  level: custom
+  name: Ext.mitigation_policies
+  normalize: []
+  short: Process mitigation policies.
+  type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
