@@ -43,10 +43,8 @@ pipeline {
   }
   stages {
     stage('Checkout') {
-      def testVar = env.BRANCH_NAME != 'main' && env.BRANCH_NAME != '8.6'
-      echo 'Checkout stage'
-      echo testVar
       steps {
+        testFunction()
         pipelineManager([ cancelPreviousRunningBuilds: [ when: 'PR' ] ])
         deleteDir()
         gitCheckout(basedir: "${BASE_DIR}", githubNotifyFirstTimeContributor: true)
@@ -73,6 +71,7 @@ pipeline {
       steps {
         withGithubNotify(context: "Check") {
           dir("${BASE_DIR}"){
+            testFunction()
             withGoEnv(){
               checkGitDiff()
               // disable until backlog addressed:
@@ -134,6 +133,12 @@ def lint() {
   dir("${BASE_DIR}") {
     sh(label: 'lint', script: "make lint")
   }
+}
+
+def testFunction() {
+  def testVar = env.BRANCH_NAME != 'main' && env.BRANCH_NAME != '8.6'
+  echo 'Checkout stage'
+  echo testVar
 }
 
 def prepareStack() {
