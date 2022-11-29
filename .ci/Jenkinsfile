@@ -43,6 +43,9 @@ pipeline {
   }
   stages {
     stage('Checkout') {
+      def testVar = env.BRANCH_NAME != 'main' && env.BRANCH_NAME != '8.6'
+      echo 'Checkout stage'
+      echo testVar
       steps {
         pipelineManager([ cancelPreviousRunningBuilds: [ when: 'PR' ] ])
         deleteDir()
@@ -206,7 +209,6 @@ def signUnpublishedArtifactsWithElastic(builtPackagesPath) {
 
 def uploadUnpublishedToPackageStorage(builtPackagesPath) {
   def dryRun = env.BRANCH_NAME != 'main' && env.BRANCH_NAME != '8.6'
-  echo "Testing dryRun changes"
   if (dryRun) {
     echo "Dry run: endpoint-package won't be published"
   }
