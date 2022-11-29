@@ -596,9 +596,7 @@
       ignore_above: 1024
       description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
 
-        One of these following values should be used (lowercase): linux, macos, unix, windows.
-
-        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+        If the OS you''re dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
       example: macos
       default_field: false
     - name: os.version
@@ -1414,11 +1412,12 @@
       default_field: false
     - name: env_vars
       level: extended
-      type: object
-      description: 'Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information.
+      type: keyword
+      ignore_above: 1024
+      description: 'Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution.
 
-        The field should not contain nested objects. All values should use `keyword`.'
-      example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
+        May be filtered to protect sensitive information.'
+      example: '["PATH=/usr/local/bin:/usr/bin", "USER=ubuntu"]'
       default_field: false
     - name: executable
       level: extended
