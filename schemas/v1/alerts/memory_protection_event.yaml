@@ -5212,19 +5212,25 @@ host.os.type:
   description: 'Use the `os.type` field to categorize the operating system into one
     of the broad commercial families.
 
-    One of these following values should be used (lowercase): linux, macos, unix,
-    windows.
-
-    If the OS you''re dealing with is not in the list, the field should not be populated.
-    Please let us know by opening an issue with ECS, to propose its addition.'
+    If the OS you''re dealing with is not listed as an expected value, the field should
+    not be populated. Please let us know by opening an issue with ECS, to propose
+    its addition.'
   example: macos
+  expected_values:
+  - linux
+  - macos
+  - unix
+  - windows
+  - ios
+  - android
   flat_name: host.os.type
   ignore_above: 1024
   level: extended
   name: type
   normalize: []
   original_fieldset: os
-  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  short: 'Which commercial OS family (one of: linux, macos, unix, windows, ios or
+    android).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version
@@ -8989,7 +8995,6 @@ source.geo.timezone:
   short: Time zone.
   type: keyword
 threat.enrichments:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments
   description: A list of associated indicators objects enriching the event, and the
     context of that association/enrichment.
@@ -9001,7 +9006,6 @@ threat.enrichments:
   short: List of objects containing indicators enriching the event.
   type: nested
 threat.enrichments.indicator:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator
   description: Object containing associated indicators enriching the event.
   flat_name: threat.enrichments.indicator
@@ -10450,7 +10454,6 @@ threat.enrichments.indicator.file.uid:
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
 threat.enrichments.indicator.first_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-first-seen
   description: The date and time when intelligence source first reported sighting
     this indicator.
@@ -10602,7 +10605,6 @@ threat.enrichments.indicator.geo.timezone:
   short: Time zone.
   type: keyword
 threat.enrichments.indicator.ip:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-ip
   description: Identifies a threat indicator as an IP address (irrespective of direction).
   example: 1.2.3.4
@@ -10613,7 +10615,6 @@ threat.enrichments.indicator.ip:
   short: Indicator IP address
   type: ip
 threat.enrichments.indicator.last_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-last-seen
   description: The date and time when intelligence source last reported sighting this
     indicator.
@@ -10625,11 +10626,14 @@ threat.enrichments.indicator.last_seen:
   short: Date/time indicator was last reported.
   type: date
 threat.enrichments.indicator.marking.tlp:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-marking-tlp
-  description: "Traffic Light Protocol sharing markings. Recommended values are:\n\
-    \  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
-  example: White
+  description: Traffic Light Protocol sharing markings.
+  example: WHITE
+  expected_values:
+  - WHITE
+  - GREEN
+  - AMBER
+  - RED
   flat_name: threat.enrichments.indicator.marking.tlp
   ignore_above: 1024
   level: extended
@@ -10638,7 +10642,6 @@ threat.enrichments.indicator.marking.tlp:
   short: Indicator TLP marking
   type: keyword
 threat.enrichments.indicator.modified_at:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-modified-at
   description: The date and time when intelligence source last modified information
     for this indicator.
@@ -10650,7 +10653,6 @@ threat.enrichments.indicator.modified_at:
   short: Date/time indicator was last updated.
   type: date
 threat.enrichments.indicator.port:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-port
   description: Identifies a threat indicator as a port number (irrespective of direction).
   example: 443
@@ -10661,7 +10663,6 @@ threat.enrichments.indicator.port:
   short: Indicator port
   type: long
 threat.enrichments.indicator.provider:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-provider
   description: The name of the indicator's provider.
   example: lrz_urlhaus
@@ -10673,7 +10674,6 @@ threat.enrichments.indicator.provider:
   short: Indicator provider
   type: keyword
 threat.enrichments.indicator.reference:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-reference
   description: Reference URL linking to additional information about this indicator.
   example: https://system.example.com/indicator/0001234
@@ -10780,7 +10780,6 @@ threat.enrichments.indicator.registry.value:
   short: Name of the value written.
   type: keyword
 threat.enrichments.indicator.scanner_stats:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-scanner-stats
   description: Count of AV/EDR vendors that successfully detected malicious file or
     URL.
@@ -10792,7 +10791,6 @@ threat.enrichments.indicator.scanner_stats:
   short: Scanner statistics
   type: long
 threat.enrichments.indicator.sightings:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-sightings
   description: Number of times this indicator was observed conducting threat activity.
   example: 20
@@ -10803,14 +10801,27 @@ threat.enrichments.indicator.sightings:
   short: Number of times indicator observed
   type: long
 threat.enrichments.indicator.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-type
-  description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\
-    \ Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  *\
-    \ domain-name\n  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n\
-    \  * mutex\n  * port\n  * process\n  * software\n  * url\n  * user-account\n \
-    \ * windows-registry-key\n  * x509-certificate"
+  description: Type of indicator as represented by Cyber Observable in STIX 2.0.
   example: ipv4-addr
+  expected_values:
+  - autonomous-system
+  - artifact
+  - directory
+  - domain-name
+  - email-addr
+  - file
+  - ipv4-addr
+  - ipv6-addr
+  - mac-addr
+  - mutex
+  - port
+  - process
+  - software
+  - url
+  - user-account
+  - windows-registry-key
+  - x509-certificate
   flat_name: threat.enrichments.indicator.type
   ignore_above: 1024
   level: extended
@@ -11066,7 +11077,7 @@ threat.enrichments.indicator.x509.issuer.common_name:
   type: keyword
 threat.enrichments.indicator.x509.issuer.country:
   dashed_name: threat-enrichments-indicator-x509-issuer-country
-  description: List of country (C) codes
+  description: List of country \(C) codes
   example: US
   flat_name: threat.enrichments.indicator.x509.issuer.country
   ignore_above: 1024
@@ -11075,7 +11086,7 @@ threat.enrichments.indicator.x509.issuer.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) codes
+  short: List of country \(C) codes
   type: keyword
 threat.enrichments.indicator.x509.issuer.distinguished_name:
   dashed_name: threat-enrichments-indicator-x509-issuer-distinguished-name
@@ -11256,7 +11267,7 @@ threat.enrichments.indicator.x509.subject.common_name:
   type: keyword
 threat.enrichments.indicator.x509.subject.country:
   dashed_name: threat-enrichments-indicator-x509-subject-country
-  description: List of country (C) code
+  description: List of country \(C) code
   example: US
   flat_name: threat.enrichments.indicator.x509.subject.country
   ignore_above: 1024
@@ -11265,7 +11276,7 @@ threat.enrichments.indicator.x509.subject.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) code
+  short: List of country \(C) code
   type: keyword
 threat.enrichments.indicator.x509.subject.distinguished_name:
   dashed_name: threat-enrichments-indicator-x509-subject-distinguished-name
@@ -11343,7 +11354,6 @@ threat.enrichments.indicator.x509.version_number:
   short: Version of x509 format.
   type: keyword
 threat.enrichments.matched.atomic:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-atomic
   description: Identifies the atomic indicator value that matched a local environment
     endpoint or network event.
@@ -11356,7 +11366,6 @@ threat.enrichments.matched.atomic:
   short: Matched indicator value
   type: keyword
 threat.enrichments.matched.field:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-field
   description: Identifies the field of the atomic indicator that matched a local environment
     endpoint or network event.
@@ -11369,7 +11378,6 @@ threat.enrichments.matched.field:
   short: Matched indicator field
   type: keyword
 threat.enrichments.matched.id:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-id
   description: Identifies the _id of the indicator document enriching the event.
   example: ff93aee5-86a1-4a61-b0e6-0cdc313d01b5
@@ -11381,7 +11389,6 @@ threat.enrichments.matched.id:
   short: Matched indicator identifier
   type: keyword
 threat.enrichments.matched.index:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-index
   description: Identifies the _index of the indicator document enriching the event.
   example: filebeat-8.0.0-2021.05.23-000011
@@ -11393,7 +11400,6 @@ threat.enrichments.matched.index:
   short: Matched indicator index
   type: keyword
 threat.enrichments.matched.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-type
   description: Identifies the type of match that caused the event to be enriched with
     the given indicator
@@ -11502,11 +11508,16 @@ threat.indicator.as.organization.name:
   type: keyword
 threat.indicator.confidence:
   dashed_name: threat-indicator-confidence
-  description: "Identifies\_the\_vendor-neutral confidence\_rating\_using\_the None/Low/Medium/High\_\
-    scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence\
-    \ scales may be added as custom fields.\nExpected values are:\n  * Not Specified\n\
-    \  * None\n  * Low\n  * Medium\n  * High"
+  description: Identifies the vendor-neutral confidence rating using the None/Low/Medium/High
+    scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence
+    scales may be added as custom fields.
   example: Medium
+  expected_values:
+  - Not Specified
+  - None
+  - Low
+  - Medium
+  - High
   flat_name: threat.indicator.confidence
   ignore_above: 1024
   level: extended
@@ -13150,9 +13161,13 @@ threat.indicator.last_seen:
   type: date
 threat.indicator.marking.tlp:
   dashed_name: threat-indicator-marking-tlp
-  description: "Traffic Light Protocol sharing markings.\nRecommended values are:\n\
-    \  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
+  description: Traffic Light Protocol sharing markings.
   example: WHITE
+  expected_values:
+  - WHITE
+  - GREEN
+  - AMBER
+  - RED
   flat_name: threat.indicator.marking.tlp
   ignore_above: 1024
   level: extended
@@ -13321,12 +13336,26 @@ threat.indicator.sightings:
   type: long
 threat.indicator.type:
   dashed_name: threat-indicator-type
-  description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\n\
-    Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  * domain-name\n\
-    \  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n  * mutex\n\
-    \  * port\n  * process\n  * software\n  * url\n  * user-account\n  * windows-registry-key\n\
-    \  * x509-certificate"
+  description: Type of indicator as represented by Cyber Observable in STIX 2.0.
   example: ipv4-addr
+  expected_values:
+  - autonomous-system
+  - artifact
+  - directory
+  - domain-name
+  - email-addr
+  - file
+  - ipv4-addr
+  - ipv6-addr
+  - mac-addr
+  - mutex
+  - port
+  - process
+  - software
+  - url
+  - user-account
+  - windows-registry-key
+  - x509-certificate
   flat_name: threat.indicator.type
   ignore_above: 1024
   level: extended
@@ -13582,7 +13611,7 @@ threat.indicator.x509.issuer.common_name:
   type: keyword
 threat.indicator.x509.issuer.country:
   dashed_name: threat-indicator-x509-issuer-country
-  description: List of country (C) codes
+  description: List of country \(C) codes
   example: US
   flat_name: threat.indicator.x509.issuer.country
   ignore_above: 1024
@@ -13591,7 +13620,7 @@ threat.indicator.x509.issuer.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) codes
+  short: List of country \(C) codes
   type: keyword
 threat.indicator.x509.issuer.distinguished_name:
   dashed_name: threat-indicator-x509-issuer-distinguished-name
@@ -13772,7 +13801,7 @@ threat.indicator.x509.subject.common_name:
   type: keyword
 threat.indicator.x509.subject.country:
   dashed_name: threat-indicator-x509-subject-country
-  description: List of country (C) code
+  description: List of country \(C) code
   example: US
   flat_name: threat.indicator.x509.subject.country
   ignore_above: 1024
@@ -13781,7 +13810,7 @@ threat.indicator.x509.subject.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) code
+  short: List of country \(C) code
   type: keyword
 threat.indicator.x509.subject.distinguished_name:
   dashed_name: threat-indicator-x509-subject-distinguished-name
@@ -13887,11 +13916,20 @@ threat.software.name:
 threat.software.platforms:
   dashed_name: threat-software-platforms
   description: "The platforms of the software used by this threat to conduct behavior\
-    \ commonly modeled using MITRE ATT&CK\xAE.\nRecommended Values:\n  * AWS\n  *\
-    \ Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office\
-    \ 365\n  * SaaS\n  * Windows\n\nWhile not required, you can use a MITRE ATT&CK\xAE\
-    \ software platforms."
+    \ commonly modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use MITRE\
+    \ ATT&CK\xAE software platform values."
   example: '[ "Windows" ]'
+  expected_values:
+  - AWS
+  - Azure
+  - Azure AD
+  - GCP
+  - Linux
+  - macOS
+  - Network
+  - Office 365
+  - SaaS
+  - Windows
   flat_name: threat.software.platforms
   ignore_above: 1024
   level: extended
@@ -13916,9 +13954,12 @@ threat.software.reference:
 threat.software.type:
   dashed_name: threat-software-type
   description: "The type of software used by this threat to conduct behavior commonly\
-    \ modeled using MITRE ATT&CK\xAE.\nRecommended values\n  * Malware\n  * Tool\n\
-    \n While not required, you can use a MITRE ATT&CK\xAE software type."
+    \ modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use a MITRE ATT&CK\xAE\
+    \ software type."
   example: Tool
+  expected_values:
+  - Malware
+  - Tool
   flat_name: threat.software.type
   ignore_above: 1024
   level: extended
