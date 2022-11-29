@@ -137,8 +137,7 @@ def lint() {
 
 def testFunction() {
   def testVar = env.BRANCH_NAME != 'main' && env.BRANCH_NAME != '8.6'
-  echo 'Checkout stage'
-  echo testVar
+  echo 'Checkout stage: ' + testVar
 }
 
 def prepareStack() {
