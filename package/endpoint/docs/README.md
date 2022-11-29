@@ -572,7 +572,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -745,7 +745,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
-| process.env_vars | Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information. The field should not contain nested objects. All values should use `keyword`. | object |
+| process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -1147,7 +1147,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
 | threat.enrichments.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.enrichments.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
-| threat.enrichments.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
+| threat.enrichments.indicator.marking.tlp | Traffic Light Protocol sharing markings. | keyword |
 | threat.enrichments.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
 | threat.enrichments.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.enrichments.indicator.provider | The name of the indicator's provider. | keyword |
@@ -1161,7 +1161,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.registry.value | Name of the value written. | keyword |
 | threat.enrichments.indicator.scanner_stats | Count of AV/EDR vendors that successfully detected malicious file or URL. | long |
 | threat.enrichments.indicator.sightings | Number of times this indicator was observed conducting threat activity. | long |
-| threat.enrichments.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. Recommended values:   * autonomous-system   * artifact   * directory   * domain-name   * email-addr   * file   * ipv4-addr   * ipv6-addr   * mac-addr   * mutex   * port   * process   * software   * url   * user-account   * windows-registry-key   * x509-certificate | keyword |
+| threat.enrichments.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. | keyword |
 | threat.enrichments.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.enrichments.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.enrichments.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
@@ -1178,7 +1178,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.url.username | Username of the request. | keyword |
 | threat.enrichments.indicator.x509.alternative_names | List of subject alternative names (SAN). Name types vary by certificate authority and certificate type but commonly contain IP addresses, DNS names (and wildcards), and email addresses. | keyword |
 | threat.enrichments.indicator.x509.issuer.common_name | List of common name (CN) of issuing certificate authority. | keyword |
-| threat.enrichments.indicator.x509.issuer.country | List of country (C) codes | keyword |
+| threat.enrichments.indicator.x509.issuer.country | List of country \(C) codes | keyword |
 | threat.enrichments.indicator.x509.issuer.distinguished_name | Distinguished name (DN) of issuing certificate authority. | keyword |
 | threat.enrichments.indicator.x509.issuer.locality | List of locality names (L) | keyword |
 | threat.enrichments.indicator.x509.issuer.organization | List of organizations (O) of issuing certificate authority. | keyword |
@@ -1193,7 +1193,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.x509.serial_number | Unique serial number issued by the certificate authority. For consistency, if this value is alphanumeric, it should be formatted without colons and uppercase characters. | keyword |
 | threat.enrichments.indicator.x509.signature_algorithm | Identifier for certificate signature algorithm. We recommend using names found in Go Lang Crypto library. See https://github.com/golang/go/blob/go1.14/src/crypto/x509/x509.go#L337-L353. | keyword |
 | threat.enrichments.indicator.x509.subject.common_name | List of common names (CN) of subject. | keyword |
-| threat.enrichments.indicator.x509.subject.country | List of country (C) code | keyword |
+| threat.enrichments.indicator.x509.subject.country | List of country \(C) code | keyword |
 | threat.enrichments.indicator.x509.subject.distinguished_name | Distinguished name (DN) of the certificate subject entity. | keyword |
 | threat.enrichments.indicator.x509.subject.locality | List of locality names (L) | keyword |
 | threat.enrichments.indicator.x509.subject.organization | List of organizations (O) of subject. | keyword |
@@ -1212,7 +1212,7 @@ sent by the endpoint.
 | threat.group.reference | The reference URL of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group reference URL. | keyword |
 | threat.indicator.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
 | threat.indicator.as.organization.name | Organization name. | keyword |
-| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. Expected values are:   * Not Specified   * None   * Low   * Medium   * High | keyword |
+| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. | keyword |
 | threat.indicator.description | Describes the type of action conducted by the threat. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.indicator.file.Ext | Object for all custom defined fields to live in. | object |
@@ -1350,7 +1350,7 @@ sent by the endpoint.
 | threat.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
 | threat.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
-| threat.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
+| threat.indicator.marking.tlp | Traffic Light Protocol sharing markings. | keyword |
 | threat.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
 | threat.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.indicator.provider | The name of the indicator's provider. | keyword |
@@ -1364,7 +1364,7 @@ sent by the endpoint.
 | threat.indicator.registry.value | Name of the value written. | keyword |
 | threat.indicator.scanner_stats | Count of AV/EDR vendors that successfully detected malicious file or URL. | long |
 | threat.indicator.sightings | Number of times this indicator was observed conducting threat activity. | long |
-| threat.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. Recommended values:   * autonomous-system   * artifact   * directory   * domain-name   * email-addr   * file   * ipv4-addr   * ipv6-addr   * mac-addr   * mutex   * port   * process   * software   * url   * user-account   * windows-registry-key   * x509-certificate | keyword |
+| threat.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. | keyword |
 | threat.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
@@ -1381,7 +1381,7 @@ sent by the endpoint.
 | threat.indicator.url.username | Username of the request. | keyword |
 | threat.indicator.x509.alternative_names | List of subject alternative names (SAN). Name types vary by certificate authority and certificate type but commonly contain IP addresses, DNS names (and wildcards), and email addresses. | keyword |
 | threat.indicator.x509.issuer.common_name | List of common name (CN) of issuing certificate authority. | keyword |
-| threat.indicator.x509.issuer.country | List of country (C) codes | keyword |
+| threat.indicator.x509.issuer.country | List of country \(C) codes | keyword |
 | threat.indicator.x509.issuer.distinguished_name | Distinguished name (DN) of issuing certificate authority. | keyword |
 | threat.indicator.x509.issuer.locality | List of locality names (L) | keyword |
 | threat.indicator.x509.issuer.organization | List of organizations (O) of issuing certificate authority. | keyword |
@@ -1396,7 +1396,7 @@ sent by the endpoint.
 | threat.indicator.x509.serial_number | Unique serial number issued by the certificate authority. For consistency, if this value is alphanumeric, it should be formatted without colons and uppercase characters. | keyword |
 | threat.indicator.x509.signature_algorithm | Identifier for certificate signature algorithm. We recommend using names found in Go Lang Crypto library. See https://github.com/golang/go/blob/go1.14/src/crypto/x509/x509.go#L337-L353. | keyword |
 | threat.indicator.x509.subject.common_name | List of common names (CN) of subject. | keyword |
-| threat.indicator.x509.subject.country | List of country (C) code | keyword |
+| threat.indicator.x509.subject.country | List of country \(C) code | keyword |
 | threat.indicator.x509.subject.distinguished_name | Distinguished name (DN) of the certificate subject entity. | keyword |
 | threat.indicator.x509.subject.locality | List of locality names (L) | keyword |
 | threat.indicator.x509.subject.organization | List of organizations (O) of subject. | keyword |
@@ -1405,9 +1405,9 @@ sent by the endpoint.
 | threat.indicator.x509.version_number | Version of x509 format. | keyword |
 | threat.software.id | The id of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software id. | keyword |
 | threat.software.name | The name of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software name. | keyword |
-| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended Values:   * AWS   * Azure   * Azure AD   * GCP   * Linux   * macOS   * Network   * Office 365   * SaaS   * Windows  While not required, you can use a MITRE ATT&CK® software platforms. | keyword |
+| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use MITRE ATT&CK® software platform values. | keyword |
 | threat.software.reference | The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL. | keyword |
-| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended values   * Malware   * Tool   While not required, you can use a MITRE ATT&CK® software type. | keyword |
+| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type. | keyword |
 | threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
 | threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |
 | threat.tactic.reference | The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
@@ -1569,7 +1569,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1757,7 +1757,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1892,7 +1892,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1908,7 +1908,7 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | network.bytes | Total bytes transferred in both directions. If `source.bytes` and `destination.bytes` are known, `network.bytes` is their sum. | long |
 | network.community_id | A hash of source and destination IPs and ports, as well as the protocol used in a communication. This is a tool-agnostic standard to identify flows. Learn more at https://github.com/corelight/community-id-spec. | keyword |
-| network.direction | Direction of the network traffic. Recommended values are:   * ingress   * egress   * inbound   * outbound   * internal   * external   * unknown  When mapping events from a host-based monitoring context, populate this field from the host's point of view, using the values "ingress" or "egress". When mapping events from a network or perimeter-based monitoring context, populate this field from the point of view of the network perimeter, using the values "inbound", "outbound", "internal" or "external". Note that "internal" is not crossing perimeter boundaries, and is meant to describe communication between two hosts within the perimeter. Note also that "external" is meant to describe traffic between two hosts that are external to the perimeter. This could for example be useful for ISPs or VPN service providers. | keyword |
+| network.direction | Direction of the network traffic. When mapping events from a host-based monitoring context, populate this field from the host's point of view, using the values "ingress" or "egress". When mapping events from a network or perimeter-based monitoring context, populate this field from the point of view of the network perimeter, using the values "inbound", "outbound", "internal" or "external". Note that "internal" is not crossing perimeter boundaries, and is meant to describe communication between two hosts within the perimeter. Note also that "external" is meant to describe traffic between two hosts that are external to the perimeter. This could for example be useful for ISPs or VPN service providers. | keyword |
 | network.iana_number | IANA Protocol Number (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Standardized list of protocols. This aligns well with NetFlow and sFlow related logs which use the IANA Protocol Number. | keyword |
 | network.packets | Total packets transferred in both directions. If `source.packets` and `destination.packets` are known, `network.packets` is their sum. | long |
 | network.protocol | In the OSI Model this would be the Application Layer protocol. For example, `http`, `dns`, or `ssh`. The field value must be normalized to lowercase for querying. | keyword |
@@ -2054,7 +2054,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -2164,7 +2164,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
-| process.env_vars | Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information. The field should not contain nested objects. All values should use `keyword`. | object |
+| process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -2440,7 +2440,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2563,7 +2563,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2680,7 +2680,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2790,7 +2790,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2851,7 +2851,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 
