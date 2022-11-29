@@ -8,6 +8,9 @@
     - description: Rename process.Ext.session to session_info and restore legacy keyword field
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/318
+    - description: Update ECS to 8.5.2
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/322
 - version: "8.6.0"
   changes:
     - description: Add entity_id to file and network
