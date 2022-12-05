@@ -77,7 +77,10 @@ The Ingest Manager will now use your locally running package registry for retrie
 within Kibana does some caching after it has downloaded a package, so if you are not seeing your changes you might
 need to restart Kibana and Elasticsearch.
 
-If you want to check you are using the correct Ingest manager go to Management -> Integrations in Kibana and search for Endpoint Security. Observe the version number. You should see the `-dev` sufix in the version.
+If you want to check you are using the correct Ingest manager go to Management -> Integrations in Kibana and search for Elastic Defend. Observe the version number. You should see the `-dev` or `-next` sufix in the version.
+
+If you are testing changes, you are likely testing a pre-release version.  In order to test the pre-release package, you must enable the 
+`Display beta integrations` switch on the Management -> Integration page.  After you turn this switch on, you will see a `beta` version of the Elastic Defend integration in the UI.  Add this integration to an Agent Policy to install your package and test it.
 
 If you don't see your version in the Integration you want to make sure the Ingest Manager is running correctly you can try a request to test it:
 
@@ -86,6 +89,12 @@ curl "http://localhost:8080/search?package=endpoint"
 ```
 
 If you see a JSON response, the Ingest Manager is running and it is probably a problem in your Kibana configuration. If you don't get a response you should check the running Ingest Manager process you probably started with docker.
+
+To ensure that the package your testing is in your locally running registry, add the `prerelease` flag to the query param.
+
+```bash
+curl "http://localhost:8080/search?package=endpoint&prerelease=true"
+```
 
 ### PR the changes
 

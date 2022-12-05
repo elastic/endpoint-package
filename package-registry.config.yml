@@ -1,6 +1,3 @@
 package_paths:
-  - /packages/production
-  - /packages/staging
-  - /packages/snapshot
   - /packages/endpoint-package
 dev_mode: true
