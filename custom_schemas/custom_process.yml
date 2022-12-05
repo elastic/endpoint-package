@@ -336,6 +336,14 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
+    - name: Ext.mitigation_policies
+      level: custom
+      type: keyword
+      short: Process mitigation policies.
+      description: >
+        Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc.
+        Examples include Microsoft only, CF Guard, User Shadow Stack enabled
+
     - name: Ext.real
       level: custom
       type: object
