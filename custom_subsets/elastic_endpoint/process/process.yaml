@@ -150,6 +150,14 @@ fields:
       Ext:
         fields:
           ancestry: {}
+          api:
+            fields:
+              name: {}
+              parameters:
+                fields:
+                  desired_access: {}
+                  desired_access_numeric: {}
+                  handle_type: {}
           architecture: {}
           authentication_id: {}
           trusted: {}
