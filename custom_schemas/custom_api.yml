@@ -1,0 +1,22 @@
+---
+- name: api
+  title: API
+  group: 2
+  short: Fields describing an API call.
+  type: object
+  description: >
+    These fields describe an API call (function, or system call).
+
+  reusable:
+    top_level: true
+    expected:
+      - process.Ext
+
+  fields:
+    - name: name
+      level: custom
+      type: keyword
+      index: false
+      description: >
+        The name of the API, usually the name of the function or system call.
+
