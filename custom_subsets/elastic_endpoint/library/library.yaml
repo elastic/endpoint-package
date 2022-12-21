@@ -213,3 +213,4 @@ fields:
              volume_device_type: {}
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
+          size: {}
