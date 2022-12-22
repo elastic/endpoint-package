@@ -429,6 +429,15 @@ dll.Ext.relative_file_name_modify_time:
   normalize: []
   short: Number of seconds since the DLL's name was modified
   type: double
+dll.Ext.size:
+  dashed_name: dll-Ext-size
+  description: Size of DLL
+  flat_name: dll.Ext.size
+  level: custom
+  name: Ext.size
+  normalize: []
+  short: Size of DLL
+  type: u64
 dll.code_signature.exists:
   dashed_name: dll-code-signature-exists
   description: Boolean to capture if a signature is present.

@@ -292,6 +292,11 @@
       type: double
       description: Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future.
       default_field: false
+    - name: Ext.size
+      level: custom
+      type: u64
+      description: Size of DLL
+      default_field: false
     - name: code_signature.exists
       level: core
       type: boolean
