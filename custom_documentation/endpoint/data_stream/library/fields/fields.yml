@@ -1,0 +1,196 @@
+- name: '@timestamp'
+- name: message
+- name: agent
+  fields:
+  - name: id
+  - name: type
+  - name: version
+- name: data_stream
+  fields:
+  - name: dataset
+  - name: namespace
+  - name: type
+- name: destination
+  fields:
+  - name: geo.city_name
+  - name: geo.continent_code
+  - name: geo.continent_name
+  - name: geo.country_iso_code
+  - name: geo.country_name
+  - name: geo.location
+  - name: geo.name
+  - name: geo.postal_code
+  - name: geo.region_iso_code
+  - name: geo.region_name
+  - name: geo.timezone
+- name: dll
+  fields:
+  - name: Ext
+  - name: Ext.code_signature
+  - name: Ext.code_signature.exists
+  - name: Ext.code_signature.status
+  - name: Ext.code_signature.subject_name
+  - name: Ext.code_signature.trusted
+  - name: Ext.code_signature.valid
+  - name: Ext.defense_evasions
+  - name: Ext.device.bus_type
+  - name: Ext.device.dos_name
+  - name: Ext.device.nt_name
+  - name: Ext.device.product_id
+  - name: Ext.device.serial_number
+  - name: Ext.device.vendor_id
+  - name: Ext.device.volume_device_type
+  - name: Ext.load_index
+  - name: Ext.relative_file_creation_time
+  - name: Ext.relative_file_name_modify_time
+  - name: Ext.size
+  - name: code_signature.exists
+  - name: code_signature.signing_id
+  - name: code_signature.status
+  - name: code_signature.subject_name
+  - name: code_signature.team_id
+  - name: code_signature.trusted
+  - name: code_signature.valid
+  - name: hash.md5
+  - name: hash.sha1
+  - name: hash.sha256
+  - name: hash.sha512
+  - name: name
+  - name: path
+  - name: pe.company
+  - name: pe.description
+  - name: pe.file_version
+  - name: pe.imphash
+  - name: pe.original_file_name
+  - name: pe.product
+- name: ecs
+  fields:
+  - name: version
+- name: event
+  fields:
+  - name: action
+  - name: category
+  - name: code
+  - name: created
+  - name: dataset
+  - name: hash
+  - name: id
+  - name: ingested
+  - name: kind
+  - name: module
+  - name: outcome
+  - name: provider
+  - name: sequence
+  - name: severity
+  - name: type
+- name: file
+  fields:
+  - name: Ext
+  - name: Ext.code_signature
+  - name: Ext.code_signature.exists
+  - name: Ext.code_signature.status
+  - name: Ext.code_signature.subject_name
+  - name: Ext.code_signature.trusted
+  - name: Ext.code_signature.valid
+  - name: code_signature.exists
+  - name: code_signature.signing_id
+  - name: code_signature.status
+  - name: code_signature.subject_name
+  - name: code_signature.team_id
+  - name: code_signature.trusted
+  - name: code_signature.valid
+  - name: hash.md5
+  - name: hash.sha1
+  - name: hash.sha256
+  - name: hash.sha512
+  - name: name
+  - name: path
+  - name: pe.company
+  - name: pe.description
+  - name: pe.file_version
+  - name: pe.imphash
+  - name: pe.original_file_name
+  - name: pe.product
+- name: group
+  fields:
+  - name: Ext
+  - name: Ext.real
+  - name: Ext.real.id
+  - name: Ext.real.name
+  - name: domain
+  - name: id
+  - name: name
+- name: host
+  fields:
+  - name: architecture
+  - name: domain
+  - name: hostname
+  - name: id
+  - name: ip
+  - name: mac
+  - name: name
+  - name: os.Ext
+  - name: os.Ext.variant
+  - name: os.family
+  - name: os.full
+  - name: os.kernel
+  - name: os.name
+  - name: os.platform
+  - name: os.type
+  - name: os.version
+  - name: type
+  - name: uptime
+- name: process
+  fields:
+  - name: Ext
+  - name: Ext.ancestry
+  - name: Ext.code_signature
+  - name: Ext.code_signature.exists
+  - name: Ext.code_signature.status
+  - name: Ext.code_signature.subject_name
+  - name: Ext.code_signature.trusted
+  - name: Ext.code_signature.valid
+  - name: code_signature.exists
+  - name: code_signature.signing_id
+  - name: code_signature.status
+  - name: code_signature.subject_name
+  - name: code_signature.team_id
+  - name: code_signature.trusted
+  - name: code_signature.valid
+  - name: entity_id
+  - name: executable
+  - name: name
+  - name: pid
+  - name: thread.id
+- name: source
+  fields:
+  - name: geo.city_name
+  - name: geo.continent_code
+  - name: geo.continent_name
+  - name: geo.country_iso_code
+  - name: geo.country_name
+  - name: geo.location
+  - name: geo.name
+  - name: geo.postal_code
+  - name: geo.region_iso_code
+  - name: geo.region_name
+  - name: geo.timezone
+- name: user
+  fields:
+  - name: Ext
+  - name: Ext.real
+  - name: Ext.real.id
+  - name: Ext.real.name
+  - name: domain
+  - name: email
+  - name: full_name
+  - name: group.Ext
+  - name: group.Ext.real
+  - name: group.Ext.real.id
+  - name: group.Ext.real.name
+  - name: group.domain
+  - name: group.id
+  - name: group.name
+  - name: hash
+  - name: id
+  - name: name

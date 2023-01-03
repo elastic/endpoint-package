@@ -1,0 +1,119 @@
+- name: '@timestamp'
+- name: message
+- name: Endpoint
+  fields:
+  - name: configuration
+  - name: configuration.isolation
+  - name: policy
+  - name: policy.applied
+  - name: policy.applied.actions
+  - name: policy.applied.actions.message
+  - name: policy.applied.actions.name
+  - name: policy.applied.actions.status
+  - name: policy.applied.artifacts
+  - name: policy.applied.artifacts.global
+  - name: policy.applied.artifacts.global.identifiers
+  - name: policy.applied.artifacts.global.identifiers.name
+  - name: policy.applied.artifacts.global.identifiers.sha256
+  - name: policy.applied.artifacts.global.version
+  - name: policy.applied.artifacts.user
+  - name: policy.applied.artifacts.user.identifiers
+  - name: policy.applied.artifacts.user.identifiers.name
+  - name: policy.applied.artifacts.user.identifiers.sha256
+  - name: policy.applied.artifacts.user.version
+  - name: policy.applied.endpoint_policy_version
+  - name: policy.applied.id
+  - name: policy.applied.name
+  - name: policy.applied.response
+  - name: policy.applied.response.configurations
+  - name: policy.applied.response.configurations.antivirus_registration
+  - name: policy.applied.response.configurations.antivirus_registration.concerned_actions
+  - name: policy.applied.response.configurations.antivirus_registration.status
+  - name: policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+  - name: policy.applied.response.configurations.attack_surface_reduction.status
+  - name: policy.applied.response.configurations.behavior_protection.concerned_actions
+  - name: policy.applied.response.configurations.behavior_protection.status
+  - name: policy.applied.response.configurations.events
+  - name: policy.applied.response.configurations.events.concerned_actions
+  - name: policy.applied.response.configurations.events.status
+  - name: policy.applied.response.configurations.host_isolation.concerned_actions
+  - name: policy.applied.response.configurations.host_isolation.status
+  - name: policy.applied.response.configurations.logging
+  - name: policy.applied.response.configurations.logging.concerned_actions
+  - name: policy.applied.response.configurations.logging.status
+  - name: policy.applied.response.configurations.malware
+  - name: policy.applied.response.configurations.malware.concerned_actions
+  - name: policy.applied.response.configurations.malware.status
+  - name: policy.applied.response.configurations.memory_protection
+  - name: policy.applied.response.configurations.memory_protection.concerned_actions
+  - name: policy.applied.response.configurations.memory_protection.status
+  - name: policy.applied.response.configurations.ransomware.concerned_actions
+  - name: policy.applied.response.configurations.ransomware.status
+  - name: policy.applied.response.configurations.streaming
+  - name: policy.applied.response.configurations.streaming.concerned_actions
+  - name: policy.applied.response.configurations.streaming.status
+  - name: policy.applied.response.diagnostic
+  - name: policy.applied.response.diagnostic.behavior_protection.concerned_actions
+  - name: policy.applied.response.diagnostic.behavior_protection.status
+  - name: policy.applied.response.diagnostic.credential_protection.concerned_actions
+  - name: policy.applied.response.diagnostic.credential_protection.status
+  - name: policy.applied.response.diagnostic.malware.concerned_actions
+  - name: policy.applied.response.diagnostic.malware.status
+  - name: policy.applied.response.diagnostic.memory_protection.concerned_actions
+  - name: policy.applied.response.diagnostic.memory_protection.status
+  - name: policy.applied.response.diagnostic.memory_scan.concerned_actions
+  - name: policy.applied.response.diagnostic.memory_scan.status
+  - name: policy.applied.response.diagnostic.ransomware.concerned_actions
+  - name: policy.applied.response.diagnostic.ransomware.status
+  - name: policy.applied.status
+  - name: policy.applied.version
+  - name: state
+  - name: state.isolation
+- name: agent
+  fields:
+  - name: build.original
+  - name: id
+  - name: type
+  - name: version
+- name: data_stream
+  fields:
+  - name: dataset
+  - name: namespace
+  - name: type
+- name: ecs
+  fields:
+  - name: version
+- name: event
+  fields:
+  - name: action
+  - name: category
+  - name: code
+  - name: created
+  - name: dataset
+  - name: hash
+  - name: id
+  - name: ingested
+  - name: kind
+  - name: module
+  - name: outcome
+  - name: provider
+  - name: sequence
+  - name: severity
+  - name: type
+- name: host
+  fields:
+  - name: architecture
+  - name: hostname
+  - name: id
+  - name: ip
+  - name: mac
+  - name: name
+  - name: os.Ext
+  - name: os.Ext.variant
+  - name: os.family
+  - name: os.full
+  - name: os.kernel
+  - name: os.name
+  - name: os.platform
+  - name: os.type
+  - name: os.version

@@ -1,0 +1,186 @@
+- name: '@timestamp'
+- name: message
+- name: agent
+  fields:
+  - name: id
+  - name: type
+  - name: version
+- name: data_stream
+  fields:
+  - name: dataset
+  - name: namespace
+  - name: type
+- name: destination
+  fields:
+  - name: address
+  - name: as.number
+  - name: as.organization.name
+  - name: bytes
+  - name: domain
+  - name: geo.city_name
+  - name: geo.continent_code
+  - name: geo.continent_name
+  - name: geo.country_iso_code
+  - name: geo.country_name
+  - name: geo.location
+  - name: geo.name
+  - name: geo.postal_code
+  - name: geo.region_iso_code
+  - name: geo.region_name
+  - name: geo.timezone
+  - name: ip
+  - name: packets
+  - name: port
+  - name: registered_domain
+  - name: top_level_domain
+- name: dns
+  fields:
+  - name: Ext
+  - name: Ext.options
+  - name: Ext.status
+  - name: question.name
+  - name: question.registered_domain
+  - name: question.subdomain
+  - name: question.top_level_domain
+  - name: question.type
+  - name: resolved_ip
+- name: ecs
+  fields:
+  - name: version
+- name: event
+  fields:
+  - name: action
+  - name: category
+  - name: code
+  - name: created
+  - name: dataset
+  - name: hash
+  - name: id
+  - name: ingested
+  - name: kind
+  - name: module
+  - name: outcome
+  - name: provider
+  - name: sequence
+  - name: severity
+  - name: type
+- name: group
+  fields:
+  - name: Ext
+  - name: Ext.real
+  - name: Ext.real.id
+  - name: Ext.real.name
+  - name: domain
+  - name: id
+  - name: name
+- name: host
+  fields:
+  - name: architecture
+  - name: domain
+  - name: hostname
+  - name: id
+  - name: ip
+  - name: mac
+  - name: name
+  - name: os.Ext
+  - name: os.Ext.variant
+  - name: os.family
+  - name: os.full
+  - name: os.kernel
+  - name: os.name
+  - name: os.platform
+  - name: os.type
+  - name: os.version
+  - name: type
+  - name: uptime
+- name: http
+  fields:
+  - name: request.body.bytes
+  - name: request.body.content
+  - name: request.bytes
+  - name: response.Ext
+  - name: response.Ext.version
+  - name: response.body.bytes
+  - name: response.body.content
+  - name: response.bytes
+  - name: response.status_code
+- name: network
+  fields:
+  - name: bytes
+  - name: community_id
+  - name: direction
+  - name: iana_number
+  - name: packets
+  - name: protocol
+  - name: transport
+  - name: type
+- name: process
+  fields:
+  - name: Ext
+  - name: Ext.ancestry
+  - name: Ext.code_signature
+  - name: Ext.code_signature.exists
+  - name: Ext.code_signature.status
+  - name: Ext.code_signature.subject_name
+  - name: Ext.code_signature.trusted
+  - name: Ext.code_signature.valid
+  - name: code_signature.exists
+  - name: code_signature.signing_id
+  - name: code_signature.status
+  - name: code_signature.subject_name
+  - name: code_signature.team_id
+  - name: code_signature.trusted
+  - name: code_signature.valid
+  - name: entity_id
+  - name: entry_leader.entity_id
+  - name: entry_leader.parent.entity_id
+  - name: executable
+  - name: group_leader.entity_id
+  - name: name
+  - name: parent.entity_id
+  - name: parent.group_leader.entity_id
+  - name: pid
+  - name: session_leader.entity_id
+  - name: thread.id
+- name: source
+  fields:
+  - name: address
+  - name: as.number
+  - name: as.organization.name
+  - name: bytes
+  - name: domain
+  - name: geo.city_name
+  - name: geo.continent_code
+  - name: geo.continent_name
+  - name: geo.country_iso_code
+  - name: geo.country_name
+  - name: geo.location
+  - name: geo.name
+  - name: geo.postal_code
+  - name: geo.region_iso_code
+  - name: geo.region_name
+  - name: geo.timezone
+  - name: ip
+  - name: packets
+  - name: port
+  - name: registered_domain
+  - name: top_level_domain
+- name: user
+  fields:
+  - name: Ext
+  - name: Ext.real
+  - name: Ext.real.id
+  - name: Ext.real.name
+  - name: domain
+  - name: email
+  - name: full_name
+  - name: group.Ext
+  - name: group.Ext.real
+  - name: group.Ext.real.id
+  - name: group.Ext.real.name
+  - name: group.domain
+  - name: group.id
+  - name: group.name
+  - name: hash
+  - name: id
+  - name: name

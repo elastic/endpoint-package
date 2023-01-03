@@ -1,0 +1,69 @@
+- name: '@timestamp'
+- name: Endpoint
+  fields:
+  - name: capabilities
+  - name: configuration
+  - name: configuration.isolation
+  - name: policy
+  - name: policy.applied
+  - name: policy.applied.id
+  - name: policy.applied.name
+  - name: policy.applied.status
+  - name: state
+  - name: state.isolation
+  - name: status
+- name: agent
+  fields:
+  - name: id
+  - name: name
+  - name: type
+  - name: version
+- name: data_stream
+  fields:
+  - name: dataset
+  - name: namespace
+  - name: type
+- name: ecs
+  fields:
+  - name: version
+- name: elastic
+  fields:
+  - name: agent
+  - name: agent.id
+- name: event
+  fields:
+  - name: action
+  - name: category
+  - name: code
+  - name: created
+  - name: dataset
+  - name: hash
+  - name: id
+  - name: ingested
+  - name: kind
+  - name: module
+  - name: outcome
+  - name: provider
+  - name: sequence
+  - name: severity
+  - name: type
+- name: host
+  fields:
+  - name: architecture
+  - name: domain
+  - name: hostname
+  - name: id
+  - name: ip
+  - name: mac
+  - name: name
+  - name: os.Ext
+  - name: os.Ext.variant
+  - name: os.family
+  - name: os.full
+  - name: os.kernel
+  - name: os.name
+  - name: os.platform
+  - name: os.type
+  - name: os.version
+  - name: type
+  - name: uptime
