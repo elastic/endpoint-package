@@ -1,0 +1,2938 @@
+{
+    "_index": ".internal.security-alerts",
+    "_id": "MT42DFmv/z9vX45u+++++97K-2022-01-26T17:44:59Z",
+    "_version": 1,
+    "_score": 0,
+    "_source": {
+      "cluster_name": "7ab5c74fc5aa43e68dfa58024d86f91e",
+      "process": {
+        "args": [
+          "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+        ],
+        "Ext": {
+          "code_signature": [
+            {
+              "exists": false
+            }
+          ],
+          "dll": [
+            {
+              "Ext": {
+                "mapped_address": 4194304,
+                "mapped_size": 3514368
+              },
+              "path": "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+              "code_signature": [
+                {
+                  "exists": false
+                }
+              ],
+              "name": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+              "hash": {
+                "sha1": "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467",
+                "sha256": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa",
+                "md5": "84c82835a5d21bbcf75a61706d8ab549"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 140713633316864,
+                "mapped_size": 1904640
+              },
+              "path": "C:\\Windows\\SYSTEM32\\ntdll.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "ntdll.dll",
+              "hash": {
+                "sha1": "20c3ca96f533a40d7578ecdd05e61ef5eb1f2f5d",
+                "sha256": "89475a55c7d280f2423044e2f36a1ef0cc45173f7095152d84663d2510a0e738",
+                "md5": "536393d2bf415d5022cdb91459b81eb2"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1959329792,
+                "mapped_size": 335872
+              },
+              "path": "C:\\Windows\\System32\\wow64.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "wow64.dll",
+              "hash": {
+                "sha1": "0af87a06f3a6cfb6c2762255032f4c2b5293f8f5",
+                "sha256": "b24892906276a952f7d274fdd9a15def78c990f04726361449e918884af64eb8",
+                "md5": "43a985a7d14408432bdf7cc59d4e5c7a"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1958805504,
+                "mapped_size": 487424
+              },
+              "path": "C:\\Windows\\System32\\wow64win.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "wow64win.dll",
+              "hash": {
+                "sha1": "1cfd2c5c31c4937fc7bce67edbff63c07619d4ca",
+                "sha256": "ae92a08fc57d62035ed6a73a0f3dda633707d41bfe39a3f558cfd96aba115188",
+                "md5": "318a5d3840a1fe441e7205c6aa9fc682"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1959723008,
+                "mapped_size": 40960
+              },
+              "path": "C:\\Windows\\System32\\wow64cpu.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "wow64cpu.dll",
+              "hash": {
+                "sha1": "b3febdadc06de19d990867629c7b844cb5014ff2",
+                "sha256": "aa9c5c2786ed3d94c274cbeaf387989a699f6feea9f91749fed7606a8ca3ab10",
+                "md5": "f409299bc74719eae3a22d4fbc3a7c43"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 4194304,
+                "mapped_size": 3514368
+              },
+              "path": "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+              "code_signature": [
+                {
+                  "exists": false
+                }
+              ],
+              "name": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+              "hash": {
+                "sha1": "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467",
+                "sha256": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa",
+                "md5": "84c82835a5d21bbcf75a61706d8ab549"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 2000355328,
+                "mapped_size": 1581056
+              },
+              "path": "C:\\Windows\\SysWOW64\\ntdll.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "ntdll.dll",
+              "hash": {
+                "sha1": "aeff436b2b592fb3cf4bbfab78571e0fac336d0a",
+                "sha256": "c8904864bc93a6add31a8eb594617204165db62215a1e97972f998ac751b0c2a",
+                "md5": "2f6ae12e8d1ea9f40ab92d77d3bf0e2b"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1976696832,
+                "mapped_size": 917504
+              },
+              "path": "C:\\Windows\\SysWOW64\\KERNEL32.DLL",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "KERNEL32.DLL",
+              "hash": {
+                "sha1": "569a14d3be9a156f5c0cd416aaaf82750362a5bc",
+                "sha256": "74d0901c95af7059ecb5f6927dbcc5e8e6ce5b2c04fd7f5cb18f337ba73df86a",
+                "md5": "956db4b52f2ce6365ade6b5d2d74a267"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1990131712,
+                "mapped_size": 1708032
+              },
+              "path": "C:\\Windows\\SysWOW64\\KERNELBASE.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "KERNELBASE.dll",
+              "hash": {
+                "sha1": "7119651d18d392c697db330ad24d5bdb47e4edd3",
+                "sha256": "044031b1d02ee2e07352716acd2a027eb306bbf05f483742b0fc31b299723547",
+                "md5": "ceebf69badf2bb88d30546b3cd567edd"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1984430080,
+                "mapped_size": 1437696
+              },
+              "path": "C:\\Windows\\SysWOW64\\USER32.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "USER32.dll",
+              "hash": {
+                "sha1": "aeb19f61b6d57a4b3ceba36693eeafa7724c8d31",
+                "sha256": "a12bcd25e16da99599660c501fcbdfbc8212ddad22325efa2f4cf2470ead50ae",
+                "md5": "5265be5e7a0859be4c9d0749f393b1f4"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1973485568,
+                "mapped_size": 86016
+              },
+              "path": "C:\\Windows\\SysWOW64\\win32u.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "win32u.dll",
+              "hash": {
+                "sha1": "16e1d00facc39f5c6a94f732040c632e2e849be3",
+                "sha256": "d8f3c957bdbd9db510e71b07cde1b446491d4dc520787548060b3aad1324c62a",
+                "md5": "af2a9437f3aed2e8254b7e1eb6e96782"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1969684480,
+                "mapped_size": 176128
+              },
+              "path": "C:\\Windows\\SysWOW64\\GDI32.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "GDI32.dll",
+              "hash": {
+                "sha1": "3cf5b438df635003d406a7a65917f79ede04abf8",
+                "sha256": "d1e3e290fecd4c4b3b7175fcd360a9aeaa90dfb9297ceedee0f4dd441050797a",
+                "md5": "148545a2b7db9691fff4b2abd16b91bd"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1988362240,
+                "mapped_size": 1421312
+              },
+              "path": "C:\\Windows\\SysWOW64\\gdi32full.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "gdi32full.dll",
+              "hash": {
+                "sha1": "00178450f9c30b1f99a48e087adbeac67361a748",
+                "sha256": "54e80a696a2943ca07cd3e877ad4b9b62dbc7a8b9128cf4294caa2076da11759",
+                "md5": "9910e3fee4850b135cde2a9412d7efed"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1985871872,
+                "mapped_size": 487424
+              },
+              "path": "C:\\Windows\\SysWOW64\\ADVAPI32.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "ADVAPI32.dll",
+              "hash": {
+                "sha1": "2347a36a20ffc3ea8ef4c39c38aa98ab80d133d9",
+                "sha256": "05473b9b867b68e368b284022392860f0d2055809aeb5df221f8319230bcce9c",
+                "md5": "876577374f31702acc9e8584db453c9b"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1986985984,
+                "mapped_size": 778240
+              },
+              "path": "C:\\Windows\\SysWOW64\\msvcrt.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "msvcrt.dll",
+              "hash": {
+                "sha1": "145907aae59316b8279f3e045cb1fa381b5868f8",
+                "sha256": "959533e1acc392bccf162381f60fc663812d9bbd460d36db1e7e8ffd0726e091",
+                "md5": "2b3053473d66ad4c34e05b4ab4a9636e"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1989804032,
+                "mapped_size": 266240
+              },
+              "path": "C:\\Windows\\SysWOW64\\sechost.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "sechost.dll",
+              "hash": {
+                "sha1": "ee4305d3f1b2d2029c8cefc532da46fd437c7834",
+                "sha256": "f938edb4504ed2ef1d1dfa8a1d50661a7681c607a6a225690a0bf6bfc94a989c",
+                "md5": "ed839824e2d0cde4544276df61bb9868"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1977876480,
+                "mapped_size": 790528
+              },
+              "path": "C:\\Windows\\SysWOW64\\RPCRT4.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "RPCRT4.dll",
+              "hash": {
+                "sha1": "25f55ff1fa22fe88c14dd03776d5271d5f6ec840",
+                "sha256": "451665965026c33aabc35494bcbac6f4935eff2aea9991f26c86de9fcf97a6fd",
+                "md5": "7ab33839fe1fe919462b58accb336d4d"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1965883392,
+                "mapped_size": 122880
+              },
+              "path": "C:\\Windows\\SysWOW64\\SspiCli.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "SspiCli.dll",
+              "hash": {
+                "sha1": "fe668dddb7c3c9f65ff105ae50c882f1124452c7",
+                "sha256": "b0ab06d97cf006bc72717a64a8621703b05d41749e01e83429d77c590f6fd75d",
+                "md5": "9c3110198a7494df7652121eed35b2ff"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1965817856,
+                "mapped_size": 40960
+              },
+              "path": "C:\\Windows\\SysWOW64\\CRYPTBASE.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "CRYPTBASE.dll",
+              "hash": {
+                "sha1": "310cc7f94bc9cbd0e0e8a9fa966c30dce93e62d3",
+                "sha256": "26df85fc22f9fcaa2212cb66612fe8f5cc6382953fe81b9c34128e43080c7891",
+                "md5": "3d4308bac53b881b16d9bd1006abdc65"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1968439296,
+                "mapped_size": 368640
+              },
+              "path": "C:\\Windows\\SysWOW64\\bcryptPrimitives.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "bcryptPrimitives.dll",
+              "hash": {
+                "sha1": "d32c2134579f492e149e44fa15f39da5a87da9ab",
+                "sha256": "ae45e85bee770708ce6e8c89066dc70d4f8c4a1f2df414a63a3af1170482df47",
+                "md5": "dbb08db2f47433858c6606484f5fe545"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1976500224,
+                "mapped_size": 151552
+              },
+              "path": "C:\\Windows\\SysWOW64\\IMM32.DLL",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "IMM32.DLL",
+              "hash": {
+                "sha1": "186072786e4f34acb090d0b2aba4e416d8891621",
+                "sha256": "4204f7c2b4e13aa3819a180faca724435f6400fe97d2ef6c74634a0d7e51f7f3",
+                "md5": "203f58ba41b48a59d6a047e0233db422"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1965686784,
+                "mapped_size": 77824
+              },
+              "path": "C:\\Windows\\SysWOW64\\CRYPTSP.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "CRYPTSP.dll",
+              "hash": {
+                "sha1": "5fe106583ca5c1021ac123e942e4cecdb399d72f",
+                "sha256": "db8b362362998ca8b9efef8d52b5d21704dbc9662181587a79fe45a8c45e737f",
+                "md5": "0ce6aff79009aeec169c9a75b7567d30"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1965490176,
+                "mapped_size": 192512
+              },
+              "path": "C:\\Windows\\SysWOW64\\rsaenh.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "rsaenh.dll",
+              "hash": {
+                "sha1": "faaf9efa9a98c8cf81ee0bf8349e1f73a8111882",
+                "sha256": "9c59391e9ec589cbcec1ae9ba4148769238a4c06fb23b185fffaae04a1271f4b",
+                "md5": "9a03702c5ebbc4761770bae67764b219"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1965359104,
+                "mapped_size": 110592
+              },
+              "path": "C:\\Windows\\SysWOW64\\bcrypt.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "bcrypt.dll",
+              "hash": {
+                "sha1": "b1f2d9ebc665d6b036ab6e35d28932b6f29b09cf",
+                "sha256": "002e437962ea8b9fc06b51888d437ad9a7e9c415e4e60d6fa9210d212cda82d0",
+                "md5": "8738c7b3583122b2ad17d1b26a3a8ba8"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1937965056,
+                "mapped_size": 20803584
+              },
+              "path": "C:\\Windows\\SysWOW64\\SHELL32.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "SHELL32.dll",
+              "hash": {
+                "sha1": "93e0d2233754d79e69fa4216e24eeba1215d1ab2",
+                "sha256": "39e5f75ef05ce9185afd769cc9f22bb8f0be0780dc30f595fc7e350dd946ffa8",
+                "md5": "8f8d7c273b8eadb4aeab29726ff21a5f"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1977614336,
+                "mapped_size": 221184
+              },
+              "path": "C:\\Windows\\SysWOW64\\cfgmgr32.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "cfgmgr32.dll",
+              "hash": {
+                "sha1": "728e6fa0faa1640e8bd48ea4df70da48536c6322",
+                "sha256": "5f6ce9777cdc7b0a0e98c90709c41c379415dba654a39b332bb683a7f2b86e97",
+                "md5": "90a1cd387f9cb30f86d34b88bfcd83a1"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1978728448,
+                "mapped_size": 5693440
+              },
+              "path": "C:\\Windows\\SysWOW64\\windows.storage.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "windows.storage.dll",
+              "hash": {
+                "sha1": "4b9d9a8a0055de276b791b0f1c5be1ed442270b6",
+                "sha256": "84c830b6b8016be2c250eeb8a8d7c4890cfb25d0f7f6e72e4f035e8d12a9f26d",
+                "md5": "d7a0114e1280cd44a9a251393b2ac518"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1973944320,
+                "mapped_size": 2166784
+              },
+              "path": "C:\\Windows\\SysWOW64\\combase.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "combase.dll",
+              "hash": {
+                "sha1": "887bd36cec39952e1e54715294059c3450628e9f",
+                "sha256": "b8c0eae0f134185fe287c10a57e17ed8975ed6d902656ccbb7e6f2e0e4914270",
+                "md5": "0891cabd9ed40173dbbc5ee072bed250"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1966538752,
+                "mapped_size": 917504
+              },
+              "path": "C:\\Windows\\SysWOW64\\ucrtbase.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "ucrtbase.dll",
+              "hash": {
+                "sha1": "7a9bcd5e301df52201b71778ee6c0d9f71670269",
+                "sha256": "d430ec47a5289f6d6f6ca94ab785a17c7df0599c1fe20789fede53830af66095",
+                "md5": "2e0694a49824cf82c1972020db227d8c"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1973616640,
+                "mapped_size": 282624
+              },
+              "path": "C:\\Windows\\SysWOW64\\powrprof.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "powrprof.dll",
+              "hash": {
+                "sha1": "586fbbf400bb889045a745fd040fc9971423c717",
+                "sha256": "c7787f59263b7d5246b931531ab4dc4c430e1bf8260775b7a751d4994a5d3489",
+                "md5": "a6f22ca344fd1b7d75d49ecc718693c8"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1976172544,
+                "mapped_size": 286720
+              },
+              "path": "C:\\Windows\\SysWOW64\\shlwapi.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "shlwapi.dll",
+              "hash": {
+                "sha1": "898848790d08c86a05833b841b5f83aaf42b1d03",
+                "sha256": "a9810703b4708fa1e28886bad1e74e53becb8413257fa151f4548609b710215d",
+                "md5": "d9af3498fa5fe659c8f65408fdbf3990"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1972371456,
+                "mapped_size": 53248
+              },
+              "path": "C:\\Windows\\SysWOW64\\kernel.appcore.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "kernel.appcore.dll",
+              "hash": {
+                "sha1": "775903cd7d96ba57659e4cd79d4d6efddb027eab",
+                "sha256": "e21a9d34ce3004f6599884a0f5ac593c8b007dfc6613ae77af6fd295e03cc141",
+                "md5": "845fd176fad495db046400ac93747976"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1987772416,
+                "mapped_size": 557056
+              },
+              "path": "C:\\Windows\\SysWOW64\\shcore.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "shcore.dll",
+              "hash": {
+                "sha1": "773ac5f5875572f35f7811c9e32ac95e08cf167e",
+                "sha256": "07ba849e3a3ba3e4fdb459a5a73fdb8b64d0175346249d44145841bbb891089f",
+                "md5": "ad950538c8e6ec4c423f260505d28275"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1966473216,
+                "mapped_size": 61440
+              },
+              "path": "C:\\Windows\\SysWOW64\\profapi.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "profapi.dll",
+              "hash": {
+                "sha1": "afdc9bec2b74f555af73e145cf3bdb8172e35f4c",
+                "sha256": "f9664337b60a332571fca81cc3e6dd194dce20c8546980fd283ca892d0cc873c",
+                "md5": "ca6447ddca724f0c5c0cafde184efe64"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1964900352,
+                "mapped_size": 458752
+              },
+              "path": "C:\\Windows\\SysWOW64\\MSVCP60.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "MSVCP60.dll",
+              "hash": {
+                "sha1": "c065298e6120df1813841648d3040d675a80769a",
+                "sha256": "a5ad4acefca7694ea0c46e720e1e7ce4829b5ebe7b23a6f0b8ec92882645d10e",
+                "md5": "654aae21d7ff3e3066b43aeda4c2c35e"
+              }
+            },
+            {
+              "Ext": {
+                "mapped_address": 1964703744,
+                "mapped_size": 163840
+              },
+              "path": "C:\\Windows\\SysWOW64\\ntmarta.dll",
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "name": "ntmarta.dll",
+              "hash": {
+                "sha1": "7ab3df1af82e9fa93f6df1820e908e4b7b8319b1",
+                "sha256": "73d4a73fc5150c432a237998f26499807d394ccc5d3602b482d8a2723a45e947",
+                "md5": "cf7308d27a2b2851249a7ce892017305"
+              }
+            }
+          ],
+          "architecture": "x86",
+          "token": {
+            "integrity_level_name": "high"
+          }
+        },
+        "parent": {
+          "args": [
+            "C:\\Windows\\Explorer.EXE"
+          ],
+          "Ext": {
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "architecture": "x86_64"
+          },
+          "name": "explorer.exe",
+          "pid": 4868,
+          "entity_id": "ODY2MWU0ZGEtODRjZS00NmVlLWE5NjAtZTY4YmViMWZkMmRkLTQ4NjgtMTMyODc2OTE2NjAuNzEzNTI4OTAw",
+          "hash": {
+            "sha1": "aaecc83ff22939ed9b82c75e95369c9378bb2077",
+            "sha256": "66798e2e4448e395556044ee6925489715cdc5f7f60e92a68b99135dba907750",
+            "md5": "05181a5ac4197d6c5c02ace6070af234"
+          },
+          "command_line": "C:\\Windows\\Explorer.EXE",
+          "executable": "C:\\Windows\\explorer.exe",
+          "uptime": 1038
+        },
+        "pe": {
+          "original_file_name": "diskpart.exe"
+        },
+        "name": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+        "pid": 2444,
+        "entity_id": "ODY2MWU0ZGEtODRjZS00NmVlLWE5NjAtZTY4YmViMWZkMmRkLTI0NDQtMTMyODc2OTI2OTcuMjg3OTU3ODAw",
+        "hash": {
+          "sha1": "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467",
+          "sha256": "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa",
+          "md5": "84c82835a5d21bbcf75a61706d8ab549"
+        },
+        "command_line": "\"C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe\" ",
+        "executable": "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe",
+        "uptime": 1
+      },
+      "agent": {
+        "build": {
+          "original": "version: 7.16.0, compiled: Tue Nov 23 14:00:00 2021, branch: 7.16, commit: c4fd527dca94840655d389d4d01bb313525f1e38"
+        },
+        "id": "8661e4da-84ce-46ee-a960-e68beb1fd2dd",
+        "type": "endpoint",
+        "version": "7.16.0"
+      },
+      "channel": "alerts-endpoint",
+      "rule": {
+        "ruleset": "production"
+      },
+      "Ransomware": {
+        "feature": "canary",
+        "files": [
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg.wncry",
+            "score": 0.1145,
+            "extension": "wncry",
+            "entropy": 7.80404910354096,
+            "original": {
+              "path": "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg.wncryt",
+              "extension": "wncryt"
+            },
+            "data": "57414E414352592100010000F449D659",
+            "metrics": [
+              "ENTROPY_VERY_HIGH",
+              "ENTROPY_VERY_HIGH",
+              "UNKNOWN_TO_UNKNOWN",
+              "KNOWN_SUBEXTENSION",
+              "UNKNOWN_SUBEXTENSION"
+            ],
+            "operation": "rename"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg",
+            "score": 0.05,
+            "extension": "jpg",
+            "entropy": 7.79870825645474,
+            "data": "86758C955C37C1F75AC28EEE885AB966",
+            "metrics": [
+              "HEADER_MISMATCH",
+              "ENTROPY_VERY_HIGH"
+            ],
+            "operation": "modification"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg.wncry",
+            "score": 0.1145,
+            "extension": "wncry",
+            "entropy": 7.81079556396829,
+            "original": {
+              "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg.wncryt",
+              "extension": "wncryt"
+            },
+            "data": "57414E4143525921000100006C2487BA",
+            "metrics": [
+              "ENTROPY_VERY_HIGH",
+              "ENTROPY_VERY_HIGH",
+              "UNKNOWN_TO_UNKNOWN",
+              "KNOWN_SUBEXTENSION",
+              "UNKNOWN_SUBEXTENSION"
+            ],
+            "operation": "rename"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg",
+            "score": 0.05,
+            "extension": "jpg",
+            "entropy": 7.80015622936821,
+            "data": "AB09039BD80C431F944A0B6C047DA3BC",
+            "metrics": [
+              "HEADER_MISMATCH",
+              "ENTROPY_VERY_HIGH"
+            ],
+            "operation": "modification"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg.wncry",
+            "score": 0.1145,
+            "extension": "wncry",
+            "entropy": 7.80946864278708,
+            "original": {
+              "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg.wncryt",
+              "extension": "wncryt"
+            },
+            "data": "57414E414352592100010000F9F72E13",
+            "metrics": [
+              "ENTROPY_VERY_HIGH",
+              "ENTROPY_VERY_HIGH",
+              "UNKNOWN_TO_UNKNOWN",
+              "KNOWN_SUBEXTENSION",
+              "UNKNOWN_SUBEXTENSION"
+            ],
+            "operation": "rename"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg",
+            "score": 0.05,
+            "extension": "jpg",
+            "entropy": 7.80764567853722,
+            "data": "0BC07D94A1154743C43EF3647394F35E",
+            "metrics": [
+              "HEADER_MISMATCH",
+              "ENTROPY_VERY_HIGH"
+            ],
+            "operation": "modification"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\@please_read_me@.txt",
+            "score": 0,
+            "extension": "txt",
+            "entropy": 4.70868654254671,
+            "data": "513A20205768617427732077726F6E67",
+            "operation": "creation"
+          },
+          {
+            "path": "c:\\users\\JohnDoe\\desktop\\@please_read_me@.txt",
+            "score": 0,
+            "extension": "txt",
+            "entropy": 4.70868654254671,
+            "data": "513A20205768617427732077726F6E67",
+            "operation": "modification"
+          },
+          {
+            "path": "c:\\aaantiransomelastic@do@not@touch@dab6d40c@a6a1@442c@adc4@9d57a47e58d7\\antiransomelastic@do@not@touch@4568452b@fc17@414d@afb6@ddeceb5ec54c.doc.wncry",
+            "score": 0,
+            "extension": "wncry",
+            "entropy": 7.80884600258232,
+            "original": {
+              "path": "c:\\aaantiransomelastic@do@not@touch@dab6d40c@a6a1@442c@adc4@9d57a47e58d7\\antiransomelastic@do@not@touch@4568452b@fc17@414d@afb6@ddeceb5ec54c.doc.wncryt",
+              "extension": "wncryt"
+            },
+            "data": "57414E414352592100010000685AE133",
+            "metrics": [
+              "CANARY_ACTIVITY"
+            ],
+            "operation": "rename"
+          }
+        ],
+        "version": "1.3.1"
+      },
+      "version": "7.16.0",
+      "cloud": {
+        "cluster_name": "7ab5c74fc5aa43e68dfa58024d86f91e",
+        "deployment_info": {
+          "in_trial": true,
+          "is_elastic_internal": false,
+          "account_uuid": 1996697845,
+          "deployment_parent": "7ab5c74fc5aa43e68dfa58024d86f91e",
+          "domain": "ecstech.com",
+          "is_cloud": true
+        }
+      },
+      "@timestamp": "2022-01-26T17:44:58.7979481Z",
+      "cluster_uuid": "iTgR5X51SIGuQ-_PmtKIcA",
+      "Endpoint": {
+        "policy": {
+          "applied": {
+            "artifacts": {
+              "global": {
+                "identifiers": [
+                  {
+                    "sha256": "9a0c8808ce6d9b8043cc3033ec55de4fee958dc871680789f699c16e3079cc05",
+                    "name": "diagnostic-configuration-v1"
+                  },
+                  {
+                    "sha256": "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
+                    "name": "diagnostic-endpointpe-v4-blocklist"
+                  },
+                  {
+                    "sha256": "228f0286170ad755429c7b549169d9ec52432ab064f69db63b3716b4ae345de7",
+                    "name": "diagnostic-endpointpe-v4-exceptionlist"
+                  },
+                  {
+                    "sha256": "2e2312d944396eac0dc86db25e932c7851b4036edcaaa40c4d7c20c30fa3a5b4",
+                    "name": "diagnostic-endpointpe-v4-model"
+                  },
+                  {
+                    "sha256": "51a7ea99d3341d71622a91793a903d65b416d2b4c6cd78b61820409f0da2efba",
+                    "name": "diagnostic-malware-signature-v1-windows"
+                  },
+                  {
+                    "sha256": "27f02966be2e0662af48c632ed593179a0867fd0507bbabfae70b3e110faa371",
+                    "name": "diagnostic-ransomware-v1-windows"
+                  },
+                  {
+                    "sha256": "ad27aafd0a3ea30f4732c45c22f131a2fe7c951a54497f692eec6769088286ad",
+                    "name": "diagnostic-rules-windows-v1"
+                  },
+                  {
+                    "sha256": "a667540c96b1bb3b4b63c61c1544e42107a5e0cc415217dda0c8c714e303b050",
+                    "name": "endpointpe-v4-blocklist"
+                  },
+                  {
+                    "sha256": "37449faf6670da69498e3744958b2d9e7c4fa12deec2f7a8d0198ce034aa3f70",
+                    "name": "endpointpe-v4-exceptionlist"
+                  },
+                  {
+                    "sha256": "e2fe32a93b17e7c452349c0a1bcce0d161fd995fb9d2d0c23dd18cdea8e1c758",
+                    "name": "endpointpe-v4-model"
+                  },
+                  {
+                    "sha256": "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
+                    "name": "global-configuration-v1"
+                  },
+                  {
+                    "sha256": "b7986cc83b2b7c923478284379708717f551482ecc2707e0c96fb9085d09e89a",
+                    "name": "global-exceptionlist-windows"
+                  },
+                  {
+                    "sha256": "34f12f0d74518507409e1bfab3327d714cbd537d2f72b202d908c8d87f940fba",
+                    "name": "global-trustlist-windows-v1"
+                  },
+                  {
+                    "sha256": "4ff4c618df2c4432edcb9516c7e3e82ec7440280559cfe7d9945d8c0f4d7e585",
+                    "name": "production-malware-signature-v1-windows"
+                  },
+                  {
+                    "sha256": "4d7ed75842048694d9dc01efffc55ce9cefe4e412c9acd702ea7d0bcdfdc4b09",
+                    "name": "production-ransomware-v1-windows"
+                  },
+                  {
+                    "sha256": "89c0e5a641d9e9845179c32cbcc56cc2d9ad2dadfbf019848f7a71252d8391e6",
+                    "name": "production-rules-windows-v1"
+                  }
+                ],
+                "version": "1.0.198"
+              },
+              "user": {
+                "identifiers": [
+                  {
+                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                    "name": "endpoint-eventfilterlist-windows-v1"
+                  },
+                  {
+                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                    "name": "endpoint-exceptionlist-windows-v1"
+                  },
+                  {
+                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                    "name": "endpoint-hostisolationexceptionlist-windows-v1"
+                  },
+                  {
+                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                    "name": "endpoint-trustlist-windows-v1"
+                  }
+                ],
+                "version": "1.0.0"
+              }
+            }
+          }
+        }
+      },
+      "ecs": {
+        "version": "1.11.0"
+      },
+      "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "endpoint.alerts"
+      },
+      "elastic": {
+        "agent": {
+          "id": "8661e4da-84ce-46ee-a960-e68beb1fd2dd"
+        }
+      },
+      "host": {
+        "os": {
+          "Ext": {
+            "variant": "Windows 10 Enterprise 2016 LTSB Evaluation"
+          },
+          "kernel": "1607 (10.0.14393.0)",
+          "name": "Windows",
+          "family": "windows",
+          "type": "windows",
+          "version": "1607 (10.0.14393.0)",
+          "platform": "windows",
+          "full": "Windows 10 Enterprise 2016 LTSB Evaluation 1607 (10.0.14393.0)"
+        }
+      },
+      "location": "gs://elastic-telemetry-prod-data/raw/1643219178.9261332-f221d3482875b7f7ab1ea45be7ada399",
+      "event": {
+        "severity": 73,
+        "code": "ransomware",
+        "risk_score": 73,
+        "created": "2022-01-26T17:44:58.7979481Z",
+        "kind": "alert",
+        "module": "endpoint",
+        "type": [
+          "info",
+          "start",
+          "change",
+          "denied"
+        ],
+        "agent_id_status": "verified",
+        "sequence": 20623,
+        "ingested": "2022-01-26T17:44:59Z",
+        "action": "canary-activity",
+        "id": "MT42DFmv/z9vX45u+++++97K",
+        "category": [
+          "malware",
+          "intrusion_detection",
+          "process",
+          "file"
+        ],
+        "dataset": "endpoint.alerts",
+        "outcome": "success"
+      }
+    },
+    "fields": {
+      "cluster_name.keyword": [
+        "7ab5c74fc5aa43e68dfa58024d86f91e"
+      ],
+      "process.hash.md5": [
+        "84c82835a5d21bbcf75a61706d8ab549"
+      ],
+      "event.category": [
+        "malware",
+        "intrusion_detection",
+        "process",
+        "file"
+      ],
+      "Endpoint.policy.applied.artifacts.global.identifiers.sha256": [
+        "9a0c8808ce6d9b8043cc3033ec55de4fee958dc871680789f699c16e3079cc05",
+        "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
+        "228f0286170ad755429c7b549169d9ec52432ab064f69db63b3716b4ae345de7",
+        "2e2312d944396eac0dc86db25e932c7851b4036edcaaa40c4d7c20c30fa3a5b4",
+        "51a7ea99d3341d71622a91793a903d65b416d2b4c6cd78b61820409f0da2efba",
+        "27f02966be2e0662af48c632ed593179a0867fd0507bbabfae70b3e110faa371",
+        "ad27aafd0a3ea30f4732c45c22f131a2fe7c951a54497f692eec6769088286ad",
+        "a667540c96b1bb3b4b63c61c1544e42107a5e0cc415217dda0c8c714e303b050",
+        "37449faf6670da69498e3744958b2d9e7c4fa12deec2f7a8d0198ce034aa3f70",
+        "e2fe32a93b17e7c452349c0a1bcce0d161fd995fb9d2d0c23dd18cdea8e1c758",
+        "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
+        "b7986cc83b2b7c923478284379708717f551482ecc2707e0c96fb9085d09e89a",
+        "34f12f0d74518507409e1bfab3327d714cbd537d2f72b202d908c8d87f940fba",
+        "4ff4c618df2c4432edcb9516c7e3e82ec7440280559cfe7d9945d8c0f4d7e585",
+        "4d7ed75842048694d9dc01efffc55ce9cefe4e412c9acd702ea7d0bcdfdc4b09",
+        "89c0e5a641d9e9845179c32cbcc56cc2d9ad2dadfbf019848f7a71252d8391e6"
+      ],
+      "process.Ext.dll": [
+        {
+          "hash.sha256": [
+            "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa"
+          ],
+          "path": [
+            "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+          ],
+          "hash.sha1": [
+            "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467"
+          ],
+          "Ext.mapped_size": [
+            3514368
+          ],
+          "code_signature.exists": [
+            false
+          ],
+          "name": [
+            "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+          ],
+          "hash.md5": [
+            "84c82835a5d21bbcf75a61706d8ab549"
+          ],
+          "Ext.mapped_address": [
+            4194304
+          ]
+        },
+        {
+          "hash.sha256": [
+            "89475a55c7d280f2423044e2f36a1ef0cc45173f7095152d84663d2510a0e738"
+          ],
+          "path": [
+            "C:\\Windows\\SYSTEM32\\ntdll.dll"
+          ],
+          "hash.sha1": [
+            "20c3ca96f533a40d7578ecdd05e61ef5eb1f2f5d"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            1904640
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "ntdll.dll"
+          ],
+          "hash.md5": [
+            "536393d2bf415d5022cdb91459b81eb2"
+          ],
+          "Ext.mapped_address": [
+            140713633316864
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "b24892906276a952f7d274fdd9a15def78c990f04726361449e918884af64eb8"
+          ],
+          "path": [
+            "C:\\Windows\\System32\\wow64.dll"
+          ],
+          "hash.sha1": [
+            "0af87a06f3a6cfb6c2762255032f4c2b5293f8f5"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            335872
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "wow64.dll"
+          ],
+          "hash.md5": [
+            "43a985a7d14408432bdf7cc59d4e5c7a"
+          ],
+          "Ext.mapped_address": [
+            1959329792
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "ae92a08fc57d62035ed6a73a0f3dda633707d41bfe39a3f558cfd96aba115188"
+          ],
+          "path": [
+            "C:\\Windows\\System32\\wow64win.dll"
+          ],
+          "hash.sha1": [
+            "1cfd2c5c31c4937fc7bce67edbff63c07619d4ca"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            487424
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "wow64win.dll"
+          ],
+          "hash.md5": [
+            "318a5d3840a1fe441e7205c6aa9fc682"
+          ],
+          "Ext.mapped_address": [
+            1958805504
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "aa9c5c2786ed3d94c274cbeaf387989a699f6feea9f91749fed7606a8ca3ab10"
+          ],
+          "path": [
+            "C:\\Windows\\System32\\wow64cpu.dll"
+          ],
+          "hash.sha1": [
+            "b3febdadc06de19d990867629c7b844cb5014ff2"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            40960
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "wow64cpu.dll"
+          ],
+          "hash.md5": [
+            "f409299bc74719eae3a22d4fbc3a7c43"
+          ],
+          "Ext.mapped_address": [
+            1959723008
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa"
+          ],
+          "path": [
+            "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+          ],
+          "hash.sha1": [
+            "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467"
+          ],
+          "Ext.mapped_size": [
+            3514368
+          ],
+          "code_signature.exists": [
+            false
+          ],
+          "name": [
+            "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+          ],
+          "hash.md5": [
+            "84c82835a5d21bbcf75a61706d8ab549"
+          ],
+          "Ext.mapped_address": [
+            4194304
+          ]
+        },
+        {
+          "hash.sha256": [
+            "c8904864bc93a6add31a8eb594617204165db62215a1e97972f998ac751b0c2a"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\ntdll.dll"
+          ],
+          "hash.sha1": [
+            "aeff436b2b592fb3cf4bbfab78571e0fac336d0a"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            1581056
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "ntdll.dll"
+          ],
+          "hash.md5": [
+            "2f6ae12e8d1ea9f40ab92d77d3bf0e2b"
+          ],
+          "Ext.mapped_address": [
+            2000355328
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "74d0901c95af7059ecb5f6927dbcc5e8e6ce5b2c04fd7f5cb18f337ba73df86a"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\KERNEL32.DLL"
+          ],
+          "hash.sha1": [
+            "569a14d3be9a156f5c0cd416aaaf82750362a5bc"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            917504
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "KERNEL32.DLL"
+          ],
+          "hash.md5": [
+            "956db4b52f2ce6365ade6b5d2d74a267"
+          ],
+          "Ext.mapped_address": [
+            1976696832
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "044031b1d02ee2e07352716acd2a027eb306bbf05f483742b0fc31b299723547"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\KERNELBASE.dll"
+          ],
+          "hash.sha1": [
+            "7119651d18d392c697db330ad24d5bdb47e4edd3"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            1708032
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "KERNELBASE.dll"
+          ],
+          "hash.md5": [
+            "ceebf69badf2bb88d30546b3cd567edd"
+          ],
+          "Ext.mapped_address": [
+            1990131712
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "a12bcd25e16da99599660c501fcbdfbc8212ddad22325efa2f4cf2470ead50ae"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\USER32.dll"
+          ],
+          "hash.sha1": [
+            "aeb19f61b6d57a4b3ceba36693eeafa7724c8d31"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            1437696
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "USER32.dll"
+          ],
+          "hash.md5": [
+            "5265be5e7a0859be4c9d0749f393b1f4"
+          ],
+          "Ext.mapped_address": [
+            1984430080
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "d8f3c957bdbd9db510e71b07cde1b446491d4dc520787548060b3aad1324c62a"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\win32u.dll"
+          ],
+          "hash.sha1": [
+            "16e1d00facc39f5c6a94f732040c632e2e849be3"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            86016
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "win32u.dll"
+          ],
+          "hash.md5": [
+            "af2a9437f3aed2e8254b7e1eb6e96782"
+          ],
+          "Ext.mapped_address": [
+            1973485568
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "d1e3e290fecd4c4b3b7175fcd360a9aeaa90dfb9297ceedee0f4dd441050797a"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\GDI32.dll"
+          ],
+          "hash.sha1": [
+            "3cf5b438df635003d406a7a65917f79ede04abf8"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            176128
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "GDI32.dll"
+          ],
+          "hash.md5": [
+            "148545a2b7db9691fff4b2abd16b91bd"
+          ],
+          "Ext.mapped_address": [
+            1969684480
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "54e80a696a2943ca07cd3e877ad4b9b62dbc7a8b9128cf4294caa2076da11759"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\gdi32full.dll"
+          ],
+          "hash.sha1": [
+            "00178450f9c30b1f99a48e087adbeac67361a748"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            1421312
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "gdi32full.dll"
+          ],
+          "hash.md5": [
+            "9910e3fee4850b135cde2a9412d7efed"
+          ],
+          "Ext.mapped_address": [
+            1988362240
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "05473b9b867b68e368b284022392860f0d2055809aeb5df221f8319230bcce9c"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\ADVAPI32.dll"
+          ],
+          "hash.sha1": [
+            "2347a36a20ffc3ea8ef4c39c38aa98ab80d133d9"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            487424
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "ADVAPI32.dll"
+          ],
+          "hash.md5": [
+            "876577374f31702acc9e8584db453c9b"
+          ],
+          "Ext.mapped_address": [
+            1985871872
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "959533e1acc392bccf162381f60fc663812d9bbd460d36db1e7e8ffd0726e091"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\msvcrt.dll"
+          ],
+          "hash.sha1": [
+            "145907aae59316b8279f3e045cb1fa381b5868f8"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            778240
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "msvcrt.dll"
+          ],
+          "hash.md5": [
+            "2b3053473d66ad4c34e05b4ab4a9636e"
+          ],
+          "Ext.mapped_address": [
+            1986985984
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "f938edb4504ed2ef1d1dfa8a1d50661a7681c607a6a225690a0bf6bfc94a989c"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\sechost.dll"
+          ],
+          "hash.sha1": [
+            "ee4305d3f1b2d2029c8cefc532da46fd437c7834"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            266240
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "sechost.dll"
+          ],
+          "hash.md5": [
+            "ed839824e2d0cde4544276df61bb9868"
+          ],
+          "Ext.mapped_address": [
+            1989804032
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "451665965026c33aabc35494bcbac6f4935eff2aea9991f26c86de9fcf97a6fd"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\RPCRT4.dll"
+          ],
+          "hash.sha1": [
+            "25f55ff1fa22fe88c14dd03776d5271d5f6ec840"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            790528
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "RPCRT4.dll"
+          ],
+          "hash.md5": [
+            "7ab33839fe1fe919462b58accb336d4d"
+          ],
+          "Ext.mapped_address": [
+            1977876480
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "b0ab06d97cf006bc72717a64a8621703b05d41749e01e83429d77c590f6fd75d"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\SspiCli.dll"
+          ],
+          "hash.sha1": [
+            "fe668dddb7c3c9f65ff105ae50c882f1124452c7"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            122880
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "SspiCli.dll"
+          ],
+          "hash.md5": [
+            "9c3110198a7494df7652121eed35b2ff"
+          ],
+          "Ext.mapped_address": [
+            1965883392
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "26df85fc22f9fcaa2212cb66612fe8f5cc6382953fe81b9c34128e43080c7891"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\CRYPTBASE.dll"
+          ],
+          "hash.sha1": [
+            "310cc7f94bc9cbd0e0e8a9fa966c30dce93e62d3"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            40960
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "CRYPTBASE.dll"
+          ],
+          "hash.md5": [
+            "3d4308bac53b881b16d9bd1006abdc65"
+          ],
+          "Ext.mapped_address": [
+            1965817856
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "ae45e85bee770708ce6e8c89066dc70d4f8c4a1f2df414a63a3af1170482df47"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\bcryptPrimitives.dll"
+          ],
+          "hash.sha1": [
+            "d32c2134579f492e149e44fa15f39da5a87da9ab"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            368640
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "bcryptPrimitives.dll"
+          ],
+          "hash.md5": [
+            "dbb08db2f47433858c6606484f5fe545"
+          ],
+          "Ext.mapped_address": [
+            1968439296
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "4204f7c2b4e13aa3819a180faca724435f6400fe97d2ef6c74634a0d7e51f7f3"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\IMM32.DLL"
+          ],
+          "hash.sha1": [
+            "186072786e4f34acb090d0b2aba4e416d8891621"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            151552
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "IMM32.DLL"
+          ],
+          "hash.md5": [
+            "203f58ba41b48a59d6a047e0233db422"
+          ],
+          "Ext.mapped_address": [
+            1976500224
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "db8b362362998ca8b9efef8d52b5d21704dbc9662181587a79fe45a8c45e737f"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\CRYPTSP.dll"
+          ],
+          "hash.sha1": [
+            "5fe106583ca5c1021ac123e942e4cecdb399d72f"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            77824
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "CRYPTSP.dll"
+          ],
+          "hash.md5": [
+            "0ce6aff79009aeec169c9a75b7567d30"
+          ],
+          "Ext.mapped_address": [
+            1965686784
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "9c59391e9ec589cbcec1ae9ba4148769238a4c06fb23b185fffaae04a1271f4b"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\rsaenh.dll"
+          ],
+          "hash.sha1": [
+            "faaf9efa9a98c8cf81ee0bf8349e1f73a8111882"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            192512
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "rsaenh.dll"
+          ],
+          "hash.md5": [
+            "9a03702c5ebbc4761770bae67764b219"
+          ],
+          "Ext.mapped_address": [
+            1965490176
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "002e437962ea8b9fc06b51888d437ad9a7e9c415e4e60d6fa9210d212cda82d0"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\bcrypt.dll"
+          ],
+          "hash.sha1": [
+            "b1f2d9ebc665d6b036ab6e35d28932b6f29b09cf"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            110592
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "bcrypt.dll"
+          ],
+          "hash.md5": [
+            "8738c7b3583122b2ad17d1b26a3a8ba8"
+          ],
+          "Ext.mapped_address": [
+            1965359104
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "39e5f75ef05ce9185afd769cc9f22bb8f0be0780dc30f595fc7e350dd946ffa8"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\SHELL32.dll"
+          ],
+          "hash.sha1": [
+            "93e0d2233754d79e69fa4216e24eeba1215d1ab2"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            20803584
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "SHELL32.dll"
+          ],
+          "hash.md5": [
+            "8f8d7c273b8eadb4aeab29726ff21a5f"
+          ],
+          "Ext.mapped_address": [
+            1937965056
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "5f6ce9777cdc7b0a0e98c90709c41c379415dba654a39b332bb683a7f2b86e97"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\cfgmgr32.dll"
+          ],
+          "hash.sha1": [
+            "728e6fa0faa1640e8bd48ea4df70da48536c6322"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            221184
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "cfgmgr32.dll"
+          ],
+          "hash.md5": [
+            "90a1cd387f9cb30f86d34b88bfcd83a1"
+          ],
+          "Ext.mapped_address": [
+            1977614336
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "84c830b6b8016be2c250eeb8a8d7c4890cfb25d0f7f6e72e4f035e8d12a9f26d"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\windows.storage.dll"
+          ],
+          "hash.sha1": [
+            "4b9d9a8a0055de276b791b0f1c5be1ed442270b6"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            5693440
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "windows.storage.dll"
+          ],
+          "hash.md5": [
+            "d7a0114e1280cd44a9a251393b2ac518"
+          ],
+          "Ext.mapped_address": [
+            1978728448
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "b8c0eae0f134185fe287c10a57e17ed8975ed6d902656ccbb7e6f2e0e4914270"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\combase.dll"
+          ],
+          "hash.sha1": [
+            "887bd36cec39952e1e54715294059c3450628e9f"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            2166784
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "combase.dll"
+          ],
+          "hash.md5": [
+            "0891cabd9ed40173dbbc5ee072bed250"
+          ],
+          "Ext.mapped_address": [
+            1973944320
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "d430ec47a5289f6d6f6ca94ab785a17c7df0599c1fe20789fede53830af66095"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\ucrtbase.dll"
+          ],
+          "hash.sha1": [
+            "7a9bcd5e301df52201b71778ee6c0d9f71670269"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            917504
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "ucrtbase.dll"
+          ],
+          "hash.md5": [
+            "2e0694a49824cf82c1972020db227d8c"
+          ],
+          "Ext.mapped_address": [
+            1966538752
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "c7787f59263b7d5246b931531ab4dc4c430e1bf8260775b7a751d4994a5d3489"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\powrprof.dll"
+          ],
+          "hash.sha1": [
+            "586fbbf400bb889045a745fd040fc9971423c717"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            282624
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "powrprof.dll"
+          ],
+          "hash.md5": [
+            "a6f22ca344fd1b7d75d49ecc718693c8"
+          ],
+          "Ext.mapped_address": [
+            1973616640
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "a9810703b4708fa1e28886bad1e74e53becb8413257fa151f4548609b710215d"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\shlwapi.dll"
+          ],
+          "hash.sha1": [
+            "898848790d08c86a05833b841b5f83aaf42b1d03"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            286720
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "shlwapi.dll"
+          ],
+          "hash.md5": [
+            "d9af3498fa5fe659c8f65408fdbf3990"
+          ],
+          "Ext.mapped_address": [
+            1976172544
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "e21a9d34ce3004f6599884a0f5ac593c8b007dfc6613ae77af6fd295e03cc141"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\kernel.appcore.dll"
+          ],
+          "hash.sha1": [
+            "775903cd7d96ba57659e4cd79d4d6efddb027eab"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            53248
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "kernel.appcore.dll"
+          ],
+          "hash.md5": [
+            "845fd176fad495db046400ac93747976"
+          ],
+          "Ext.mapped_address": [
+            1972371456
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "07ba849e3a3ba3e4fdb459a5a73fdb8b64d0175346249d44145841bbb891089f"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\shcore.dll"
+          ],
+          "hash.sha1": [
+            "773ac5f5875572f35f7811c9e32ac95e08cf167e"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            557056
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "shcore.dll"
+          ],
+          "hash.md5": [
+            "ad950538c8e6ec4c423f260505d28275"
+          ],
+          "Ext.mapped_address": [
+            1987772416
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "f9664337b60a332571fca81cc3e6dd194dce20c8546980fd283ca892d0cc873c"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\profapi.dll"
+          ],
+          "hash.sha1": [
+            "afdc9bec2b74f555af73e145cf3bdb8172e35f4c"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            61440
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "profapi.dll"
+          ],
+          "hash.md5": [
+            "ca6447ddca724f0c5c0cafde184efe64"
+          ],
+          "Ext.mapped_address": [
+            1966473216
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "a5ad4acefca7694ea0c46e720e1e7ce4829b5ebe7b23a6f0b8ec92882645d10e"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\MSVCP60.dll"
+          ],
+          "hash.sha1": [
+            "c065298e6120df1813841648d3040d675a80769a"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            458752
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "MSVCP60.dll"
+          ],
+          "hash.md5": [
+            "654aae21d7ff3e3066b43aeda4c2c35e"
+          ],
+          "Ext.mapped_address": [
+            1964900352
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        },
+        {
+          "hash.sha256": [
+            "73d4a73fc5150c432a237998f26499807d394ccc5d3602b482d8a2723a45e947"
+          ],
+          "path": [
+            "C:\\Windows\\SysWOW64\\ntmarta.dll"
+          ],
+          "hash.sha1": [
+            "7ab3df1af82e9fa93f6df1820e908e4b7b8319b1"
+          ],
+          "code_signature.trusted": [
+            true
+          ],
+          "Ext.mapped_size": [
+            163840
+          ],
+          "code_signature.exists": [
+            true
+          ],
+          "name": [
+            "ntmarta.dll"
+          ],
+          "hash.md5": [
+            "cf7308d27a2b2851249a7ce892017305"
+          ],
+          "Ext.mapped_address": [
+            1964703744
+          ],
+          "code_signature.subject_name": [
+            "Microsoft Windows"
+          ],
+          "code_signature.status": [
+            "trusted"
+          ]
+        }
+      ],
+      "host.os.full": [
+        "Windows 10 Enterprise 2016 LTSB Evaluation 1607 (10.0.14393.0)"
+      ],
+      "channel": [
+        "alerts-endpoint"
+      ],
+      "process.parent.name": [
+        "explorer.exe"
+      ],
+      "Endpoint.policy.applied.artifacts.global.identifiers.name": [
+        "diagnostic-configuration-v1",
+        "diagnostic-endpointpe-v4-blocklist",
+        "diagnostic-endpointpe-v4-exceptionlist",
+        "diagnostic-endpointpe-v4-model",
+        "diagnostic-malware-signature-v1-windows",
+        "diagnostic-ransomware-v1-windows",
+        "diagnostic-rules-windows-v1",
+        "endpointpe-v4-blocklist",
+        "endpointpe-v4-exceptionlist",
+        "endpointpe-v4-model",
+        "global-configuration-v1",
+        "global-exceptionlist-windows",
+        "global-trustlist-windows-v1",
+        "production-malware-signature-v1-windows",
+        "production-ransomware-v1-windows",
+        "production-rules-windows-v1"
+      ],
+      "process.parent.command_line": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "process.parent.pid": [
+        4868
+      ],
+      "process.hash.sha256": [
+        "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa"
+      ],
+      "process.name.wildcard": [
+        "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+      ],
+      "process.pid": [
+        2444
+      ],
+      "elastic.agent.id": [
+        "8661e4da-84ce-46ee-a960-e68beb1fd2dd"
+      ],
+      "Endpoint.policy.applied.artifacts.user.version": [
+        "1.0.0"
+      ],
+      "cloud.deployment_info.is_elastic_internal": [
+        false
+      ],
+      "rule.ruleset": [
+        "production"
+      ],
+      "process.parent.entity_id": [
+        "ODY2MWU0ZGEtODRjZS00NmVlLWE5NjAtZTY4YmViMWZkMmRkLTQ4NjgtMTMyODc2OTE2NjAuNzEzNTI4OTAw"
+      ],
+      "host.os.version": [
+        "1607 (10.0.14393.0)"
+      ],
+      "host.os.name": [
+        "Windows"
+      ],
+      "process.parent.command_line.wildcard": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "agent.build.original": [
+        "version: 7.16.0, compiled: Tue Nov 23 14:00:00 2021, branch: 7.16, commit: c4fd527dca94840655d389d4d01bb313525f1e38"
+      ],
+      "event.agent_id_status": [
+        "verified"
+      ],
+      "event.kind": [
+        "alert"
+      ],
+      "Ransomware.files": [
+        {
+          "score": [
+            0.1145
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg.wncry"
+          ],
+          "extension": [
+            "wncry"
+          ],
+          "original.extension": [
+            "wncryt"
+          ],
+          "entropy": [
+            7.804049
+          ],
+          "data": [
+            "57414E414352592100010000F449D659"
+          ],
+          "metrics": [
+            "ENTROPY_VERY_HIGH",
+            "ENTROPY_VERY_HIGH",
+            "UNKNOWN_TO_UNKNOWN",
+            "KNOWN_SUBEXTENSION",
+            "UNKNOWN_SUBEXTENSION"
+          ],
+          "operation": [
+            "rename"
+          ],
+          "original.path": [
+            "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg.wncryt"
+          ]
+        },
+        {
+          "score": [
+            0.05
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\golden@retriever@cat@lying@grass.jpg"
+          ],
+          "extension": [
+            "jpg"
+          ],
+          "entropy": [
+            7.798708
+          ],
+          "data": [
+            "86758C955C37C1F75AC28EEE885AB966"
+          ],
+          "metrics": [
+            "HEADER_MISMATCH",
+            "ENTROPY_VERY_HIGH"
+          ],
+          "operation": [
+            "modification"
+          ]
+        },
+        {
+          "score": [
+            0.1145
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg.wncry"
+          ],
+          "extension": [
+            "wncry"
+          ],
+          "original.extension": [
+            "wncryt"
+          ],
+          "entropy": [
+            7.810796
+          ],
+          "data": [
+            "57414E4143525921000100006C2487BA"
+          ],
+          "metrics": [
+            "ENTROPY_VERY_HIGH",
+            "ENTROPY_VERY_HIGH",
+            "UNKNOWN_TO_UNKNOWN",
+            "KNOWN_SUBEXTENSION",
+            "UNKNOWN_SUBEXTENSION"
+          ],
+          "operation": [
+            "rename"
+          ],
+          "original.path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg.wncryt"
+          ]
+        },
+        {
+          "score": [
+            0.05
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1168451046@612x612.jpg"
+          ],
+          "extension": [
+            "jpg"
+          ],
+          "entropy": [
+            7.800156
+          ],
+          "data": [
+            "AB09039BD80C431F944A0B6C047DA3BC"
+          ],
+          "metrics": [
+            "HEADER_MISMATCH",
+            "ENTROPY_VERY_HIGH"
+          ],
+          "operation": [
+            "modification"
+          ]
+        },
+        {
+          "score": [
+            0.1145
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg.wncry"
+          ],
+          "extension": [
+            "wncry"
+          ],
+          "original.extension": [
+            "wncryt"
+          ],
+          "entropy": [
+            7.809469
+          ],
+          "data": [
+            "57414E414352592100010000F9F72E13"
+          ],
+          "metrics": [
+            "ENTROPY_VERY_HIGH",
+            "ENTROPY_VERY_HIGH",
+            "UNKNOWN_TO_UNKNOWN",
+            "KNOWN_SUBEXTENSION",
+            "UNKNOWN_SUBEXTENSION"
+          ],
+          "operation": [
+            "rename"
+          ],
+          "original.path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg.wncryt"
+          ]
+        },
+        {
+          "score": [
+            0.05
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\istockphoto@1185878014@612x612.jpg"
+          ],
+          "extension": [
+            "jpg"
+          ],
+          "entropy": [
+            7.807646
+          ],
+          "data": [
+            "0BC07D94A1154743C43EF3647394F35E"
+          ],
+          "metrics": [
+            "HEADER_MISMATCH",
+            "ENTROPY_VERY_HIGH"
+          ],
+          "operation": [
+            "modification"
+          ]
+        },
+        {
+          "score": [
+            0
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\@please_read_me@.txt"
+          ],
+          "extension": [
+            "txt"
+          ],
+          "entropy": [
+            4.708687
+          ],
+          "data": [
+            "513A20205768617427732077726F6E67"
+          ],
+          "operation": [
+            "creation"
+          ]
+        },
+        {
+          "score": [
+            0
+          ],
+          "path": [
+            "c:\\users\\JohnDoe\\desktop\\@please_read_me@.txt"
+          ],
+          "extension": [
+            "txt"
+          ],
+          "entropy": [
+            4.708687
+          ],
+          "data": [
+            "513A20205768617427732077726F6E67"
+          ],
+          "operation": [
+            "modification"
+          ]
+        },
+        {
+          "score": [
+            0
+          ],
+          "path": [
+            "c:\\aaantiransomelastic@do@not@touch@dab6d40c@a6a1@442c@adc4@9d57a47e58d7\\antiransomelastic@do@not@touch@4568452b@fc17@414d@afb6@ddeceb5ec54c.doc.wncry"
+          ],
+          "extension": [
+            "wncry"
+          ],
+          "original.extension": [
+            "wncryt"
+          ],
+          "entropy": [
+            7.808846
+          ],
+          "data": [
+            "57414E414352592100010000685AE133"
+          ],
+          "metrics": [
+            "CANARY_ACTIVITY"
+          ],
+          "operation": [
+            "rename"
+          ],
+          "original.path": [
+            "c:\\aaantiransomelastic@do@not@touch@dab6d40c@a6a1@442c@adc4@9d57a47e58d7\\antiransomelastic@do@not@touch@4568452b@fc17@414d@afb6@ddeceb5ec54c.doc.wncryt"
+          ]
+        }
+      ],
+      "event.outcome": [
+        "success"
+      ],
+      "event.severity": [
+        73
+      ],
+      "host.os.type": [
+        "windows"
+      ],
+      "process.Ext.architecture": [
+        "x86"
+      ],
+      "version": [
+        "7.16.0"
+      ],
+      "data_stream.type": [
+        "logs"
+      ],
+      "event.risk_score": [
+        73
+      ],
+      "version_major": [
+        "7"
+      ],
+      "cloud.deployment_info.is_cloud": [
+        true
+      ],
+      "process.name": [
+        "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+      ],
+      "event.code": [
+        "ransomware"
+      ],
+      "cluster_uuid": [
+        "iTgR5X51SIGuQ-_PmtKIcA"
+      ],
+      "process.parent.name.wildcard": [
+        "explorer.exe"
+      ],
+      "agent.id": [
+        "8661e4da-84ce-46ee-a960-e68beb1fd2dd"
+      ],
+      "process.parent.executable.wildcard": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "ecs.version": [
+        "1.11.0"
+      ],
+      "event.created": [
+        "2022-01-26T17:44:58.797Z"
+      ],
+      "agent.version": [
+        "7.16.0"
+      ],
+      "host.os.family": [
+        "windows"
+      ],
+      "Ransomware.version": [
+        "1.3.1"
+      ],
+      "cloud.deployment_info.account_uuid": [
+        1996697845
+      ],
+      "Endpoint.policy.applied.artifacts.global.version": [
+        "1.0.198"
+      ],
+      "process.entity_id": [
+        "ODY2MWU0ZGEtODRjZS00NmVlLWE5NjAtZTY4YmViMWZkMmRkLTI0NDQtMTMyODc2OTI2OTcuMjg3OTU3ODAw"
+      ],
+      "event.sequence": [
+        20623
+      ],
+      "process.pe.original_file_name": [
+        "diskpart.exe"
+      ],
+      "agent.type": [
+        "endpoint"
+      ],
+      "cloud.cluster_name": [
+        "7ab5c74fc5aa43e68dfa58024d86f91e"
+      ],
+      "event.module": [
+        "endpoint"
+      ],
+      "host.os.kernel": [
+        "1607 (10.0.14393.0)"
+      ],
+      "cloud.deployment_info.in_trial": [
+        true
+      ],
+      "process.uptime": [
+        1
+      ],
+      "process.parent.Ext.architecture": [
+        "x86_64"
+      ],
+      "process.parent.hash.sha256": [
+        "66798e2e4448e395556044ee6925489715cdc5f7f60e92a68b99135dba907750"
+      ],
+      "process.executable": [
+        "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+      ],
+      "process.Ext.token.integrity_level_name": [
+        "high"
+      ],
+      "cluster_name": [
+        "7ab5c74fc5aa43e68dfa58024d86f91e"
+      ],
+      "process.parent.executable": [
+        "C:\\Windows\\explorer.exe"
+      ],
+      "process.parent.hash.md5": [
+        "05181a5ac4197d6c5c02ace6070af234"
+      ],
+      "Ransomware.feature": [
+        "canary"
+      ],
+      "cloud.deployment_info.domain": [
+        "ecstech.com"
+      ],
+      "data_stream.namespace": [
+        "default"
+      ],
+      "process.parent.Ext.code_signature": [
+        {
+          "subject_name": [
+            "Microsoft Windows"
+          ],
+          "exists": [
+            true
+          ],
+          "trusted": [
+            true
+          ],
+          "status": [
+            "trusted"
+          ]
+        }
+      ],
+      "process.args": [
+        "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+      ],
+      "process.parent.uptime": [
+        1038
+      ],
+      "process.parent.hash.sha1": [
+        "aaecc83ff22939ed9b82c75e95369c9378bb2077"
+      ],
+      "host.os.Ext.variant": [
+        "Windows 10 Enterprise 2016 LTSB Evaluation"
+      ],
+      "process.parent.args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "event.ingested": [
+        "2022-01-26T17:44:59.000Z"
+      ],
+      "event.action": [
+        "canary-activity"
+      ],
+      "@timestamp": [
+        "2022-01-26T17:44:58.797Z"
+      ],
+      "host.os.platform": [
+        "windows"
+      ],
+      "event.type": [
+        "info",
+        "start",
+        "change",
+        "denied"
+      ],
+      "data_stream.dataset": [
+        "endpoint.alerts"
+      ],
+      "process.Ext.code_signature": [
+        {
+          "exists": [
+            false
+          ]
+        }
+      ],
+      "process.command_line": [
+        "\"C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe\" "
+      ],
+      "Endpoint.policy.applied.artifacts.user.identifiers.sha256": [
+        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658"
+      ],
+      "process.command_line.wildcard": [
+        "\"C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe\" "
+      ],
+      "location": [
+        "gs://elastic-telemetry-prod-data/raw/1643219178.9261332-f221d3482875b7f7ab1ea45be7ada399"
+      ],
+      "process.hash.sha1": [
+        "5ff465afaabcbf0150d1a3ab2c2e74f3a4426467"
+      ],
+      "process.executable.wildcard": [
+        "C:\\Users\\JohnDoe\\Downloads\\Ransomware.WannaCry\\ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe"
+      ],
+      "event.id": [
+        "MT42DFmv/z9vX45u+++++97K"
+      ],
+      "Endpoint.policy.applied.artifacts.user.identifiers.name": [
+        "endpoint-eventfilterlist-windows-v1",
+        "endpoint-exceptionlist-windows-v1",
+        "endpoint-hostisolationexceptionlist-windows-v1",
+        "endpoint-trustlist-windows-v1"
+      ],
+      "event.dataset": [
+        "endpoint.alerts"
+      ],
+      "cloud.deployment_info.deployment_parent": [
+        "7ab5c74fc5aa43e68dfa58024d86f91e"
+      ]
+    }
+  }
