@@ -81,9 +81,14 @@ fields:
                   handle_type: {}
       thread:
         fields:
-          call_stack: {}
-          call_stack_contains_unbacked: {}
-          call_stack_final_user_module:
+          Ext:
             fields:
-              path: {}
+              call_stack:
+                fields:
+                  module_name: {}
+                  instruction_pointer: {}
+              call_stack_contains_unbacked: {}
+              call_stack_final_user_module:
+                fields:
+                  path: {}
 
