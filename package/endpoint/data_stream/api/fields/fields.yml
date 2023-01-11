@@ -364,7 +364,8 @@
       default_field: false
     - name: Ext.api.parameters.desired_access
       level: custom
-      type: keywork
+      type: keyword
+      ignore_above: 1024
       description: This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
       default_field: false
     - name: Ext.api.parameters.desired_access_numeric
@@ -374,7 +375,8 @@
       default_field: false
     - name: Ext.api.parameters.handle_type
       level: custom
-      type: keywork
+      type: keyword
+      ignore_above: 1024
       description: This parameter indicates whether the detected access was attempt against a process or a thread.
       example: process
       default_field: false

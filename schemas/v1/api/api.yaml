@@ -888,13 +888,14 @@ process.Ext.api.parameters.desired_access:
   description: This parameter indicates the string value of the `DesiredAccess` field  to
     `OpenProcess` or `OpenThread`.
   flat_name: process.Ext.api.parameters.desired_access
+  ignore_above: 1024
   level: custom
   name: desired_access
   normalize: []
   original_fieldset: Credential_access
   short: This parameter indicates the string value of the `DesiredAccess` field  to
     `OpenProcess` or `OpenThread`.
-  type: keywork
+  type: keyword
 process.Ext.api.parameters.desired_access_numeric:
   dashed_name: process-Ext-api-parameters-desired-access-numeric
   description: This parameter indicates the numeric value of the `DesiredAccess` field
@@ -913,13 +914,14 @@ process.Ext.api.parameters.handle_type:
     a process or a thread.
   example: process
   flat_name: process.Ext.api.parameters.handle_type
+  ignore_above: 1024
   level: custom
   name: handle_type
   normalize: []
   original_fieldset: Credential_access
   short: This parameter indicates whether the detected access was attempt against
     a process or a thread.
-  type: keywork
+  type: keyword
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.
