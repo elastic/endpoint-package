@@ -32,9 +32,9 @@
             "::1"
         ],
         "mac": [
-            "00:15:5d:00:09:18",
-            "00:15:5d:00:09:19",
-            "00:15:5d:00:09:17"
+            "00-15-5D-00-09-18",
+            "00-15-5D-00-09-19",
+            "00-15-5D-00-09-17"
         ],
         "name": "DESKTOP-OCG8CR6",
         "os": {
@@ -80,39 +80,39 @@
                 "call_stack": [
                     {
                         "instruction_pointer": 140717353267908,
-                        "module_name": "C:\\Windows\\System32\\ntdll.dll"
+                        "module_path": "C:\\Windows\\System32\\ntdll.dll"
                     },
                     {
                         "instruction_pointer": 140717309764254,
-                        "module_name": "C:\\Windows\\System32\\KernelBase.dll"
+                        "module_path": "C:\\Windows\\System32\\KernelBase.dll"
                     },
                     {
                         "instruction_pointer": 140697175487234,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175488197,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175487041,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175277748,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175277292,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175276599,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     },
                     {
                         "instruction_pointer": 140697175514281,
-                        "module_name": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
                     }
                 ],
                 "call_stack_contains_unbacked": false,

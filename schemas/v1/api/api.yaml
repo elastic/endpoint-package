@@ -1003,6 +1003,18 @@ process.thread.Ext:
   normalize: []
   short: Object for all custom defined fields to live in.
   type: object
+process.thread.Ext.call_stack:
+  dashed_name: process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: false
+  flat_name: process.thread.Ext.call_stack
+  level: custom
+  name: call_stack
+  normalize: []
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: object
 process.thread.Ext.call_stack.instruction_pointer:
   dashed_name: process-thread-Ext-call-stack-instruction-pointer
   description: The return address of this stack frame.
@@ -1014,17 +1026,16 @@ process.thread.Ext.call_stack.instruction_pointer:
   original_fieldset: call_stack
   short: The return address of this stack frame.
   type: keyword
-process.thread.Ext.call_stack.module_name:
-  dashed_name: process-thread-Ext-call-stack-module-name
-  description: The name of the DLL/module containing `instruction_pointer`.
-  doc_values: false
-  flat_name: process.thread.Ext.call_stack.module_name
-  index: false
+process.thread.Ext.call_stack.module_path:
+  dashed_name: process-thread-Ext-call-stack-module-path
+  description: The path to the DLL/module containing `instruction_pointer`.
+  flat_name: process.thread.Ext.call_stack.module_path
+  ignore_above: 1024
   level: custom
-  name: module_name
+  name: module_path
   normalize: []
   original_fieldset: call_stack
-  short: The name of the DLL/module containing `instruction_pointer`.
+  short: The path to the DLL/module containing `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack_contains_unbacked:
   dashed_name: process-thread-Ext-call-stack-contains-unbacked
@@ -1057,6 +1068,17 @@ process.thread.Ext.call_stack_final_user_module.path:
   normalize: []
   short: The file path of the call_stack_final_user_module.
   type: keyword
+process.thread.id:
+  dashed_name: process-thread-id
+  description: Thread ID.
+  example: 4242
+  flat_name: process.thread.id
+  format: string
+  level: extended
+  name: thread.id
+  normalize: []
+  short: Thread ID.
+  type: long
 user.domain:
   dashed_name: user-domain
   description: 'Name of the directory the user is a member of.

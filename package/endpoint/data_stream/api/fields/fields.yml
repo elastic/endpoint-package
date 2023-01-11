@@ -434,18 +434,23 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: false
+      default_field: false
     - name: thread.Ext.call_stack.instruction_pointer
       level: custom
       type: keyword
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: thread.Ext.call_stack.module_name
+    - name: thread.Ext.call_stack.module_path
       level: custom
       type: keyword
-      description: The name of the DLL/module containing `instruction_pointer`.
-      index: false
-      doc_values: false
+      ignore_above: 1024
+      description: The path to the DLL/module containing `instruction_pointer`.
       default_field: false
     - name: thread.Ext.call_stack_contains_unbacked
       level: custom
@@ -464,6 +469,12 @@
       description: The file path of the call_stack_final_user_module.
       example: C:\Program Files\Example\example.dll
       default_field: false
+    - name: thread.id
+      level: extended
+      type: long
+      format: string
+      description: Thread ID.
+      example: 4242
 - name: user
   title: User
   group: 2
