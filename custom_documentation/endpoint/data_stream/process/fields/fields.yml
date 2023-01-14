@@ -109,11 +109,35 @@
   - name: Ext.architecture
   - name: Ext.authentication_id
   - name: Ext.code_signature
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.code_signature.exists
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.code_signature.status
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.code_signature.subject_name
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.code_signature.trusted
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.code_signature.valid
+    found_in:
+      os:
+        - win32
+        - macos
   - name: Ext.defense_evasions
   - name: Ext.device.bus_type
   - name: Ext.device.dos_name
@@ -123,10 +147,20 @@
   - name: Ext.device.vendor_id
   - name: Ext.device.volume_device_type
   - name: Ext.dll.Ext
+    found_in:
+      os: win32
   - name: Ext.dll.Ext.mapped_address
+    found_in:
+      os: win32
   - name: Ext.dll.Ext.mapped_size
+    found_in:
+      os: win32
   - name: Ext.dll.name
+    found_in:
+      os: win32
   - name: Ext.dll.path
+    found_in:
+      os: win32
   - name: Ext.effective_parent.entity_id
   - name: Ext.effective_parent.executable
   - name: Ext.effective_parent.name
@@ -153,12 +187,38 @@
   - name: args
   - name: args_count
   - name: code_signature.exists
+    found_in:
+      os:
+        - win32
+        - macos
   - name: code_signature.signing_id
+    found_in:
+      os:
+        - macos
   - name: code_signature.status
+    found_in:
+      os:
+        - win32
+        - macos
   - name: code_signature.subject_name
+    found_in:
+      os:
+        - win32
+        - macos
   - name: code_signature.team_id
+    found_in:
+      os:
+        - macos
   - name: code_signature.trusted
+    found_in:
+      os:
+        - win32
+        - macos
   - name: code_signature.valid
+    found_in:
+      os:
+        - win32
+        - macos
   - name: command_line
   - name: end
   - name: entity_id
@@ -207,38 +267,96 @@
   - name: group.id
   - name: group.name
   - name: group_leader.args
+    found_in:
+      os: linux
   - name: group_leader.args_count
+    found_in:
+      os: linux
   - name: group_leader.command_line
+    found_in:
+      os: linux
   - name: group_leader.entity_id
+    found_in:
+      os: linux
   - name: group_leader.executable
+    found_in:
+      os: linux
   - name: group_leader.group.id
+    found_in:
+      os: linux
   - name: group_leader.group.name
+    found_in:
+      os: linux
   - name: group_leader.interactive
+    found_in:
+      os: linux
   - name: group_leader.name
+    found_in:
+      os: linux
   - name: group_leader.pid
+    found_in:
+      os: linux
   - name: group_leader.real_group.id
+    found_in:
+      os: linux
   - name: group_leader.real_group.name
+    found_in:
+      os: linux
   - name: group_leader.real_user.id
+    found_in:
+      os: linux
   - name: group_leader.real_user.name
+    found_in:
+      os: linux
   - name: group_leader.same_as_process
+    found_in:
+      os: linux
   - name: group_leader.saved_group.id
+    found_in:
+      os: linux
   - name: group_leader.saved_group.name
+    found_in:
+      os: linux
   - name: group_leader.saved_user.id
+    found_in:
+      os: linux
   - name: group_leader.saved_user.name
+    found_in:
+      os: linux
   - name: group_leader.start
+    found_in:
+      os: linux
   - name: group_leader.supplemental_groups.id
+    found_in:
+      os: linux
   - name: group_leader.supplemental_groups.name
+    found_in:
+      os: linux
   - name: group_leader.tty
+    found_in:
+      os: linux
   - name: group_leader.tty.char_device.major
+    found_in:
+      os: linux
   - name: group_leader.tty.char_device.minor
+    found_in:
+      os: linux
   - name: group_leader.user.id
+    found_in:
+      os: linux
   - name: group_leader.user.name
+    found_in:
+      os: linux
   - name: group_leader.working_directory
+    found_in:
+      os: linux
   - name: hash.md5
   - name: hash.sha1
   - name: hash.sha256
   - name: hash.sha512
   - name: interactive
+    found_in:
+      os: linux
   - name: io
   - name: io.max_bytes_per_process_exceeded
   - name: io.text
@@ -273,20 +391,40 @@
   - name: parent.group.id
   - name: parent.group.name
   - name: parent.group_leader.entity_id
+    found_in:
+      os: linux
   - name: parent.group_leader.pid
+    found_in:
+      os: linux
   - name: parent.group_leader.start
+    found_in:
+      os: linux
   - name: parent.hash.md5
   - name: parent.hash.sha1
   - name: parent.hash.sha256
   - name: parent.hash.sha512
   - name: parent.interactive
+    found_in:
+      os: linux
   - name: parent.name
   - name: parent.pe.company
+    found_in:
+      os: win32
   - name: parent.pe.description
+    found_in:
+      os: win32
   - name: parent.pe.file_version
+    found_in:
+      os: win32
   - name: parent.pe.imphash
+    found_in:
+      os: win32
   - name: parent.pe.original_file_name
+    found_in:
+      os: win32
   - name: parent.pe.product
+    found_in:
+      os: win32
   - name: parent.pgid
   - name: parent.pid
   - name: parent.ppid
@@ -300,25 +438,47 @@
   - name: parent.saved_user.name
   - name: parent.start
   - name: parent.supplemental_groups.id
+    found_in:
+      os: linux
   - name: parent.supplemental_groups.name
+    found_in:
+      os: linux
   - name: parent.thread.Ext
   - name: parent.thread.Ext.call_stack_contains_unbacked
   - name: parent.thread.id
   - name: parent.thread.name
   - name: parent.title
   - name: parent.tty
+    found_in:
+      os: linux
   - name: parent.tty.char_device.major
+    found_in:
+      os: linux
   - name: parent.tty.char_device.minor
+    found_in:
+      os: linux
   - name: parent.uptime
   - name: parent.user.id
   - name: parent.user.name
   - name: parent.working_directory
   - name: pe.company
+    found_in:
+      os: win32
   - name: pe.description
+    found_in:
+      os: win32
   - name: pe.file_version
+    found_in:
+      os: win32
   - name: pe.imphash
+    found_in:
+      os: win32
   - name: pe.original_file_name
+    found_in:
+      os: win32
   - name: pe.product
+    found_in:
+      os: win32
   - name: pgid
   - name: pid
   - name: ppid
@@ -326,47 +486,127 @@
   - name: previous.args_count
   - name: previous.executable
   - name: real_group.id
+    found_in:
+      os: linux
   - name: real_group.name
+    found_in:
+      os: linux
   - name: real_user.id
   - name: real_user.name
   - name: saved_group.id
+    found_in:
+      os: linux
   - name: saved_group.name
+    found_in:
+      os: linux
   - name: saved_user.id
+    found_in:
+      os: linux
   - name: saved_user.name
+    found_in:
+      os: linux
   - name: session_leader.args
+    found_in:
+      os: linux
   - name: session_leader.args_count
+    found_in:
+      os: linux
   - name: session_leader.command_line
+    found_in:
+      os: linux
   - name: session_leader.entity_id
+    found_in:
+      os: linux
   - name: session_leader.executable
+    found_in:
+      os: linux
   - name: session_leader.group.id
+    found_in:
+      os: linux
   - name: session_leader.group.name
+    found_in:
+      os: linux
   - name: session_leader.interactive
+    found_in:
+      os: linux
   - name: session_leader.name
+    found_in:
+      os: linux
   - name: session_leader.parent.entity_id
+    found_in:
+      os: linux
   - name: session_leader.parent.pid
+    found_in:
+      os: linux
   - name: session_leader.parent.session_leader.entity_id
+    found_in:
+      os: linux
   - name: session_leader.parent.session_leader.pid
+    found_in:
+      os: linux
   - name: session_leader.parent.session_leader.start
+    found_in:
+      os: linux
   - name: session_leader.parent.start
+    found_in:
+      os: linux
   - name: session_leader.pid
+    found_in:
+      os: linux
   - name: session_leader.real_group.id
+    found_in:
+      os: linux
   - name: session_leader.real_group.name
+    found_in:
+      os: linux
   - name: session_leader.real_user.id
+    found_in:
+      os: linux
   - name: session_leader.real_user.name
+    found_in:
+      os: linux
   - name: session_leader.same_as_process
+    found_in:
+      os: linux
   - name: session_leader.saved_group.id
+    found_in:
+      os: linux
   - name: session_leader.saved_group.name
+    found_in:
+      os: linux
   - name: session_leader.saved_user.id
+    found_in:
+      os: linux
   - name: session_leader.saved_user.name
+    found_in:
+      os: linux
   - name: session_leader.start
+    found_in:
+      os: linux
   - name: session_leader.supplemental_groups.id
+    found_in:
+      os: linux
   - name: session_leader.supplemental_groups.name
+    found_in:
+      os: linux
   - name: session_leader.tty
+    found_in:
+      os: linux
   - name: session_leader.tty.char_device.major
+    found_in:
+      os: linux
   - name: session_leader.tty.char_device.minor
+    found_in:
+      os: linux
   - name: session_leader.user.id
+    found_in:
+      os: linux
   - name: session_leader.user.name
+    found_in:
+      os: linux
   - name: session_leader.working_directory
+    found_in:
+      os: linux
   - name: start
   - name: supplemental_groups.id
   - name: supplemental_groups.name
@@ -402,6 +642,8 @@
   - name: Ext.real.id
   - name: Ext.real.name
   - name: domain
+    found_in:
+      - os: win32
   - name: email
   - name: full_name
   - name: group.Ext

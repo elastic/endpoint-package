@@ -57,7 +57,15 @@
   - name: Ext
   - name: Ext.device.bus_type
   - name: Ext.device.dos_name
+    found_in_event:
+      file_create: win32
+      file_modified: win32
+      file_delete: win32
   - name: Ext.device.nt_name
+    found_in_event:
+      file_create: win32
+      file_modified: win32
+      file_delete: win32
   - name: Ext.device.product_id
   - name: Ext.device.serial_number
   - name: Ext.device.vendor_id
