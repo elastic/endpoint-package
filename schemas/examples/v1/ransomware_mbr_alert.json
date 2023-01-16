@@ -1,161 +1,45 @@
 {
-    "_index": ".internal.security-alerts",
-    "_id": "MUHboaeqiXZ7LfhK+++/5Wsi-2022-02-14T11:11:40Z",
-    "_version": 1,
-    "_score": 0,
-    "_source": {
-      "cluster_name": "elasticsearch",
-      "process": {
-        "args": [
-          "corrupt_mbr.exe"
-        ],
-        "Ext": {
-          "code_signature": [
-            {
-              "exists": false
-            }
-          ],
-          "dll": [
-            {
-              "Ext": {
-                "code_signature": [
-                  {
-                    "exists": false
-                  }
-                ],
-                "mapped_address": 140698188578816,
-                "mapped_size": 339968
-              },
-              "path": "C:\\Users\\JohnDoe\\Desktop\\ransomware\\corrupt_mbr.exe",
-              "code_signature": {
-                "exists": false
-              },
-              "name": "corrupt_mbr.exe",
-              "hash": {
-                "sha1": "34874fff5d1927be7f7a7ede29ad8e986ec214ca",
-                "sha256": "823c4b6cdc26065a8b0d22fc34333814a2798250d800002b29f78d567bec34d1",
-                "md5": "d72f947a1d0ce2a37763e385b7467931"
-              }
-            },
-            {
-              "Ext": {
-                "code_signature": [
-                  {
-                    "trusted": true,
-                    "subject_name": "Microsoft Windows",
-                    "exists": true,
-                    "status": "trusted"
-                  }
-                ],
-                "mapped_address": 140726820995072,
-                "mapped_size": 2052096
-              },
-              "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
-              "code_signature": {
-                "trusted": true,
-                "subject_name": "Microsoft Windows",
-                "exists": true,
-                "status": "trusted"
-              },
-              "name": "ntdll.dll",
-              "hash": {
-                "sha1": "c72dc39ba48957ebcabcb6c3898f4b041e9923a0",
-                "sha256": "262dd735296ad742cffd04258dc8b5e49b5fa5f7789a737109565bcccd3b36eb",
-                "md5": "d1d7a092e2cacd614bba4a293159d7d7"
-              }
-            },
-            {
-              "Ext": {
-                "code_signature": [
-                  {
-                    "trusted": true,
-                    "subject_name": "Microsoft Windows",
-                    "exists": true,
-                    "status": "trusted"
-                  }
-                ],
-                "mapped_address": 140726807691264,
-                "mapped_size": 778240
-              },
-              "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
-              "code_signature": {
-                "trusted": true,
-                "subject_name": "Microsoft Windows",
-                "exists": true,
-                "status": "trusted"
-              },
-              "name": "KERNEL32.DLL",
-              "hash": {
-                "sha1": "6bc17c6b2f58637005d298d9c5c407464a15b047",
-                "sha256": "b80f1242fd439fd3c0745cad0460892dc8a74d58e1c748177568142963e096db",
-                "md5": "9d48db32122d192d5f17f9a67240a328"
-              }
-            },
-            {
-              "Ext": {
-                "code_signature": [
-                  {
-                    "trusted": true,
-                    "subject_name": "Microsoft Windows",
-                    "exists": true,
-                    "status": "trusted"
-                  }
-                ],
-                "mapped_address": 140726784163840,
-                "mapped_size": 2916352
-              },
-              "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
-              "code_signature": {
-                "trusted": true,
-                "subject_name": "Microsoft Windows",
-                "exists": true,
-                "status": "trusted"
-              },
-              "name": "KERNELBASE.dll",
-              "hash": {
-                "sha1": "5c9756db21ed0e919a8ef7aaf2b8f8dd7ef48476",
-                "sha256": "b6983053a4da13af6449d7a631b6f00bbd565ea810a64afaaa587147328a563d",
-                "md5": "9a0dfce41ba321e065a70eee4b4c927e"
-              }
-            },
-            {
-              "Ext": {
-                "code_signature": [
-                  {
-                    "trusted": true,
-                    "subject_name": "Microsoft Windows",
-                    "exists": true,
-                    "status": "trusted"
-                  }
-                ],
-                "mapped_address": 140726736715776,
-                "mapped_size": 589824
-              },
-              "path": "C:\\WINDOWS\\SYSTEM32\\apphelp.dll",
-              "code_signature": {
-                "trusted": true,
-                "subject_name": "Microsoft Windows",
-                "exists": true,
-                "status": "trusted"
-              },
-              "name": "apphelp.dll",
-              "hash": {
-                "sha1": "6b89bdc2316a815879a0077de03439414a9dadc4",
-                "sha256": "2236a6c3ddde48543d50826fff355ad7bbacf9bd1424a24c10647326f0b8d7ee",
-                "md5": "20001393b469dffa4349e76e787ed83a"
-              }
-            }
-          ],
-          "architecture": "x86_64",
-          "token": {
-            "integrity_level_name": "high"
+  "_index": "xxx-alert_telemetry_elastic-xxx",
+  "_id": "MUiFg9wkUn7//5H1+++++Okk-2022-02-16T08:00:25Z",
+  "_version": 1,
+  "_score": 0,
+  "_source": {
+    "cluster_name": "docker-cluster",
+    "process": {
+      "args": [
+        "C:\\Users\\JohnDoe\\Desktop\\MalwareDatabase-master\\ransomwares\\Petya.A\\Endermanch@Petya.A.exe"
+      ],
+      "Ext": {
+        "code_signature": [
+          {
+            "exists": false
           }
-        },
-        "parent": {
-          "args": [
-            "C:\\WINDOWS\\system32\\cmd.exe"
-          ],
-          "Ext": {
+        ],
+        "dll": [
+          {
+            "Ext": {
+              "mapped_address": 4194304,
+              "mapped_size": 258048
+            },
+            "path": "C:\\Users\\JohnDoe\\Desktop\\MalwareDatabase-master\\ransomwares\\Petya.A\\Endermanch@Petya.A.exe",
+            "code_signature": [
+              {
+                "exists": false
+              }
+            ],
+            "name": "Endermanch@Petya.A.exe",
+            "hash": {
+              "sha1": "39b6d40906c7f7f080e6befa93324dddadcbd9fa",
+              "sha256": "26b4699a7b9eeb16e76305d843d4ab05e94d43f3201436927e13b3ebafa90739",
+              "md5": "af2379cc4d607a45ac44d62135fb7015"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 140717071073280,
+              "mapped_size": 2052096
+            },
+            "path": "C:\\Windows\\SYSTEM32\\ntdll.dll",
             "code_signature": [
               {
                 "trusted": true,
@@ -164,763 +48,887 @@
                 "status": "trusted"
               }
             ],
-            "architecture": "x86_64"
+            "name": "ntdll.dll",
+            "hash": {
+              "sha1": "c72dc39ba48957ebcabcb6c3898f4b041e9923a0",
+              "sha256": "262dd735296ad742cffd04258dc8b5e49b5fa5f7789a737109565bcccd3b36eb",
+              "md5": "d1d7a092e2cacd614bba4a293159d7d7"
+            }
           },
-          "code_signature": {
-            "trusted": true,
-            "subject_name": "Microsoft Windows",
-            "exists": true,
-            "status": "trusted"
-          },
-          "name": "cmd.exe",
-          "pid": 10688,
-          "entity_id": "YzU4MDk2YzYtYTM2NC00ZWVhLWE2YWUtZmUxYjI1MzI5N2NhLTEwNjg4LTEzMjg5MzEwNjcwLjc5NTM0OTYwMA==",
-          "hash": {
-            "sha1": "f1efb0fddc156e4c61c5f78a54700e4e7984d55d",
-            "sha256": "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450",
-            "md5": "8a2122e8162dbef04694b9c3e0b6cdee"
-          },
-          "command_line": "\"C:\\WINDOWS\\system32\\cmd.exe\" ",
-          "executable": "C:\\Windows\\System32\\cmd.exe",
-          "uptime": 27
-        },
-        "code_signature": {
-          "exists": false
-        },
-        "name": "corrupt_mbr.exe",
-        "pid": 6412,
-        "entity_id": "YzU4MDk2YzYtYTM2NC00ZWVhLWE2YWUtZmUxYjI1MzI5N2NhLTY0MTItMTMyODkzMTA2OTcuMjUzODc3ODAw",
-        "hash": {
-          "sha1": "34874fff5d1927be7f7a7ede29ad8e986ec214ca",
-          "sha256": "823c4b6cdc26065a8b0d22fc34333814a2798250d800002b29f78d567bec34d1",
-          "md5": "d72f947a1d0ce2a37763e385b7467931"
-        },
-        "command_line": "corrupt_mbr.exe",
-        "executable": "C:\\Users\\JohnDoe\\Desktop\\ransomware\\corrupt_mbr.exe",
-        "uptime": 0
-      },
-      "agent": {
-        "build": {
-          "original": "version: 8.1.0, compiled: Wed Feb 9 00:00:00 2022, branch: 8.1, commit: be5bd838839a4505ce56661230260fdd04e64880"
-        },
-        "id": "c58096c6-a364-4eea-a6ae-fe1b253297ca",
-        "type": "endpoint",
-        "version": "8.1.0"
-      },
-      "channel": "alerts-endpoint",
-      "rule": {
-        "ruleset": "production"
-      },
-      "Ransomware": {
-        "score": 32,
-        "feature": "mbr",
-        "files": [
           {
-            "path": "\\Device\\Harddisk0\\DR0",
-            "score": 32,
-            "data": "AQIAAwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-          }
-        ]
-      },
-      "version": "8.1.0",
-      "@timestamp": "2022-02-14T11:11:37.3066135Z",
-      "cluster_uuid": "rQ2dxjYWReKyxBRWcuIGHA",
-      "Endpoint": {
-        "policy": {
-          "applied": {
-            "artifacts": {
-              "global": {
-                "identifiers": [
-                  {
-                    "sha256": "8d509bc7713f88211870e3ecaae6cd8a62b53b94a4ce29023977754496ba5ef6",
-                    "name": "diagnostic-configuration-v1"
-                  },
-                  {
-                    "sha256": "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
-                    "name": "diagnostic-endpointpe-v4-blocklist"
-                  },
-                  {
-                    "sha256": "228f0286170ad755429c7b549169d9ec52432ab064f69db63b3716b4ae345de7",
-                    "name": "diagnostic-endpointpe-v4-exceptionlist"
-                  },
-                  {
-                    "sha256": "2e2312d944396eac0dc86db25e932c7851b4036edcaaa40c4d7c20c30fa3a5b4",
-                    "name": "diagnostic-endpointpe-v4-model"
-                  },
-                  {
-                    "sha256": "509afd0ef1974a5e4fceabc20a59147d99e3909f143d67ff76318f0c4aafe44d",
-                    "name": "diagnostic-malware-signature-v1-windows"
-                  },
-                  {
-                    "sha256": "27f02966be2e0662af48c632ed593179a0867fd0507bbabfae70b3e110faa371",
-                    "name": "diagnostic-ransomware-v1-windows"
-                  },
-                  {
-                    "sha256": "ad27aafd0a3ea30f4732c45c22f131a2fe7c951a54497f692eec6769088286ad",
-                    "name": "diagnostic-rules-windows-v1"
-                  },
-                  {
-                    "sha256": "578284201462d451b1cb693c2dd44b331c98d403856f5ad312e5fd8c3969b439",
-                    "name": "endpointpe-v4-blocklist"
-                  },
-                  {
-                    "sha256": "0d8388cd5380580bd0e73eb7ca4e3bec2b51c90bdbe35b88ea5ca283ac425994",
-                    "name": "endpointpe-v4-exceptionlist"
-                  },
-                  {
-                    "sha256": "eefecf029ae70ec948d358e8b1030e41c8ffad676e7fb8c797b0e39e407e3e0a",
-                    "name": "endpointpe-v4-model"
-                  },
-                  {
-                    "sha256": "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
-                    "name": "global-configuration-v1"
-                  },
-                  {
-                    "sha256": "540dde1901d278b58cfc09a051a10d9c9a587875f18b3604c65cd4047e36d358",
-                    "name": "global-exceptionlist-windows"
-                  },
-                  {
-                    "sha256": "7c0ec88455245f082ba3a605513e57344d32ef388895b8fa749416df965eb3da",
-                    "name": "global-trustlist-windows-v1"
-                  },
-                  {
-                    "sha256": "4ff4c618df2c4432edcb9516c7e3e82ec7440280559cfe7d9945d8c0f4d7e585",
-                    "name": "production-malware-signature-v1-windows"
-                  },
-                  {
-                    "sha256": "4d7ed75842048694d9dc01efffc55ce9cefe4e412c9acd702ea7d0bcdfdc4b09",
-                    "name": "production-ransomware-v1-windows"
-                  },
-                  {
-                    "sha256": "89c0e5a641d9e9845179c32cbcc56cc2d9ad2dadfbf019848f7a71252d8391e6",
-                    "name": "production-rules-windows-v1"
-                  }
-                ],
-                "version": "1.0.209"
-              },
-              "user": {
-                "identifiers": [
-                  {
-                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
-                    "name": "endpoint-eventfilterlist-windows-v1"
-                  },
-                  {
-                    "sha256": "16d10c8a7fd60801b55461c65207c092ee926d989f4b6c3a8077fcf569c05c94",
-                    "name": "endpoint-exceptionlist-windows-v1"
-                  },
-                  {
-                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
-                    "name": "endpoint-hostisolationexceptionlist-windows-v1"
-                  },
-                  {
-                    "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
-                    "name": "endpoint-trustlist-windows-v1"
-                  }
-                ],
-                "version": "1.0.3"
+            "Ext": {
+              "mapped_address": 140717061963776,
+              "mapped_size": 364544
+            },
+            "path": "C:\\Windows\\System32\\wow64.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
               }
+            ],
+            "name": "wow64.dll",
+            "hash": {
+              "sha1": "f8f62172921bda99aa5e1d4ca3a9064832182934",
+              "sha256": "c7d6bf0f1aa458afa7a88bca003170821832deecff729aad5f622bbfabbc1fa9",
+              "md5": "c20a26cb64b2ccc677e738893a0f1f64"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 140717037912064,
+              "mapped_size": 536576
+            },
+            "path": "C:\\Windows\\System32\\wow64win.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "wow64win.dll",
+            "hash": {
+              "sha1": "0525463bbdb5b2939ad0d2f4255eab862270fba1",
+              "sha256": "7d4a077775aaddc597159e5d727bfdd0b65ce880716b3e0029caac7a8c9e4154",
+              "md5": "76484565d718864ad45d07b02dd2c880"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1995767808,
+              "mapped_size": 40960
+            },
+            "path": "C:\\Windows\\System32\\wow64cpu.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "wow64cpu.dll",
+            "hash": {
+              "sha1": "4874200ab74ef5a4a583f1fd70f5ae866d3b8b63",
+              "sha256": "730ac79cc90b35ea9153eae399313f10fc55b6debed7e93d429fbc9d7de5ef19",
+              "md5": "5184b7fd218777571abcb3e0319f48c6"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 4194304,
+              "mapped_size": 258048
+            },
+            "path": "C:\\Users\\JohnDoe\\Desktop\\MalwareDatabase-master\\ransomwares\\Petya.A\\Endermanch@Petya.A.exe",
+            "code_signature": [
+              {
+                "exists": false
+              }
+            ],
+            "name": "Endermanch@Petya.A.exe",
+            "hash": {
+              "sha1": "39b6d40906c7f7f080e6befa93324dddadcbd9fa",
+              "sha256": "26b4699a7b9eeb16e76305d843d4ab05e94d43f3201436927e13b3ebafa90739",
+              "md5": "af2379cc4d607a45ac44d62135fb7015"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1995833344,
+              "mapped_size": 1716224
+            },
+            "path": "C:\\Windows\\SysWOW64\\ntdll.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "ntdll.dll",
+            "hash": {
+              "sha1": "9aff72c3f17c45ac874f9f58660e473f3ca4ca36",
+              "sha256": "1128670a564f41c7494cd7bea7be0e01f010af449f4a8581629dd5f74e44115f",
+              "md5": "7586c110df3fee27af927867d3b17f48"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1994719232,
+              "mapped_size": 983040
+            },
+            "path": "C:\\Windows\\SysWOW64\\KERNEL32.DLL",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "KERNEL32.DLL",
+            "hash": {
+              "sha1": "5784e21411cb75ef5c34d79bb449bc8c016fbeb0",
+              "sha256": "07b03ed4175872afd9981899e49d56b6283c804e805eb0dad10209a72314969b",
+              "md5": "25a4081f8654e63aaad1c65ab4b1d3c9"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1978073088,
+              "mapped_size": 2179072
+            },
+            "path": "C:\\Windows\\SysWOW64\\KERNELBASE.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "KERNELBASE.dll",
+            "hash": {
+              "sha1": "632aa513f71c8a0852c8e13f4667a571f9d75e04",
+              "sha256": "cdc11d0fc74ba4ee50696337356247ba32d374fcc3a62e1cf3d1f4f82c829855",
+              "md5": "47d9e4d07bb64a55781c33aa2f14fb02"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1957822464,
+              "mapped_size": 651264
+            },
+            "path": "C:\\Windows\\SysWOW64\\apphelp.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "apphelp.dll",
+            "hash": {
+              "sha1": "e4f4afb9ca6ab44efe9b4ef9b6323a979b6af397",
+              "sha256": "258dc55056413d6d2be9dcde5c8d9165a9e1471a8afb4ac7a14a15dcab77537d",
+              "md5": "0a044f3b2538e48e4ccca93f175a8bb2"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1975189504,
+              "mapped_size": 1703936
+            },
+            "path": "C:\\Windows\\SysWOW64\\USER32.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "USER32.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1963982848,
+              "mapped_size": 98304
+            },
+            "path": "C:\\Windows\\SysWOW64\\win32u.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "win32u.dll",
+            "hash": {
+              "sha1": "11b693eb356f4e49396dd5f07b9c89d23db98814",
+              "sha256": "f6efce3938219fda08d3c6f9fc3daa84f5c063d61a580d1fdf3c48eae8d6b105",
+              "md5": "c3093ca979b1d6c0371379e3a6cb50f5"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1963786240,
+              "mapped_size": 147456
+            },
+            "path": "C:\\Windows\\SysWOW64\\GDI32.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "GDI32.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1981087744,
+              "mapped_size": 909312
+            },
+            "path": "C:\\Windows\\SysWOW64\\gdi32full.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "gdi32full.dll",
+            "hash": {
+              "sha1": "f2af1c828e623cf2e14b485c11dde1895e209cc4",
+              "sha256": "070ee99ec7294ebb2b965df432a7e1a227b369760bce030ec9bcd02009b4bfcc",
+              "md5": "5807273fff42c2815e1b95276076c98e"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1973878784,
+              "mapped_size": 503808
+            },
+            "path": "C:\\Windows\\SysWOW64\\msvcp_win.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "msvcp_win.dll",
+            "hash": {
+              "sha1": "45c0154c0128d356fa96f23689d945ce4122d975",
+              "sha256": "f7ac4ceb149eae5184b957d90ebedd9bc916cd1ba3053548b637b4e32a7f8a07",
+              "md5": "f9e704b67eccd77a18965e9cfa128461"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1966014464,
+              "mapped_size": 1179648
+            },
+            "path": "C:\\Windows\\SysWOW64\\ucrtbase.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "ucrtbase.dll",
+            "hash": {
+              "sha1": "54d14ace2f00a93c28984a577ebb47929d29e3cf",
+              "sha256": "c8dbd811bb85d7e17d457c7938c15ef39dbde395f82e967387e082f2c9860748",
+              "md5": "df160b9471e9ce9aa4efcfe625673310"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1990066176,
+              "mapped_size": 503808
+            },
+            "path": "C:\\Windows\\SysWOW64\\ADVAPI32.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "ADVAPI32.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1980301312,
+              "mapped_size": 782336
+            },
+            "path": "C:\\Windows\\SysWOW64\\msvcrt.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "msvcrt.dll",
+            "hash": {
+              "sha1": "e75752978edc470752de9627a498794393c3b8eb",
+              "sha256": "279a03acc810c1fe613be283eb24762f0451da9a6142ed3dc996a1d10fe2f692",
+              "md5": "0daa0d9dc786f95c8dc2ccc0221b2863"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1990852608,
+              "mapped_size": 483328
+            },
+            "path": "C:\\Windows\\SysWOW64\\sechost.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "sechost.dll",
+            "hash": {
+              "sha1": "b380471cdaf95f6eef37294ef3047c0f10872c42",
+              "sha256": "4c3a0f797837b2781f9d62315f103f3bbef8a6405ba7003dbbd4eb5215e62e31",
+              "md5": "dabf4a8f141debb85dc796857c8ab61e"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1965228032,
+              "mapped_size": 778240
+            },
+            "path": "C:\\Windows\\SysWOW64\\RPCRT4.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "RPCRT4.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1964113920,
+              "mapped_size": 929792
+            },
+            "path": "C:\\Windows\\SysWOW64\\ole32.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "ole32.dll",
+            "hash": {
+              "sha1": "d00929e5a7984336e61468ade1b3647dd9be4be6",
+              "sha256": "e278dd069155f90724457d9f5a6d2c1870d766310d026b0d18748c7cb879df54",
+              "md5": "1a66350961455c2d9a83440d69f8f20a"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1992032256,
+              "mapped_size": 2625536
+            },
+            "path": "C:\\Windows\\SysWOW64\\combase.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "combase.dll",
+            "hash": {
+              "sha1": "1cac2f62cab85142a715b60e6b26363a09dd0659",
+              "sha256": "2f37ba185003a712b66df46f283572e3992890909375185155086a024d0b4e1b",
+              "md5": "ff19e75788454da2a455a10127ecb4c2"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1982398464,
+              "mapped_size": 5988352
+            },
+            "path": "C:\\Windows\\SysWOW64\\SHELL32.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "SHELL32.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1988952064,
+              "mapped_size": 282624
+            },
+            "path": "C:\\Windows\\SysWOW64\\SHLWAPI.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "SHLWAPI.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1941897216,
+              "mapped_size": 81920
+            },
+            "path": "C:\\Windows\\SysWOW64\\NETAPI32.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "NETAPI32.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1930166272,
+              "mapped_size": 32768
+            },
+            "path": "C:\\Windows\\SysWOW64\\VERSION.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "VERSION.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1957429248,
+              "mapped_size": 151552
+            },
+            "path": "C:\\Windows\\SysWOW64\\USERENV.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "USERENV.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1941831680,
+              "mapped_size": 45056
+            },
+            "path": "C:\\Windows\\SysWOW64\\NETUTILS.DLL",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "NETUTILS.DLL",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1963589632,
+              "mapped_size": 151552
+            },
+            "path": "C:\\Windows\\SysWOW64\\IMM32.DLL",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "IMM32.DLL",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1960771584,
+              "mapped_size": 77824
+            },
+            "path": "C:\\Windows\\SysWOW64\\CRYPTSP.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "CRYPTSP.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1957232640,
+              "mapped_size": 192512
+            },
+            "path": "C:\\Windows\\SysWOW64\\rsaenh.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "rsaenh.dll",
+            "hash": {
+              "sha1": "186775f5f5d68f4bc3c058746fc56030ced9c550",
+              "sha256": "66d0c8619a0f8dc10b375b0546ca4b4e7726185a3d0ef656eda9fb0f7c81e4be",
+              "md5": "78be124be88bc7ce603dac531bfaf4c1"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1988820992,
+              "mapped_size": 102400
+            },
+            "path": "C:\\Windows\\SysWOW64\\bcrypt.dll",
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "name": "bcrypt.dll",
+            "hash": {
+              "sha1": "7bc8d3ff25a6106f6ff07804c32bb2103351aef8",
+              "sha256": "f92d89da938d029971562f507e5d04d5a8c72c2ffe24226fd01405495110a944",
+              "md5": "704e865cf8cd2d0234b784b4d1260633"
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1954807808,
+              "mapped_size": 40960
+            },
+            "path": "C:\\Windows\\SysWOW64\\CRYPTBASE.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "CRYPTBASE.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          },
+          {
+            "Ext": {
+              "mapped_address": 1982005248,
+              "mapped_size": 389120
+            },
+            "path": "C:\\Windows\\SysWOW64\\bcryptPrimitives.dll",
+            "code_signature": [
+              {
+                "exists": false,
+                "status": "errorCode_endpoint: Failure in an external software component"
+              }
+            ],
+            "name": "bcryptPrimitives.dll",
+            "hash": {
+              "sha1": "",
+              "sha256": "",
+              "md5": ""
+            }
+          }
+        ],
+        "architecture": "x86",
+        "token": {
+          "integrity_level_name": "high"
+        }
+      },
+      "parent": {
+        "args": [
+          "C:\\Windows\\Explorer.EXE"
+        ],
+        "Ext": {
+          "code_signature": [
+            {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "exists": true,
+              "status": "trusted"
+            }
+          ],
+          "architecture": "x86_64"
+        },
+        "name": "explorer.exe",
+        "pid": 596,
+        "entity_id": "Mzk4NWIyYWMtOTJkNS00MzNjLThmOGItZDE2YWYzZjQyNzMxLTU5Ni0xMzI4OTQ3MTkxNy43NDY1NjU2MDA=",
+        "hash": {
+          "sha1": "54b1c42b69ddd43c32529b13cdeb210c940e744f",
+          "sha256": "1b49aa6038fac43ffa95cd3c39b25f2d72166dcdbc85bf0a17fec66d93fb6a05",
+          "md5": "1bd5baa72845a11622f75731658c515b"
+        },
+        "command_line": "C:\\Windows\\Explorer.EXE",
+        "executable": "C:\\Windows\\explorer.exe",
+        "uptime": 104
+      },
+      "name": "Endermanch@Petya.A.exe",
+      "pid": 6180,
+      "entity_id": "Mzk4NWIyYWMtOTJkNS00MzNjLThmOGItZDE2YWYzZjQyNzMxLTYxODAtMTMyODk0NzIwMTkuMjUwMDU4NTAw",
+      "hash": {
+        "sha1": "39b6d40906c7f7f080e6befa93324dddadcbd9fa",
+        "sha256": "26b4699a7b9eeb16e76305d843d4ab05e94d43f3201436927e13b3ebafa90739",
+        "md5": "af2379cc4d607a45ac44d62135fb7015"
+      },
+      "command_line": "\"C:\\Users\\JohnDoe\\Desktop\\MalwareDatabase-master\\ransomwares\\Petya.A\\Endermanch@Petya.A.exe\" ",
+      "executable": "C:\\Users\\JohnDoe\\Desktop\\MalwareDatabase-master\\ransomwares\\Petya.A\\Endermanch@Petya.A.exe",
+      "uptime": 2
+    },
+    "agent": {
+      "build": {
+        "original": "version: 8.0.0, compiled: Tue Jan 25 18:00:00 2022, branch: 8.0, commit: af66ee695f87dff3aa3a1c0769813a1abffa4219"
+      },
+      "id": "3985b2ac-92d5-433c-8f8b-d16af3f42731",
+      "type": "endpoint",
+      "version": "8.0.0"
+    },
+    "channel": "alerts-endpoint",
+    "rule": {
+      "ruleset": "production"
+    },
+    "Ransomware": {
+      "score": 32,
+      "feature": "mbr",
+      "files": [
+        {
+          "path": "\\Device\\Harddisk0\\DR0",
+          "score": 32,
+          "data": "+mYxwI7QjsCO2LwAfPuIFpN8ZrggAAAAZrsiAAAAuQCA6BQAZkhmg/gAdfVmoQCA6gCAAAD06/1mUGYxwFJWV2ZQZlOJ52ZQZlMGUWoBahCJ5ooWk3y0Qs0TifxmW2ZYcwhQMOTNE1jr1maDwwFmg9AAgcEAAnMHjMKAxhCOwl9eWmZYw2C0Dqw8AHQEzRDr92HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADOzP53AACAICEAB385BgAIAAAAkAEAAH86Bgf+//8AmAEAmBjuBwD+//8n/v//ALjvBwA4EAAAAAAAAAAAAAAAAAAAAAAAVQA="
+        }
+      ]
+    },
+    "version": "8.0.0",
+    "@timestamp": "2022-02-16T08:00:21.5485684Z",
+    "cluster_uuid": "bA7ei2K0RxWFIxY4Sj2HWQ",
+    "Endpoint": {
+      "policy": {
+        "applied": {
+          "artifacts": {
+            "global": {
+              "identifiers": [
+                {
+                  "sha256": "9a0c8808ce6d9b8043cc3033ec55de4fee958dc871680789f699c16e3079cc05",
+                  "name": "diagnostic-configuration-v1"
+                },
+                {
+                  "sha256": "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
+                  "name": "diagnostic-endpointpe-v4-blocklist"
+                },
+                {
+                  "sha256": "228f0286170ad755429c7b549169d9ec52432ab064f69db63b3716b4ae345de7",
+                  "name": "diagnostic-endpointpe-v4-exceptionlist"
+                },
+                {
+                  "sha256": "2e2312d944396eac0dc86db25e932c7851b4036edcaaa40c4d7c20c30fa3a5b4",
+                  "name": "diagnostic-endpointpe-v4-model"
+                },
+                {
+                  "sha256": "509afd0ef1974a5e4fceabc20a59147d99e3909f143d67ff76318f0c4aafe44d",
+                  "name": "diagnostic-malware-signature-v1-windows"
+                },
+                {
+                  "sha256": "27f02966be2e0662af48c632ed593179a0867fd0507bbabfae70b3e110faa371",
+                  "name": "diagnostic-ransomware-v1-windows"
+                },
+                {
+                  "sha256": "ad27aafd0a3ea30f4732c45c22f131a2fe7c951a54497f692eec6769088286ad",
+                  "name": "diagnostic-rules-windows-v1"
+                },
+                {
+                  "sha256": "578284201462d451b1cb693c2dd44b331c98d403856f5ad312e5fd8c3969b439",
+                  "name": "endpointpe-v4-blocklist"
+                },
+                {
+                  "sha256": "69388fdc03d588709a18ace3fd5da586b4853ad3569b7bcd7e2c8b4365a654c4",
+                  "name": "endpointpe-v4-exceptionlist"
+                },
+                {
+                  "sha256": "eefecf029ae70ec948d358e8b1030e41c8ffad676e7fb8c797b0e39e407e3e0a",
+                  "name": "endpointpe-v4-model"
+                },
+                {
+                  "sha256": "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
+                  "name": "global-configuration-v1"
+                },
+                {
+                  "sha256": "540dde1901d278b58cfc09a051a10d9c9a587875f18b3604c65cd4047e36d358",
+                  "name": "global-exceptionlist-windows"
+                },
+                {
+                  "sha256": "d72a108c5cd65d46e932dab5a3f38ac9689020aa5730024b35146962469ebf9b",
+                  "name": "global-trustlist-windows-v1"
+                },
+                {
+                  "sha256": "4ff4c618df2c4432edcb9516c7e3e82ec7440280559cfe7d9945d8c0f4d7e585",
+                  "name": "production-malware-signature-v1-windows"
+                },
+                {
+                  "sha256": "4d7ed75842048694d9dc01efffc55ce9cefe4e412c9acd702ea7d0bcdfdc4b09",
+                  "name": "production-ransomware-v1-windows"
+                },
+                {
+                  "sha256": "89c0e5a641d9e9845179c32cbcc56cc2d9ad2dadfbf019848f7a71252d8391e6",
+                  "name": "production-rules-windows-v1"
+                }
+              ],
+              "version": "1.0.211"
+            },
+            "user": {
+              "identifiers": [
+                {
+                  "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                  "name": "endpoint-eventfilterlist-windows-v1"
+                },
+                {
+                  "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                  "name": "endpoint-exceptionlist-windows-v1"
+                },
+                {
+                  "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                  "name": "endpoint-hostisolationexceptionlist-windows-v1"
+                },
+                {
+                  "sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+                  "name": "endpoint-trustlist-windows-v1"
+                }
+              ],
+              "version": "1.0.0"
             }
           }
         }
-      },
-      "ecs": {
-        "version": "1.11.0"
-      },
-      "data_stream": {
-        "namespace": "default",
-        "type": "logs",
-        "dataset": "endpoint.alerts"
-      },
-      "elastic": {
-        "agent": {
-          "id": "c58096c6-a364-4eea-a6ae-fe1b253297ca"
-        }
-      },
-      "host": {
-        "os": {
-          "Ext": {
-            "variant": "Windows 10 Pro"
-          },
-          "kernel": "20H2 (10.0.19042.1526)",
-          "name": "Windows",
-          "family": "windows",
-          "type": "windows",
-          "version": "20H2 (10.0.19042.1526)",
-          "platform": "windows",
-          "full": "Windows 10 Pro 20H2 (10.0.19042.1526)"
-        }
-      },
-      "location": "gs://elastic-telemetry-prod-data/raw/1644837156.6109405-ae348a4cd826d60e346254a18e7aa5c7",
-      "event": {
-        "severity": 99,
-        "code": "ransomware",
-        "risk_score": 99,
-        "created": "2022-02-14T11:11:37.3066135Z",
-        "kind": "alert",
-        "module": "endpoint",
-        "type": [
-          "info",
-          "start",
-          "change",
-          "allowed"
-        ],
-        "agent_id_status": "verified",
-        "sequence": 15302924,
-        "ingested": "2022-02-14T11:11:40Z",
-        "action": "mbr-overwrite",
-        "id": "MUHboaeqiXZ7LfhK+++/5Wsi",
-        "category": [
-          "malware",
-          "intrusion_detection",
-          "process",
-          "file"
-        ],
-        "dataset": "endpoint.alerts"
       }
     },
-    "fields": {
-      "cluster_name.keyword": [
-        "elasticsearch"
-      ],
-      "process.hash.md5": [
-        "d72f947a1d0ce2a37763e385b7467931"
-      ],
-      "event.category": [
-        "malware",
-        "intrusion_detection",
-        "process",
-        "file"
-      ],
-      "Endpoint.policy.applied.artifacts.global.identifiers.sha256": [
-        "8d509bc7713f88211870e3ecaae6cd8a62b53b94a4ce29023977754496ba5ef6",
-        "c33693fcadb720d4d37706cd2ca77b28a8c59a424ab3f251b2b07ac7975eb2f4",
-        "228f0286170ad755429c7b549169d9ec52432ab064f69db63b3716b4ae345de7",
-        "2e2312d944396eac0dc86db25e932c7851b4036edcaaa40c4d7c20c30fa3a5b4",
-        "509afd0ef1974a5e4fceabc20a59147d99e3909f143d67ff76318f0c4aafe44d",
-        "27f02966be2e0662af48c632ed593179a0867fd0507bbabfae70b3e110faa371",
-        "ad27aafd0a3ea30f4732c45c22f131a2fe7c951a54497f692eec6769088286ad",
-        "578284201462d451b1cb693c2dd44b331c98d403856f5ad312e5fd8c3969b439",
-        "0d8388cd5380580bd0e73eb7ca4e3bec2b51c90bdbe35b88ea5ca283ac425994",
-        "eefecf029ae70ec948d358e8b1030e41c8ffad676e7fb8c797b0e39e407e3e0a",
-        "b98dc812e3cd9c9aa21462bb8b2bac86158d6d2d97ea4aac6731c069f6babb4d",
-        "540dde1901d278b58cfc09a051a10d9c9a587875f18b3604c65cd4047e36d358",
-        "7c0ec88455245f082ba3a605513e57344d32ef388895b8fa749416df965eb3da",
-        "4ff4c618df2c4432edcb9516c7e3e82ec7440280559cfe7d9945d8c0f4d7e585",
-        "4d7ed75842048694d9dc01efffc55ce9cefe4e412c9acd702ea7d0bcdfdc4b09",
-        "89c0e5a641d9e9845179c32cbcc56cc2d9ad2dadfbf019848f7a71252d8391e6"
-      ],
-      "process.Ext.dll": [
-        {
-          "hash.sha256": [
-            "823c4b6cdc26065a8b0d22fc34333814a2798250d800002b29f78d567bec34d1"
-          ],
-          "path": [
-            "C:\\Users\\JohnDoe\\Desktop\\ransomware\\corrupt_mbr.exe"
-          ],
-          "hash.sha1": [
-            "34874fff5d1927be7f7a7ede29ad8e986ec214ca"
-          ],
-          "Ext.mapped_size": [
-            339968
-          ],
-          "code_signature.exists": [
-            false
-          ],
-          "name": [
-            "corrupt_mbr.exe"
-          ],
-          "Ext.code_signature.exists": [
-            false
-          ],
-          "hash.md5": [
-            "d72f947a1d0ce2a37763e385b7467931"
-          ],
-          "Ext.mapped_address": [
-            140698188578816
-          ]
+    "ecs": {
+      "version": "1.11.0"
+    },
+    "data_stream": {
+      "namespace": "default",
+      "type": "logs",
+      "dataset": "endpoint.alerts"
+    },
+    "elastic": {
+      "agent": {
+        "id": "3985b2ac-92d5-433c-8f8b-d16af3f42731"
+      }
+    },
+    "host": {
+      "os": {
+        "Ext": {
+          "variant": "Windows 10 Pro"
         },
-        {
-          "hash.sha1": [
-            "c72dc39ba48957ebcabcb6c3898f4b041e9923a0"
-          ],
-          "Ext.code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "code_signature.trusted": [
-            true
-          ],
-          "Ext.code_signature.status": [
-            "trusted"
-          ],
-          "Ext.code_signature.exists": [
-            true
-          ],
-          "code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "path": [
-            "C:\\WINDOWS\\SYSTEM32\\ntdll.dll"
-          ],
-          "hash.sha256": [
-            "262dd735296ad742cffd04258dc8b5e49b5fa5f7789a737109565bcccd3b36eb"
-          ],
-          "Ext.mapped_size": [
-            2052096
-          ],
-          "name": [
-            "ntdll.dll"
-          ],
-          "code_signature.exists": [
-            true
-          ],
-          "hash.md5": [
-            "d1d7a092e2cacd614bba4a293159d7d7"
-          ],
-          "Ext.mapped_address": [
-            140726820995072
-          ],
-          "Ext.code_signature.trusted": [
-            true
-          ],
-          "code_signature.status": [
-            "trusted"
-          ]
-        },
-        {
-          "hash.sha1": [
-            "6bc17c6b2f58637005d298d9c5c407464a15b047"
-          ],
-          "Ext.code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "code_signature.trusted": [
-            true
-          ],
-          "Ext.code_signature.status": [
-            "trusted"
-          ],
-          "Ext.code_signature.exists": [
-            true
-          ],
-          "code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "path": [
-            "C:\\WINDOWS\\System32\\KERNEL32.DLL"
-          ],
-          "hash.sha256": [
-            "b80f1242fd439fd3c0745cad0460892dc8a74d58e1c748177568142963e096db"
-          ],
-          "Ext.mapped_size": [
-            778240
-          ],
-          "name": [
-            "KERNEL32.DLL"
-          ],
-          "code_signature.exists": [
-            true
-          ],
-          "hash.md5": [
-            "9d48db32122d192d5f17f9a67240a328"
-          ],
-          "Ext.mapped_address": [
-            140726807691264
-          ],
-          "Ext.code_signature.trusted": [
-            true
-          ],
-          "code_signature.status": [
-            "trusted"
-          ]
-        },
-        {
-          "hash.sha1": [
-            "5c9756db21ed0e919a8ef7aaf2b8f8dd7ef48476"
-          ],
-          "Ext.code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "code_signature.trusted": [
-            true
-          ],
-          "Ext.code_signature.status": [
-            "trusted"
-          ],
-          "Ext.code_signature.exists": [
-            true
-          ],
-          "code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "path": [
-            "C:\\WINDOWS\\System32\\KERNELBASE.dll"
-          ],
-          "hash.sha256": [
-            "b6983053a4da13af6449d7a631b6f00bbd565ea810a64afaaa587147328a563d"
-          ],
-          "Ext.mapped_size": [
-            2916352
-          ],
-          "name": [
-            "KERNELBASE.dll"
-          ],
-          "code_signature.exists": [
-            true
-          ],
-          "hash.md5": [
-            "9a0dfce41ba321e065a70eee4b4c927e"
-          ],
-          "Ext.mapped_address": [
-            140726784163840
-          ],
-          "Ext.code_signature.trusted": [
-            true
-          ],
-          "code_signature.status": [
-            "trusted"
-          ]
-        },
-        {
-          "hash.sha1": [
-            "6b89bdc2316a815879a0077de03439414a9dadc4"
-          ],
-          "Ext.code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "code_signature.trusted": [
-            true
-          ],
-          "Ext.code_signature.status": [
-            "trusted"
-          ],
-          "Ext.code_signature.exists": [
-            true
-          ],
-          "code_signature.subject_name": [
-            "Microsoft Windows"
-          ],
-          "path": [
-            "C:\\WINDOWS\\SYSTEM32\\apphelp.dll"
-          ],
-          "hash.sha256": [
-            "2236a6c3ddde48543d50826fff355ad7bbacf9bd1424a24c10647326f0b8d7ee"
-          ],
-          "Ext.mapped_size": [
-            589824
-          ],
-          "name": [
-            "apphelp.dll"
-          ],
-          "code_signature.exists": [
-            true
-          ],
-          "hash.md5": [
-            "20001393b469dffa4349e76e787ed83a"
-          ],
-          "Ext.mapped_address": [
-            140726736715776
-          ],
-          "Ext.code_signature.trusted": [
-            true
-          ],
-          "code_signature.status": [
-            "trusted"
-          ]
-        }
-      ],
-      "host.os.full": [
-        "Windows 10 Pro 20H2 (10.0.19042.1526)"
-      ],
-      "channel": [
-        "alerts-endpoint"
-      ],
-      "process.parent.command_line": [
-        "\"C:\\WINDOWS\\system32\\cmd.exe\" "
-      ],
-      "process.parent.name": [
-        "cmd.exe"
-      ],
-      "Endpoint.policy.applied.artifacts.global.identifiers.name": [
-        "diagnostic-configuration-v1",
-        "diagnostic-endpointpe-v4-blocklist",
-        "diagnostic-endpointpe-v4-exceptionlist",
-        "diagnostic-endpointpe-v4-model",
-        "diagnostic-malware-signature-v1-windows",
-        "diagnostic-ransomware-v1-windows",
-        "diagnostic-rules-windows-v1",
-        "endpointpe-v4-blocklist",
-        "endpointpe-v4-exceptionlist",
-        "endpointpe-v4-model",
-        "global-configuration-v1",
-        "global-exceptionlist-windows",
-        "global-trustlist-windows-v1",
-        "production-malware-signature-v1-windows",
-        "production-ransomware-v1-windows",
-        "production-rules-windows-v1"
-      ],
-      "Ransomware.score": [
-        32
-      ],
-      "process.parent.pid": [
-        10688
-      ],
-      "process.hash.sha256": [
-        "823c4b6cdc26065a8b0d22fc34333814a2798250d800002b29f78d567bec34d1"
-      ],
-      "process.name.wildcard": [
-        "corrupt_mbr.exe"
-      ],
-      "process.pid": [
-        6412
-      ],
-      "process.code_signature.exists": [
-        false
-      ],
-      "elastic.agent.id": [
-        "c58096c6-a364-4eea-a6ae-fe1b253297ca"
-      ],
-      "Endpoint.policy.applied.artifacts.user.version": [
-        "1.0.3"
-      ],
-      "host.os.version": [
-        "20H2 (10.0.19042.1526)"
-      ],
-      "process.parent.entity_id": [
-        "YzU4MDk2YzYtYTM2NC00ZWVhLWE2YWUtZmUxYjI1MzI5N2NhLTEwNjg4LTEzMjg5MzEwNjcwLjc5NTM0OTYwMA=="
-      ],
-      "rule.ruleset": [
-        "production"
-      ],
-      "host.os.name": [
-        "Windows"
-      ],
-      "process.parent.command_line.wildcard": [
-        "\"C:\\WINDOWS\\system32\\cmd.exe\" "
-      ],
-      "agent.build.original": [
-        "version: 8.1.0, compiled: Wed Feb 9 00:00:00 2022, branch: 8.1, commit: be5bd838839a4505ce56661230260fdd04e64880"
-      ],
-      "event.agent_id_status": [
-        "verified"
-      ],
-      "event.kind": [
-        "alert"
-      ],
-      "Ransomware.files": [
-        {
-          "score": [
-            32
-          ],
-          "path": [
-            "\\Device\\Harddisk0\\DR0"
-          ],
-          "data": [
-            "AQIAAwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-          ]
-        }
-      ],
-      "event.severity": [
-        99
-      ],
-      "host.os.type": [
-        "windows"
-      ],
-      "process.Ext.architecture": [
-        "x86_64"
-      ],
-      "event.risk_score": [
-        99
-      ],
-      "version": [
-        "8.1.0"
-      ],
-      "data_stream.type": [
-        "logs"
-      ],
-      "version_major": [
-        "8"
-      ],
-      "process.name": [
-        "corrupt_mbr.exe"
-      ],
-      "event.code": [
-        "ransomware"
-      ],
-      "process.parent.name.wildcard": [
-        "cmd.exe"
-      ],
-      "process.parent.executable.wildcard": [
-        "C:\\Windows\\System32\\cmd.exe"
-      ],
-      "agent.id": [
-        "c58096c6-a364-4eea-a6ae-fe1b253297ca"
-      ],
-      "cluster_uuid": [
-        "rQ2dxjYWReKyxBRWcuIGHA"
-      ],
-      "ecs.version": [
-        "1.11.0"
-      ],
-      "event.created": [
-        "2022-02-14T11:11:37.306Z"
-      ],
-      "process.parent.code_signature.trusted": [
-        true
-      ],
-      "agent.version": [
-        "8.1.0"
-      ],
-      "host.os.family": [
-        "windows"
-      ],
-      "process.parent.code_signature.exists": [
-        true
-      ],
-      "Endpoint.policy.applied.artifacts.global.version": [
-        "1.0.209"
-      ],
-      "process.parent.code_signature.status": [
-        "trusted"
-      ],
-      "process.entity_id": [
-        "YzU4MDk2YzYtYTM2NC00ZWVhLWE2YWUtZmUxYjI1MzI5N2NhLTY0MTItMTMyODkzMTA2OTcuMjUzODc3ODAw"
-      ],
-      "event.sequence": [
-        15302924
-      ],
-      "agent.type": [
-        "endpoint"
-      ],
-      "event.module": [
-        "endpoint"
-      ],
-      "host.os.kernel": [
-        "20H2 (10.0.19042.1526)"
-      ],
-      "process.uptime": [
-        0
-      ],
-      "process.parent.Ext.architecture": [
-        "x86_64"
-      ],
-      "process.parent.hash.sha256": [
-        "b99d61d874728edc0918ca0eb10eab93d381e7367e377406e65963366c874450"
-      ],
-      "process.executable": [
-        "C:\\Users\\JohnDoe\\Desktop\\ransomware\\corrupt_mbr.exe"
-      ],
-      "process.Ext.token.integrity_level_name": [
-        "high"
-      ],
-      "process.parent.code_signature.subject_name": [
-        "Microsoft Windows"
-      ],
-      "cluster_name": [
-        "elasticsearch"
-      ],
-      "process.parent.executable": [
-        "C:\\Windows\\System32\\cmd.exe"
-      ],
-      "process.parent.hash.md5": [
-        "8a2122e8162dbef04694b9c3e0b6cdee"
-      ],
-      "Ransomware.feature": [
-        "mbr"
-      ],
-      "data_stream.namespace": [
-        "default"
-      ],
-      "process.parent.Ext.code_signature": [
-        {
-          "subject_name": [
-            "Microsoft Windows"
-          ],
-          "exists": [
-            true
-          ],
-          "trusted": [
-            true
-          ],
-          "status": [
-            "trusted"
-          ]
-        }
-      ],
-      "process.args": [
-        "corrupt_mbr.exe"
-      ],
-      "process.parent.uptime": [
-        27
-      ],
-      "process.parent.hash.sha1": [
-        "f1efb0fddc156e4c61c5f78a54700e4e7984d55d"
-      ],
-      "process.parent.args": [
-        "C:\\WINDOWS\\system32\\cmd.exe"
-      ],
-      "host.os.Ext.variant": [
-        "Windows 10 Pro"
-      ],
-      "event.ingested": [
-        "2022-02-14T11:11:40.000Z"
-      ],
-      "event.action": [
-        "mbr-overwrite"
-      ],
-      "@timestamp": [
-        "2022-02-14T11:11:37.306Z"
-      ],
-      "host.os.platform": [
-        "windows"
-      ],
-      "event.type": [
+        "kernel": "21H2 (10.0.19044.1526)",
+        "name": "Windows",
+        "family": "windows",
+        "type": "windows",
+        "version": "21H2 (10.0.19044.1526)",
+        "platform": "windows",
+        "full": "Windows 10 Pro 21H2 (10.0.19044.1526)"
+      }
+    },
+    "location": "gs://elastic-telemetry-prod-data/raw/1644998754.4039865-a3961537c5326b689b1bf4db56b83bfc",
+    "event": {
+      "severity": 99,
+      "code": "ransomware",
+      "risk_score": 99,
+      "created": "2022-02-16T08:00:21.5485684Z",
+      "kind": "alert",
+      "module": "endpoint",
+      "type": [
         "info",
         "start",
         "change",
         "allowed"
       ],
-      "data_stream.dataset": [
-        "endpoint.alerts"
+      "agent_id_status": "verified",
+      "sequence": 42474,
+      "ingested": "2022-02-16T08:00:25Z",
+      "action": "mbr-overwrite",
+      "id": "MUiFg9wkUn7//5H1+++++Okk",
+      "category": [
+        "malware",
+        "intrusion_detection",
+        "process",
+        "file"
       ],
-      "process.Ext.code_signature": [
-        {
-          "exists": [
-            false
-          ]
-        }
-      ],
-      "Endpoint.policy.applied.artifacts.user.identifiers.sha256": [
-        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
-        "16d10c8a7fd60801b55461c65207c092ee926d989f4b6c3a8077fcf569c05c94",
-        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
-        "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658"
-      ],
-      "process.command_line": [
-        "corrupt_mbr.exe"
-      ],
-      "process.command_line.wildcard": [
-        "corrupt_mbr.exe"
-      ],
-      "location": [
-        "gs://elastic-telemetry-prod-data/raw/1644837156.6109405-ae348a4cd826d60e346254a18e7aa5c7"
-      ],
-      "process.executable.wildcard": [
-        "C:\\Users\\JohnDoe\\Desktop\\ransomware\\corrupt_mbr.exe"
-      ],
-      "process.hash.sha1": [
-        "34874fff5d1927be7f7a7ede29ad8e986ec214ca"
-      ],
-      "Endpoint.policy.applied.artifacts.user.identifiers.name": [
-        "endpoint-eventfilterlist-windows-v1",
-        "endpoint-exceptionlist-windows-v1",
-        "endpoint-hostisolationexceptionlist-windows-v1",
-        "endpoint-trustlist-windows-v1"
-      ],
-      "event.id": [
-        "MUHboaeqiXZ7LfhK+++/5Wsi"
-      ],
-      "event.dataset": [
-        "endpoint.alerts"
-      ]
+      "dataset": "endpoint.alerts"
     }
+  },
+  "fields": {
+    "event.ingested": [
+      "2022-02-16T08:00:25.000Z"
+    ],
+    "@timestamp": [
+      "2022-02-16T08:00:21.548Z"
+    ],
+    "event.created": [
+      "2022-02-16T08:00:21.548Z"
+    ]
   }
+}
