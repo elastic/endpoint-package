@@ -8,13 +8,13 @@
     },
     "event": {
         "category": [
-            "process"
+            "api"
         ],
         "created": "2023-01-09T19:38:51.5141503Z",
         "id": "MvlgiHxIZtj1+Abi++++++ul",
         "kind": "event",
         "type": [
-            "api"
+            "credential_access"
         ]
     },
     "host": {
@@ -50,7 +50,7 @@
             "version": "22H2 (10.0.22621.963)"
         }
     },
-    "message": "Endpoint credential access event",
+    "message": "Endpoint Credential Access event",
     "process": {
         "Ext": {
             "ancestry": [
