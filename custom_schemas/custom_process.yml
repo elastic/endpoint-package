@@ -191,7 +191,9 @@
     - name: thread.Ext.hardware_breakpoint_set
       level: custom
       type: boolean
-      description: Check whether a hardware breakpoint is set for the thread
+      description:  >
+        Check whether a hardware breakpoint is set for the thread. 
+        Include this field, only if the hardware breakpoint is setted. 
       example: "true" 
 
     - name: thread.Ext.start
