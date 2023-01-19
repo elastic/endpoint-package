@@ -1,26 +1,22 @@
-- name: '@timestamp'
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: ecs
-  fields:
-  - name: version
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: ecs.version
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type

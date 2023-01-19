@@ -1,658 +1,390 @@
-- name: '@timestamp'
-- name: message
-- name: agent
-  fields:
-  - name: ephemeral_id
-  - name: id
-  - name: name
-  - name: type
-  - name: version
-- name: cloud
-  fields:
-  - name: account.id
-  - name: instance.name
-  - name: project.id
-  - name: provider
-  - name: region
-- name: container
-  fields:
-  - name: id
-  - name: image.hash.all
-  - name: image.name
-  - name: image.tag
-  - name: name
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: destination
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: ecs
-  fields:
-  - name: version
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
-- name: group
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: id
-  - name: name
-- name: host
-  fields:
-  - name: architecture
-  - name: boot.id
-  - name: domain
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
-  - name: pid_ns_ino
-  - name: type
-  - name: uptime
-- name: orchestrator
-  fields:
-  - name: cluster.id
-  - name: cluster.name
-  - name: namespace
-  - name: resource.ip
-  - name: resource.name
-  - name: resource.parent.type
-  - name: resource.type
-- name: package
-  fields:
-  - name: name
-- name: process
-  fields:
-  - name: Ext
-  - name: Ext.ancestry
-  - name: Ext.architecture
-  - name: Ext.authentication_id
-  - name: Ext.code_signature
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.code_signature.exists
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.code_signature.status
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.code_signature.subject_name
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.code_signature.trusted
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.code_signature.valid
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: Ext.defense_evasions
-  - name: Ext.device.bus_type
-  - name: Ext.device.dos_name
-  - name: Ext.device.nt_name
-  - name: Ext.device.product_id
-  - name: Ext.device.serial_number
-  - name: Ext.device.vendor_id
-  - name: Ext.device.volume_device_type
-  - name: Ext.dll.Ext
-    found_in:
-      os: win32
-  - name: Ext.dll.Ext.mapped_address
-    found_in:
-      os: win32
-  - name: Ext.dll.Ext.mapped_size
-    found_in:
-      os: win32
-  - name: Ext.dll.name
-    found_in:
-      os: win32
-  - name: Ext.dll.path
-    found_in:
-      os: win32
-  - name: Ext.effective_parent.entity_id
-  - name: Ext.effective_parent.executable
-  - name: Ext.effective_parent.name
-  - name: Ext.effective_parent.pid
-  - name: Ext.mitigation_policies
-  - name: Ext.protection
-  - name: Ext.relative_file_creation_time
-  - name: Ext.relative_file_name_modify_time
-  - name: Ext.session
-  - name: Ext.session_info.authentication_package
-  - name: Ext.session_info.client_address
-  - name: Ext.session_info.id
-  - name: Ext.session_info.logon_type
-  - name: Ext.session_info.relative_logon_time
-  - name: Ext.session_info.relative_password_age
-  - name: Ext.session_info.user_flags
-  - name: Ext.token.elevation
-  - name: Ext.token.elevation_level
-  - name: Ext.token.elevation_type
-  - name: Ext.token.integrity_level_name
-  - name: Ext.token.security_attributes
-  - name: Ext.trusted
-  - name: Ext.trusted_descendant
-  - name: args
-  - name: args_count
-  - name: code_signature.exists
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: code_signature.signing_id
-    found_in:
-      os:
-        - macos
-  - name: code_signature.status
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: code_signature.subject_name
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: code_signature.team_id
-    found_in:
-      os:
-        - macos
-  - name: code_signature.trusted
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: code_signature.valid
-    found_in:
-      os:
-        - win32
-        - macos
-  - name: command_line
-  - name: end
-  - name: entity_id
-  - name: entry_leader.args
-  - name: entry_leader.args_count
-  - name: entry_leader.attested_groups.name
-  - name: entry_leader.attested_user.id
-  - name: entry_leader.attested_user.name
-  - name: entry_leader.command_line
-  - name: entry_leader.entity_id
-  - name: entry_leader.entry_meta.source.ip
-  - name: entry_leader.entry_meta.type
-  - name: entry_leader.executable
-  - name: entry_leader.group.id
-  - name: entry_leader.group.name
-  - name: entry_leader.interactive
-  - name: entry_leader.name
-  - name: entry_leader.parent.entity_id
-  - name: entry_leader.parent.pid
-  - name: entry_leader.parent.session_leader.entity_id
-  - name: entry_leader.parent.session_leader.pid
-  - name: entry_leader.parent.session_leader.start
-  - name: entry_leader.parent.start
-  - name: entry_leader.pid
-  - name: entry_leader.real_group.id
-  - name: entry_leader.real_group.name
-  - name: entry_leader.real_user.id
-  - name: entry_leader.real_user.name
-  - name: entry_leader.same_as_process
-  - name: entry_leader.saved_group.id
-  - name: entry_leader.saved_group.name
-  - name: entry_leader.saved_user.id
-  - name: entry_leader.saved_user.name
-  - name: entry_leader.start
-  - name: entry_leader.supplemental_groups.id
-  - name: entry_leader.supplemental_groups.name
-  - name: entry_leader.tty
-  - name: entry_leader.tty.char_device.major
-  - name: entry_leader.tty.char_device.minor
-  - name: entry_leader.user.id
-  - name: entry_leader.user.name
-  - name: entry_leader.working_directory
-  - name: env_vars
-  - name: executable
-  - name: exit_code
-  - name: group.id
-  - name: group.name
-  - name: group_leader.args
-    found_in:
-      os: linux
-  - name: group_leader.args_count
-    found_in:
-      os: linux
-  - name: group_leader.command_line
-    found_in:
-      os: linux
-  - name: group_leader.entity_id
-    found_in:
-      os: linux
-  - name: group_leader.executable
-    found_in:
-      os: linux
-  - name: group_leader.group.id
-    found_in:
-      os: linux
-  - name: group_leader.group.name
-    found_in:
-      os: linux
-  - name: group_leader.interactive
-    found_in:
-      os: linux
-  - name: group_leader.name
-    found_in:
-      os: linux
-  - name: group_leader.pid
-    found_in:
-      os: linux
-  - name: group_leader.real_group.id
-    found_in:
-      os: linux
-  - name: group_leader.real_group.name
-    found_in:
-      os: linux
-  - name: group_leader.real_user.id
-    found_in:
-      os: linux
-  - name: group_leader.real_user.name
-    found_in:
-      os: linux
-  - name: group_leader.same_as_process
-    found_in:
-      os: linux
-  - name: group_leader.saved_group.id
-    found_in:
-      os: linux
-  - name: group_leader.saved_group.name
-    found_in:
-      os: linux
-  - name: group_leader.saved_user.id
-    found_in:
-      os: linux
-  - name: group_leader.saved_user.name
-    found_in:
-      os: linux
-  - name: group_leader.start
-    found_in:
-      os: linux
-  - name: group_leader.supplemental_groups.id
-    found_in:
-      os: linux
-  - name: group_leader.supplemental_groups.name
-    found_in:
-      os: linux
-  - name: group_leader.tty
-    found_in:
-      os: linux
-  - name: group_leader.tty.char_device.major
-    found_in:
-      os: linux
-  - name: group_leader.tty.char_device.minor
-    found_in:
-      os: linux
-  - name: group_leader.user.id
-    found_in:
-      os: linux
-  - name: group_leader.user.name
-    found_in:
-      os: linux
-  - name: group_leader.working_directory
-    found_in:
-      os: linux
-  - name: hash.md5
-  - name: hash.sha1
-  - name: hash.sha256
-  - name: hash.sha512
-  - name: interactive
-    found_in:
-      os: linux
-  - name: io
-  - name: io.max_bytes_per_process_exceeded
-  - name: io.text
-  - name: io.total_bytes_captured
-  - name: io.total_bytes_skipped
-  - name: name
-  - name: parent.Ext
-  - name: parent.Ext.architecture
-  - name: parent.Ext.code_signature
-  - name: parent.Ext.code_signature.exists
-  - name: parent.Ext.code_signature.status
-  - name: parent.Ext.code_signature.subject_name
-  - name: parent.Ext.code_signature.trusted
-  - name: parent.Ext.code_signature.valid
-  - name: parent.Ext.protection
-  - name: parent.Ext.real
-  - name: parent.Ext.real.pid
-  - name: parent.Ext.user
-  - name: parent.args
-  - name: parent.args_count
-  - name: parent.code_signature.exists
-  - name: parent.code_signature.signing_id
-  - name: parent.code_signature.status
-  - name: parent.code_signature.subject_name
-  - name: parent.code_signature.team_id
-  - name: parent.code_signature.trusted
-  - name: parent.code_signature.valid
-  - name: parent.command_line
-  - name: parent.entity_id
-  - name: parent.executable
-  - name: parent.exit_code
-  - name: parent.group.id
-  - name: parent.group.name
-  - name: parent.group_leader.entity_id
-    found_in:
-      os: linux
-  - name: parent.group_leader.pid
-    found_in:
-      os: linux
-  - name: parent.group_leader.start
-    found_in:
-      os: linux
-  - name: parent.hash.md5
-  - name: parent.hash.sha1
-  - name: parent.hash.sha256
-  - name: parent.hash.sha512
-  - name: parent.interactive
-    found_in:
-      os: linux
-  - name: parent.name
-  - name: parent.pe.company
-    found_in:
-      os: win32
-  - name: parent.pe.description
-    found_in:
-      os: win32
-  - name: parent.pe.file_version
-    found_in:
-      os: win32
-  - name: parent.pe.imphash
-    found_in:
-      os: win32
-  - name: parent.pe.original_file_name
-    found_in:
-      os: win32
-  - name: parent.pe.product
-    found_in:
-      os: win32
-  - name: parent.pgid
-  - name: parent.pid
-  - name: parent.ppid
-  - name: parent.real_group.id
-  - name: parent.real_group.name
-  - name: parent.real_user.id
-  - name: parent.real_user.name
-  - name: parent.saved_group.id
-  - name: parent.saved_group.name
-  - name: parent.saved_user.id
-  - name: parent.saved_user.name
-  - name: parent.start
-  - name: parent.supplemental_groups.id
-    found_in:
-      os: linux
-  - name: parent.supplemental_groups.name
-    found_in:
-      os: linux
-  - name: parent.thread.Ext
-  - name: parent.thread.Ext.call_stack_contains_unbacked
-  - name: parent.thread.id
-  - name: parent.thread.name
-  - name: parent.title
-  - name: parent.tty
-    found_in:
-      os: linux
-  - name: parent.tty.char_device.major
-    found_in:
-      os: linux
-  - name: parent.tty.char_device.minor
-    found_in:
-      os: linux
-  - name: parent.uptime
-  - name: parent.user.id
-  - name: parent.user.name
-  - name: parent.working_directory
-  - name: pe.company
-    found_in:
-      os: win32
-  - name: pe.description
-    found_in:
-      os: win32
-  - name: pe.file_version
-    found_in:
-      os: win32
-  - name: pe.imphash
-    found_in:
-      os: win32
-  - name: pe.original_file_name
-    found_in:
-      os: win32
-  - name: pe.product
-    found_in:
-      os: win32
-  - name: pgid
-  - name: pid
-  - name: ppid
-  - name: previous.args
-  - name: previous.args_count
-  - name: previous.executable
-  - name: real_group.id
-    found_in:
-      os: linux
-  - name: real_group.name
-    found_in:
-      os: linux
-  - name: real_user.id
-  - name: real_user.name
-  - name: saved_group.id
-    found_in:
-      os: linux
-  - name: saved_group.name
-    found_in:
-      os: linux
-  - name: saved_user.id
-    found_in:
-      os: linux
-  - name: saved_user.name
-    found_in:
-      os: linux
-  - name: session_leader.args
-    found_in:
-      os: linux
-  - name: session_leader.args_count
-    found_in:
-      os: linux
-  - name: session_leader.command_line
-    found_in:
-      os: linux
-  - name: session_leader.entity_id
-    found_in:
-      os: linux
-  - name: session_leader.executable
-    found_in:
-      os: linux
-  - name: session_leader.group.id
-    found_in:
-      os: linux
-  - name: session_leader.group.name
-    found_in:
-      os: linux
-  - name: session_leader.interactive
-    found_in:
-      os: linux
-  - name: session_leader.name
-    found_in:
-      os: linux
-  - name: session_leader.parent.entity_id
-    found_in:
-      os: linux
-  - name: session_leader.parent.pid
-    found_in:
-      os: linux
-  - name: session_leader.parent.session_leader.entity_id
-    found_in:
-      os: linux
-  - name: session_leader.parent.session_leader.pid
-    found_in:
-      os: linux
-  - name: session_leader.parent.session_leader.start
-    found_in:
-      os: linux
-  - name: session_leader.parent.start
-    found_in:
-      os: linux
-  - name: session_leader.pid
-    found_in:
-      os: linux
-  - name: session_leader.real_group.id
-    found_in:
-      os: linux
-  - name: session_leader.real_group.name
-    found_in:
-      os: linux
-  - name: session_leader.real_user.id
-    found_in:
-      os: linux
-  - name: session_leader.real_user.name
-    found_in:
-      os: linux
-  - name: session_leader.same_as_process
-    found_in:
-      os: linux
-  - name: session_leader.saved_group.id
-    found_in:
-      os: linux
-  - name: session_leader.saved_group.name
-    found_in:
-      os: linux
-  - name: session_leader.saved_user.id
-    found_in:
-      os: linux
-  - name: session_leader.saved_user.name
-    found_in:
-      os: linux
-  - name: session_leader.start
-    found_in:
-      os: linux
-  - name: session_leader.supplemental_groups.id
-    found_in:
-      os: linux
-  - name: session_leader.supplemental_groups.name
-    found_in:
-      os: linux
-  - name: session_leader.tty
-    found_in:
-      os: linux
-  - name: session_leader.tty.char_device.major
-    found_in:
-      os: linux
-  - name: session_leader.tty.char_device.minor
-    found_in:
-      os: linux
-  - name: session_leader.user.id
-    found_in:
-      os: linux
-  - name: session_leader.user.name
-    found_in:
-      os: linux
-  - name: session_leader.working_directory
-    found_in:
-      os: linux
-  - name: start
-  - name: supplemental_groups.id
-  - name: supplemental_groups.name
-  - name: thread.id
-  - name: thread.name
-  - name: title
-  - name: tty
-  - name: tty.char_device.major
-  - name: tty.char_device.minor
-  - name: tty.columns
-  - name: tty.rows
-  - name: uptime
-  - name: user.id
-  - name: user.name
-  - name: working_directory
-- name: source
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: user
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-    found_in:
-      - os: win32
-  - name: email
-  - name: full_name
-  - name: group.Ext
-  - name: group.Ext.real
-  - name: group.Ext.real.id
-  - name: group.Ext.real.name
-  - name: group.domain
-  - name: group.id
-  - name: group.name
-  - name: hash
-  - name: id
-  - name: name
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: agent.ephemeral_id
+- ecs: agent.id
+- ecs: agent.name
+- ecs: agent.type
+- ecs: agent.version
+- ecs: cloud.account.id
+- ecs: cloud.instance.name
+- ecs: cloud.project.id
+- ecs: cloud.provider
+- ecs: cloud.region
+- ecs: container.id
+- ecs: container.image.hash.all
+- ecs: container.image.name
+- ecs: container.image.tag
+- ecs: container.name
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: ecs.version
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.boot.id
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.pid_ns_ino
+- ecs: host.type
+- ecs: host.uptime
+- ecs: message
+- ecs: orchestrator.cluster.id
+- ecs: orchestrator.cluster.name
+- ecs: orchestrator.namespace
+- ecs: orchestrator.resource.ip
+- ecs: orchestrator.resource.name
+- ecs: orchestrator.resource.parent.type
+- ecs: orchestrator.resource.type
+- ecs: package.name
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.architecture
+- ecs: process.Ext.authentication_id
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.Ext.defense_evasions
+- ecs: process.Ext.device.bus_type
+- ecs: process.Ext.device.dos_name
+- ecs: process.Ext.device.nt_name
+- ecs: process.Ext.device.product_id
+- ecs: process.Ext.device.serial_number
+- ecs: process.Ext.device.vendor_id
+- ecs: process.Ext.device.volume_device_type
+- ecs: process.Ext.dll.Ext
+- ecs: process.Ext.dll.Ext.mapped_address
+- ecs: process.Ext.dll.Ext.mapped_size
+- ecs: process.Ext.dll.name
+- ecs: process.Ext.dll.path
+- ecs: process.Ext.effective_parent.entity_id
+- ecs: process.Ext.effective_parent.executable
+- ecs: process.Ext.effective_parent.name
+- ecs: process.Ext.effective_parent.pid
+- ecs: process.Ext.mitigation_policies
+- ecs: process.Ext.protection
+- ecs: process.Ext.relative_file_creation_time
+- ecs: process.Ext.relative_file_name_modify_time
+- ecs: process.Ext.session
+- ecs: process.Ext.session_info.authentication_package
+- ecs: process.Ext.session_info.client_address
+- ecs: process.Ext.session_info.id
+- ecs: process.Ext.session_info.logon_type
+- ecs: process.Ext.session_info.relative_logon_time
+- ecs: process.Ext.session_info.relative_password_age
+- ecs: process.Ext.session_info.user_flags
+- ecs: process.Ext.token.elevation
+- ecs: process.Ext.token.elevation_level
+- ecs: process.Ext.token.elevation_type
+- ecs: process.Ext.token.integrity_level_name
+- ecs: process.Ext.token.security_attributes
+- ecs: process.Ext.trusted
+- ecs: process.Ext.trusted_descendant
+- ecs: process.args
+- ecs: process.args_count
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.command_line
+- ecs: process.end
+- ecs: process.entity_id
+- ecs: process.entry_leader.args
+- ecs: process.entry_leader.args_count
+- ecs: process.entry_leader.attested_groups.name
+- ecs: process.entry_leader.attested_user.id
+- ecs: process.entry_leader.attested_user.name
+- ecs: process.entry_leader.command_line
+- ecs: process.entry_leader.entity_id
+- ecs: process.entry_leader.entry_meta.source.ip
+- ecs: process.entry_leader.entry_meta.type
+- ecs: process.entry_leader.executable
+- ecs: process.entry_leader.group.id
+- ecs: process.entry_leader.group.name
+- ecs: process.entry_leader.interactive
+- ecs: process.entry_leader.name
+- ecs: process.entry_leader.parent.entity_id
+- ecs: process.entry_leader.parent.pid
+- ecs: process.entry_leader.parent.session_leader.entity_id
+- ecs: process.entry_leader.parent.session_leader.pid
+- ecs: process.entry_leader.parent.session_leader.start
+- ecs: process.entry_leader.parent.start
+- ecs: process.entry_leader.pid
+- ecs: process.entry_leader.real_group.id
+- ecs: process.entry_leader.real_group.name
+- ecs: process.entry_leader.real_user.id
+- ecs: process.entry_leader.real_user.name
+- ecs: process.entry_leader.same_as_process
+- ecs: process.entry_leader.saved_group.id
+- ecs: process.entry_leader.saved_group.name
+- ecs: process.entry_leader.saved_user.id
+- ecs: process.entry_leader.saved_user.name
+- ecs: process.entry_leader.start
+- ecs: process.entry_leader.supplemental_groups.id
+- ecs: process.entry_leader.supplemental_groups.name
+- ecs: process.entry_leader.tty
+- ecs: process.entry_leader.tty.char_device.major
+- ecs: process.entry_leader.tty.char_device.minor
+- ecs: process.entry_leader.user.id
+- ecs: process.entry_leader.user.name
+- ecs: process.entry_leader.working_directory
+- ecs: process.env_vars
+- ecs: process.executable
+- ecs: process.exit_code
+- ecs: process.group.id
+- ecs: process.group.name
+- ecs: process.group_leader.args
+- ecs: process.group_leader.args_count
+- ecs: process.group_leader.command_line
+- ecs: process.group_leader.entity_id
+- ecs: process.group_leader.executable
+- ecs: process.group_leader.group.id
+- ecs: process.group_leader.group.name
+- ecs: process.group_leader.interactive
+- ecs: process.group_leader.name
+- ecs: process.group_leader.pid
+- ecs: process.group_leader.real_group.id
+- ecs: process.group_leader.real_group.name
+- ecs: process.group_leader.real_user.id
+- ecs: process.group_leader.real_user.name
+- ecs: process.group_leader.same_as_process
+- ecs: process.group_leader.saved_group.id
+- ecs: process.group_leader.saved_group.name
+- ecs: process.group_leader.saved_user.id
+- ecs: process.group_leader.saved_user.name
+- ecs: process.group_leader.start
+- ecs: process.group_leader.supplemental_groups.id
+- ecs: process.group_leader.supplemental_groups.name
+- ecs: process.group_leader.tty
+- ecs: process.group_leader.tty.char_device.major
+- ecs: process.group_leader.tty.char_device.minor
+- ecs: process.group_leader.user.id
+- ecs: process.group_leader.user.name
+- ecs: process.group_leader.working_directory
+- ecs: process.hash.md5
+- ecs: process.hash.sha1
+- ecs: process.hash.sha256
+- ecs: process.hash.sha512
+- ecs: process.interactive
+- ecs: process.io
+- ecs: process.io.max_bytes_per_process_exceeded
+- ecs: process.io.text
+- ecs: process.io.total_bytes_captured
+- ecs: process.io.total_bytes_skipped
+- ecs: process.name
+- ecs: process.parent.Ext
+- ecs: process.parent.Ext.architecture
+- ecs: process.parent.Ext.code_signature
+- ecs: process.parent.Ext.code_signature.exists
+- ecs: process.parent.Ext.code_signature.status
+- ecs: process.parent.Ext.code_signature.subject_name
+- ecs: process.parent.Ext.code_signature.trusted
+- ecs: process.parent.Ext.code_signature.valid
+- ecs: process.parent.Ext.protection
+- ecs: process.parent.Ext.real
+- ecs: process.parent.Ext.real.pid
+- ecs: process.parent.Ext.user
+- ecs: process.parent.args
+- ecs: process.parent.args_count
+- ecs: process.parent.code_signature.exists
+- ecs: process.parent.code_signature.signing_id
+- ecs: process.parent.code_signature.status
+- ecs: process.parent.code_signature.subject_name
+- ecs: process.parent.code_signature.team_id
+- ecs: process.parent.code_signature.trusted
+- ecs: process.parent.code_signature.valid
+- ecs: process.parent.command_line
+- ecs: process.parent.entity_id
+- ecs: process.parent.executable
+- ecs: process.parent.exit_code
+- ecs: process.parent.group.id
+- ecs: process.parent.group.name
+- ecs: process.parent.group_leader.entity_id
+- ecs: process.parent.group_leader.pid
+- ecs: process.parent.group_leader.start
+- ecs: process.parent.hash.md5
+- ecs: process.parent.hash.sha1
+- ecs: process.parent.hash.sha256
+- ecs: process.parent.hash.sha512
+- ecs: process.parent.interactive
+- ecs: process.parent.name
+- ecs: process.parent.pe.company
+- ecs: process.parent.pe.description
+- ecs: process.parent.pe.file_version
+- ecs: process.parent.pe.imphash
+- ecs: process.parent.pe.original_file_name
+- ecs: process.parent.pe.product
+- ecs: process.parent.pgid
+- ecs: process.parent.pid
+- ecs: process.parent.ppid
+- ecs: process.parent.real_group.id
+- ecs: process.parent.real_group.name
+- ecs: process.parent.real_user.id
+- ecs: process.parent.real_user.name
+- ecs: process.parent.saved_group.id
+- ecs: process.parent.saved_group.name
+- ecs: process.parent.saved_user.id
+- ecs: process.parent.saved_user.name
+- ecs: process.parent.start
+- ecs: process.parent.supplemental_groups.id
+- ecs: process.parent.supplemental_groups.name
+- ecs: process.parent.thread.Ext
+- ecs: process.parent.thread.Ext.call_stack_contains_unbacked
+- ecs: process.parent.thread.id
+- ecs: process.parent.thread.name
+- ecs: process.parent.title
+- ecs: process.parent.tty
+- ecs: process.parent.tty.char_device.major
+- ecs: process.parent.tty.char_device.minor
+- ecs: process.parent.uptime
+- ecs: process.parent.user.id
+- ecs: process.parent.user.name
+- ecs: process.parent.working_directory
+- ecs: process.pe.company
+- ecs: process.pe.description
+- ecs: process.pe.file_version
+- ecs: process.pe.imphash
+- ecs: process.pe.original_file_name
+- ecs: process.pe.product
+- ecs: process.pgid
+- ecs: process.pid
+- ecs: process.ppid
+- ecs: process.previous.args
+- ecs: process.previous.args_count
+- ecs: process.previous.executable
+- ecs: process.real_group.id
+- ecs: process.real_group.name
+- ecs: process.real_user.id
+- ecs: process.real_user.name
+- ecs: process.saved_group.id
+- ecs: process.saved_group.name
+- ecs: process.saved_user.id
+- ecs: process.saved_user.name
+- ecs: process.session_leader.args
+- ecs: process.session_leader.args_count
+- ecs: process.session_leader.command_line
+- ecs: process.session_leader.entity_id
+- ecs: process.session_leader.executable
+- ecs: process.session_leader.group.id
+- ecs: process.session_leader.group.name
+- ecs: process.session_leader.interactive
+- ecs: process.session_leader.name
+- ecs: process.session_leader.parent.entity_id
+- ecs: process.session_leader.parent.pid
+- ecs: process.session_leader.parent.session_leader.entity_id
+- ecs: process.session_leader.parent.session_leader.pid
+- ecs: process.session_leader.parent.session_leader.start
+- ecs: process.session_leader.parent.start
+- ecs: process.session_leader.pid
+- ecs: process.session_leader.real_group.id
+- ecs: process.session_leader.real_group.name
+- ecs: process.session_leader.real_user.id
+- ecs: process.session_leader.real_user.name
+- ecs: process.session_leader.same_as_process
+- ecs: process.session_leader.saved_group.id
+- ecs: process.session_leader.saved_group.name
+- ecs: process.session_leader.saved_user.id
+- ecs: process.session_leader.saved_user.name
+- ecs: process.session_leader.start
+- ecs: process.session_leader.supplemental_groups.id
+- ecs: process.session_leader.supplemental_groups.name
+- ecs: process.session_leader.tty
+- ecs: process.session_leader.tty.char_device.major
+- ecs: process.session_leader.tty.char_device.minor
+- ecs: process.session_leader.user.id
+- ecs: process.session_leader.user.name
+- ecs: process.session_leader.working_directory
+- ecs: process.start
+- ecs: process.supplemental_groups.id
+- ecs: process.supplemental_groups.name
+- ecs: process.thread.id
+- ecs: process.thread.name
+- ecs: process.title
+- ecs: process.tty
+- ecs: process.tty.char_device.major
+- ecs: process.tty.char_device.minor
+- ecs: process.tty.columns
+- ecs: process.tty.rows
+- ecs: process.uptime
+- ecs: process.user.id
+- ecs: process.user.name
+- ecs: process.working_directory
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name

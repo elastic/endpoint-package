@@ -1,128 +1,110 @@
-- name: '@timestamp'
-- name: message
-- name: agent
-  fields:
-  - name: id
-  - name: type
-  - name: version
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: destination
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: ecs
-  fields:
-  - name: version
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
-- name: group
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: id
-  - name: name
-- name: host
-  fields:
-  - name: architecture
-  - name: domain
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
-  - name: type
-  - name: uptime
-- name: process
-  fields:
-  - name: Ext
-  - name: Ext.ancestry
-  - name: Ext.code_signature
-  - name: Ext.code_signature.exists
-  - name: Ext.code_signature.status
-  - name: Ext.code_signature.subject_name
-  - name: Ext.code_signature.trusted
-  - name: Ext.code_signature.valid
-  - name: code_signature.exists
-  - name: code_signature.signing_id
-  - name: code_signature.status
-  - name: code_signature.subject_name
-  - name: code_signature.team_id
-  - name: code_signature.trusted
-  - name: code_signature.valid
-  - name: entity_id
-  - name: executable
-  - name: name
-  - name: pid
-  - name: thread.id
-- name: source
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: user
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: email
-  - name: full_name
-  - name: group.Ext
-  - name: group.Ext.real
-  - name: group.Ext.real.id
-  - name: group.Ext.real.name
-  - name: group.domain
-  - name: group.id
-  - name: group.name
-  - name: hash
-  - name: id
-  - name: name
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: agent.id
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: ecs.version
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime
+- ecs: message
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.entity_id
+- ecs: process.executable
+- ecs: process.name
+- ecs: process.pid
+- ecs: process.thread.id
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name

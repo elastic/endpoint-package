@@ -1,221 +1,205 @@
-- name: '@timestamp'
-- name: message
-- name: Effective_process
-  fields:
-  - name: entity_id
-  - name: executable
-  - name: name
-  - name: pid
-- name: agent
-  fields:
-  - name: id
-  - name: type
-  - name: version
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: destination
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: ecs
-  fields:
-  - name: version
-- name: event
-  fields:
-  - name: Ext
-  - name: Ext.correlation
-  - name: Ext.correlation.id
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
-- name: file
-  fields:
-  - name: Ext
-  - name: Ext.device.bus_type
-  - name: Ext.device.dos_name
-    found_in_event:
-      file_create: win32
-      file_modified: win32
-      file_delete: win32
-  - name: Ext.device.nt_name
-    found_in_event:
-      file_create: win32
-      file_modified: win32
-      file_delete: win32
-  - name: Ext.device.product_id
-  - name: Ext.device.serial_number
-  - name: Ext.device.vendor_id
-  - name: Ext.device.volume_device_type
-  - name: Ext.entropy
-  - name: Ext.header_bytes
-  - name: Ext.header_data
-  - name: Ext.malware_signature
-  - name: Ext.malware_signature.all_names
-  - name: Ext.malware_signature.identifier
-  - name: Ext.malware_signature.primary
-  - name: Ext.malware_signature.primary.matches
-  - name: Ext.malware_signature.primary.signature
-  - name: Ext.malware_signature.primary.signature.hash
-  - name: Ext.malware_signature.primary.signature.hash.sha256
-  - name: Ext.malware_signature.primary.signature.id
-  - name: Ext.malware_signature.primary.signature.name
-  - name: Ext.malware_signature.secondary
-  - name: Ext.malware_signature.version
-  - name: Ext.monotonic_id
-  - name: Ext.original
-  - name: Ext.original.gid
-  - name: Ext.original.group
-  - name: Ext.original.mode
-  - name: Ext.original.name
-  - name: Ext.original.owner
-  - name: Ext.original.path
-  - name: Ext.original.uid
-  - name: Ext.windows
-  - name: Ext.windows.zone_identifier
-  - name: accessed
-  - name: attributes
-  - name: created
-  - name: ctime
-  - name: device
-  - name: directory
-  - name: drive_letter
-  - name: extension
-  - name: gid
-  - name: group
-  - name: hash.md5
-  - name: hash.sha1
-  - name: hash.sha256
-  - name: hash.sha512
-  - name: inode
-  - name: mime_type
-  - name: mode
-  - name: mtime
-  - name: name
-  - name: owner
-  - name: path
-  - name: pe.company
-  - name: pe.description
-  - name: pe.file_version
-  - name: pe.imphash
-  - name: pe.original_file_name
-  - name: pe.product
-  - name: size
-  - name: target_path
-  - name: type
-  - name: uid
-- name: group
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: id
-  - name: name
-- name: host
-  fields:
-  - name: architecture
-  - name: domain
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
-  - name: type
-  - name: uptime
-- name: process
-  fields:
-  - name: Ext
-  - name: Ext.ancestry
-  - name: Ext.code_signature
-  - name: Ext.code_signature.exists
-  - name: Ext.code_signature.status
-  - name: Ext.code_signature.subject_name
-  - name: Ext.code_signature.trusted
-  - name: Ext.code_signature.valid
-  - name: args_count
-  - name: code_signature.exists
-  - name: code_signature.signing_id
-  - name: code_signature.status
-  - name: code_signature.subject_name
-  - name: code_signature.team_id
-  - name: code_signature.trusted
-  - name: code_signature.valid
-  - name: entity_id
-  - name: entry_leader.entity_id
-  - name: entry_leader.parent.entity_id
-  - name: executable
-  - name: group_leader.entity_id
-  - name: name
-  - name: parent.entity_id
-  - name: parent.group_leader.entity_id
-  - name: parent.pid
-  - name: pid
-  - name: ppid
-  - name: session_leader.entity_id
-  - name: thread.id
-- name: source
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-- name: user
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: email
-  - name: full_name
-  - name: group.Ext
-  - name: group.Ext.real
-  - name: group.Ext.real.id
-  - name: group.Ext.real.name
-  - name: group.domain
-  - name: group.id
-  - name: group.name
-  - name: hash
-  - name: id
-  - name: name
+definitions:
+- name: file_created
+  values:
+  - name: event.type
+    value: file
+fields:
+- ecs: '@timestamp'
+- ecs: Effective_process.entity_id
+- ecs: Effective_process.executable
+- ecs: Effective_process.name
+- ecs: Effective_process.pid
+- ecs: agent.id
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: ecs.version
+- ecs: event.Ext
+- ecs: event.Ext.correlation
+- ecs: event.Ext.correlation.id
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: file.Ext
+- ecs: file.Ext.device.bus_type
+  found_in_event:
+  - name: file_create
+    os:
+    - win32
+  - name: file_modify
+    os:
+    - win32
+  - name: file_delete
+    os:
+    - win32
+- ecs: file.Ext.device.dos_name
+- ecs: file.Ext.device.nt_name
+- ecs: file.Ext.device.product_id
+- ecs: file.Ext.device.serial_number
+- ecs: file.Ext.device.vendor_id
+- ecs: file.Ext.device.volume_device_type
+- ecs: file.Ext.entropy
+- ecs: file.Ext.header_bytes
+- ecs: file.Ext.header_data
+- ecs: file.Ext.malware_signature
+- ecs: file.Ext.malware_signature.all_names
+- ecs: file.Ext.malware_signature.identifier
+- ecs: file.Ext.malware_signature.primary
+- ecs: file.Ext.malware_signature.primary.matches
+- ecs: file.Ext.malware_signature.primary.signature
+- ecs: file.Ext.malware_signature.primary.signature.hash
+- ecs: file.Ext.malware_signature.primary.signature.hash.sha256
+- ecs: file.Ext.malware_signature.primary.signature.id
+- ecs: file.Ext.malware_signature.primary.signature.name
+- ecs: file.Ext.malware_signature.secondary
+- ecs: file.Ext.malware_signature.version
+- ecs: file.Ext.monotonic_id
+- ecs: file.Ext.original
+- ecs: file.Ext.original.gid
+- ecs: file.Ext.original.group
+- ecs: file.Ext.original.mode
+- ecs: file.Ext.original.name
+- ecs: file.Ext.original.owner
+- ecs: file.Ext.original.path
+- ecs: file.Ext.original.uid
+- ecs: file.Ext.windows
+- ecs: file.Ext.windows.zone_identifier
+- ecs: file.accessed
+- ecs: file.attributes
+- ecs: file.created
+- ecs: file.ctime
+- ecs: file.device
+- ecs: file.directory
+- ecs: file.drive_letter
+- ecs: file.extension
+- ecs: file.gid
+- ecs: file.group
+- ecs: file.hash.md5
+- ecs: file.hash.sha1
+- ecs: file.hash.sha256
+- ecs: file.hash.sha512
+- ecs: file.inode
+- ecs: file.mime_type
+- ecs: file.mode
+- ecs: file.mtime
+- ecs: file.name
+- ecs: file.owner
+- ecs: file.path
+- ecs: file.pe.company
+- ecs: file.pe.description
+- ecs: file.pe.file_version
+- ecs: file.pe.imphash
+- ecs: file.pe.original_file_name
+- ecs: file.pe.product
+- ecs: file.size
+- ecs: file.target_path
+- ecs: file.type
+- ecs: file.uid
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime
+- ecs: message
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.args_count
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.entity_id
+- ecs: process.entry_leader.entity_id
+- ecs: process.entry_leader.parent.entity_id
+- ecs: process.executable
+- ecs: process.group_leader.entity_id
+- ecs: process.name
+- ecs: process.parent.entity_id
+- ecs: process.parent.group_leader.entity_id
+- ecs: process.parent.pid
+- ecs: process.pid
+- ecs: process.ppid
+- ecs: process.session_leader.entity_id
+- ecs: process.thread.id
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name

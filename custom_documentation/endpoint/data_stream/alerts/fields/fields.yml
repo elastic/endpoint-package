@@ -1,1540 +1,1492 @@
-- name: '@timestamp'
-- name: Events
-- name: message
-- name: Endpoint
-  fields:
-  - name: policy
-  - name: policy.applied
-  - name: policy.applied.artifacts
-  - name: policy.applied.artifacts.global
-  - name: policy.applied.artifacts.global.identifiers
-  - name: policy.applied.artifacts.global.identifiers.name
-  - name: policy.applied.artifacts.global.identifiers.sha256
-  - name: policy.applied.artifacts.global.version
-  - name: policy.applied.artifacts.user
-  - name: policy.applied.artifacts.user.identifiers
-  - name: policy.applied.artifacts.user.identifiers.name
-  - name: policy.applied.artifacts.user.identifiers.sha256
-  - name: policy.applied.artifacts.user.version
-  - name: policy.applied.id
-  - name: policy.applied.name
-  - name: policy.applied.status
-  - name: policy.applied.version
-- name: Memory_protection
-  fields:
-  - name: cross_session
-  - name: feature
-  - name: parent_to_child
-  - name: self_injection
-  - name: thread_count
-  - name: unique_key_v1
-- name: Ransomware
-  fields:
-  - name: child_processes.executable
-  - name: child_processes.feature
-  - name: child_processes.files
-  - name: child_processes.files.data
-  - name: child_processes.files.entropy
-  - name: child_processes.files.extension
-  - name: child_processes.files.metrics
-  - name: child_processes.files.operation
-  - name: child_processes.files.original.extension
-  - name: child_processes.files.original.path
-  - name: child_processes.files.path
-  - name: child_processes.files.score
-  - name: child_processes.pid
-  - name: child_processes.score
-  - name: child_processes.version
-  - name: executable
-  - name: feature
-  - name: files
-  - name: files.data
-  - name: files.entropy
-  - name: files.extension
-  - name: files.metrics
-  - name: files.operation
-  - name: files.original.extension
-  - name: files.original.path
-  - name: files.path
-  - name: files.score
-  - name: pid
-  - name: score
-  - name: version
-- name: Responses
-  fields:
-  - name: '@timestamp'
-  - name: action
-  - name: action.action
-  - name: action.field
-  - name: action.file.attributes
-  - name: action.file.path
-  - name: action.source.attributes
-  - name: action.source.path
-  - name: action.state
-  - name: action.tree
-  - name: message
-  - name: process
-  - name: process.entity_id
-  - name: process.name
-  - name: process.pid
-  - name: result
-- name: Target
-  fields:
-  - name: dll.Ext
-  - name: dll.Ext.code_signature
-  - name: dll.Ext.code_signature.exists
-  - name: dll.Ext.code_signature.status
-  - name: dll.Ext.code_signature.subject_name
-  - name: dll.Ext.code_signature.trusted
-  - name: dll.Ext.code_signature.valid
-  - name: dll.Ext.compile_time
-  - name: dll.Ext.malware_classification.features
-  - name: dll.Ext.malware_classification.features.data.buffer
-  - name: dll.Ext.malware_classification.features.data.decompressed_size
-  - name: dll.Ext.malware_classification.features.data.encoding
-  - name: dll.Ext.malware_classification.identifier
-  - name: dll.Ext.malware_classification.score
-  - name: dll.Ext.malware_classification.threshold
-  - name: dll.Ext.malware_classification.upx_packed
-  - name: dll.Ext.malware_classification.version
-  - name: dll.Ext.mapped_address
-  - name: dll.Ext.mapped_size
-  - name: dll.code_signature.exists
-  - name: dll.code_signature.signing_id
-  - name: dll.code_signature.status
-  - name: dll.code_signature.subject_name
-  - name: dll.code_signature.team_id
-  - name: dll.code_signature.trusted
-  - name: dll.code_signature.valid
-  - name: dll.hash.md5
-  - name: dll.hash.sha1
-  - name: dll.hash.sha256
-  - name: dll.hash.sha512
-  - name: dll.name
-  - name: dll.path
-  - name: dll.pe.company
-  - name: dll.pe.description
-  - name: dll.pe.file_version
-  - name: dll.pe.imphash
-  - name: dll.pe.original_file_name
-  - name: dll.pe.product
-  - name: process.Ext
-  - name: process.Ext.ancestry
-  - name: process.Ext.architecture
-  - name: process.Ext.authentication_id
-  - name: process.Ext.code_signature
-  - name: process.Ext.code_signature.exists
-  - name: process.Ext.code_signature.status
-  - name: process.Ext.code_signature.subject_name
-  - name: process.Ext.code_signature.trusted
-  - name: process.Ext.code_signature.valid
-  - name: process.Ext.dll.Ext
-  - name: process.Ext.dll.Ext.code_signature
-  - name: process.Ext.dll.Ext.code_signature.exists
-  - name: process.Ext.dll.Ext.code_signature.status
-  - name: process.Ext.dll.Ext.code_signature.subject_name
-  - name: process.Ext.dll.Ext.code_signature.trusted
-  - name: process.Ext.dll.Ext.code_signature.valid
-  - name: process.Ext.dll.Ext.compile_time
-  - name: process.Ext.dll.Ext.mapped_address
-  - name: process.Ext.dll.Ext.mapped_size
-  - name: process.Ext.dll.code_signature.exists
-  - name: process.Ext.dll.code_signature.signing_id
-  - name: process.Ext.dll.code_signature.status
-  - name: process.Ext.dll.code_signature.subject_name
-  - name: process.Ext.dll.code_signature.team_id
-  - name: process.Ext.dll.code_signature.trusted
-  - name: process.Ext.dll.code_signature.valid
-  - name: process.Ext.dll.hash.md5
-  - name: process.Ext.dll.hash.sha1
-  - name: process.Ext.dll.hash.sha256
-  - name: process.Ext.dll.hash.sha512
-  - name: process.Ext.dll.name
-  - name: process.Ext.dll.path
-  - name: process.Ext.dll.pe.company
-  - name: process.Ext.dll.pe.description
-  - name: process.Ext.dll.pe.file_version
-  - name: process.Ext.dll.pe.imphash
-  - name: process.Ext.dll.pe.original_file_name
-  - name: process.Ext.dll.pe.product
-  - name: process.Ext.malware_classification.features
-  - name: process.Ext.malware_classification.features.data.buffer
-  - name: process.Ext.malware_classification.features.data.decompressed_size
-  - name: process.Ext.malware_classification.features.data.encoding
-  - name: process.Ext.malware_classification.identifier
-  - name: process.Ext.malware_classification.score
-  - name: process.Ext.malware_classification.threshold
-  - name: process.Ext.malware_classification.upx_packed
-  - name: process.Ext.malware_classification.version
-  - name: process.Ext.memory_region.allocation_base
-  - name: process.Ext.memory_region.allocation_protection
-  - name: process.Ext.memory_region.allocation_size
-  - name: process.Ext.memory_region.allocation_type
-  - name: process.Ext.memory_region.bytes_address
-  - name: process.Ext.memory_region.bytes_allocation_offset
-  - name: process.Ext.memory_region.bytes_compressed
-  - name: process.Ext.memory_region.bytes_compressed_present
-  - name: process.Ext.memory_region.malware_signature.all_names
-  - name: process.Ext.memory_region.malware_signature.identifier
-  - name: process.Ext.memory_region.malware_signature.primary
-  - name: process.Ext.memory_region.malware_signature.primary.matches
-  - name: process.Ext.memory_region.malware_signature.primary.signature.hash
-  - name: process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
-  - name: process.Ext.memory_region.malware_signature.primary.signature.id
-  - name: process.Ext.memory_region.malware_signature.primary.signature.name
-  - name: process.Ext.memory_region.malware_signature.version
-  - name: process.Ext.memory_region.mapped_path
-  - name: process.Ext.memory_region.mapped_pe.company
-  - name: process.Ext.memory_region.mapped_pe.description
-  - name: process.Ext.memory_region.mapped_pe.file_version
-  - name: process.Ext.memory_region.mapped_pe.imphash
-  - name: process.Ext.memory_region.mapped_pe.original_file_name
-  - name: process.Ext.memory_region.mapped_pe.product
-  - name: process.Ext.memory_region.mapped_pe_detected
-  - name: process.Ext.memory_region.memory_pe.company
-  - name: process.Ext.memory_region.memory_pe.description
-  - name: process.Ext.memory_region.memory_pe.file_version
-  - name: process.Ext.memory_region.memory_pe.imphash
-  - name: process.Ext.memory_region.memory_pe.original_file_name
-  - name: process.Ext.memory_region.memory_pe.product
-  - name: process.Ext.memory_region.memory_pe_detected
-  - name: process.Ext.memory_region.region_base
-  - name: process.Ext.memory_region.region_protection
-  - name: process.Ext.memory_region.region_size
-  - name: process.Ext.memory_region.region_state
-  - name: process.Ext.memory_region.strings
-  - name: process.Ext.protection
-  - name: process.Ext.services
-  - name: process.Ext.session
-  - name: process.Ext.token.domain
-  - name: process.Ext.token.elevation
-  - name: process.Ext.token.elevation_type
-  - name: process.Ext.token.impersonation_level
-  - name: process.Ext.token.integrity_level
-  - name: process.Ext.token.integrity_level_name
-  - name: process.Ext.token.is_appcontainer
-  - name: process.Ext.token.privileges
-  - name: process.Ext.token.privileges.description
-  - name: process.Ext.token.privileges.enabled
-  - name: process.Ext.token.privileges.name
-  - name: process.Ext.token.sid
-  - name: process.Ext.token.type
-  - name: process.Ext.token.user
-  - name: process.Ext.user
-  - name: process.args
-  - name: process.args_count
-  - name: process.code_signature.exists
-  - name: process.code_signature.signing_id
-  - name: process.code_signature.status
-  - name: process.code_signature.subject_name
-  - name: process.code_signature.team_id
-  - name: process.code_signature.trusted
-  - name: process.code_signature.valid
-  - name: process.command_line
-  - name: process.entity_id
-  - name: process.executable
-  - name: process.exit_code
-  - name: process.hash.md5
-  - name: process.hash.sha1
-  - name: process.hash.sha256
-  - name: process.hash.sha512
-  - name: process.name
-  - name: process.parent.Ext
-  - name: process.parent.Ext.architecture
-  - name: process.parent.Ext.code_signature
-  - name: process.parent.Ext.code_signature.exists
-  - name: process.parent.Ext.code_signature.status
-  - name: process.parent.Ext.code_signature.subject_name
-  - name: process.parent.Ext.code_signature.trusted
-  - name: process.parent.Ext.code_signature.valid
-  - name: process.parent.Ext.dll.Ext
-  - name: process.parent.Ext.dll.Ext.code_signature
-  - name: process.parent.Ext.dll.Ext.code_signature.exists
-  - name: process.parent.Ext.dll.Ext.code_signature.status
-  - name: process.parent.Ext.dll.Ext.code_signature.subject_name
-  - name: process.parent.Ext.dll.Ext.code_signature.trusted
-  - name: process.parent.Ext.dll.Ext.code_signature.valid
-  - name: process.parent.Ext.dll.Ext.compile_time
-  - name: process.parent.Ext.dll.Ext.mapped_address
-  - name: process.parent.Ext.dll.Ext.mapped_size
-  - name: process.parent.Ext.dll.code_signature.exists
-  - name: process.parent.Ext.dll.code_signature.signing_id
-  - name: process.parent.Ext.dll.code_signature.status
-  - name: process.parent.Ext.dll.code_signature.subject_name
-  - name: process.parent.Ext.dll.code_signature.team_id
-  - name: process.parent.Ext.dll.code_signature.trusted
-  - name: process.parent.Ext.dll.code_signature.valid
-  - name: process.parent.Ext.dll.hash.md5
-  - name: process.parent.Ext.dll.hash.sha1
-  - name: process.parent.Ext.dll.hash.sha256
-  - name: process.parent.Ext.dll.hash.sha512
-  - name: process.parent.Ext.dll.name
-  - name: process.parent.Ext.dll.path
-  - name: process.parent.Ext.dll.pe.company
-  - name: process.parent.Ext.dll.pe.description
-  - name: process.parent.Ext.dll.pe.file_version
-  - name: process.parent.Ext.dll.pe.imphash
-  - name: process.parent.Ext.dll.pe.original_file_name
-  - name: process.parent.Ext.dll.pe.product
-  - name: process.parent.Ext.protection
-  - name: process.parent.Ext.real
-  - name: process.parent.Ext.real.pid
-  - name: process.parent.Ext.token.domain
-  - name: process.parent.Ext.token.elevation
-  - name: process.parent.Ext.token.elevation_type
-  - name: process.parent.Ext.token.impersonation_level
-  - name: process.parent.Ext.token.integrity_level
-  - name: process.parent.Ext.token.integrity_level_name
-  - name: process.parent.Ext.token.is_appcontainer
-  - name: process.parent.Ext.token.privileges
-  - name: process.parent.Ext.token.privileges.description
-  - name: process.parent.Ext.token.privileges.enabled
-  - name: process.parent.Ext.token.privileges.name
-  - name: process.parent.Ext.token.sid
-  - name: process.parent.Ext.token.type
-  - name: process.parent.Ext.token.user
-  - name: process.parent.Ext.user
-  - name: process.parent.args
-  - name: process.parent.args_count
-  - name: process.parent.code_signature.exists
-  - name: process.parent.code_signature.signing_id
-  - name: process.parent.code_signature.status
-  - name: process.parent.code_signature.subject_name
-  - name: process.parent.code_signature.team_id
-  - name: process.parent.code_signature.trusted
-  - name: process.parent.code_signature.valid
-  - name: process.parent.command_line
-  - name: process.parent.entity_id
-  - name: process.parent.executable
-  - name: process.parent.exit_code
-  - name: process.parent.hash.md5
-  - name: process.parent.hash.sha1
-  - name: process.parent.hash.sha256
-  - name: process.parent.hash.sha512
-  - name: process.parent.name
-  - name: process.parent.pe.company
-  - name: process.parent.pe.description
-  - name: process.parent.pe.file_version
-  - name: process.parent.pe.imphash
-  - name: process.parent.pe.original_file_name
-  - name: process.parent.pe.product
-  - name: process.parent.pgid
-  - name: process.parent.pid
-  - name: process.parent.ppid
-  - name: process.parent.start
-  - name: process.parent.thread.id
-  - name: process.parent.thread.name
-  - name: process.parent.title
-  - name: process.parent.uptime
-  - name: process.parent.working_directory
-  - name: process.pe.company
-  - name: process.pe.description
-  - name: process.pe.file_version
-  - name: process.pe.imphash
-  - name: process.pe.original_file_name
-  - name: process.pe.product
-  - name: process.pgid
-  - name: process.pid
-  - name: process.ppid
-  - name: process.start
-  - name: process.thread.Ext
-  - name: process.thread.Ext.call_stack
-  - name: process.thread.Ext.call_stack.instruction_pointer
-  - name: process.thread.Ext.call_stack.memory_section.memory_address
-  - name: process.thread.Ext.call_stack.memory_section.memory_size
-  - name: process.thread.Ext.call_stack.memory_section.protection
-  - name: process.thread.Ext.call_stack.module_name
-  - name: process.thread.Ext.call_stack.module_path
-  - name: process.thread.Ext.call_stack.rva
-  - name: process.thread.Ext.call_stack.symbol_info
-  - name: process.thread.Ext.call_stack_final_user_module
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature.exists
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature.status
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
-  - name: process.thread.Ext.call_stack_final_user_module.code_signature.valid
-  - name: process.thread.Ext.call_stack_final_user_module.hash
-  - name: process.thread.Ext.call_stack_final_user_module.hash.sha256
-  - name: process.thread.Ext.call_stack_final_user_module.name
-  - name: process.thread.Ext.call_stack_final_user_module.path
-  - name: process.thread.Ext.call_stack_summary
-  - name: process.thread.Ext.parameter
-  - name: process.thread.Ext.parameter_bytes_compressed
-  - name: process.thread.Ext.parameter_bytes_compressed_present
-  - name: process.thread.Ext.service
-  - name: process.thread.Ext.start
-  - name: process.thread.Ext.start_address
-  - name: process.thread.Ext.start_address_allocation_offset
-  - name: process.thread.Ext.start_address_bytes
-  - name: process.thread.Ext.start_address_bytes_disasm
-  - name: process.thread.Ext.start_address_bytes_disasm_hash
-  - name: process.thread.Ext.start_address_module
-  - name: process.thread.Ext.token.domain
-  - name: process.thread.Ext.token.elevation
-  - name: process.thread.Ext.token.elevation_type
-  - name: process.thread.Ext.token.impersonation_level
-  - name: process.thread.Ext.token.integrity_level
-  - name: process.thread.Ext.token.integrity_level_name
-  - name: process.thread.Ext.token.is_appcontainer
-  - name: process.thread.Ext.token.privileges
-  - name: process.thread.Ext.token.privileges.description
-  - name: process.thread.Ext.token.privileges.enabled
-  - name: process.thread.Ext.token.privileges.name
-  - name: process.thread.Ext.token.sid
-  - name: process.thread.Ext.token.type
-  - name: process.thread.Ext.token.user
-  - name: process.thread.Ext.uptime
-  - name: process.thread.id
-  - name: process.thread.name
-  - name: process.title
-  - name: process.uptime
-  - name: process.working_directory
-- name: agent
-  fields:
-  - name: ephemeral_id
-  - name: id
-  - name: name
-  - name: type
-  - name: version
-- name: cloud
-  fields:
-  - name: account.id
-  - name: instance.name
-  - name: project.id
-  - name: provider
-  - name: region
-- name: container
-  fields:
-  - name: id
-  - name: image.name
-  - name: image.tag
-  - name: name
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: destination
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-  - name: ip
-- name: dll
-  fields:
-  - name: Ext
-  - name: Ext.code_signature
-  - name: Ext.code_signature.exists
-  - name: Ext.code_signature.status
-  - name: Ext.code_signature.subject_name
-  - name: Ext.code_signature.trusted
-  - name: Ext.code_signature.valid
-  - name: Ext.compile_time
-  - name: Ext.malware_classification.features
-  - name: Ext.malware_classification.features.data.buffer
-  - name: Ext.malware_classification.features.data.decompressed_size
-  - name: Ext.malware_classification.features.data.encoding
-  - name: Ext.malware_classification.identifier
-  - name: Ext.malware_classification.score
-  - name: Ext.malware_classification.threshold
-  - name: Ext.malware_classification.upx_packed
-  - name: Ext.malware_classification.version
-  - name: Ext.mapped_address
-  - name: Ext.mapped_size
-  - name: code_signature.exists
-  - name: code_signature.signing_id
-  - name: code_signature.status
-  - name: code_signature.subject_name
-  - name: code_signature.team_id
-  - name: code_signature.trusted
-  - name: code_signature.valid
-  - name: hash.md5
-  - name: hash.sha1
-  - name: hash.sha256
-  - name: hash.sha512
-  - name: name
-  - name: path
-  - name: pe.company
-  - name: pe.description
-  - name: pe.file_version
-  - name: pe.imphash
-  - name: pe.original_file_name
-  - name: pe.product
-- name: dns
-  fields:
-  - name: question.name
-  - name: question.type
-- name: ecs
-  fields:
-  - name: version
-- name: elastic
-  fields:
-  - name: agent
-  - name: agent.id
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: risk_score
-  - name: sequence
-  - name: severity
-  - name: type
-- name: file
-  fields:
-  - name: Ext
-  - name: Ext.code_signature
-  - name: Ext.code_signature.exists
-  - name: Ext.code_signature.status
-  - name: Ext.code_signature.subject_name
-  - name: Ext.code_signature.trusted
-  - name: Ext.code_signature.valid
-  - name: Ext.entry_modified
-  - name: Ext.macro.code_page
-  - name: Ext.macro.collection
-  - name: Ext.macro.collection.hash.md5
-  - name: Ext.macro.collection.hash.sha1
-  - name: Ext.macro.collection.hash.sha256
-  - name: Ext.macro.collection.hash.sha512
-  - name: Ext.macro.errors
-  - name: Ext.macro.errors.count
-  - name: Ext.macro.errors.error_type
-  - name: Ext.macro.file_extension
-  - name: Ext.macro.project_file
-  - name: Ext.macro.project_file.hash.md5
-  - name: Ext.macro.project_file.hash.sha1
-  - name: Ext.macro.project_file.hash.sha256
-  - name: Ext.macro.project_file.hash.sha512
-  - name: Ext.macro.stream
-  - name: Ext.macro.stream.hash.md5
-  - name: Ext.macro.stream.hash.sha1
-  - name: Ext.macro.stream.hash.sha256
-  - name: Ext.macro.stream.hash.sha512
-  - name: Ext.macro.stream.name
-  - name: Ext.macro.stream.raw_code
-  - name: Ext.macro.stream.raw_code_size
-  - name: Ext.malware_classification.features
-  - name: Ext.malware_classification.features.data.buffer
-  - name: Ext.malware_classification.features.data.decompressed_size
-  - name: Ext.malware_classification.features.data.encoding
-  - name: Ext.malware_classification.identifier
-  - name: Ext.malware_classification.score
-  - name: Ext.malware_classification.threshold
-  - name: Ext.malware_classification.upx_packed
-  - name: Ext.malware_classification.version
-  - name: Ext.original
-  - name: Ext.original.gid
-  - name: Ext.original.group
-  - name: Ext.original.mode
-  - name: Ext.original.name
-  - name: Ext.original.owner
-  - name: Ext.original.path
-  - name: Ext.original.uid
-  - name: Ext.quarantine_message
-  - name: Ext.quarantine_path
-  - name: Ext.quarantine_result
-  - name: Ext.temp_file_path
-  - name: Ext.windows
-  - name: Ext.windows.zone_identifier
-  - name: accessed
-  - name: attributes
-  - name: code_signature.exists
-  - name: code_signature.signing_id
-  - name: code_signature.status
-  - name: code_signature.subject_name
-  - name: code_signature.team_id
-  - name: code_signature.trusted
-  - name: code_signature.valid
-  - name: created
-  - name: ctime
-  - name: device
-  - name: directory
-  - name: drive_letter
-  - name: extension
-  - name: gid
-  - name: group
-  - name: hash.md5
-  - name: hash.sha1
-  - name: hash.sha256
-  - name: hash.sha512
-  - name: inode
-  - name: mime_type
-  - name: mode
-  - name: mtime
-  - name: name
-  - name: owner
-  - name: path
-  - name: pe.Ext.dotnet
-  - name: pe.Ext.sections
-  - name: pe.Ext.sections.hash.md5
-  - name: pe.Ext.sections.hash.sha256
-  - name: pe.Ext.sections.name
-  - name: pe.Ext.streams
-  - name: pe.Ext.streams.hash.md5
-  - name: pe.Ext.streams.hash.sha256
-  - name: pe.Ext.streams.name
-  - name: pe.company
-  - name: pe.description
-  - name: pe.file_version
-  - name: pe.imphash
-  - name: pe.original_file_name
-  - name: pe.product
-  - name: size
-  - name: target_path
-  - name: type
-  - name: uid
-- name: group
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: id
-  - name: name
-- name: host
-  fields:
-  - name: architecture
-  - name: boot.id
-  - name: domain
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
-  - name: pid_ns_ino
-  - name: type
-  - name: uptime
-  - name: user.Ext
-  - name: user.Ext.real
-  - name: user.Ext.real.id
-  - name: user.Ext.real.name
-  - name: user.domain
-  - name: user.email
-  - name: user.full_name
-  - name: user.group.Ext
-  - name: user.group.Ext.real
-  - name: user.group.Ext.real.id
-  - name: user.group.Ext.real.name
-  - name: user.group.domain
-  - name: user.group.id
-  - name: user.group.name
-  - name: user.hash
-  - name: user.id
-  - name: user.name
-- name: orchestrator
-  fields:
-  - name: cluster.name
-  - name: namespace
-  - name: resource.name
-  - name: resource.type
-- name: process
-  fields:
-  - name: Ext
-  - name: Ext.ancestry
-  - name: Ext.architecture
-  - name: Ext.authentication_id
-  - name: Ext.code_signature
-  - name: Ext.code_signature.exists
-  - name: Ext.code_signature.status
-  - name: Ext.code_signature.subject_name
-  - name: Ext.code_signature.trusted
-  - name: Ext.code_signature.valid
-  - name: Ext.dll.Ext
-  - name: Ext.dll.Ext.code_signature
-  - name: Ext.dll.Ext.code_signature.exists
-  - name: Ext.dll.Ext.code_signature.status
-  - name: Ext.dll.Ext.code_signature.subject_name
-  - name: Ext.dll.Ext.code_signature.trusted
-  - name: Ext.dll.Ext.code_signature.valid
-  - name: Ext.dll.Ext.compile_time
-  - name: Ext.dll.Ext.mapped_address
-  - name: Ext.dll.Ext.mapped_size
-  - name: Ext.dll.code_signature.exists
-  - name: Ext.dll.code_signature.signing_id
-  - name: Ext.dll.code_signature.status
-  - name: Ext.dll.code_signature.subject_name
-  - name: Ext.dll.code_signature.team_id
-  - name: Ext.dll.code_signature.trusted
-  - name: Ext.dll.code_signature.valid
-  - name: Ext.dll.hash.md5
-  - name: Ext.dll.hash.sha1
-  - name: Ext.dll.hash.sha256
-  - name: Ext.dll.hash.sha512
-  - name: Ext.dll.name
-  - name: Ext.dll.path
-  - name: Ext.dll.pe.company
-  - name: Ext.dll.pe.description
-  - name: Ext.dll.pe.file_version
-  - name: Ext.dll.pe.imphash
-  - name: Ext.dll.pe.original_file_name
-  - name: Ext.dll.pe.product
-  - name: Ext.malware_classification.features
-  - name: Ext.malware_classification.features.data.buffer
-  - name: Ext.malware_classification.features.data.decompressed_size
-  - name: Ext.malware_classification.features.data.encoding
-  - name: Ext.malware_classification.identifier
-  - name: Ext.malware_classification.score
-  - name: Ext.malware_classification.threshold
-  - name: Ext.malware_classification.upx_packed
-  - name: Ext.malware_classification.version
-  - name: Ext.memory_region.allocation_base
-  - name: Ext.memory_region.allocation_protection
-  - name: Ext.memory_region.allocation_size
-  - name: Ext.memory_region.allocation_type
-  - name: Ext.memory_region.bytes_address
-  - name: Ext.memory_region.bytes_allocation_offset
-  - name: Ext.memory_region.bytes_compressed
-  - name: Ext.memory_region.bytes_compressed_present
-  - name: Ext.memory_region.malware_signature.all_names
-  - name: Ext.memory_region.malware_signature.identifier
-  - name: Ext.memory_region.malware_signature.primary
-  - name: Ext.memory_region.malware_signature.primary.matches
-  - name: Ext.memory_region.malware_signature.primary.signature.hash
-  - name: Ext.memory_region.malware_signature.primary.signature.hash.sha256
-  - name: Ext.memory_region.malware_signature.primary.signature.id
-  - name: Ext.memory_region.malware_signature.primary.signature.name
-  - name: Ext.memory_region.malware_signature.version
-  - name: Ext.memory_region.mapped_path
-  - name: Ext.memory_region.mapped_pe.company
-  - name: Ext.memory_region.mapped_pe.description
-  - name: Ext.memory_region.mapped_pe.file_version
-  - name: Ext.memory_region.mapped_pe.imphash
-  - name: Ext.memory_region.mapped_pe.original_file_name
-  - name: Ext.memory_region.mapped_pe.product
-  - name: Ext.memory_region.mapped_pe_detected
-  - name: Ext.memory_region.memory_pe.company
-  - name: Ext.memory_region.memory_pe.description
-  - name: Ext.memory_region.memory_pe.file_version
-  - name: Ext.memory_region.memory_pe.imphash
-  - name: Ext.memory_region.memory_pe.original_file_name
-  - name: Ext.memory_region.memory_pe.product
-  - name: Ext.memory_region.memory_pe_detected
-  - name: Ext.memory_region.region_base
-  - name: Ext.memory_region.region_protection
-  - name: Ext.memory_region.region_size
-  - name: Ext.memory_region.region_state
-  - name: Ext.memory_region.strings
-  - name: Ext.protection
-  - name: Ext.services
-  - name: Ext.session
-  - name: Ext.token.domain
-  - name: Ext.token.elevation
-  - name: Ext.token.elevation_type
-  - name: Ext.token.impersonation_level
-  - name: Ext.token.integrity_level
-  - name: Ext.token.integrity_level_name
-  - name: Ext.token.is_appcontainer
-  - name: Ext.token.privileges
-  - name: Ext.token.privileges.description
-  - name: Ext.token.privileges.enabled
-  - name: Ext.token.privileges.name
-  - name: Ext.token.sid
-  - name: Ext.token.type
-  - name: Ext.token.user
-  - name: Ext.user
-  - name: args
-  - name: args_count
-  - name: code_signature.exists
-  - name: code_signature.signing_id
-  - name: code_signature.status
-  - name: code_signature.subject_name
-  - name: code_signature.team_id
-  - name: code_signature.trusted
-  - name: code_signature.valid
-  - name: command_line
-  - name: entity_id
-  - name: entry_leader.args
-  - name: entry_leader.args_count
-  - name: entry_leader.command_line
-  - name: entry_leader.entity_id
-  - name: entry_leader.entry_meta.source.ip
-  - name: entry_leader.entry_meta.type
-  - name: entry_leader.executable
-  - name: entry_leader.group.id
-  - name: entry_leader.group.name
-  - name: entry_leader.interactive
-  - name: entry_leader.name
-  - name: entry_leader.parent.entity_id
-  - name: entry_leader.parent.pid
-  - name: entry_leader.parent.session_leader.entity_id
-  - name: entry_leader.parent.session_leader.pid
-  - name: entry_leader.parent.session_leader.start
-  - name: entry_leader.parent.start
-  - name: entry_leader.pid
-  - name: entry_leader.real_group.id
-  - name: entry_leader.real_group.name
-  - name: entry_leader.real_user.id
-  - name: entry_leader.real_user.name
-  - name: entry_leader.same_as_process
-  - name: entry_leader.saved_group.id
-  - name: entry_leader.saved_group.name
-  - name: entry_leader.saved_user.id
-  - name: entry_leader.saved_user.name
-  - name: entry_leader.start
-  - name: entry_leader.supplemental_groups.id
-  - name: entry_leader.supplemental_groups.name
-  - name: entry_leader.tty
-  - name: entry_leader.tty.char_device.major
-  - name: entry_leader.tty.char_device.minor
-  - name: entry_leader.user.id
-  - name: entry_leader.user.name
-  - name: entry_leader.working_directory
-  - name: env_vars
-  - name: executable
-  - name: exit_code
-  - name: group_leader.args
-  - name: group_leader.args_count
-  - name: group_leader.command_line
-  - name: group_leader.entity_id
-  - name: group_leader.executable
-  - name: group_leader.group.id
-  - name: group_leader.group.name
-  - name: group_leader.interactive
-  - name: group_leader.name
-  - name: group_leader.pid
-  - name: group_leader.real_group.id
-  - name: group_leader.real_group.name
-  - name: group_leader.real_user.id
-  - name: group_leader.real_user.name
-  - name: group_leader.same_as_process
-  - name: group_leader.saved_group.id
-  - name: group_leader.saved_group.name
-  - name: group_leader.saved_user.id
-  - name: group_leader.saved_user.name
-  - name: group_leader.start
-  - name: group_leader.supplemental_groups.id
-  - name: group_leader.supplemental_groups.name
-  - name: group_leader.tty
-  - name: group_leader.tty.char_device.major
-  - name: group_leader.tty.char_device.minor
-  - name: group_leader.user.id
-  - name: group_leader.user.name
-  - name: group_leader.working_directory
-  - name: hash.md5
-  - name: hash.sha1
-  - name: hash.sha256
-  - name: hash.sha512
-  - name: interactive
-  - name: name
-  - name: parent.Ext
-  - name: parent.Ext.architecture
-  - name: parent.Ext.code_signature
-  - name: parent.Ext.code_signature.exists
-  - name: parent.Ext.code_signature.status
-  - name: parent.Ext.code_signature.subject_name
-  - name: parent.Ext.code_signature.trusted
-  - name: parent.Ext.code_signature.valid
-  - name: parent.Ext.dll.Ext
-  - name: parent.Ext.dll.Ext.code_signature
-  - name: parent.Ext.dll.Ext.code_signature.exists
-  - name: parent.Ext.dll.Ext.code_signature.status
-  - name: parent.Ext.dll.Ext.code_signature.subject_name
-  - name: parent.Ext.dll.Ext.code_signature.trusted
-  - name: parent.Ext.dll.Ext.code_signature.valid
-  - name: parent.Ext.dll.Ext.compile_time
-  - name: parent.Ext.dll.Ext.mapped_address
-  - name: parent.Ext.dll.Ext.mapped_size
-  - name: parent.Ext.dll.code_signature.exists
-  - name: parent.Ext.dll.code_signature.signing_id
-  - name: parent.Ext.dll.code_signature.status
-  - name: parent.Ext.dll.code_signature.subject_name
-  - name: parent.Ext.dll.code_signature.team_id
-  - name: parent.Ext.dll.code_signature.trusted
-  - name: parent.Ext.dll.code_signature.valid
-  - name: parent.Ext.dll.hash.md5
-  - name: parent.Ext.dll.hash.sha1
-  - name: parent.Ext.dll.hash.sha256
-  - name: parent.Ext.dll.hash.sha512
-  - name: parent.Ext.dll.name
-  - name: parent.Ext.dll.path
-  - name: parent.Ext.dll.pe.company
-  - name: parent.Ext.dll.pe.description
-  - name: parent.Ext.dll.pe.file_version
-  - name: parent.Ext.dll.pe.imphash
-  - name: parent.Ext.dll.pe.original_file_name
-  - name: parent.Ext.dll.pe.product
-  - name: parent.Ext.protection
-  - name: parent.Ext.real
-  - name: parent.Ext.real.pid
-  - name: parent.Ext.token.domain
-  - name: parent.Ext.token.elevation
-  - name: parent.Ext.token.elevation_type
-  - name: parent.Ext.token.impersonation_level
-  - name: parent.Ext.token.integrity_level
-  - name: parent.Ext.token.integrity_level_name
-  - name: parent.Ext.token.is_appcontainer
-  - name: parent.Ext.token.privileges
-  - name: parent.Ext.token.privileges.description
-  - name: parent.Ext.token.privileges.enabled
-  - name: parent.Ext.token.privileges.name
-  - name: parent.Ext.token.sid
-  - name: parent.Ext.token.type
-  - name: parent.Ext.token.user
-  - name: parent.Ext.user
-  - name: parent.args
-  - name: parent.args_count
-  - name: parent.code_signature.exists
-  - name: parent.code_signature.signing_id
-  - name: parent.code_signature.status
-  - name: parent.code_signature.subject_name
-  - name: parent.code_signature.team_id
-  - name: parent.code_signature.trusted
-  - name: parent.code_signature.valid
-  - name: parent.command_line
-  - name: parent.entity_id
-  - name: parent.executable
-  - name: parent.exit_code
-  - name: parent.group.id
-  - name: parent.group.name
-  - name: parent.group_leader.entity_id
-  - name: parent.group_leader.pid
-  - name: parent.group_leader.start
-  - name: parent.hash.md5
-  - name: parent.hash.sha1
-  - name: parent.hash.sha256
-  - name: parent.hash.sha512
-  - name: parent.interactive
-  - name: parent.name
-  - name: parent.pe.company
-  - name: parent.pe.description
-  - name: parent.pe.file_version
-  - name: parent.pe.imphash
-  - name: parent.pe.original_file_name
-  - name: parent.pe.product
-  - name: parent.pgid
-  - name: parent.pid
-  - name: parent.ppid
-  - name: parent.real_group.id
-  - name: parent.real_group.name
-  - name: parent.real_user.id
-  - name: parent.real_user.name
-  - name: parent.saved_group.id
-  - name: parent.saved_group.name
-  - name: parent.saved_user.id
-  - name: parent.saved_user.name
-  - name: parent.start
-  - name: parent.supplemental_groups.id
-  - name: parent.supplemental_groups.name
-  - name: parent.thread.id
-  - name: parent.thread.name
-  - name: parent.title
-  - name: parent.tty
-  - name: parent.tty.char_device.major
-  - name: parent.tty.char_device.minor
-  - name: parent.uptime
-  - name: parent.user.id
-  - name: parent.user.name
-  - name: parent.working_directory
-  - name: pe.company
-  - name: pe.description
-  - name: pe.file_version
-  - name: pe.imphash
-  - name: pe.original_file_name
-  - name: pe.product
-  - name: pgid
-  - name: pid
-  - name: ppid
-  - name: previous.args
-  - name: previous.args_count
-  - name: previous.executable
-  - name: real_group.id
-  - name: real_group.name
-  - name: real_user.id
-  - name: real_user.name
-  - name: saved_group.id
-  - name: saved_group.name
-  - name: saved_user.id
-  - name: saved_user.name
-  - name: session_leader.args
-  - name: session_leader.args_count
-  - name: session_leader.command_line
-  - name: session_leader.entity_id
-  - name: session_leader.executable
-  - name: session_leader.group.id
-  - name: session_leader.group.name
-  - name: session_leader.interactive
-  - name: session_leader.name
-  - name: session_leader.parent.entity_id
-  - name: session_leader.parent.pid
-  - name: session_leader.parent.session_leader.entity_id
-  - name: session_leader.parent.session_leader.pid
-  - name: session_leader.parent.session_leader.start
-  - name: session_leader.parent.start
-  - name: session_leader.pid
-  - name: session_leader.real_group.id
-  - name: session_leader.real_group.name
-  - name: session_leader.real_user.id
-  - name: session_leader.real_user.name
-  - name: session_leader.same_as_process
-  - name: session_leader.saved_group.id
-  - name: session_leader.saved_group.name
-  - name: session_leader.saved_user.id
-  - name: session_leader.saved_user.name
-  - name: session_leader.start
-  - name: session_leader.supplemental_groups.id
-  - name: session_leader.supplemental_groups.name
-  - name: session_leader.tty
-  - name: session_leader.tty.char_device.major
-  - name: session_leader.tty.char_device.minor
-  - name: session_leader.user.id
-  - name: session_leader.user.name
-  - name: session_leader.working_directory
-  - name: start
-  - name: supplemental_groups.id
-  - name: supplemental_groups.name
-  - name: thread.Ext
-  - name: thread.Ext.call_stack
-  - name: thread.Ext.call_stack.instruction_pointer
-  - name: thread.Ext.call_stack.memory_section.memory_address
-  - name: thread.Ext.call_stack.memory_section.memory_size
-  - name: thread.Ext.call_stack.memory_section.protection
-  - name: thread.Ext.call_stack.module_name
-  - name: thread.Ext.call_stack.module_path
-  - name: thread.Ext.call_stack.rva
-  - name: thread.Ext.call_stack.symbol_info
-  - name: thread.Ext.call_stack_final_user_module
-  - name: thread.Ext.call_stack_final_user_module.code_signature
-  - name: thread.Ext.call_stack_final_user_module.code_signature.exists
-  - name: thread.Ext.call_stack_final_user_module.code_signature.status
-  - name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
-  - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
-  - name: thread.Ext.call_stack_final_user_module.code_signature.valid
-  - name: thread.Ext.call_stack_final_user_module.hash
-  - name: thread.Ext.call_stack_final_user_module.hash.sha256
-  - name: thread.Ext.call_stack_final_user_module.name
-  - name: thread.Ext.call_stack_final_user_module.path
-  - name: thread.Ext.call_stack_summary
-  - name: thread.Ext.parameter
-  - name: thread.Ext.parameter_bytes_compressed
-  - name: thread.Ext.parameter_bytes_compressed_present
-  - name: thread.Ext.service
-  - name: thread.Ext.start
-  - name: thread.Ext.start_address
-  - name: thread.Ext.start_address_allocation_offset
-  - name: thread.Ext.start_address_bytes
-  - name: thread.Ext.start_address_bytes_disasm
-  - name: thread.Ext.start_address_bytes_disasm_hash
-  - name: thread.Ext.start_address_module
-  - name: thread.Ext.token.domain
-  - name: thread.Ext.token.elevation
-  - name: thread.Ext.token.elevation_type
-  - name: thread.Ext.token.impersonation_level
-  - name: thread.Ext.token.integrity_level
-  - name: thread.Ext.token.integrity_level_name
-  - name: thread.Ext.token.is_appcontainer
-  - name: thread.Ext.token.privileges
-  - name: thread.Ext.token.privileges.description
-  - name: thread.Ext.token.privileges.enabled
-  - name: thread.Ext.token.privileges.name
-  - name: thread.Ext.token.sid
-  - name: thread.Ext.token.type
-  - name: thread.Ext.token.user
-  - name: thread.Ext.uptime
-  - name: thread.id
-  - name: thread.name
-  - name: title
-  - name: tty
-  - name: tty.char_device.major
-  - name: tty.char_device.minor
-  - name: uptime
-  - name: user.id
-  - name: user.name
-  - name: working_directory
-- name: registry
-  fields:
-  - name: data.strings
-  - name: path
-  - name: value
-- name: rule
-  fields:
-  - name: author
-  - name: category
-  - name: description
-  - name: id
-  - name: license
-  - name: name
-  - name: reference
-  - name: ruleset
-  - name: uuid
-  - name: version
-- name: source
-  fields:
-  - name: geo.city_name
-  - name: geo.continent_code
-  - name: geo.continent_name
-  - name: geo.country_iso_code
-  - name: geo.country_name
-  - name: geo.location
-  - name: geo.name
-  - name: geo.postal_code
-  - name: geo.region_iso_code
-  - name: geo.region_name
-  - name: geo.timezone
-  - name: ip
-- name: threat
-  fields:
-  - name: enrichments
-  - name: enrichments.indicator
-  - name: enrichments.indicator.file.Ext
-  - name: enrichments.indicator.file.Ext.code_signature
-  - name: enrichments.indicator.file.Ext.code_signature.exists
-  - name: enrichments.indicator.file.Ext.code_signature.status
-  - name: enrichments.indicator.file.Ext.code_signature.subject_name
-  - name: enrichments.indicator.file.Ext.code_signature.trusted
-  - name: enrichments.indicator.file.Ext.code_signature.valid
-  - name: enrichments.indicator.file.Ext.device.bus_type
-  - name: enrichments.indicator.file.Ext.device.dos_name
-  - name: enrichments.indicator.file.Ext.device.nt_name
-  - name: enrichments.indicator.file.Ext.device.product_id
-  - name: enrichments.indicator.file.Ext.device.serial_number
-  - name: enrichments.indicator.file.Ext.device.vendor_id
-  - name: enrichments.indicator.file.Ext.entropy
-  - name: enrichments.indicator.file.Ext.entry_modified
-  - name: enrichments.indicator.file.Ext.header_bytes
-  - name: enrichments.indicator.file.Ext.header_data
-  - name: enrichments.indicator.file.Ext.malware_classification.features.data.buffer
-  - name: enrichments.indicator.file.Ext.malware_classification.features.data.decompressed_size
-  - name: enrichments.indicator.file.Ext.malware_classification.features.data.encoding
-  - name: enrichments.indicator.file.Ext.malware_classification.identifier
-  - name: enrichments.indicator.file.Ext.malware_classification.score
-  - name: enrichments.indicator.file.Ext.malware_classification.threshold
-  - name: enrichments.indicator.file.Ext.malware_classification.upx_packed
-  - name: enrichments.indicator.file.Ext.malware_classification.version
-  - name: enrichments.indicator.file.Ext.malware_signature
-  - name: enrichments.indicator.file.Ext.malware_signature.all_names
-  - name: enrichments.indicator.file.Ext.malware_signature.identifier
-  - name: enrichments.indicator.file.Ext.malware_signature.primary
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.matches
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.signature
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.signature.hash
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.signature.hash.sha256
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.signature.id
-  - name: enrichments.indicator.file.Ext.malware_signature.primary.signature.name
-  - name: enrichments.indicator.file.Ext.malware_signature.secondary
-  - name: enrichments.indicator.file.Ext.malware_signature.version
-  - name: enrichments.indicator.file.Ext.monotonic_id
-  - name: enrichments.indicator.file.Ext.original
-  - name: enrichments.indicator.file.Ext.original.gid
-  - name: enrichments.indicator.file.Ext.original.group
-  - name: enrichments.indicator.file.Ext.original.mode
-  - name: enrichments.indicator.file.Ext.original.name
-  - name: enrichments.indicator.file.Ext.original.owner
-  - name: enrichments.indicator.file.Ext.original.path
-  - name: enrichments.indicator.file.Ext.original.uid
-  - name: enrichments.indicator.file.Ext.quarantine_message
-  - name: enrichments.indicator.file.Ext.quarantine_path
-  - name: enrichments.indicator.file.Ext.quarantine_result
-  - name: enrichments.indicator.file.Ext.temp_file_path
-  - name: enrichments.indicator.file.Ext.windows
-  - name: enrichments.indicator.file.Ext.windows.zone_identifier
-  - name: enrichments.indicator.file.accessed
-  - name: enrichments.indicator.file.attributes
-  - name: enrichments.indicator.file.code_signature.exists
-  - name: enrichments.indicator.file.code_signature.signing_id
-  - name: enrichments.indicator.file.code_signature.status
-  - name: enrichments.indicator.file.code_signature.subject_name
-  - name: enrichments.indicator.file.code_signature.team_id
-  - name: enrichments.indicator.file.code_signature.trusted
-  - name: enrichments.indicator.file.code_signature.valid
-  - name: enrichments.indicator.file.created
-  - name: enrichments.indicator.file.ctime
-  - name: enrichments.indicator.file.device
-  - name: enrichments.indicator.file.directory
-  - name: enrichments.indicator.file.drive_letter
-  - name: enrichments.indicator.file.elf.architecture
-  - name: enrichments.indicator.file.elf.byte_order
-  - name: enrichments.indicator.file.elf.cpu_type
-  - name: enrichments.indicator.file.elf.creation_date
-  - name: enrichments.indicator.file.elf.exports
-  - name: enrichments.indicator.file.elf.header.abi_version
-  - name: enrichments.indicator.file.elf.header.class
-  - name: enrichments.indicator.file.elf.header.data
-  - name: enrichments.indicator.file.elf.header.entrypoint
-  - name: enrichments.indicator.file.elf.header.object_version
-  - name: enrichments.indicator.file.elf.header.os_abi
-  - name: enrichments.indicator.file.elf.header.type
-  - name: enrichments.indicator.file.elf.header.version
-  - name: enrichments.indicator.file.elf.imports
-  - name: enrichments.indicator.file.elf.sections
-  - name: enrichments.indicator.file.elf.sections.chi2
-  - name: enrichments.indicator.file.elf.sections.entropy
-  - name: enrichments.indicator.file.elf.sections.flags
-  - name: enrichments.indicator.file.elf.sections.name
-  - name: enrichments.indicator.file.elf.sections.physical_offset
-  - name: enrichments.indicator.file.elf.sections.physical_size
-  - name: enrichments.indicator.file.elf.sections.type
-  - name: enrichments.indicator.file.elf.sections.virtual_address
-  - name: enrichments.indicator.file.elf.sections.virtual_size
-  - name: enrichments.indicator.file.elf.segments
-  - name: enrichments.indicator.file.elf.segments.sections
-  - name: enrichments.indicator.file.elf.segments.type
-  - name: enrichments.indicator.file.elf.shared_libraries
-  - name: enrichments.indicator.file.elf.telfhash
-  - name: enrichments.indicator.file.extension
-  - name: enrichments.indicator.file.gid
-  - name: enrichments.indicator.file.group
-  - name: enrichments.indicator.file.hash.md5
-  - name: enrichments.indicator.file.hash.sha1
-  - name: enrichments.indicator.file.hash.sha256
-  - name: enrichments.indicator.file.hash.sha512
-  - name: enrichments.indicator.file.hash.ssdeep
-  - name: enrichments.indicator.file.inode
-  - name: enrichments.indicator.file.mime_type
-  - name: enrichments.indicator.file.mode
-  - name: enrichments.indicator.file.mtime
-  - name: enrichments.indicator.file.name
-  - name: enrichments.indicator.file.owner
-  - name: enrichments.indicator.file.path
-  - name: enrichments.indicator.file.pe.architecture
-  - name: enrichments.indicator.file.pe.company
-  - name: enrichments.indicator.file.pe.description
-  - name: enrichments.indicator.file.pe.file_version
-  - name: enrichments.indicator.file.pe.imphash
-  - name: enrichments.indicator.file.pe.original_file_name
-  - name: enrichments.indicator.file.pe.product
-  - name: enrichments.indicator.file.size
-  - name: enrichments.indicator.file.target_path
-  - name: enrichments.indicator.file.type
-  - name: enrichments.indicator.file.uid
-  - name: enrichments.indicator.first_seen
-  - name: enrichments.indicator.geo.city_name
-  - name: enrichments.indicator.geo.continent_code
-  - name: enrichments.indicator.geo.continent_name
-  - name: enrichments.indicator.geo.country_iso_code
-  - name: enrichments.indicator.geo.country_name
-  - name: enrichments.indicator.geo.location
-  - name: enrichments.indicator.geo.name
-  - name: enrichments.indicator.geo.postal_code
-  - name: enrichments.indicator.geo.region_iso_code
-  - name: enrichments.indicator.geo.region_name
-  - name: enrichments.indicator.geo.timezone
-  - name: enrichments.indicator.ip
-  - name: enrichments.indicator.last_seen
-  - name: enrichments.indicator.marking.tlp
-  - name: enrichments.indicator.modified_at
-  - name: enrichments.indicator.port
-  - name: enrichments.indicator.provider
-  - name: enrichments.indicator.reference
-  - name: enrichments.indicator.registry.data.bytes
-  - name: enrichments.indicator.registry.data.strings
-  - name: enrichments.indicator.registry.data.type
-  - name: enrichments.indicator.registry.hive
-  - name: enrichments.indicator.registry.key
-  - name: enrichments.indicator.registry.path
-  - name: enrichments.indicator.registry.value
-  - name: enrichments.indicator.scanner_stats
-  - name: enrichments.indicator.sightings
-  - name: enrichments.indicator.type
-  - name: enrichments.indicator.url.domain
-  - name: enrichments.indicator.url.extension
-  - name: enrichments.indicator.url.fragment
-  - name: enrichments.indicator.url.full
-  - name: enrichments.indicator.url.original
-  - name: enrichments.indicator.url.password
-  - name: enrichments.indicator.url.path
-  - name: enrichments.indicator.url.port
-  - name: enrichments.indicator.url.query
-  - name: enrichments.indicator.url.registered_domain
-  - name: enrichments.indicator.url.scheme
-  - name: enrichments.indicator.url.subdomain
-  - name: enrichments.indicator.url.top_level_domain
-  - name: enrichments.indicator.url.username
-  - name: enrichments.indicator.x509.alternative_names
-  - name: enrichments.indicator.x509.issuer.common_name
-  - name: enrichments.indicator.x509.issuer.country
-  - name: enrichments.indicator.x509.issuer.distinguished_name
-  - name: enrichments.indicator.x509.issuer.locality
-  - name: enrichments.indicator.x509.issuer.organization
-  - name: enrichments.indicator.x509.issuer.organizational_unit
-  - name: enrichments.indicator.x509.issuer.state_or_province
-  - name: enrichments.indicator.x509.not_after
-  - name: enrichments.indicator.x509.not_before
-  - name: enrichments.indicator.x509.public_key_algorithm
-  - name: enrichments.indicator.x509.public_key_curve
-  - name: enrichments.indicator.x509.public_key_exponent
-  - name: enrichments.indicator.x509.public_key_size
-  - name: enrichments.indicator.x509.serial_number
-  - name: enrichments.indicator.x509.signature_algorithm
-  - name: enrichments.indicator.x509.subject.common_name
-  - name: enrichments.indicator.x509.subject.country
-  - name: enrichments.indicator.x509.subject.distinguished_name
-  - name: enrichments.indicator.x509.subject.locality
-  - name: enrichments.indicator.x509.subject.organization
-  - name: enrichments.indicator.x509.subject.organizational_unit
-  - name: enrichments.indicator.x509.subject.state_or_province
-  - name: enrichments.indicator.x509.version_number
-  - name: enrichments.matched.atomic
-  - name: enrichments.matched.field
-  - name: enrichments.matched.id
-  - name: enrichments.matched.index
-  - name: enrichments.matched.type
-  - name: framework
-  - name: group.alias
-  - name: group.id
-  - name: group.name
-  - name: group.reference
-  - name: indicator.as.number
-  - name: indicator.as.organization.name
-  - name: indicator.confidence
-  - name: indicator.description
-  - name: indicator.email.address
-  - name: indicator.file.Ext
-  - name: indicator.file.Ext.code_signature
-  - name: indicator.file.Ext.code_signature.exists
-  - name: indicator.file.Ext.code_signature.status
-  - name: indicator.file.Ext.code_signature.subject_name
-  - name: indicator.file.Ext.code_signature.trusted
-  - name: indicator.file.Ext.code_signature.valid
-  - name: indicator.file.Ext.device.bus_type
-  - name: indicator.file.Ext.device.dos_name
-  - name: indicator.file.Ext.device.nt_name
-  - name: indicator.file.Ext.device.product_id
-  - name: indicator.file.Ext.device.serial_number
-  - name: indicator.file.Ext.device.vendor_id
-  - name: indicator.file.Ext.entropy
-  - name: indicator.file.Ext.entry_modified
-  - name: indicator.file.Ext.header_bytes
-  - name: indicator.file.Ext.header_data
-  - name: indicator.file.Ext.malware_classification.features.data.buffer
-  - name: indicator.file.Ext.malware_classification.features.data.decompressed_size
-  - name: indicator.file.Ext.malware_classification.features.data.encoding
-  - name: indicator.file.Ext.malware_classification.identifier
-  - name: indicator.file.Ext.malware_classification.score
-  - name: indicator.file.Ext.malware_classification.threshold
-  - name: indicator.file.Ext.malware_classification.upx_packed
-  - name: indicator.file.Ext.malware_classification.version
-  - name: indicator.file.Ext.malware_signature
-  - name: indicator.file.Ext.malware_signature.all_names
-  - name: indicator.file.Ext.malware_signature.identifier
-  - name: indicator.file.Ext.malware_signature.primary
-  - name: indicator.file.Ext.malware_signature.primary.matches
-  - name: indicator.file.Ext.malware_signature.primary.signature
-  - name: indicator.file.Ext.malware_signature.primary.signature.hash
-  - name: indicator.file.Ext.malware_signature.primary.signature.hash.sha256
-  - name: indicator.file.Ext.malware_signature.primary.signature.id
-  - name: indicator.file.Ext.malware_signature.primary.signature.name
-  - name: indicator.file.Ext.malware_signature.secondary
-  - name: indicator.file.Ext.malware_signature.version
-  - name: indicator.file.Ext.monotonic_id
-  - name: indicator.file.Ext.original
-  - name: indicator.file.Ext.original.gid
-  - name: indicator.file.Ext.original.group
-  - name: indicator.file.Ext.original.mode
-  - name: indicator.file.Ext.original.name
-  - name: indicator.file.Ext.original.owner
-  - name: indicator.file.Ext.original.path
-  - name: indicator.file.Ext.original.uid
-  - name: indicator.file.Ext.quarantine_message
-  - name: indicator.file.Ext.quarantine_path
-  - name: indicator.file.Ext.quarantine_result
-  - name: indicator.file.Ext.temp_file_path
-  - name: indicator.file.Ext.windows
-  - name: indicator.file.Ext.windows.zone_identifier
-  - name: indicator.file.accessed
-  - name: indicator.file.attributes
-  - name: indicator.file.code_signature.exists
-  - name: indicator.file.code_signature.signing_id
-  - name: indicator.file.code_signature.status
-  - name: indicator.file.code_signature.subject_name
-  - name: indicator.file.code_signature.team_id
-  - name: indicator.file.code_signature.trusted
-  - name: indicator.file.code_signature.valid
-  - name: indicator.file.created
-  - name: indicator.file.ctime
-  - name: indicator.file.device
-  - name: indicator.file.directory
-  - name: indicator.file.drive_letter
-  - name: indicator.file.elf.architecture
-  - name: indicator.file.elf.byte_order
-  - name: indicator.file.elf.cpu_type
-  - name: indicator.file.elf.creation_date
-  - name: indicator.file.elf.exports
-  - name: indicator.file.elf.header.abi_version
-  - name: indicator.file.elf.header.class
-  - name: indicator.file.elf.header.data
-  - name: indicator.file.elf.header.entrypoint
-  - name: indicator.file.elf.header.object_version
-  - name: indicator.file.elf.header.os_abi
-  - name: indicator.file.elf.header.type
-  - name: indicator.file.elf.header.version
-  - name: indicator.file.elf.imports
-  - name: indicator.file.elf.sections
-  - name: indicator.file.elf.sections.chi2
-  - name: indicator.file.elf.sections.entropy
-  - name: indicator.file.elf.sections.flags
-  - name: indicator.file.elf.sections.name
-  - name: indicator.file.elf.sections.physical_offset
-  - name: indicator.file.elf.sections.physical_size
-  - name: indicator.file.elf.sections.type
-  - name: indicator.file.elf.sections.virtual_address
-  - name: indicator.file.elf.sections.virtual_size
-  - name: indicator.file.elf.segments
-  - name: indicator.file.elf.segments.sections
-  - name: indicator.file.elf.segments.type
-  - name: indicator.file.elf.shared_libraries
-  - name: indicator.file.elf.telfhash
-  - name: indicator.file.extension
-  - name: indicator.file.gid
-  - name: indicator.file.group
-  - name: indicator.file.hash.md5
-  - name: indicator.file.hash.sha1
-  - name: indicator.file.hash.sha256
-  - name: indicator.file.hash.sha512
-  - name: indicator.file.hash.ssdeep
-  - name: indicator.file.inode
-  - name: indicator.file.mime_type
-  - name: indicator.file.mode
-  - name: indicator.file.mtime
-  - name: indicator.file.name
-  - name: indicator.file.owner
-  - name: indicator.file.path
-  - name: indicator.file.pe.architecture
-  - name: indicator.file.pe.company
-  - name: indicator.file.pe.description
-  - name: indicator.file.pe.file_version
-  - name: indicator.file.pe.imphash
-  - name: indicator.file.pe.original_file_name
-  - name: indicator.file.pe.product
-  - name: indicator.file.size
-  - name: indicator.file.target_path
-  - name: indicator.file.type
-  - name: indicator.file.uid
-  - name: indicator.first_seen
-  - name: indicator.geo.city_name
-  - name: indicator.geo.continent_code
-  - name: indicator.geo.continent_name
-  - name: indicator.geo.country_iso_code
-  - name: indicator.geo.country_name
-  - name: indicator.geo.location
-  - name: indicator.geo.name
-  - name: indicator.geo.postal_code
-  - name: indicator.geo.region_iso_code
-  - name: indicator.geo.region_name
-  - name: indicator.geo.timezone
-  - name: indicator.ip
-  - name: indicator.last_seen
-  - name: indicator.marking.tlp
-  - name: indicator.modified_at
-  - name: indicator.port
-  - name: indicator.provider
-  - name: indicator.reference
-  - name: indicator.registry.data.bytes
-  - name: indicator.registry.data.strings
-  - name: indicator.registry.data.type
-  - name: indicator.registry.hive
-  - name: indicator.registry.key
-  - name: indicator.registry.path
-  - name: indicator.registry.value
-  - name: indicator.scanner_stats
-  - name: indicator.sightings
-  - name: indicator.type
-  - name: indicator.url.domain
-  - name: indicator.url.extension
-  - name: indicator.url.fragment
-  - name: indicator.url.full
-  - name: indicator.url.original
-  - name: indicator.url.password
-  - name: indicator.url.path
-  - name: indicator.url.port
-  - name: indicator.url.query
-  - name: indicator.url.registered_domain
-  - name: indicator.url.scheme
-  - name: indicator.url.subdomain
-  - name: indicator.url.top_level_domain
-  - name: indicator.url.username
-  - name: indicator.x509.alternative_names
-  - name: indicator.x509.issuer.common_name
-  - name: indicator.x509.issuer.country
-  - name: indicator.x509.issuer.distinguished_name
-  - name: indicator.x509.issuer.locality
-  - name: indicator.x509.issuer.organization
-  - name: indicator.x509.issuer.organizational_unit
-  - name: indicator.x509.issuer.state_or_province
-  - name: indicator.x509.not_after
-  - name: indicator.x509.not_before
-  - name: indicator.x509.public_key_algorithm
-  - name: indicator.x509.public_key_curve
-  - name: indicator.x509.public_key_exponent
-  - name: indicator.x509.public_key_size
-  - name: indicator.x509.serial_number
-  - name: indicator.x509.signature_algorithm
-  - name: indicator.x509.subject.common_name
-  - name: indicator.x509.subject.country
-  - name: indicator.x509.subject.distinguished_name
-  - name: indicator.x509.subject.locality
-  - name: indicator.x509.subject.organization
-  - name: indicator.x509.subject.organizational_unit
-  - name: indicator.x509.subject.state_or_province
-  - name: indicator.x509.version_number
-  - name: software.id
-  - name: software.name
-  - name: software.platforms
-  - name: software.reference
-  - name: software.type
-  - name: tactic.id
-  - name: tactic.name
-  - name: tactic.reference
-  - name: technique.id
-  - name: technique.name
-  - name: technique.reference
-  - name: technique.subtechnique.id
-  - name: technique.subtechnique.name
-  - name: technique.subtechnique.reference
-- name: user
-  fields:
-  - name: Ext
-  - name: Ext.real
-  - name: Ext.real.id
-  - name: Ext.real.name
-  - name: domain
-  - name: email
-  - name: full_name
-  - name: group.Ext
-  - name: group.Ext.real
-  - name: group.Ext.real.id
-  - name: group.Ext.real.name
-  - name: group.domain
-  - name: group.id
-  - name: group.name
-  - name: hash
-  - name: id
-  - name: name
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: Endpoint.policy
+- ecs: Endpoint.policy.applied
+- ecs: Endpoint.policy.applied.artifacts
+- ecs: Endpoint.policy.applied.artifacts.global
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers.name
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers.sha256
+- ecs: Endpoint.policy.applied.artifacts.global.version
+- ecs: Endpoint.policy.applied.artifacts.user
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers.name
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers.sha256
+- ecs: Endpoint.policy.applied.artifacts.user.version
+- ecs: Endpoint.policy.applied.id
+- ecs: Endpoint.policy.applied.name
+- ecs: Endpoint.policy.applied.status
+- ecs: Endpoint.policy.applied.version
+- ecs: Events
+- ecs: Memory_protection.cross_session
+- ecs: Memory_protection.feature
+- ecs: Memory_protection.parent_to_child
+- ecs: Memory_protection.self_injection
+- ecs: Memory_protection.thread_count
+- ecs: Memory_protection.unique_key_v1
+- ecs: Ransomware.child_processes.executable
+- ecs: Ransomware.child_processes.feature
+- ecs: Ransomware.child_processes.files
+- ecs: Ransomware.child_processes.files.data
+- ecs: Ransomware.child_processes.files.entropy
+- ecs: Ransomware.child_processes.files.extension
+- ecs: Ransomware.child_processes.files.metrics
+- ecs: Ransomware.child_processes.files.operation
+- ecs: Ransomware.child_processes.files.original.extension
+- ecs: Ransomware.child_processes.files.original.path
+- ecs: Ransomware.child_processes.files.path
+- ecs: Ransomware.child_processes.files.score
+- ecs: Ransomware.child_processes.pid
+- ecs: Ransomware.child_processes.score
+- ecs: Ransomware.child_processes.version
+- ecs: Ransomware.executable
+- ecs: Ransomware.feature
+- ecs: Ransomware.files
+- ecs: Ransomware.files.data
+- ecs: Ransomware.files.entropy
+- ecs: Ransomware.files.extension
+- ecs: Ransomware.files.metrics
+- ecs: Ransomware.files.operation
+- ecs: Ransomware.files.original.extension
+- ecs: Ransomware.files.original.path
+- ecs: Ransomware.files.path
+- ecs: Ransomware.files.score
+- ecs: Ransomware.pid
+- ecs: Ransomware.score
+- ecs: Ransomware.version
+- ecs: Responses.@timestamp
+- ecs: Responses.action
+- ecs: Responses.action.action
+- ecs: Responses.action.field
+- ecs: Responses.action.file.attributes
+- ecs: Responses.action.file.path
+- ecs: Responses.action.source.attributes
+- ecs: Responses.action.source.path
+- ecs: Responses.action.state
+- ecs: Responses.action.tree
+- ecs: Responses.message
+- ecs: Responses.process
+- ecs: Responses.process.entity_id
+- ecs: Responses.process.name
+- ecs: Responses.process.pid
+- ecs: Responses.result
+- ecs: Target.dll.Ext
+- ecs: Target.dll.Ext.code_signature
+- ecs: Target.dll.Ext.code_signature.exists
+- ecs: Target.dll.Ext.code_signature.status
+- ecs: Target.dll.Ext.code_signature.subject_name
+- ecs: Target.dll.Ext.code_signature.trusted
+- ecs: Target.dll.Ext.code_signature.valid
+- ecs: Target.dll.Ext.compile_time
+- ecs: Target.dll.Ext.malware_classification.features
+- ecs: Target.dll.Ext.malware_classification.features.data.buffer
+- ecs: Target.dll.Ext.malware_classification.features.data.decompressed_size
+- ecs: Target.dll.Ext.malware_classification.features.data.encoding
+- ecs: Target.dll.Ext.malware_classification.identifier
+- ecs: Target.dll.Ext.malware_classification.score
+- ecs: Target.dll.Ext.malware_classification.threshold
+- ecs: Target.dll.Ext.malware_classification.upx_packed
+- ecs: Target.dll.Ext.malware_classification.version
+- ecs: Target.dll.Ext.mapped_address
+- ecs: Target.dll.Ext.mapped_size
+- ecs: Target.dll.code_signature.exists
+- ecs: Target.dll.code_signature.signing_id
+- ecs: Target.dll.code_signature.status
+- ecs: Target.dll.code_signature.subject_name
+- ecs: Target.dll.code_signature.team_id
+- ecs: Target.dll.code_signature.trusted
+- ecs: Target.dll.code_signature.valid
+- ecs: Target.dll.hash.md5
+- ecs: Target.dll.hash.sha1
+- ecs: Target.dll.hash.sha256
+- ecs: Target.dll.hash.sha512
+- ecs: Target.dll.name
+- ecs: Target.dll.path
+- ecs: Target.dll.pe.company
+- ecs: Target.dll.pe.description
+- ecs: Target.dll.pe.file_version
+- ecs: Target.dll.pe.imphash
+- ecs: Target.dll.pe.original_file_name
+- ecs: Target.dll.pe.product
+- ecs: Target.process.Ext
+- ecs: Target.process.Ext.ancestry
+- ecs: Target.process.Ext.architecture
+- ecs: Target.process.Ext.authentication_id
+- ecs: Target.process.Ext.code_signature
+- ecs: Target.process.Ext.code_signature.exists
+- ecs: Target.process.Ext.code_signature.status
+- ecs: Target.process.Ext.code_signature.subject_name
+- ecs: Target.process.Ext.code_signature.trusted
+- ecs: Target.process.Ext.code_signature.valid
+- ecs: Target.process.Ext.dll.Ext
+- ecs: Target.process.Ext.dll.Ext.code_signature
+- ecs: Target.process.Ext.dll.Ext.code_signature.exists
+- ecs: Target.process.Ext.dll.Ext.code_signature.status
+- ecs: Target.process.Ext.dll.Ext.code_signature.subject_name
+- ecs: Target.process.Ext.dll.Ext.code_signature.trusted
+- ecs: Target.process.Ext.dll.Ext.code_signature.valid
+- ecs: Target.process.Ext.dll.Ext.compile_time
+- ecs: Target.process.Ext.dll.Ext.mapped_address
+- ecs: Target.process.Ext.dll.Ext.mapped_size
+- ecs: Target.process.Ext.dll.code_signature.exists
+- ecs: Target.process.Ext.dll.code_signature.signing_id
+- ecs: Target.process.Ext.dll.code_signature.status
+- ecs: Target.process.Ext.dll.code_signature.subject_name
+- ecs: Target.process.Ext.dll.code_signature.team_id
+- ecs: Target.process.Ext.dll.code_signature.trusted
+- ecs: Target.process.Ext.dll.code_signature.valid
+- ecs: Target.process.Ext.dll.hash.md5
+- ecs: Target.process.Ext.dll.hash.sha1
+- ecs: Target.process.Ext.dll.hash.sha256
+- ecs: Target.process.Ext.dll.hash.sha512
+- ecs: Target.process.Ext.dll.name
+- ecs: Target.process.Ext.dll.path
+- ecs: Target.process.Ext.dll.pe.company
+- ecs: Target.process.Ext.dll.pe.description
+- ecs: Target.process.Ext.dll.pe.file_version
+- ecs: Target.process.Ext.dll.pe.imphash
+- ecs: Target.process.Ext.dll.pe.original_file_name
+- ecs: Target.process.Ext.dll.pe.product
+- ecs: Target.process.Ext.malware_classification.features
+- ecs: Target.process.Ext.malware_classification.features.data.buffer
+- ecs: Target.process.Ext.malware_classification.features.data.decompressed_size
+- ecs: Target.process.Ext.malware_classification.features.data.encoding
+- ecs: Target.process.Ext.malware_classification.identifier
+- ecs: Target.process.Ext.malware_classification.score
+- ecs: Target.process.Ext.malware_classification.threshold
+- ecs: Target.process.Ext.malware_classification.upx_packed
+- ecs: Target.process.Ext.malware_classification.version
+- ecs: Target.process.Ext.memory_region.allocation_base
+- ecs: Target.process.Ext.memory_region.allocation_protection
+- ecs: Target.process.Ext.memory_region.allocation_size
+- ecs: Target.process.Ext.memory_region.allocation_type
+- ecs: Target.process.Ext.memory_region.bytes_address
+- ecs: Target.process.Ext.memory_region.bytes_allocation_offset
+- ecs: Target.process.Ext.memory_region.bytes_compressed
+- ecs: Target.process.Ext.memory_region.bytes_compressed_present
+- ecs: Target.process.Ext.memory_region.malware_signature.all_names
+- ecs: Target.process.Ext.memory_region.malware_signature.identifier
+- ecs: Target.process.Ext.memory_region.malware_signature.primary
+- ecs: Target.process.Ext.memory_region.malware_signature.primary.matches
+- ecs: Target.process.Ext.memory_region.malware_signature.primary.signature.hash
+- ecs: Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
+- ecs: Target.process.Ext.memory_region.malware_signature.primary.signature.id
+- ecs: Target.process.Ext.memory_region.malware_signature.primary.signature.name
+- ecs: Target.process.Ext.memory_region.malware_signature.version
+- ecs: Target.process.Ext.memory_region.mapped_path
+- ecs: Target.process.Ext.memory_region.mapped_pe.company
+- ecs: Target.process.Ext.memory_region.mapped_pe.description
+- ecs: Target.process.Ext.memory_region.mapped_pe.file_version
+- ecs: Target.process.Ext.memory_region.mapped_pe.imphash
+- ecs: Target.process.Ext.memory_region.mapped_pe.original_file_name
+- ecs: Target.process.Ext.memory_region.mapped_pe.product
+- ecs: Target.process.Ext.memory_region.mapped_pe_detected
+- ecs: Target.process.Ext.memory_region.memory_pe.company
+- ecs: Target.process.Ext.memory_region.memory_pe.description
+- ecs: Target.process.Ext.memory_region.memory_pe.file_version
+- ecs: Target.process.Ext.memory_region.memory_pe.imphash
+- ecs: Target.process.Ext.memory_region.memory_pe.original_file_name
+- ecs: Target.process.Ext.memory_region.memory_pe.product
+- ecs: Target.process.Ext.memory_region.memory_pe_detected
+- ecs: Target.process.Ext.memory_region.region_base
+- ecs: Target.process.Ext.memory_region.region_protection
+- ecs: Target.process.Ext.memory_region.region_size
+- ecs: Target.process.Ext.memory_region.region_state
+- ecs: Target.process.Ext.memory_region.strings
+- ecs: Target.process.Ext.protection
+- ecs: Target.process.Ext.services
+- ecs: Target.process.Ext.session
+- ecs: Target.process.Ext.token.domain
+- ecs: Target.process.Ext.token.elevation
+- ecs: Target.process.Ext.token.elevation_type
+- ecs: Target.process.Ext.token.impersonation_level
+- ecs: Target.process.Ext.token.integrity_level
+- ecs: Target.process.Ext.token.integrity_level_name
+- ecs: Target.process.Ext.token.is_appcontainer
+- ecs: Target.process.Ext.token.privileges
+- ecs: Target.process.Ext.token.privileges.description
+- ecs: Target.process.Ext.token.privileges.enabled
+- ecs: Target.process.Ext.token.privileges.name
+- ecs: Target.process.Ext.token.sid
+- ecs: Target.process.Ext.token.type
+- ecs: Target.process.Ext.token.user
+- ecs: Target.process.Ext.user
+- ecs: Target.process.args
+- ecs: Target.process.args_count
+- ecs: Target.process.code_signature.exists
+- ecs: Target.process.code_signature.signing_id
+- ecs: Target.process.code_signature.status
+- ecs: Target.process.code_signature.subject_name
+- ecs: Target.process.code_signature.team_id
+- ecs: Target.process.code_signature.trusted
+- ecs: Target.process.code_signature.valid
+- ecs: Target.process.command_line
+- ecs: Target.process.entity_id
+- ecs: Target.process.executable
+- ecs: Target.process.exit_code
+- ecs: Target.process.hash.md5
+- ecs: Target.process.hash.sha1
+- ecs: Target.process.hash.sha256
+- ecs: Target.process.hash.sha512
+- ecs: Target.process.name
+- ecs: Target.process.parent.Ext
+- ecs: Target.process.parent.Ext.architecture
+- ecs: Target.process.parent.Ext.code_signature
+- ecs: Target.process.parent.Ext.code_signature.exists
+- ecs: Target.process.parent.Ext.code_signature.status
+- ecs: Target.process.parent.Ext.code_signature.subject_name
+- ecs: Target.process.parent.Ext.code_signature.trusted
+- ecs: Target.process.parent.Ext.code_signature.valid
+- ecs: Target.process.parent.Ext.dll.Ext
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature.exists
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature.status
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature.subject_name
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature.trusted
+- ecs: Target.process.parent.Ext.dll.Ext.code_signature.valid
+- ecs: Target.process.parent.Ext.dll.Ext.compile_time
+- ecs: Target.process.parent.Ext.dll.Ext.mapped_address
+- ecs: Target.process.parent.Ext.dll.Ext.mapped_size
+- ecs: Target.process.parent.Ext.dll.code_signature.exists
+- ecs: Target.process.parent.Ext.dll.code_signature.signing_id
+- ecs: Target.process.parent.Ext.dll.code_signature.status
+- ecs: Target.process.parent.Ext.dll.code_signature.subject_name
+- ecs: Target.process.parent.Ext.dll.code_signature.team_id
+- ecs: Target.process.parent.Ext.dll.code_signature.trusted
+- ecs: Target.process.parent.Ext.dll.code_signature.valid
+- ecs: Target.process.parent.Ext.dll.hash.md5
+- ecs: Target.process.parent.Ext.dll.hash.sha1
+- ecs: Target.process.parent.Ext.dll.hash.sha256
+- ecs: Target.process.parent.Ext.dll.hash.sha512
+- ecs: Target.process.parent.Ext.dll.name
+- ecs: Target.process.parent.Ext.dll.path
+- ecs: Target.process.parent.Ext.dll.pe.company
+- ecs: Target.process.parent.Ext.dll.pe.description
+- ecs: Target.process.parent.Ext.dll.pe.file_version
+- ecs: Target.process.parent.Ext.dll.pe.imphash
+- ecs: Target.process.parent.Ext.dll.pe.original_file_name
+- ecs: Target.process.parent.Ext.dll.pe.product
+- ecs: Target.process.parent.Ext.protection
+- ecs: Target.process.parent.Ext.real
+- ecs: Target.process.parent.Ext.real.pid
+- ecs: Target.process.parent.Ext.token.domain
+- ecs: Target.process.parent.Ext.token.elevation
+- ecs: Target.process.parent.Ext.token.elevation_type
+- ecs: Target.process.parent.Ext.token.impersonation_level
+- ecs: Target.process.parent.Ext.token.integrity_level
+- ecs: Target.process.parent.Ext.token.integrity_level_name
+- ecs: Target.process.parent.Ext.token.is_appcontainer
+- ecs: Target.process.parent.Ext.token.privileges
+- ecs: Target.process.parent.Ext.token.privileges.description
+- ecs: Target.process.parent.Ext.token.privileges.enabled
+- ecs: Target.process.parent.Ext.token.privileges.name
+- ecs: Target.process.parent.Ext.token.sid
+- ecs: Target.process.parent.Ext.token.type
+- ecs: Target.process.parent.Ext.token.user
+- ecs: Target.process.parent.Ext.user
+- ecs: Target.process.parent.args
+- ecs: Target.process.parent.args_count
+- ecs: Target.process.parent.code_signature.exists
+- ecs: Target.process.parent.code_signature.signing_id
+- ecs: Target.process.parent.code_signature.status
+- ecs: Target.process.parent.code_signature.subject_name
+- ecs: Target.process.parent.code_signature.team_id
+- ecs: Target.process.parent.code_signature.trusted
+- ecs: Target.process.parent.code_signature.valid
+- ecs: Target.process.parent.command_line
+- ecs: Target.process.parent.entity_id
+- ecs: Target.process.parent.executable
+- ecs: Target.process.parent.exit_code
+- ecs: Target.process.parent.hash.md5
+- ecs: Target.process.parent.hash.sha1
+- ecs: Target.process.parent.hash.sha256
+- ecs: Target.process.parent.hash.sha512
+- ecs: Target.process.parent.name
+- ecs: Target.process.parent.pe.company
+- ecs: Target.process.parent.pe.description
+- ecs: Target.process.parent.pe.file_version
+- ecs: Target.process.parent.pe.imphash
+- ecs: Target.process.parent.pe.original_file_name
+- ecs: Target.process.parent.pe.product
+- ecs: Target.process.parent.pgid
+- ecs: Target.process.parent.pid
+- ecs: Target.process.parent.ppid
+- ecs: Target.process.parent.start
+- ecs: Target.process.parent.thread.id
+- ecs: Target.process.parent.thread.name
+- ecs: Target.process.parent.title
+- ecs: Target.process.parent.uptime
+- ecs: Target.process.parent.working_directory
+- ecs: Target.process.pe.company
+- ecs: Target.process.pe.description
+- ecs: Target.process.pe.file_version
+- ecs: Target.process.pe.imphash
+- ecs: Target.process.pe.original_file_name
+- ecs: Target.process.pe.product
+- ecs: Target.process.pgid
+- ecs: Target.process.pid
+- ecs: Target.process.ppid
+- ecs: Target.process.start
+- ecs: Target.process.thread.Ext
+- ecs: Target.process.thread.Ext.call_stack
+- ecs: Target.process.thread.Ext.call_stack.instruction_pointer
+- ecs: Target.process.thread.Ext.call_stack.memory_section.memory_address
+- ecs: Target.process.thread.Ext.call_stack.memory_section.memory_size
+- ecs: Target.process.thread.Ext.call_stack.memory_section.protection
+- ecs: Target.process.thread.Ext.call_stack.module_name
+- ecs: Target.process.thread.Ext.call_stack.module_path
+- ecs: Target.process.thread.Ext.call_stack.rva
+- ecs: Target.process.thread.Ext.call_stack.symbol_info
+- ecs: Target.process.thread.Ext.call_stack_final_user_module
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature.exists
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature.status
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.code_signature.valid
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.hash
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.hash.sha256
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.name
+- ecs: Target.process.thread.Ext.call_stack_final_user_module.path
+- ecs: Target.process.thread.Ext.call_stack_summary
+- ecs: Target.process.thread.Ext.parameter
+- ecs: Target.process.thread.Ext.parameter_bytes_compressed
+- ecs: Target.process.thread.Ext.parameter_bytes_compressed_present
+- ecs: Target.process.thread.Ext.service
+- ecs: Target.process.thread.Ext.start
+- ecs: Target.process.thread.Ext.start_address
+- ecs: Target.process.thread.Ext.start_address_allocation_offset
+- ecs: Target.process.thread.Ext.start_address_bytes
+- ecs: Target.process.thread.Ext.start_address_bytes_disasm
+- ecs: Target.process.thread.Ext.start_address_bytes_disasm_hash
+- ecs: Target.process.thread.Ext.start_address_module
+- ecs: Target.process.thread.Ext.token.domain
+- ecs: Target.process.thread.Ext.token.elevation
+- ecs: Target.process.thread.Ext.token.elevation_type
+- ecs: Target.process.thread.Ext.token.impersonation_level
+- ecs: Target.process.thread.Ext.token.integrity_level
+- ecs: Target.process.thread.Ext.token.integrity_level_name
+- ecs: Target.process.thread.Ext.token.is_appcontainer
+- ecs: Target.process.thread.Ext.token.privileges
+- ecs: Target.process.thread.Ext.token.privileges.description
+- ecs: Target.process.thread.Ext.token.privileges.enabled
+- ecs: Target.process.thread.Ext.token.privileges.name
+- ecs: Target.process.thread.Ext.token.sid
+- ecs: Target.process.thread.Ext.token.type
+- ecs: Target.process.thread.Ext.token.user
+- ecs: Target.process.thread.Ext.uptime
+- ecs: Target.process.thread.id
+- ecs: Target.process.thread.name
+- ecs: Target.process.title
+- ecs: Target.process.uptime
+- ecs: Target.process.working_directory
+- ecs: agent.ephemeral_id
+- ecs: agent.id
+- ecs: agent.name
+- ecs: agent.type
+- ecs: agent.version
+- ecs: cloud.account.id
+- ecs: cloud.instance.name
+- ecs: cloud.project.id
+- ecs: cloud.provider
+- ecs: cloud.region
+- ecs: container.id
+- ecs: container.image.name
+- ecs: container.image.tag
+- ecs: container.name
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: destination.ip
+- ecs: dll.Ext
+- ecs: dll.Ext.code_signature
+- ecs: dll.Ext.code_signature.exists
+- ecs: dll.Ext.code_signature.status
+- ecs: dll.Ext.code_signature.subject_name
+- ecs: dll.Ext.code_signature.trusted
+- ecs: dll.Ext.code_signature.valid
+- ecs: dll.Ext.compile_time
+- ecs: dll.Ext.malware_classification.features
+- ecs: dll.Ext.malware_classification.features.data.buffer
+- ecs: dll.Ext.malware_classification.features.data.decompressed_size
+- ecs: dll.Ext.malware_classification.features.data.encoding
+- ecs: dll.Ext.malware_classification.identifier
+- ecs: dll.Ext.malware_classification.score
+- ecs: dll.Ext.malware_classification.threshold
+- ecs: dll.Ext.malware_classification.upx_packed
+- ecs: dll.Ext.malware_classification.version
+- ecs: dll.Ext.mapped_address
+- ecs: dll.Ext.mapped_size
+- ecs: dll.code_signature.exists
+- ecs: dll.code_signature.signing_id
+- ecs: dll.code_signature.status
+- ecs: dll.code_signature.subject_name
+- ecs: dll.code_signature.team_id
+- ecs: dll.code_signature.trusted
+- ecs: dll.code_signature.valid
+- ecs: dll.hash.md5
+- ecs: dll.hash.sha1
+- ecs: dll.hash.sha256
+- ecs: dll.hash.sha512
+- ecs: dll.name
+- ecs: dll.path
+- ecs: dll.pe.company
+- ecs: dll.pe.description
+- ecs: dll.pe.file_version
+- ecs: dll.pe.imphash
+- ecs: dll.pe.original_file_name
+- ecs: dll.pe.product
+- ecs: dns.question.name
+- ecs: dns.question.type
+- ecs: ecs.version
+- ecs: elastic.agent
+- ecs: elastic.agent.id
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.risk_score
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: file.Ext
+- ecs: file.Ext.code_signature
+- ecs: file.Ext.code_signature.exists
+- ecs: file.Ext.code_signature.status
+- ecs: file.Ext.code_signature.subject_name
+- ecs: file.Ext.code_signature.trusted
+- ecs: file.Ext.code_signature.valid
+- ecs: file.Ext.entry_modified
+- ecs: file.Ext.macro.code_page
+- ecs: file.Ext.macro.collection
+- ecs: file.Ext.macro.collection.hash.md5
+- ecs: file.Ext.macro.collection.hash.sha1
+- ecs: file.Ext.macro.collection.hash.sha256
+- ecs: file.Ext.macro.collection.hash.sha512
+- ecs: file.Ext.macro.errors
+- ecs: file.Ext.macro.errors.count
+- ecs: file.Ext.macro.errors.error_type
+- ecs: file.Ext.macro.file_extension
+- ecs: file.Ext.macro.project_file
+- ecs: file.Ext.macro.project_file.hash.md5
+- ecs: file.Ext.macro.project_file.hash.sha1
+- ecs: file.Ext.macro.project_file.hash.sha256
+- ecs: file.Ext.macro.project_file.hash.sha512
+- ecs: file.Ext.macro.stream
+- ecs: file.Ext.macro.stream.hash.md5
+- ecs: file.Ext.macro.stream.hash.sha1
+- ecs: file.Ext.macro.stream.hash.sha256
+- ecs: file.Ext.macro.stream.hash.sha512
+- ecs: file.Ext.macro.stream.name
+- ecs: file.Ext.macro.stream.raw_code
+- ecs: file.Ext.macro.stream.raw_code_size
+- ecs: file.Ext.malware_classification.features
+- ecs: file.Ext.malware_classification.features.data.buffer
+- ecs: file.Ext.malware_classification.features.data.decompressed_size
+- ecs: file.Ext.malware_classification.features.data.encoding
+- ecs: file.Ext.malware_classification.identifier
+- ecs: file.Ext.malware_classification.score
+- ecs: file.Ext.malware_classification.threshold
+- ecs: file.Ext.malware_classification.upx_packed
+- ecs: file.Ext.malware_classification.version
+- ecs: file.Ext.original
+- ecs: file.Ext.original.gid
+- ecs: file.Ext.original.group
+- ecs: file.Ext.original.mode
+- ecs: file.Ext.original.name
+- ecs: file.Ext.original.owner
+- ecs: file.Ext.original.path
+- ecs: file.Ext.original.uid
+- ecs: file.Ext.quarantine_message
+- ecs: file.Ext.quarantine_path
+- ecs: file.Ext.quarantine_result
+- ecs: file.Ext.temp_file_path
+- ecs: file.Ext.windows
+- ecs: file.Ext.windows.zone_identifier
+- ecs: file.accessed
+- ecs: file.attributes
+- ecs: file.code_signature.exists
+- ecs: file.code_signature.signing_id
+- ecs: file.code_signature.status
+- ecs: file.code_signature.subject_name
+- ecs: file.code_signature.team_id
+- ecs: file.code_signature.trusted
+- ecs: file.code_signature.valid
+- ecs: file.created
+- ecs: file.ctime
+- ecs: file.device
+- ecs: file.directory
+- ecs: file.drive_letter
+- ecs: file.extension
+- ecs: file.gid
+- ecs: file.group
+- ecs: file.hash.md5
+- ecs: file.hash.sha1
+- ecs: file.hash.sha256
+- ecs: file.hash.sha512
+- ecs: file.inode
+- ecs: file.mime_type
+- ecs: file.mode
+- ecs: file.mtime
+- ecs: file.name
+- ecs: file.owner
+- ecs: file.path
+- ecs: file.pe.Ext.dotnet
+- ecs: file.pe.Ext.sections
+- ecs: file.pe.Ext.sections.hash.md5
+- ecs: file.pe.Ext.sections.hash.sha256
+- ecs: file.pe.Ext.sections.name
+- ecs: file.pe.Ext.streams
+- ecs: file.pe.Ext.streams.hash.md5
+- ecs: file.pe.Ext.streams.hash.sha256
+- ecs: file.pe.Ext.streams.name
+- ecs: file.pe.company
+- ecs: file.pe.description
+- ecs: file.pe.file_version
+- ecs: file.pe.imphash
+- ecs: file.pe.original_file_name
+- ecs: file.pe.product
+- ecs: file.size
+- ecs: file.target_path
+- ecs: file.type
+- ecs: file.uid
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.boot.id
+- ecs: host.domain
+- ecs: host.geo.city_name
+- ecs: host.geo.continent_code
+- ecs: host.geo.continent_name
+- ecs: host.geo.country_iso_code
+- ecs: host.geo.country_name
+- ecs: host.geo.location
+- ecs: host.geo.name
+- ecs: host.geo.postal_code
+- ecs: host.geo.region_iso_code
+- ecs: host.geo.region_name
+- ecs: host.geo.timezone
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.pid_ns_ino
+- ecs: host.type
+- ecs: host.uptime
+- ecs: host.user.Ext
+- ecs: host.user.Ext.real
+- ecs: host.user.Ext.real.id
+- ecs: host.user.Ext.real.name
+- ecs: host.user.domain
+- ecs: host.user.email
+- ecs: host.user.full_name
+- ecs: host.user.group.Ext
+- ecs: host.user.group.Ext.real
+- ecs: host.user.group.Ext.real.id
+- ecs: host.user.group.Ext.real.name
+- ecs: host.user.group.domain
+- ecs: host.user.group.id
+- ecs: host.user.group.name
+- ecs: host.user.hash
+- ecs: host.user.id
+- ecs: host.user.name
+- ecs: message
+- ecs: orchestrator.cluster.name
+- ecs: orchestrator.namespace
+- ecs: orchestrator.resource.name
+- ecs: orchestrator.resource.type
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.architecture
+- ecs: process.Ext.authentication_id
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.Ext.dll.Ext
+- ecs: process.Ext.dll.Ext.code_signature
+- ecs: process.Ext.dll.Ext.code_signature.exists
+- ecs: process.Ext.dll.Ext.code_signature.status
+- ecs: process.Ext.dll.Ext.code_signature.subject_name
+- ecs: process.Ext.dll.Ext.code_signature.trusted
+- ecs: process.Ext.dll.Ext.code_signature.valid
+- ecs: process.Ext.dll.Ext.compile_time
+- ecs: process.Ext.dll.Ext.mapped_address
+- ecs: process.Ext.dll.Ext.mapped_size
+- ecs: process.Ext.dll.code_signature.exists
+- ecs: process.Ext.dll.code_signature.signing_id
+- ecs: process.Ext.dll.code_signature.status
+- ecs: process.Ext.dll.code_signature.subject_name
+- ecs: process.Ext.dll.code_signature.team_id
+- ecs: process.Ext.dll.code_signature.trusted
+- ecs: process.Ext.dll.code_signature.valid
+- ecs: process.Ext.dll.hash.md5
+- ecs: process.Ext.dll.hash.sha1
+- ecs: process.Ext.dll.hash.sha256
+- ecs: process.Ext.dll.hash.sha512
+- ecs: process.Ext.dll.name
+- ecs: process.Ext.dll.path
+- ecs: process.Ext.dll.pe.company
+- ecs: process.Ext.dll.pe.description
+- ecs: process.Ext.dll.pe.file_version
+- ecs: process.Ext.dll.pe.imphash
+- ecs: process.Ext.dll.pe.original_file_name
+- ecs: process.Ext.dll.pe.product
+- ecs: process.Ext.malware_classification.features
+- ecs: process.Ext.malware_classification.features.data.buffer
+- ecs: process.Ext.malware_classification.features.data.decompressed_size
+- ecs: process.Ext.malware_classification.features.data.encoding
+- ecs: process.Ext.malware_classification.identifier
+- ecs: process.Ext.malware_classification.score
+- ecs: process.Ext.malware_classification.threshold
+- ecs: process.Ext.malware_classification.upx_packed
+- ecs: process.Ext.malware_classification.version
+- ecs: process.Ext.memory_region.allocation_base
+- ecs: process.Ext.memory_region.allocation_protection
+- ecs: process.Ext.memory_region.allocation_size
+- ecs: process.Ext.memory_region.allocation_type
+- ecs: process.Ext.memory_region.bytes_address
+- ecs: process.Ext.memory_region.bytes_allocation_offset
+- ecs: process.Ext.memory_region.bytes_compressed
+- ecs: process.Ext.memory_region.bytes_compressed_present
+- ecs: process.Ext.memory_region.malware_signature.all_names
+- ecs: process.Ext.memory_region.malware_signature.identifier
+- ecs: process.Ext.memory_region.malware_signature.primary
+- ecs: process.Ext.memory_region.malware_signature.primary.matches
+- ecs: process.Ext.memory_region.malware_signature.primary.signature.hash
+- ecs: process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
+- ecs: process.Ext.memory_region.malware_signature.primary.signature.id
+- ecs: process.Ext.memory_region.malware_signature.primary.signature.name
+- ecs: process.Ext.memory_region.malware_signature.version
+- ecs: process.Ext.memory_region.mapped_path
+- ecs: process.Ext.memory_region.mapped_pe.company
+- ecs: process.Ext.memory_region.mapped_pe.description
+- ecs: process.Ext.memory_region.mapped_pe.file_version
+- ecs: process.Ext.memory_region.mapped_pe.imphash
+- ecs: process.Ext.memory_region.mapped_pe.original_file_name
+- ecs: process.Ext.memory_region.mapped_pe.product
+- ecs: process.Ext.memory_region.mapped_pe_detected
+- ecs: process.Ext.memory_region.memory_pe.company
+- ecs: process.Ext.memory_region.memory_pe.description
+- ecs: process.Ext.memory_region.memory_pe.file_version
+- ecs: process.Ext.memory_region.memory_pe.imphash
+- ecs: process.Ext.memory_region.memory_pe.original_file_name
+- ecs: process.Ext.memory_region.memory_pe.product
+- ecs: process.Ext.memory_region.memory_pe_detected
+- ecs: process.Ext.memory_region.region_base
+- ecs: process.Ext.memory_region.region_protection
+- ecs: process.Ext.memory_region.region_size
+- ecs: process.Ext.memory_region.region_state
+- ecs: process.Ext.memory_region.strings
+- ecs: process.Ext.protection
+- ecs: process.Ext.services
+- ecs: process.Ext.session
+- ecs: process.Ext.token.domain
+- ecs: process.Ext.token.elevation
+- ecs: process.Ext.token.elevation_type
+- ecs: process.Ext.token.impersonation_level
+- ecs: process.Ext.token.integrity_level
+- ecs: process.Ext.token.integrity_level_name
+- ecs: process.Ext.token.is_appcontainer
+- ecs: process.Ext.token.privileges
+- ecs: process.Ext.token.privileges.description
+- ecs: process.Ext.token.privileges.enabled
+- ecs: process.Ext.token.privileges.name
+- ecs: process.Ext.token.sid
+- ecs: process.Ext.token.type
+- ecs: process.Ext.token.user
+- ecs: process.Ext.user
+- ecs: process.args
+- ecs: process.args_count
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.command_line
+- ecs: process.entity_id
+- ecs: process.entry_leader.args
+- ecs: process.entry_leader.args_count
+- ecs: process.entry_leader.command_line
+- ecs: process.entry_leader.entity_id
+- ecs: process.entry_leader.entry_meta.source.ip
+- ecs: process.entry_leader.entry_meta.type
+- ecs: process.entry_leader.executable
+- ecs: process.entry_leader.group.id
+- ecs: process.entry_leader.group.name
+- ecs: process.entry_leader.interactive
+- ecs: process.entry_leader.name
+- ecs: process.entry_leader.parent.entity_id
+- ecs: process.entry_leader.parent.pid
+- ecs: process.entry_leader.parent.session_leader.entity_id
+- ecs: process.entry_leader.parent.session_leader.pid
+- ecs: process.entry_leader.parent.session_leader.start
+- ecs: process.entry_leader.parent.start
+- ecs: process.entry_leader.pid
+- ecs: process.entry_leader.real_group.id
+- ecs: process.entry_leader.real_group.name
+- ecs: process.entry_leader.real_user.id
+- ecs: process.entry_leader.real_user.name
+- ecs: process.entry_leader.same_as_process
+- ecs: process.entry_leader.saved_group.id
+- ecs: process.entry_leader.saved_group.name
+- ecs: process.entry_leader.saved_user.id
+- ecs: process.entry_leader.saved_user.name
+- ecs: process.entry_leader.start
+- ecs: process.entry_leader.supplemental_groups.id
+- ecs: process.entry_leader.supplemental_groups.name
+- ecs: process.entry_leader.tty
+- ecs: process.entry_leader.tty.char_device.major
+- ecs: process.entry_leader.tty.char_device.minor
+- ecs: process.entry_leader.user.id
+- ecs: process.entry_leader.user.name
+- ecs: process.entry_leader.working_directory
+- ecs: process.env_vars
+- ecs: process.executable
+- ecs: process.exit_code
+- ecs: process.group_leader.args
+- ecs: process.group_leader.args_count
+- ecs: process.group_leader.command_line
+- ecs: process.group_leader.entity_id
+- ecs: process.group_leader.executable
+- ecs: process.group_leader.group.id
+- ecs: process.group_leader.group.name
+- ecs: process.group_leader.interactive
+- ecs: process.group_leader.name
+- ecs: process.group_leader.pid
+- ecs: process.group_leader.real_group.id
+- ecs: process.group_leader.real_group.name
+- ecs: process.group_leader.real_user.id
+- ecs: process.group_leader.real_user.name
+- ecs: process.group_leader.same_as_process
+- ecs: process.group_leader.saved_group.id
+- ecs: process.group_leader.saved_group.name
+- ecs: process.group_leader.saved_user.id
+- ecs: process.group_leader.saved_user.name
+- ecs: process.group_leader.start
+- ecs: process.group_leader.supplemental_groups.id
+- ecs: process.group_leader.supplemental_groups.name
+- ecs: process.group_leader.tty
+- ecs: process.group_leader.tty.char_device.major
+- ecs: process.group_leader.tty.char_device.minor
+- ecs: process.group_leader.user.id
+- ecs: process.group_leader.user.name
+- ecs: process.group_leader.working_directory
+- ecs: process.hash.md5
+- ecs: process.hash.sha1
+- ecs: process.hash.sha256
+- ecs: process.hash.sha512
+- ecs: process.interactive
+- ecs: process.name
+- ecs: process.parent.Ext
+- ecs: process.parent.Ext.architecture
+- ecs: process.parent.Ext.code_signature
+- ecs: process.parent.Ext.code_signature.exists
+- ecs: process.parent.Ext.code_signature.status
+- ecs: process.parent.Ext.code_signature.subject_name
+- ecs: process.parent.Ext.code_signature.trusted
+- ecs: process.parent.Ext.code_signature.valid
+- ecs: process.parent.Ext.dll.Ext
+- ecs: process.parent.Ext.dll.Ext.code_signature
+- ecs: process.parent.Ext.dll.Ext.code_signature.exists
+- ecs: process.parent.Ext.dll.Ext.code_signature.status
+- ecs: process.parent.Ext.dll.Ext.code_signature.subject_name
+- ecs: process.parent.Ext.dll.Ext.code_signature.trusted
+- ecs: process.parent.Ext.dll.Ext.code_signature.valid
+- ecs: process.parent.Ext.dll.Ext.compile_time
+- ecs: process.parent.Ext.dll.Ext.mapped_address
+- ecs: process.parent.Ext.dll.Ext.mapped_size
+- ecs: process.parent.Ext.dll.code_signature.exists
+- ecs: process.parent.Ext.dll.code_signature.signing_id
+- ecs: process.parent.Ext.dll.code_signature.status
+- ecs: process.parent.Ext.dll.code_signature.subject_name
+- ecs: process.parent.Ext.dll.code_signature.team_id
+- ecs: process.parent.Ext.dll.code_signature.trusted
+- ecs: process.parent.Ext.dll.code_signature.valid
+- ecs: process.parent.Ext.dll.hash.md5
+- ecs: process.parent.Ext.dll.hash.sha1
+- ecs: process.parent.Ext.dll.hash.sha256
+- ecs: process.parent.Ext.dll.hash.sha512
+- ecs: process.parent.Ext.dll.name
+- ecs: process.parent.Ext.dll.path
+- ecs: process.parent.Ext.dll.pe.company
+- ecs: process.parent.Ext.dll.pe.description
+- ecs: process.parent.Ext.dll.pe.file_version
+- ecs: process.parent.Ext.dll.pe.imphash
+- ecs: process.parent.Ext.dll.pe.original_file_name
+- ecs: process.parent.Ext.dll.pe.product
+- ecs: process.parent.Ext.protection
+- ecs: process.parent.Ext.real
+- ecs: process.parent.Ext.real.pid
+- ecs: process.parent.Ext.token.domain
+- ecs: process.parent.Ext.token.elevation
+- ecs: process.parent.Ext.token.elevation_type
+- ecs: process.parent.Ext.token.impersonation_level
+- ecs: process.parent.Ext.token.integrity_level
+- ecs: process.parent.Ext.token.integrity_level_name
+- ecs: process.parent.Ext.token.is_appcontainer
+- ecs: process.parent.Ext.token.privileges
+- ecs: process.parent.Ext.token.privileges.description
+- ecs: process.parent.Ext.token.privileges.enabled
+- ecs: process.parent.Ext.token.privileges.name
+- ecs: process.parent.Ext.token.sid
+- ecs: process.parent.Ext.token.type
+- ecs: process.parent.Ext.token.user
+- ecs: process.parent.Ext.user
+- ecs: process.parent.args
+- ecs: process.parent.args_count
+- ecs: process.parent.code_signature.exists
+- ecs: process.parent.code_signature.signing_id
+- ecs: process.parent.code_signature.status
+- ecs: process.parent.code_signature.subject_name
+- ecs: process.parent.code_signature.team_id
+- ecs: process.parent.code_signature.trusted
+- ecs: process.parent.code_signature.valid
+- ecs: process.parent.command_line
+- ecs: process.parent.entity_id
+- ecs: process.parent.executable
+- ecs: process.parent.exit_code
+- ecs: process.parent.group.id
+- ecs: process.parent.group.name
+- ecs: process.parent.group_leader.entity_id
+- ecs: process.parent.group_leader.pid
+- ecs: process.parent.group_leader.start
+- ecs: process.parent.hash.md5
+- ecs: process.parent.hash.sha1
+- ecs: process.parent.hash.sha256
+- ecs: process.parent.hash.sha512
+- ecs: process.parent.interactive
+- ecs: process.parent.name
+- ecs: process.parent.pe.company
+- ecs: process.parent.pe.description
+- ecs: process.parent.pe.file_version
+- ecs: process.parent.pe.imphash
+- ecs: process.parent.pe.original_file_name
+- ecs: process.parent.pe.product
+- ecs: process.parent.pgid
+- ecs: process.parent.pid
+- ecs: process.parent.ppid
+- ecs: process.parent.real_group.id
+- ecs: process.parent.real_group.name
+- ecs: process.parent.real_user.id
+- ecs: process.parent.real_user.name
+- ecs: process.parent.saved_group.id
+- ecs: process.parent.saved_group.name
+- ecs: process.parent.saved_user.id
+- ecs: process.parent.saved_user.name
+- ecs: process.parent.start
+- ecs: process.parent.supplemental_groups.id
+- ecs: process.parent.supplemental_groups.name
+- ecs: process.parent.thread.id
+- ecs: process.parent.thread.name
+- ecs: process.parent.title
+- ecs: process.parent.tty
+- ecs: process.parent.tty.char_device.major
+- ecs: process.parent.tty.char_device.minor
+- ecs: process.parent.uptime
+- ecs: process.parent.user.id
+- ecs: process.parent.user.name
+- ecs: process.parent.working_directory
+- ecs: process.pe.company
+- ecs: process.pe.description
+- ecs: process.pe.file_version
+- ecs: process.pe.imphash
+- ecs: process.pe.original_file_name
+- ecs: process.pe.product
+- ecs: process.pgid
+- ecs: process.pid
+- ecs: process.ppid
+- ecs: process.previous.args
+- ecs: process.previous.args_count
+- ecs: process.previous.executable
+- ecs: process.real_group.id
+- ecs: process.real_group.name
+- ecs: process.real_user.id
+- ecs: process.real_user.name
+- ecs: process.saved_group.id
+- ecs: process.saved_group.name
+- ecs: process.saved_user.id
+- ecs: process.saved_user.name
+- ecs: process.session_leader.args
+- ecs: process.session_leader.args_count
+- ecs: process.session_leader.command_line
+- ecs: process.session_leader.entity_id
+- ecs: process.session_leader.executable
+- ecs: process.session_leader.group.id
+- ecs: process.session_leader.group.name
+- ecs: process.session_leader.interactive
+- ecs: process.session_leader.name
+- ecs: process.session_leader.parent.entity_id
+- ecs: process.session_leader.parent.pid
+- ecs: process.session_leader.parent.session_leader.entity_id
+- ecs: process.session_leader.parent.session_leader.pid
+- ecs: process.session_leader.parent.session_leader.start
+- ecs: process.session_leader.parent.start
+- ecs: process.session_leader.pid
+- ecs: process.session_leader.real_group.id
+- ecs: process.session_leader.real_group.name
+- ecs: process.session_leader.real_user.id
+- ecs: process.session_leader.real_user.name
+- ecs: process.session_leader.same_as_process
+- ecs: process.session_leader.saved_group.id
+- ecs: process.session_leader.saved_group.name
+- ecs: process.session_leader.saved_user.id
+- ecs: process.session_leader.saved_user.name
+- ecs: process.session_leader.start
+- ecs: process.session_leader.supplemental_groups.id
+- ecs: process.session_leader.supplemental_groups.name
+- ecs: process.session_leader.tty
+- ecs: process.session_leader.tty.char_device.major
+- ecs: process.session_leader.tty.char_device.minor
+- ecs: process.session_leader.user.id
+- ecs: process.session_leader.user.name
+- ecs: process.session_leader.working_directory
+- ecs: process.start
+- ecs: process.supplemental_groups.id
+- ecs: process.supplemental_groups.name
+- ecs: process.thread.Ext
+- ecs: process.thread.Ext.call_stack
+- ecs: process.thread.Ext.call_stack.instruction_pointer
+- ecs: process.thread.Ext.call_stack.memory_section.memory_address
+- ecs: process.thread.Ext.call_stack.memory_section.memory_size
+- ecs: process.thread.Ext.call_stack.memory_section.protection
+- ecs: process.thread.Ext.call_stack.module_name
+- ecs: process.thread.Ext.call_stack.module_path
+- ecs: process.thread.Ext.call_stack.rva
+- ecs: process.thread.Ext.call_stack.symbol_info
+- ecs: process.thread.Ext.call_stack_final_user_module
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature.exists
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature.status
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+- ecs: process.thread.Ext.call_stack_final_user_module.code_signature.valid
+- ecs: process.thread.Ext.call_stack_final_user_module.hash
+- ecs: process.thread.Ext.call_stack_final_user_module.hash.sha256
+- ecs: process.thread.Ext.call_stack_final_user_module.name
+- ecs: process.thread.Ext.call_stack_final_user_module.path
+- ecs: process.thread.Ext.call_stack_summary
+- ecs: process.thread.Ext.parameter
+- ecs: process.thread.Ext.parameter_bytes_compressed
+- ecs: process.thread.Ext.parameter_bytes_compressed_present
+- ecs: process.thread.Ext.service
+- ecs: process.thread.Ext.start
+- ecs: process.thread.Ext.start_address
+- ecs: process.thread.Ext.start_address_allocation_offset
+- ecs: process.thread.Ext.start_address_bytes
+- ecs: process.thread.Ext.start_address_bytes_disasm
+- ecs: process.thread.Ext.start_address_bytes_disasm_hash
+- ecs: process.thread.Ext.start_address_module
+- ecs: process.thread.Ext.token.domain
+- ecs: process.thread.Ext.token.elevation
+- ecs: process.thread.Ext.token.elevation_type
+- ecs: process.thread.Ext.token.impersonation_level
+- ecs: process.thread.Ext.token.integrity_level
+- ecs: process.thread.Ext.token.integrity_level_name
+- ecs: process.thread.Ext.token.is_appcontainer
+- ecs: process.thread.Ext.token.privileges
+- ecs: process.thread.Ext.token.privileges.description
+- ecs: process.thread.Ext.token.privileges.enabled
+- ecs: process.thread.Ext.token.privileges.name
+- ecs: process.thread.Ext.token.sid
+- ecs: process.thread.Ext.token.type
+- ecs: process.thread.Ext.token.user
+- ecs: process.thread.Ext.uptime
+- ecs: process.thread.id
+- ecs: process.thread.name
+- ecs: process.title
+- ecs: process.tty
+- ecs: process.tty.char_device.major
+- ecs: process.tty.char_device.minor
+- ecs: process.uptime
+- ecs: process.user.id
+- ecs: process.user.name
+- ecs: process.working_directory
+- ecs: registry.data.strings
+- ecs: registry.path
+- ecs: registry.value
+- ecs: rule.author
+- ecs: rule.category
+- ecs: rule.description
+- ecs: rule.id
+- ecs: rule.license
+- ecs: rule.name
+- ecs: rule.reference
+- ecs: rule.ruleset
+- ecs: rule.uuid
+- ecs: rule.version
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: source.ip
+- ecs: threat.enrichments
+- ecs: threat.enrichments.indicator
+- ecs: threat.enrichments.indicator.file.Ext
+- ecs: threat.enrichments.indicator.file.Ext.code_signature
+- ecs: threat.enrichments.indicator.file.Ext.code_signature.exists
+- ecs: threat.enrichments.indicator.file.Ext.code_signature.status
+- ecs: threat.enrichments.indicator.file.Ext.code_signature.subject_name
+- ecs: threat.enrichments.indicator.file.Ext.code_signature.trusted
+- ecs: threat.enrichments.indicator.file.Ext.code_signature.valid
+- ecs: threat.enrichments.indicator.file.Ext.device.bus_type
+- ecs: threat.enrichments.indicator.file.Ext.device.dos_name
+- ecs: threat.enrichments.indicator.file.Ext.device.nt_name
+- ecs: threat.enrichments.indicator.file.Ext.device.product_id
+- ecs: threat.enrichments.indicator.file.Ext.device.serial_number
+- ecs: threat.enrichments.indicator.file.Ext.device.vendor_id
+- ecs: threat.enrichments.indicator.file.Ext.entropy
+- ecs: threat.enrichments.indicator.file.Ext.entry_modified
+- ecs: threat.enrichments.indicator.file.Ext.header_bytes
+- ecs: threat.enrichments.indicator.file.Ext.header_data
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.features.data.buffer
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.features.data.decompressed_size
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.features.data.encoding
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.identifier
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.score
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.threshold
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.upx_packed
+- ecs: threat.enrichments.indicator.file.Ext.malware_classification.version
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.all_names
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.identifier
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.matches
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.signature
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.signature.hash
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.signature.hash.sha256
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.signature.id
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.primary.signature.name
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.secondary
+- ecs: threat.enrichments.indicator.file.Ext.malware_signature.version
+- ecs: threat.enrichments.indicator.file.Ext.monotonic_id
+- ecs: threat.enrichments.indicator.file.Ext.original
+- ecs: threat.enrichments.indicator.file.Ext.original.gid
+- ecs: threat.enrichments.indicator.file.Ext.original.group
+- ecs: threat.enrichments.indicator.file.Ext.original.mode
+- ecs: threat.enrichments.indicator.file.Ext.original.name
+- ecs: threat.enrichments.indicator.file.Ext.original.owner
+- ecs: threat.enrichments.indicator.file.Ext.original.path
+- ecs: threat.enrichments.indicator.file.Ext.original.uid
+- ecs: threat.enrichments.indicator.file.Ext.quarantine_message
+- ecs: threat.enrichments.indicator.file.Ext.quarantine_path
+- ecs: threat.enrichments.indicator.file.Ext.quarantine_result
+- ecs: threat.enrichments.indicator.file.Ext.temp_file_path
+- ecs: threat.enrichments.indicator.file.Ext.windows
+- ecs: threat.enrichments.indicator.file.Ext.windows.zone_identifier
+- ecs: threat.enrichments.indicator.file.accessed
+- ecs: threat.enrichments.indicator.file.attributes
+- ecs: threat.enrichments.indicator.file.code_signature.exists
+- ecs: threat.enrichments.indicator.file.code_signature.signing_id
+- ecs: threat.enrichments.indicator.file.code_signature.status
+- ecs: threat.enrichments.indicator.file.code_signature.subject_name
+- ecs: threat.enrichments.indicator.file.code_signature.team_id
+- ecs: threat.enrichments.indicator.file.code_signature.trusted
+- ecs: threat.enrichments.indicator.file.code_signature.valid
+- ecs: threat.enrichments.indicator.file.created
+- ecs: threat.enrichments.indicator.file.ctime
+- ecs: threat.enrichments.indicator.file.device
+- ecs: threat.enrichments.indicator.file.directory
+- ecs: threat.enrichments.indicator.file.drive_letter
+- ecs: threat.enrichments.indicator.file.elf.architecture
+- ecs: threat.enrichments.indicator.file.elf.byte_order
+- ecs: threat.enrichments.indicator.file.elf.cpu_type
+- ecs: threat.enrichments.indicator.file.elf.creation_date
+- ecs: threat.enrichments.indicator.file.elf.exports
+- ecs: threat.enrichments.indicator.file.elf.header.abi_version
+- ecs: threat.enrichments.indicator.file.elf.header.class
+- ecs: threat.enrichments.indicator.file.elf.header.data
+- ecs: threat.enrichments.indicator.file.elf.header.entrypoint
+- ecs: threat.enrichments.indicator.file.elf.header.object_version
+- ecs: threat.enrichments.indicator.file.elf.header.os_abi
+- ecs: threat.enrichments.indicator.file.elf.header.type
+- ecs: threat.enrichments.indicator.file.elf.header.version
+- ecs: threat.enrichments.indicator.file.elf.imports
+- ecs: threat.enrichments.indicator.file.elf.sections
+- ecs: threat.enrichments.indicator.file.elf.sections.chi2
+- ecs: threat.enrichments.indicator.file.elf.sections.entropy
+- ecs: threat.enrichments.indicator.file.elf.sections.flags
+- ecs: threat.enrichments.indicator.file.elf.sections.name
+- ecs: threat.enrichments.indicator.file.elf.sections.physical_offset
+- ecs: threat.enrichments.indicator.file.elf.sections.physical_size
+- ecs: threat.enrichments.indicator.file.elf.sections.type
+- ecs: threat.enrichments.indicator.file.elf.sections.virtual_address
+- ecs: threat.enrichments.indicator.file.elf.sections.virtual_size
+- ecs: threat.enrichments.indicator.file.elf.segments
+- ecs: threat.enrichments.indicator.file.elf.segments.sections
+- ecs: threat.enrichments.indicator.file.elf.segments.type
+- ecs: threat.enrichments.indicator.file.elf.shared_libraries
+- ecs: threat.enrichments.indicator.file.elf.telfhash
+- ecs: threat.enrichments.indicator.file.extension
+- ecs: threat.enrichments.indicator.file.gid
+- ecs: threat.enrichments.indicator.file.group
+- ecs: threat.enrichments.indicator.file.hash.md5
+- ecs: threat.enrichments.indicator.file.hash.sha1
+- ecs: threat.enrichments.indicator.file.hash.sha256
+- ecs: threat.enrichments.indicator.file.hash.sha512
+- ecs: threat.enrichments.indicator.file.hash.ssdeep
+- ecs: threat.enrichments.indicator.file.inode
+- ecs: threat.enrichments.indicator.file.mime_type
+- ecs: threat.enrichments.indicator.file.mode
+- ecs: threat.enrichments.indicator.file.mtime
+- ecs: threat.enrichments.indicator.file.name
+- ecs: threat.enrichments.indicator.file.owner
+- ecs: threat.enrichments.indicator.file.path
+- ecs: threat.enrichments.indicator.file.pe.architecture
+- ecs: threat.enrichments.indicator.file.pe.company
+- ecs: threat.enrichments.indicator.file.pe.description
+- ecs: threat.enrichments.indicator.file.pe.file_version
+- ecs: threat.enrichments.indicator.file.pe.imphash
+- ecs: threat.enrichments.indicator.file.pe.original_file_name
+- ecs: threat.enrichments.indicator.file.pe.product
+- ecs: threat.enrichments.indicator.file.size
+- ecs: threat.enrichments.indicator.file.target_path
+- ecs: threat.enrichments.indicator.file.type
+- ecs: threat.enrichments.indicator.file.uid
+- ecs: threat.enrichments.indicator.first_seen
+- ecs: threat.enrichments.indicator.geo.city_name
+- ecs: threat.enrichments.indicator.geo.continent_code
+- ecs: threat.enrichments.indicator.geo.continent_name
+- ecs: threat.enrichments.indicator.geo.country_iso_code
+- ecs: threat.enrichments.indicator.geo.country_name
+- ecs: threat.enrichments.indicator.geo.location
+- ecs: threat.enrichments.indicator.geo.name
+- ecs: threat.enrichments.indicator.geo.postal_code
+- ecs: threat.enrichments.indicator.geo.region_iso_code
+- ecs: threat.enrichments.indicator.geo.region_name
+- ecs: threat.enrichments.indicator.geo.timezone
+- ecs: threat.enrichments.indicator.ip
+- ecs: threat.enrichments.indicator.last_seen
+- ecs: threat.enrichments.indicator.marking.tlp
+- ecs: threat.enrichments.indicator.modified_at
+- ecs: threat.enrichments.indicator.port
+- ecs: threat.enrichments.indicator.provider
+- ecs: threat.enrichments.indicator.reference
+- ecs: threat.enrichments.indicator.registry.data.bytes
+- ecs: threat.enrichments.indicator.registry.data.strings
+- ecs: threat.enrichments.indicator.registry.data.type
+- ecs: threat.enrichments.indicator.registry.hive
+- ecs: threat.enrichments.indicator.registry.key
+- ecs: threat.enrichments.indicator.registry.path
+- ecs: threat.enrichments.indicator.registry.value
+- ecs: threat.enrichments.indicator.scanner_stats
+- ecs: threat.enrichments.indicator.sightings
+- ecs: threat.enrichments.indicator.type
+- ecs: threat.enrichments.indicator.url.domain
+- ecs: threat.enrichments.indicator.url.extension
+- ecs: threat.enrichments.indicator.url.fragment
+- ecs: threat.enrichments.indicator.url.full
+- ecs: threat.enrichments.indicator.url.original
+- ecs: threat.enrichments.indicator.url.password
+- ecs: threat.enrichments.indicator.url.path
+- ecs: threat.enrichments.indicator.url.port
+- ecs: threat.enrichments.indicator.url.query
+- ecs: threat.enrichments.indicator.url.registered_domain
+- ecs: threat.enrichments.indicator.url.scheme
+- ecs: threat.enrichments.indicator.url.subdomain
+- ecs: threat.enrichments.indicator.url.top_level_domain
+- ecs: threat.enrichments.indicator.url.username
+- ecs: threat.enrichments.indicator.x509.alternative_names
+- ecs: threat.enrichments.indicator.x509.issuer.common_name
+- ecs: threat.enrichments.indicator.x509.issuer.country
+- ecs: threat.enrichments.indicator.x509.issuer.distinguished_name
+- ecs: threat.enrichments.indicator.x509.issuer.locality
+- ecs: threat.enrichments.indicator.x509.issuer.organization
+- ecs: threat.enrichments.indicator.x509.issuer.organizational_unit
+- ecs: threat.enrichments.indicator.x509.issuer.state_or_province
+- ecs: threat.enrichments.indicator.x509.not_after
+- ecs: threat.enrichments.indicator.x509.not_before
+- ecs: threat.enrichments.indicator.x509.public_key_algorithm
+- ecs: threat.enrichments.indicator.x509.public_key_curve
+- ecs: threat.enrichments.indicator.x509.public_key_exponent
+- ecs: threat.enrichments.indicator.x509.public_key_size
+- ecs: threat.enrichments.indicator.x509.serial_number
+- ecs: threat.enrichments.indicator.x509.signature_algorithm
+- ecs: threat.enrichments.indicator.x509.subject.common_name
+- ecs: threat.enrichments.indicator.x509.subject.country
+- ecs: threat.enrichments.indicator.x509.subject.distinguished_name
+- ecs: threat.enrichments.indicator.x509.subject.locality
+- ecs: threat.enrichments.indicator.x509.subject.organization
+- ecs: threat.enrichments.indicator.x509.subject.organizational_unit
+- ecs: threat.enrichments.indicator.x509.subject.state_or_province
+- ecs: threat.enrichments.indicator.x509.version_number
+- ecs: threat.enrichments.matched.atomic
+- ecs: threat.enrichments.matched.field
+- ecs: threat.enrichments.matched.id
+- ecs: threat.enrichments.matched.index
+- ecs: threat.enrichments.matched.type
+- ecs: threat.framework
+- ecs: threat.group.alias
+- ecs: threat.group.id
+- ecs: threat.group.name
+- ecs: threat.group.reference
+- ecs: threat.indicator.as.number
+- ecs: threat.indicator.as.organization.name
+- ecs: threat.indicator.confidence
+- ecs: threat.indicator.description
+- ecs: threat.indicator.email.address
+- ecs: threat.indicator.file.Ext
+- ecs: threat.indicator.file.Ext.code_signature
+- ecs: threat.indicator.file.Ext.code_signature.exists
+- ecs: threat.indicator.file.Ext.code_signature.status
+- ecs: threat.indicator.file.Ext.code_signature.subject_name
+- ecs: threat.indicator.file.Ext.code_signature.trusted
+- ecs: threat.indicator.file.Ext.code_signature.valid
+- ecs: threat.indicator.file.Ext.device.bus_type
+- ecs: threat.indicator.file.Ext.device.dos_name
+- ecs: threat.indicator.file.Ext.device.nt_name
+- ecs: threat.indicator.file.Ext.device.product_id
+- ecs: threat.indicator.file.Ext.device.serial_number
+- ecs: threat.indicator.file.Ext.device.vendor_id
+- ecs: threat.indicator.file.Ext.entropy
+- ecs: threat.indicator.file.Ext.entry_modified
+- ecs: threat.indicator.file.Ext.header_bytes
+- ecs: threat.indicator.file.Ext.header_data
+- ecs: threat.indicator.file.Ext.malware_classification.features.data.buffer
+- ecs: threat.indicator.file.Ext.malware_classification.features.data.decompressed_size
+- ecs: threat.indicator.file.Ext.malware_classification.features.data.encoding
+- ecs: threat.indicator.file.Ext.malware_classification.identifier
+- ecs: threat.indicator.file.Ext.malware_classification.score
+- ecs: threat.indicator.file.Ext.malware_classification.threshold
+- ecs: threat.indicator.file.Ext.malware_classification.upx_packed
+- ecs: threat.indicator.file.Ext.malware_classification.version
+- ecs: threat.indicator.file.Ext.malware_signature
+- ecs: threat.indicator.file.Ext.malware_signature.all_names
+- ecs: threat.indicator.file.Ext.malware_signature.identifier
+- ecs: threat.indicator.file.Ext.malware_signature.primary
+- ecs: threat.indicator.file.Ext.malware_signature.primary.matches
+- ecs: threat.indicator.file.Ext.malware_signature.primary.signature
+- ecs: threat.indicator.file.Ext.malware_signature.primary.signature.hash
+- ecs: threat.indicator.file.Ext.malware_signature.primary.signature.hash.sha256
+- ecs: threat.indicator.file.Ext.malware_signature.primary.signature.id
+- ecs: threat.indicator.file.Ext.malware_signature.primary.signature.name
+- ecs: threat.indicator.file.Ext.malware_signature.secondary
+- ecs: threat.indicator.file.Ext.malware_signature.version
+- ecs: threat.indicator.file.Ext.monotonic_id
+- ecs: threat.indicator.file.Ext.original
+- ecs: threat.indicator.file.Ext.original.gid
+- ecs: threat.indicator.file.Ext.original.group
+- ecs: threat.indicator.file.Ext.original.mode
+- ecs: threat.indicator.file.Ext.original.name
+- ecs: threat.indicator.file.Ext.original.owner
+- ecs: threat.indicator.file.Ext.original.path
+- ecs: threat.indicator.file.Ext.original.uid
+- ecs: threat.indicator.file.Ext.quarantine_message
+- ecs: threat.indicator.file.Ext.quarantine_path
+- ecs: threat.indicator.file.Ext.quarantine_result
+- ecs: threat.indicator.file.Ext.temp_file_path
+- ecs: threat.indicator.file.Ext.windows
+- ecs: threat.indicator.file.Ext.windows.zone_identifier
+- ecs: threat.indicator.file.accessed
+- ecs: threat.indicator.file.attributes
+- ecs: threat.indicator.file.code_signature.exists
+- ecs: threat.indicator.file.code_signature.signing_id
+- ecs: threat.indicator.file.code_signature.status
+- ecs: threat.indicator.file.code_signature.subject_name
+- ecs: threat.indicator.file.code_signature.team_id
+- ecs: threat.indicator.file.code_signature.trusted
+- ecs: threat.indicator.file.code_signature.valid
+- ecs: threat.indicator.file.created
+- ecs: threat.indicator.file.ctime
+- ecs: threat.indicator.file.device
+- ecs: threat.indicator.file.directory
+- ecs: threat.indicator.file.drive_letter
+- ecs: threat.indicator.file.elf.architecture
+- ecs: threat.indicator.file.elf.byte_order
+- ecs: threat.indicator.file.elf.cpu_type
+- ecs: threat.indicator.file.elf.creation_date
+- ecs: threat.indicator.file.elf.exports
+- ecs: threat.indicator.file.elf.header.abi_version
+- ecs: threat.indicator.file.elf.header.class
+- ecs: threat.indicator.file.elf.header.data
+- ecs: threat.indicator.file.elf.header.entrypoint
+- ecs: threat.indicator.file.elf.header.object_version
+- ecs: threat.indicator.file.elf.header.os_abi
+- ecs: threat.indicator.file.elf.header.type
+- ecs: threat.indicator.file.elf.header.version
+- ecs: threat.indicator.file.elf.imports
+- ecs: threat.indicator.file.elf.sections
+- ecs: threat.indicator.file.elf.sections.chi2
+- ecs: threat.indicator.file.elf.sections.entropy
+- ecs: threat.indicator.file.elf.sections.flags
+- ecs: threat.indicator.file.elf.sections.name
+- ecs: threat.indicator.file.elf.sections.physical_offset
+- ecs: threat.indicator.file.elf.sections.physical_size
+- ecs: threat.indicator.file.elf.sections.type
+- ecs: threat.indicator.file.elf.sections.virtual_address
+- ecs: threat.indicator.file.elf.sections.virtual_size
+- ecs: threat.indicator.file.elf.segments
+- ecs: threat.indicator.file.elf.segments.sections
+- ecs: threat.indicator.file.elf.segments.type
+- ecs: threat.indicator.file.elf.shared_libraries
+- ecs: threat.indicator.file.elf.telfhash
+- ecs: threat.indicator.file.extension
+- ecs: threat.indicator.file.gid
+- ecs: threat.indicator.file.group
+- ecs: threat.indicator.file.hash.md5
+- ecs: threat.indicator.file.hash.sha1
+- ecs: threat.indicator.file.hash.sha256
+- ecs: threat.indicator.file.hash.sha512
+- ecs: threat.indicator.file.hash.ssdeep
+- ecs: threat.indicator.file.inode
+- ecs: threat.indicator.file.mime_type
+- ecs: threat.indicator.file.mode
+- ecs: threat.indicator.file.mtime
+- ecs: threat.indicator.file.name
+- ecs: threat.indicator.file.owner
+- ecs: threat.indicator.file.path
+- ecs: threat.indicator.file.pe.architecture
+- ecs: threat.indicator.file.pe.company
+- ecs: threat.indicator.file.pe.description
+- ecs: threat.indicator.file.pe.file_version
+- ecs: threat.indicator.file.pe.imphash
+- ecs: threat.indicator.file.pe.original_file_name
+- ecs: threat.indicator.file.pe.product
+- ecs: threat.indicator.file.size
+- ecs: threat.indicator.file.target_path
+- ecs: threat.indicator.file.type
+- ecs: threat.indicator.file.uid
+- ecs: threat.indicator.first_seen
+- ecs: threat.indicator.geo.city_name
+- ecs: threat.indicator.geo.continent_code
+- ecs: threat.indicator.geo.continent_name
+- ecs: threat.indicator.geo.country_iso_code
+- ecs: threat.indicator.geo.country_name
+- ecs: threat.indicator.geo.location
+- ecs: threat.indicator.geo.name
+- ecs: threat.indicator.geo.postal_code
+- ecs: threat.indicator.geo.region_iso_code
+- ecs: threat.indicator.geo.region_name
+- ecs: threat.indicator.geo.timezone
+- ecs: threat.indicator.ip
+- ecs: threat.indicator.last_seen
+- ecs: threat.indicator.marking.tlp
+- ecs: threat.indicator.modified_at
+- ecs: threat.indicator.port
+- ecs: threat.indicator.provider
+- ecs: threat.indicator.reference
+- ecs: threat.indicator.registry.data.bytes
+- ecs: threat.indicator.registry.data.strings
+- ecs: threat.indicator.registry.data.type
+- ecs: threat.indicator.registry.hive
+- ecs: threat.indicator.registry.key
+- ecs: threat.indicator.registry.path
+- ecs: threat.indicator.registry.value
+- ecs: threat.indicator.scanner_stats
+- ecs: threat.indicator.sightings
+- ecs: threat.indicator.type
+- ecs: threat.indicator.url.domain
+- ecs: threat.indicator.url.extension
+- ecs: threat.indicator.url.fragment
+- ecs: threat.indicator.url.full
+- ecs: threat.indicator.url.original
+- ecs: threat.indicator.url.password
+- ecs: threat.indicator.url.path
+- ecs: threat.indicator.url.port
+- ecs: threat.indicator.url.query
+- ecs: threat.indicator.url.registered_domain
+- ecs: threat.indicator.url.scheme
+- ecs: threat.indicator.url.subdomain
+- ecs: threat.indicator.url.top_level_domain
+- ecs: threat.indicator.url.username
+- ecs: threat.indicator.x509.alternative_names
+- ecs: threat.indicator.x509.issuer.common_name
+- ecs: threat.indicator.x509.issuer.country
+- ecs: threat.indicator.x509.issuer.distinguished_name
+- ecs: threat.indicator.x509.issuer.locality
+- ecs: threat.indicator.x509.issuer.organization
+- ecs: threat.indicator.x509.issuer.organizational_unit
+- ecs: threat.indicator.x509.issuer.state_or_province
+- ecs: threat.indicator.x509.not_after
+- ecs: threat.indicator.x509.not_before
+- ecs: threat.indicator.x509.public_key_algorithm
+- ecs: threat.indicator.x509.public_key_curve
+- ecs: threat.indicator.x509.public_key_exponent
+- ecs: threat.indicator.x509.public_key_size
+- ecs: threat.indicator.x509.serial_number
+- ecs: threat.indicator.x509.signature_algorithm
+- ecs: threat.indicator.x509.subject.common_name
+- ecs: threat.indicator.x509.subject.country
+- ecs: threat.indicator.x509.subject.distinguished_name
+- ecs: threat.indicator.x509.subject.locality
+- ecs: threat.indicator.x509.subject.organization
+- ecs: threat.indicator.x509.subject.organizational_unit
+- ecs: threat.indicator.x509.subject.state_or_province
+- ecs: threat.indicator.x509.version_number
+- ecs: threat.software.id
+- ecs: threat.software.name
+- ecs: threat.software.platforms
+- ecs: threat.software.reference
+- ecs: threat.software.type
+- ecs: threat.tactic.id
+- ecs: threat.tactic.name
+- ecs: threat.tactic.reference
+- ecs: threat.technique.id
+- ecs: threat.technique.name
+- ecs: threat.technique.reference
+- ecs: threat.technique.subtechnique.id
+- ecs: threat.technique.subtechnique.name
+- ecs: threat.technique.subtechnique.reference
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name

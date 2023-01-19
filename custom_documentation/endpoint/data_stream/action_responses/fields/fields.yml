@@ -1,47 +1,37 @@
-- name: '@timestamp'
-- name: action_id
-- name: agent_id
-- name: completed_at
-- name: data.command
-- name: data.comment
-- name: started_at
-- name: status
-- name: EndpointActions
-  fields:
-  - name: action_id
-  - name: completed_at
-  - name: data
-  - name: data.command
-  - name: data.comment
-  - name: started_at
-  - name: status
-- name: agent
-  fields:
-  - name: id
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: ecs
-  fields:
-  - name: version
-- name: error
-  fields:
-  - name: code
-  - name: id
-  - name: message
-  - name: stack_trace
-  - name: type
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: created
-  - name: end
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: outcome
-  - name: start
-  - name: type
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: EndpointActions.action_id
+- ecs: EndpointActions.completed_at
+- ecs: EndpointActions.data
+- ecs: EndpointActions.data.command
+- ecs: EndpointActions.data.comment
+- ecs: EndpointActions.started_at
+- ecs: EndpointActions.status
+- ecs: action_id
+- ecs: agent.id
+- ecs: agent_id
+- ecs: completed_at
+- ecs: data.command
+- ecs: data.comment
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: ecs.version
+- ecs: error.code
+- ecs: error.id
+- ecs: error.message
+- ecs: error.stack_trace
+- ecs: error.type
+- ecs: event.action
+- ecs: event.category
+- ecs: event.created
+- ecs: event.end
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.outcome
+- ecs: event.start
+- ecs: event.type
+- ecs: started_at
+- ecs: status

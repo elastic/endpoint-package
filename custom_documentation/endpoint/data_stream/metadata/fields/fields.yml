@@ -1,69 +1,57 @@
-- name: '@timestamp'
-- name: Endpoint
-  fields:
-  - name: capabilities
-  - name: configuration
-  - name: configuration.isolation
-  - name: policy
-  - name: policy.applied
-  - name: policy.applied.id
-  - name: policy.applied.name
-  - name: policy.applied.status
-  - name: state
-  - name: state.isolation
-  - name: status
-- name: agent
-  fields:
-  - name: id
-  - name: name
-  - name: type
-  - name: version
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: ecs
-  fields:
-  - name: version
-- name: elastic
-  fields:
-  - name: agent
-  - name: agent.id
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
-- name: host
-  fields:
-  - name: architecture
-  - name: domain
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
-  - name: type
-  - name: uptime
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: Endpoint.capabilities
+- ecs: Endpoint.configuration
+- ecs: Endpoint.configuration.isolation
+- ecs: Endpoint.policy
+- ecs: Endpoint.policy.applied
+- ecs: Endpoint.policy.applied.id
+- ecs: Endpoint.policy.applied.name
+- ecs: Endpoint.policy.applied.status
+- ecs: Endpoint.state
+- ecs: Endpoint.state.isolation
+- ecs: Endpoint.status
+- ecs: agent.id
+- ecs: agent.name
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: ecs.version
+- ecs: elastic.agent
+- ecs: elastic.agent.id
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime

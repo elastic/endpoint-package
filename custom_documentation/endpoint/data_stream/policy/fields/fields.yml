@@ -1,119 +1,109 @@
-- name: '@timestamp'
-- name: message
-- name: Endpoint
-  fields:
-  - name: configuration
-  - name: configuration.isolation
-  - name: policy
-  - name: policy.applied
-  - name: policy.applied.actions
-  - name: policy.applied.actions.message
-  - name: policy.applied.actions.name
-  - name: policy.applied.actions.status
-  - name: policy.applied.artifacts
-  - name: policy.applied.artifacts.global
-  - name: policy.applied.artifacts.global.identifiers
-  - name: policy.applied.artifacts.global.identifiers.name
-  - name: policy.applied.artifacts.global.identifiers.sha256
-  - name: policy.applied.artifacts.global.version
-  - name: policy.applied.artifacts.user
-  - name: policy.applied.artifacts.user.identifiers
-  - name: policy.applied.artifacts.user.identifiers.name
-  - name: policy.applied.artifacts.user.identifiers.sha256
-  - name: policy.applied.artifacts.user.version
-  - name: policy.applied.endpoint_policy_version
-  - name: policy.applied.id
-  - name: policy.applied.name
-  - name: policy.applied.response
-  - name: policy.applied.response.configurations
-  - name: policy.applied.response.configurations.antivirus_registration
-  - name: policy.applied.response.configurations.antivirus_registration.concerned_actions
-  - name: policy.applied.response.configurations.antivirus_registration.status
-  - name: policy.applied.response.configurations.attack_surface_reduction.concerned_actions
-  - name: policy.applied.response.configurations.attack_surface_reduction.status
-  - name: policy.applied.response.configurations.behavior_protection.concerned_actions
-  - name: policy.applied.response.configurations.behavior_protection.status
-  - name: policy.applied.response.configurations.events
-  - name: policy.applied.response.configurations.events.concerned_actions
-  - name: policy.applied.response.configurations.events.status
-  - name: policy.applied.response.configurations.host_isolation.concerned_actions
-  - name: policy.applied.response.configurations.host_isolation.status
-  - name: policy.applied.response.configurations.logging
-  - name: policy.applied.response.configurations.logging.concerned_actions
-  - name: policy.applied.response.configurations.logging.status
-  - name: policy.applied.response.configurations.malware
-  - name: policy.applied.response.configurations.malware.concerned_actions
-  - name: policy.applied.response.configurations.malware.status
-  - name: policy.applied.response.configurations.memory_protection
-  - name: policy.applied.response.configurations.memory_protection.concerned_actions
-  - name: policy.applied.response.configurations.memory_protection.status
-  - name: policy.applied.response.configurations.ransomware.concerned_actions
-  - name: policy.applied.response.configurations.ransomware.status
-  - name: policy.applied.response.configurations.streaming
-  - name: policy.applied.response.configurations.streaming.concerned_actions
-  - name: policy.applied.response.configurations.streaming.status
-  - name: policy.applied.response.diagnostic
-  - name: policy.applied.response.diagnostic.behavior_protection.concerned_actions
-  - name: policy.applied.response.diagnostic.behavior_protection.status
-  - name: policy.applied.response.diagnostic.credential_protection.concerned_actions
-  - name: policy.applied.response.diagnostic.credential_protection.status
-  - name: policy.applied.response.diagnostic.malware.concerned_actions
-  - name: policy.applied.response.diagnostic.malware.status
-  - name: policy.applied.response.diagnostic.memory_protection.concerned_actions
-  - name: policy.applied.response.diagnostic.memory_protection.status
-  - name: policy.applied.response.diagnostic.memory_scan.concerned_actions
-  - name: policy.applied.response.diagnostic.memory_scan.status
-  - name: policy.applied.response.diagnostic.ransomware.concerned_actions
-  - name: policy.applied.response.diagnostic.ransomware.status
-  - name: policy.applied.status
-  - name: policy.applied.version
-  - name: state
-  - name: state.isolation
-- name: agent
-  fields:
-  - name: build.original
-  - name: id
-  - name: type
-  - name: version
-- name: data_stream
-  fields:
-  - name: dataset
-  - name: namespace
-  - name: type
-- name: ecs
-  fields:
-  - name: version
-- name: event
-  fields:
-  - name: action
-  - name: category
-  - name: code
-  - name: created
-  - name: dataset
-  - name: hash
-  - name: id
-  - name: ingested
-  - name: kind
-  - name: module
-  - name: outcome
-  - name: provider
-  - name: sequence
-  - name: severity
-  - name: type
-- name: host
-  fields:
-  - name: architecture
-  - name: hostname
-  - name: id
-  - name: ip
-  - name: mac
-  - name: name
-  - name: os.Ext
-  - name: os.Ext.variant
-  - name: os.family
-  - name: os.full
-  - name: os.kernel
-  - name: os.name
-  - name: os.platform
-  - name: os.type
-  - name: os.version
+definitions: []
+fields:
+- ecs: '@timestamp'
+- ecs: Endpoint.configuration
+- ecs: Endpoint.configuration.isolation
+- ecs: Endpoint.policy
+- ecs: Endpoint.policy.applied
+- ecs: Endpoint.policy.applied.actions
+- ecs: Endpoint.policy.applied.actions.message
+- ecs: Endpoint.policy.applied.actions.name
+- ecs: Endpoint.policy.applied.actions.status
+- ecs: Endpoint.policy.applied.artifacts
+- ecs: Endpoint.policy.applied.artifacts.global
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers.name
+- ecs: Endpoint.policy.applied.artifacts.global.identifiers.sha256
+- ecs: Endpoint.policy.applied.artifacts.global.version
+- ecs: Endpoint.policy.applied.artifacts.user
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers.name
+- ecs: Endpoint.policy.applied.artifacts.user.identifiers.sha256
+- ecs: Endpoint.policy.applied.artifacts.user.version
+- ecs: Endpoint.policy.applied.endpoint_policy_version
+- ecs: Endpoint.policy.applied.id
+- ecs: Endpoint.policy.applied.name
+- ecs: Endpoint.policy.applied.response
+- ecs: Endpoint.policy.applied.response.configurations
+- ecs: Endpoint.policy.applied.response.configurations.antivirus_registration
+- ecs: Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.antivirus_registration.status
+- ecs: Endpoint.policy.applied.response.configurations.attack_surface_reduction.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.attack_surface_reduction.status
+- ecs: Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.behavior_protection.status
+- ecs: Endpoint.policy.applied.response.configurations.events
+- ecs: Endpoint.policy.applied.response.configurations.events.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.events.status
+- ecs: Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.host_isolation.status
+- ecs: Endpoint.policy.applied.response.configurations.logging
+- ecs: Endpoint.policy.applied.response.configurations.logging.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.logging.status
+- ecs: Endpoint.policy.applied.response.configurations.malware
+- ecs: Endpoint.policy.applied.response.configurations.malware.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.malware.status
+- ecs: Endpoint.policy.applied.response.configurations.memory_protection
+- ecs: Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.memory_protection.status
+- ecs: Endpoint.policy.applied.response.configurations.ransomware.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.ransomware.status
+- ecs: Endpoint.policy.applied.response.configurations.streaming
+- ecs: Endpoint.policy.applied.response.configurations.streaming.concerned_actions
+- ecs: Endpoint.policy.applied.response.configurations.streaming.status
+- ecs: Endpoint.policy.applied.response.diagnostic
+- ecs: Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.behavior_protection.status
+- ecs: Endpoint.policy.applied.response.diagnostic.credential_protection.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.credential_protection.status
+- ecs: Endpoint.policy.applied.response.diagnostic.malware.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.malware.status
+- ecs: Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.memory_protection.status
+- ecs: Endpoint.policy.applied.response.diagnostic.memory_scan.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.memory_scan.status
+- ecs: Endpoint.policy.applied.response.diagnostic.ransomware.concerned_actions
+- ecs: Endpoint.policy.applied.response.diagnostic.ransomware.status
+- ecs: Endpoint.policy.applied.status
+- ecs: Endpoint.policy.applied.version
+- ecs: Endpoint.state
+- ecs: Endpoint.state.isolation
+- ecs: agent.build.original
+- ecs: agent.id
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: ecs.version
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: host.architecture
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: message
