@@ -136,8 +136,14 @@ func main() {
 		fmt.Printf("we are generating!\n")
 		// generate the fields that differ from what we have
 		err = generateFields(options.packagesSourceDir, options.filteringDir)
+		if err != nil {
+			log.Printf("Failed to re-generate the filters: %s\n", err)
+			return
+		}
 
 		// generate the docs from the fields, etc
+	} else {
+		fmt.Printf("we are doing nothing -- what were you expecting?\n")
 	}
 
 }

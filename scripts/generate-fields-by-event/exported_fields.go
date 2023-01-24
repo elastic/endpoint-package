@@ -79,6 +79,13 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 		return "", errors.Wrap(err, "collecting fields files failed")
 	}
 
+	// gather filter files
+	filterFiles := gatherFilterFiles(options, fieldFiles)
+
+	// loop over all the definitions
+	// for each definition, print out the make-up of the ECS fields
+	// print out each of the filtered fields
+
 	var builder strings.Builder
 	builder.WriteString("#### Exported fields\n\n")
 

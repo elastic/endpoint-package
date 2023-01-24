@@ -19,6 +19,23 @@ func parePath(input string, common string) string {
 	return strings.TrimPrefix(result, "/")
 }
 
+func gatherFilterFiles(options generateOptions, fieldFiles []string) []string {
+	var files []string
+
+	for _, f := range fieldFiles {
+		halfPath := parePath(f, options.packagesSourceDir)
+
+		filterPath := filepath.Join(options.filteringDir, halfPath)
+
+		// make sure this file exists
+		if _,err := os.Stat(filterPath); err == nil {
+			files = append(files, filterPath)
+		}
+	}
+
+	return files
+}
+
 func gatherFieldsFiles(topDir string) ([]string, error) {
 	var folders []string
 	err := filepath.Walk(topDir,
