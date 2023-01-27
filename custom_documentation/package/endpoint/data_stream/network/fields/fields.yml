@@ -1,0 +1,278 @@
+definitions:
+- name: ipv4_connection_accepted
+  values:
+  - name: network.type
+    value: ipv4
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_accepted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv6_connection_accepted
+  values:
+  - name: network.type
+    value: ipv6
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_accepted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv4_connection_attempted
+  values:
+  - name: network.type
+    value: ipv4
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_attempted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv4_reconnect_attempted
+  values:
+  - name: network.type
+    value: ipv4
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_attempted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv6_reconnect_attempted
+  values:
+  - name: network.type
+    value: ipv4
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_attempted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv6_connection_attempted
+  values:
+  - name: network.type
+    value: ipv6
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: start
+  - name: event.action
+    value: connection_attempted
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv4_disconnect_received
+  values:
+  - name: network.type
+    value: ipv4
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: end
+  - name: event.action
+    value: disconnect_received
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+- name: ipv6_disconnect_received
+  values:
+  - name: network.type
+    value: ipv6
+  - name: event.outcome
+    value: success
+  - name: event.type
+    value: end
+  - name: event.action
+    value: disconnect_received
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+os:
+- linux
+- macos
+- windows
+fields:
+- ecs: '@timestamp'
+- ecs: agent.id
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.address
+- ecs: destination.as.number
+- ecs: destination.as.organization.name
+- ecs: destination.bytes
+- ecs: destination.domain
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: destination.ip
+- ecs: destination.packets
+- ecs: destination.port
+- ecs: destination.registered_domain
+- ecs: destination.top_level_domain
+- ecs: dns.Ext
+- ecs: dns.Ext.options
+- ecs: dns.Ext.status
+- ecs: dns.question.name
+- ecs: dns.question.registered_domain
+- ecs: dns.question.subdomain
+- ecs: dns.question.top_level_domain
+- ecs: dns.question.type
+- ecs: dns.resolved_ip
+- ecs: ecs.version
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime
+- ecs: http.request.body.bytes
+- ecs: http.request.body.content
+- ecs: http.request.bytes
+- ecs: http.response.Ext
+- ecs: http.response.Ext.version
+- ecs: http.response.body.bytes
+- ecs: http.response.body.content
+- ecs: http.response.bytes
+- ecs: http.response.status_code
+- ecs: message
+- ecs: network.bytes
+- ecs: network.community_id
+- ecs: network.direction
+- ecs: network.iana_number
+- ecs: network.packets
+- ecs: network.protocol
+- ecs: network.transport
+- ecs: network.type
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.entity_id
+- ecs: process.entry_leader.entity_id
+- ecs: process.entry_leader.parent.entity_id
+- ecs: process.executable
+- ecs: process.group_leader.entity_id
+- ecs: process.name
+- ecs: process.parent.entity_id
+- ecs: process.parent.group_leader.entity_id
+- ecs: process.pid
+- ecs: process.session_leader.entity_id
+- ecs: process.thread.id
+- ecs: source.address
+- ecs: source.as.number
+- ecs: source.as.organization.name
+- ecs: source.bytes
+- ecs: source.domain
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: source.ip
+- ecs: source.packets
+- ecs: source.port
+- ecs: source.registered_domain
+- ecs: source.top_level_domain
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name

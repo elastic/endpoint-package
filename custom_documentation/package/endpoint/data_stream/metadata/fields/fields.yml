@@ -1,0 +1,66 @@
+definitions:
+- name: metadata
+  event.kind: event
+  event.category: []
+  event.type:
+  - info
+os:
+- linux
+- macos
+- windows
+fields:
+- ecs: '@timestamp'
+- ecs: Endpoint.capabilities
+- ecs: Endpoint.configuration
+- ecs: Endpoint.configuration.isolation
+- ecs: Endpoint.policy
+- ecs: Endpoint.policy.applied
+- ecs: Endpoint.policy.applied.id
+- ecs: Endpoint.policy.applied.name
+- ecs: Endpoint.policy.applied.status
+- ecs: Endpoint.state
+- ecs: Endpoint.state.isolation
+- ecs: Endpoint.status
+- ecs: agent.id
+- ecs: agent.name
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: ecs.version
+- ecs: elastic.agent
+- ecs: elastic.agent.id
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime

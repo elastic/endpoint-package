@@ -1,0 +1,271 @@
+definitions:
+- name: file_create
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - creation
+- name: file_overwrite
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - change
+- name: file_rename
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - change
+- name: file_open
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - access
+- name: file_extended_attributes
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - info
+- name: file_mount
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - info
+- name: file_modify
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - change
+- name: file_delete
+  event.kind: event
+  event.category:
+  - file
+  event.type:
+  - deletion
+os:
+- linux
+- macos
+- windows
+fields:
+- ecs: '@timestamp'
+- ecs: Effective_process.entity_id
+- ecs: Effective_process.executable
+- ecs: Effective_process.name
+- ecs: Effective_process.pid
+- ecs: agent.id
+- ecs: agent.type
+- ecs: agent.version
+- ecs: data_stream.dataset
+- ecs: data_stream.namespace
+- ecs: data_stream.type
+- ecs: destination.geo.city_name
+- ecs: destination.geo.continent_code
+- ecs: destination.geo.continent_name
+- ecs: destination.geo.country_iso_code
+- ecs: destination.geo.country_name
+- ecs: destination.geo.location
+- ecs: destination.geo.name
+- ecs: destination.geo.postal_code
+- ecs: destination.geo.region_iso_code
+- ecs: destination.geo.region_name
+- ecs: destination.geo.timezone
+- ecs: ecs.version
+- ecs: event.Ext
+- ecs: event.Ext.correlation
+- ecs: event.Ext.correlation.id
+- ecs: event.action
+- ecs: event.category
+- ecs: event.code
+- ecs: event.created
+- ecs: event.dataset
+- ecs: event.hash
+- ecs: event.id
+- ecs: event.ingested
+- ecs: event.kind
+- ecs: event.module
+- ecs: event.outcome
+- ecs: event.provider
+- ecs: event.sequence
+- ecs: event.severity
+- ecs: event.type
+- ecs: file.Ext
+- ecs: file.Ext.device.bus_type
+  windows:
+  - all
+- ecs: file.Ext.device.dos_name
+  windows:
+  - all
+- ecs: file.Ext.device.nt_name
+  windows:
+  - all
+- ecs: file.Ext.device.product_id
+  windows:
+  - all
+- ecs: file.Ext.device.serial_number
+  windows:
+  - all
+- ecs: file.Ext.device.vendor_id
+  windows:
+  - all
+- ecs: file.Ext.device.volume_device_type
+  windows:
+  - all
+- ecs: file.Ext.entropy
+- ecs: file.Ext.header_bytes
+- ecs: file.Ext.header_data
+- ecs: file.Ext.malware_signature
+- ecs: file.Ext.malware_signature.all_names
+- ecs: file.Ext.malware_signature.identifier
+- ecs: file.Ext.malware_signature.primary
+- ecs: file.Ext.malware_signature.primary.matches
+- ecs: file.Ext.malware_signature.primary.signature
+- ecs: file.Ext.malware_signature.primary.signature.hash
+- ecs: file.Ext.malware_signature.primary.signature.hash.sha256
+- ecs: file.Ext.malware_signature.primary.signature.id
+- ecs: file.Ext.malware_signature.primary.signature.name
+- ecs: file.Ext.malware_signature.secondary
+- ecs: file.Ext.malware_signature.version
+- ecs: file.Ext.monotonic_id
+- ecs: file.Ext.original
+- ecs: file.Ext.original.gid
+- ecs: file.Ext.original.group
+- ecs: file.Ext.original.mode
+- ecs: file.Ext.original.name
+- ecs: file.Ext.original.owner
+- ecs: file.Ext.original.path
+- ecs: file.Ext.original.uid
+- ecs: file.Ext.windows
+- ecs: file.Ext.windows.zone_identifier
+- ecs: file.accessed
+- ecs: file.attributes
+- ecs: file.created
+- ecs: file.ctime
+- ecs: file.device
+- ecs: file.directory
+- ecs: file.drive_letter
+  windows:
+  - all
+- ecs: file.extension
+- ecs: file.gid
+- ecs: file.group
+- ecs: file.hash.md5
+- ecs: file.hash.sha1
+- ecs: file.hash.sha256
+- ecs: file.hash.sha512
+- ecs: file.inode
+- ecs: file.mime_type
+- ecs: file.mode
+- ecs: file.mtime
+- ecs: file.name
+- ecs: file.owner
+- ecs: file.path
+- ecs: file.pe.company
+  windows:
+  - all
+- ecs: file.pe.description
+  windows:
+  - all
+- ecs: file.pe.file_version
+  windows:
+  - all
+- ecs: file.pe.imphash
+  windows:
+  - all
+- ecs: file.pe.original_file_name
+  windows:
+  - all
+- ecs: file.pe.product
+  windows:
+  - all
+- ecs: file.size
+- ecs: file.target_path
+- ecs: file.type
+- ecs: file.uid
+- ecs: group.Ext
+- ecs: group.Ext.real
+- ecs: group.Ext.real.id
+- ecs: group.Ext.real.name
+- ecs: group.domain
+- ecs: group.id
+- ecs: group.name
+- ecs: host.architecture
+- ecs: host.domain
+- ecs: host.hostname
+- ecs: host.id
+- ecs: host.ip
+- ecs: host.mac
+- ecs: host.name
+- ecs: host.os.Ext
+- ecs: host.os.Ext.variant
+- ecs: host.os.family
+- ecs: host.os.full
+- ecs: host.os.kernel
+- ecs: host.os.name
+- ecs: host.os.platform
+- ecs: host.os.type
+- ecs: host.os.version
+- ecs: host.type
+- ecs: host.uptime
+- ecs: message
+- ecs: process.Ext
+- ecs: process.Ext.ancestry
+- ecs: process.Ext.code_signature
+- ecs: process.Ext.code_signature.exists
+- ecs: process.Ext.code_signature.status
+- ecs: process.Ext.code_signature.subject_name
+- ecs: process.Ext.code_signature.trusted
+- ecs: process.Ext.code_signature.valid
+- ecs: process.args_count
+- ecs: process.code_signature.exists
+- ecs: process.code_signature.signing_id
+- ecs: process.code_signature.status
+- ecs: process.code_signature.subject_name
+- ecs: process.code_signature.team_id
+- ecs: process.code_signature.trusted
+- ecs: process.code_signature.valid
+- ecs: process.entity_id
+- ecs: process.entry_leader.entity_id
+- ecs: process.entry_leader.parent.entity_id
+- ecs: process.executable
+- ecs: process.group_leader.entity_id
+- ecs: process.name
+- ecs: process.parent.entity_id
+- ecs: process.parent.group_leader.entity_id
+- ecs: process.parent.pid
+- ecs: process.pid
+- ecs: process.ppid
+- ecs: process.session_leader.entity_id
+- ecs: process.thread.id
+- ecs: source.geo.city_name
+- ecs: source.geo.continent_code
+- ecs: source.geo.continent_name
+- ecs: source.geo.country_iso_code
+- ecs: source.geo.country_name
+- ecs: source.geo.location
+- ecs: source.geo.name
+- ecs: source.geo.postal_code
+- ecs: source.geo.region_iso_code
+- ecs: source.geo.region_name
+- ecs: source.geo.timezone
+- ecs: user.Ext
+- ecs: user.Ext.real
+- ecs: user.Ext.real.id
+- ecs: user.Ext.real.name
+- ecs: user.domain
+- ecs: user.email
+- ecs: user.full_name
+- ecs: user.group.Ext
+- ecs: user.group.Ext.real
+- ecs: user.group.Ext.real.id
+- ecs: user.group.Ext.real.name
+- ecs: user.group.domain
+- ecs: user.group.id
+- ecs: user.group.name
+- ecs: user.hash
+- ecs: user.id
+- ecs: user.name
