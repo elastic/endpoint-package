@@ -11,6 +11,8 @@ import (
 	"sort"
 	"strings"
 
+	"os"
+
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
@@ -33,6 +35,113 @@ type fieldsTableRecord struct {
 	name        string
 	description string
 	aType       string
+}
+
+func updateFilterFile(options generateOptions, fieldFiles []string, collected []fieldsTableRecord) error {
+	// if we are not doing this, just bail
+	if !options.updateFilters {
+		return nil
+	}
+
+	// gather the filter files (assert there is only one)
+	filterFiles := gatherFilterFiles(options, fieldFiles)
+	var filter allTheThings
+	var filterFile string
+
+	if len(filterFiles) > 1 {
+		panic(fmt.Sprintf("There are too many files (%d) in the path %s\n", len(filterFiles),
+			filterFiles[0]))
+		return errors.New(fmt.Sprintf("Too many files (%d) in path %s",
+			len(filterFiles), fieldFiles[0]))
+	}
+
+	if len(fieldFiles) == 0 {
+		return errors.New("Not enough files (0)!")
+	}
+
+	// below here, len(fieldFiles) is guaranteed to be 1
+	filterFile = filepath.Join(options.filteringDir, parePath(fieldFiles[0], options.packagesSourceDir))
+
+	for _, c := range collected {
+		filter.Fields = append(filter.Fields, fieldFilter{Ecs: c.name})
+	}
+
+	sort.Slice(filter.Fields, func(i, j int) bool {
+		return filter.Fields[i].Ecs < filter.Fields[j].Ecs
+	})
+
+	if len(filterFiles) == 0 {
+		// There are no filter files right now, so create them
+		fmt.Printf("No filter file found, so just dumping what we have to %s\n",
+			filterFile)
+		dir := filepath.Dir(filterFile)
+		if _, err := os.Stat(dir); errors.Is(err, os.ErrNotExist) {
+			err := os.MkdirAll(dir, os.ModePerm)
+
+			if err != nil {
+				return errors.Wrap(err, fmt.Sprintf("making directory path %s failed", dir))
+			}
+		}
+	} else {
+		// we have some filters, so join the ecs stuff with the existing filter
+		existing, _ := readInFilterFile(filterFile)
+		filter.Definitions = existing.Definitions
+		for i := range filter.Definitions {
+			if filter.Definitions[i].Kind == "" {
+				filter.Definitions[i].Kind = "event"
+			}
+			if len(filter.Definitions[i].Type) == 0 {
+				filter.Definitions[i].Type = append(filter.Definitions[i].Type, "info")
+			}
+		}
+		filter.Os = existing.Os
+		filter.Fields = join(existing.Fields, filter.Fields)
+	}
+
+	// update the things
+	blob, _ := yaml.Marshal(&filter)
+	err := ioutil.WriteFile(filterFile, blob, 0777)
+	if err != nil {
+		return errors.Wrapf(err, "Failed to write file %s", filterFile)
+	}
+
+	return nil
+}
+
+func getFilteredFields(filter allTheThings, name, os string, collected []fieldsTableRecord) []fieldsTableRecord {
+	var result []fieldsTableRecord
+
+	// create a map from the filter that is limited by event and os
+	var mapping map[string]int = make(map[string]int)
+
+	var found bool = false
+	for i := range filter.Os {
+		if filter.Os[i] == os {
+			found = true
+			break
+		}
+	}
+
+	// if this event isn't supported on this os at all, don't output anything
+	if !found {
+		return result
+	}
+
+	// for each ecs path in the filter
+	for _,f := range filter.Fields {
+		if f.isEmpty() || f.findPath(name, os) {
+			mapping[f.Ecs] = 1
+		}
+	}
+
+	// loop over the collected fields
+	for _,f := range collected {
+		if v,ok := mapping[f.name]; ok && v == 1 {
+			result = append(result, f)
+		}
+	}
+
+	return result
 }
 
 func renderExportedFields(options generateOptions, packageName, dataStreamName string) (string, error) {
@@ -64,6 +173,92 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	for _, c := range collected {
 		description := strings.TrimSpace(strings.ReplaceAll(c.description, "\n", " "))
 		builder.WriteString(fmt.Sprintf("| %s | %s | %s |\n", c.name, description, c.aType))
+	}
+	return builder.String(), nil
+}
+
+func findNeedleInHaystack(needle string, haystack []string) bool {
+	for i := range haystack {
+		if needle == haystack[i] {
+			return true
+		}
+	}
+	return false
+}
+
+func renderFilteredFields(options generateOptions, packageName, dataStreamName, os_ string) (string, error) {
+	dataStreamPath := filepath.Join(options.packagesSourceDir, packageName, "data_stream", dataStreamName)
+	fieldFiles, err := listFieldFields(dataStreamPath)
+	if err != nil {
+		return "", errors.Wrapf(err, "listing field files failed (dataStreamPath: %s)", dataStreamPath)
+	}
+
+	fields, err := loadFields(fieldFiles)
+	if err != nil {
+		return "", errors.Wrap(err, "loading fields files failed")
+	}
+
+	collected, err := collectFieldsFromDefinitions(fields)
+	if err != nil {
+		return "", errors.Wrap(err, "collecting fields files failed")
+	}
+
+	// update the filters (bail early if we don't need to update)
+	err = updateFilterFile(options, fieldFiles, collected)
+	if err != nil {
+		return "", errors.Wrap(err, "updating filters failed")
+	}
+
+	var builder strings.Builder
+
+	// From here, we need to gather the filtered things
+	// If we are supposed to update the filters, do that, too
+	// There should really only be one file, but loop here, anyway
+	filterFiles := gatherFilterFiles(options, fieldFiles)
+	for _, f := range filterFiles {
+		// load the filter
+		var filter, err = readInFilterFile(f)
+		if err != nil {
+			return "", errors.Wrapf(err, "failed to load filter file %s", f)
+		}
+
+		// if this dataStream isn't supported on this os, just bail
+		if !findNeedleInHaystack(os_, filter.Os) {
+			continue
+		}
+
+		// output the definitions
+		if len(filter.Definitions) > 0 {
+			builder.WriteString(fmt.Sprintf("*Definitions for %s*\n", dataStreamName))
+			for _, def := range filter.Definitions {
+				def.dumpDefinition(&builder)
+
+			}
+		}
+
+		// loop over the definitions
+		for _, def := range filter.Definitions {
+			filteredCollected := getFilteredFields(filter, def.Name, os_, collected)
+
+			builder.WriteString(fmt.Sprintf("Event type: %s\n", def.Name))
+			if len(filteredCollected) == 0 {
+				builder.WriteString("(no fields available)\n\n")
+				continue
+			}
+
+			builder.WriteString("#### Exported fields\n\n")
+			builder.WriteString("| Field | Description | Type |\n")
+			builder.WriteString("|---|---|---|\n")
+			for _, c := range filteredCollected {
+				description := strings.TrimSpace(strings.ReplaceAll(
+					c.description, "\n", " "))
+				builder.WriteString(fmt.Sprintf("| %s | %s | %s |\n",
+					c.name, description, c.aType))
+			}
+			builder.WriteString("\n")
+
+		}
+
 	}
 	return builder.String(), nil
 }
