@@ -2270,6 +2270,13 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: process.thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description:  >
+        Check whether a hardware breakpoint is set for the thread. 
+        Include this field, only if the hardware breakpoint is setted. 
+      example: "true"
     - name: process.thread.Ext.call_stack
       level: custom
       type: object
@@ -7061,6 +7068,13 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description:  >
+        Check whether a hardware breakpoint is set for the thread. 
+        Include this field, only if the hardware breakpoint is setted. 
+      example: "true"
     - name: thread.Ext.call_stack
       level: custom
       type: object

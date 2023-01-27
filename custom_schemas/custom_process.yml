@@ -188,6 +188,14 @@
       description: The sha256 of the call_stack_final_user_module.
       example: "d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0"
 
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description:  >
+        Check whether a hardware breakpoint is set for the thread. 
+        Include this field, only if the hardware breakpoint is setted. 
+      example: "true" 
+
     - name: thread.Ext.start
       level: custom
       type: date
