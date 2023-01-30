@@ -55,6 +55,11 @@
                 "sid": "S-1-5-18"
             }
         },
+	"thread": {
+	    "Ext": {
+		"hardware_breakpoint_set": true
+	    }
+	},
         "parent": {
             "Ext": {
                 "protection": "",
