@@ -1,24 +1,22 @@
 definitions:
 - name: load_driver
   values:
-  - name: event.category
-    value: driver
-  - name: event.message
+  - name: message
     value: driver_load_event
   event.kind: event
-  event.category: []
+  event.category:
+    - driver
   event.type:
-  - info
+    - start
 - name: library_load
   values:
-  - name: event.category
-    value: library
-  - name: event.message
+  - name: message
     value: dll_load_event
   event.kind: event
-  event.category: []
+  event.category:
+    - library
   event.type:
-  - info
+    - start
 os:
 - windows
 fields:

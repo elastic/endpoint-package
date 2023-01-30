@@ -3,114 +3,111 @@ definitions:
   values:
   - name: network.type
     value: ipv4
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_accepted
+  - name: message
+    value: network_event
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+    - start
+  event.action: connection_accepted
+  event.outcome: success
 - name: ipv6_connection_accepted
   values:
   - name: network.type
     value: ipv6
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_accepted
+  event.outcome: success
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+  - start
+  event.action: connection_accepted
 - name: ipv4_connection_attempted
   values:
   - name: network.type
     value: ipv4
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_attempted
+  event.action: connection_attempted
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+  - start
+  event.outcome: unknown
 - name: ipv4_reconnect_attempted
   values:
   - name: network.type
     value: ipv4
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_attempted
+  event.action: connection_attempted
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
-- name: ipv6_reconnect_attempted
-  values:
-  - name: network.type
-    value: ipv4
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_attempted
-  event.kind: event
-  event.category: []
-  event.type:
-  - info
+  - start
+  event.outcome: unknown
 - name: ipv6_connection_attempted
   values:
   - name: network.type
     value: ipv6
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: start
-  - name: event.action
-    value: connection_attempted
+  event.outcome: unknown
+  event.action: connection_attempted
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+  - start
+- name: ipv6_reconnect_attempted
+  values:
+  - name: network.type
+    value: ipv4
+  event.outcome: unknown
+  event.action: connection_attempted
+  event.kind: event
+  event.category:
+    - network
+  event.type:
+  - start
 - name: ipv4_disconnect_received
   values:
   - name: network.type
     value: ipv4
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: end
-  - name: event.action
-    value: disconnect_received
+  event.action: disconnect_received
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+  - end
 - name: ipv6_disconnect_received
   values:
   - name: network.type
     value: ipv6
-  - name: event.outcome
-    value: success
-  - name: event.type
-    value: end
-  - name: event.action
-    value: disconnect_received
+  event.action: disconnect_received
   event.kind: event
-  event.category: []
+  event.category:
+    - network
   event.type:
-  - info
+  - end
+- name: ipv4_http_request
+  values:
+    - name: network.type
+      value: ipv4
+  network.protocol: http
+  event.type:
+    - protocol
+  event.action: http_request
+  event.category:
+    - network
+- name: ipv6_http_request
+  values:
+    - name: network.type
+      value: ipv6
+  event.kind: event
+  event.type:
+    - protocol
+  event.category:
+    - network
+  event.action: http_request
+  network.protocol: http
 os:
 - linux
 - macos

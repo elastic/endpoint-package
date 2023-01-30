@@ -1,14 +1,14 @@
 *Definitions for library*
 ECS fields for load_driver
  - event.kind :: event
- - event.type :: info
  - event.category :: driver
- - event.message :: driver_load_event
+ - event.type :: start
+ - message :: driver_load_event
 ECS fields for library_load
  - event.kind :: event
- - event.type :: info
  - event.category :: library
- - event.message :: dll_load_event
+ - event.type :: start
+ - message :: dll_load_event
 Event type: load_driver
 #### Exported fields
 
