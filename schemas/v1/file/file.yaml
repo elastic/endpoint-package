@@ -60,6 +60,64 @@ Effective_process.pid:
   normalize: []
   short: Process ID.
   type: long
+Persistence.args:
+  dashed_name: Persistence-args
+  description: Arguments used to execute the persistence item
+  flat_name: Persistence.args
+  ignore_above: 1024
+  level: custom
+  name: args
+  normalize: []
+  short: Arguments used to execute the persistence item
+  type: keyword
+Persistence.executable:
+  dashed_name: Persistence-executable
+  description: The persistence item's executable
+  flat_name: Persistence.executable
+  ignore_above: 1024
+  level: custom
+  name: executable
+  normalize: []
+  short: The persistence item's executable
+  type: keyword
+Persistence.keepalive:
+  dashed_name: Persistence-keepalive
+  description: Keep alive option boolean
+  flat_name: Persistence.keepalive
+  level: custom
+  name: keepalive
+  normalize: []
+  short: Keep alive option boolean
+  type: boolean
+Persistence.name:
+  dashed_name: Persistence-name
+  description: The persistence item's name
+  flat_name: Persistence.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  short: The persistence item's name
+  type: keyword
+Persistence.path:
+  dashed_name: Persistence-path
+  description: The file's path
+  flat_name: Persistence.path
+  ignore_above: 1024
+  level: custom
+  name: path
+  normalize: []
+  short: The file's path
+  type: keyword
+Persistence.runatload:
+  dashed_name: Persistence-runatload
+  description: Run at load option boolean
+  flat_name: Persistence.runatload
+  level: custom
+  name: runatload
+  normalize: []
+  short: Run at load option boolean
+  type: boolean
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).

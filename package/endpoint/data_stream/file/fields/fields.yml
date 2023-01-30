@@ -61,6 +61,47 @@
       description: Process ID.
       example: 4242
       default_field: false
+- name: Persistence
+  title: Persistence
+  group: 2
+  description: These fields contain information about a Persistence event.
+  type: group
+  default_field: true
+  fields:
+    - name: args
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Arguments used to execute the persistence item
+      default_field: false
+    - name: executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The persistence item's executable
+      default_field: false
+    - name: keepalive
+      level: custom
+      type: boolean
+      description: Keep alive option boolean
+      default_field: false
+    - name: name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The persistence item's name
+      default_field: false
+    - name: path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file's path
+      default_field: false
+    - name: runatload
+      level: custom
+      type: boolean
+      description: Run at load option boolean
+      default_field: false
 - name: agent
   title: Agent
   group: 2
