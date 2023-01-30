@@ -128,7 +128,7 @@
         
     - name: Ext.size
       level: custom
-      type: u64
+      type: long
       short: Size of DLL
       description: >
         Size of DLL
