@@ -31,7 +31,7 @@ type eventDefinition struct {
 
 type fieldFilter struct {
 	Ecs    string `yaml:"ecs"`
-	all     []string  `yaml:"all,omitempty"`
+	All     []string  `yaml:"all,omitempty"`
 	Windows []string  `yaml:"windows,omitempty"`
 	Macos   []string  `yaml:"macos,omitempty"`
 	Linux   []string  `yaml:"linux,omitempty"`
@@ -64,7 +64,7 @@ func isInArrayAllowAll(needle string, haystack []string) bool {
 
 func (f fieldFilter) findPath(ecs, os_ string) bool {
 	// first, look through "all"
-	if isInArrayAllowAll(ecs, f.all) {
+	if isInArrayAllowAll(ecs, f.All) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (f fieldFilter) findPath(ecs, os_ string) bool {
 
 // if nothing has been configured, then this is an allow-all
 func (f fieldFilter) isEmpty() bool {
-	if len(f.all) > 0 {
+	if len(f.All) > 0 {
 		return false
 	} else if len(f.Windows) > 0 {
 		return false

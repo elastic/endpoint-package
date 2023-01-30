@@ -3,34 +3,42 @@ ECS fields for file_create
  - event.kind :: event
  - event.category :: file
  - event.type :: creation
+ - event.action :: creation
 ECS fields for file_overwrite
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: overwrite
 ECS fields for file_rename
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: rename
 ECS fields for file_open
  - event.kind :: event
  - event.category :: file
  - event.type :: access
+ - event.action :: open
 ECS fields for file_extended_attributes
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: event_attributes_delete
 ECS fields for file_mount
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: mount
 ECS fields for file_modify
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: modification
 ECS fields for file_delete
  - event.kind :: event
  - event.category :: file
  - event.type :: deletion
+ - event.action :: deletion
 Event type: file_create
 #### Exported fields
 

@@ -3,34 +3,42 @@ ECS fields for file_create
  - event.kind :: event
  - event.category :: file
  - event.type :: creation
+ - event.action :: creation
 ECS fields for file_overwrite
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: overwrite
 ECS fields for file_rename
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: rename
 ECS fields for file_open
  - event.kind :: event
  - event.category :: file
  - event.type :: access
+ - event.action :: open
 ECS fields for file_extended_attributes
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: event_attributes_delete
 ECS fields for file_mount
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: mount
 ECS fields for file_modify
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: modification
 ECS fields for file_delete
  - event.kind :: event
  - event.category :: file
  - event.type :: deletion
+ - event.action :: deletion
 Event type: file_create
 #### Exported fields
 
@@ -181,7 +189,6 @@ Event type: file_create
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -362,7 +369,6 @@ Event type: file_overwrite
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -543,7 +549,6 @@ Event type: file_rename
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -724,7 +729,6 @@ Event type: file_open
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -905,7 +909,6 @@ Event type: file_extended_attributes
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1086,7 +1089,6 @@ Event type: file_mount
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1267,7 +1269,6 @@ Event type: file_modify
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1448,7 +1449,6 @@ Event type: file_delete
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |

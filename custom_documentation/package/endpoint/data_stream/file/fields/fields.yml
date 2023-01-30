@@ -216,7 +216,8 @@ fields:
   macos:
     - all
 - ecs: group.domain
-  all: []
+  all:
+    - all
 - ecs: group.id
   linux:
     - all

@@ -3,34 +3,42 @@ ECS fields for file_create
  - event.kind :: event
  - event.category :: file
  - event.type :: creation
+ - event.action :: creation
 ECS fields for file_overwrite
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: overwrite
 ECS fields for file_rename
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: rename
 ECS fields for file_open
  - event.kind :: event
  - event.category :: file
  - event.type :: access
+ - event.action :: open
 ECS fields for file_extended_attributes
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: event_attributes_delete
 ECS fields for file_mount
  - event.kind :: event
  - event.category :: file
- - event.type :: info
+ - event.type :: change
+ - event.action :: mount
 ECS fields for file_modify
  - event.kind :: event
  - event.category :: file
  - event.type :: change
+ - event.action :: modification
 ECS fields for file_delete
  - event.kind :: event
  - event.category :: file
  - event.type :: deletion
+ - event.action :: deletion
 Event type: file_create
 #### Exported fields
 
@@ -142,13 +150,7 @@ Event type: file_create
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -195,7 +197,6 @@ Event type: file_create
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -337,13 +338,7 @@ Event type: file_overwrite
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -390,7 +385,6 @@ Event type: file_overwrite
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -532,13 +526,7 @@ Event type: file_rename
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -585,7 +573,6 @@ Event type: file_rename
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -727,13 +714,7 @@ Event type: file_open
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -780,7 +761,6 @@ Event type: file_open
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -922,13 +902,7 @@ Event type: file_extended_attributes
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -975,7 +949,6 @@ Event type: file_extended_attributes
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1117,13 +1090,7 @@ Event type: file_mount
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -1170,7 +1137,6 @@ Event type: file_mount
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1312,13 +1278,7 @@ Event type: file_modify
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -1365,7 +1325,6 @@ Event type: file_modify
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1507,13 +1466,7 @@ Event type: file_delete
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
-| group.Ext | Object for all custom defined fields to live in. | object |
-| group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
 | host.hostname | Hostname of the host. It normally contains what the `hostname` command returns on the host machine. | keyword |
@@ -1560,7 +1513,6 @@ Event type: file_delete
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
