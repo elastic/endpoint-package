@@ -77,229 +77,229 @@
         "entity_id": "MmIxZWI3ZjctYmQ2MS00MzZhLTk4YWYtYzJiMTgyMDQzNDc2LTQtMTMyOTM1NDczMTkuOTk5Mjc0NjAw",
         "command_line": "",
         "executable": "",
-	      "thread":{
-         "Ext":{
-            "call_stack":[
-               {
-                  "instruction_pointer":140705188471348,
-                  "memory_section":{
-                     "memory_address":140705187827712,
-                     "memory_size":1163264,
-                     "protection":"R-X"
-                  },
-                  "module_name":"ntdll.dll",
-                  "module_path":"c:\\windows\\system32\\ntdll.dll",
-                  "symbol_info":"c:\\windows\\system32\\ntdll.dll!NtAlpcSendWaitReceivePort+0x14"
-               },
-               {
-                  "instruction_pointer":140705158956066,
-                  "memory_section":{
-                     "memory_address":140705158664192,
-                     "memory_size":921600,
-                     "protection":"R-X"
-                  },
-                  "module_name":"rpcrt4.dll",
-                  "module_path":"c:\\windows\\system32\\rpcrt4.dll",
-                  "symbol_info":"c:\\windows\\system32\\rpcrt4.dll!0x7FF879048422"
-               },
-               {
-                  "instruction_pointer":140705158944113,
-                  "memory_section":{
-                     "memory_address":140705158664192,
-                     "memory_size":921600,
-                     "protection":"R-X"
-                  },
-                  "module_name":"rpcrt4.dll",
-                  "module_path":"c:\\windows\\system32\\rpcrt4.dll",
-                  "symbol_info":"c:\\windows\\system32\\rpcrt4.dll!0x7FF879045571"
-               },
-               {
-                  "instruction_pointer":140705158854463,
-                  "memory_section":{
-                     "memory_address":140705158664192,
-                     "memory_size":921600,
-                     "protection":"R-X"
-                  },
-                  "module_name":"rpcrt4.dll",
-                  "module_path":"c:\\windows\\system32\\rpcrt4.dll",
-                  "symbol_info":"c:\\windows\\system32\\rpcrt4.dll!0x7FF87902F73F"
-               },
-               {
-                  "instruction_pointer":140705155101013,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878C9B155"
-               },
-               {
-                  "instruction_pointer":140705155097096,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878C9A208"
-               },
-               {
-                  "instruction_pointer":140705155090820,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878C98984"
-               },
-               {
-                  "instruction_pointer":140705155093243,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878C992FB"
-               },
-               {
-                  "instruction_pointer":140705155073556,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878C94614"
-               },
-               {
-                  "instruction_pointer":140705155277630,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878CC633E"
-               },
-               {
-                  "instruction_pointer":140705158666224,
-                  "memory_section":{
-                     "memory_address":140705158664192,
-                     "memory_size":921600,
-                     "protection":"R-X"
-                  },
-                  "module_name":"rpcrt4.dll",
-                  "module_path":"c:\\windows\\system32\\rpcrt4.dll",
-                  "symbol_info":"c:\\windows\\system32\\rpcrt4.dll!0x7FF8790017F0"
-               },
-               {
-                  "instruction_pointer":140705155255496,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878CC0CC8"
-               },
-               {
-                  "instruction_pointer":140705155775858,
-                  "memory_section":{
-                     "memory_address":140705154535424,
-                     "memory_size":2334720,
-                     "protection":"R-X"
-                  },
-                  "module_name":"combase.dll",
-                  "module_path":"c:\\windows\\system32\\combase.dll",
-                  "symbol_info":"c:\\windows\\system32\\combase.dll!0x7FF878D3FD72"
-               },
-               {
-                  "instruction_pointer":140704876148243,
-                  "memory_section":{
-                     "memory_address":140704875483136,
-                     "memory_size":708608,
-                     "protection":"R-X"
-                  },
-                  "module_name":"fastprox.dll",
-                  "module_path":"c:\\windows\\system32\\wbem\\fastprox.dll",
-                  "symbol_info":"c:\\windows\\system32\\wbem\\fastprox.dll!0x7FF868293613"
-               },
-               {
-                  "instruction_pointer":140699640718787,
-                  "memory_section":{
-                     "memory_address":140699634241536,
-                     "memory_size":9220096,
-                     "protection":"R-X"
-                  },
-                  "module_name":"alertstests.exe",
-                  "module_path":"c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
-                  "symbol_info":"c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301AE5C3"
-               },
-               {
-                  "instruction_pointer":140699640807495,
-                  "memory_section":{
-                     "memory_address":140699634241536,
-                     "memory_size":9220096,
-                     "protection":"R-X"
-                  },
-                  "module_name":"alertstests.exe",
-                  "module_path":"c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
-                  "symbol_info":"c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301C4047"
-               },
-               {
-                  "instruction_pointer":140705160001044,
-                  "memory_section":{
-                     "memory_address":140705159909376,
-                     "memory_size":520192,
-                     "protection":"R-X"
-                  },
-                  "module_name":"kernel32.dll",
-                  "module_path":"c:\\windows\\system32\\kernel32.dll",
-                  "symbol_info":"c:\\windows\\system32\\kernel32.dll!BaseThreadInitThunk+0x14"
-               },
-               {
-                  "instruction_pointer":140705188161185,
-                  "memory_section":{
-                     "memory_address":140705187827712,
-                     "memory_size":1163264,
-                     "protection":"R-X"
-                  },
-                  "module_name":"ntdll.dll",
-                  "module_path":"c:\\windows\\system32\\ntdll.dll",
-                  "symbol_info":"c:\\windows\\system32\\ntdll.dll!RtlUserThreadStart+0x21"
-               }
-            ],
-            "call_stack_final_user_module":{
-               "code_signature":[
-                  {
-                     "exists":true,
-                     "status":"trusted",
-                     "subject_name":"Microsoft Windows",
-                     "trusted":true
-                  }
-               ],
-               "hash":{
-                  "sha256":"8c9740e7fe9c97d5782b8d3db102c7880c40f0b27f20d3ec9f334fe0161b7e55"
-               },
-               "name":"rpcrt4.dll",
-               "path":"c:\\windows\\system32\\rpcrt4.dll"
+        "thread": {
+            "Ext": {
+                "call_stack": [
+                    {
+                        "instruction_pointer": 140705188471348,
+                        "memory_section": {
+                            "memory_address": 140705187827712,
+                            "memory_size": 1163264,
+                            "protection": "R-X"
+                        },
+                        "module_name": "ntdll.dll",
+                        "module_path": "c:\\windows\\system32\\ntdll.dll",
+                        "symbol_info": "c:\\windows\\system32\\ntdll.dll!NtAlpcSendWaitReceivePort+0x14"
+                    },
+                    {
+                        "instruction_pointer": 140705158956066,
+                        "memory_section": {
+                            "memory_address": 140705158664192,
+                            "memory_size": 921600,
+                            "protection": "R-X"
+                        },
+                        "module_name": "rpcrt4.dll",
+                        "module_path": "c:\\windows\\system32\\rpcrt4.dll",
+                        "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF879048422"
+                    },
+                    {
+                        "instruction_pointer": 140705158944113,
+                        "memory_section": {
+                            "memory_address": 140705158664192,
+                            "memory_size": 921600,
+                            "protection": "R-X"
+                        },
+                        "module_name": "rpcrt4.dll",
+                        "module_path": "c:\\windows\\system32\\rpcrt4.dll",
+                        "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF879045571"
+                    },
+                    {
+                        "instruction_pointer": 140705158854463,
+                        "memory_section": {
+                            "memory_address": 140705158664192,
+                            "memory_size": 921600,
+                            "protection": "R-X"
+                        },
+                        "module_name": "rpcrt4.dll",
+                        "module_path": "c:\\windows\\system32\\rpcrt4.dll",
+                        "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF87902F73F"
+                    },
+                    {
+                        "instruction_pointer": 140705155101013,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C9B155"
+                    },
+                    {
+                        "instruction_pointer": 140705155097096,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C9A208"
+                    },
+                    {
+                        "instruction_pointer": 140705155090820,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C98984"
+                    },
+                    {
+                        "instruction_pointer": 140705155093243,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C992FB"
+                    },
+                    {
+                        "instruction_pointer": 140705155073556,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C94614"
+                    },
+                    {
+                        "instruction_pointer": 140705155277630,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878CC633E"
+                    },
+                    {
+                        "instruction_pointer": 140705158666224,
+                        "memory_section": {
+                            "memory_address": 140705158664192,
+                            "memory_size": 921600,
+                            "protection": "R-X"
+                        },
+                        "module_name": "rpcrt4.dll",
+                        "module_path": "c:\\windows\\system32\\rpcrt4.dll",
+                        "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF8790017F0"
+                    },
+                    {
+                        "instruction_pointer": 140705155255496,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878CC0CC8"
+                    },
+                    {
+                        "instruction_pointer": 140705155775858,
+                        "memory_section": {
+                            "memory_address": 140705154535424,
+                            "memory_size": 2334720,
+                            "protection": "R-X"
+                        },
+                        "module_name": "combase.dll",
+                        "module_path": "c:\\windows\\system32\\combase.dll",
+                        "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878D3FD72"
+                    },
+                    {
+                        "instruction_pointer": 140704876148243,
+                        "memory_section": {
+                            "memory_address": 140704875483136,
+                            "memory_size": 708608,
+                            "protection": "R-X"
+                        },
+                        "module_name": "fastprox.dll",
+                        "module_path": "c:\\windows\\system32\\wbem\\fastprox.dll",
+                        "symbol_info": "c:\\windows\\system32\\wbem\\fastprox.dll!0x7FF868293613"
+                    },
+                    {
+                        "instruction_pointer": 140699640718787,
+                        "memory_section": {
+                            "memory_address": 140699634241536,
+                            "memory_size": 9220096,
+                            "protection": "R-X"
+                        },
+                        "module_name": "alertstests.exe",
+                        "module_path": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
+                        "symbol_info": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301AE5C3"
+                    },
+                    {
+                        "instruction_pointer": 140699640807495,
+                        "memory_section": {
+                            "memory_address": 140699634241536,
+                            "memory_size": 9220096,
+                            "protection": "R-X"
+                        },
+                        "module_name": "alertstests.exe",
+                        "module_path": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
+                        "symbol_info": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301C4047"
+                    },
+                    {
+                        "instruction_pointer": 140705160001044,
+                        "memory_section": {
+                            "memory_address": 140705159909376,
+                            "memory_size": 520192,
+                            "protection": "R-X"
+                        },
+                        "module_name": "kernel32.dll",
+                        "module_path": "c:\\windows\\system32\\kernel32.dll",
+                        "symbol_info": "c:\\windows\\system32\\kernel32.dll!BaseThreadInitThunk+0x14"
+                    },
+                    {
+                        "instruction_pointer": 140705188161185,
+                        "memory_section": {
+                            "memory_address": 140705187827712,
+                            "memory_size": 1163264,
+                            "protection": "R-X"
+                        },
+                        "module_name": "ntdll.dll",
+                        "module_path": "c:\\windows\\system32\\ntdll.dll",
+                        "symbol_info": "c:\\windows\\system32\\ntdll.dll!RtlUserThreadStart+0x21"
+                    }
+                ],
+                "call_stack_final_user_module": {
+                    "code_signature": [
+                        {
+                            "exists": true,
+                            "status": "trusted",
+                            "subject_name": "Microsoft Windows",
+                            "trusted": true
+                        }
+                    ],
+                    "hash": {
+                        "sha256": "8c9740e7fe9c97d5782b8d3db102c7880c40f0b27f20d3ec9f334fe0161b7e55"
+                    },
+                    "name": "rpcrt4.dll",
+                    "path": "c:\\windows\\system32\\rpcrt4.dll"
+                },
+                "call_stack_summary": "ntdll.dll, rpcrt4.dll, combase.dll, rpcrt4.dll, combase.dll, fastprox.dll, alertstests.exe, kernel32.dll, ntdll.dll",
+                "hardware_breakpoint_set": true,
+                "start_address": 140699640807104,
+                "start_address_module": "C:\\Users\\vagrant\\endpoint-dev\\Build\\_WS-vs2019-x64-dbg\\AlertsTests\\Debug\\AlertsTests.exe"
             },
-            "call_stack_summary":"ntdll.dll, rpcrt4.dll, combase.dll, rpcrt4.dll, combase.dll, fastprox.dll, alertstests.exe, kernel32.dll, ntdll.dll",
-            "hardware_breakpoint_set":true,
-            "start_address":140699640807104,
-            "start_address_module":"C:\\Users\\vagrant\\endpoint-dev\\Build\\_WS-vs2019-x64-dbg\\AlertsTests\\Debug\\AlertsTests.exe"
-         },
-         "id":5752
+            "id": 5752
         },
         "uptime": 822
     },
