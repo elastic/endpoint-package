@@ -5,48 +5,56 @@ definitions:
   - file
   event.type:
   - creation
+  event.action: creation
 - name: file_overwrite
   event.kind: event
   event.category:
   - file
   event.type:
   - change
+  event.action: overwrite
 - name: file_rename
   event.kind: event
   event.category:
   - file
   event.type:
   - change
+  event.action: rename
 - name: file_open
   event.kind: event
   event.category:
   - file
   event.type:
   - access
+  event.action: open
 - name: file_extended_attributes
   event.kind: event
   event.category:
   - file
   event.type:
-  - info
+  - change
+  event.action: event_attributes_delete
 - name: file_mount
   event.kind: event
   event.category:
   - file
   event.type:
-  - info
+  - change
+  event.action: mount
 - name: file_modify
   event.kind: event
   event.category:
   - file
   event.type:
   - change
+  event.action: modification
 - name: file_delete
   event.kind: event
   event.category:
   - file
   event.type:
   - deletion
+  event.action: deletion
 os:
 - linux
 - macos
@@ -78,6 +86,7 @@ fields:
 - ecs: event.Ext
 - ecs: event.Ext.correlation
 - ecs: event.Ext.correlation.id
+- ecs: event.Ext.subtype
 - ecs: event.action
 - ecs: event.category
 - ecs: event.code
@@ -187,12 +196,37 @@ fields:
 - ecs: file.type
 - ecs: file.uid
 - ecs: group.Ext
+  linux:
+    - all
+  macos:
+    - all
 - ecs: group.Ext.real
+  linux:
+    - all
+  macos:
+    - all
 - ecs: group.Ext.real.id
+  linux:
+    - all
+  macos:
+    - all
 - ecs: group.Ext.real.name
+  linux:
+    - all
+  macos:
+    - all
 - ecs: group.domain
+  all: []
 - ecs: group.id
+  linux:
+    - all
+  macos:
+    - all
 - ecs: group.name
+  linux:
+    - all
+  macos:
+    - all
 - ecs: host.architecture
 - ecs: host.domain
 - ecs: host.hostname
@@ -240,6 +274,8 @@ fields:
 - ecs: process.pid
 - ecs: process.ppid
 - ecs: process.session_leader.entity_id
+  linux:
+    - all
 - ecs: process.thread.id
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
