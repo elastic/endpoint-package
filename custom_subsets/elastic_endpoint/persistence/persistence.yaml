@@ -1,0 +1,246 @@
+---
+name: file
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  data_stream:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
+  host:
+    fields:
+      architecture: {}
+      domain: {}
+      hostname: {}
+      id: {}
+      ip: {}
+      mac: {}
+      name: {}
+      type: {}
+      uptime: {}
+      os:
+        fields:
+          family: {}
+          full: {}
+          kernel: {}
+          platform: {}
+          version: {}
+          name: {}
+          type: {}
+          Ext:
+            fields:
+              variant: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      code: {}
+      dataset: {}
+      hash: {}
+      id: {}
+      ingested: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
+      sequence: {}
+      severity: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  group:
+    fields:
+      domain: {}
+      id: {}
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  user:
+    fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
+      id: {}
+      name: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  process:
+    fields:
+      args_count: {}
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      ppid: {}
+      parent:
+        fields:
+          pid: {}
+          entity_id: {}
+          group_leader:
+            fields:
+              entity_id: {}
+      entry_leader:
+        fields:
+          entity_id: {}
+          parent:
+           fields:
+            entity_id: {}
+      session_leader:
+        fields:
+          entity_id: {}
+      group_leader:
+        fields:
+          entity_id: {}
+      code_signature:
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
+      thread:
+        fields:
+          id: {}
+      Ext:
+        fields:
+          ancestry: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+  Persistence:
+    fields:
+      args: {}
+      keepalive: {}
+      executable: {}
+      name: {}
+      path: {}
+      runatload: {}
+  file:
+    fields:
+      accessed: {}
+      attributes: {}
+      created: {}
+      ctime: {}
+      device: {}
+      directory: {}
+      drive_letter: {}
+      extension: {}
+      gid: {}
+      group: {}
+      hash:
+        fields:
+          md5: {}
+          sha1: {}
+          sha256: {}
+          sha512: {}
+      inode: {}
+      mime_type: {}
+      mode: {}
+      mtime: {}
+      name: {}
+      owner: {}
+      path: {}
+      pe:
+        fields:
+          company: {}
+          description: {}
+          file_version: {}
+          imphash: {}
+          original_file_name: {}
+          product: {}
+      size: {}
+      target_path: {}
+      type: {}
+      uid: {}
+      Ext:
+        fields:
+          header_data: {}
+          header_bytes: {}
+          entropy: {}
+          monotonic_id: {}
+          windows:
+            fields:
+              zone_identifier: {}
+          original:
+            fields:
+              name: {}
+              path: {}
+              mode: {}
+              uid: {}
+              owner: {}
+              gid: {}
+              group: {}
+          malware_signature:
+            fields:
+              all_names: {}
+              identifier: {}
+              primary:
+                fields:
+                  signature:
+                    fields:
+                      hash:
+                        fields:
+                          sha256: {}
+                      id: {}
+                      name: {}
+                  matches: {}
+              secondary: {}
+              version: {}
+          device:
+           fields:
+             bus_type: {}
+             dos_name: {}
+             nt_name: {}
+             product_id: {}
+             serial_number: {}
+             vendor_id: {}
+             volume_device_type: {}
+

@@ -1,0 +1,40 @@
+---
+- name: Persistence
+  title: Persistence
+  group: 2
+  short: These fields contain information about persistence event.
+  description: >
+    These fields contain information about a Persistence event.
+
+  type: group
+  fields:
+    - name: Persistence.path
+      level: custom
+      type: keyword
+      description: >
+        The file's path
+    - name: Persistence.name
+      level: custom
+      type: keyword
+      description: >
+        The persistence item's name
+    - name: Persistence.executable
+      level: custom
+      type: keyword
+      description: >
+        The persistence item's executable
+    - name: Persistence.args
+      level: custom
+      type: keyword
+      description: >
+        Arguments used to execute the persistence item
+    - name: Persistence.runatload
+      level: custom
+      type: boolean
+      description: >
+        Run at load option boolean
+    - name: Persistence.keepalive
+      level: custom
+      type: boolean
+      description: >
+        Keep alive option boolean
