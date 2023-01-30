@@ -1675,7 +1675,7 @@ sent by the endpoint.
 | dll.Ext.load_index | A DLL can be loaded into a process multiple times. This field indicates the Nth time that this DLL has been loaded. The first load index is 1. | unsigned_long |
 | dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
-| dll.Ext.size | Size of DLL | long |
+| dll.Ext.size | Size of DLL | unsigned_long |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |

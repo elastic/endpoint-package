@@ -437,7 +437,7 @@ dll.Ext.size:
   name: Ext.size
   normalize: []
   short: Size of DLL
-  type: long
+  type: unsigned_long
 dll.code_signature.exists:
   dashed_name: dll-code-signature-exists
   description: Boolean to capture if a signature is present.
