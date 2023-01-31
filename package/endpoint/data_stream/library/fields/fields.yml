@@ -294,7 +294,7 @@
       default_field: false
     - name: Ext.size
       level: custom
-      type: u64
+      type: unsigned_long
       description: Size of DLL
       default_field: false
     - name: code_signature.exists
