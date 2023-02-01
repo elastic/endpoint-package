@@ -2408,6 +2408,12 @@
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
+    - name: process.thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      example: 'true'
+      default_field: false
     - name: process.thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -7198,6 +7204,12 @@
       ignore_above: 1024
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      default_field: false
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      example: 'true'
       default_field: false
     - name: thread.Ext.parameter
       level: custom
