@@ -155,6 +155,14 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+  Persistence:
+    fields:
+      args: {}
+      keepalive: {}
+      executable: {}
+      name: {}
+      path: {}
+      runatload: {}
   file:
     fields:
       accessed: {}

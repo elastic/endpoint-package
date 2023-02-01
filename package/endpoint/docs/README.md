@@ -1449,6 +1449,12 @@ sent by the endpoint.
 | Effective_process.executable | Executable name for the effective process. | keyword |
 | Effective_process.name | Process name for the effective process. | keyword |
 | Effective_process.pid | Process ID. | long |
+| Persistence.args | Arguments used to execute the persistence item | keyword |
+| Persistence.executable | The persistence item's executable | keyword |
+| Persistence.keepalive | Keep alive option boolean | boolean |
+| Persistence.name | The persistence item's name | keyword |
+| Persistence.path | The file's path | keyword |
+| Persistence.runatload | Run at load option boolean | boolean |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
