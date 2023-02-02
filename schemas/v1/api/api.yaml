@@ -118,6 +118,24 @@ event.action:
   type: keyword
 event.category:
   allowed_values:
+  - description: Events in this category annotate API calls that occured on a system.
+      Typical sources for those events could be from the Operating System level through
+      the native libraries (for example Windows Win32, Linux libc, etc.), or managed
+      sources of events (such as ETW, syslog), but can also include network protocols
+      (such as SOAP, RPC, Websocket, REST, etc.)
+    expected_event_types:
+    - access
+    - admin
+    - allowed
+    - change
+    - creation
+    - deletion
+    - denied
+    - end
+    - info
+    - start
+    - user
+    name: api
   - description: Events in this category are related to the challenge and response
       process in which credentials are supplied and verified to allow the creation
       of a session. Common sources for these logs are Windows event logs and ssh logs.
@@ -287,6 +305,12 @@ event.category:
     expected_event_types:
     - indicator
     name: threat
+  - description: Relating to vulnerability scan results. Use this category to analyze
+      vulnerabilities detected by Tenable, Qualys, internal scanners, and other vulnerability
+      management sources.
+    expected_event_types:
+    - info
+    name: vulnerability
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -662,8 +686,9 @@ host.name:
   dashed_name: host-name
   description: 'Name of the host.
 
-    It can contain what `hostname` returns on Unix systems, the fully qualified domain
-    name, or a name specified by the user. The sender decides which value to use.'
+    It can contain what hostname returns on Unix systems, the fully qualified domain
+    name (FQDN), or a name specified by the user. The recommended value is the lowercase
+    FQDN of the host.'
   flat_name: host.name
   ignore_above: 1024
   level: core
