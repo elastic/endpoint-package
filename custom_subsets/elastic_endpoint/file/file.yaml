@@ -7,68 +7,16 @@ fields:
       message: {}
   data_stream:
     fields: "*"
-  ecs:
-    fields:
-      version: {}
   # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
-  source:
-    fields:
-      geo:
-        fields: "*"
-  destination:
-    fields:
-      geo:
-        fields: "*"
   host:
     fields:
-      architecture: {}
-      domain: {}
-      hostname: {}
-      id: {}
-      ip: {}
-      mac: {}
-      name: {}
-      type: {}
-      uptime: {}
       os:
         fields:
-          family: {}
-          full: {}
-          kernel: {}
-          platform: {}
-          version: {}
-          name: {}
-          type: {}
           Ext:
             fields:
               variant: {}
-  event:
-    fields:
-      action: {}
-      category: {}
-      created: {}
-      code: {}
-      dataset: {}
-      hash: {}
-      id: {}
-      ingested: {}
-      kind: {}
-      module: {}
-      outcome: {}
-      provider: {}
-      sequence: {}
-      severity: {}
-      type: {}
-  agent:
-    fields:
-      version: {}
-      type: {}
-      id: {}
   group:
     fields:
-      domain: {}
-      id: {}
-      name: {}
       Ext:
         fields:
           real:
@@ -77,17 +25,8 @@ fields:
               name: {}
   user:
     fields:
-      domain: {}
-      email: {}
-      full_name: {}
-      hash: {}
-      id: {}
-      name: {}
       group:
         fields:
-          domain: {}
-          id: {}
-          name: {}
           Ext:
             fields:
               real:
@@ -102,43 +41,6 @@ fields:
               name: {}
   process:
     fields:
-      args_count: {}
-      pid: {}
-      name: {}
-      executable: {}
-      entity_id: {}
-      ppid: {}
-      parent:
-        fields:
-          pid: {}
-          entity_id: {}
-          group_leader:
-            fields:
-              entity_id: {}
-      entry_leader:
-        fields:
-          entity_id: {}
-          parent:
-           fields:
-            entity_id: {}
-      session_leader:
-        fields:
-          entity_id: {}
-      group_leader:
-        fields:
-          entity_id: {}
-      code_signature:
-        fields:
-          exists: {}
-          signing_id: {}
-          status: {}
-          subject_name: {}
-          team_id: {}
-          trusted: {}
-          valid: {}
-      thread:
-        fields:
-          id: {}
       Ext:
         fields:
           ancestry: {}
@@ -157,41 +59,6 @@ fields:
       entity_id: {}
   file:
     fields:
-      accessed: {}
-      attributes: {}
-      created: {}
-      ctime: {}
-      device: {}
-      directory: {}
-      drive_letter: {}
-      extension: {}
-      gid: {}
-      group: {}
-      hash:
-        fields:
-          md5: {}
-          sha1: {}
-          sha256: {}
-          sha512: {}
-      inode: {}
-      mime_type: {}
-      mode: {}
-      mtime: {}
-      name: {}
-      owner: {}
-      path: {}
-      pe:
-        fields:
-          company: {}
-          description: {}
-          file_version: {}
-          imphash: {}
-          original_file_name: {}
-          product: {}
-      size: {}
-      target_path: {}
-      type: {}
-      uid: {}
       Ext:
         fields:
           header_data: {}

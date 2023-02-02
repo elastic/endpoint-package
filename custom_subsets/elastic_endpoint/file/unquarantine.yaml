@@ -6,70 +6,23 @@ fields:
       "@timestamp": {}
   data_stream:
     fields: "*"
-  ecs:
-    fields:
-      version: {}
   # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
-  source:
-    fields:
-      geo:
-        fields: "*"
-  destination:
-    fields:
-      geo:
-        fields: "*"
   host:
     fields:
-      name: {}
-      hostname: {}
-      ip: {}
-      mac: {}
-      architecture: {}
-      id: {}
       os:
         fields:
-          platform: {}
-          version: {}
-          family: {}
-          name: {}
-          kernel: {}
-          full: {}
-          type: {}
           Ext:
             fields:
               variant: {}
   event:
     fields:
-      action: {}
-      category: {}
-      created: {}
-      dataset: {}
-      id: {}
-      kind: {}
-      module: {}
-      outcome: {}
-      sequence: {}
-      type: {}
-      ingested: {}
       Ext:
         fields:
           correlation:
             fields:
               id: {}
-  agent:
-    fields:
-      version: {}
-      type: {}
-      id: {}
   file:
     fields:
-      name: {}
-      path: {}
-      hash:
-        fields:
-          md5: {}
-          sha1: {}
-          sha256: {}
       Ext:
         fields:
           original:
