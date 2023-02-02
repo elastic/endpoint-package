@@ -565,7 +565,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1085,6 +1085,11 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.enrichments.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.enrichments.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.enrichments.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.enrichments.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1093,7 +1098,10 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.enrichments.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.enrichments.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.enrichments.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.enrichments.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.enrichments.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.enrichments.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.enrichments.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1102,6 +1110,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.enrichments.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.enrichments.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.enrichments.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.enrichments.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1288,6 +1297,11 @@ sent by the endpoint.
 | threat.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1296,7 +1310,10 @@ sent by the endpoint.
 | threat.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1305,6 +1322,7 @@ sent by the endpoint.
 | threat.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1569,7 +1587,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1758,7 +1776,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1893,7 +1911,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2055,7 +2073,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2442,7 +2460,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2565,7 +2583,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2682,7 +2700,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2792,7 +2810,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2853,7 +2871,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
