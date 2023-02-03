@@ -1,7 +1,8 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-ECS_GIT_REF ?= v8.5.2
+# cd3227cb3eb0de7e422aef90a64321ac68f7896e is 8.7-dev
+ECS_GIT_REF ?= cd3227cb3eb0de7e422aef90a64321ac68f7896e
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
