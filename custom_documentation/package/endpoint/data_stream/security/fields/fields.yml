@@ -15,6 +15,8 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
 - name: authentication_ssh_successful
   values:
   - name: event.category
@@ -31,6 +33,8 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
 - name: authentication_rdp_successful
   values:
   - name: event.category
@@ -47,6 +51,8 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
 - name: authentication_login_failure
   values:
   - name: event.category
@@ -63,6 +69,8 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
 - name: authentication_ssh_failure
   values:
   - name: event.category
@@ -79,6 +87,8 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
 - name: authentication_rdp_failure
   values:
   - name: event.category
@@ -95,6 +105,82 @@ definitions:
   event.category: []
   event.type:
   - info
+  os:
+  - macos
+- name: user_admin_logon
+  event.kind: event
+  event.category:
+  - authentication
+  - session
+  event.type:
+  - start
+  event.outcome: success
+  event.action: log_on
+  os:
+  - windows
+- name: user_explicit_logon
+  event.kind: event
+  event.category:
+  - authentication
+  - session
+  event.type:
+  - start
+  event.outcome: success
+  event.action: log_on
+  os:
+  - windows
+- name: user_logon
+  event.kind: event
+  event.category:
+  - authentication
+  - session
+  event.type:
+  - start
+  event.outcome: success
+  event.action: log_on
+  os:
+  - windows
+- name: user_logon_failed
+  event.kind: event
+  event.category:
+  - authentication
+  - session
+  event.type:
+  - start
+  event.outcome: failed
+  event.action: log_on
+  os:
+  - windows
+- name: user_logoff
+  event.kind: event
+  event.category:
+  - authentication
+  - session
+  event.type:
+  - end
+  event.outcome: success
+  event.action: log_off
+  os:
+  - windows
+- name: workstation_locked
+  event.kind: event
+  event.category:
+  - session
+  event.type:
+  - change
+  event.action: workstation_locked
+  os:
+  - windows
+- name: workstation_unlocked
+  event.kind: event
+  event.category:
+  - session
+  event.type:
+  - change
+  event.outcome: success
+  event.action: workstation_unlocked
+  os:
+  - windows
 os:
 - windows
 - macos
@@ -134,12 +220,61 @@ fields:
 - ecs: event.severity
 - ecs: event.type
 - ecs: group.Ext
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.Ext.real
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.Ext.real.id
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.Ext.real.name
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.domain
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.id
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: group.name
+  macos:
+  - authentication_login_successful
+  - authentication_ssh_successful
+  - authentication_rdp_successful
+  - authentication_login_failure
+  - authentication_ssh_failure
+  - authentication_rdp_failure
 - ecs: host.architecture
 - ecs: host.domain
 - ecs: host.hostname
@@ -162,6 +297,9 @@ fields:
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
 - ecs: process.Ext.code_signature
+  windows:
+  - all
+  - all
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
 - ecs: process.Ext.code_signature.subject_name

@@ -55,6 +55,7 @@ ECS fields for ipv6_disconnect_received
  - event.action :: disconnect_received
  - network.type :: ipv6
 ECS fields for ipv4_http_request
+ - event.kind :: event
  - event.category :: network
  - event.type :: protocol
  - event.action :: http_request

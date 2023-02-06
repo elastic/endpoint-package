@@ -231,13 +231,18 @@ func renderFilteredFields(options generateOptions, packageName, dataStreamName, 
 		if len(filter.Definitions) > 0 {
 			builder.WriteString(fmt.Sprintf("*Definitions for %s*\n", dataStreamName))
 			for _, def := range filter.Definitions {
-				def.dumpDefinition(&builder)
+				def.dumpDefinition(&builder, os_)
 
 			}
 		}
 
 		// loop over the definitions
 		for _, def := range filter.Definitions {
+			// if this event type isn't supported on this os, don't output anything
+			if !def.matchesOs(os_) {
+				continue
+			}
+
 			filteredCollected := getFilteredFields(filter, def.Name, os_, collected)
 
 			builder.WriteString(fmt.Sprintf("Event type: %s\n", def.Name))

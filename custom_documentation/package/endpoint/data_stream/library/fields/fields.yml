@@ -5,18 +5,18 @@ definitions:
     value: driver_load_event
   event.kind: event
   event.category:
-    - driver
+  - driver
   event.type:
-    - start
+  - start
 - name: library_load
   values:
   - name: message
     value: dll_load_event
   event.kind: event
   event.category:
-    - library
+  - library
   event.type:
-    - start
+  - start
 os:
 - windows
 fields:

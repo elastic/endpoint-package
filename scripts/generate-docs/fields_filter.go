@@ -25,6 +25,8 @@ type eventDefinition struct {
 	Action   string      `yaml:"event.action,omitempty"`
 	Protocol string      `yaml:"network.protocol,omitempty"`
 
+	Os       []string    `yaml:"os,omitempty"`
+
 	// print out the definition
 	// dumpDef(builder strings.Builder)
 }
@@ -95,8 +97,31 @@ func (f fieldFilter) isEmpty() bool {
 	return true
 }
 
+func (d eventDefinition) matchesOs(os_ string) bool {
+	if len(d.Os) > 0 {
+		// if the passed-in os doesn't match anything, bail
+		for _, o := range d.Os {
+			if o == "all" || o == os_ {
+				return true
+			}
+		}
+
+		// if we got here, there was no match
+		return false
+	}
+
+	// if there is no os defined in the definition, it matches everything
+	return true
+}
+
 //
-func (d eventDefinition) dumpDefinition(builder *strings.Builder) {
+func (d eventDefinition) dumpDefinition(builder *strings.Builder, os_ string) {
+
+	// is this definition supported for this os?
+	if ! d.matchesOs(os_) {
+		return
+	}
+
 	// do the header
 	builder.WriteString(fmt.Sprintf("ECS fields for %s\n", d.Name))
 

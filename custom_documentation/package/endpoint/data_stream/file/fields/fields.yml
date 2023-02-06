@@ -86,7 +86,6 @@ fields:
 - ecs: event.Ext
 - ecs: event.Ext.correlation
 - ecs: event.Ext.correlation.id
-- ecs: event.Ext.subtype
 - ecs: event.action
 - ecs: event.category
 - ecs: event.code
@@ -196,38 +195,38 @@ fields:
 - ecs: file.type
 - ecs: file.uid
 - ecs: group.Ext
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: group.Ext.real
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: group.Ext.real.id
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: group.Ext.real.name
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: group.domain
   all:
-    - all
+  - all
 - ecs: group.id
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: group.name
-  linux:
-    - all
   macos:
-    - all
+  - all
+  linux:
+  - all
 - ecs: host.architecture
 - ecs: host.domain
 - ecs: host.hostname
@@ -276,7 +275,7 @@ fields:
 - ecs: process.ppid
 - ecs: process.session_leader.entity_id
   linux:
-    - all
+  - all
 - ecs: process.thread.id
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code

@@ -7,105 +7,106 @@ definitions:
     value: network_event
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
-    - start
-  event.action: connection_accepted
+  - start
   event.outcome: success
+  event.action: connection_accepted
 - name: ipv6_connection_accepted
   values:
   - name: network.type
     value: ipv6
-  event.outcome: success
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - start
+  event.outcome: success
   event.action: connection_accepted
 - name: ipv4_connection_attempted
   values:
   - name: network.type
     value: ipv4
-  event.action: connection_attempted
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - start
   event.outcome: unknown
+  event.action: connection_attempted
 - name: ipv4_reconnect_attempted
   values:
   - name: network.type
     value: ipv4
-  event.action: connection_attempted
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - start
   event.outcome: unknown
+  event.action: connection_attempted
 - name: ipv6_connection_attempted
   values:
   - name: network.type
     value: ipv6
-  event.outcome: unknown
-  event.action: connection_attempted
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - start
+  event.outcome: unknown
+  event.action: connection_attempted
 - name: ipv6_reconnect_attempted
   values:
   - name: network.type
     value: ipv4
-  event.outcome: unknown
-  event.action: connection_attempted
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - start
+  event.outcome: unknown
+  event.action: connection_attempted
 - name: ipv4_disconnect_received
   values:
   - name: network.type
     value: ipv4
-  event.action: disconnect_received
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - end
+  event.action: disconnect_received
 - name: ipv6_disconnect_received
   values:
   - name: network.type
     value: ipv6
-  event.action: disconnect_received
   event.kind: event
   event.category:
-    - network
+  - network
   event.type:
   - end
+  event.action: disconnect_received
 - name: ipv4_http_request
   values:
-    - name: network.type
-      value: ipv4
-  network.protocol: http
-  event.type:
-    - protocol
-  event.action: http_request
+  - name: network.type
+    value: ipv4
+  event.kind: event
   event.category:
-    - network
+  - network
+  event.type:
+  - protocol
+  event.action: http_request
+  network.protocol: http
 - name: ipv6_http_request
   values:
-    - name: network.type
-      value: ipv6
+  - name: network.type
+    value: ipv6
   event.kind: event
-  event.type:
-    - protocol
   event.category:
-    - network
+  - network
+  event.type:
+  - protocol
   event.action: http_request
   network.protocol: http
 os:
