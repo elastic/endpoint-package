@@ -28,16 +28,42 @@ os:
 - windows
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: Effective_process.entity_id
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: Effective_process.executable
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: Effective_process.name
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: Effective_process.pid
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -50,21 +76,44 @@ fields:
 - ecs: destination.geo.region_name
 - ecs: destination.geo.timezone
 - ecs: ecs.version
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
 - ecs: event.provider
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
 - ecs: event.type
+  all:
+  - all
 - ecs: group.Ext
 - ecs: group.Ext.real
 - ecs: group.Ext.real.id
@@ -73,26 +122,59 @@ fields:
 - ecs: group.id
 - ecs: group.name
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.domain
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.type
 - ecs: host.uptime
 - ecs: message
+  all:
+  - all
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.Ext.code_signature
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
@@ -100,24 +182,67 @@ fields:
 - ecs: process.Ext.code_signature.trusted
 - ecs: process.Ext.code_signature.valid
 - ecs: process.code_signature.exists
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.code_signature.signing_id
 - ecs: process.code_signature.status
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.code_signature.subject_name
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.code_signature.team_id
 - ecs: process.code_signature.trusted
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.code_signature.valid
 - ecs: process.entity_id
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.executable
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.name
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.pid
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: process.thread.id
 - ecs: registry.data.bytes
+  windows:
+  - registry_modify
 - ecs: registry.data.strings
+  windows:
+  - registry_modify
 - ecs: registry.data.type
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: registry.hive
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: registry.key
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: registry.path
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: registry.value
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
 - ecs: source.geo.continent_name
@@ -134,6 +259,9 @@ fields:
 - ecs: user.Ext.real.id
 - ecs: user.Ext.real.name
 - ecs: user.domain
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -145,4 +273,10 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - registry_modify
+  - registry_queryvalue
 - ecs: user.name
+  windows:
+  - registry_modify
+  - registry_queryvalue

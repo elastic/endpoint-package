@@ -70,7 +70,6 @@ Event type: authentication_login_successful
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -113,22 +112,14 @@ Event type: authentication_login_successful
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -146,7 +137,6 @@ Event type: authentication_login_successful
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -157,8 +147,6 @@ Event type: authentication_login_successful
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: authentication_ssh_successful
 #### Exported fields
@@ -183,7 +171,6 @@ Event type: authentication_ssh_successful
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -226,22 +213,14 @@ Event type: authentication_ssh_successful
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -259,7 +238,6 @@ Event type: authentication_ssh_successful
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -270,8 +248,6 @@ Event type: authentication_ssh_successful
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: authentication_rdp_successful
 #### Exported fields
@@ -296,7 +272,6 @@ Event type: authentication_rdp_successful
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -339,22 +314,14 @@ Event type: authentication_rdp_successful
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -372,7 +339,6 @@ Event type: authentication_rdp_successful
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -383,8 +349,6 @@ Event type: authentication_rdp_successful
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: authentication_login_failure
 #### Exported fields
@@ -409,7 +373,6 @@ Event type: authentication_login_failure
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -452,22 +415,14 @@ Event type: authentication_login_failure
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -485,7 +440,6 @@ Event type: authentication_login_failure
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -496,8 +450,6 @@ Event type: authentication_login_failure
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: authentication_ssh_failure
 #### Exported fields
@@ -522,7 +474,6 @@ Event type: authentication_ssh_failure
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -565,22 +516,14 @@ Event type: authentication_ssh_failure
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -598,7 +541,6 @@ Event type: authentication_ssh_failure
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -609,8 +551,6 @@ Event type: authentication_ssh_failure
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: authentication_rdp_failure
 #### Exported fields
@@ -635,7 +575,6 @@ Event type: authentication_rdp_failure
 | destination.geo.region_iso_code | Region ISO code. | keyword |
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -678,22 +617,14 @@ Event type: authentication_rdp_failure
 | host.uptime | Seconds the host has been up. | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -711,7 +642,6 @@ Event type: authentication_rdp_failure
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -722,6 +652,4 @@ Event type: authentication_rdp_failure
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 

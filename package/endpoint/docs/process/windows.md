@@ -241,7 +241,6 @@ Event type: process_creation
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -537,16 +536,13 @@ Event type: process_fork
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -559,14 +555,7 @@ Event type: process_fork
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -576,24 +565,13 @@ Event type: process_fork
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -634,8 +612,6 @@ Event type: process_fork
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -666,9 +642,6 @@ Event type: process_fork
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -676,7 +649,6 @@ Event type: process_fork
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -687,10 +659,7 @@ Event type: process_fork
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -698,9 +667,6 @@ Event type: process_fork
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -712,7 +678,6 @@ Event type: process_fork
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -720,7 +685,6 @@ Event type: process_fork
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -749,10 +713,8 @@ Event type: process_fork
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -813,7 +775,6 @@ Event type: process_fork
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -829,7 +790,6 @@ Event type: process_fork
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -840,8 +800,6 @@ Event type: process_fork
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_uid_change
 #### Exported fields
@@ -931,16 +889,13 @@ Event type: process_uid_change
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -953,14 +908,7 @@ Event type: process_uid_change
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -970,24 +918,13 @@ Event type: process_uid_change
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -1028,8 +965,6 @@ Event type: process_uid_change
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -1060,9 +995,6 @@ Event type: process_uid_change
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -1070,7 +1002,6 @@ Event type: process_uid_change
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1081,10 +1012,7 @@ Event type: process_uid_change
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1092,9 +1020,6 @@ Event type: process_uid_change
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -1106,7 +1031,6 @@ Event type: process_uid_change
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1114,7 +1038,6 @@ Event type: process_uid_change
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -1143,10 +1066,8 @@ Event type: process_uid_change
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -1207,7 +1128,6 @@ Event type: process_uid_change
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1223,7 +1143,6 @@ Event type: process_uid_change
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -1234,8 +1153,6 @@ Event type: process_uid_change
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_gid_change
 #### Exported fields
@@ -1325,16 +1242,13 @@ Event type: process_gid_change
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -1347,14 +1261,7 @@ Event type: process_gid_change
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -1364,24 +1271,13 @@ Event type: process_gid_change
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -1422,8 +1318,6 @@ Event type: process_gid_change
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -1454,9 +1348,6 @@ Event type: process_gid_change
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -1464,7 +1355,6 @@ Event type: process_gid_change
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1475,10 +1365,7 @@ Event type: process_gid_change
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1486,9 +1373,6 @@ Event type: process_gid_change
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -1500,7 +1384,6 @@ Event type: process_gid_change
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1508,7 +1391,6 @@ Event type: process_gid_change
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -1537,10 +1419,8 @@ Event type: process_gid_change
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -1601,7 +1481,6 @@ Event type: process_gid_change
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1617,7 +1496,6 @@ Event type: process_gid_change
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -1628,8 +1506,6 @@ Event type: process_gid_change
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_session_id_change
 #### Exported fields
@@ -1719,16 +1595,13 @@ Event type: process_session_id_change
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -1741,14 +1614,7 @@ Event type: process_session_id_change
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -1758,24 +1624,13 @@ Event type: process_session_id_change
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -1816,8 +1671,6 @@ Event type: process_session_id_change
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -1848,9 +1701,6 @@ Event type: process_session_id_change
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -1858,7 +1708,6 @@ Event type: process_session_id_change
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1869,10 +1718,7 @@ Event type: process_session_id_change
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1880,9 +1726,6 @@ Event type: process_session_id_change
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -1894,7 +1737,6 @@ Event type: process_session_id_change
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1902,7 +1744,6 @@ Event type: process_session_id_change
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -1931,10 +1772,8 @@ Event type: process_session_id_change
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -1995,7 +1834,6 @@ Event type: process_session_id_change
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -2011,7 +1849,6 @@ Event type: process_session_id_change
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -2022,8 +1859,6 @@ Event type: process_session_id_change
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_exec
 #### Exported fields
@@ -2113,16 +1948,13 @@ Event type: process_exec
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -2135,14 +1967,7 @@ Event type: process_exec
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -2152,24 +1977,13 @@ Event type: process_exec
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -2210,8 +2024,6 @@ Event type: process_exec
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -2242,9 +2054,6 @@ Event type: process_exec
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -2252,7 +2061,6 @@ Event type: process_exec
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -2263,10 +2071,7 @@ Event type: process_exec
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2274,9 +2079,6 @@ Event type: process_exec
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -2288,7 +2090,6 @@ Event type: process_exec
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -2296,7 +2097,6 @@ Event type: process_exec
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -2325,10 +2125,8 @@ Event type: process_exec
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -2389,7 +2187,6 @@ Event type: process_exec
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -2405,7 +2202,6 @@ Event type: process_exec
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -2416,8 +2212,6 @@ Event type: process_exec
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_already_running
 #### Exported fields
@@ -2529,14 +2323,9 @@ Event type: process_already_running
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -2605,7 +2394,6 @@ Event type: process_already_running
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -2657,7 +2445,6 @@ Event type: process_already_running
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
 | process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -2903,14 +2690,12 @@ Event type: process_termination
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -2923,14 +2708,7 @@ Event type: process_termination
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -2940,10 +2718,7 @@ Event type: process_termination
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -3051,7 +2826,6 @@ Event type: process_termination
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
 | process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -3177,7 +2951,6 @@ Event type: process_termination
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -3295,16 +3068,13 @@ Event type: process_remote_thread
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -3317,14 +3087,7 @@ Event type: process_remote_thread
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -3334,24 +3097,13 @@ Event type: process_remote_thread
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -3392,8 +3144,6 @@ Event type: process_remote_thread
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -3424,9 +3174,6 @@ Event type: process_remote_thread
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -3434,7 +3181,6 @@ Event type: process_remote_thread
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -3445,10 +3191,7 @@ Event type: process_remote_thread
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -3456,9 +3199,6 @@ Event type: process_remote_thread
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -3470,7 +3210,6 @@ Event type: process_remote_thread
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -3478,7 +3217,6 @@ Event type: process_remote_thread
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -3507,10 +3245,8 @@ Event type: process_remote_thread
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -3571,7 +3307,6 @@ Event type: process_remote_thread
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -3587,7 +3322,6 @@ Event type: process_remote_thread
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -3598,8 +3332,6 @@ Event type: process_remote_thread
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_get_task
 #### Exported fields
@@ -3689,16 +3421,13 @@ Event type: process_get_task
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -3711,14 +3440,7 @@ Event type: process_get_task
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -3728,24 +3450,13 @@ Event type: process_get_task
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -3786,8 +3497,6 @@ Event type: process_get_task
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -3818,9 +3527,6 @@ Event type: process_get_task
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -3828,7 +3534,6 @@ Event type: process_get_task
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -3839,10 +3544,7 @@ Event type: process_get_task
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -3850,9 +3552,6 @@ Event type: process_get_task
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -3864,7 +3563,6 @@ Event type: process_get_task
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -3872,7 +3570,6 @@ Event type: process_get_task
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -3901,10 +3598,8 @@ Event type: process_get_task
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -3965,7 +3660,6 @@ Event type: process_get_task
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -3981,7 +3675,6 @@ Event type: process_get_task
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -3992,8 +3685,6 @@ Event type: process_get_task
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_io
 #### Exported fields
@@ -4083,16 +3774,13 @@ Event type: process_io
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -4105,14 +3793,7 @@ Event type: process_io
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -4122,24 +3803,13 @@ Event type: process_io
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -4180,8 +3850,6 @@ Event type: process_io
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -4212,9 +3880,6 @@ Event type: process_io
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -4222,7 +3887,6 @@ Event type: process_io
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -4233,10 +3897,7 @@ Event type: process_io
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -4244,9 +3905,6 @@ Event type: process_io
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -4258,7 +3916,6 @@ Event type: process_io
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -4266,7 +3923,6 @@ Event type: process_io
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -4295,10 +3951,8 @@ Event type: process_io
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -4359,7 +4013,6 @@ Event type: process_io
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -4375,7 +4028,6 @@ Event type: process_io
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -4386,8 +4038,6 @@ Event type: process_io
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: process_unshare
 #### Exported fields
@@ -4477,16 +4127,13 @@ Event type: process_unshare
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | package.name | Package name | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -4499,14 +4146,7 @@ Event type: process_unshare
 | process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
 | process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
 | process.Ext.dll.path | Full file path of the library. | keyword |
-| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
-| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
-| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
-| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
@@ -4516,24 +4156,13 @@ Event type: process_unshare
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
-| process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.end | The time the process ended. | date |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.attested_groups.name | Name of the group. | keyword |
@@ -4574,8 +4203,6 @@ Event type: process_unshare
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group.name | Name of the group. | keyword |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -4606,9 +4233,6 @@ Event type: process_unshare
 | process.group_leader.user.id | Unique identifier of the user. | keyword |
 | process.group_leader.user.name | Short name or login of the user. | keyword |
 | process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
 | process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
 | process.io | A chunk of input or output (IO) from a single process. This field only appears on the top level process object, which is the process that wrote the output or read the input. | object |
@@ -4616,7 +4240,6 @@ Event type: process_unshare
 | process.io.text | A chunk of output or input sanitized to UTF-8. Best efforts are made to ensure complete lines are captured in these events. Assumptions should NOT be made that multiple lines will appear in the same event. TTY output may contain terminal control codes such as for cursor movement, so some string queries may not match due to terminal codes inserted between characters of a word. | wildcard |
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -4627,10 +4250,7 @@ Event type: process_unshare
 | process.parent.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
-| process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -4638,9 +4258,6 @@ Event type: process_unshare
 | process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.group.name | Name of the group. | keyword |
@@ -4652,7 +4269,6 @@ Event type: process_unshare
 | process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
 | process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -4660,7 +4276,6 @@ Event type: process_unshare
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
 | process.parent.ppid | Parent process' pid. | long |
 | process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.real_group.name | Name of the group. | keyword |
@@ -4689,10 +4304,8 @@ Event type: process_unshare
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -4753,7 +4366,6 @@ Event type: process_unshare
 | process.uptime | Seconds the process has been up. | long |
 | process.user.id | Unique identifier of the user. | keyword |
 | process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -4769,7 +4381,6 @@ Event type: process_unshare
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -4780,6 +4391,4 @@ Event type: process_unshare
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 

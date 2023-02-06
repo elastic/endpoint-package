@@ -186,12 +186,26 @@ os:
 - macos
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -204,21 +218,51 @@ fields:
 - ecs: destination.geo.region_name
 - ecs: destination.geo.timezone
 - ecs: ecs.version
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
+  all:
+  - all
 - ecs: event.provider
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
 - ecs: event.type
+  all:
+  - all
 - ecs: group.Ext
   macos:
   - authentication_login_successful
@@ -276,26 +320,64 @@ fields:
   - authentication_ssh_failure
   - authentication_rdp_failure
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.domain
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.type
 - ecs: host.uptime
 - ecs: message
+  all:
+  - all
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.Ext.code_signature
   windows:
   - all
@@ -306,15 +388,68 @@ fields:
 - ecs: process.Ext.code_signature.trusted
 - ecs: process.Ext.code_signature.valid
 - ecs: process.code_signature.exists
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.code_signature.signing_id
 - ecs: process.code_signature.status
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.code_signature.subject_name
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.code_signature.team_id
 - ecs: process.code_signature.trusted
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.code_signature.valid
 - ecs: process.entity_id
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.executable
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: process.name
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
 - ecs: process.pid
 - ecs: process.thread.id
 - ecs: source.geo.city_name
@@ -333,6 +468,14 @@ fields:
 - ecs: user.Ext.real.id
 - ecs: user.Ext.real.name
 - ecs: user.domain
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -344,4 +487,20 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
 - ecs: user.name
+  windows:
+  - user_admin_logon
+  - user_explicit_logon
+  - user_logon
+  - user_logon_failed
+  - user_admin_logoff
+  - user_explicit_logoff
+  - user_logoff
