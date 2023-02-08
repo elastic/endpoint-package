@@ -87,7 +87,6 @@ curl "http://localhost:8080/search?package=endpoint"
 
 If you see a JSON response, the Ingest Manager is running and it is probably a problem in your Kibana configuration. If you don't get a response you should check the running Ingest Manager process you probably started with docker.
 
-<<<<<<< HEAD
 Note, since you are likely testing a pre-release version of the package, to ensure that the dev package that you're testing is in your locally running registry, add the `prerelease` flag to the query param.
 
 ```bash
