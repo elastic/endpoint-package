@@ -148,12 +148,9 @@ run-registry: check-docker build-package
 	docker-compose up
 
 # Use this target to release the package (dev or prod) to the package storage repo
-release: $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
+#release: $(VENV_DIR)
+#	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
-# Use this target to promote a package that exists in the package-storage repo from one environment to another
-promote: $(ESTC_PKG_BIN)
-	$(ESTC_PKG_BIN) promote
 
 # Update elastic-package tooling
 update-elastic-package:
@@ -176,4 +173,4 @@ pipeline-test: $(ESTC_PKG_BIN)
 test: static-test pipeline-test
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test

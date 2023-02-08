@@ -3,11 +3,13 @@
 The Endpoint package handles installing mapping templates, ILM policies, ingest pipelines, and other functionality
 that should be done prior to the Endpoint streaming data to ES and using the Endpoint app in Kibana.
 
-The Endpoint package is located [locally here](./package/endpoint) and [remotely here](https://github.com/elastic/package-storage/tree/production/packages/endpoint)
-
 To update the endpoint package clone this repo and make changes as needed
 
-## Tool Prerequisites
+
+
+## Contributing and Making Changes
+
+### Tool Prerequisites
 
 This section includes a list of tools that should be installed before making changes to the Endpoint's mapping.
 The individual sections below will give more details about how each tool is used and setup.
@@ -16,13 +18,11 @@ The individual sections below will give more details about how each tool is used
 
 - Install [Python 3.6+](https://www.python.org/)
 
-- Install [hub](https://github.com/github/hub) tool:
-  - mac: `brew install hub`
-  - debian-based: `sudo apt install hub`
 
-NOTE: If you are using a higher version than python3 the make command may fail. You'll have to edit the Makefile and replace `3.7` with your python version.
 
-## Updating the Endpoint Package Mapping
+### Mapping changes
+
+#### Updating the Endpoint Package Mapping
 
 To update the endpoint package mapping take a look at the [Custom Schema](./custom_schemas/README.md) and
 [Custom Subset](./custom_subsets/README.md) first to get an understanding of what makes up the mapping.
@@ -38,7 +38,7 @@ The essential steps are listed here:
 
 - Generate the mapping
 
-### Generating the mapping
+#### Generating the mapping
 
 Run `make` (to speed things up try running `make -j8`)
 
@@ -50,14 +50,14 @@ If you believe `make` is not picking up your changes, you can force a rebuilt wi
 make -B -j12
 ```
 
-### Note about the ECS Version
+#### Note about the ECS Version
 
 The generated files are dependent on the github version of ECS used. To use a more recent version
 of ECS to pick up new definition chance the `ECS_GIT_REF` in the **Makefile**. You can also
 make a temporary change command line `make ECS_GIT_REF=v1.6.0`. But be sure to commit this to the
 **Makefile** when you are done and satisfied with your change.
 
-### Testing Changes
+#### Testing Changes
 
 Once you've generated the new mappings, you'll want to test the changes. To test changes to the Endpoint package you will need to point your Kibana at a locally running package registry.
 More details about the package registry are [here](https://github.com/elastic/package-registry/blob/master/README.md#running)
@@ -87,89 +87,87 @@ curl "http://localhost:8080/search?package=endpoint"
 
 If you see a JSON response, the Ingest Manager is running and it is probably a problem in your Kibana configuration. If you don't get a response you should check the running Ingest Manager process you probably started with docker.
 
+<<<<<<< HEAD
 Note, since you are likely testing a pre-release version of the package, to ensure that the dev package that you're testing is in your locally running registry, add the `prerelease` flag to the query param.
 
 ```bash
 curl "http://localhost:8080/search?package=endpoint&prerelease=true"
 ```
 
-### PR the changes
+
+#### PR the changes
 
 After making and testing the necessary changes, PR them to this repo.
 
 
-### Exceptionable
+#### Exceptionable
 
 In the Kibana UI, if you want to add a field to appear as "exceptionable", appearing in the Exceptions drop-down autofill menu, that change is made in Kibana. Here is an [example PR](https://github.com/elastic/kibana/pull/129401) of a similar change to follow.
 
 
-## Updating the package in the remote registry
 
-There are three environments that provide different functionality for packages: snapshot, staging, and production.
+## Release Process
 
-Snapshot is used for testing packages. It is mainly used by running kibana from source off the `main` branch. The endpoint package's
-release manager script releases to `snapshot`.
+Github actions are set up to publish the Endpoint package automatically when new changes merge. All merges and changes to the `main` branch get published as "prerelease" versions, but are otherwise available over the internet. To publish a "production" or "stable" release, we must simply publish a change to the `main` branch with a typical semver (i.e. `x.y.z`) in `package/endpoint/manifest.yml`.
 
-Staging is for packages that need a little more testing but are almost ready for production.
+To keep things tidy, satisfy the linting deities, and make it easier to backport in the future, there is a recommended flow to accomplish a stable release. At a high level the steps are:
 
-Production is used by official deployments of the elastic stack.
+1. [Prep release](#prep-release)
+2. [Merge](#merge)
+3. [Tag](#tag)
+4. [Release Tracking branch](#release-tracking-branch)
+5. [Setup for next dev cycle](#setup-for-next-dev-cycle)
 
-To release a new endpoint package a PR will be opened against the package-storage repo <https://github.com/elastic/package-storage> with
-the contents of the new endpoint package. A new version number directory should be created here: <https://github.com/elastic/package-storage/tree/snapshot/packages/endpoint> with the appropriate version number for this release. Once this PR is merged a docker image will be built containing
-the new endpoint package. There is still a manual step of pushing the docker image to the snapshot environment.
 
-### Release Manager
+### Prep Release
 
-To release the endpoint package to snapshot run `make release`. This will run the release_manager script. The release manager
-script will ask if this release is a `dev` or `prod` release. A `dev` release is an interim package that is never meant to
-be released to production. The version for these packages will have `-dev.#` to indicate that it is a dev package. A `prod`
-release is a little different in that it will remove the `-dev.#` portion of the version so the string is `#.#.#` and tag the release in the
-endpoint-package repo.
+1. Create a new working branch for the release work
+2. Gather up the list of PRs that have been merged since last release
+  - e.g. https://github.com/elastic/endpoint-package/compare/v8.5.0...main
+3. Update `package/endpoint/changelog.yml` with summaries of each PR
+  - you may skip entries that are specific to repository maintenance and administration. The changelog should only reflect changes _to the package contents_. Schemas, changes that would be visible to the shipped integration, etc.
+  - `elastic-package` tool can be used to automate additions:
+    + `./scripts/go-tools/bin/elastic-package changelog add --description <PR-title> --link <github-link> --type enhancement --version 8.6.0`
+  - the changelog file can be checked and linted with the `elastic-package` tool
+4. Set the release version in `package/endpoint/manifest.yml`. This will likely mean stripping of any `-dev.N` or `-next` suffixes on the `version` field
+5. Commit, push & PR the working branch to the main repo branch
+  - Example pull request you should have at this point: https://github.com/elastic/endpoint-package/pull/301
+  
+### Merge
 
-After choosing the type of release, the script will prompt for the remote branch in the endpoint-package repo that should be released. Most release will
-probably come from the `main` branch because this is where the latest package code is developed. If a bugfix is needed for an already released package,
-then we'll need to use a release branch (e.g. 7.9). Once the remote branch is chosen a draft PR will be opened to the `snapshot` branch for the package-storage repo.
-If this is a `prod` release and the branch used was `main`, the script will prompt for which version part (`major`, `minor`, or `patch`) should be increased for the next
-future release. If the branch was not `main` then the script only increments the `patch` part of the version because it
-assumes a release branch was being used (e.g. 7.9, 7.10, etc).
+Get approvals on your release PR, and merge
 
-### Creating new docker images
 
-Once the PR is merged to the `snapshot` branch CI will kick off a new build for that branch that will release a new docker image.
-The images can be located here: <https://container-library.elastic.co/r/package-registry/distribution>
+### Tag
 
-If for some reason the `snapshot` branch CI does kick off a new build, you can manually trigger it here: <https://fleet-ci.elastic.co/blue/organizations/jenkins/Beats%2Fpackage-storage/branches>
 
-### Deploying a new registry with the package
+1. After approval & merge, pull the upstream merge commit into your local
+1. Create a release tag (e.g. `v8.6.0`) pointing to this merge commit that was just made, and `git push --tags` to the upstream repo
 
-Make sure the docker image for the environment you want to deploy to was rebuilt and finished as above. Once complete, you can deploy it with this CI release job:
+### Release Tracking Branch
 
-<https://beats-ci.elastic.co/job/Ingest-manager/job/release-distribution/build?delay=0sec>
+1. Create a release tracking branch. i.e. if you just released 8.6.0, create a branch `8.6` to track the `8.6.x` minor series
+1. push the branch reference
+1. Create a new working branch on top of this release tracking branch
+1. Change `package/endpoint/manifest.yml` to be the development cycle for the next release in that series.
+  - e.g. if `8.6.0` was just released, the version should now be `8.6.1-next`
+1. Commit this to your working branch. Push & PR to the release tracking branch (e.g. `8.6`)
+  - example commit for this: https://github.com/elastic/endpoint-package/commit/79216929cbcf05d39e6bba5a85cf4062bc7682b8
 
-### Promoting a package to a new environment
 
-Once all the issues have been worked out while testing in `snapshot` and `staging` the package is ready to be released in production.
 
-To promote a package from one environment to another, we'll use the `elastic-package` tool from <https://github.com/elastic/elastic-package>. To setup
-the tool follow the instructions in its github repo. The short list is:
+### Setup for Next Dev Cycle
 
-- `go get github.com/elastic/elastic-package`
+1. Checkout the `main` branch
+2. Create a new working branch
+3. Change `package/endpoint/manifest.yml` to be the development series for the next release. (e.g. if `8.6.0` was just released, version should now be `8.7.0-next`).
+4. Change `conditions.kibana.version` in that same file to match the new stack version (e.g. change from `^8.6.0` to `^8.7.0`)
+5. Commit, push, PR to the main branch
+  - example PR for these changes: https://github.com/elastic/endpoint-package/pull/302
+  
 
-- Create a github api token with `repo`, `read:user`, and `user:email` boxes checked
 
-![repo setting](./docs/token_repo.png)
+To do: coordinate and update the bundled package version in fleet
 
-![user setting](./docs/token_user.png)
 
-- Place the token string in this file: `~/.elastic/github.token`
 
-- Make sure `elastic-package` is in your `$PATH`
-
-NOTE: The `elastic-package` tool is included in this repo under `scripts/go-tools`. It is built after running make. It is pinned to a specific version
-and might be old. It is recommended to use `go get ...` to retrieve the latest tool.
-
-Run `elastic-package promote` or run `make promote`. The tool will present a number of prompts to find the package to promote to the next environment.
-Once the tool is finished, new PRs should be created moving the desired package from one environment to the next. Make sure to merge PR that
-moves the package to the next environment before merging the PR that deletes the package from the original environment.
-
-After the PRs are merged go through the steps to deploy the new docker images for that environment.
