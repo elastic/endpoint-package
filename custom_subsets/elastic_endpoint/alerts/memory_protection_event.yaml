@@ -599,6 +599,7 @@ fields:
                   hash:
                     fields:
                       sha256: {}
+              hardware_breakpoint_set: {}
               parameter: {}
               parameter_bytes_compressed: {}
               parameter_bytes_compressed_present: {}

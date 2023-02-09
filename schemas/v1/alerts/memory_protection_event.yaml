@@ -3171,6 +3171,18 @@ Target.process.thread.Ext.call_stack_summary:
   original_fieldset: process
   short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
+Target.process.thread.Ext.hardware_breakpoint_set:
+  dashed_name: Target-process-thread-Ext-hardware-breakpoint-set
+  description: Whether a hardware breakpoint was set for the thread.  This field is
+    omitted if false.
+  example: 'true'
+  flat_name: Target.process.thread.Ext.hardware_breakpoint_set
+  level: custom
+  name: thread.Ext.hardware_breakpoint_set
+  normalize: []
+  original_fieldset: process
+  short: Whether a hardware breakpoint was set for the thread.
+  type: boolean
 Target.process.thread.Ext.parameter:
   dashed_name: Target-process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -4188,6 +4200,24 @@ event.action:
   type: keyword
 event.category:
   allowed_values:
+  - description: Events in this category annotate API calls that occured on a system.
+      Typical sources for those events could be from the Operating System level through
+      the native libraries (for example Windows Win32, Linux libc, etc.), or managed
+      sources of events (such as ETW, syslog), but can also include network protocols
+      (such as SOAP, RPC, Websocket, REST, etc.)
+    expected_event_types:
+    - access
+    - admin
+    - allowed
+    - change
+    - creation
+    - deletion
+    - denied
+    - end
+    - info
+    - start
+    - user
+    name: api
   - description: Events in this category are related to the challenge and response
       process in which credentials are supplied and verified to allow the creation
       of a session. Common sources for these logs are Windows event logs and ssh logs.
@@ -4357,6 +4387,12 @@ event.category:
     expected_event_types:
     - indicator
     name: threat
+  - description: Relating to vulnerability scan results. Use this category to analyze
+      vulnerabilities detected by Tenable, Qualys, internal scanners, and other vulnerability
+      management sources.
+    expected_event_types:
+    - info
+    name: vulnerability
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -5093,8 +5129,9 @@ host.name:
   dashed_name: host-name
   description: 'Name of the host.
 
-    It can contain what `hostname` returns on Unix systems, the fully qualified domain
-    name, or a name specified by the user. The sender decides which value to use.'
+    It can contain what hostname returns on Unix systems, the fully qualified domain
+    name (FQDN), or a name specified by the user. The recommended value is the lowercase
+    FQDN of the host.'
   flat_name: host.name
   ignore_above: 1024
   level: core
@@ -8375,6 +8412,17 @@ process.thread.Ext.call_stack_summary:
   normalize: []
   short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
+process.thread.Ext.hardware_breakpoint_set:
+  dashed_name: process-thread-Ext-hardware-breakpoint-set
+  description: Whether a hardware breakpoint was set for the thread.  This field is
+    omitted if false.
+  example: 'true'
+  flat_name: process.thread.Ext.hardware_breakpoint_set
+  level: custom
+  name: thread.Ext.hardware_breakpoint_set
+  normalize: []
+  short: Whether a hardware breakpoint was set for the thread.
+  type: boolean
 process.thread.Ext.parameter:
   dashed_name: process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -9847,6 +9895,67 @@ threat.enrichments.indicator.file.elf.exports:
   original_fieldset: elf
   short: List of exported element names and types.
   type: flattened
+threat.enrichments.indicator.file.elf.go_import_hash:
+  dashed_name: threat-enrichments-indicator-file-elf-go-import-hash
+  description: 'A hash of the Go language imports in an ELF file excluding standard
+    library imports. An import hash can be used to fingerprint binaries even after
+    recompilation or other code-level transformations have occurred, which would change
+    more traditional hash values.
+
+    The algorithm used to calculate the Go symbol hash and a reference implementation
+    are available [here](https://github.com/elastic/toutoumomoma).'
+  example: 10bddcb4cee42080f76c88d9ff964491
+  flat_name: threat.enrichments.indicator.file.elf.go_import_hash
+  ignore_above: 1024
+  level: extended
+  name: go_import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the Go language imports in an ELF file.
+  type: keyword
+threat.enrichments.indicator.file.elf.go_imports:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports
+  description: List of imported Go language element names and types.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports
+  level: extended
+  name: go_imports
+  normalize: []
+  original_fieldset: elf
+  short: List of imported Go language element names and types.
+  type: flattened
+threat.enrichments.indicator.file.elf.go_imports_names_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports-names-entropy
+  description: Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports_names_entropy
+  format: number
+  level: extended
+  name: go_imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.enrichments.indicator.file.elf.go_imports_names_var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports_names_var_entropy
+  format: number
+  level: extended
+  name: go_imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.enrichments.indicator.file.elf.go_stripped:
+  dashed_name: threat-enrichments-indicator-file-elf-go-stripped
+  description: Set to true if the file is a Go executable that has had its symbols
+    stripped or obfuscated and false if an unobfuscated Go executable.
+  flat_name: threat.enrichments.indicator.file.elf.go_stripped
+  level: extended
+  name: go_stripped
+  normalize: []
+  original_fieldset: elf
+  short: Whether the file is a stripped or obfuscated Go executable.
+  type: boolean
 threat.enrichments.indicator.file.elf.header.abi_version:
   dashed_name: threat-enrichments-indicator-file-elf-header-abi-version
   description: Version of the ELF Application Binary Interface (ABI).
@@ -9935,6 +10044,22 @@ threat.enrichments.indicator.file.elf.header.version:
   original_fieldset: elf
   short: Version of the ELF header.
   type: keyword
+threat.enrichments.indicator.file.elf.import_hash:
+  dashed_name: threat-enrichments-indicator-file-elf-import-hash
+  description: 'A hash of the imports in an ELF file. An import hash can be used to
+    fingerprint binaries even after recompilation or other code-level transformations
+    have occurred, which would change more traditional hash values.
+
+    This is an ELF implementation of the Windows PE imphash.'
+  example: d41d8cd98f00b204e9800998ecf8427e
+  flat_name: threat.enrichments.indicator.file.elf.import_hash
+  ignore_above: 1024
+  level: extended
+  name: import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the imports in an ELF file.
+  type: keyword
 threat.enrichments.indicator.file.elf.imports:
   dashed_name: threat-enrichments-indicator-file-elf-imports
   description: List of imported element names and types.
@@ -9946,6 +10071,31 @@ threat.enrichments.indicator.file.elf.imports:
   original_fieldset: elf
   short: List of imported element names and types.
   type: flattened
+threat.enrichments.indicator.file.elf.imports_names_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-imports-names-entropy
+  description: Shannon entropy calculation from the list of imported element names
+    and types.
+  flat_name: threat.enrichments.indicator.file.elf.imports_names_entropy
+  format: number
+  level: extended
+  name: imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of imported element names and types.
+  type: long
+threat.enrichments.indicator.file.elf.imports_names_var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of imported
+    element names and types.
+  flat_name: threat.enrichments.indicator.file.elf.imports_names_var_entropy
+  format: number
+  level: extended
+  name: imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of imported element
+    names and types.
+  type: long
 threat.enrichments.indicator.file.elf.sections:
   dashed_name: threat-enrichments-indicator-file-elf-sections
   description: 'An array containing an object for each section of the ELF file.
@@ -10037,6 +10187,17 @@ threat.enrichments.indicator.file.elf.sections.type:
   original_fieldset: elf
   short: ELF Section List type.
   type: keyword
+threat.enrichments.indicator.file.elf.sections.var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-sections-var-entropy
+  description: Variance for Shannon entropy calculation from the section.
+  flat_name: threat.enrichments.indicator.file.elf.sections.var_entropy
+  format: number
+  level: extended
+  name: sections.var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the section.
+  type: long
 threat.enrichments.indicator.file.elf.sections.virtual_address:
   dashed_name: threat-enrichments-indicator-file-elf-sections-virtual-address
   description: ELF Section List virtual address.
@@ -10628,11 +10789,13 @@ threat.enrichments.indicator.last_seen:
 threat.enrichments.indicator.marking.tlp:
   dashed_name: threat-enrichments-indicator-marking-tlp
   description: Traffic Light Protocol sharing markings.
-  example: WHITE
+  example: CLEAR
   expected_values:
   - WHITE
+  - CLEAR
   - GREEN
   - AMBER
+  - AMBER+STRICT
   - RED
   flat_name: threat.enrichments.indicator.marking.tlp
   ignore_above: 1024
@@ -12381,6 +12544,67 @@ threat.indicator.file.elf.exports:
   original_fieldset: elf
   short: List of exported element names and types.
   type: flattened
+threat.indicator.file.elf.go_import_hash:
+  dashed_name: threat-indicator-file-elf-go-import-hash
+  description: 'A hash of the Go language imports in an ELF file excluding standard
+    library imports. An import hash can be used to fingerprint binaries even after
+    recompilation or other code-level transformations have occurred, which would change
+    more traditional hash values.
+
+    The algorithm used to calculate the Go symbol hash and a reference implementation
+    are available [here](https://github.com/elastic/toutoumomoma).'
+  example: 10bddcb4cee42080f76c88d9ff964491
+  flat_name: threat.indicator.file.elf.go_import_hash
+  ignore_above: 1024
+  level: extended
+  name: go_import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the Go language imports in an ELF file.
+  type: keyword
+threat.indicator.file.elf.go_imports:
+  dashed_name: threat-indicator-file-elf-go-imports
+  description: List of imported Go language element names and types.
+  flat_name: threat.indicator.file.elf.go_imports
+  level: extended
+  name: go_imports
+  normalize: []
+  original_fieldset: elf
+  short: List of imported Go language element names and types.
+  type: flattened
+threat.indicator.file.elf.go_imports_names_entropy:
+  dashed_name: threat-indicator-file-elf-go-imports-names-entropy
+  description: Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.indicator.file.elf.go_imports_names_entropy
+  format: number
+  level: extended
+  name: go_imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.indicator.file.elf.go_imports_names_var_entropy:
+  dashed_name: threat-indicator-file-elf-go-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.indicator.file.elf.go_imports_names_var_entropy
+  format: number
+  level: extended
+  name: go_imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.indicator.file.elf.go_stripped:
+  dashed_name: threat-indicator-file-elf-go-stripped
+  description: Set to true if the file is a Go executable that has had its symbols
+    stripped or obfuscated and false if an unobfuscated Go executable.
+  flat_name: threat.indicator.file.elf.go_stripped
+  level: extended
+  name: go_stripped
+  normalize: []
+  original_fieldset: elf
+  short: Whether the file is a stripped or obfuscated Go executable.
+  type: boolean
 threat.indicator.file.elf.header.abi_version:
   dashed_name: threat-indicator-file-elf-header-abi-version
   description: Version of the ELF Application Binary Interface (ABI).
@@ -12469,6 +12693,22 @@ threat.indicator.file.elf.header.version:
   original_fieldset: elf
   short: Version of the ELF header.
   type: keyword
+threat.indicator.file.elf.import_hash:
+  dashed_name: threat-indicator-file-elf-import-hash
+  description: 'A hash of the imports in an ELF file. An import hash can be used to
+    fingerprint binaries even after recompilation or other code-level transformations
+    have occurred, which would change more traditional hash values.
+
+    This is an ELF implementation of the Windows PE imphash.'
+  example: d41d8cd98f00b204e9800998ecf8427e
+  flat_name: threat.indicator.file.elf.import_hash
+  ignore_above: 1024
+  level: extended
+  name: import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the imports in an ELF file.
+  type: keyword
 threat.indicator.file.elf.imports:
   dashed_name: threat-indicator-file-elf-imports
   description: List of imported element names and types.
@@ -12480,6 +12720,31 @@ threat.indicator.file.elf.imports:
   original_fieldset: elf
   short: List of imported element names and types.
   type: flattened
+threat.indicator.file.elf.imports_names_entropy:
+  dashed_name: threat-indicator-file-elf-imports-names-entropy
+  description: Shannon entropy calculation from the list of imported element names
+    and types.
+  flat_name: threat.indicator.file.elf.imports_names_entropy
+  format: number
+  level: extended
+  name: imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of imported element names and types.
+  type: long
+threat.indicator.file.elf.imports_names_var_entropy:
+  dashed_name: threat-indicator-file-elf-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of imported
+    element names and types.
+  flat_name: threat.indicator.file.elf.imports_names_var_entropy
+  format: number
+  level: extended
+  name: imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of imported element
+    names and types.
+  type: long
 threat.indicator.file.elf.sections:
   dashed_name: threat-indicator-file-elf-sections
   description: 'An array containing an object for each section of the ELF file.
@@ -12571,6 +12836,17 @@ threat.indicator.file.elf.sections.type:
   original_fieldset: elf
   short: ELF Section List type.
   type: keyword
+threat.indicator.file.elf.sections.var_entropy:
+  dashed_name: threat-indicator-file-elf-sections-var-entropy
+  description: Variance for Shannon entropy calculation from the section.
+  flat_name: threat.indicator.file.elf.sections.var_entropy
+  format: number
+  level: extended
+  name: sections.var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the section.
+  type: long
 threat.indicator.file.elf.sections.virtual_address:
   dashed_name: threat-indicator-file-elf-sections-virtual-address
   description: ELF Section List virtual address.
@@ -13162,11 +13438,13 @@ threat.indicator.last_seen:
 threat.indicator.marking.tlp:
   dashed_name: threat-indicator-marking-tlp
   description: Traffic Light Protocol sharing markings.
-  example: WHITE
+  example: CLEAR
   expected_values:
   - WHITE
+  - CLEAR
   - GREEN
   - AMBER
+  - AMBER+STRICT
   - RED
   flat_name: threat.indicator.marking.tlp
   ignore_above: 1024
