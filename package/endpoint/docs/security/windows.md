@@ -1,4 +1,6 @@
+
 *Definitions for security*
+
 ECS fields for user_admin_logon
  - event.kind :: event
  - event.category (array)
@@ -7,6 +9,8 @@ ECS fields for user_admin_logon
  - event.type :: start
  - event.action :: log_on
  - event.outcome :: success
+
+
 ECS fields for user_explicit_logon
  - event.kind :: event
  - event.category (array)
@@ -15,6 +19,8 @@ ECS fields for user_explicit_logon
  - event.type :: start
  - event.action :: log_on
  - event.outcome :: success
+
+
 ECS fields for user_logon
  - event.kind :: event
  - event.category (array)
@@ -23,6 +29,8 @@ ECS fields for user_logon
  - event.type :: start
  - event.action :: log_on
  - event.outcome :: success
+
+
 ECS fields for user_logon_failed
  - event.kind :: event
  - event.category (array)
@@ -31,6 +39,8 @@ ECS fields for user_logon_failed
  - event.type :: start
  - event.action :: log_on
  - event.outcome :: failed
+
+
 ECS fields for user_logoff
  - event.kind :: event
  - event.category (array)
@@ -39,17 +49,22 @@ ECS fields for user_logoff
  - event.type :: end
  - event.action :: log_off
  - event.outcome :: success
+
+
 ECS fields for workstation_locked
  - event.kind :: event
  - event.category :: session
  - event.type :: change
  - event.action :: workstation_locked
+
+
 ECS fields for workstation_unlocked
  - event.kind :: event
  - event.category :: session
  - event.type :: change
  - event.action :: workstation_unlocked
  - event.outcome :: success
+
 Event type: user_admin_logon
 #### Exported fields
 

@@ -76,18 +76,28 @@ func generateDocs(options generateOptions) error {
 	}
 
 	for _, packageName := range packages {
-		streams, err := renderReadme(options, packageName)
+		streams,err := gatherStreams(options, packageName)
 		if err != nil {
-			return errors.Wrapf(err, "rendering README file failed (packageName: %s)", packageName)
+			return errors.Wrapf(err, "failed to gather streams (packageName: %s)", packageName)
 		}
 
+		existing := make(map[string][]string)
 		for _,stream := range streams {
 			for _,os_ := range []string{"linux", "macos", "windows"} {
-				err = renderReadmePlatform(options, packageName, stream, os_)
+				output,err := renderReadmePlatform(options, packageName, stream, os_)
 				if err != nil {
 					return errors.Wrapf(err, "rendering README file for os %s failed (packageName/stream: %s/%s)", os_, packageName, stream)
 				}
+
+				if output {
+					existing[stream] = append(existing[stream], os_)
+				}
 			}
+		}
+
+		err = renderReadme(options, packageName, existing)
+		if err != nil {
+			return errors.Wrapf(err, "rendering README file failed (packageName: %s)", packageName)
 		}
 	}
 	return nil

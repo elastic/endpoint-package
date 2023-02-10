@@ -1,12 +1,17 @@
+
 *Definitions for alerts*
+
 ECS fields for basic
  - event.kind :: event
  - event.type :: info
  - ecs.type :: alert
+
+
 ECS fields for ransomware
  - event.kind :: event
  - event.type :: info
  - ecs.type :: alert
+
 Event type: basic
 #### Exported fields
 

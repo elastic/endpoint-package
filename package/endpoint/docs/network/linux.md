@@ -1,4 +1,6 @@
+
 *Definitions for network*
+
 ECS fields for ipv4_connection_accepted
  - event.kind :: event
  - event.category :: network
@@ -7,6 +9,8 @@ ECS fields for ipv4_connection_accepted
  - event.outcome :: success
  - network.type :: ipv4
  - message :: network_event
+
+
 ECS fields for ipv6_connection_accepted
  - event.kind :: event
  - event.category :: network
@@ -14,6 +18,8 @@ ECS fields for ipv6_connection_accepted
  - event.action :: connection_accepted
  - event.outcome :: success
  - network.type :: ipv6
+
+
 ECS fields for ipv4_connection_attempted
  - event.kind :: event
  - event.category :: network
@@ -21,6 +27,8 @@ ECS fields for ipv4_connection_attempted
  - event.action :: connection_attempted
  - event.outcome :: unknown
  - network.type :: ipv4
+
+
 ECS fields for ipv4_reconnect_attempted
  - event.kind :: event
  - event.category :: network
@@ -28,6 +36,8 @@ ECS fields for ipv4_reconnect_attempted
  - event.action :: connection_attempted
  - event.outcome :: unknown
  - network.type :: ipv4
+
+
 ECS fields for ipv6_connection_attempted
  - event.kind :: event
  - event.category :: network
@@ -35,6 +45,8 @@ ECS fields for ipv6_connection_attempted
  - event.action :: connection_attempted
  - event.outcome :: unknown
  - network.type :: ipv6
+
+
 ECS fields for ipv6_reconnect_attempted
  - event.kind :: event
  - event.category :: network
@@ -42,18 +54,24 @@ ECS fields for ipv6_reconnect_attempted
  - event.action :: connection_attempted
  - event.outcome :: unknown
  - network.type :: ipv4
+
+
 ECS fields for ipv4_disconnect_received
  - event.kind :: event
  - event.category :: network
  - event.type :: end
  - event.action :: disconnect_received
  - network.type :: ipv4
+
+
 ECS fields for ipv6_disconnect_received
  - event.kind :: event
  - event.category :: network
  - event.type :: end
  - event.action :: disconnect_received
  - network.type :: ipv6
+
+
 ECS fields for ipv4_http_request
  - event.kind :: event
  - event.category :: network
@@ -61,6 +79,8 @@ ECS fields for ipv4_http_request
  - event.action :: http_request
  - network.protocol :: http
  - network.type :: ipv4
+
+
 ECS fields for ipv6_http_request
  - event.kind :: event
  - event.category :: network
@@ -68,6 +88,7 @@ ECS fields for ipv6_http_request
  - event.action :: http_request
  - network.protocol :: http
  - network.type :: ipv6
+
 Event type: ipv4_connection_accepted
 #### Exported fields
 

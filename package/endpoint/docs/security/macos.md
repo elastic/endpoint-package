@@ -1,4 +1,6 @@
+
 *Definitions for security*
+
 ECS fields for authentication_login_successful
  - event.kind :: event
  - event.type :: info
@@ -7,6 +9,8 @@ ECS fields for authentication_login_successful
  - event.type :: start
  - event.outcome :: success
  - event.action :: log_on
+
+
 ECS fields for authentication_ssh_successful
  - event.kind :: event
  - event.type :: info
@@ -15,6 +19,8 @@ ECS fields for authentication_ssh_successful
  - event.type :: start
  - event.outcome :: success
  - event.action :: ssh_login
+
+
 ECS fields for authentication_rdp_successful
  - event.kind :: event
  - event.type :: info
@@ -23,6 +29,8 @@ ECS fields for authentication_rdp_successful
  - event.type :: start
  - event.outcome :: success
  - event.action :: rdp_login
+
+
 ECS fields for authentication_login_failure
  - event.kind :: event
  - event.type :: info
@@ -31,6 +39,8 @@ ECS fields for authentication_login_failure
  - event.type :: start
  - event.outcome :: failure
  - event.action :: log_on
+
+
 ECS fields for authentication_ssh_failure
  - event.kind :: event
  - event.type :: info
@@ -39,6 +49,8 @@ ECS fields for authentication_ssh_failure
  - event.type :: start
  - event.outcome :: failure
  - event.action :: ssh_login
+
+
 ECS fields for authentication_rdp_failure
  - event.kind :: event
  - event.type :: info
@@ -47,6 +59,7 @@ ECS fields for authentication_rdp_failure
  - event.type :: start
  - event.outcome :: failure
  - event.action :: rdp_login
+
 Event type: authentication_login_successful
 #### Exported fields
 

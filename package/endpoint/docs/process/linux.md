@@ -1,60 +1,85 @@
+
 *Definitions for process*
+
 ECS fields for process_creation
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: start
+
+
 ECS fields for process_fork
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: fork
+
+
 ECS fields for process_uid_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: uid_change
+
+
 ECS fields for process_gid_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: gid_change
+
+
 ECS fields for process_session_id_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: session_id_change
+
+
 ECS fields for process_exec
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: exec
+
+
 ECS fields for process_already_running
  - event.kind :: event
  - event.type :: info
  - event.type :: info
+
+
 ECS fields for process_termination
  - event.kind :: event
  - event.type :: info
  - event.type :: end
  - event.action :: end
+
+
 ECS fields for process_remote_thread
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: remote_thread
+
+
 ECS fields for process_get_task
  - event.kind :: event
  - event.type :: start
  - event.action :: process_open
+
+
 ECS fields for process_io
  - event.kind :: event
  - event.type :: info
  - event.type :: info
  - event.action :: text_output
+
+
 ECS fields for process_unshare
  - event.kind :: event
  - event.type :: info
+
 Event type: process_creation
 #### Exported fields
 

@@ -1,19 +1,30 @@
+
 *Definitions for registry*
+
 ECS fields for registry_create
  - event.kind :: event
  - event.type :: info
+
+
 ECS fields for registry_modify
  - event.kind :: event
  - event.type :: info
+
+
 ECS fields for registry_delete
  - event.kind :: event
  - event.type :: info
+
+
 ECS fields for registry_queryvalue
  - event.kind :: event
  - event.type :: info
+
+
 ECS fields for registry_savekey
  - event.kind :: event
  - event.type :: info
+
 Event type: registry_create
 #### Exported fields
 

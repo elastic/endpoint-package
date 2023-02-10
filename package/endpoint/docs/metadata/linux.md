@@ -1,7 +1,10 @@
+
 *Definitions for metadata*
+
 ECS fields for metadata
  - event.kind :: event
  - event.type :: info
+
 Event type: metadata
 #### Exported fields
 
