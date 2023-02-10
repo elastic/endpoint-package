@@ -2408,6 +2408,12 @@
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
+    - name: process.thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      example: 'true'
+      default_field: false
     - name: process.thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -4157,7 +4163,7 @@
       ignore_above: 1024
       description: 'Name of the host.
 
-        It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use.'
+        It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host.'
     - name: os.Ext
       level: custom
       type: object
@@ -7199,6 +7205,12 @@
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      example: 'true'
+      default_field: false
     - name: thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -8090,6 +8102,37 @@
       type: flattened
       description: List of exported element names and types.
       default_field: false
+    - name: enrichments.indicator.file.elf.go_import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
+      example: 10bddcb4cee42080f76c88d9ff964491
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports
+      level: extended
+      type: flattened
+      description: List of imported Go language element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_stripped
+      level: extended
+      type: boolean
+      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
+      default_field: false
     - name: enrichments.indicator.file.elf.header.abi_version
       level: extended
       type: keyword
@@ -8138,10 +8181,31 @@
       ignore_above: 1024
       description: Version of the ELF header.
       default_field: false
+    - name: enrichments.indicator.file.elf.import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        This is an ELF implementation of the Windows PE imphash.'
+      example: d41d8cd98f00b204e9800998ecf8427e
+      default_field: false
     - name: enrichments.indicator.file.elf.imports
       level: extended
       type: flattened
       description: List of imported element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of imported element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of imported element names and types.
       default_field: false
     - name: enrichments.indicator.file.elf.sections
       level: extended
@@ -8191,6 +8255,12 @@
       type: keyword
       ignore_above: 1024
       description: ELF Section List type.
+      default_field: false
+    - name: enrichments.indicator.file.elf.sections.var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the section.
       default_field: false
     - name: enrichments.indicator.file.elf.sections.virtual_address
       level: extended
@@ -8534,7 +8604,7 @@
       type: keyword
       ignore_above: 1024
       description: Traffic Light Protocol sharing markings.
-      example: WHITE
+      example: CLEAR
       default_field: false
     - name: enrichments.indicator.modified_at
       level: extended
@@ -9471,6 +9541,37 @@
       type: flattened
       description: List of exported element names and types.
       default_field: false
+    - name: indicator.file.elf.go_import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
+      example: 10bddcb4cee42080f76c88d9ff964491
+      default_field: false
+    - name: indicator.file.elf.go_imports
+      level: extended
+      type: flattened
+      description: List of imported Go language element names and types.
+      default_field: false
+    - name: indicator.file.elf.go_imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: indicator.file.elf.go_imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: indicator.file.elf.go_stripped
+      level: extended
+      type: boolean
+      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
+      default_field: false
     - name: indicator.file.elf.header.abi_version
       level: extended
       type: keyword
@@ -9519,10 +9620,31 @@
       ignore_above: 1024
       description: Version of the ELF header.
       default_field: false
+    - name: indicator.file.elf.import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        This is an ELF implementation of the Windows PE imphash.'
+      example: d41d8cd98f00b204e9800998ecf8427e
+      default_field: false
     - name: indicator.file.elf.imports
       level: extended
       type: flattened
       description: List of imported element names and types.
+      default_field: false
+    - name: indicator.file.elf.imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of imported element names and types.
+      default_field: false
+    - name: indicator.file.elf.imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of imported element names and types.
       default_field: false
     - name: indicator.file.elf.sections
       level: extended
@@ -9572,6 +9694,12 @@
       type: keyword
       ignore_above: 1024
       description: ELF Section List type.
+      default_field: false
+    - name: indicator.file.elf.sections.var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the section.
       default_field: false
     - name: indicator.file.elf.sections.virtual_address
       level: extended
@@ -9915,7 +10043,7 @@
       type: keyword
       ignore_above: 1024
       description: Traffic Light Protocol sharing markings.
-      example: WHITE
+      example: CLEAR
       default_field: false
     - name: indicator.modified_at
       level: extended
