@@ -162,7 +162,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	}
 
 	var builder strings.Builder
-	builder.WriteString("#### Exported fields\n\n")
+	builder.WriteString("#### Exported fields -- placeholder\n\n")
 
 	var needNewParagraph = false
 	for _,os_ := range osMap[dataStreamName] {

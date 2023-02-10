@@ -13,7 +13,7 @@ sent by the endpoint.
 
 ### alerts
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to linux-specific fields](alerts/linux.md)
 * [link to macos-specific fields](alerts/macos.md)
@@ -1443,7 +1443,7 @@ sent by the endpoint.
 
 ### file
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to linux-specific fields](file/linux.md)
 * [link to macos-specific fields](file/macos.md)
@@ -1645,7 +1645,7 @@ sent by the endpoint.
 
 ### library
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to windows-specific fields](library/windows.md)
 
@@ -1828,7 +1828,7 @@ sent by the endpoint.
 
 ### network
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to linux-specific fields](network/linux.md)
 * [link to macos-specific fields](network/macos.md)
@@ -2001,7 +2001,7 @@ sent by the endpoint.
 
 ### process
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to linux-specific fields](process/linux.md)
 * [link to macos-specific fields](process/macos.md)
@@ -2402,7 +2402,7 @@ sent by the endpoint.
 
 ### registry
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to windows-specific fields](registry/windows.md)
 
@@ -2532,7 +2532,7 @@ sent by the endpoint.
 
 ### security
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to macos-specific fields](security/macos.md)
 * [link to windows-specific fields](security/windows.md)
@@ -2657,7 +2657,7 @@ sent by the endpoint.
 
 ### metadata
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 * [link to linux-specific fields](metadata/linux.md)
 * [link to macos-specific fields](metadata/macos.md)
@@ -2727,7 +2727,7 @@ sent by the endpoint.
 
 Metrics documents contain performance information about the endpoint executable and the host it is running on.
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2836,7 +2836,7 @@ Metrics documents contain performance information about the endpoint executable 
 
 ### policy response
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
