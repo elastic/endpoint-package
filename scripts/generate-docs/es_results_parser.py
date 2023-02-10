@@ -14,24 +14,24 @@ field_mapping = {
     'windows|alert|intrusion_detection,malware|allowed,info|rule_detection': [],
     'windows|event|authentication,session|end|log_off': ['user_admin_logoff', 'user_explicit_logoff', 'user_logoff'],
     'windows|event|authentication,session|start|log_on': ['user_admin_logon', 'user_explicit_logon', 'user_logon', 'user_logon_failed'],
-    'windows|event|driver|start|load': [],
-    'windows|event|file|access|open': [],
-    'windows|event|file|change|modification': [],
-    'windows|event|file|change|overwrite': [],
-    'windows|event|file|change|rename': [],
-    'windows|event|file|creation|creation': [],
-    'windows|event|file|deletion|deletion': [],
-    'windows|event|library|start|load': [],
+    'windows|event|driver|start|load': ['image_load_driver'],
+    'windows|event|file|access|open': ['file_open'],
+    'windows|event|file|change|modification': ['file_modification'],
+    'windows|event|file|change|overwrite': ['file_overwrite'],
+    'windows|event|file|change|rename': ['file_rename'],
+    'windows|event|file|creation|creation': ['file_create'],
+    'windows|event|file|deletion|deletion': ['file_delete'],
+    'windows|event|library|start|load': ['image_load_library'],
     'windows|event|network|end|disconnect_received': ['ipv4_disconnect_received', 'ipv6_disconnect_received'],
-    'windows|event|network|info,protocol|lookup_requested': [],
-    'windows|event|network|info,protocol|lookup_result': [],
+    'windows|event|network|info,protocol|lookup_requested': ['dns_request'],
+    'windows|event|network|info,protocol|lookup_result': ['dns_request_success', 'dns_lookup_failure'],
     'windows|event|network|start|connection_accepted': ['ipv4_connection_accepted', 'ipv6_connection_accepted'],
     'windows|event|network|start|connection_attempted': ['ipv4_connection_attempted', 'ipv6_connection_attempted', 'ipv4_reconnect_attempted', 'ipv6_reconnect_attempted'],
-    'windows|event|process|end|end': [],
-    'windows|event|process|info|-': [],
-    'windows|event|process|start|start': [],
-    'windows|event|registry|access|query': [],
-    'windows|event|registry|change|modification': []
+    'windows|event|process|end|end': ['process_termination'],
+    'windows|event|process|info|-': ['process_already_running'],
+    'windows|event|process|start|start': ['process_creation'],
+    'windows|event|registry|access|query': ['registry_queryvalue'],
+    'windows|event|registry|change|modification': ['registry_modify']
 }
 
 
@@ -192,11 +192,33 @@ def load_field_file(path : str) -> dict:
     return obj
 
 def find_and_update_field_with_os_and_event(field_array, field, os_, event):
-    for f in field_array:
+    for ind,f in enumerate(field_array):
         if f["ecs"] == field:
+            # special cases
+            if field.startswith("host.") or field.startswith("agent.") or field.startswith("data_stream"):
+                field_array[ind] = {"ecs": field, "all": ["all"]}
+                break
+            if field in ["event.outcome", "event.sequence", "event.type", "event.ingested",
+                         "event.action", "event.category", "event.created", "event.dataset",
+                         "event.id", "event.kind", "message", "event.module", "@timestamp",
+                         ]:
+                field_array[ind] = {"ecs": field, "all": ["all"]}
+                break
+            # if there is something there, don't make it worse
+            if "all" in f:
+                break
             if os_ not in f:
                 f[os_] = []
-            f[os_].append(event)
+
+            # if there is something there
+            if "all" in f[os_] or event in f[os_]:
+                break
+
+            field_set = set(f[os_])
+            field_set.append(event)
+            f[os] = list(field_set)
+            field_array[ind] = f
+
             break
     else:
         print(f"could not find {field}")

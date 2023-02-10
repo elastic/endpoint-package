@@ -21,12 +21,26 @@ os:
 - windows
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -54,44 +68,112 @@ fields:
 - ecs: dll.Ext.device.vendor_id
 - ecs: dll.Ext.device.volume_device_type
 - ecs: dll.Ext.load_index
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.Ext.relative_file_creation_time
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.Ext.relative_file_name_modify_time
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.Ext.size
 - ecs: dll.code_signature.exists
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.code_signature.signing_id
 - ecs: dll.code_signature.status
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.code_signature.subject_name
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.code_signature.team_id
 - ecs: dll.code_signature.trusted
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.code_signature.valid
 - ecs: dll.hash.md5
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.hash.sha1
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.hash.sha256
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.hash.sha512
 - ecs: dll.name
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.path
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.pe.company
 - ecs: dll.pe.description
 - ecs: dll.pe.file_version
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.pe.imphash
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.pe.original_file_name
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: dll.pe.product
 - ecs: ecs.version
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
 - ecs: event.provider
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
 - ecs: event.type
+  all:
+  - all
 - ecs: file.Ext
 - ecs: file.Ext.code_signature
 - ecs: file.Ext.code_signature.exists
@@ -126,26 +208,59 @@ fields:
 - ecs: group.id
 - ecs: group.name
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.domain
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.type
 - ecs: host.uptime
 - ecs: message
+  all:
+  - all
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: process.Ext.code_signature
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
@@ -153,16 +268,35 @@ fields:
 - ecs: process.Ext.code_signature.trusted
 - ecs: process.Ext.code_signature.valid
 - ecs: process.code_signature.exists
+  windows:
+  - image_load_library
 - ecs: process.code_signature.signing_id
 - ecs: process.code_signature.status
+  windows:
+  - image_load_library
 - ecs: process.code_signature.subject_name
+  windows:
+  - image_load_library
 - ecs: process.code_signature.team_id
 - ecs: process.code_signature.trusted
+  windows:
+  - image_load_library
 - ecs: process.code_signature.valid
 - ecs: process.entity_id
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: process.executable
+  windows:
+  - image_load_library
 - ecs: process.name
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: process.pid
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: process.thread.id
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
@@ -180,6 +314,9 @@ fields:
 - ecs: user.Ext.real.id
 - ecs: user.Ext.real.name
 - ecs: user.domain
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -191,4 +328,10 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - image_load_library
+  - image_load_driver
 - ecs: user.name
+  windows:
+  - image_load_library
+  - image_load_driver

@@ -61,16 +61,54 @@ os:
 - windows
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: Effective_process.entity_id
+  windows:
+  - file_delete
+  - file_create
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: Effective_process.executable
+  windows:
+  - file_delete
+  - file_create
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: Effective_process.name
+  windows:
+  - file_delete
+  - file_create
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: Effective_process.pid
+  windows:
+  - file_delete
+  - file_create
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -83,31 +121,59 @@ fields:
 - ecs: destination.geo.region_name
 - ecs: destination.geo.timezone
 - ecs: ecs.version
+  all:
+  - all
 - ecs: event.Ext
 - ecs: event.Ext.correlation
 - ecs: event.Ext.correlation.id
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
 - ecs: event.provider
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
 - ecs: event.type
+  all:
+  - all
 - ecs: file.Ext
 - ecs: file.Ext.device.bus_type
   windows:
   - all
+  - file_delete
+  - file_create
+  - file_modification
 - ecs: file.Ext.device.dos_name
   windows:
   - all
+  - file_delete
+  - file_create
+  - file_modification
 - ecs: file.Ext.device.nt_name
   windows:
   - all
@@ -124,7 +190,20 @@ fields:
   windows:
   - all
 - ecs: file.Ext.entropy
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.Ext.header_bytes
+  windows:
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.Ext.header_data
 - ecs: file.Ext.malware_signature
 - ecs: file.Ext.malware_signature.all_names
@@ -139,16 +218,29 @@ fields:
 - ecs: file.Ext.malware_signature.secondary
 - ecs: file.Ext.malware_signature.version
 - ecs: file.Ext.monotonic_id
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.Ext.original
 - ecs: file.Ext.original.gid
 - ecs: file.Ext.original.group
 - ecs: file.Ext.original.mode
 - ecs: file.Ext.original.name
+  windows:
+  - file_rename
 - ecs: file.Ext.original.owner
 - ecs: file.Ext.original.path
+  windows:
+  - file_rename
 - ecs: file.Ext.original.uid
 - ecs: file.Ext.windows
 - ecs: file.Ext.windows.zone_identifier
+  windows:
+  - file_create
 - ecs: file.accessed
 - ecs: file.attributes
 - ecs: file.created
@@ -159,6 +251,13 @@ fields:
   windows:
   - all
 - ecs: file.extension
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.gid
 - ecs: file.group
 - ecs: file.hash.md5
@@ -170,8 +269,22 @@ fields:
 - ecs: file.mode
 - ecs: file.mtime
 - ecs: file.name
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.owner
 - ecs: file.path
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.pe.company
   windows:
   - all
@@ -191,6 +304,13 @@ fields:
   windows:
   - all
 - ecs: file.size
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: file.target_path
 - ecs: file.type
 - ecs: file.uid
@@ -228,26 +348,63 @@ fields:
   linux:
   - all
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.domain
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.type
 - ecs: host.uptime
 - ecs: message
+  all:
+  - all
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.Ext.code_signature
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
@@ -256,27 +413,97 @@ fields:
 - ecs: process.Ext.code_signature.valid
 - ecs: process.args_count
 - ecs: process.code_signature.exists
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.code_signature.signing_id
 - ecs: process.code_signature.status
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.code_signature.subject_name
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.code_signature.team_id
 - ecs: process.code_signature.trusted
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.code_signature.valid
 - ecs: process.entity_id
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.entry_leader.entity_id
 - ecs: process.entry_leader.parent.entity_id
 - ecs: process.executable
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.group_leader.entity_id
 - ecs: process.name
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.parent.entity_id
 - ecs: process.parent.group_leader.entity_id
 - ecs: process.parent.pid
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.pid
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: process.ppid
 - ecs: process.session_leader.entity_id
   linux:
   - all
 - ecs: process.thread.id
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
 - ecs: source.geo.continent_name
@@ -293,6 +520,13 @@ fields:
 - ecs: user.Ext.real.id
 - ecs: user.Ext.real.name
 - ecs: user.domain
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -304,4 +538,18 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open
 - ecs: user.name
+  windows:
+  - file_delete
+  - file_create
+  - file_rename
+  - file_overwrite
+  - file_modification
+  - file_open

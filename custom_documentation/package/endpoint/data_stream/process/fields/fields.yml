@@ -114,11 +114,19 @@ os:
 - windows
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: agent.ephemeral_id
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.name
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: cloud.account.id
 - ecs: cloud.instance.name
 - ecs: cloud.project.id
@@ -130,8 +138,14 @@ fields:
 - ecs: container.image.tag
 - ecs: container.name
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -144,21 +158,43 @@ fields:
 - ecs: destination.geo.region_name
 - ecs: destination.geo.timezone
 - ecs: ecs.version
+  all:
+  - all
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
 - ecs: event.provider
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
 - ecs: event.type
+  all:
+  - all
 - ecs: group.Ext
 - ecs: group.Ext.real
 - ecs: group.Ext.real.id
@@ -167,26 +203,56 @@ fields:
 - ecs: group.id
 - ecs: group.name
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.boot.id
 - ecs: host.domain
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.pid_ns_ino
 - ecs: host.type
 - ecs: host.uptime
 - ecs: message
+  all:
+  - all
 - ecs: orchestrator.cluster.id
 - ecs: orchestrator.cluster.name
 - ecs: orchestrator.namespace
@@ -197,8 +263,15 @@ fields:
 - ecs: package.name
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.Ext.architecture
 - ecs: process.Ext.authentication_id
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.code_signature
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
@@ -206,6 +279,9 @@ fields:
 - ecs: process.Ext.code_signature.trusted
 - ecs: process.Ext.code_signature.valid
 - ecs: process.Ext.defense_evasions
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.device.bus_type
 - ecs: process.Ext.device.dos_name
 - ecs: process.Ext.device.nt_name
@@ -219,13 +295,29 @@ fields:
 - ecs: process.Ext.dll.name
 - ecs: process.Ext.dll.path
 - ecs: process.Ext.effective_parent.entity_id
+  windows:
+  - process_creation
 - ecs: process.Ext.effective_parent.executable
+  windows:
+  - process_creation
 - ecs: process.Ext.effective_parent.name
+  windows:
+  - process_creation
 - ecs: process.Ext.effective_parent.pid
+  windows:
+  - process_creation
 - ecs: process.Ext.mitigation_policies
 - ecs: process.Ext.protection
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.relative_file_creation_time
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.relative_file_name_modify_time
+  windows:
+  - process_creation
 - ecs: process.Ext.session
 - ecs: process.Ext.session_info.authentication_package
 - ecs: process.Ext.session_info.client_address
@@ -236,23 +328,64 @@ fields:
 - ecs: process.Ext.session_info.user_flags
 - ecs: process.Ext.token.elevation
 - ecs: process.Ext.token.elevation_level
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.token.elevation_type
 - ecs: process.Ext.token.integrity_level_name
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.token.security_attributes
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: process.Ext.trusted
 - ecs: process.Ext.trusted_descendant
 - ecs: process.args
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.args_count
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.code_signature.exists
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.code_signature.signing_id
 - ecs: process.code_signature.status
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.code_signature.subject_name
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.code_signature.team_id
 - ecs: process.code_signature.trusted
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.code_signature.valid
 - ecs: process.command_line
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.end
 - ecs: process.entity_id
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.entry_leader.args
 - ecs: process.entry_leader.args_count
 - ecs: process.entry_leader.attested_groups.name
@@ -294,7 +427,13 @@ fields:
 - ecs: process.entry_leader.working_directory
 - ecs: process.env_vars
 - ecs: process.executable
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.exit_code
+  windows:
+  - process_termination
 - ecs: process.group.id
 - ecs: process.group.name
 - ecs: process.group_leader.args
@@ -326,8 +465,20 @@ fields:
 - ecs: process.group_leader.user.name
 - ecs: process.group_leader.working_directory
 - ecs: process.hash.md5
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.hash.sha1
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.hash.sha256
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.hash.sha512
 - ecs: process.interactive
 - ecs: process.io
@@ -336,6 +487,10 @@ fields:
 - ecs: process.io.total_bytes_captured
 - ecs: process.io.total_bytes_skipped
 - ecs: process.name
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.Ext
 - ecs: process.parent.Ext.architecture
 - ecs: process.parent.Ext.code_signature
@@ -347,9 +502,19 @@ fields:
 - ecs: process.parent.Ext.protection
 - ecs: process.parent.Ext.real
 - ecs: process.parent.Ext.real.pid
+  windows:
+  - process_creation
 - ecs: process.parent.Ext.user
 - ecs: process.parent.args
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.args_count
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.code_signature.exists
 - ecs: process.parent.code_signature.signing_id
 - ecs: process.parent.code_signature.status
@@ -358,8 +523,20 @@ fields:
 - ecs: process.parent.code_signature.trusted
 - ecs: process.parent.code_signature.valid
 - ecs: process.parent.command_line
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.entity_id
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.executable
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.exit_code
 - ecs: process.parent.group.id
 - ecs: process.parent.group.name
@@ -372,6 +549,10 @@ fields:
 - ecs: process.parent.hash.sha512
 - ecs: process.parent.interactive
 - ecs: process.parent.name
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.pe.company
 - ecs: process.parent.pe.description
 - ecs: process.parent.pe.file_version
@@ -380,6 +561,10 @@ fields:
 - ecs: process.parent.pe.product
 - ecs: process.parent.pgid
 - ecs: process.parent.pid
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.parent.ppid
 - ecs: process.parent.real_group.id
 - ecs: process.parent.real_group.name
@@ -409,9 +594,17 @@ fields:
 - ecs: process.pe.file_version
 - ecs: process.pe.imphash
 - ecs: process.pe.original_file_name
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.pe.product
 - ecs: process.pgid
 - ecs: process.pid
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: process.ppid
 - ecs: process.previous.args
 - ecs: process.previous.args_count
@@ -473,6 +666,9 @@ fields:
 - ecs: process.user.id
 - ecs: process.user.name
 - ecs: process.working_directory
+  windows:
+  - process_creation
+  - process_already_running
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
 - ecs: source.geo.continent_name
@@ -489,6 +685,10 @@ fields:
 - ecs: user.Ext.real.id
 - ecs: user.Ext.real.name
 - ecs: user.domain
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -500,4 +700,12 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
 - ecs: user.name
+  windows:
+  - process_creation
+  - process_termination
+  - process_already_running
