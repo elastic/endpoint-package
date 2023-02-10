@@ -167,7 +167,6 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	var needNewParagraph = false
 	for _,os_ := range osMap[dataStreamName] {
 		needNewParagraph = true
-		builder.WriteString(fmt.Sprintf("there are os-specific fields for [%s] at [%s]\n", os_, filepath.Join(".", dataStreamName, fmt.Sprintf("%s.md", os_))))
 		builder.WriteString(fmt.Sprintf("* [link to %s-specific fields](%s)\n", os_, filepath.Join(".", dataStreamName, fmt.Sprintf("%s.md", os_))))
 	}
 

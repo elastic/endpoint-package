@@ -15,11 +15,8 @@ sent by the endpoint.
 
 #### Exported fields
 
-there are os-specific fields for [linux] at [alerts/linux.md]
 * [link to linux-specific fields](alerts/linux.md)
-there are os-specific fields for [macos] at [alerts/macos.md]
 * [link to macos-specific fields](alerts/macos.md)
-there are os-specific fields for [windows] at [alerts/windows.md]
 * [link to windows-specific fields](alerts/windows.md)
 
 
@@ -1448,11 +1445,8 @@ there are os-specific fields for [windows] at [alerts/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [linux] at [file/linux.md]
 * [link to linux-specific fields](file/linux.md)
-there are os-specific fields for [macos] at [file/macos.md]
 * [link to macos-specific fields](file/macos.md)
-there are os-specific fields for [windows] at [file/windows.md]
 * [link to windows-specific fields](file/windows.md)
 
 
@@ -1653,7 +1647,6 @@ there are os-specific fields for [windows] at [file/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [windows] at [library/windows.md]
 * [link to windows-specific fields](library/windows.md)
 
 
@@ -1837,11 +1830,8 @@ there are os-specific fields for [windows] at [library/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [linux] at [network/linux.md]
 * [link to linux-specific fields](network/linux.md)
-there are os-specific fields for [macos] at [network/macos.md]
 * [link to macos-specific fields](network/macos.md)
-there are os-specific fields for [windows] at [network/windows.md]
 * [link to windows-specific fields](network/windows.md)
 
 
@@ -2013,11 +2003,8 @@ there are os-specific fields for [windows] at [network/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [linux] at [process/linux.md]
 * [link to linux-specific fields](process/linux.md)
-there are os-specific fields for [macos] at [process/macos.md]
 * [link to macos-specific fields](process/macos.md)
-there are os-specific fields for [windows] at [process/windows.md]
 * [link to windows-specific fields](process/windows.md)
 
 
@@ -2417,7 +2404,6 @@ there are os-specific fields for [windows] at [process/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [windows] at [registry/windows.md]
 * [link to windows-specific fields](registry/windows.md)
 
 
@@ -2548,9 +2534,7 @@ there are os-specific fields for [windows] at [registry/windows.md]
 
 #### Exported fields
 
-there are os-specific fields for [macos] at [security/macos.md]
 * [link to macos-specific fields](security/macos.md)
-there are os-specific fields for [windows] at [security/windows.md]
 * [link to windows-specific fields](security/windows.md)
 
 
@@ -2675,11 +2659,8 @@ sent by the endpoint.
 
 #### Exported fields
 
-there are os-specific fields for [linux] at [metadata/linux.md]
 * [link to linux-specific fields](metadata/linux.md)
-there are os-specific fields for [macos] at [metadata/macos.md]
 * [link to macos-specific fields](metadata/macos.md)
-there are os-specific fields for [windows] at [metadata/windows.md]
 * [link to windows-specific fields](metadata/windows.md)
 
 
