@@ -327,7 +327,13 @@ sent by the endpoint.
 | Target.process.ppid | Parent process' pid. | long |
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| Target.process.thread.Ext.original_start_address | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_allocation_offset | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_bytes | When a trampoline (jmp/ret/etc.) was detected, this holds the original content of the raw opcode bytes at the original thread start address, hex-encoded. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline (jmp/ret/etc.) was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_module | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the The dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
@@ -950,7 +956,13 @@ sent by the endpoint.
 | process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| process.thread.Ext.original_start_address | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| process.thread.Ext.original_start_address_allocation_offset | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| process.thread.Ext.original_start_address_bytes | When a trampoline (jmp/ret/etc.) was detected, this holds the original content of the raw opcode bytes at the original thread start address, hex-encoded. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline (jmp/ret/etc.) was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_module | When a trampoline (jmp/ret/etc.) was detected, this indicates the original content for the The dll/module where the thread began execution. | keyword |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |

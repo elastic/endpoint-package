@@ -3173,7 +3173,7 @@ Target.process.thread.Ext.call_stack_summary:
   type: keyword
 Target.process.thread.Ext.hardware_breakpoint_set:
   dashed_name: Target-process-thread-Ext-hardware-breakpoint-set
-  description: Whether a hardware breakpoint was set for the thread.  This field is
+  description: Whether a hardware breakpoint was set for the thread. This field is
     omitted if false.
   example: 'true'
   flat_name: Target.process.thread.Ext.hardware_breakpoint_set
@@ -3183,6 +3183,88 @@ Target.process.thread.Ext.hardware_breakpoint_set:
   original_fieldset: process
   short: Whether a hardware breakpoint was set for the thread.
   type: boolean
+Target.process.thread.Ext.original_start_address:
+  dashed_name: Target-process-thread-Ext-original-start-address
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the thread start address in memory.
+  example: 4194304
+  flat_name: Target.process.thread.Ext.original_start_address
+  level: custom
+  name: thread.Ext.original_start_address
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the thread start address in memory.
+  type: unsigned_long
+Target.process.thread.Ext.original_start_address_allocation_offset:
+  dashed_name: Target-process-thread-Ext-original-start-address-allocation-offset
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the offset of original_start_address to the allocation base.
+  example: 0
+  flat_name: Target.process.thread.Ext.original_start_address_allocation_offset
+  level: custom
+  name: thread.Ext.original_start_address_allocation_offset
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the offset of original_start_address to the allocation base.
+  type: unsigned_long
+Target.process.thread.Ext.original_start_address_bytes:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes
+  description: When a trampoline (jmp/ret/etc.) was detected, this holds the original
+    content of the raw opcode bytes at the original thread start address, hex-encoded.
+  example: e97b00cccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  flat_name: Target.process.thread.Ext.original_start_address_bytes
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this holds the original content
+    of the raw opcode bytes at the original thread start address, hex-encoded.
+  type: keyword
+Target.process.thread.Ext.original_start_address_bytes_disasm:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the disassembled code pointed by the thread start address.
+  example: mov rax, 0x4141414141414141\njmp rax
+  flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the disassembled code pointed by the thread start address.
+  type: keyword
+Target.process.thread.Ext.original_start_address_bytes_disasm_hash:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm-hash
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the hash
+    of original content for the disassembled code pointed by the thread start address.
+  example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+  flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm_hash
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm_hash
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the hash of
+    original content for the disassembled code pointed by the thread start address.
+  type: keyword
+Target.process.thread.Ext.original_start_address_module:
+  dashed_name: Target-process-thread-Ext-original-start-address-module
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the The dll/module where the thread began execution.
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: Target.process.thread.Ext.original_start_address_module
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_module
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the The dll/module where the thread began execution.
+  type: keyword
 Target.process.thread.Ext.parameter:
   dashed_name: Target-process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -8414,7 +8496,7 @@ process.thread.Ext.call_stack_summary:
   type: keyword
 process.thread.Ext.hardware_breakpoint_set:
   dashed_name: process-thread-Ext-hardware-breakpoint-set
-  description: Whether a hardware breakpoint was set for the thread.  This field is
+  description: Whether a hardware breakpoint was set for the thread. This field is
     omitted if false.
   example: 'true'
   flat_name: process.thread.Ext.hardware_breakpoint_set
@@ -8423,6 +8505,82 @@ process.thread.Ext.hardware_breakpoint_set:
   normalize: []
   short: Whether a hardware breakpoint was set for the thread.
   type: boolean
+process.thread.Ext.original_start_address:
+  dashed_name: process-thread-Ext-original-start-address
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the thread start address in memory.
+  example: 4194304
+  flat_name: process.thread.Ext.original_start_address
+  level: custom
+  name: thread.Ext.original_start_address
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the thread start address in memory.
+  type: unsigned_long
+process.thread.Ext.original_start_address_allocation_offset:
+  dashed_name: process-thread-Ext-original-start-address-allocation-offset
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the offset of original_start_address to the allocation base.
+  example: 0
+  flat_name: process.thread.Ext.original_start_address_allocation_offset
+  level: custom
+  name: thread.Ext.original_start_address_allocation_offset
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the offset of original_start_address to the allocation base.
+  type: unsigned_long
+process.thread.Ext.original_start_address_bytes:
+  dashed_name: process-thread-Ext-original-start-address-bytes
+  description: When a trampoline (jmp/ret/etc.) was detected, this holds the original
+    content of the raw opcode bytes at the original thread start address, hex-encoded.
+  example: e97b00cccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  flat_name: process.thread.Ext.original_start_address_bytes
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this holds the original content
+    of the raw opcode bytes at the original thread start address, hex-encoded.
+  type: keyword
+process.thread.Ext.original_start_address_bytes_disasm:
+  dashed_name: process-thread-Ext-original-start-address-bytes-disasm
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the disassembled code pointed by the thread start address.
+  example: mov rax, 0x4141414141414141\njmp rax
+  flat_name: process.thread.Ext.original_start_address_bytes_disasm
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the disassembled code pointed by the thread start address.
+  type: keyword
+process.thread.Ext.original_start_address_bytes_disasm_hash:
+  dashed_name: process-thread-Ext-original-start-address-bytes-disasm-hash
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the hash
+    of original content for the disassembled code pointed by the thread start address.
+  example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+  flat_name: process.thread.Ext.original_start_address_bytes_disasm_hash
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm_hash
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the hash of
+    original content for the disassembled code pointed by the thread start address.
+  type: keyword
+process.thread.Ext.original_start_address_module:
+  dashed_name: process-thread-Ext-original-start-address-module
+  description: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the The dll/module where the thread began execution.
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: process.thread.Ext.original_start_address_module
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_module
+  normalize: []
+  short: When a trampoline (jmp/ret/etc.) was detected, this indicates the original
+    content for the The dll/module where the thread began execution.
+  type: keyword
 process.thread.Ext.parameter:
   dashed_name: process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
