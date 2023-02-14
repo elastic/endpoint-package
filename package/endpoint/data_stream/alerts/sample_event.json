@@ -296,18 +296,8 @@
                 },
                 "call_stack_summary": "ntdll.dll, rpcrt4.dll, combase.dll, rpcrt4.dll, combase.dll, fastprox.dll, alertstests.exe, kernel32.dll, ntdll.dll",
                 "hardware_breakpoint_set": true,
-                "original_start_address": 67174400,
-                "original_start_address_allocation_offset": 0,
-                "original_start_address_bytes": "e97b00000000cccccccccccccccccccccccccccccccccccccccccccccccccccc",
-                "original_start_address_bytes_disasm": "jmp 0x0000000000000080\nadd ah, cl\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3",
-                "original_start_address_bytes_disasm_hash": "0bc1580c52f220d55244cd4dbdc45237cd7b00f4d7782ea711b6faf502174df6",
-                "original_start_address_module": "Unbacked",
-                "start_address": 67174528,
-                "start_address_allocation_offset": 128,
-                "start_address_bytes": "c3cc0000cccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
-                "start_address_bytes_disasm": "ret\nint3\nadd byte ptr [rax], al\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3\nint3",
-                "start_address_bytes_disasm_hash": "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c",
-                "start_address_module": "Unbacked"
+                "start_address": 140699640807104,
+                "start_address_module": "C:\\Users\\vagrant\\endpoint-dev\\Build\\_WS-vs2019-x64-dbg\\AlertsTests\\Debug\\AlertsTests.exe"
             },
             "id": 5752
         },
