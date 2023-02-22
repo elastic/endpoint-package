@@ -358,9 +358,8 @@
     - name: Ext.api.name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: The name of the API, usually the name of the function or system call.
-      index: false
-      doc_values: false
       default_field: false
     - name: Ext.api.parameters.desired_access
       level: custom
