@@ -3,7 +3,7 @@
     - description: Update package overview
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/346
-    - description: [Fix] Make process.Ext.api.name indexable
+    - description: Make process.Ext.api.name indexable
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/345
 - version: "8.7.0"
