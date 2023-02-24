@@ -16,7 +16,6 @@
     - name: name
       level: custom
       type: keyword
-      index: true
       description: >
         The name of the API, usually the name of the function or system call.
 
