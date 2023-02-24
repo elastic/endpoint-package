@@ -899,9 +899,8 @@ process.Ext.ancestry:
 process.Ext.api.name:
   dashed_name: process-Ext-api-name
   description: The name of the API, usually the name of the function or system call.
-  doc_values: false
   flat_name: process.Ext.api.name
-  index: false
+  ignore_above: 1024
   level: custom
   name: name
   normalize: []
