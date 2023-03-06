@@ -25,12 +25,6 @@ Event type: basic
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
 | Events | events array | object |
-| Memory_protection.cross_session | Is this process injecting across operating system sessions? | boolean |
-| Memory_protection.feature | Memory Protection feature which triggered the alert. | keyword |
-| Memory_protection.parent_to_child | Is this process injecting into its child? | boolean |
-| Memory_protection.self_injection | Is this alert about a process injecting into itself? | boolean |
-| Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
-| Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
 | Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
 | Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
@@ -113,7 +107,6 @@ Event type: basic
 | Target.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
-| Target.process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.Ext.authentication_id | Process authentication ID | keyword |
 | Target.process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -129,21 +122,10 @@ Event type: basic
 | Target.process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
-| Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| Target.process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.Ext.dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.Ext.dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
-| Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| Target.process.Ext.dll.path | Full file path of the library. | keyword |
 | Target.process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -155,10 +137,6 @@ Event type: basic
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.process.Ext.malware_classification.version | The version of the model used. | keyword |
-| Target.process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| Target.process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
-| Target.process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
 | Target.process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | Target.process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | Target.process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
@@ -172,7 +150,6 @@ Event type: basic
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
-| Target.process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -187,49 +164,23 @@ Event type: basic
 | Target.process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| Target.process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| Target.process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | Target.process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
-| Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
 | Target.process.Ext.session | Session information for the current process | keyword |
-| Target.process.Ext.token.domain | Domain of token user. | keyword |
-| Target.process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| Target.process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | Target.process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
 | Target.process.Ext.token.integrity_level | Numeric integrity level. | long |
-| Target.process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | Target.process.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
 | Target.process.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
 | Target.process.Ext.token.privileges.description | Description of the privilege. | keyword |
 | Target.process.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
 | Target.process.Ext.token.privileges.name | Name of the privilege. | keyword |
-| Target.process.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | Target.process.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
-| Target.process.Ext.token.user | Username of token owner. | keyword |
-| Target.process.Ext.user | User associated with the running process. | keyword |
-| Target.process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| Target.process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| Target.process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| Target.process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| Target.process.executable | Absolute path to the process executable. | keyword |
 | Target.process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| Target.process.hash.md5 | MD5 hash. | keyword |
-| Target.process.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.name | Process name. Sometimes called program name or similar. | keyword |
 | Target.process.parent.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -265,7 +216,6 @@ Event type: basic
 | Target.process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| Target.process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | Target.process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | Target.process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -282,25 +232,11 @@ Event type: basic
 | Target.process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | Target.process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.parent.Ext.token.user | Username of token owner. | keyword |
-| Target.process.parent.Ext.user | User associated with the running process. | keyword |
-| Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| Target.process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| Target.process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| Target.process.parent.executable | Absolute path to the process executable. | keyword |
 | Target.process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| Target.process.parent.hash.md5 | MD5 hash. | keyword |
-| Target.process.parent.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.parent.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.parent.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | Target.process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -308,36 +244,18 @@ Event type: basic
 | Target.process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| Target.process.parent.pid | Process id. | long |
-| Target.process.parent.ppid | Parent process' pid. | long |
-| Target.process.parent.start | The time the process started. | date |
 | Target.process.parent.thread.id | Thread ID. | long |
 | Target.process.parent.thread.name | Thread name. | keyword |
 | Target.process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| Target.process.parent.uptime | Seconds the process has been up. | long |
 | Target.process.parent.working_directory | The working directory of the process. | keyword |
-| Target.process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| Target.process.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| Target.process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | Target.process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| Target.process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| Target.process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| Target.process.pid | Process id. | long |
-| Target.process.ppid | Parent process' pid. | long |
-| Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
 | Target.process.thread.Ext.start | The time the thread started. | date |
-| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
-| Target.process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
-| Target.process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
-| Target.process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
-| Target.process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| Target.process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.token.domain | Domain of token user. | keyword |
 | Target.process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | Target.process.thread.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -353,10 +271,8 @@ Event type: basic
 | Target.process.thread.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.thread.Ext.token.user | Username of token owner. | keyword |
 | Target.process.thread.Ext.uptime | Seconds since thread started. | long |
-| Target.process.thread.id | Thread ID. | long |
 | Target.process.thread.name | Thread name. | keyword |
 | Target.process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| Target.process.uptime | Seconds the process has been up. | long |
 | Target.process.working_directory | The working directory of the process. | keyword |
 | agent.ephemeral_id | Ephemeral identifier of this agent (if one exists). This id normally changes across restarts, but `agent.id` does not. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
@@ -402,30 +318,17 @@ Event type: basic
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
 | dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| dll.hash.md5 | MD5 hash. | keyword |
-| dll.hash.sha1 | SHA1 hash. | keyword |
-| dll.hash.sha256 | SHA256 hash. | keyword |
 | dll.hash.sha512 | SHA512 hash. | keyword |
-| dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| dns.question.name | The name being queried. If the name field contains non-printable characters (below 32 or above 126), those characters should be represented as escaped base 10 integers (\DDD). Back slashes and quotes should be escaped. Tabs, carriage returns, and line feeds should be converted to \t, \r, and \n respectively. | keyword |
 | dns.question.type | The type of record being queried. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | elastic.agent | The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host. | object |
-| elastic.agent.id | Unique identifier of this elastic agent (if one exists). | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -438,9 +341,7 @@ Event type: basic
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
 | event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
 | event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
-| event.risk_score | Risk score or priority of the event (e.g. security solutions). Use your system's original value here. | float |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
-| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -473,53 +374,27 @@ Event type: basic
 | file.Ext.macro.stream.name | Name of the stream. | keyword |
 | file.Ext.macro.stream.raw_code | First 100KB of raw stream binary.  Can be useful to analyze false positives and malicious payloads. | keyword |
 | file.Ext.macro.stream.raw_code_size | The original stream size.  Indicates whether stream.raw_code was truncated. | keyword |
-| file.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
-| file.Ext.malware_classification.score | The score produced by the classification model. | double |
-| file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | file.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
-| file.Ext.malware_classification.version | The version of the model used. | keyword |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |
 | file.Ext.original.mode | Original file mode prior to a modification event | keyword |
 | file.Ext.original.name | Original file name prior to a modification event | keyword |
 | file.Ext.original.owner | File owner's username. | keyword |
-| file.Ext.original.path | Original file path prior to a modification event | keyword |
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.quarantine_message | Message describing quarantine results. | keyword |
 | file.Ext.quarantine_path | Path on endpoint the quarantined file was originally. | keyword |
 | file.Ext.quarantine_result | Boolean representing whether or not file quarantine succeeded. | boolean |
-| file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
-| file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
-| file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
-| file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| file.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| file.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| file.code_signature.subject_name | Subject name of the code signer | keyword |
-| file.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| file.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| file.created | File creation time. Note that not all filesystems store the creation time. | date |
 | file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |
 | file.device | Device that is the source of the file. | keyword |
-| file.directory | Directory where the file is located. It should include the drive letter, when appropriate. | keyword |
-| file.drive_letter | Drive letter where the file is located. This field is only relevant on Windows. The value should be uppercase, and not include the colon. | keyword |
-| file.extension | File extension, excluding the leading dot. Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | file.gid | Primary group ID (GID) of the file. | keyword |
 | file.group | Primary group name of the file. | keyword |
-| file.hash.md5 | MD5 hash. | keyword |
-| file.hash.sha1 | SHA1 hash. | keyword |
-| file.hash.sha256 | SHA256 hash. | keyword |
 | file.hash.sha512 | SHA512 hash. | keyword |
-| file.inode | Inode representing the file in the filesystem. | keyword |
 | file.mime_type | MIME type should identify the format of the file or stream of bytes using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA official types], where possible. When more than one type is applicable, the most specific type should be used. | keyword |
 | file.mode | Mode of the file in octal representation. | keyword |
-| file.mtime | Last time the file content was modified. | date |
-| file.name | Name of the file including the extension, without the directory. | keyword |
-| file.owner | File owner's username. | keyword |
-| file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
 | file.pe.Ext.dotnet | Whether this file is a .NET PE | boolean |
 | file.pe.Ext.sections | The file's relevant sections, if it is a PE | object |
 | file.pe.Ext.sections.hash.md5 | MD5 hash. | keyword |
@@ -529,23 +404,13 @@ Event type: basic
 | file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
 | file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
 | file.pe.Ext.streams.name | The stream's name | keyword |
-| file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| file.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | file.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| file.size | File size in bytes. Only relevant when `file.type` is "file". | long |
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.boot.id | Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the boot_id value from /proc may or may not be the same in containers as on the host. Some container runtimes will bind mount a new boot_id value onto the proc file in each container. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
@@ -600,9 +465,6 @@ Event type: basic
 | orchestrator.resource.name | Name of the resource being acted upon. | keyword |
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
-| process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -617,21 +479,10 @@ Event type: basic
 | process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
-| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.dll.hash.md5 | MD5 hash. | keyword |
-| process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
-| process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
 | process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
-| process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -643,24 +494,12 @@ Event type: basic
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
-| process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
-| process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
-| process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
-| process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
-| process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
-| process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
-| process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
 | process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
-| process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
-| process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
-| process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
-| process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -675,115 +514,41 @@ Event type: basic
 | process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
-| process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
 | process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.token.domain | Domain of token user. | keyword |
-| process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
 | process.Ext.token.integrity_level | Numeric integrity level. | long |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
 | process.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
 | process.Ext.token.privileges.description | Description of the privilege. | keyword |
 | process.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
 | process.Ext.token.privileges.name | Name of the privilege. | keyword |
-| process.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | process.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
-| process.Ext.token.user | Username of token owner. | keyword |
-| process.Ext.user | User associated with the running process. | keyword |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
-| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console Note: This field is only set on process.session_leader. | keyword |
-| process.entry_leader.executable | Absolute path to the process executable. | keyword |
-| process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.entry_leader.group.name | Name of the group. | keyword |
-| process.entry_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.entry_leader.name | Process name. Sometimes called program name or similar. | keyword |
-| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.entry_leader.parent.pid | Process id. | long |
 | process.entry_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.parent.session_leader.pid | Process id. | long |
 | process.entry_leader.parent.session_leader.start | The time the process started. | date |
-| process.entry_leader.parent.start | The time the process started. | date |
-| process.entry_leader.pid | Process id. | long |
-| process.entry_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.entry_leader.real_group.name | Name of the group. | keyword |
-| process.entry_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.entry_leader.real_user.name | Short name or login of the user. | keyword |
-| process.entry_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.entry_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.saved_group.name | Name of the group. | keyword |
 | process.entry_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.entry_leader.start | The time the process started. | date |
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
 | process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.entry_leader.user.id | Unique identifier of the user. | keyword |
-| process.entry_leader.user.name | Short name or login of the user. | keyword |
-| process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.group_leader.executable | Absolute path to the process executable. | keyword |
-| process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.group.name | Name of the group. | keyword |
-| process.group_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.group_leader.name | Process name. Sometimes called program name or similar. | keyword |
-| process.group_leader.pid | Process id. | long |
-| process.group_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.real_group.name | Name of the group. | keyword |
-| process.group_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.group_leader.real_user.name | Short name or login of the user. | keyword |
-| process.group_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.group_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.saved_group.name | Name of the group. | keyword |
 | process.group_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.group_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.group_leader.start | The time the process started. | date |
-| process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.group_leader.user.id | Unique identifier of the user. | keyword |
-| process.group_leader.user.name | Short name or login of the user. | keyword |
-| process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
-| process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -819,7 +584,6 @@ Event type: basic
 | process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -836,130 +600,60 @@ Event type: basic
 | process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | process.parent.Ext.token.user | Username of token owner. | keyword |
-| process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.group.name | Name of the group. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.pid | Process id. | long |
 | process.parent.group_leader.start | The time the process started. | date |
-| process.parent.hash.md5 | MD5 hash. | keyword |
-| process.parent.hash.sha1 | SHA1 hash. | keyword |
-| process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
-| process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
-| process.parent.ppid | Parent process' pid. | long |
-| process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.real_group.name | Name of the group. | keyword |
-| process.parent.real_user.id | Unique identifier of the user. | keyword |
-| process.parent.real_user.name | Short name or login of the user. | keyword |
 | process.parent.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.saved_group.name | Name of the group. | keyword |
 | process.parent.saved_user.id | Unique identifier of the user. | keyword |
 | process.parent.saved_user.name | Short name or login of the user. | keyword |
-| process.parent.start | The time the process started. | date |
-| process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.parent.uptime | Seconds the process has been up. | long |
-| process.parent.user.id | Unique identifier of the user. | keyword |
-| process.parent.user.name | Short name or login of the user. | keyword |
-| process.parent.working_directory | The working directory of the process. | keyword |
-| process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| process.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
-| process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.previous.executable | Absolute path to the process executable. | keyword |
-| process.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.real_group.name | Name of the group. | keyword |
-| process.real_user.id | Unique identifier of the user. | keyword |
-| process.real_user.name | Short name or login of the user. | keyword |
 | process.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.saved_group.name | Name of the group. | keyword |
 | process.saved_user.id | Unique identifier of the user. | keyword |
 | process.saved_user.name | Short name or login of the user. | keyword |
-| process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.session_leader.executable | Absolute path to the process executable. | keyword |
-| process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.session_leader.group.name | Name of the group. | keyword |
-| process.session_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.session_leader.name | Process name. Sometimes called program name or similar. | keyword |
 | process.session_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.parent.pid | Process id. | long |
 | process.session_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.parent.session_leader.pid | Process id. | long |
 | process.session_leader.parent.session_leader.start | The time the process started. | date |
 | process.session_leader.parent.start | The time the process started. | date |
-| process.session_leader.pid | Process id. | long |
-| process.session_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.session_leader.real_group.name | Name of the group. | keyword |
-| process.session_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.session_leader.real_user.name | Short name or login of the user. | keyword |
-| process.session_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.session_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.saved_group.name | Name of the group. | keyword |
 | process.session_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.session_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.session_leader.start | The time the process started. | date |
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
 | process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.session_leader.user.id | Unique identifier of the user. | keyword |
-| process.session_leader.user.name | Short name or login of the user. | keyword |
-| process.session_leader.working_directory | The working directory of the process. | keyword |
-| process.start | The time the process started. | date |
-| process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.service | Service associated with the thread. | keyword |
 | process.thread.Ext.start | The time the thread started. | date |
-| process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
 | process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
 | process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
 | process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
 | process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | process.thread.Ext.token.domain | Domain of token user. | keyword |
 | process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.thread.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -975,29 +669,14 @@ Event type: basic
 | process.thread.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | process.thread.Ext.token.user | Username of token owner. | keyword |
 | process.thread.Ext.uptime | Seconds since thread started. | long |
-| process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.uptime | Seconds the process has been up. | long |
-| process.user.id | Unique identifier of the user. | keyword |
-| process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
-| registry.path | Full path, including hive, key and value | keyword |
-| registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
-| rule.description | The description of the rule generating the event. | keyword |
-| rule.id | A rule ID that is unique within the scope of an agent, observer, or other entity using the rule for detection of this event. | keyword |
 | rule.license | Name of the license under which the rule used to generate this event is made available. | keyword |
-| rule.name | The name of the rule or signature generating the event. | keyword |
-| rule.reference | Reference URL to additional information about the rule used to generate this event. The URL can point to the vendor's documentation about the rule. If that's not available, it can also be a link to a more general page describing this type of alert. | keyword |
-| rule.ruleset | Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. | keyword |
 | rule.uuid | A rule ID that is unique within the scope of a set or group of agents, observers, or other entities using the rule for detection of this event. | keyword |
-| rule.version | The version / revision of the rule being used for analysis. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1083,6 +762,11 @@ Event type: basic
 | threat.enrichments.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.enrichments.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.enrichments.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.enrichments.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.enrichments.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1091,7 +775,10 @@ Event type: basic
 | threat.enrichments.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.enrichments.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.enrichments.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.enrichments.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.enrichments.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.enrichments.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.enrichments.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.enrichments.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1100,6 +787,7 @@ Event type: basic
 | threat.enrichments.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.enrichments.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.enrichments.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.enrichments.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.enrichments.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1205,7 +893,6 @@ Event type: basic
 | threat.enrichments.matched.id | Identifies the _id of the indicator document enriching the event. | keyword |
 | threat.enrichments.matched.index | Identifies the _index of the indicator document enriching the event. | keyword |
 | threat.enrichments.matched.type | Identifies the type of match that caused the event to be enriched with the given indicator | keyword |
-| threat.framework | Name of the threat framework used to further categorize and classify the tactic and technique of the reported threat. Framework classification can be provided by detecting systems, evaluated at ingest time, or retrospectively tagged to events. | keyword |
 | threat.group.alias | The alias(es) of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group alias(es). | keyword |
 | threat.group.id | The id of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group id. | keyword |
 | threat.group.name | The name of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group name. | keyword |
@@ -1286,6 +973,11 @@ Event type: basic
 | threat.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1294,7 +986,10 @@ Event type: basic
 | threat.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1303,6 +998,7 @@ Event type: basic
 | threat.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1408,20 +1104,8 @@ Event type: basic
 | threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use MITRE ATT&CK® software platform values. | keyword |
 | threat.software.reference | The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL. | keyword |
 | threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type. | keyword |
-| threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
-| threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |
-| threat.tactic.reference | The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
-| threat.technique.id | The id of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.name | The name of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.reference | The reference url of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.subtechnique.id | The full id of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
-| threat.technique.subtechnique.name | The name of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
-| threat.technique.subtechnique.reference | The reference url of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
-| user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
-| user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -1432,8 +1116,6 @@ Event type: basic
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 
 Event type: ransomware
 #### Exported fields
@@ -1448,12 +1130,6 @@ Event type: ransomware
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
 | Events | events array | object |
-| Memory_protection.cross_session | Is this process injecting across operating system sessions? | boolean |
-| Memory_protection.feature | Memory Protection feature which triggered the alert. | keyword |
-| Memory_protection.parent_to_child | Is this process injecting into its child? | boolean |
-| Memory_protection.self_injection | Is this alert about a process injecting into itself? | boolean |
-| Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
-| Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
 | Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
 | Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |
@@ -1536,7 +1212,6 @@ Event type: ransomware
 | Target.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
-| Target.process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.Ext.authentication_id | Process authentication ID | keyword |
 | Target.process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -1552,21 +1227,10 @@ Event type: ransomware
 | Target.process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Target.process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| Target.process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
-| Target.process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| Target.process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.Ext.dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.Ext.dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.Ext.dll.hash.md5 | MD5 hash. | keyword |
-| Target.process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| Target.process.Ext.dll.path | Full file path of the library. | keyword |
 | Target.process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1578,10 +1242,6 @@ Event type: ransomware
 | Target.process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | Target.process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | Target.process.Ext.malware_classification.version | The version of the model used. | keyword |
-| Target.process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| Target.process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
-| Target.process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
 | Target.process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
 | Target.process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | Target.process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
@@ -1595,7 +1255,6 @@ Event type: ransomware
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
-| Target.process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1610,49 +1269,23 @@ Event type: ransomware
 | Target.process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| Target.process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| Target.process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
-| Target.process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | Target.process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
-| Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.Ext.services | Services running in this process. | keyword |
 | Target.process.Ext.session | Session information for the current process | keyword |
-| Target.process.Ext.token.domain | Domain of token user. | keyword |
-| Target.process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| Target.process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | Target.process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
 | Target.process.Ext.token.integrity_level | Numeric integrity level. | long |
-| Target.process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | Target.process.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
 | Target.process.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
 | Target.process.Ext.token.privileges.description | Description of the privilege. | keyword |
 | Target.process.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
 | Target.process.Ext.token.privileges.name | Name of the privilege. | keyword |
-| Target.process.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | Target.process.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
-| Target.process.Ext.token.user | Username of token owner. | keyword |
-| Target.process.Ext.user | User associated with the running process. | keyword |
-| Target.process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| Target.process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| Target.process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| Target.process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| Target.process.executable | Absolute path to the process executable. | keyword |
 | Target.process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| Target.process.hash.md5 | MD5 hash. | keyword |
-| Target.process.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.name | Process name. Sometimes called program name or similar. | keyword |
 | Target.process.parent.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | Target.process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1688,7 +1321,6 @@ Event type: ransomware
 | Target.process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| Target.process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | Target.process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | Target.process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | Target.process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -1705,25 +1337,11 @@ Event type: ransomware
 | Target.process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | Target.process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.parent.Ext.token.user | Username of token owner. | keyword |
-| Target.process.parent.Ext.user | User associated with the running process. | keyword |
-| Target.process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| Target.process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| Target.process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | Target.process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| Target.process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| Target.process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| Target.process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| Target.process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| Target.process.parent.executable | Absolute path to the process executable. | keyword |
 | Target.process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| Target.process.parent.hash.md5 | MD5 hash. | keyword |
-| Target.process.parent.hash.sha1 | SHA1 hash. | keyword |
-| Target.process.parent.hash.sha256 | SHA256 hash. | keyword |
 | Target.process.parent.hash.sha512 | SHA512 hash. | keyword |
-| Target.process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | Target.process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -1731,36 +1349,18 @@ Event type: ransomware
 | Target.process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| Target.process.parent.pid | Process id. | long |
-| Target.process.parent.ppid | Parent process' pid. | long |
-| Target.process.parent.start | The time the process started. | date |
 | Target.process.parent.thread.id | Thread ID. | long |
 | Target.process.parent.thread.name | Thread name. | keyword |
 | Target.process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| Target.process.parent.uptime | Seconds the process has been up. | long |
 | Target.process.parent.working_directory | The working directory of the process. | keyword |
-| Target.process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| Target.process.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| Target.process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | Target.process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| Target.process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| Target.process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | Target.process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| Target.process.pid | Process id. | long |
-| Target.process.ppid | Parent process' pid. | long |
-| Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
 | Target.process.thread.Ext.start | The time the thread started. | date |
-| Target.process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
-| Target.process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
-| Target.process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
-| Target.process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
-| Target.process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| Target.process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.token.domain | Domain of token user. | keyword |
 | Target.process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | Target.process.thread.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -1776,10 +1376,8 @@ Event type: ransomware
 | Target.process.thread.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.thread.Ext.token.user | Username of token owner. | keyword |
 | Target.process.thread.Ext.uptime | Seconds since thread started. | long |
-| Target.process.thread.id | Thread ID. | long |
 | Target.process.thread.name | Thread name. | keyword |
 | Target.process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
-| Target.process.uptime | Seconds the process has been up. | long |
 | Target.process.working_directory | The working directory of the process. | keyword |
 | agent.ephemeral_id | Ephemeral identifier of this agent (if one exists). This id normally changes across restarts, but `agent.id` does not. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
@@ -1825,30 +1423,17 @@ Event type: ransomware
 | dll.Ext.malware_classification.version | The version of the model used. | keyword |
 | dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
 | dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| dll.hash.md5 | MD5 hash. | keyword |
-| dll.hash.sha1 | SHA1 hash. | keyword |
-| dll.hash.sha256 | SHA256 hash. | keyword |
 | dll.hash.sha512 | SHA512 hash. | keyword |
-| dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| dns.question.name | The name being queried. If the name field contains non-printable characters (below 32 or above 126), those characters should be represented as escaped base 10 integers (\DDD). Back slashes and quotes should be escaped. Tabs, carriage returns, and line feeds should be converted to \t, \r, and \n respectively. | keyword |
 | dns.question.type | The type of record being queried. | keyword |
-| ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | elastic.agent | The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host. | object |
-| elastic.agent.id | Unique identifier of this elastic agent (if one exists). | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |
@@ -1861,9 +1446,7 @@ Event type: ransomware
 | event.module | Name of the module this data is coming from. If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module. | keyword |
 | event.outcome | This is one of four ECS Categorization Fields, and indicates the lowest level in the ECS category hierarchy. `event.outcome` simply denotes whether the event represents a success or a failure from the perspective of the entity that produced the event. Note that when a single transaction is described in multiple events, each event may populate different values of `event.outcome`, according to their perspective. Also note that in the case of a compound event (a single event that contains multiple logical events), this field should be populated with the value that best captures the overall success or failure from the perspective of the event producer. Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense. | keyword |
 | event.provider | Source of the event. Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing). | keyword |
-| event.risk_score | Risk score or priority of the event (e.g. security solutions). Use your system's original value here. | float |
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
-| event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -1896,53 +1479,27 @@ Event type: ransomware
 | file.Ext.macro.stream.name | Name of the stream. | keyword |
 | file.Ext.macro.stream.raw_code | First 100KB of raw stream binary.  Can be useful to analyze false positives and malicious payloads. | keyword |
 | file.Ext.macro.stream.raw_code_size | The original stream size.  Indicates whether stream.raw_code was truncated. | keyword |
-| file.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
-| file.Ext.malware_classification.score | The score produced by the classification model. | double |
-| file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | file.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
-| file.Ext.malware_classification.version | The version of the model used. | keyword |
 | file.Ext.original | Original file information during a modification event. | object |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |
 | file.Ext.original.mode | Original file mode prior to a modification event | keyword |
 | file.Ext.original.name | Original file name prior to a modification event | keyword |
 | file.Ext.original.owner | File owner's username. | keyword |
-| file.Ext.original.path | Original file path prior to a modification event | keyword |
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.quarantine_message | Message describing quarantine results. | keyword |
 | file.Ext.quarantine_path | Path on endpoint the quarantined file was originally. | keyword |
 | file.Ext.quarantine_result | Boolean representing whether or not file quarantine succeeded. | boolean |
-| file.Ext.temp_file_path | Path on endpoint where a copy of the file is being stored.  Used to make ephemeral files retrievable. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
-| file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
-| file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
-| file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| file.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| file.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| file.code_signature.subject_name | Subject name of the code signer | keyword |
-| file.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| file.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| file.created | File creation time. Note that not all filesystems store the creation time. | date |
 | file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |
 | file.device | Device that is the source of the file. | keyword |
-| file.directory | Directory where the file is located. It should include the drive letter, when appropriate. | keyword |
-| file.drive_letter | Drive letter where the file is located. This field is only relevant on Windows. The value should be uppercase, and not include the colon. | keyword |
-| file.extension | File extension, excluding the leading dot. Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | file.gid | Primary group ID (GID) of the file. | keyword |
 | file.group | Primary group name of the file. | keyword |
-| file.hash.md5 | MD5 hash. | keyword |
-| file.hash.sha1 | SHA1 hash. | keyword |
-| file.hash.sha256 | SHA256 hash. | keyword |
 | file.hash.sha512 | SHA512 hash. | keyword |
-| file.inode | Inode representing the file in the filesystem. | keyword |
 | file.mime_type | MIME type should identify the format of the file or stream of bytes using https://www.iana.org/assignments/media-types/media-types.xhtml[IANA official types], where possible. When more than one type is applicable, the most specific type should be used. | keyword |
 | file.mode | Mode of the file in octal representation. | keyword |
-| file.mtime | Last time the file content was modified. | date |
-| file.name | Name of the file including the extension, without the directory. | keyword |
-| file.owner | File owner's username. | keyword |
-| file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
 | file.pe.Ext.dotnet | Whether this file is a .NET PE | boolean |
 | file.pe.Ext.sections | The file's relevant sections, if it is a PE | object |
 | file.pe.Ext.sections.hash.md5 | MD5 hash. | keyword |
@@ -1952,23 +1509,13 @@ Event type: ransomware
 | file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
 | file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
 | file.pe.Ext.streams.name | The stream's name | keyword |
-| file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| file.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | file.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| file.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| file.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| file.size | File size in bytes. Only relevant when `file.type` is "file". | long |
 | file.target_path | Target path for symlinks. | keyword |
 | file.type | File type (file, dir, or symlink). | keyword |
 | file.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
-| group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
-| group.Ext.real.name | Name of the group. | keyword |
 | group.domain | Name of the directory the group is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| group.id | Unique identifier for the group on the system/platform. | keyword |
-| group.name | Name of the group. | keyword |
 | host.architecture | Operating system architecture. | keyword |
 | host.boot.id | Linux boot uuid taken from /proc/sys/kernel/random/boot_id. Note the boot_id value from /proc may or may not be the same in containers as on the host. Some container runtimes will bind mount a new boot_id value onto the proc file in each container. | keyword |
 | host.domain | Name of the domain of which the host is a member. For example, on Windows this could be the host's Active Directory domain or NetBIOS domain name. For Linux this could be the domain of the host's LDAP provider. | keyword |
@@ -2023,9 +1570,6 @@ Event type: ransomware
 | orchestrator.resource.name | Name of the resource being acted upon. | keyword |
 | orchestrator.resource.type | Type of resource being acted upon. | keyword |
 | process.Ext | Object for all custom defined fields to live in. | object |
-| process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
-| process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
-| process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2040,21 +1584,10 @@ Event type: ransomware
 | process.Ext.dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.dll.Ext.compile_time | Timestamp from when the module was compiled. | date |
-| process.Ext.dll.Ext.mapped_address | The base address where this module is loaded. | unsigned_long |
-| process.Ext.dll.Ext.mapped_size | The size of this module's memory mapping, in bytes. | unsigned_long |
-| process.Ext.dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.Ext.dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.Ext.dll.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.Ext.dll.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.dll.hash.md5 | MD5 hash. | keyword |
-| process.Ext.dll.hash.sha1 | SHA1 hash. | keyword |
-| process.Ext.dll.hash.sha256 | SHA256 hash. | keyword |
 | process.Ext.dll.hash.sha512 | SHA512 hash. | keyword |
-| process.Ext.dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
-| process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -2066,24 +1599,12 @@ Event type: ransomware
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
 | process.Ext.malware_classification.upx_packed | Whether UPX packing was detected. | boolean |
 | process.Ext.malware_classification.version | The version of the model used. | keyword |
-| process.Ext.memory_region.allocation_base | Base address of the memory allocation containing the memory region. | unsigned_long |
 | process.Ext.memory_region.allocation_protection | Original memory protection requested when the memory was allocated. Example values include "RWX" and "R-X". | keyword |
-| process.Ext.memory_region.allocation_size | Original memory size requested when the memory was allocated. | unsigned_long |
-| process.Ext.memory_region.allocation_type | The memory allocation type. Example values include "IMAGE", "MAPPED", and "PRIVATE". | keyword |
-| process.Ext.memory_region.bytes_address | The address where bytes_compressed begins. | unsigned_long |
-| process.Ext.memory_region.bytes_allocation_offset | Offset of bytes_address the memory allocation. Equal to bytes_address - allocation_base. | unsigned_long |
 | process.Ext.memory_region.bytes_compressed | Up to 4MB of raw data from the memory allocation. This is compressed with zlib.To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
-| process.Ext.memory_region.bytes_compressed_present | Whether bytes_compressed is present in this event. | boolean |
-| process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
-| process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
 | process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
-| process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
-| process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
-| process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
-| process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.mapped_pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -2098,115 +1619,41 @@ Event type: ransomware
 | process.Ext.memory_region.memory_pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.memory_pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.Ext.memory_region.memory_pe_detected | Whether an executable file was found in memory. | boolean |
-| process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
-| process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
-| process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
 | process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
-| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
-| process.Ext.services | Services running in this process. | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.token.domain | Domain of token user. | keyword |
-| process.Ext.token.elevation | Whether the token is elevated or not | boolean |
-| process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
 | process.Ext.token.integrity_level | Numeric integrity level. | long |
-| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.Ext.token.is_appcontainer | Whether or not this is an appcontainer token. | boolean |
 | process.Ext.token.privileges | Array describing the privileges associated with the token. | nested |
 | process.Ext.token.privileges.description | Description of the privilege. | keyword |
 | process.Ext.token.privileges.enabled | Whether or not the privilege is enabled. | boolean |
 | process.Ext.token.privileges.name | Name of the privilege. | keyword |
-| process.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | process.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
-| process.Ext.token.user | Username of token owner. | keyword |
-| process.Ext.user | User associated with the running process. | keyword |
-| process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
-| process.entry_leader.entry_meta.type | The entry type for the entry session leader. Values include: init(e.g systemd), sshd, ssm, kubelet, teleport, terminal, console Note: This field is only set on process.session_leader. | keyword |
-| process.entry_leader.executable | Absolute path to the process executable. | keyword |
-| process.entry_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.entry_leader.group.name | Name of the group. | keyword |
-| process.entry_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.entry_leader.name | Process name. Sometimes called program name or similar. | keyword |
-| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.entry_leader.parent.pid | Process id. | long |
 | process.entry_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.parent.session_leader.pid | Process id. | long |
 | process.entry_leader.parent.session_leader.start | The time the process started. | date |
-| process.entry_leader.parent.start | The time the process started. | date |
-| process.entry_leader.pid | Process id. | long |
-| process.entry_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.entry_leader.real_group.name | Name of the group. | keyword |
-| process.entry_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.entry_leader.real_user.name | Short name or login of the user. | keyword |
-| process.entry_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.entry_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.saved_group.name | Name of the group. | keyword |
 | process.entry_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.entry_leader.start | The time the process started. | date |
 | process.entry_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.entry_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.entry_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
 | process.entry_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.entry_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.entry_leader.user.id | Unique identifier of the user. | keyword |
-| process.entry_leader.user.name | Short name or login of the user. | keyword |
-| process.entry_leader.working_directory | The working directory of the process. | keyword |
 | process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
-| process.executable | Absolute path to the process executable. | keyword |
-| process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.group_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.group_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.group_leader.executable | Absolute path to the process executable. | keyword |
-| process.group_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.group.name | Name of the group. | keyword |
-| process.group_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.group_leader.name | Process name. Sometimes called program name or similar. | keyword |
-| process.group_leader.pid | Process id. | long |
-| process.group_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.real_group.name | Name of the group. | keyword |
-| process.group_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.group_leader.real_user.name | Short name or login of the user. | keyword |
-| process.group_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.group_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.group_leader.saved_group.name | Name of the group. | keyword |
 | process.group_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.group_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.group_leader.start | The time the process started. | date |
-| process.group_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.group_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.group_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.group_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.group_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.group_leader.user.id | Unique identifier of the user. | keyword |
-| process.group_leader.user.name | Short name or login of the user. | keyword |
-| process.group_leader.working_directory | The working directory of the process. | keyword |
-| process.hash.md5 | MD5 hash. | keyword |
-| process.hash.sha1 | SHA1 hash. | keyword |
-| process.hash.sha256 | SHA256 hash. | keyword |
 | process.hash.sha512 | SHA512 hash. | keyword |
-| process.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.parent.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.parent.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2242,7 +1689,6 @@ Event type: ransomware
 | process.parent.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.parent.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.parent.Ext.real | The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent. | object |
 | process.parent.Ext.real.pid | For process.parent this will be the ppid of the process that actually spawned the current process. | long |
 | process.parent.Ext.token.domain | Domain of token user. | keyword |
@@ -2259,130 +1705,60 @@ Event type: ransomware
 | process.parent.Ext.token.sid | Token user's Security Identifier (SID). | keyword |
 | process.parent.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | process.parent.Ext.token.user | Username of token owner. | keyword |
-| process.parent.Ext.user | User associated with the running process. | keyword |
-| process.parent.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.parent.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
-| process.parent.code_signature.exists | Boolean to capture if a signature is present. | boolean |
-| process.parent.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
-| process.parent.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
-| process.parent.code_signature.subject_name | Subject name of the code signer | keyword |
-| process.parent.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
-| process.parent.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.parent.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.parent.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.parent.executable | Absolute path to the process executable. | keyword |
 | process.parent.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
-| process.parent.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.group.name | Name of the group. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.pid | Process id. | long |
 | process.parent.group_leader.start | The time the process started. | date |
-| process.parent.hash.md5 | MD5 hash. | keyword |
-| process.parent.hash.sha1 | SHA1 hash. | keyword |
-| process.parent.hash.sha256 | SHA256 hash. | keyword |
 | process.parent.hash.sha512 | SHA512 hash. | keyword |
-| process.parent.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.parent.name | Process name. Sometimes called program name or similar. | keyword |
 | process.parent.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.parent.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.parent.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
 | process.parent.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.parent.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.parent.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.parent.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.parent.pid | Process id. | long |
-| process.parent.ppid | Parent process' pid. | long |
-| process.parent.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.real_group.name | Name of the group. | keyword |
-| process.parent.real_user.id | Unique identifier of the user. | keyword |
-| process.parent.real_user.name | Short name or login of the user. | keyword |
 | process.parent.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.saved_group.name | Name of the group. | keyword |
 | process.parent.saved_user.id | Unique identifier of the user. | keyword |
 | process.parent.saved_user.name | Short name or login of the user. | keyword |
-| process.parent.start | The time the process started. | date |
-| process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.parent.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.parent.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.parent.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.parent.uptime | Seconds the process has been up. | long |
-| process.parent.user.id | Unique identifier of the user. | keyword |
-| process.parent.user.name | Short name or login of the user. | keyword |
-| process.parent.working_directory | The working directory of the process. | keyword |
-| process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
-| process.pe.description | Internal description of the file, provided at compile-time. | keyword |
-| process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
-| process.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
-| process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
-| process.pid | Process id. | long |
-| process.ppid | Parent process' pid. | long |
 | process.previous.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.previous.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.previous.executable | Absolute path to the process executable. | keyword |
-| process.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.real_group.name | Name of the group. | keyword |
-| process.real_user.id | Unique identifier of the user. | keyword |
-| process.real_user.name | Short name or login of the user. | keyword |
 | process.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.saved_group.name | Name of the group. | keyword |
 | process.saved_user.id | Unique identifier of the user. | keyword |
 | process.saved_user.name | Short name or login of the user. | keyword |
-| process.session_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
-| process.session_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.session_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
-| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
-| process.session_leader.executable | Absolute path to the process executable. | keyword |
-| process.session_leader.group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.session_leader.group.name | Name of the group. | keyword |
-| process.session_leader.interactive | Whether the process is connected to an interactive shell. Process interactivity is inferred from the processes file descriptors. If the character device for the controlling tty is the same as stdin and stderr for the process, the process is considered interactive. Note: A non-interactive process can belong to an interactive session and is simply one that does not have open file descriptors reading the controlling TTY on FD 0 (stdin) or writing to the controlling TTY on FD 2 (stderr). A backgrounded process is still considered interactive if stdin and stderr are connected to the controlling TTY. | boolean |
-| process.session_leader.name | Process name. Sometimes called program name or similar. | keyword |
 | process.session_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.parent.pid | Process id. | long |
 | process.session_leader.parent.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.session_leader.parent.session_leader.pid | Process id. | long |
 | process.session_leader.parent.session_leader.start | The time the process started. | date |
 | process.session_leader.parent.start | The time the process started. | date |
-| process.session_leader.pid | Process id. | long |
-| process.session_leader.real_group.id | Unique identifier for the group on the system/platform. | keyword |
-| process.session_leader.real_group.name | Name of the group. | keyword |
-| process.session_leader.real_user.id | Unique identifier of the user. | keyword |
-| process.session_leader.real_user.name | Short name or login of the user. | keyword |
-| process.session_leader.same_as_process | This boolean is used to identify if a leader process is the same as the top level process. For example, if `process.group_leader.same_as_process = true`, it means the process event in question is the leader of its process group. Details under `process.*` like `pid` would be the same under `process.group_leader.*` The same applies for both `process.session_leader` and `process.entry_leader`. This field exists to the benefit of EQL and other rule engines since it's not possible to compare equality between two fields in a single document. e.g `process.entity_id` = `process.group_leader.entity_id` (top level process is the process group leader) OR `process.entity_id` = `process.entry_leader.entity_id` (top level process is the entry session leader) Instead these rules could be written like: `process.group_leader.same_as_process: true` OR `process.entry_leader.same_as_process: true` Note: This field is only set on `process.entry_leader`, `process.session_leader` and `process.group_leader`. | boolean |
 | process.session_leader.saved_group.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.saved_group.name | Name of the group. | keyword |
 | process.session_leader.saved_user.id | Unique identifier of the user. | keyword |
 | process.session_leader.saved_user.name | Short name or login of the user. | keyword |
-| process.session_leader.start | The time the process started. | date |
 | process.session_leader.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.session_leader.supplemental_groups.name | Name of the group. | keyword |
 | process.session_leader.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
 | process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.session_leader.user.id | Unique identifier of the user. | keyword |
-| process.session_leader.user.name | Short name or login of the user. | keyword |
-| process.session_leader.working_directory | The working directory of the process. | keyword |
-| process.start | The time the process started. | date |
-| process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
-| process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | process.thread.Ext.service | Service associated with the thread. | keyword |
 | process.thread.Ext.start | The time the thread started. | date |
-| process.thread.Ext.start_address | Memory address where the thread began execution. | unsigned_long |
 | process.thread.Ext.start_address_allocation_offset | Offset of start_address into the memory allocation. Equal to start_address - start_address_details.allocation_base. | unsigned_long |
 | process.thread.Ext.start_address_bytes | A few (typically 32) raw opcode bytes at the thread start address, hex-encoded. | keyword |
 | process.thread.Ext.start_address_bytes_disasm | The bytes at the thread start address, disassembled into human-readable assembly code. | keyword |
 | process.thread.Ext.start_address_bytes_disasm_hash | The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed. | keyword |
-| process.thread.Ext.start_address_module | The dll/module where the thread began execution. | keyword |
 | process.thread.Ext.token.domain | Domain of token user. | keyword |
 | process.thread.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.thread.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -2398,29 +1774,14 @@ Event type: ransomware
 | process.thread.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | process.thread.Ext.token.user | Username of token owner. | keyword |
 | process.thread.Ext.uptime | Seconds since thread started. | long |
-| process.thread.id | Thread ID. | long |
 | process.thread.name | Thread name. | keyword |
 | process.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
 | process.tty | Information about the controlling TTY device. If set, the process belongs to an interactive session. | object |
-| process.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
-| process.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
-| process.uptime | Seconds the process has been up. | long |
-| process.user.id | Unique identifier of the user. | keyword |
-| process.user.name | Short name or login of the user. | keyword |
-| process.working_directory | The working directory of the process. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
-| registry.path | Full path, including hive, key and value | keyword |
-| registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
-| rule.description | The description of the rule generating the event. | keyword |
-| rule.id | A rule ID that is unique within the scope of an agent, observer, or other entity using the rule for detection of this event. | keyword |
 | rule.license | Name of the license under which the rule used to generate this event is made available. | keyword |
-| rule.name | The name of the rule or signature generating the event. | keyword |
-| rule.reference | Reference URL to additional information about the rule used to generate this event. The URL can point to the vendor's documentation about the rule. If that's not available, it can also be a link to a more general page describing this type of alert. | keyword |
-| rule.ruleset | Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. | keyword |
 | rule.uuid | A rule ID that is unique within the scope of a set or group of agents, observers, or other entities using the rule for detection of this event. | keyword |
-| rule.version | The version / revision of the rule being used for analysis. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -2506,6 +1867,11 @@ Event type: ransomware
 | threat.enrichments.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.enrichments.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.enrichments.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.enrichments.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.enrichments.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -2514,7 +1880,10 @@ Event type: ransomware
 | threat.enrichments.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.enrichments.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.enrichments.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.enrichments.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.enrichments.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.enrichments.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.enrichments.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.enrichments.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -2523,6 +1892,7 @@ Event type: ransomware
 | threat.enrichments.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.enrichments.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.enrichments.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.enrichments.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.enrichments.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -2628,7 +1998,6 @@ Event type: ransomware
 | threat.enrichments.matched.id | Identifies the _id of the indicator document enriching the event. | keyword |
 | threat.enrichments.matched.index | Identifies the _index of the indicator document enriching the event. | keyword |
 | threat.enrichments.matched.type | Identifies the type of match that caused the event to be enriched with the given indicator | keyword |
-| threat.framework | Name of the threat framework used to further categorize and classify the tactic and technique of the reported threat. Framework classification can be provided by detecting systems, evaluated at ingest time, or retrospectively tagged to events. | keyword |
 | threat.group.alias | The alias(es) of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group alias(es). | keyword |
 | threat.group.id | The id of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group id. | keyword |
 | threat.group.name | The name of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group name. | keyword |
@@ -2709,6 +2078,11 @@ Event type: ransomware
 | threat.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -2717,7 +2091,10 @@ Event type: ransomware
 | threat.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -2726,6 +2103,7 @@ Event type: ransomware
 | threat.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -2831,20 +2209,8 @@ Event type: ransomware
 | threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use MITRE ATT&CK® software platform values. | keyword |
 | threat.software.reference | The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL. | keyword |
 | threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type. | keyword |
-| threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
-| threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |
-| threat.tactic.reference | The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
-| threat.technique.id | The id of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.name | The name of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.reference | The reference url of technique used by this threat. You can use a MITRE ATT&CK® technique, for example. (ex. https://attack.mitre.org/techniques/T1059/) | keyword |
-| threat.technique.subtechnique.id | The full id of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
-| threat.technique.subtechnique.name | The name of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
-| threat.technique.subtechnique.reference | The reference url of subtechnique used by this threat. You can use a MITRE ATT&CK® subtechnique, for example. (ex. https://attack.mitre.org/techniques/T1059/001/) | keyword |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
-| user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
-| user.Ext.real.name | Short name or login of the user. | keyword |
-| user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -2855,6 +2221,4 @@ Event type: ransomware
 | user.group.id | Unique identifier for the group on the system/platform. | keyword |
 | user.group.name | Name of the group. | keyword |
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
-| user.id | Unique identifier of the user. | keyword |
-| user.name | Short name or login of the user. | keyword |
 

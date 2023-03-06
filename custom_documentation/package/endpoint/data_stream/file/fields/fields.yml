@@ -91,6 +91,12 @@ fields:
   - file_overwrite
   - file_modification
   - file_open
+- ecs: Persistence.args
+- ecs: Persistence.executable
+- ecs: Persistence.keepalive
+- ecs: Persistence.name
+- ecs: Persistence.path
+- ecs: Persistence.runatload
 - ecs: agent.id
   all:
   - all
@@ -153,6 +159,8 @@ fields:
   all:
   - all
 - ecs: event.outcome
+  all:
+  - all
 - ecs: event.provider
 - ecs: event.sequence
   all:

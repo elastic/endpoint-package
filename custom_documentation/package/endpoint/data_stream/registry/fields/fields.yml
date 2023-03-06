@@ -106,6 +106,8 @@ fields:
   all:
   - all
 - ecs: event.outcome
+  all:
+  - all
 - ecs: event.provider
 - ecs: event.sequence
   all:

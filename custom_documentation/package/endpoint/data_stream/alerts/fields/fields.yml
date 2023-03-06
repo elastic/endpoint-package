@@ -21,6 +21,8 @@ os:
 - windows
 fields:
 - ecs: '@timestamp'
+  all:
+  - all
 - ecs: Endpoint.policy
 - ecs: Endpoint.policy.applied
 - ecs: Endpoint.policy.applied.id
@@ -29,11 +31,23 @@ fields:
 - ecs: Endpoint.policy.applied.version
 - ecs: Events
 - ecs: Memory_protection.cross_session
+  windows:
+  - file_score_alert
 - ecs: Memory_protection.feature
+  windows:
+  - file_score_alert
 - ecs: Memory_protection.parent_to_child
+  windows:
+  - file_score_alert
 - ecs: Memory_protection.self_injection
+  windows:
+  - file_score_alert
 - ecs: Memory_protection.thread_count
+  windows:
+  - file_score_alert
 - ecs: Memory_protection.unique_key_v1
+  windows:
+  - file_score_alert
 - ecs: Ransomware.child_processes.executable
 - ecs: Ransomware.child_processes.feature
 - ecs: Ransomware.child_processes.files
@@ -117,6 +131,8 @@ fields:
 - ecs: Target.process.Ext
 - ecs: Target.process.Ext.ancestry
 - ecs: Target.process.Ext.architecture
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.authentication_id
 - ecs: Target.process.Ext.code_signature
 - ecs: Target.process.Ext.code_signature.exists
@@ -133,20 +149,42 @@ fields:
 - ecs: Target.process.Ext.dll.Ext.code_signature.valid
 - ecs: Target.process.Ext.dll.Ext.compile_time
 - ecs: Target.process.Ext.dll.Ext.mapped_address
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.Ext.mapped_size
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.code_signature.exists
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.code_signature.signing_id
 - ecs: Target.process.Ext.dll.code_signature.status
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.code_signature.subject_name
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.code_signature.team_id
 - ecs: Target.process.Ext.dll.code_signature.trusted
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.code_signature.valid
 - ecs: Target.process.Ext.dll.hash.md5
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.hash.sha1
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.hash.sha256
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.hash.sha512
 - ecs: Target.process.Ext.dll.name
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.path
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.dll.pe.company
 - ecs: Target.process.Ext.dll.pe.description
 - ecs: Target.process.Ext.dll.pe.file_version
@@ -159,9 +197,17 @@ fields:
 - ecs: Target.process.Ext.malware_classification.upx_packed
 - ecs: Target.process.Ext.malware_classification.version
 - ecs: Target.process.Ext.memory_region.allocation_base
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.allocation_protection
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.allocation_size
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.allocation_type
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.bytes_address
 - ecs: Target.process.Ext.memory_region.bytes_allocation_offset
 - ecs: Target.process.Ext.memory_region.bytes_compressed
@@ -176,6 +222,8 @@ fields:
 - ecs: Target.process.Ext.memory_region.malware_signature.primary.signature.name
 - ecs: Target.process.Ext.memory_region.malware_signature.version
 - ecs: Target.process.Ext.memory_region.mapped_path
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.mapped_pe.company
 - ecs: Target.process.Ext.memory_region.mapped_pe.description
 - ecs: Target.process.Ext.memory_region.mapped_pe.file_version
@@ -191,48 +239,106 @@ fields:
 - ecs: Target.process.Ext.memory_region.memory_pe.product
 - ecs: Target.process.Ext.memory_region.memory_pe_detected
 - ecs: Target.process.Ext.memory_region.region_base
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.region_protection
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.region_size
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.region_state
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.memory_region.strings
 - ecs: Target.process.Ext.protection
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.services
 - ecs: Target.process.Ext.session
 - ecs: Target.process.Ext.token.domain
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.token.elevation
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.token.elevation_type
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.token.impersonation_level
 - ecs: Target.process.Ext.token.integrity_level
 - ecs: Target.process.Ext.token.integrity_level_name
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.token.is_appcontainer
 - ecs: Target.process.Ext.token.privileges
 - ecs: Target.process.Ext.token.privileges.description
 - ecs: Target.process.Ext.token.privileges.enabled
 - ecs: Target.process.Ext.token.privileges.name
 - ecs: Target.process.Ext.token.sid
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.token.type
 - ecs: Target.process.Ext.token.user
+  windows:
+  - file_score_alert
 - ecs: Target.process.Ext.user
+  windows:
+  - file_score_alert
 - ecs: Target.process.args
+  windows:
+  - file_score_alert
 - ecs: Target.process.args_count
+  windows:
+  - file_score_alert
 - ecs: Target.process.code_signature.exists
+  windows:
+  - file_score_alert
 - ecs: Target.process.code_signature.signing_id
 - ecs: Target.process.code_signature.status
+  windows:
+  - file_score_alert
 - ecs: Target.process.code_signature.subject_name
+  windows:
+  - file_score_alert
 - ecs: Target.process.code_signature.team_id
 - ecs: Target.process.code_signature.trusted
+  windows:
+  - file_score_alert
 - ecs: Target.process.code_signature.valid
 - ecs: Target.process.command_line
+  windows:
+  - file_score_alert
 - ecs: Target.process.entity_id
+  windows:
+  - file_score_alert
+  macos:
+  - rules_engine_alert
 - ecs: Target.process.executable
+  windows:
+  - file_score_alert
+  macos:
+  - rules_engine_alert
 - ecs: Target.process.exit_code
 - ecs: Target.process.hash.md5
+  windows:
+  - file_score_alert
 - ecs: Target.process.hash.sha1
+  windows:
+  - file_score_alert
 - ecs: Target.process.hash.sha256
+  windows:
+  - file_score_alert
 - ecs: Target.process.hash.sha512
 - ecs: Target.process.name
+  windows:
+  - file_score_alert
+  macos:
+  - rules_engine_alert
 - ecs: Target.process.parent.Ext
 - ecs: Target.process.parent.Ext.architecture
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.Ext.code_signature
 - ecs: Target.process.parent.Ext.code_signature.exists
 - ecs: Target.process.parent.Ext.code_signature.status
@@ -269,6 +375,8 @@ fields:
 - ecs: Target.process.parent.Ext.dll.pe.original_file_name
 - ecs: Target.process.parent.Ext.dll.pe.product
 - ecs: Target.process.parent.Ext.protection
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.Ext.real
 - ecs: Target.process.parent.Ext.real.pid
 - ecs: Target.process.parent.Ext.token.domain
@@ -286,24 +394,52 @@ fields:
 - ecs: Target.process.parent.Ext.token.type
 - ecs: Target.process.parent.Ext.token.user
 - ecs: Target.process.parent.Ext.user
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.args
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.args_count
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.code_signature.exists
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.code_signature.signing_id
 - ecs: Target.process.parent.code_signature.status
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.code_signature.subject_name
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.code_signature.team_id
 - ecs: Target.process.parent.code_signature.trusted
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.code_signature.valid
 - ecs: Target.process.parent.command_line
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.entity_id
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.executable
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.exit_code
 - ecs: Target.process.parent.hash.md5
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.hash.sha1
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.hash.sha256
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.hash.sha512
 - ecs: Target.process.parent.name
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.pe.company
 - ecs: Target.process.parent.pe.description
 - ecs: Target.process.parent.pe.file_version
@@ -312,35 +448,76 @@ fields:
 - ecs: Target.process.parent.pe.product
 - ecs: Target.process.parent.pgid
 - ecs: Target.process.parent.pid
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.ppid
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.start
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.thread.id
 - ecs: Target.process.parent.thread.name
 - ecs: Target.process.parent.title
 - ecs: Target.process.parent.uptime
+  windows:
+  - file_score_alert
 - ecs: Target.process.parent.working_directory
 - ecs: Target.process.pe.company
+  windows:
+  - file_score_alert
 - ecs: Target.process.pe.description
+  windows:
+  - file_score_alert
 - ecs: Target.process.pe.file_version
+  windows:
+  - file_score_alert
 - ecs: Target.process.pe.imphash
 - ecs: Target.process.pe.original_file_name
+  windows:
+  - file_score_alert
 - ecs: Target.process.pe.product
+  windows:
+  - file_score_alert
 - ecs: Target.process.pgid
 - ecs: Target.process.pid
+  windows:
+  - file_score_alert
+  macos:
+  - rules_engine_alert
 - ecs: Target.process.ppid
+  windows:
+  - file_score_alert
 - ecs: Target.process.start
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext
+- ecs: Target.process.thread.Ext.hardware_breakpoint_set
 - ecs: Target.process.thread.Ext.parameter
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.parameter_bytes_compressed
 - ecs: Target.process.thread.Ext.parameter_bytes_compressed_present
 - ecs: Target.process.thread.Ext.service
 - ecs: Target.process.thread.Ext.start
 - ecs: Target.process.thread.Ext.start_address
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.start_address_allocation_offset
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.start_address_bytes
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.start_address_bytes_disasm
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.start_address_bytes_disasm_hash
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.start_address_module
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.Ext.token.domain
 - ecs: Target.process.thread.Ext.token.elevation
 - ecs: Target.process.thread.Ext.token.elevation_type
@@ -357,15 +534,25 @@ fields:
 - ecs: Target.process.thread.Ext.token.user
 - ecs: Target.process.thread.Ext.uptime
 - ecs: Target.process.thread.id
+  windows:
+  - file_score_alert
 - ecs: Target.process.thread.name
 - ecs: Target.process.title
 - ecs: Target.process.uptime
+  windows:
+  - file_score_alert
 - ecs: Target.process.working_directory
 - ecs: agent.ephemeral_id
 - ecs: agent.id
+  all:
+  - all
 - ecs: agent.name
 - ecs: agent.type
+  all:
+  - all
 - ecs: agent.version
+  all:
+  - all
 - ecs: cloud.account.id
 - ecs: cloud.instance.name
 - ecs: cloud.project.id
@@ -376,8 +563,14 @@ fields:
 - ecs: container.image.tag
 - ecs: container.name
 - ecs: data_stream.dataset
+  all:
+  - all
 - ecs: data_stream.namespace
+  all:
+  - all
 - ecs: data_stream.type
+  all:
+  - all
 - ecs: destination.geo.city_name
 - ecs: destination.geo.continent_code
 - ecs: destination.geo.continent_name
@@ -406,45 +599,123 @@ fields:
 - ecs: dll.Ext.mapped_address
 - ecs: dll.Ext.mapped_size
 - ecs: dll.code_signature.exists
+  windows:
+  - rules_engine_alert
 - ecs: dll.code_signature.signing_id
 - ecs: dll.code_signature.status
+  windows:
+  - rules_engine_alert
 - ecs: dll.code_signature.subject_name
 - ecs: dll.code_signature.team_id
 - ecs: dll.code_signature.trusted
 - ecs: dll.code_signature.valid
 - ecs: dll.hash.md5
+  windows:
+  - rules_engine_alert
 - ecs: dll.hash.sha1
+  windows:
+  - rules_engine_alert
 - ecs: dll.hash.sha256
+  windows:
+  - rules_engine_alert
 - ecs: dll.hash.sha512
 - ecs: dll.name
+  windows:
+  - rules_engine_alert
 - ecs: dll.path
+  windows:
+  - rules_engine_alert
 - ecs: dll.pe.company
 - ecs: dll.pe.description
 - ecs: dll.pe.file_version
+  windows:
+  - rules_engine_alert
 - ecs: dll.pe.imphash
+  windows:
+  - rules_engine_alert
 - ecs: dll.pe.original_file_name
+  windows:
+  - rules_engine_alert
 - ecs: dll.pe.product
 - ecs: dns.question.name
+  windows:
+  - rules_engine_alert
 - ecs: dns.question.type
 - ecs: ecs.version
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: elastic.agent
 - ecs: elastic.agent.id
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: event.action
+  all:
+  - all
 - ecs: event.category
+  all:
+  - all
 - ecs: event.code
+  all:
+  - all
 - ecs: event.created
+  all:
+  - all
 - ecs: event.dataset
+  all:
+  - all
 - ecs: event.hash
 - ecs: event.id
+  all:
+  - all
 - ecs: event.ingested
+  all:
+  - all
 - ecs: event.kind
+  all:
+  - all
 - ecs: event.module
+  all:
+  - all
 - ecs: event.outcome
+  all:
+  - all
 - ecs: event.provider
 - ecs: event.risk_score
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: event.sequence
+  all:
+  - all
 - ecs: event.severity
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: event.type
+  all:
+  - all
 - ecs: file.Ext
 - ecs: file.Ext.code_signature
 - ecs: file.Ext.code_signature.exists
@@ -477,10 +748,26 @@ fields:
 - ecs: file.Ext.macro.stream.raw_code
 - ecs: file.Ext.macro.stream.raw_code_size
 - ecs: file.Ext.malware_classification.identifier
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.Ext.malware_classification.score
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.Ext.malware_classification.threshold
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.Ext.malware_classification.upx_packed
 - ecs: file.Ext.malware_classification.version
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.Ext.original
 - ecs: file.Ext.original.gid
 - ecs: file.Ext.original.group
@@ -488,41 +775,149 @@ fields:
 - ecs: file.Ext.original.name
 - ecs: file.Ext.original.owner
 - ecs: file.Ext.original.path
+  macos:
+  - rules_engine_alert
 - ecs: file.Ext.original.uid
 - ecs: file.Ext.quarantine_message
 - ecs: file.Ext.quarantine_path
 - ecs: file.Ext.quarantine_result
 - ecs: file.Ext.temp_file_path
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.Ext.windows
 - ecs: file.Ext.windows.zone_identifier
+  windows:
+  - rules_engine_alert
 - ecs: file.accessed
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.attributes
 - ecs: file.code_signature.exists
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.signing_id
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.status
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.subject_name
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.team_id
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.trusted
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: file.code_signature.valid
 - ecs: file.created
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.ctime
 - ecs: file.device
 - ecs: file.directory
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.drive_letter
+  windows:
+  - file_score_alert
 - ecs: file.extension
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.gid
 - ecs: file.group
 - ecs: file.hash.md5
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.hash.sha1
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.hash.sha256
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.hash.sha512
 - ecs: file.inode
+  macos:
+  - rules_engine_alert
+  linux:
+  - file_score_alert
 - ecs: file.mime_type
 - ecs: file.mode
 - ecs: file.mtime
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.owner
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.path
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.pe.Ext.dotnet
 - ecs: file.pe.Ext.sections
 - ecs: file.pe.Ext.sections.hash.md5
@@ -533,23 +928,51 @@ fields:
 - ecs: file.pe.Ext.streams.hash.sha256
 - ecs: file.pe.Ext.streams.name
 - ecs: file.pe.company
+  windows:
+  - file_score_alert
 - ecs: file.pe.description
+  windows:
+  - file_score_alert
 - ecs: file.pe.file_version
+  windows:
+  - file_score_alert
 - ecs: file.pe.imphash
 - ecs: file.pe.original_file_name
+  windows:
+  - file_score_alert
 - ecs: file.pe.product
+  windows:
+  - file_score_alert
 - ecs: file.size
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: file.target_path
 - ecs: file.type
 - ecs: file.uid
 - ecs: group.Ext
 - ecs: group.Ext.real
 - ecs: group.Ext.real.id
+  macos:
+  - rules_engine_alert
 - ecs: group.Ext.real.name
+  macos:
+  - rules_engine_alert
 - ecs: group.domain
 - ecs: group.id
+  macos:
+  - rules_engine_alert
 - ecs: group.name
+  macos:
+  - rules_engine_alert
 - ecs: host.architecture
+  all:
+  - all
 - ecs: host.boot.id
 - ecs: host.domain
 - ecs: host.geo.city_name
@@ -564,19 +987,45 @@ fields:
 - ecs: host.geo.region_name
 - ecs: host.geo.timezone
 - ecs: host.hostname
+  all:
+  - all
 - ecs: host.id
+  all:
+  - all
 - ecs: host.ip
+  all:
+  - all
 - ecs: host.mac
+  all:
+  - all
 - ecs: host.name
+  all:
+  - all
 - ecs: host.os.Ext
 - ecs: host.os.Ext.variant
+  all:
+  - all
 - ecs: host.os.family
+  all:
+  - all
 - ecs: host.os.full
+  all:
+  - all
 - ecs: host.os.kernel
+  all:
+  - all
 - ecs: host.os.name
+  all:
+  - all
 - ecs: host.os.platform
+  all:
+  - all
 - ecs: host.os.type
+  all:
+  - all
 - ecs: host.os.version
+  all:
+  - all
 - ecs: host.pid_ns_ino
 - ecs: host.type
 - ecs: host.uptime
@@ -598,14 +1047,28 @@ fields:
 - ecs: host.user.id
 - ecs: host.user.name
 - ecs: message
+  all:
+  - all
 - ecs: orchestrator.cluster.name
 - ecs: orchestrator.namespace
 - ecs: orchestrator.resource.name
 - ecs: orchestrator.resource.type
 - ecs: process.Ext
 - ecs: process.Ext.ancestry
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.Ext.architecture
+  windows:
+  - file_score_alert
 - ecs: process.Ext.authentication_id
+  windows:
+  - rules_engine_alert
 - ecs: process.Ext.code_signature
 - ecs: process.Ext.code_signature.exists
 - ecs: process.Ext.code_signature.status
@@ -621,20 +1084,42 @@ fields:
 - ecs: process.Ext.dll.Ext.code_signature.valid
 - ecs: process.Ext.dll.Ext.compile_time
 - ecs: process.Ext.dll.Ext.mapped_address
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.Ext.mapped_size
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.code_signature.exists
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.code_signature.signing_id
 - ecs: process.Ext.dll.code_signature.status
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.code_signature.subject_name
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.code_signature.team_id
 - ecs: process.Ext.dll.code_signature.trusted
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.code_signature.valid
 - ecs: process.Ext.dll.hash.md5
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.hash.sha1
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.hash.sha256
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.hash.sha512
 - ecs: process.Ext.dll.name
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.path
+  windows:
+  - file_score_alert
 - ecs: process.Ext.dll.pe.company
 - ecs: process.Ext.dll.pe.description
 - ecs: process.Ext.dll.pe.file_version
@@ -647,23 +1132,47 @@ fields:
 - ecs: process.Ext.malware_classification.upx_packed
 - ecs: process.Ext.malware_classification.version
 - ecs: process.Ext.memory_region.allocation_base
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.allocation_protection
 - ecs: process.Ext.memory_region.allocation_size
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.allocation_type
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.bytes_address
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.bytes_allocation_offset
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.bytes_compressed
 - ecs: process.Ext.memory_region.bytes_compressed_present
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.malware_signature.all_names
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.malware_signature.identifier
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.malware_signature.primary
 - ecs: process.Ext.memory_region.malware_signature.primary.matches
 - ecs: process.Ext.memory_region.malware_signature.primary.signature.hash
 - ecs: process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
 - ecs: process.Ext.memory_region.malware_signature.primary.signature.id
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.malware_signature.primary.signature.name
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.malware_signature.version
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.mapped_path
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.mapped_pe.company
 - ecs: process.Ext.memory_region.mapped_pe.description
 - ecs: process.Ext.memory_region.mapped_pe.file_version
@@ -679,114 +1188,339 @@ fields:
 - ecs: process.Ext.memory_region.memory_pe.product
 - ecs: process.Ext.memory_region.memory_pe_detected
 - ecs: process.Ext.memory_region.region_base
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.region_protection
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.region_size
+  macos:
+  - file_score_alert
 - ecs: process.Ext.memory_region.region_state
 - ecs: process.Ext.memory_region.strings
 - ecs: process.Ext.protection
+  windows:
+  - file_score_alert
 - ecs: process.Ext.services
+  windows:
+  - file_score_alert
 - ecs: process.Ext.session
 - ecs: process.Ext.token.domain
+  windows:
+  - file_score_alert
 - ecs: process.Ext.token.elevation
+  windows:
+  - file_score_alert
 - ecs: process.Ext.token.elevation_type
+  windows:
+  - file_score_alert
 - ecs: process.Ext.token.impersonation_level
 - ecs: process.Ext.token.integrity_level
 - ecs: process.Ext.token.integrity_level_name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.Ext.token.is_appcontainer
 - ecs: process.Ext.token.privileges
 - ecs: process.Ext.token.privileges.description
 - ecs: process.Ext.token.privileges.enabled
 - ecs: process.Ext.token.privileges.name
 - ecs: process.Ext.token.sid
+  windows:
+  - file_score_alert
 - ecs: process.Ext.token.type
 - ecs: process.Ext.token.user
+  windows:
+  - file_score_alert
 - ecs: process.Ext.user
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.args
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.args_count
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.code_signature.exists
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.signing_id
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.status
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.subject_name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.team_id
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.trusted
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.code_signature.valid
 - ecs: process.command_line
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.entity_id
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.args
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.args_count
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.command_line
 - ecs: process.entry_leader.entity_id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.entry_meta.source.ip
 - ecs: process.entry_leader.entry_meta.type
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.executable
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.group.id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.group.name
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.interactive
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.name
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.parent.entity_id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.parent.pid
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.parent.session_leader.entity_id
 - ecs: process.entry_leader.parent.session_leader.pid
 - ecs: process.entry_leader.parent.session_leader.start
 - ecs: process.entry_leader.parent.start
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.pid
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.real_group.id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.real_group.name
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.real_user.id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.real_user.name
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.same_as_process
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.saved_group.id
 - ecs: process.entry_leader.saved_group.name
 - ecs: process.entry_leader.saved_user.id
 - ecs: process.entry_leader.saved_user.name
 - ecs: process.entry_leader.start
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.supplemental_groups.id
 - ecs: process.entry_leader.supplemental_groups.name
 - ecs: process.entry_leader.tty
 - ecs: process.entry_leader.tty.char_device.major
 - ecs: process.entry_leader.tty.char_device.minor
 - ecs: process.entry_leader.user.id
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.user.name
+  linux:
+  - file_score_alert
 - ecs: process.entry_leader.working_directory
+  linux:
+  - file_score_alert
 - ecs: process.env_vars
 - ecs: process.executable
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.exit_code
+  macos:
+  - rules_engine_alert
 - ecs: process.group_leader.args
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.args_count
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.command_line
 - ecs: process.group_leader.entity_id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.executable
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.group.id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.group.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.interactive
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.pid
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.real_group.id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.real_group.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.real_user.id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.real_user.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.same_as_process
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.saved_group.id
 - ecs: process.group_leader.saved_group.name
 - ecs: process.group_leader.saved_user.id
 - ecs: process.group_leader.saved_user.name
 - ecs: process.group_leader.start
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.supplemental_groups.id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.supplemental_groups.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.tty
 - ecs: process.group_leader.tty.char_device.major
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.tty.char_device.minor
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.user.id
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.user.name
+  linux:
+  - file_score_alert
 - ecs: process.group_leader.working_directory
+  linux:
+  - file_score_alert
 - ecs: process.hash.md5
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.hash.sha1
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.hash.sha256
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.hash.sha512
 - ecs: process.interactive
+  linux:
+  - file_score_alert
 - ecs: process.name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.Ext
 - ecs: process.parent.Ext.architecture
+  windows:
+  - file_score_alert
 - ecs: process.parent.Ext.code_signature
 - ecs: process.parent.Ext.code_signature.exists
 - ecs: process.parent.Ext.code_signature.status
@@ -823,6 +1557,8 @@ fields:
 - ecs: process.parent.Ext.dll.pe.original_file_name
 - ecs: process.parent.Ext.dll.pe.product
 - ecs: process.parent.Ext.protection
+  windows:
+  - file_score_alert
 - ecs: process.parent.Ext.real
 - ecs: process.parent.Ext.real.pid
 - ecs: process.parent.Ext.token.domain
@@ -840,30 +1576,126 @@ fields:
 - ecs: process.parent.Ext.token.type
 - ecs: process.parent.Ext.token.user
 - ecs: process.parent.Ext.user
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.args
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.args_count
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.code_signature.exists
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.signing_id
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.status
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.subject_name
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.team_id
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.trusted
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: process.parent.code_signature.valid
 - ecs: process.parent.command_line
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.entity_id
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.executable
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.exit_code
 - ecs: process.parent.group.id
+  linux:
+  - file_score_alert
 - ecs: process.parent.group.name
+  linux:
+  - file_score_alert
 - ecs: process.parent.group_leader.entity_id
 - ecs: process.parent.group_leader.pid
 - ecs: process.parent.group_leader.start
 - ecs: process.parent.hash.md5
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.hash.sha1
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.hash.sha256
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.hash.sha512
 - ecs: process.parent.interactive
+  linux:
+  - file_score_alert
 - ecs: process.parent.name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.pe.company
 - ecs: process.parent.pe.description
 - ecs: process.parent.pe.file_version
@@ -871,58 +1703,163 @@ fields:
 - ecs: process.parent.pe.original_file_name
 - ecs: process.parent.pe.product
 - ecs: process.parent.pgid
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.pid
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.ppid
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.real_group.id
+  linux:
+  - file_score_alert
 - ecs: process.parent.real_group.name
+  linux:
+  - file_score_alert
 - ecs: process.parent.real_user.id
+  linux:
+  - file_score_alert
 - ecs: process.parent.real_user.name
+  linux:
+  - file_score_alert
 - ecs: process.parent.saved_group.id
 - ecs: process.parent.saved_group.name
 - ecs: process.parent.saved_user.id
 - ecs: process.parent.saved_user.name
 - ecs: process.parent.start
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.supplemental_groups.id
+  linux:
+  - file_score_alert
 - ecs: process.parent.supplemental_groups.name
+  linux:
+  - file_score_alert
 - ecs: process.parent.thread.id
 - ecs: process.parent.thread.name
 - ecs: process.parent.title
 - ecs: process.parent.tty
 - ecs: process.parent.tty.char_device.major
+  linux:
+  - file_score_alert
 - ecs: process.parent.tty.char_device.minor
+  linux:
+  - file_score_alert
 - ecs: process.parent.uptime
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.parent.user.id
+  linux:
+  - file_score_alert
 - ecs: process.parent.user.name
+  linux:
+  - file_score_alert
 - ecs: process.parent.working_directory
+  linux:
+  - file_score_alert
 - ecs: process.pe.company
+  windows:
+  - file_score_alert
 - ecs: process.pe.description
+  windows:
+  - file_score_alert
 - ecs: process.pe.file_version
+  windows:
+  - file_score_alert
 - ecs: process.pe.imphash
+  windows:
+  - rules_engine_alert
 - ecs: process.pe.original_file_name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.pe.product
+  windows:
+  - file_score_alert
 - ecs: process.pgid
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.pid
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.ppid
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
 - ecs: process.previous.args
 - ecs: process.previous.args_count
 - ecs: process.previous.executable
 - ecs: process.real_group.id
+  linux:
+  - file_score_alert
 - ecs: process.real_group.name
+  linux:
+  - file_score_alert
 - ecs: process.real_user.id
+  linux:
+  - file_score_alert
 - ecs: process.real_user.name
+  linux:
+  - file_score_alert
 - ecs: process.saved_group.id
 - ecs: process.saved_group.name
 - ecs: process.saved_user.id
 - ecs: process.saved_user.name
 - ecs: process.session_leader.args
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.args_count
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.command_line
 - ecs: process.session_leader.entity_id
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.executable
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.group.id
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.group.name
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.interactive
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.name
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.parent.entity_id
 - ecs: process.session_leader.parent.pid
 - ecs: process.session_leader.parent.session_leader.entity_id
@@ -930,39 +1867,74 @@ fields:
 - ecs: process.session_leader.parent.session_leader.start
 - ecs: process.session_leader.parent.start
 - ecs: process.session_leader.pid
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.real_group.id
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.real_group.name
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.real_user.id
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.real_user.name
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.same_as_process
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.saved_group.id
 - ecs: process.session_leader.saved_group.name
 - ecs: process.session_leader.saved_user.id
 - ecs: process.session_leader.saved_user.name
 - ecs: process.session_leader.start
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.supplemental_groups.id
 - ecs: process.session_leader.supplemental_groups.name
 - ecs: process.session_leader.tty
 - ecs: process.session_leader.tty.char_device.major
 - ecs: process.session_leader.tty.char_device.minor
 - ecs: process.session_leader.user.id
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.user.name
+  linux:
+  - file_score_alert
 - ecs: process.session_leader.working_directory
+  linux:
+  - file_score_alert
 - ecs: process.start
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.supplemental_groups.id
+  linux:
+  - file_score_alert
 - ecs: process.supplemental_groups.name
+  linux:
+  - file_score_alert
 - ecs: process.thread.Ext
+- ecs: process.thread.Ext.hardware_breakpoint_set
 - ecs: process.thread.Ext.parameter
 - ecs: process.thread.Ext.parameter_bytes_compressed
 - ecs: process.thread.Ext.parameter_bytes_compressed_present
 - ecs: process.thread.Ext.service
 - ecs: process.thread.Ext.start
 - ecs: process.thread.Ext.start_address
+  windows:
+  - file_score_alert
 - ecs: process.thread.Ext.start_address_allocation_offset
 - ecs: process.thread.Ext.start_address_bytes
 - ecs: process.thread.Ext.start_address_bytes_disasm
 - ecs: process.thread.Ext.start_address_bytes_disasm_hash
 - ecs: process.thread.Ext.start_address_module
+  windows:
+  - file_score_alert
 - ecs: process.thread.Ext.token.domain
 - ecs: process.thread.Ext.token.elevation
 - ecs: process.thread.Ext.token.elevation_type
@@ -979,28 +1951,89 @@ fields:
 - ecs: process.thread.Ext.token.user
 - ecs: process.thread.Ext.uptime
 - ecs: process.thread.id
+  windows:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: process.thread.name
 - ecs: process.title
 - ecs: process.tty
 - ecs: process.tty.char_device.major
+  linux:
+  - file_score_alert
 - ecs: process.tty.char_device.minor
+  linux:
+  - file_score_alert
 - ecs: process.uptime
+  windows:
+  - file_score_alert
+  macos:
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: process.user.id
+  linux:
+  - file_score_alert
 - ecs: process.user.name
+  linux:
+  - file_score_alert
 - ecs: process.working_directory
+  windows:
+  - rules_engine_alert
+  linux:
+  - file_score_alert
 - ecs: registry.data.strings
 - ecs: registry.path
+  windows:
+  - rules_engine_alert
 - ecs: registry.value
+  windows:
+  - rules_engine_alert
 - ecs: rule.author
 - ecs: rule.category
 - ecs: rule.description
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: rule.id
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: rule.license
 - ecs: rule.name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: rule.reference
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: rule.ruleset
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
 - ecs: rule.uuid
 - ecs: rule.version
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
 - ecs: source.geo.continent_name
@@ -1086,6 +2119,11 @@ fields:
 - ecs: threat.enrichments.indicator.file.elf.cpu_type
 - ecs: threat.enrichments.indicator.file.elf.creation_date
 - ecs: threat.enrichments.indicator.file.elf.exports
+- ecs: threat.enrichments.indicator.file.elf.go_import_hash
+- ecs: threat.enrichments.indicator.file.elf.go_imports
+- ecs: threat.enrichments.indicator.file.elf.go_imports_names_entropy
+- ecs: threat.enrichments.indicator.file.elf.go_imports_names_var_entropy
+- ecs: threat.enrichments.indicator.file.elf.go_stripped
 - ecs: threat.enrichments.indicator.file.elf.header.abi_version
 - ecs: threat.enrichments.indicator.file.elf.header.class
 - ecs: threat.enrichments.indicator.file.elf.header.data
@@ -1094,7 +2132,10 @@ fields:
 - ecs: threat.enrichments.indicator.file.elf.header.os_abi
 - ecs: threat.enrichments.indicator.file.elf.header.type
 - ecs: threat.enrichments.indicator.file.elf.header.version
+- ecs: threat.enrichments.indicator.file.elf.import_hash
 - ecs: threat.enrichments.indicator.file.elf.imports
+- ecs: threat.enrichments.indicator.file.elf.imports_names_entropy
+- ecs: threat.enrichments.indicator.file.elf.imports_names_var_entropy
 - ecs: threat.enrichments.indicator.file.elf.sections
 - ecs: threat.enrichments.indicator.file.elf.sections.chi2
 - ecs: threat.enrichments.indicator.file.elf.sections.entropy
@@ -1103,6 +2144,7 @@ fields:
 - ecs: threat.enrichments.indicator.file.elf.sections.physical_offset
 - ecs: threat.enrichments.indicator.file.elf.sections.physical_size
 - ecs: threat.enrichments.indicator.file.elf.sections.type
+- ecs: threat.enrichments.indicator.file.elf.sections.var_entropy
 - ecs: threat.enrichments.indicator.file.elf.sections.virtual_address
 - ecs: threat.enrichments.indicator.file.elf.sections.virtual_size
 - ecs: threat.enrichments.indicator.file.elf.segments
@@ -1209,6 +2251,10 @@ fields:
 - ecs: threat.enrichments.matched.index
 - ecs: threat.enrichments.matched.type
 - ecs: threat.framework
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.group.alias
 - ecs: threat.group.id
 - ecs: threat.group.name
@@ -1289,6 +2335,11 @@ fields:
 - ecs: threat.indicator.file.elf.cpu_type
 - ecs: threat.indicator.file.elf.creation_date
 - ecs: threat.indicator.file.elf.exports
+- ecs: threat.indicator.file.elf.go_import_hash
+- ecs: threat.indicator.file.elf.go_imports
+- ecs: threat.indicator.file.elf.go_imports_names_entropy
+- ecs: threat.indicator.file.elf.go_imports_names_var_entropy
+- ecs: threat.indicator.file.elf.go_stripped
 - ecs: threat.indicator.file.elf.header.abi_version
 - ecs: threat.indicator.file.elf.header.class
 - ecs: threat.indicator.file.elf.header.data
@@ -1297,7 +2348,10 @@ fields:
 - ecs: threat.indicator.file.elf.header.os_abi
 - ecs: threat.indicator.file.elf.header.type
 - ecs: threat.indicator.file.elf.header.version
+- ecs: threat.indicator.file.elf.import_hash
 - ecs: threat.indicator.file.elf.imports
+- ecs: threat.indicator.file.elf.imports_names_entropy
+- ecs: threat.indicator.file.elf.imports_names_var_entropy
 - ecs: threat.indicator.file.elf.sections
 - ecs: threat.indicator.file.elf.sections.chi2
 - ecs: threat.indicator.file.elf.sections.entropy
@@ -1306,6 +2360,7 @@ fields:
 - ecs: threat.indicator.file.elf.sections.physical_offset
 - ecs: threat.indicator.file.elf.sections.physical_size
 - ecs: threat.indicator.file.elf.sections.type
+- ecs: threat.indicator.file.elf.sections.var_entropy
 - ecs: threat.indicator.file.elf.sections.virtual_address
 - ecs: threat.indicator.file.elf.sections.virtual_size
 - ecs: threat.indicator.file.elf.segments
@@ -1412,19 +2467,62 @@ fields:
 - ecs: threat.software.reference
 - ecs: threat.software.type
 - ecs: threat.tactic.id
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.tactic.name
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.tactic.reference
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.id
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.name
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.reference
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.subtechnique.id
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.subtechnique.name
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: threat.technique.subtechnique.reference
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: user.Ext
 - ecs: user.Ext.real
 - ecs: user.Ext.real.id
+  macos:
+  - rules_engine_alert
 - ecs: user.Ext.real.name
+  macos:
+  - rules_engine_alert
 - ecs: user.domain
+  windows:
+  - rules_engine_alert
+  - file_score_alert
 - ecs: user.email
 - ecs: user.full_name
 - ecs: user.group.Ext
@@ -1436,4 +2534,16 @@ fields:
 - ecs: user.group.name
 - ecs: user.hash
 - ecs: user.id
+  windows:
+  - rules_engine_alert
+  macos:
+  - rules_engine_alert
 - ecs: user.name
+  windows:
+  - rules_engine_alert
+  - file_score_alert
+  macos:
+  - rules_engine_alert
+  - file_score_alert
+  linux:
+  - file_score_alert
