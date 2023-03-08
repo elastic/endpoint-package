@@ -37,5 +37,8 @@
     "description": "Merges latest Endpoint and Agent metadata documents",
     "_meta": {
         "managed": true
+    },
+    "settings": {
+        "unattended": true
     }
 }
