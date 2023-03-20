@@ -69,6 +69,11 @@
       type: object
       description: The action request information
       default_field: false
+    - name: data.alert_ids
+      level: custom
+      type: keyword
+      description: List of alert ids that triggered the action
+      default_field: false
     - name: data.command
       level: custom
       type: keyword
@@ -80,6 +85,16 @@
       level: custom
       type: text
       description: A comment that describes the action that is requested
+      default_field: false
+    - name: data.rule_id
+      level: custom
+      type: keyword
+      description: Id of the rule that triggered the action
+      default_field: false
+    - name: data.rule_name
+      level: custom
+      type: keyword
+      description: Name of the rule that triggered the action
       default_field: false
     - name: expiration
       level: custom
