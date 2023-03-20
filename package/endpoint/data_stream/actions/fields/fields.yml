@@ -89,7 +89,7 @@
     - name: data.rule_id
       level: custom
       type: keyword
-      description: Id of the rule that triggered the action
+      description: ID of the rule that triggered the action
       default_field: false
     - name: data.rule_name
       level: custom
