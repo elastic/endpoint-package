@@ -21,6 +21,11 @@
   type: alias
   description: 'Alias field that maps to {agent: {id}}'
   path: agent.id
+- name: data.alert_ids
+  level: custom
+  type: alias
+  description: List of alert ids that triggered the action
+  path: EndpointActions.data.alert_ids
 - name: data.command
   level: custom
   type: alias
@@ -31,6 +36,16 @@
   type: alias
   description: A comment that describes the action that is requested
   path: EndpointActions.data.comment
+- name: data.rule_id
+  level: custom
+  type: alias
+  description: ID of the rule that triggered the action
+  path: EndpointActions.data.rule_id
+- name: data.rule_name
+  level: custom
+  type: alias
+  description: Name of the rule that triggered the action
+  path: EndpointActions.data.rule_name
 - name: expiration
   level: custom
   type: alias
@@ -72,6 +87,7 @@
     - name: data.alert_ids
       level: custom
       type: keyword
+      ignore_above: 1024
       description: List of alert ids that triggered the action
       default_field: false
     - name: data.command
@@ -89,11 +105,13 @@
     - name: data.rule_id
       level: custom
       type: keyword
+      ignore_above: 1024
       description: ID of the rule that triggered the action
       default_field: false
     - name: data.rule_name
       level: custom
       type: keyword
+      ignore_above: 1024
       description: Name of the rule that triggered the action
       default_field: false
     - name: expiration
