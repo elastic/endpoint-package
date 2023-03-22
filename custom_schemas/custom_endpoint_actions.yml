@@ -67,6 +67,7 @@
 
     - name: data.rule_name
       type: keyword
+      index: false
       level: custom
       short: rule name
       description: >

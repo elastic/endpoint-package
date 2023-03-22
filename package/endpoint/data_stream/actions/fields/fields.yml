@@ -111,8 +111,9 @@
     - name: data.rule_name
       level: custom
       type: keyword
-      ignore_above: 1024
       description: Name of the rule that triggered the action
+      index: false
+      doc_values: false
       default_field: false
     - name: expiration
       level: custom

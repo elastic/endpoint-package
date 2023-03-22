@@ -80,8 +80,9 @@ EndpointActions.data.rule_id:
 EndpointActions.data.rule_name:
   dashed_name: EndpointActions-data-rule-name
   description: Name of the rule that triggered the action
+  doc_values: false
   flat_name: EndpointActions.data.rule_name
-  ignore_above: 1024
+  index: false
   level: custom
   name: data.rule_name
   normalize: []
