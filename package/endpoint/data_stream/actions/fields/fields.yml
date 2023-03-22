@@ -94,6 +94,7 @@
     - name: data.rule_name
       level: custom
       type: keyword
+      index: false
       description: Name of the rule that triggered the action
       default_field: false
     - name: expiration

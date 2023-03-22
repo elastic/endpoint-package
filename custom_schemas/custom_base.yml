@@ -85,6 +85,7 @@
     - name: data.rule_name
       level: custom
       type: keyword
+      index: false
       short: EndpointActions.data.rule_name
       description: >
         Name of the rule that triggered the action
