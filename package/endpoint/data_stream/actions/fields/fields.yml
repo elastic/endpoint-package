@@ -112,7 +112,6 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      index: false
       description: Name of the rule that triggered the action
       default_field: false
     - name: expiration

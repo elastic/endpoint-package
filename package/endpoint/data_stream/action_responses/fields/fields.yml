@@ -111,7 +111,6 @@
     - name: data.rule_name
       level: custom
       type: keyword
-      index: false
       ignore_above: 1024
       description: Name of the rule that triggered the action
       default_field: false
