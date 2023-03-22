@@ -46,6 +46,16 @@ EndpointActions.data:
   normalize: []
   short: data
   type: object
+EndpointActions.data.alert_ids:
+  dashed_name: EndpointActions-data-alert-ids
+  description: List of alert ids that triggered the action
+  flat_name: EndpointActions.data.alert_ids
+  ignore_above: 1024
+  level: custom
+  name: data.alert_ids
+  normalize: []
+  short: alert ids
+  type: keyword
 EndpointActions.data.command:
   dashed_name: EndpointActions-data-command
   description: The action that is requested
@@ -67,6 +77,26 @@ EndpointActions.data.comment:
   norms: false
   short: comment text
   type: text
+EndpointActions.data.rule_id:
+  dashed_name: EndpointActions-data-rule-id
+  description: ID of the rule that triggered the action
+  flat_name: EndpointActions.data.rule_id
+  ignore_above: 1024
+  level: custom
+  name: data.rule_id
+  normalize: []
+  short: rule id
+  type: keyword
+EndpointActions.data.rule_name:
+  dashed_name: EndpointActions-data-rule-name
+  description: Name of the rule that triggered the action
+  flat_name: EndpointActions.data.rule_name
+  ignore_above: 1024
+  level: custom
+  name: data.rule_name
+  normalize: []
+  short: rule name
+  type: keyword
 EndpointActions.started_at:
   dashed_name: EndpointActions-started-at
   description: Timestamp of start of request
@@ -131,6 +161,16 @@ completed_at:
   path: EndpointActions.completed_at
   short: completed at
   type: alias
+data.alert_ids:
+  dashed_name: data-alert-ids
+  description: List of alert ids that triggered the action
+  flat_name: data.alert_ids
+  level: custom
+  name: data.alert_ids
+  normalize: []
+  path: EndpointActions.data.alert_ids
+  short: EndpointActions.data.alert_ids
+  type: alias
 data.command:
   dashed_name: data-command
   description: The action that is requested
@@ -150,6 +190,26 @@ data.comment:
   normalize: []
   path: EndpointActions.data.comment
   short: EndpointActions.data.comment
+  type: alias
+data.rule_id:
+  dashed_name: data-rule-id
+  description: ID of the rule that triggered the action
+  flat_name: data.rule_id
+  level: custom
+  name: data.rule_id
+  normalize: []
+  path: EndpointActions.data.rule_id
+  short: EndpointActions.data.rule_id
+  type: alias
+data.rule_name:
+  dashed_name: data-rule-name
+  description: Name of the rule that triggered the action
+  flat_name: data.rule_name
+  level: custom
+  name: data.rule_name
+  normalize: []
+  path: EndpointActions.data.rule_name
+  short: EndpointActions.data.rule_name
   type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset

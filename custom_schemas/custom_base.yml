@@ -53,8 +53,9 @@
         The action request information
 
     - name: data.alert_ids
+      type: alias
+      path: EndpointActions.data.alert_ids
       level: custom
-      type: keyword
       short: EndpointActions.data.alert_ids
       description: >
         List of alert ids that triggered the action
@@ -76,16 +77,17 @@
         A comment that describes the action that is requested
 
     - name: data.rule_id
+      type: alias
+      path: EndpointActions.data.rule_id
       level: custom
-      type: keyword
       short: EndpointActions.data.rule_id
       description: >
         ID of the rule that triggered the action
 
     - name: data.rule_name
+      type: alias
+      path: EndpointActions.data.rule_name
       level: custom
-      type: keyword
-      index: false
       short: EndpointActions.data.rule_name
       description: >
         Name of the rule that triggered the action
