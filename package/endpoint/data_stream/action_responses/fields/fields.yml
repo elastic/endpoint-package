@@ -26,7 +26,7 @@
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.completed_at
-- name: data.alert_ids
+- name: data.alert_id
   level: custom
   type: alias
   description: List of alert ids that triggered the action
@@ -41,16 +41,6 @@
   type: alias
   description: A comment that describes the action that is requested
   path: EndpointActions.data.comment
-- name: data.rule_id
-  level: custom
-  type: alias
-  description: ID of the rule that triggered the action
-  path: EndpointActions.data.rule_id
-- name: data.rule_name
-  level: custom
-  type: alias
-  description: Name of the rule that triggered the action
-  path: EndpointActions.data.rule_name
 - name: started_at
   level: custom
   type: alias
@@ -101,19 +91,6 @@
       level: custom
       type: text
       description: A comment that describes the action that is requested
-      default_field: false
-    - name: data.rule_id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: ID of the rule that triggered the action
-      default_field: false
-    - name: data.rule_name
-      level: custom
-      type: keyword
-      description: Name of the rule that triggered the action
-      index: false
-      doc_values: false
       default_field: false
     - name: started_at
       level: custom

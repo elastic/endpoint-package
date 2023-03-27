@@ -67,27 +67,6 @@ EndpointActions.data.comment:
   norms: false
   short: comment text
   type: text
-EndpointActions.data.rule_id:
-  dashed_name: EndpointActions-data-rule-id
-  description: ID of the rule that triggered the action
-  flat_name: EndpointActions.data.rule_id
-  ignore_above: 1024
-  level: custom
-  name: data.rule_id
-  normalize: []
-  short: rule id
-  type: keyword
-EndpointActions.data.rule_name:
-  dashed_name: EndpointActions-data-rule-name
-  description: Name of the rule that triggered the action
-  doc_values: false
-  flat_name: EndpointActions.data.rule_name
-  index: false
-  level: custom
-  name: data.rule_name
-  normalize: []
-  short: rule name
-  type: keyword
 EndpointActions.expiration:
   dashed_name: EndpointActions-expiration
   description: Request expiration timestamp
@@ -150,12 +129,12 @@ agents:
   path: agent.id
   short: alias field for agent.id
   type: alias
-data.alert_ids:
-  dashed_name: data-alert-ids
+data.alert_id:
+  dashed_name: data-alert-id
   description: List of alert ids that triggered the action
-  flat_name: data.alert_ids
+  flat_name: data.alert_id
   level: custom
-  name: data.alert_ids
+  name: data.alert_id
   normalize: []
   path: EndpointActions.data.alert_ids
   short: EndpointActions.data.alert_ids
@@ -179,26 +158,6 @@ data.comment:
   normalize: []
   path: EndpointActions.data.comment
   short: EndpointActions.data.comment
-  type: alias
-data.rule_id:
-  dashed_name: data-rule-id
-  description: ID of the rule that triggered the action
-  flat_name: data.rule_id
-  level: custom
-  name: data.rule_id
-  normalize: []
-  path: EndpointActions.data.rule_id
-  short: EndpointActions.data.rule_id
-  type: alias
-data.rule_name:
-  dashed_name: data-rule-name
-  description: Name of the rule that triggered the action
-  flat_name: data.rule_name
-  level: custom
-  name: data.rule_name
-  normalize: []
-  path: EndpointActions.data.rule_name
-  short: EndpointActions.data.rule_name
   type: alias
 data_stream.dataset:
   dashed_name: data-stream-dataset
@@ -824,6 +783,29 @@ input_type:
   path: EndpointActions.input_type
   short: input_type
   type: alias
+rule.id:
+  dashed_name: rule-id
+  description: A rule ID that is unique within the scope of an agent, observer, or
+    other entity using the rule for detection of this event.
+  example: 101
+  flat_name: rule.id
+  ignore_above: 1024
+  level: extended
+  name: id
+  normalize: []
+  short: Rule ID
+  type: keyword
+rule.name:
+  dashed_name: rule-name
+  description: The name of the rule or signature generating the event.
+  example: BLOCK_DNS_over_TLS
+  flat_name: rule.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  short: Rule name
+  type: keyword
 type:
   dashed_name: type
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`

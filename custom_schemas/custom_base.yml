@@ -52,7 +52,7 @@
       description: >
         The action request information
 
-    - name: data.alert_ids
+    - name: data.alert_id
       type: alias
       path: EndpointActions.data.alert_ids
       level: custom
@@ -75,22 +75,6 @@
       short: EndpointActions.data.comment
       description: >
         A comment that describes the action that is requested
-
-    - name: data.rule_id
-      type: alias
-      path: EndpointActions.data.rule_id
-      level: custom
-      short: EndpointActions.data.rule_id
-      description: >
-        ID of the rule that triggered the action
-
-    - name: data.rule_name
-      type: alias
-      path: EndpointActions.data.rule_name
-      level: custom
-      short: EndpointActions.data.rule_name
-      description: >
-        Name of the rule that triggered the action
 
     - name: expiration
       type: alias
@@ -124,6 +108,23 @@
       short: user id
       description: >
         The user id
+
+    - name: rule_id
+      type: alias
+      path: rule.id
+      level: custom
+      short: rule id
+      description: >
+        ID of the rule that triggered the action
+
+    - name: rule_name
+      type: alias
+      path: rule.name
+      level: custom
+      short: rule name
+      description: >
+        Name of the rule that triggered the action
+
 
     # response alias fields
     - name: completed_at

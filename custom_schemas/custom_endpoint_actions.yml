@@ -58,21 +58,6 @@
       description: >
         A comment that describes the action that is requested
 
-    - name: data.rule_id
-      type: keyword
-      level: custom
-      short: rule id
-      description: >
-        ID of the rule that triggered the action
-
-    - name: data.rule_name
-      type: keyword
-      index: false
-      level: custom
-      short: rule name
-      description: >
-        Name of the rule that triggered the action
-
     - name: type
       type: keyword
       level: custom
