@@ -54,9 +54,9 @@
 
     - name: data.alert_id
       type: alias
-      path: EndpointActions.data.alert_ids
+      path: EndpointActions.data.alert_id
       level: custom
-      short: EndpointActions.data.alert_ids
+      short: EndpointActions.data.alert_id
       description: >
         List of alert ids that triggered the action
 

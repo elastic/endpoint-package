@@ -25,7 +25,7 @@
   level: custom
   type: alias
   description: List of alert ids that triggered the action
-  path: EndpointActions.data.alert_ids
+  path: EndpointActions.data.alert_id
 - name: data.command
   level: custom
   type: alias

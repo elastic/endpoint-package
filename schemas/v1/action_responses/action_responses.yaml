@@ -148,8 +148,8 @@ data.alert_id:
   level: custom
   name: data.alert_id
   normalize: []
-  path: EndpointActions.data.alert_ids
-  short: EndpointActions.data.alert_ids
+  path: EndpointActions.data.alert_id
+  short: EndpointActions.data.alert_id
   type: alias
 data.command:
   dashed_name: data-command
