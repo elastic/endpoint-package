@@ -74,7 +74,7 @@
       type: object
       description: The action request information
       default_field: false
-    - name: data.alert_ids
+    - name: data.alert_id
       level: custom
       type: keyword
       ignore_above: 1024

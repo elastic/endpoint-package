@@ -46,15 +46,15 @@ EndpointActions.data:
   normalize: []
   short: data
   type: object
-EndpointActions.data.alert_ids:
-  dashed_name: EndpointActions-data-alert-ids
+EndpointActions.data.alert_id:
+  dashed_name: EndpointActions-data-alert-id
   description: List of alert ids that triggered the action
-  flat_name: EndpointActions.data.alert_ids
+  flat_name: EndpointActions.data.alert_id
   ignore_above: 1024
   level: custom
-  name: data.alert_ids
+  name: data.alert_id
   normalize: []
-  short: alert ids
+  short: alert id
   type: keyword
 EndpointActions.data.command:
   dashed_name: EndpointActions-data-command
