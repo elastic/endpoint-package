@@ -67,6 +67,9 @@ sent by the endpoint.
 | Responses.action.field | Field in the triggering event to use as input for action | text |
 | Responses.action.file.attributes | Destination file attributes | keyword |
 | Responses.action.file.path | Destination file path | keyword |
+| Responses.action.file.reason | Combined USN file modification reason | long |
+| Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
+| Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
