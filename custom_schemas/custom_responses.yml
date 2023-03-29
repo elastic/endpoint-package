@@ -46,6 +46,11 @@
       type: keyword
       description: Destination file path
 
+    - name: action.file.reason
+      level: custom
+      type: long
+      description: Combined USN file modification reason
+
     - name: action.file.attributes
       level: custom
       type: keyword
@@ -60,6 +65,16 @@
       level: custom
       type: keyword
       description: Source file attributes
+    
+    - name: action.key.actions
+      level: custom
+      type: keyword
+      description: Actions taken by Registry Rollback for key
+
+    - name: action.key.path
+      level: custom
+      type: keyword
+      description: NT path of registry key recovered by Rollback 
 
     - name: message
       level: custom

@@ -85,6 +85,35 @@ Responses.action.file.path:
   normalize: []
   short: Destination file path
   type: keyword
+Responses.action.file.reason:
+  dashed_name: Responses-action-file-reason
+  description: Combined USN file modification reason
+  flat_name: Responses.action.file.reason
+  level: custom
+  name: action.file.reason
+  normalize: []
+  short: Combined USN file modification reason
+  type: long
+Responses.action.key.actions:
+  dashed_name: Responses-action-key-actions
+  description: Actions taken by Registry Rollback for key
+  flat_name: Responses.action.key.actions
+  ignore_above: 1024
+  level: custom
+  name: action.key.actions
+  normalize: []
+  short: Actions taken by Registry Rollback for key
+  type: keyword
+Responses.action.key.path:
+  dashed_name: Responses-action-key-path
+  description: NT path of registry key recovered by Rollback
+  flat_name: Responses.action.key.path
+  ignore_above: 1024
+  level: custom
+  name: action.key.path
+  normalize: []
+  short: NT path of registry key recovered by Rollback
+  type: keyword
 Responses.action.source.attributes:
   dashed_name: Responses-action-source-attributes
   description: Source file attributes
