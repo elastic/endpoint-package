@@ -400,6 +400,23 @@
       ignore_above: 1024
       description: Destination file path
       default_field: false
+    - name: action.file.reason
+      level: custom
+      type: long
+      description: Combined USN file modification reason
+      default_field: false
+    - name: action.key.actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Actions taken by Registry Rollback for key
+      default_field: false
+    - name: action.key.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: NT path of registry key recovered by Rollback
+      default_field: false
     - name: action.source.attributes
       level: custom
       type: keyword
