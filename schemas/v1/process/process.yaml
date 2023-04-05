@@ -2612,6 +2612,29 @@ process.parent.thread.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+process.parent.thread.Ext.call_stack:
+  dashed_name: process-parent-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: true
+  flat_name: process.parent.thread.Ext.call_stack
+  level: custom
+  name: call_stack
+  normalize: []
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: object
+process.parent.thread.Ext.call_stack.symbol_info:
+  dashed_name: process-parent-thread-Ext-call-stack-symbol-info
+  description: The nearest symbol for `instruction_pointer`.
+  flat_name: process.parent.thread.Ext.call_stack.symbol_info
+  ignore_above: 1024
+  level: custom
+  name: symbol_info
+  normalize: []
+  original_fieldset: call_stack
+  short: The nearest symbol for `instruction_pointer`.
+  type: keyword
 process.parent.thread.Ext.call_stack_contains_unbacked:
   dashed_name: process-parent-thread-Ext-call-stack-contains-unbacked
   description: Indicates whether the creating thread's stack contains frames pointing
@@ -2624,6 +2647,18 @@ process.parent.thread.Ext.call_stack_contains_unbacked:
   short: Indicates whether the creating thread's stack contains frames pointing outside
     any known executable image.
   type: boolean
+process.parent.thread.Ext.call_stack_summary:
+  dashed_name: process-parent-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  flat_name: process.parent.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  original_fieldset: process
+  short: Concatentation of the non-repeated modules in the call stack.
+  type: keyword
 process.parent.thread.id:
   dashed_name: process-parent-thread-id
   description: Thread ID.

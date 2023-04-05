@@ -2216,10 +2216,29 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: parent.thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: true
+      default_field: false
+    - name: parent.thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
+      default_field: false
     - name: parent.thread.Ext.call_stack_contains_unbacked
       level: custom
       type: boolean
       description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
+      default_field: false
+    - name: parent.thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
     - name: parent.thread.id
       level: extended
