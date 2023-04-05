@@ -1294,6 +1294,12 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: true
+      default_field: false
     - name: thread.Ext.call_stack.symbol_info
       level: custom
       type: keyword

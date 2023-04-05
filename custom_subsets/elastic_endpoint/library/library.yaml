@@ -118,6 +118,13 @@ fields:
       thread:
         fields:
           id: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: true
+                fields:
+                  symbol_info: {}
+              call_stack_summary: {}
       Ext:
         fields:
           ancestry: {}
