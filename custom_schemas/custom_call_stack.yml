@@ -65,3 +65,25 @@
       description: >
         The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
       short: The relative virtual address of `instruction_pointer`.
+
+    - name: callsite_leading_bytes
+      level: custom
+      type: keyword
+      description: Hex opcode bytes preceding the callsite
+      
+    - name: callsite_trailing_bytes
+      level: custom
+      type: keyword
+      description: Hex opcode bytes after the callsite (where control will return to)
+      
+    - name: protection
+      level: custom
+      type: keyword
+      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
+      
+    - name: allocation_private_bytes
+      level: custom
+      type: unsinged_long
+      description:  >
+        The number of bytes in this memory allocation/image that are both +X and non-shareable.
+        Non-zero values can indicate code hooking, patching, or hollowing.

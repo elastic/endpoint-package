@@ -2510,6 +2510,53 @@ process.thread.Ext.call_stack:
   original_fieldset: call_stack
   short: Fields describing a stack frame.
   type: object
+process.thread.Ext.call_stack.allocation_private_bytes:
+  dashed_name: process-thread-Ext-call-stack-allocation-private-bytes
+  description: The number of bytes in this memory allocation/image that are both +X
+    and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  flat_name: process.thread.Ext.call_stack.allocation_private_bytes
+  level: custom
+  name: allocation_private_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: The number of bytes in this memory allocation/image that are both +X and
+    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  type: unsinged_long
+process.thread.Ext.call_stack.callsite_leading_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes
+  description: Hex opcode bytes preceding the callsite
+  flat_name: process.thread.Ext.call_stack.callsite_leading_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_leading_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes preceding the callsite
+  type: keyword
+process.thread.Ext.call_stack.callsite_trailing_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-trailing-bytes
+  description: Hex opcode bytes after the callsite (where control will return to)
+  flat_name: process.thread.Ext.call_stack.callsite_trailing_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_trailing_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes after the callsite (where control will return to)
+  type: keyword
+process.thread.Ext.call_stack.protection:
+  dashed_name: process-thread-Ext-call-stack-protection
+  description: Protection of the page containing this instruction.  This is `R-X'
+    by default if omitted.
+  flat_name: process.thread.Ext.call_stack.protection
+  ignore_above: 1024
+  level: custom
+  name: protection
+  normalize: []
+  original_fieldset: call_stack
+  short: Protection of the page containing this instruction.  This is `R-X' by default
+    if omitted.
+  type: keyword
 process.thread.Ext.call_stack.symbol_info:
   dashed_name: process-thread-Ext-call-stack-symbol-info
   description: The nearest symbol for `instruction_pointer`.
