@@ -55,6 +55,16 @@
       description: Parent process' pid.
       example: 4241
 
+    - name: parent.thread
+      level: custom
+      type: object
+      description: The parent thread
+      
+    - name: parent.thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields for the parent thread to live in.
+
     - name: parent.ppid
       level: extended
       type: long
@@ -107,6 +117,11 @@
       example: "ntdll.dll, example.exe, kernel32.dll, ntdll.dll"
       description: >
         Concatentation of the non-repeated modules in the call stack.
+        
+    - name: thread.Ext.call_stack
+      level: custom
+      type: nested
+      description: The thread's call stack
 
     - name: thread.Ext.call_stack_final_user_module
       level: custom

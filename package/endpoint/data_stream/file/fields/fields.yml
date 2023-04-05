@@ -1289,6 +1289,24 @@
         Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
       example: c2c455d9f99375d
       default_field: false
+    - name: thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      default_field: false
     - name: thread.id
       level: extended
       type: long

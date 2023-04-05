@@ -28,7 +28,18 @@
         "name": "VSSVC.exe",
         "pid": 4528,
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ1MjgtMTMyOTM1NzEwODYuNjI4MzM0NzAw",
-        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+        "executable": "C:\\Windows\\System32\\VSSVC.exe",
+        "thread": {
+            "id": 340,
+            "Ext": {
+                "call_stack": [
+                    {
+                        "symbol_info": "C:\\Windows\\System32\\ntdll.dll!RtlUserThreadStart+0x21"
+                    }
+                ],
+                "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll"
+            }
+        }
     },
     "dll": {
         "Ext": {
