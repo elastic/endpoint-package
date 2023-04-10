@@ -1302,7 +1302,7 @@
       default_field: false
     - name: thread.Ext.call_stack.allocation_private_bytes
       level: custom
-      type: unsinged_long
+      type: unsigned_long
       description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
       default_field: false
     - name: thread.Ext.call_stack.callsite_leading_bytes

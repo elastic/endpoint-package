@@ -2635,7 +2635,7 @@ process.parent.thread.Ext.call_stack.allocation_private_bytes:
   original_fieldset: call_stack
   short: The number of bytes in this memory allocation/image that are both +X and
     non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
-  type: unsinged_long
+  type: unsigned_long
 process.parent.thread.Ext.call_stack.callsite_leading_bytes:
   dashed_name: process-parent-thread-Ext-call-stack-callsite-leading-bytes
   description: Hex opcode bytes preceding the callsite
