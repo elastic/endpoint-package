@@ -400,6 +400,23 @@
       ignore_above: 1024
       description: Destination file path
       default_field: false
+    - name: action.file.reason
+      level: custom
+      type: long
+      description: Combined USN file modification reason
+      default_field: false
+    - name: action.key.actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Actions taken by Registry Rollback for key
+      default_field: false
+    - name: action.key.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: NT path of registry key recovered by Rollback
+      default_field: false
     - name: action.source.attributes
       level: custom
       type: keyword
@@ -2411,8 +2428,48 @@
     - name: process.thread.Ext.hardware_breakpoint_set
       level: custom
       type: boolean
-      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      description: Whether a hardware breakpoint was set for the thread. This field is omitted if false.
       example: 'true'
+      default_field: false
+    - name: process.thread.Ext.original_start_address
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the thread start address in memory.
+      example: 4194304
+      default_field: false
+    - name: process.thread.Ext.original_start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      example: 0
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes_disasm
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      example: mov rax, 0x4141414141414141\njmp rax
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+      default_field: false
+    - name: process.thread.Ext.original_start_address_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
       default_field: false
     - name: process.thread.Ext.parameter
       level: custom
@@ -7208,8 +7265,48 @@
     - name: thread.Ext.hardware_breakpoint_set
       level: custom
       type: boolean
-      description: Whether a hardware breakpoint was set for the thread.  This field is omitted if false.
+      description: Whether a hardware breakpoint was set for the thread. This field is omitted if false.
       example: 'true'
+      default_field: false
+    - name: thread.Ext.original_start_address
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the thread start address in memory.
+      example: 4194304
+      default_field: false
+    - name: thread.Ext.original_start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      example: 0
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes_disasm
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      example: mov rax, 0x4141414141414141\njmp rax
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+      default_field: false
+    - name: thread.Ext.original_start_address_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
       default_field: false
     - name: thread.Ext.parameter
       level: custom

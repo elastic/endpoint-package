@@ -1,6 +1,16 @@
 # Elastic Defend Integration
 
-This integration sets up templates and index patterns required for Elastic Defend.
+Elastic Defend provides organizations with prevention, detection, and response capabilities across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
+
+- **Prevent complex attacks** - Prevent malware (Windows, macOS, Linux) and ransomware (Windows) from executing, and stop advanced threats with malicious behavior (Windows, macOS, Linux), memory threat (Windows, macOS, Linux), and credential hardening (Windows) protections. All powered by [Elastic Labs](https://www.elastic.co/security-labs/) and our global community.
+- **Alert in high fidelity** - Bolster team efficacy by detecting threats centrally and minimizing false positives via extensive corroboration.
+- **Detect threats in high fidelity** - Elastic Defend facilitates deep visibility by instrumenting the process, file, and network data in your environments with minimal data collection overhead.
+- **Triage and respond rapidly** - Quickly analyze detailed data from across your hosts. Examine host-based activity with interactive visualizations. Invoke remote response actions across distributed endpoints. Extend investigation capabilities even further with the Osquery integration, fully integrated into Elastic Security workflows.
+- **Secure your cloud workloads** - Stop threats targeting cloud workloads and cloud-native applications. Gain real-time visibility and control with a lightweight user-space agent, powered by eBPF. Automate the identification of cloud threats with detection rules and machine learning (ML). Achieve rapid time-to-value with MITRE ATT&CK-aligned detections honed by Elastic Security Labs. 
+- **View terminal sessions** - Give your security team a unique and powerful investigative tool for digital forensics and incident response (DFIR), reducing the mean time to respond (MTTR). Session view provides a time-ordered series of process executions in your Linux workloads in the form of a terminal shell, as well as the ability to replay the terminal session.
+
+**Installation guide**
+For in-depth, step-by-step instructions to help you get started with Elastic Defend, read through our [installation guide](https://www.elastic.co/guide/en/security/current/install-endpoint.html). For macOS endpoints, we recommend reviewing our documentation on [enabling full disk access](https://www.elastic.co/guide/en/security/current/deploy-elastic-endpoint.html#enable-fda-endpoint).
 
 ## Compatibility
 
@@ -72,6 +82,9 @@ sent by the endpoint.
 | Responses.action.field | Field in the triggering event to use as input for action | text |
 | Responses.action.file.attributes | Destination file attributes | keyword |
 | Responses.action.file.path | Destination file path | keyword |
+| Responses.action.file.reason | Combined USN file modification reason | long |
+| Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
+| Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -332,7 +345,13 @@ sent by the endpoint.
 | Target.process.ppid | Parent process' pid. | long |
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| Target.process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
@@ -955,7 +974,13 @@ sent by the endpoint.
 | process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |

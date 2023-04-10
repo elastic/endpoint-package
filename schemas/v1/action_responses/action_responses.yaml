@@ -46,6 +46,16 @@ EndpointActions.data:
   normalize: []
   short: data
   type: object
+EndpointActions.data.alert_id:
+  dashed_name: EndpointActions-data-alert-id
+  description: List of alert ids that triggered the action
+  flat_name: EndpointActions.data.alert_id
+  ignore_above: 1024
+  level: custom
+  name: data.alert_id
+  normalize: []
+  short: alert id
+  type: keyword
 EndpointActions.data.command:
   dashed_name: EndpointActions-data-command
   description: The action that is requested
@@ -130,6 +140,16 @@ completed_at:
   normalize: []
   path: EndpointActions.completed_at
   short: completed at
+  type: alias
+data.alert_id:
+  dashed_name: data-alert-id
+  description: List of alert ids that triggered the action
+  flat_name: data.alert_id
+  level: custom
+  name: data.alert_id
+  normalize: []
+  path: EndpointActions.data.alert_id
+  short: EndpointActions.data.alert_id
   type: alias
 data.command:
   dashed_name: data-command

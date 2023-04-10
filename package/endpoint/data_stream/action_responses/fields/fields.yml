@@ -26,6 +26,11 @@
   type: alias
   description: Request completion timestamp when the response is done executing. Usually matches with @timestamp.
   path: EndpointActions.completed_at
+- name: data.alert_id
+  level: custom
+  type: alias
+  description: List of alert ids that triggered the action
+  path: EndpointActions.data.alert_id
 - name: data.command
   level: custom
   type: alias
@@ -68,6 +73,12 @@
       level: custom
       type: object
       description: The action request information
+      default_field: false
+    - name: data.alert_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: List of alert ids that triggered the action
       default_field: false
     - name: data.command
       level: custom
