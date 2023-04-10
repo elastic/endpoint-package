@@ -120,6 +120,16 @@
             "executable": "C:\\Windows\\System32\\services.exe",
             "thread": {
                 "Ext": {
+                    "call_stack": [
+                        {
+                            "allocation_private_bytes": 16384,
+                            "callsite_leading_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "callsite_trailing_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "protection": "RWX",
+                            "symbol_info": "C:\\Windows\\System32\\ntdll.dll!RtlUserThreadStart+0x21"
+                        }
+                    ],
+                    "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll",
                     "call_stack_contains_unbacked": true
                 }
             }

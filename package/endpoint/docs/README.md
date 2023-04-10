@@ -1653,6 +1653,14 @@ sent by the endpoint.
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
 | process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1833,6 +1841,14 @@ sent by the endpoint.
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -2318,7 +2334,14 @@ sent by the endpoint.
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.parent.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.parent.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.parent.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.parent.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.parent.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.parent.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
 | process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
+| process.parent.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -2517,6 +2540,14 @@ sent by the endpoint.
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
