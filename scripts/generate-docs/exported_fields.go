@@ -164,6 +164,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	var builder strings.Builder
 	builder.WriteString("#### Exported fields -- placeholder\n\n")
 
+	/*
 	var needNewParagraph = false
 	for _,os_ := range osMap[dataStreamName] {
 		needNewParagraph = true
@@ -173,6 +174,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	if needNewParagraph {
 		builder.WriteString("\n\n")
 	}
+	*/
 
 	if len(collected) == 0 {
 		builder.WriteString("(no fields available)\n")

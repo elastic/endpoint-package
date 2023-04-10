@@ -61,6 +61,9 @@ Event type: basic
 | Responses.action.field | Field in the triggering event to use as input for action | text |
 | Responses.action.file.attributes | Destination file attributes | keyword |
 | Responses.action.file.path | Destination file path | keyword |
+| Responses.action.file.reason | Combined USN file modification reason | long |
+| Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
+| Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -251,7 +254,13 @@ Event type: basic
 | Target.process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| Target.process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
@@ -644,7 +653,13 @@ Event type: basic
 | process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
@@ -1166,6 +1181,9 @@ Event type: ransomware
 | Responses.action.field | Field in the triggering event to use as input for action | text |
 | Responses.action.file.attributes | Destination file attributes | keyword |
 | Responses.action.file.path | Destination file path | keyword |
+| Responses.action.file.reason | Combined USN file modification reason | long |
+| Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
+| Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -1356,7 +1374,13 @@ Event type: ransomware
 | Target.process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | Target.process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
-| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| Target.process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
 | Target.process.thread.Ext.service | Service associated with the thread. | keyword |
@@ -1749,7 +1773,13 @@ Event type: ransomware
 | process.session_leader.tty.char_device.major | The major number identifies the driver associated with the device. The character device's major and minor numbers can be algorithmically combined to produce the more familiar terminal identifiers such as "ttyS0" and "pts/0". For more details, please refer to the Linux kernel documentation. | long |
 | process.session_leader.tty.char_device.minor | The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them. | long |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread.  This field is omitted if false. | boolean |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |

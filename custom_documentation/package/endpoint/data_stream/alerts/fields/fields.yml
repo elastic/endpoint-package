@@ -84,6 +84,9 @@ fields:
 - ecs: Responses.action.field
 - ecs: Responses.action.file.attributes
 - ecs: Responses.action.file.path
+- ecs: Responses.action.file.reason
+- ecs: Responses.action.key.actions
+- ecs: Responses.action.key.path
 - ecs: Responses.action.source.attributes
 - ecs: Responses.action.source.path
 - ecs: Responses.action.state
@@ -493,6 +496,12 @@ fields:
   - file_score_alert
 - ecs: Target.process.thread.Ext
 - ecs: Target.process.thread.Ext.hardware_breakpoint_set
+- ecs: Target.process.thread.Ext.original_start_address
+- ecs: Target.process.thread.Ext.original_start_address_allocation_offset
+- ecs: Target.process.thread.Ext.original_start_address_bytes
+- ecs: Target.process.thread.Ext.original_start_address_bytes_disasm
+- ecs: Target.process.thread.Ext.original_start_address_bytes_disasm_hash
+- ecs: Target.process.thread.Ext.original_start_address_module
 - ecs: Target.process.thread.Ext.parameter
   windows:
   - file_score_alert
@@ -1920,6 +1929,12 @@ fields:
   - file_score_alert
 - ecs: process.thread.Ext
 - ecs: process.thread.Ext.hardware_breakpoint_set
+- ecs: process.thread.Ext.original_start_address
+- ecs: process.thread.Ext.original_start_address_allocation_offset
+- ecs: process.thread.Ext.original_start_address_bytes
+- ecs: process.thread.Ext.original_start_address_bytes_disasm
+- ecs: process.thread.Ext.original_start_address_bytes_disasm_hash
+- ecs: process.thread.Ext.original_start_address_module
 - ecs: process.thread.Ext.parameter
 - ecs: process.thread.Ext.parameter_bytes_compressed
 - ecs: process.thread.Ext.parameter_bytes_compressed_present
