@@ -562,6 +562,17 @@
         Disk File System
         CD-ROM File System
 
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
+
     - name: Ext.trusted
       level: custom
       type: boolean

@@ -7816,6 +7816,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: enrichments.indicator.file.Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: enrichments.indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
@@ -7839,6 +7847,14 @@
       type: keyword
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -9255,6 +9271,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: indicator.file.Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
@@ -9278,6 +9302,14 @@
       type: keyword
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
+    - name: indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom
