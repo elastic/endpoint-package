@@ -76,6 +76,21 @@
       type: keyword
       description: NT path of registry key recovered by Rollback 
 
+    - name: action.key.values
+      level: custom
+      type: nested
+      description: Values modified
+
+    - name: action.key.values.name
+      level: custom
+      type: keyword
+      description: Value name recovered by Rollback 
+
+    - name: action.key.values.actions
+      level: custom
+      type: keyword
+      description: Actions taken by Registry Rollback for value 
+
     - name: message
       level: custom
       type: text
