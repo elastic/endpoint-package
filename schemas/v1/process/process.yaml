@@ -1367,6 +1367,19 @@ process.Ext.device.dos_name:
   normalize: []
   short: DOS name of the device.
   type: keyword
+process.Ext.device.file_system_type:
+  dashed_name: process-Ext-device-file-system-type
+  description: 'Volume device file system type.
+
+    Following are examples of the most frequently seen volume device file system types:
+    NTFS UDF'
+  flat_name: process.Ext.device.file_system_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.file_system_type
+  normalize: []
+  short: Volume device file system type.
+  type: keyword
 process.Ext.device.nt_name:
   dashed_name: process-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'

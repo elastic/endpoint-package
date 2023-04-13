@@ -235,4 +235,5 @@ fields:
              serial_number: {}
              vendor_id: {}
              volume_device_type: {}
+             file_system_type: {}
 

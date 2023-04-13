@@ -1021,10 +1021,12 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.enrichments.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.enrichments.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.enrichments.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.enrichments.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.enrichments.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1224,10 +1226,12 @@ sent by the endpoint.
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1486,6 +1490,7 @@ sent by the endpoint.
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1667,6 +1672,7 @@ sent by the endpoint.
 | dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
 | dll.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | dll.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| dll.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | dll.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | dll.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -2081,6 +2087,7 @@ sent by the endpoint.
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| process.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | process.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | process.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |

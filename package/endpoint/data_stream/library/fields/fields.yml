@@ -243,6 +243,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: Ext.device.nt_name
       level: custom
       type: keyword
