@@ -80,6 +80,9 @@ sent by the endpoint.
 | Responses.action.file.reason | Combined USN file modification reason | long |
 | Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
 | Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
+| Responses.action.key.values | Values modified | nested |
+| Responses.action.key.values.actions | Actions taken by Registry Rollback for value | keyword |
+| Responses.action.key.values.name | Value name recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |

@@ -548,5 +548,62 @@
     "user": {
         "domain": "NT AUTHORITY",
         "name": "SYSTEM"
-    }
+    },
+    "Responses": [
+        {
+            "@timestamp": "2023-04-13T16:15:16.0Z",
+            "action": {
+                "action": "file_rollback",
+                "file": {
+                    "attributes": [
+                        "invalid"
+                    ],
+                    "path": "",
+                    "reason": 2147484160
+                },
+                "source": {
+                    "attributes": [
+                        "archive"
+                    ],
+                    "path": "\\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy55\\git\\endpoint-dev\\Python\\runtime\\failed_test_logs\\20230413_181248\\EndpointRollbackTestCase\\test_rollback_trigger_malware_1_prevent\\tmp\\TRA14KA5Z2\\ExceptionlistTester-Windows.1d1phoq97d"
+                }
+            },
+            "message": "Successful production rollback",
+            "result": 0
+        },
+        {
+            "@timestamp": "2023-04-13T16:15:16.0Z",
+            "action": {
+                "action": "registry_rollback",
+                "key": {
+                    "actions": [
+                        "Deleted"
+                    ],
+                    "path": "\\REGISTRY\\MACHINE\\SOFTWARE\\WOW6432Node\\TestRollback\\1"
+                }
+            },
+            "message": "Successful production registry rollback",
+            "result": 0
+        },
+        {
+            "@timestamp": "2023-04-13T16:15:16.0Z",
+            "action": {
+                "action": "registry_rollback",
+                "key": {
+                    "actions": [
+                        "Modified"
+                    ],
+                    "path": "\\REGISTRY\\MACHINE\\SOFTWARE\\WOW6432Node\\TestRollback.valuetest",
+                    "values": [
+                        {
+                            "actions": [
+                                "Deleted"
+                            ],
+                            "name": "SomeValue"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
 }
