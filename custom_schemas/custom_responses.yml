@@ -78,7 +78,7 @@
 
     - name: action.key.values
       level: custom
-      type: nested
+      type: object
       description: Values modified
 
     - name: action.key.values.name

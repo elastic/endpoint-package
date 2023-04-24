@@ -419,7 +419,7 @@
       default_field: false
     - name: action.key.values
       level: custom
-      type: nested
+      type: object
       description: Values modified
       default_field: false
     - name: action.key.values.actions

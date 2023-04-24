@@ -122,7 +122,7 @@ Responses.action.key.values:
   name: action.key.values
   normalize: []
   short: Values modified
-  type: nested
+  type: object
 Responses.action.key.values.actions:
   dashed_name: Responses-action-key-values-actions
   description: Actions taken by Registry Rollback for value
