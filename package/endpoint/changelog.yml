@@ -24,9 +24,6 @@
     - description: '[Memory Protection] Add fields for trampoline detection.'
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/344
-    - description: '[Fix] Make `process.Ext.api.name` indexable'
-      type: bugfix
-      link: https://github.com/elastic/endpoint-package/pull/345
 - version: "8.7.1"
   changes:
     - description: Update package overview
