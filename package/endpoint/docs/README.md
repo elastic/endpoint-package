@@ -2800,6 +2800,16 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.alerts.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.alerts.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.alerts.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.api_events.sent_bytes | Total size of API Event sent documents | long |
+| Endpoint.metrics.documents_volume.api_events.sent_count | Number of sent API Event documents | long |
+| Endpoint.metrics.documents_volume.api_events.sources | An array of API Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.api_events.sources.sent_bytes | Total size of API Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.sent_count | Number of sent API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.source | API Event document source name | string |
+| Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes | Total size of suppressed API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.suppressed_count | Number of suppressed API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.suppressed_bytes | Total size of suppressed API Event documents | long |
+| Endpoint.metrics.documents_volume.api_events.suppressed_count | Number of suppressed API Event documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes | Total size of suppressed documents | long |

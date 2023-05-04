@@ -188,6 +188,96 @@ Endpoint.metrics.documents_volume.alerts.suppressed_count:
   normalize: []
   short: Number of suppressed documents
   type: long
+Endpoint.metrics.documents_volume.api_events.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sent-bytes
+  description: Total size of API Event sent documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.sent_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sent_bytes
+  normalize: []
+  short: Total size of API Event sent documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sent-count
+  description: Number of sent API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.sent_count
+  level: custom
+  name: metrics.documents_volume.api_events.sent_count
+  normalize: []
+  short: Number of sent API Event documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources
+  description: An array of API Event document statistics per source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources
+  level: custom
+  name: metrics.documents_volume.api_events.sources
+  normalize: []
+  short: An array of API Event document statistics per source
+  type: object
+Endpoint.metrics.documents_volume.api_events.sources.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-sent-bytes
+  description: Total size of API Event sent documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.sent_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sources.sent_bytes
+  normalize: []
+  short: Total size of API Event sent documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-sent-count
+  description: Number of sent API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.sent_count
+  level: custom
+  name: metrics.documents_volume.api_events.sources.sent_count
+  normalize: []
+  short: Number of sent API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.source:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-source
+  description: API Event document source name
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.source
+  level: custom
+  name: metrics.documents_volume.api_events.sources.source
+  normalize: []
+  short: API Event document source name
+  type: string
+Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-suppressed-bytes
+  description: Total size of suppressed API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sources.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-suppressed-count
+  description: Number of suppressed API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.suppressed_count
+  level: custom
+  name: metrics.documents_volume.api_events.sources.suppressed_count
+  normalize: []
+  short: Number of suppressed API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-suppressed-bytes
+  description: Total size of suppressed API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed API Event documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-suppressed-count
+  description: Number of suppressed API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.suppressed_count
+  level: custom
+  name: metrics.documents_volume.api_events.suppressed_count
+  normalize: []
+  short: Number of suppressed API Event documents
+  type: long
 Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes:
   dashed_name: Endpoint-metrics-documents-volume-diagnostic-alerts-sent-bytes
   description: Total size of sent documents
@@ -675,32 +765,6 @@ Endpoint.metrics.system_impact.dns_events.week_ms:
   short: The total milliseconds spent on DNS events for the process over the last
     week
   type: unsigned_long
-Endpoint.metrics.system_impact.etw_events.week_idle_ms:
-  dashed_name: Endpoint-metrics-system-impact-etw-events-week-idle-ms
-  description: The total milliseconds spent queueing ETW-based events for the process
-    over the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.etw_events.week_idle_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.etw_events.week_idle_ms
-  normalize: []
-  short: The total milliseconds spent queueing ETW-based events for the process over
-    the last week
-  type: unsigned_long
-Endpoint.metrics.system_impact.etw_events.week_ms:
-  dashed_name: Endpoint-metrics-system-impact-etw-events-week-ms
-  description: The total milliseconds spent on ETW-based events for the process over
-    the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.etw_events.week_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.etw_events.week_ms
-  normalize: []
-  short: The total milliseconds spent on ETW-based events for the process over the
-    last week
-  type: unsigned_long
 Endpoint.metrics.system_impact.file_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-file-events-week-idle-ms
   description: The total milliseconds spent queueing file events for the process over
@@ -1003,6 +1067,32 @@ Endpoint.metrics.system_impact.registry_events.week_ms:
   normalize: []
   short: The total milliseconds spent on registry events for the process over the
     last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-threat-intelligence-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW Threat-Intelligence events
+    for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.threat_intelligence_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW Threat-Intelligence events for
+    the process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.threat_intelligence_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-threat-intelligence-events-week-ms
+  description: The total milliseconds spent on ETW Threat-Intelligence events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.threat_intelligence_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.threat_intelligence_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW Threat-Intelligence events for the process
+    over the last week
   type: unsigned_long
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
