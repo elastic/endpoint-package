@@ -237,11 +237,12 @@ Endpoint.metrics.documents_volume.api_events.sources.source:
   dashed_name: Endpoint-metrics-documents-volume-api-events-sources-source
   description: API Event document source name
   flat_name: Endpoint.metrics.documents_volume.api_events.sources.source
+  ignore_above: 1024
   level: custom
   name: metrics.documents_volume.api_events.sources.source
   normalize: []
   short: API Event document source name
-  type: string
+  type: keyword
 Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes:
   dashed_name: Endpoint-metrics-documents-volume-api-events-sources-suppressed-bytes
   description: Total size of suppressed API Event documents from source
