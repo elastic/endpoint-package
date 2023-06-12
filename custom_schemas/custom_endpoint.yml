@@ -623,7 +623,7 @@
 
     - name: metrics.documents_volume.api_events.sources.source
       level: custom
-      type: string
+      type: keyword
       description: API Event document source name
 
     - name: metrics.documents_volume.api_events.sources.sent_count

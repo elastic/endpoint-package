@@ -149,7 +149,8 @@
       default_field: false
     - name: metrics.documents_volume.api_events.sources.source
       level: custom
-      type: string
+      type: keyword
+      ignore_above: 1024
       description: API Event document source name
       default_field: false
     - name: metrics.documents_volume.api_events.sources.suppressed_bytes
