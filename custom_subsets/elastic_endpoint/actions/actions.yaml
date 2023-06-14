@@ -23,6 +23,10 @@ fields:
   agent:
     fields:
       id: {}
+  rule:
+    fields:
+      id: {}
+      name: {}
   error:
     fields:
       code: {}

@@ -85,6 +85,64 @@ Responses.action.file.path:
   normalize: []
   short: Destination file path
   type: keyword
+Responses.action.file.reason:
+  dashed_name: Responses-action-file-reason
+  description: Combined USN file modification reason
+  flat_name: Responses.action.file.reason
+  level: custom
+  name: action.file.reason
+  normalize: []
+  short: Combined USN file modification reason
+  type: long
+Responses.action.key.actions:
+  dashed_name: Responses-action-key-actions
+  description: Actions taken by Registry Rollback for key
+  flat_name: Responses.action.key.actions
+  ignore_above: 1024
+  level: custom
+  name: action.key.actions
+  normalize: []
+  short: Actions taken by Registry Rollback for key
+  type: keyword
+Responses.action.key.path:
+  dashed_name: Responses-action-key-path
+  description: NT path of registry key recovered by Rollback
+  flat_name: Responses.action.key.path
+  ignore_above: 1024
+  level: custom
+  name: action.key.path
+  normalize: []
+  short: NT path of registry key recovered by Rollback
+  type: keyword
+Responses.action.key.values:
+  dashed_name: Responses-action-key-values
+  description: Values modified
+  flat_name: Responses.action.key.values
+  level: custom
+  name: action.key.values
+  normalize: []
+  short: Values modified
+  type: object
+Responses.action.key.values.actions:
+  dashed_name: Responses-action-key-values-actions
+  description: Actions taken by Registry Rollback for value
+  flat_name: Responses.action.key.values.actions
+  ignore_above: 1024
+  level: custom
+  name: action.key.values.actions
+  normalize: []
+  short: Actions taken by Registry Rollback for value
+  type: keyword
+Responses.action.key.values.name:
+  dashed_name: Responses-action-key-values-name
+  description: Value name recovered by Rollback
+  flat_name: Responses.action.key.values.name
+  ignore_above: 1024
+  level: custom
+  name: action.key.values.name
+  normalize: []
+  short: Value name recovered by Rollback
+  type: keyword
 Responses.action.source.attributes:
   dashed_name: Responses-action-source-attributes
   description: Source file attributes

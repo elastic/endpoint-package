@@ -1,3 +1,42 @@
+- version: "8.9.0-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/364
+- version: "8.8.0"
+  changes:
+    - description: change action.key.values to object in alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/364
+    - description: Added registry rollback fields associated with recovered values
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/362
+    - description: File system type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/361
+    - description: Add thread callstacks to process, file, registry, and image/library load events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/360
+    - description: Added Registry Rollback Fields to Package
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/358
+    - description: Add fields connected to rules and alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/355
+    - description: Update Endpoint package categories
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/354
+    - description: '[Memory Protection] Add fields for trampoline detection.'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/344
+- version: "8.7.1"
+  changes:
+    - description: Update package overview
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/346
+    - description: Make process.Ext.api.name indexable
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/345
 - version: "8.7.0"
   changes:
     - description: Update ECS to 8.7-dev

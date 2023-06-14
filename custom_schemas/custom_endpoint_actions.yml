@@ -35,6 +35,13 @@
       short: data
       description: >
         The action request information
+
+    - name: data.alert_id
+      type: keyword
+      level: custom
+      short: alert id
+      description: >
+        List of alert ids that triggered the action
     
     - name: data.command
       type: keyword
