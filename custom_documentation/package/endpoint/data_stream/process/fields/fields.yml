@@ -320,12 +320,35 @@ fields:
   - process_creation
 - ecs: process.Ext.session
 - ecs: process.Ext.session_info.authentication_package
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.session_info.client_address
 - ecs: process.Ext.session_info.id
+  windows:
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.session_info.logon_type
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.session_info.relative_logon_time
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.session_info.relative_password_age
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.session_info.user_flags
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.Ext.token.elevation
 - ecs: process.Ext.token.elevation_level
   windows:
@@ -341,6 +364,9 @@ fields:
   - process_creation
   - process_already_running
 - ecs: process.Ext.trusted
+  windows:
+  - process_termination
+  - process_already_running
 - ecs: process.Ext.trusted_descendant
 - ecs: process.args
   windows:
@@ -579,6 +605,9 @@ fields:
 - ecs: process.parent.supplemental_groups.name
 - ecs: process.parent.thread.Ext
 - ecs: process.parent.thread.Ext.call_stack_contains_unbacked
+  windows:
+  - process_termination
+  - process_creation
 - ecs: process.parent.thread.id
 - ecs: process.parent.thread.name
 - ecs: process.parent.title
@@ -593,6 +622,10 @@ fields:
 - ecs: process.pe.description
 - ecs: process.pe.file_version
 - ecs: process.pe.imphash
+  windows:
+  - process_termination
+  - process_already_running
+  - process_creation
 - ecs: process.pe.original_file_name
   windows:
   - process_creation

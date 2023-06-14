@@ -1,14 +1,19 @@
+
 *Definitions for library*
+
 ECS fields for load_driver
  - event.kind :: event
  - event.category :: driver
  - event.type :: start
  - message :: driver_load_event
+
+
 ECS fields for library_load
  - event.kind :: event
  - event.category :: library
  - event.type :: start
  - message :: dll_load_event
+
 Event type: load_driver
 #### Exported fields
 
@@ -39,7 +44,6 @@ Event type: load_driver
 | dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
 | dll.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | dll.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | dll.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -47,7 +51,7 @@ Event type: load_driver
 | dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | dll.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
-| dll.Ext.size | Size of DLL | u64 |
+| dll.Ext.size | Size of DLL | unsigned_long |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
@@ -109,7 +113,7 @@ Event type: load_driver
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -189,7 +193,6 @@ Event type: library_load
 | dll.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | dll.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | dll.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
 | dll.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | dll.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | dll.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
@@ -197,7 +200,7 @@ Event type: library_load
 | dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
 | dll.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
-| dll.Ext.size | Size of DLL | u64 |
+| dll.Ext.size | Size of DLL | unsigned_long |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
@@ -259,7 +262,7 @@ Event type: library_load
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |

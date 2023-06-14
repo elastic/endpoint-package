@@ -144,7 +144,7 @@ func getFilteredFields(filter allTheThings, name, os string, collected []fieldsT
 	return result
 }
 
-func renderExportedFields(options generateOptions, packageName, dataStreamName string) (string, error) {
+func renderExportedFields(options generateOptions, packageName, dataStreamName string, osMap map[string][]string) (string, error) {
 	dataStreamPath := filepath.Join(options.packagesSourceDir, packageName, "data_stream", dataStreamName)
 	fieldFiles, err := listFieldFields(dataStreamPath)
 	if err != nil {
@@ -162,7 +162,19 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	}
 
 	var builder strings.Builder
-	builder.WriteString("#### Exported fields\n\n")
+	builder.WriteString("#### Exported fields -- placeholder\n\n")
+
+	/*
+	var needNewParagraph = false
+	for _,os_ := range osMap[dataStreamName] {
+		needNewParagraph = true
+		builder.WriteString(fmt.Sprintf("* [link to %s-specific fields](%s)\n", os_, filepath.Join(".", dataStreamName, fmt.Sprintf("%s.md", os_))))
+	}
+
+	if needNewParagraph {
+		builder.WriteString("\n\n")
+	}
+	*/
 
 	if len(collected) == 0 {
 		builder.WriteString("(no fields available)\n")
@@ -229,7 +241,7 @@ func renderFilteredFields(options generateOptions, packageName, dataStreamName, 
 
 		// output the definitions
 		if len(filter.Definitions) > 0 {
-			builder.WriteString(fmt.Sprintf("*Definitions for %s*\n", dataStreamName))
+			builder.WriteString(fmt.Sprintf("\n*Definitions for %s*\n", dataStreamName))
 			for _, def := range filter.Definitions {
 				def.dumpDefinition(&builder, os_)
 

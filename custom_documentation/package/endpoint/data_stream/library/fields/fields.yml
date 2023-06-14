@@ -60,6 +60,8 @@ fields:
 - ecs: dll.Ext.code_signature.trusted
 - ecs: dll.Ext.code_signature.valid
 - ecs: dll.Ext.defense_evasions
+  windows:
+  - image_load_library
 - ecs: dll.Ext.device.bus_type
 - ecs: dll.Ext.device.dos_name
 - ecs: dll.Ext.device.nt_name

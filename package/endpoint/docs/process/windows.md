@@ -1,60 +1,85 @@
+
 *Definitions for process*
+
 ECS fields for process_creation
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: start
+
+
 ECS fields for process_fork
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: fork
+
+
 ECS fields for process_uid_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: uid_change
+
+
 ECS fields for process_gid_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: gid_change
+
+
 ECS fields for process_session_id_change
  - event.kind :: event
  - event.type :: info
  - event.type :: change
  - event.action :: session_id_change
+
+
 ECS fields for process_exec
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: exec
+
+
 ECS fields for process_already_running
  - event.kind :: event
  - event.type :: info
  - event.type :: info
+
+
 ECS fields for process_termination
  - event.kind :: event
  - event.type :: info
  - event.type :: end
  - event.action :: end
+
+
 ECS fields for process_remote_thread
  - event.kind :: event
  - event.type :: info
  - event.type :: start
  - event.action :: remote_thread
+
+
 ECS fields for process_get_task
  - event.kind :: event
  - event.type :: start
  - event.action :: process_open
+
+
 ECS fields for process_io
  - event.kind :: event
  - event.type :: info
  - event.type :: info
  - event.action :: text_output
+
+
 ECS fields for process_unshare
  - event.kind :: event
  - event.type :: info
+
 Event type: process_creation
 #### Exported fields
 
@@ -120,7 +145,7 @@ Event type: process_creation
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -186,7 +211,6 @@ Event type: process_creation
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
 | process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -513,7 +537,7 @@ Event type: process_fork
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -557,16 +581,9 @@ Event type: process_fork
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -698,7 +715,6 @@ Event type: process_fork
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -712,7 +728,6 @@ Event type: process_fork
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -866,7 +881,7 @@ Event type: process_uid_change
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -910,16 +925,9 @@ Event type: process_uid_change
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -1051,7 +1059,6 @@ Event type: process_uid_change
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -1065,7 +1072,6 @@ Event type: process_uid_change
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -1219,7 +1225,7 @@ Event type: process_gid_change
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1263,16 +1269,9 @@ Event type: process_gid_change
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -1404,7 +1403,6 @@ Event type: process_gid_change
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -1418,7 +1416,6 @@ Event type: process_gid_change
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -1572,7 +1569,7 @@ Event type: process_session_id_change
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1616,16 +1613,9 @@ Event type: process_session_id_change
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -1757,7 +1747,6 @@ Event type: process_session_id_change
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -1771,7 +1760,6 @@ Event type: process_session_id_change
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -1925,7 +1913,7 @@ Event type: process_exec
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1969,16 +1957,9 @@ Event type: process_exec
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -2110,7 +2091,6 @@ Event type: process_exec
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -2124,7 +2104,6 @@ Event type: process_exec
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -2278,7 +2257,7 @@ Event type: process_already_running
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2491,7 +2470,6 @@ Event type: process_already_running
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -2665,7 +2643,7 @@ Event type: process_termination
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2712,7 +2690,6 @@ Event type: process_termination
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
 | process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
 | process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
@@ -3045,7 +3022,7 @@ Event type: process_remote_thread
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -3089,16 +3066,9 @@ Event type: process_remote_thread
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -3230,7 +3200,6 @@ Event type: process_remote_thread
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -3244,7 +3213,6 @@ Event type: process_remote_thread
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -3398,7 +3366,7 @@ Event type: process_get_task
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -3442,16 +3410,9 @@ Event type: process_get_task
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -3583,7 +3544,6 @@ Event type: process_get_task
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -3597,7 +3557,6 @@ Event type: process_get_task
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -3751,7 +3710,7 @@ Event type: process_io
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -3795,16 +3754,9 @@ Event type: process_io
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -3936,7 +3888,6 @@ Event type: process_io
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -3950,7 +3901,6 @@ Event type: process_io
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |
@@ -4104,7 +4054,7 @@ Event type: process_unshare
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -4148,16 +4098,9 @@ Event type: process_unshare
 | process.Ext.dll.path | Full file path of the library. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.session | Session information for the current process | keyword |
-| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
 | process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
-| process.Ext.session_info.id | Session ID | unsigned_long |
-| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
-| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
-| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
-| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
-| process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
@@ -4289,7 +4232,6 @@ Event type: process_unshare
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
 | process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
-| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -4303,7 +4245,6 @@ Event type: process_unshare
 | process.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | process.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | process.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
-| process.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.pe.product | Internal product name of the file, provided at compile-time. | keyword |
 | process.pgid | Deprecated for removal in next major version release. This field is superseded by `process.group_leader.pid`. Identifier of the group of processes the process belongs to. | long |
 | process.ppid | Parent process' pid. | long |

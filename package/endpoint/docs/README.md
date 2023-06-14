@@ -23,7 +23,7 @@ sent by the endpoint.
 
 ### alerts
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -1490,7 +1490,7 @@ sent by the endpoint.
 
 ### file
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -1702,7 +1702,7 @@ sent by the endpoint.
 
 ### library
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -1891,7 +1891,7 @@ sent by the endpoint.
 
 ### network
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2059,7 +2059,7 @@ sent by the endpoint.
 
 ### process
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2463,7 +2463,7 @@ sent by the endpoint.
 
 ### registry
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2598,7 +2598,7 @@ sent by the endpoint.
 
 ### security
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2719,7 +2719,7 @@ sent by the endpoint.
 
 ### metadata
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2784,7 +2784,7 @@ sent by the endpoint.
 
 Metrics documents contain performance information about the endpoint executable and the host it is running on.
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|
@@ -2903,7 +2903,7 @@ Metrics documents contain performance information about the endpoint executable 
 
 ### policy response
 
-#### Exported fields
+#### Exported fields -- placeholder
 
 | Field | Description | Type |
 |---|---|---|

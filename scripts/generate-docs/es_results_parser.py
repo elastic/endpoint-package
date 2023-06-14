@@ -11,7 +11,6 @@ except ImportError:
     from yaml import Loader, Dumper
 
 field_mapping = {
-    'windows|alert|intrusion_detection,malware|allowed,info|rule_detection': [],
     'windows|event|authentication,session|end|log_off': ['user_admin_logoff', 'user_explicit_logoff', 'user_logoff'],
     'windows|event|authentication,session|start|log_on': ['user_admin_logon', 'user_explicit_logon', 'user_logon', 'user_logon_failed'],
     'windows|event|driver|start|load': ['image_load_driver'],
@@ -31,7 +30,26 @@ field_mapping = {
     'windows|event|process|info|-': ['process_already_running'],
     'windows|event|process|start|start': ['process_creation'],
     'windows|event|registry|access|query': ['registry_queryvalue'],
-    'windows|event|registry|change|modification': ['registry_modify']
+    'windows|event|registry|change|modification': ['registry_modify'],
+    'macos|alert|intrusion_detection,malware|allowed,info|rule_detection': ['rules_engine_alert'],
+    'macos|alert|file,intrusion_detection,malware|allowed,change,info|modification': ['file_score_alert'],
+    'macos|alert|file,intrusion_detection,malware|allowed,change,info|rename': ['file_score_alert'],
+    'windows|alert|intrusion_detection,malware|allowed,info|rule_detection': ['rules_engine_alert'],
+    'windows|alert|file,intrusion_detection,malware|allowed,creation,info|creation': ['file_score_alert'],
+    'windows|alert|intrusion_detection,malware|allowed,info|start': ['file_score_alert'],
+    'linux|alert|file,intrusion_detection,malware|allowed,change,info|modification': ['file_score_alert'],
+    'macos|alert|file,intrusion_detection,malware|allowed,deletion,info|deletion': ['file_score_alert'],
+    'macos|alert|file,intrusion_detection,malware|allowed,change,info|clone': ['file_score_alert'],
+    'macos|alert|file,intrusion_detection,malware|allowed,change,info|link': ['file_score_alert'],
+    'windows|alert|file,intrusion_detection,malware|allowed,change,info|rename': ['file_score_alert'],
+    'macos|alert|intrusion_detection,malware,process|allowed,info,start|execution': ['file_score_alert'],
+    'windows|alert|file,intrusion_detection,malware|allowed,change,info|modification': ['file_score_alert'],
+    'windows|alert|file,intrusion_detection,malware|allowed,deletion,info|deletion': ['file_score_alert'],
+    'macos|alert|intrusion_detection,malware,process|allowed,info,start|-': ['file_score_alert'],
+    'windows|alert|driver,intrusion_detection,malware|allowed,info|load': ['file_score_alert'],
+    'windows|alert|file,intrusion_detection,malware|allowed,change,info|overwrite': ['file_score_alert'],
+    'windows|alert|intrusion_detection,library,malware|allowed,info,start|load': ['file_score_alert'],
+    'windows|alert|intrusion_detection,malware,process|allowed,info,start|execution': ['file_score_alert'],
 }
 
 
@@ -198,7 +216,7 @@ def find_and_update_field_with_os_and_event(field_array, field, os_, event):
             if field.startswith("host.") or field.startswith("agent.") or field.startswith("data_stream"):
                 field_array[ind] = {"ecs": field, "all": ["all"]}
                 break
-            if field in ["event.outcome", "event.sequence", "event.type", "event.ingested",
+            if field in ["event.outcome", "event.sequence", "event.type", "event.ingested", "event.code",
                          "event.action", "event.category", "event.created", "event.dataset",
                          "event.id", "event.kind", "message", "event.module", "@timestamp",
                          ]:
@@ -215,8 +233,8 @@ def find_and_update_field_with_os_and_event(field_array, field, os_, event):
                 break
 
             field_set = set(f[os_])
-            field_set.append(event)
-            f[os] = list(field_set)
+            field_set.add(event)
+            f[os_] = list(field_set)
             field_array[ind] = f
 
             break

@@ -123,7 +123,7 @@ func (d eventDefinition) dumpDefinition(builder *strings.Builder, os_ string) {
 	}
 
 	// do the header
-	builder.WriteString(fmt.Sprintf("ECS fields for %s\n", d.Name))
+	builder.WriteString(fmt.Sprintf("\nECS fields for %s\n", d.Name))
 
 	// event.kind
 	if d.Kind != "" {
@@ -171,6 +171,8 @@ func (d eventDefinition) dumpDefinition(builder *strings.Builder, os_ string) {
 		builder.WriteString(fmt.Sprintf(" - %s :: %s\n", d.Values[i].Name,
 			d.Values[i].Value))
 	}
+
+	builder.WriteString("\n")
 }
 
 // Remove the common path, and strip the "/" prefix from the result
