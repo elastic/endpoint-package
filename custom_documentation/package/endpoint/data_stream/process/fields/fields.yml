@@ -284,6 +284,7 @@ fields:
   - process_already_running
 - ecs: process.Ext.device.bus_type
 - ecs: process.Ext.device.dos_name
+- ecs: process.Ext.device.file_system_type
 - ecs: process.Ext.device.nt_name
 - ecs: process.Ext.device.product_id
 - ecs: process.Ext.device.serial_number
@@ -604,10 +605,17 @@ fields:
 - ecs: process.parent.supplemental_groups.id
 - ecs: process.parent.supplemental_groups.name
 - ecs: process.parent.thread.Ext
+- ecs: process.parent.thread.Ext.call_stack
+- ecs: process.parent.thread.Ext.call_stack.allocation_private_bytes
+- ecs: process.parent.thread.Ext.call_stack.callsite_leading_bytes
+- ecs: process.parent.thread.Ext.call_stack.callsite_trailing_bytes
+- ecs: process.parent.thread.Ext.call_stack.protection
+- ecs: process.parent.thread.Ext.call_stack.symbol_info
 - ecs: process.parent.thread.Ext.call_stack_contains_unbacked
   windows:
   - process_termination
   - process_creation
+- ecs: process.parent.thread.Ext.call_stack_summary
 - ecs: process.parent.thread.id
 - ecs: process.parent.thread.name
 - ecs: process.parent.title

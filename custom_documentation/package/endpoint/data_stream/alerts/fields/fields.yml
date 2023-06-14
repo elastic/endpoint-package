@@ -87,6 +87,9 @@ fields:
 - ecs: Responses.action.file.reason
 - ecs: Responses.action.key.actions
 - ecs: Responses.action.key.path
+- ecs: Responses.action.key.values
+- ecs: Responses.action.key.values.actions
+- ecs: Responses.action.key.values.name
 - ecs: Responses.action.source.attributes
 - ecs: Responses.action.source.path
 - ecs: Responses.action.state
@@ -2072,10 +2075,12 @@ fields:
 - ecs: threat.enrichments.indicator.file.Ext.code_signature.valid
 - ecs: threat.enrichments.indicator.file.Ext.device.bus_type
 - ecs: threat.enrichments.indicator.file.Ext.device.dos_name
+- ecs: threat.enrichments.indicator.file.Ext.device.file_system_type
 - ecs: threat.enrichments.indicator.file.Ext.device.nt_name
 - ecs: threat.enrichments.indicator.file.Ext.device.product_id
 - ecs: threat.enrichments.indicator.file.Ext.device.serial_number
 - ecs: threat.enrichments.indicator.file.Ext.device.vendor_id
+- ecs: threat.enrichments.indicator.file.Ext.device.volume_device_type
 - ecs: threat.enrichments.indicator.file.Ext.entropy
 - ecs: threat.enrichments.indicator.file.Ext.entry_modified
 - ecs: threat.enrichments.indicator.file.Ext.header_bytes
@@ -2288,10 +2293,12 @@ fields:
 - ecs: threat.indicator.file.Ext.code_signature.valid
 - ecs: threat.indicator.file.Ext.device.bus_type
 - ecs: threat.indicator.file.Ext.device.dos_name
+- ecs: threat.indicator.file.Ext.device.file_system_type
 - ecs: threat.indicator.file.Ext.device.nt_name
 - ecs: threat.indicator.file.Ext.device.product_id
 - ecs: threat.indicator.file.Ext.device.serial_number
 - ecs: threat.indicator.file.Ext.device.vendor_id
+- ecs: threat.indicator.file.Ext.device.volume_device_type
 - ecs: threat.indicator.file.Ext.entropy
 - ecs: threat.indicator.file.Ext.entry_modified
 - ecs: threat.indicator.file.Ext.header_bytes

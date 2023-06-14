@@ -64,6 +64,7 @@ fields:
   - image_load_library
 - ecs: dll.Ext.device.bus_type
 - ecs: dll.Ext.device.dos_name
+- ecs: dll.Ext.device.file_system_type
 - ecs: dll.Ext.device.nt_name
 - ecs: dll.Ext.device.product_id
 - ecs: dll.Ext.device.serial_number
@@ -299,6 +300,14 @@ fields:
   windows:
   - image_load_library
   - image_load_driver
+- ecs: process.thread.Ext
+- ecs: process.thread.Ext.call_stack
+- ecs: process.thread.Ext.call_stack.allocation_private_bytes
+- ecs: process.thread.Ext.call_stack.callsite_leading_bytes
+- ecs: process.thread.Ext.call_stack.callsite_trailing_bytes
+- ecs: process.thread.Ext.call_stack.protection
+- ecs: process.thread.Ext.call_stack.symbol_info
+- ecs: process.thread.Ext.call_stack_summary
 - ecs: process.thread.id
 - ecs: source.geo.city_name
 - ecs: source.geo.continent_code
