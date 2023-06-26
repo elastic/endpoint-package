@@ -1,6 +1,6 @@
 # Elastic Defend Integration
 
-Elastic Defend provides organizations with prevention, detection, and response capabilities across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
+Elastic Defend provides organizations with prevention, detection, and response capabilities with deep visibility for EPP, EDR, SIEM, and Security Analytics use cases across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
 
 - **Prevent complex attacks** - Prevent malware (Windows, macOS, Linux) and ransomware (Windows) from executing, and stop advanced threats with malicious behavior (Windows, macOS, Linux), memory threat (Windows, macOS, Linux), and credential hardening (Windows) protections. All powered by [Elastic Labs](https://www.elastic.co/security-labs/) and our global community.
 - **Alert in high fidelity** - Bolster team efficacy by detecting threats centrally and minimizing false positives via extensive corroboration.
