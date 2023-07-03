@@ -1,3 +1,42 @@
+- version: "8.9.1"
+  changes:
+    - description: Update description copy
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/380
+- version: "8.9.0"
+  changes:
+    - description: Fix mapping error by replacing string with keyword
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/373
+    - description: ETW Threat-Intelligence API Event metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/370
+- version: "8.8.0"
+  changes:
+    - description: change action.key.values to object in alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/364
+    - description: Added registry rollback fields associated with recovered values
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/362
+    - description: File system type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/361
+    - description: Add thread callstacks to process, file, registry, and image/library load events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/360
+    - description: Added Registry Rollback Fields to Package
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/358
+    - description: Add fields connected to rules and alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/355
+    - description: Update Endpoint package categories
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/354
+    - description: '[Memory Protection] Add fields for trampoline detection.'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/344
 - version: "8.7.1"
   changes:
     - description: Update package overview

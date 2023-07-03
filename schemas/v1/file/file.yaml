@@ -1030,6 +1030,19 @@ file.Ext.device.dos_name:
   normalize: []
   short: DOS name of the device.
   type: keyword
+file.Ext.device.file_system_type:
+  dashed_name: file-Ext-device-file-system-type
+  description: 'Volume device file system type.
+
+    Following are examples of the most frequently seen volume device file system types:
+    NTFS UDF'
+  flat_name: file.Ext.device.file_system_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.file_system_type
+  normalize: []
+  short: Volume device file system type.
+  type: keyword
 file.Ext.device.nt_name:
   dashed_name: file-Ext-device-nt-name
   description: 'NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2'
@@ -2488,6 +2501,96 @@ process.session_leader.entity_id:
   normalize: []
   original_fieldset: process
   short: Unique identifier for the process.
+  type: keyword
+process.thread.Ext:
+  dashed_name: process-thread-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.thread.Ext
+  level: custom
+  name: thread.Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+process.thread.Ext.call_stack:
+  dashed_name: process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: true
+  flat_name: process.thread.Ext.call_stack
+  level: custom
+  name: call_stack
+  normalize: []
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: object
+process.thread.Ext.call_stack.allocation_private_bytes:
+  dashed_name: process-thread-Ext-call-stack-allocation-private-bytes
+  description: The number of bytes in this memory allocation/image that are both +X
+    and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  flat_name: process.thread.Ext.call_stack.allocation_private_bytes
+  level: custom
+  name: allocation_private_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: The number of bytes in this memory allocation/image that are both +X and
+    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  type: unsigned_long
+process.thread.Ext.call_stack.callsite_leading_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes
+  description: Hex opcode bytes preceding the callsite
+  flat_name: process.thread.Ext.call_stack.callsite_leading_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_leading_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes preceding the callsite
+  type: keyword
+process.thread.Ext.call_stack.callsite_trailing_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-trailing-bytes
+  description: Hex opcode bytes after the callsite (where control will return to)
+  flat_name: process.thread.Ext.call_stack.callsite_trailing_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_trailing_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes after the callsite (where control will return to)
+  type: keyword
+process.thread.Ext.call_stack.protection:
+  dashed_name: process-thread-Ext-call-stack-protection
+  description: Protection of the page containing this instruction.  This is `R-X'
+    by default if omitted.
+  flat_name: process.thread.Ext.call_stack.protection
+  ignore_above: 1024
+  level: custom
+  name: protection
+  normalize: []
+  original_fieldset: call_stack
+  short: Protection of the page containing this instruction.  This is `R-X' by default
+    if omitted.
+  type: keyword
+process.thread.Ext.call_stack.symbol_info:
+  dashed_name: process-thread-Ext-call-stack-symbol-info
+  description: The nearest symbol for `instruction_pointer`.
+  flat_name: process.thread.Ext.call_stack.symbol_info
+  ignore_above: 1024
+  level: custom
+  name: symbol_info
+  normalize: []
+  original_fieldset: call_stack
+  short: The nearest symbol for `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack_summary:
+  dashed_name: process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  flat_name: process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
 process.thread.id:
   dashed_name: process-thread-id

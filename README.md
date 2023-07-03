@@ -149,7 +149,7 @@ Get approvals on your release PR, and merge
 1. push the branch reference
 1. Create a new working branch on top of this release tracking branch
 1. Change `package/endpoint/manifest.yml` to be the development cycle for the next release in that series.
-  - e.g. if `8.6.0` was just released, the version should now be `8.6.1-next`
+  - e.g. if `8.6.0` was just released, the version should now be `8.6.1-dev.0`
 1. Commit this to your working branch. Push & PR to the release tracking branch (e.g. `8.6`)
   - example commit for this: https://github.com/elastic/endpoint-package/commit/79216929cbcf05d39e6bba5a85cf4062bc7682b8
 
@@ -159,7 +159,7 @@ Get approvals on your release PR, and merge
 
 1. Checkout the `main` branch
 2. Create a new working branch
-3. Change `package/endpoint/manifest.yml` to be the development series for the next release. (e.g. if `8.6.0` was just released, version should now be `8.7.0-next`).
+3. Change `package/endpoint/manifest.yml` to be the development series for the next release. (e.g. if `8.6.0` was just released, version should now be `8.7.0-dev.0`).
 4. Change `conditions.kibana.version` in that same file to match the new stack version (e.g. change from `^8.6.0` to `^8.7.0`)
 5. Commit, push, PR to the main branch
   - example PR for these changes: https://github.com/elastic/endpoint-package/pull/302

@@ -596,6 +596,56 @@
       type: long
       description: Total size of suppressed documents
 
+    - name: metrics.documents_volume.api_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent API Event documents
+
+    - name: metrics.documents_volume.api_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of API Event sent documents
+
+    - name: metrics.documents_volume.api_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed API Event documents
+
+    - name: metrics.documents_volume.api_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed API Event documents
+
+    - name: metrics.documents_volume.api_events.sources
+      level: custom
+      type: object
+      description: An array of API Event document statistics per source
+
+    - name: metrics.documents_volume.api_events.sources.source
+      level: custom
+      type: keyword
+      description: API Event document source name
+
+    - name: metrics.documents_volume.api_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of sent API Event documents from source
+
+    - name: metrics.documents_volume.api_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of API Event sent documents from source
+
+    - name: metrics.documents_volume.api_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed API Event documents from source
+
+    - name: metrics.documents_volume.api_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed API Event documents from source
+
     - name: metrics.uptime
       level: custom
       type: object
@@ -846,17 +896,17 @@
       index: false
       description: The total milliseconds spent queueing process events for the process over the last week
 
-    - name: metrics.system_impact.etw_events.week_ms
+    - name: metrics.system_impact.threat_intelligence_events.week_ms
       level: custom
       type: unsigned_long
       index: false
-      description: The total milliseconds spent on ETW-based events for the process over the last week
+      description: The total milliseconds spent on ETW Threat-Intelligence events for the process over the last week
 
-    - name: metrics.system_impact.etw_events.week_idle_ms
+    - name: metrics.system_impact.threat_intelligence_events.week_idle_ms
       level: custom
       type: unsigned_long
       index: false
-      description: The total milliseconds spent queueing ETW-based events for the process over the last week
+      description: The total milliseconds spent queueing ETW Threat-Intelligence events for the process over the last week
 
     - name: metrics.system_impact.process.executable
       level: custom

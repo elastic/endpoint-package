@@ -55,6 +55,16 @@
       description: Parent process' pid.
       example: 4241
 
+    - name: parent.thread
+      level: custom
+      type: object
+      description: The parent thread
+
+    - name: parent.thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields for the parent thread to live in.
+
     - name: parent.ppid
       level: extended
       type: long
@@ -107,6 +117,11 @@
       example: "ntdll.dll, example.exe, kernel32.dll, ntdll.dll"
       description: >
         Concatentation of the non-repeated modules in the call stack.
+
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: The thread's call stack
 
     - name: thread.Ext.call_stack_final_user_module
       level: custom
@@ -546,6 +561,17 @@
         Following are examples of the most frequently seen volume device types:
         Disk File System
         CD-ROM File System
+
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
 
     - name: Ext.trusted
       level: custom
