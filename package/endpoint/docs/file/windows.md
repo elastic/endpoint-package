@@ -111,6 +111,7 @@ Event type: file_create
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -218,6 +219,14 @@ Event type: file_create
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -303,6 +312,7 @@ Event type: file_overwrite
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -409,6 +419,14 @@ Event type: file_overwrite
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -490,6 +508,7 @@ Event type: file_rename
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -598,6 +617,14 @@ Event type: file_rename
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -683,6 +710,7 @@ Event type: file_open
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -789,6 +817,14 @@ Event type: file_open
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -870,6 +906,7 @@ Event type: file_extended_attributes
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -959,6 +996,14 @@ Event type: file_extended_attributes
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1036,6 +1081,7 @@ Event type: file_mount
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1125,6 +1171,14 @@ Event type: file_mount
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1202,6 +1256,7 @@ Event type: file_modify
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1291,6 +1346,14 @@ Event type: file_modify
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1372,6 +1435,7 @@ Event type: file_delete
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1477,6 +1541,14 @@ Event type: file_delete
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |

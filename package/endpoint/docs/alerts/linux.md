@@ -64,6 +64,9 @@ Event type: basic
 | Responses.action.file.reason | Combined USN file modification reason | long |
 | Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
 | Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
+| Responses.action.key.values | Values modified | object |
+| Responses.action.key.values.actions | Actions taken by Registry Rollback for value | keyword |
+| Responses.action.key.values.name | Value name recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -715,10 +718,12 @@ Event type: basic
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.enrichments.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.enrichments.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.enrichments.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.enrichments.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.enrichments.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -926,10 +931,12 @@ Event type: basic
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1184,6 +1191,9 @@ Event type: ransomware
 | Responses.action.file.reason | Combined USN file modification reason | long |
 | Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
 | Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
+| Responses.action.key.values | Values modified | object |
+| Responses.action.key.values.actions | Actions taken by Registry Rollback for value | keyword |
+| Responses.action.key.values.name | Value name recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -1835,10 +1845,12 @@ Event type: ransomware
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.enrichments.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.enrichments.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.enrichments.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.enrichments.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.enrichments.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -2046,10 +2058,12 @@ Event type: ransomware
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |

@@ -218,6 +218,14 @@ fields:
   windows:
   - registry_modify
   - registry_queryvalue
+- ecs: process.thread.Ext
+- ecs: process.thread.Ext.call_stack
+- ecs: process.thread.Ext.call_stack.allocation_private_bytes
+- ecs: process.thread.Ext.call_stack.callsite_leading_bytes
+- ecs: process.thread.Ext.call_stack.callsite_trailing_bytes
+- ecs: process.thread.Ext.call_stack.protection
+- ecs: process.thread.Ext.call_stack.symbol_info
+- ecs: process.thread.Ext.call_stack_summary
 - ecs: process.thread.id
 - ecs: registry.data.bytes
   windows:

@@ -99,6 +99,14 @@ Event type: registry_create
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -214,6 +222,14 @@ Event type: registry_modify
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
@@ -325,6 +341,14 @@ Event type: registry_delete
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -440,6 +464,14 @@ Event type: registry_queryvalue
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | registry.data.type | Standard registry type for encoding contents | keyword |
 | registry.hive | Abbreviated name for the hive. | keyword |
@@ -549,6 +581,14 @@ Event type: registry_savekey
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |

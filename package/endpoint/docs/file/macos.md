@@ -105,6 +105,7 @@ Event type: file_create
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -188,6 +189,14 @@ Event type: file_create
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -263,6 +272,7 @@ Event type: file_overwrite
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -346,6 +356,14 @@ Event type: file_overwrite
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -421,6 +439,7 @@ Event type: file_rename
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -504,6 +523,14 @@ Event type: file_rename
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -579,6 +606,7 @@ Event type: file_open
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -662,6 +690,14 @@ Event type: file_open
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -737,6 +773,7 @@ Event type: file_extended_attributes
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -820,6 +857,14 @@ Event type: file_extended_attributes
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -895,6 +940,7 @@ Event type: file_mount
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -978,6 +1024,14 @@ Event type: file_mount
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1053,6 +1107,7 @@ Event type: file_modify
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -1136,6 +1191,14 @@ Event type: file_modify
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |
@@ -1211,6 +1274,7 @@ Event type: file_delete
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
 | file.Ext.malware_signature | Nested version of malware_signature fieldset. | nested |
 | file.Ext.malware_signature.all_names | The concatenated names of all yara signatures | text |
@@ -1294,6 +1358,14 @@ Event type: file_delete
 | process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.ppid | Parent process' pid. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
 | source.geo.continent_name | Name of the continent. | keyword |

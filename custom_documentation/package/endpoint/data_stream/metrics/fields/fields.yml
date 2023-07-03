@@ -16,6 +16,16 @@ fields:
 - ecs: Endpoint.metrics.documents_volume.alerts.sent_count
 - ecs: Endpoint.metrics.documents_volume.alerts.suppressed_bytes
 - ecs: Endpoint.metrics.documents_volume.alerts.suppressed_count
+- ecs: Endpoint.metrics.documents_volume.api_events.sent_bytes
+- ecs: Endpoint.metrics.documents_volume.api_events.sent_count
+- ecs: Endpoint.metrics.documents_volume.api_events.sources
+- ecs: Endpoint.metrics.documents_volume.api_events.sources.sent_bytes
+- ecs: Endpoint.metrics.documents_volume.api_events.sources.sent_count
+- ecs: Endpoint.metrics.documents_volume.api_events.sources.source
+- ecs: Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes
+- ecs: Endpoint.metrics.documents_volume.api_events.sources.suppressed_count
+- ecs: Endpoint.metrics.documents_volume.api_events.suppressed_bytes
+- ecs: Endpoint.metrics.documents_volume.api_events.suppressed_count
 - ecs: Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes
 - ecs: Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count
 - ecs: Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes
