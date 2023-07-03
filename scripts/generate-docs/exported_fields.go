@@ -162,19 +162,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	}
 
 	var builder strings.Builder
-	builder.WriteString("#### Exported fields -- placeholder\n\n")
-
-	/*
-	var needNewParagraph = false
-	for _,os_ := range osMap[dataStreamName] {
-		needNewParagraph = true
-		builder.WriteString(fmt.Sprintf("* [link to %s-specific fields](%s)\n", os_, filepath.Join(".", dataStreamName, fmt.Sprintf("%s.md", os_))))
-	}
-
-	if needNewParagraph {
-		builder.WriteString("\n\n")
-	}
-	*/
+	builder.WriteString("#### Exported fields\n\n")
 
 	if len(collected) == 0 {
 		builder.WriteString("(no fields available)\n")
