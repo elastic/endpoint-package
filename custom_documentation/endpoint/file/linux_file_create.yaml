@@ -1,0 +1,63 @@
+overview:
+    name: Endpoint Metrics
+    description: FILL ME IN
+identification:
+    filter:
+        event.module: endpoint
+        event.action: creation
+        event.dataset: "endpoint.events.file"
+        host.os.type: linux
+fields:
+    endpoint:
+        "@timestamp": "*"
+        agent.id: "*"
+        agent.type: "endpoint"
+        agent.version: "*"
+        data_stream.dataset: "endpoint.events.file"
+        data_stream.namespace: "*"
+        data_stream.type: "logs"
+        ecs.version: "*"
+        elastic.agent.id: "*"
+        event.action: "creation"
+        event.category: "file"
+        event.created: "*"
+        event.dataset: "endpoint.events.file"
+        event.id: "*"
+        event.kind: "event"
+        event.module: "endpoint"
+        event.outcome: "*"
+        event.sequence: "*"
+        event.type: "creation"
+        file.extension: "*"
+        file.name: "*"
+        file.path: "*"
+        group.Ext.real.id: "*"
+        group.Ext.real.name: "*"
+        group.id: "*"
+        group.name: "*"
+        host.architecture: "*"
+        host.hostname: "*"
+        host.id: "*"
+        host.ip: "*"
+        host.mac: "*"
+        host.name: "*"
+        host.os.Ext.variant: "*"
+        host.os.family: "*"
+        host.os.full: "*"
+        host.os.kernel: "*"
+        host.os.name: "Linux"
+        host.os.platform: "*"
+        host.os.type: "linux"
+        host.os.version: "*"
+        message: "Endpoint file event"
+        process.Ext.ancestry: "*"
+        process.entity_id: "*"
+        process.executable: "*"
+        process.name: "*"
+        process.parent.entity_id: "*"
+        process.pid: "*"
+        user.Ext.real.id: "*"
+        user.Ext.real.name: "*"
+        user.id: "*"
+        user.name: "*"
+
