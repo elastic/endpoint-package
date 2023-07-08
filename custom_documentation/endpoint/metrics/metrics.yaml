@@ -1,0 +1,71 @@
+overview:
+    name: Endpoint Metrics
+    description: FILL ME IN
+identification:
+    filter:
+        event.module: endpoint
+        event.action: endpoint_metrics
+        event.dataset: "endpoint.metrics"
+fields:
+    endpoint:
+        "@timestamp": "*"
+        Endpoint.metrics.cpu.endpoint.histogram.counts: "*"
+        Endpoint.metrics.cpu.endpoint.histogram.values: "*"
+        Endpoint.metrics.cpu.endpoint.latest: "*"
+        Endpoint.metrics.cpu.endpoint.mean: "*"
+        Endpoint.metrics.disks.device: "*"
+        Endpoint.metrics.disks.endpoint_drive:
+            - true
+            - false
+        Endpoint.metrics.disks.free: "*"
+        Endpoint.metrics.disks.fstype: "*"
+        Endpoint.metrics.disks.mount: "*"
+        Endpoint.metrics.disks.total: "*"
+        Endpoint.metrics.documents_volume.overall.sent_bytes: "*"
+        Endpoint.metrics.documents_volume.overall.sent_count: "*"
+        Endpoint.metrics.documents_volume.overall.suppressed_bytes: "*"
+        Endpoint.metrics.documents_volume.overall.suppressed_count: "*"
+        Endpoint.metrics.event_filter.active_global_count: "*"
+        Endpoint.metrics.event_filter.active_user_count: "*"
+        Endpoint.metrics.memory.endpoint.private.latest: "*"
+        Endpoint.metrics.memory.endpoint.private.mean: "*"
+        Endpoint.metrics.threads.cpu.mean: "*"
+        Endpoint.metrics.threads.name: "*"
+        Endpoint.metrics.uptime.endpoint: "*"
+        Endpoint.metrics.uptime.system: "*"
+        agent.build.original: "*"
+        agent.id: "*"
+        agent.type: "endpoint"
+        agent.version: "*"
+        data_stream.dataset: "endpoint.metrics"
+        data_stream.namespace: "*"
+        data_stream.type: "metrics"
+        ecs.version: "*"
+        elastic.agent.id: "*"
+        event.action: "endpoint_metrics"
+        event.category: "host"
+        event.created: "*"
+        event.dataset: "endpoint.metrics"
+        event.id: "*"
+        event.kind: "metric"
+        event.module: "endpoint"
+        event.sequence: "*"
+        event.type: "info"
+        host.architecture: "*"
+        host.hostname: "*"
+        host.id: "*"
+        host.ip: "*"
+        host.mac: "*"
+        host.name: "*"
+        host.os.Ext.variant: "*"
+        host.os.family: "*"
+        host.os.full: "*"
+        host.os.kernel: "*"
+        host.os.name:
+            - Linux
+        host.os.platform: "*"
+        host.os.type:
+            - linux
+            - windows
+        host.os.version: "*"
+        message: "Endpoint metrics"

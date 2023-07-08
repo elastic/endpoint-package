@@ -1,0 +1,141 @@
+overview:
+    name: Policy Response
+    description: FILL ME IN
+identification:
+    filter:
+        event.module: endpoint
+        event.action: endpoint_policy_response
+        event.dataset: "endpoint.policy"
+fields:
+    endpoint:
+        "@timestamp": "*"
+        Endpoint.configuration.isolation:
+            - true
+            - false
+        Endpoint.policy.applied.actions.message: "*"
+        Endpoint.policy.applied.actions.name: "*"
+        Endpoint.policy.applied.actions.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.artifacts.global.identifiers.name: "*"
+        Endpoint.policy.applied.artifacts.global.identifiers.sha256: "*"
+        Endpoint.policy.applied.artifacts.global.version: "*"
+        Endpoint.policy.applied.artifacts.user.identifiers.name: "*"
+        Endpoint.policy.applied.artifacts.user.identifiers.sha256: "*"
+        Endpoint.policy.applied.artifacts.user.version: "*"
+        Endpoint.policy.applied.endpoint_policy_version: "*"
+        Endpoint.policy.applied.id: "*"
+        Endpoint.policy.applied.name: "*"
+        Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.behavior_protection.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.events.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.events.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.host_isolation.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.logging.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.logging.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.malware.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.malware.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.memory_protection.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.response_actions.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.response_actions.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.configurations.streaming.concerned_actions: "*"
+        Endpoint.policy.applied.response.configurations.streaming.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions: "*"
+        Endpoint.policy.applied.response.diagnostic.behavior_protection.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.diagnostic.malware.concerned_actions: "*"
+        Endpoint.policy.applied.response.diagnostic.malware.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions: "*"
+        Endpoint.policy.applied.response.diagnostic.memory_protection.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.status:
+            - success
+            - failure
+            - unsupported
+            - warning
+        Endpoint.policy.applied.version: "*"
+        Endpoint.state.isolation:
+            - true
+            - false
+        agent.build.original: "*"
+        agent.id: "*"
+        agent.type: "endpoint"
+        agent.version: "*"
+        data_stream.dataset: "endpoint.policy"
+        data_stream.namespace: "*"
+        data_stream.type: "metrics"
+        ecs.version: "*"
+        elastic.agent.id: "*"
+        event.action: "endpoint_policy_response"
+        event.category: "host"
+        event.created: "*"
+        event.dataset: "endpoint.policy"
+        event.kind: "state"
+        event.id: "*"
+        event.module: "endpoint"
+        event.sequence: "*"
+        event.type: "change"
+        host.architecture: "*"
+        host.hostname: "*"
+        host.id: "*"
+        host.ip: "*"
+        host.mac: "*"
+        host.name: "*"
+        host.os.Ext.variant: "*"
+        host.os.family: "*"
+        host.os.full: "*"
+        host.os.kernel: "*"
+        host.os.name:
+            - Linux
+        host.os.platform: "*"
+        host.os.type:
+            - linux
+            - windows
+        host.os.version: "*"
+        message: "Endpoint policy change"

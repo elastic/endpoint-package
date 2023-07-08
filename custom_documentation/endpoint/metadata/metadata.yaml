@@ -1,0 +1,64 @@
+overview:
+    name: Endpoint Metadata
+    description: FILL ME IN
+identification:
+    filter:
+        event.module: endpoint
+        event.action: endpoint_metadata
+        event.dataset: "endpoint.metadata"
+fields:
+    endpoint:
+        "@timestamp": "*"
+        Endpoint.capabilities: "*"
+        Endpoint.configuration.isolation:
+            - true
+            - false
+        Endpoint.policy.applied.endpoint_policy_version: "*"
+        Endpoint.policy.applied.id: "*"
+        Endpoint.policy.applied.name: "*"
+        Endpoint.policy.applied.status:
+            - success
+            - failure
+            - warning
+            - unsupported
+        Endpoint.policy.applied.version: "*"
+        Endpoint.state.isolation:
+            - true
+            - false
+        Endpoint.status: "*"
+        agent.build.original: "*"
+        agent.id: "*"
+        agent.type: "endpoint"
+        agent.version: "*"
+        data_stream.dataset: "endpoint.metadata"
+        data_stream.namespace: "*"
+        data_stream.type: "metrics"
+        ecs.version: "*"
+        elastic.agent.id: "*"
+        event.action: "endpoint_metadata"
+        event.category: "host"
+        event.created: "*"
+        event.dataset: "endpoint.metadata"
+        event.id: "*"
+        event.kind: "metric"
+        event.module: "endpoint"
+        event.sequence: "*"
+        event.type: "info"
+        host.architecture: "*"
+        host.hostname: "*"
+        host.id: "*"
+        host.ip: "*"
+        host.mac: "*"
+        host.name: "*"
+        host.os.Ext.variant: "*"
+        host.os.family: "*"
+        host.os.full: "*"
+        host.os.kernel: "*"
+        host.os.name:
+            - Linux
+        host.os.platform: "*"
+        host.os.type:
+            - linux
+            - windows
+        host.os.version: "*"
+        message: "Endpoint metadata"
