@@ -1,0 +1,11 @@
+fields:
+  endpoint:
+  - '@timestamp'
+identification:
+  filter:
+    event.action: connection_attempted
+    event.dataset: endpoint.events.network
+    event.module: endpoint
+overview:
+  description: FILL ME IN
+  name: Linux Network Connection

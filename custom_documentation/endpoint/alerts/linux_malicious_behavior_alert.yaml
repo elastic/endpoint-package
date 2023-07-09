@@ -17,10 +17,27 @@ fields:
   - Events.event.kind
   - Events.event.outcome
   - Events.event.type
+  - Events.file.extension
+  - Events.file.name
+  - Events.file.path
   - Events.group.Ext.real.id
   - Events.group.Ext.real.name
   - Events.group.id
   - Events.group.name
+  - Events.host.architecture
+  - Events.host.hostname
+  - Events.host.id
+  - Events.host.ip
+  - Events.host.mac
+  - Events.host.name
+  - Events.host.os.Ext.variant
+  - Events.host.os.family
+  - Events.host.os.full
+  - Events.host.os.kernel
+  - Events.host.os.name
+  - Events.host.os.platform
+  - Events.host.os.type
+  - Events.host.os.version
   - Events.message
   - Events.process.Ext.ancestry
   - Events.process.args
@@ -152,6 +169,7 @@ fields:
   - Responses.action.action
   - Responses.action.field
   - Responses.action.state
+  - Responses.action.tree
   - Responses.message
   - Responses.process.entity_id
   - Responses.process.name
@@ -179,6 +197,9 @@ fields:
   - event.sequence
   - event.severity
   - event.type
+  - file.extension
+  - file.name
+  - file.path
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id
