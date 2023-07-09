@@ -23,6 +23,10 @@ fields:
   - Endpoint.metrics.documents_volume.file_events.sent_count
   - Endpoint.metrics.documents_volume.file_events.suppressed_bytes
   - Endpoint.metrics.documents_volume.file_events.suppressed_count
+  - Endpoint.metrics.documents_volume.library_events.sent_bytes
+  - Endpoint.metrics.documents_volume.library_events.sent_count
+  - Endpoint.metrics.documents_volume.library_events.suppressed_bytes
+  - Endpoint.metrics.documents_volume.library_events.suppressed_count
   - Endpoint.metrics.documents_volume.network_events.sent_bytes
   - Endpoint.metrics.documents_volume.network_events.sent_count
   - Endpoint.metrics.documents_volume.network_events.suppressed_bytes
@@ -35,6 +39,10 @@ fields:
   - Endpoint.metrics.documents_volume.process_events.sent_count
   - Endpoint.metrics.documents_volume.process_events.suppressed_bytes
   - Endpoint.metrics.documents_volume.process_events.suppressed_count
+  - Endpoint.metrics.documents_volume.registry_events.sent_bytes
+  - Endpoint.metrics.documents_volume.registry_events.sent_count
+  - Endpoint.metrics.documents_volume.registry_events.suppressed_bytes
+  - Endpoint.metrics.documents_volume.registry_events.suppressed_count
   - Endpoint.metrics.event_filter.active_global_count
   - Endpoint.metrics.event_filter.active_user_count
   - Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent
@@ -47,15 +55,23 @@ fields:
   - Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms
   - Endpoint.metrics.system_impact.file_events.week_idle_ms
   - Endpoint.metrics.system_impact.file_events.week_ms
+  - Endpoint.metrics.system_impact.library_load_events.week_idle_ms
+  - Endpoint.metrics.system_impact.library_load_events.week_ms
   - Endpoint.metrics.system_impact.malware.week_idle_ms
   - Endpoint.metrics.system_impact.malware.week_ms
   - Endpoint.metrics.system_impact.memory_scan.week_idle_ms
   - Endpoint.metrics.system_impact.memory_scan.week_ms
   - Endpoint.metrics.system_impact.overall.week_idle_ms
   - Endpoint.metrics.system_impact.overall.week_ms
+  - Endpoint.metrics.system_impact.process.code_signature.exists
+  - Endpoint.metrics.system_impact.process.code_signature.status
+  - Endpoint.metrics.system_impact.process.code_signature.subject_name
+  - Endpoint.metrics.system_impact.process.code_signature.trusted
   - Endpoint.metrics.system_impact.process.executable
   - Endpoint.metrics.system_impact.process_events.week_idle_ms
   - Endpoint.metrics.system_impact.process_events.week_ms
+  - Endpoint.metrics.system_impact.registry_events.week_idle_ms
+  - Endpoint.metrics.system_impact.registry_events.week_ms
   - Endpoint.metrics.threads.cpu.mean
   - Endpoint.metrics.threads.name
   - Endpoint.metrics.uptime.endpoint
