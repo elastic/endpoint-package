@@ -19,6 +19,7 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.Ext.original.path
   - file.extension
   - file.name
   - file.path
@@ -57,7 +58,7 @@ fields:
   - user.name
 identification:
   filter:
-    event.action: creation
+    event.action: rename
     event.dataset: endpoint.events.file
     event.module: endpoint
     host.os.type: linux

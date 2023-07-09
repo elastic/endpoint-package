@@ -7,6 +7,9 @@ fields:
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - destination.address
+  - destination.ip
+  - destination.port
   - ecs.version
   - elastic.agent.id
   - event.action
@@ -19,9 +22,6 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
-  - file.extension
-  - file.name
-  - file.path
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id
@@ -41,6 +41,8 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - network.transport
+  - network.type
   - process.Ext.ancestry
   - process.entity_id
   - process.entry_leader.entity_id
@@ -51,16 +53,18 @@ fields:
   - process.parent.entity_id
   - process.pid
   - process.session_leader.entity_id
+  - source.address
+  - source.ip
+  - source.port
   - user.Ext.real.id
   - user.Ext.real.name
   - user.id
   - user.name
 identification:
   filter:
-    event.action: creation
-    event.dataset: endpoint.events.file
+    event.action: disconnect_received
+    event.dataset: endpoint.events.network
     event.module: endpoint
-    host.os.type: linux
 overview:
   description: FILL ME IN
-  name: Endpoint Metrics
+  name: Linux Network Disconnect

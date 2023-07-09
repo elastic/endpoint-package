@@ -39,10 +39,11 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.trusted
+  - process.Ext.trusted_descendant
   - process.args
   - process.args_count
   - process.command_line
-  - process.end
   - process.entity_id
   - process.entry_leader.args
   - process.entry_leader.args_count
@@ -73,7 +74,6 @@ fields:
   - process.entry_leader.working_directory
   - process.env_vars
   - process.executable
-  - process.exit_code
   - process.group.id
   - process.group.name
   - process.group_leader.args
@@ -169,10 +169,10 @@ fields:
   - user.name
 identification:
   filter:
-    event.action: end
+    event.action: exec
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: linux
 overview:
   description: FILL ME IN
-  name: Endpoint Metrics
+  name: Endpoint Process Exec

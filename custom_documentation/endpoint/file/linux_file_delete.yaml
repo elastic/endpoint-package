@@ -57,10 +57,10 @@ fields:
   - user.name
 identification:
   filter:
-    event.action: creation
+    event.action: deletion
     event.dataset: endpoint.events.file
     event.module: endpoint
     host.os.type: linux
 overview:
   description: FILL ME IN
-  name: Endpoint Metrics
+  name: Endpoint File Delete

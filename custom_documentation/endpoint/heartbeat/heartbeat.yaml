@@ -1,0 +1,9 @@
+overview:
+    name: Endpoint Heartbeat
+    description: FILL ME IN
+identification:
+    filter:
+        data_stream.dataset: "endpoint.heartbeat"
+fields:
+    endpoint:
+        - "@timestamp"

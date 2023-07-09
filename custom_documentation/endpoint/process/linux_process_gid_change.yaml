@@ -71,7 +71,6 @@ fields:
   - process.entry_leader.user.id
   - process.entry_leader.user.name
   - process.entry_leader.working_directory
-  - process.env_vars
   - process.executable
   - process.exit_code
   - process.group.id
@@ -169,10 +168,10 @@ fields:
   - user.name
 identification:
   filter:
-    event.action: end
+    event.action: gid_change
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: linux
 overview:
   description: FILL ME IN
-  name: Endpoint Metrics
+  name: Endpoint Process Group ID Change

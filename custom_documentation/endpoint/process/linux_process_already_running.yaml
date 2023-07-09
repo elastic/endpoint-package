@@ -9,7 +9,6 @@ fields:
   - data_stream.type
   - ecs.version
   - elastic.agent.id
-  - event.action
   - event.category
   - event.created
   - event.dataset
@@ -42,7 +41,6 @@ fields:
   - process.args
   - process.args_count
   - process.command_line
-  - process.end
   - process.entity_id
   - process.entry_leader.args
   - process.entry_leader.args_count
@@ -71,9 +69,7 @@ fields:
   - process.entry_leader.user.id
   - process.entry_leader.user.name
   - process.entry_leader.working_directory
-  - process.env_vars
   - process.executable
-  - process.exit_code
   - process.group.id
   - process.group.name
   - process.group_leader.args
@@ -126,9 +122,6 @@ fields:
   - process.parent.user.name
   - process.parent.working_directory
   - process.pid
-  - process.previous.args
-  - process.previous.args_count
-  - process.previous.executable
   - process.real_group.id
   - process.real_group.name
   - process.real_user.id
@@ -169,10 +162,10 @@ fields:
   - user.name
 identification:
   filter:
-    event.action: end
     event.dataset: endpoint.events.process
     event.module: endpoint
+    event.type: info
     host.os.type: linux
 overview:
   description: FILL ME IN
-  name: Endpoint Metrics
+  name: Endpoint Already Running Process
