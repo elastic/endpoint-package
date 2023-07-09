@@ -1,0 +1,12 @@
+fields:
+  endpoint:
+  - '@timestamp'
+identification:
+  filter:
+    event.action: remote_thread
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    host.os.type: macos
+overview:
+  description: FILL ME IN
+  name: macOS Process Exit

@@ -64,8 +64,10 @@ fields:
   - Endpoint.metrics.system_impact.overall.week_idle_ms
   - Endpoint.metrics.system_impact.overall.week_ms
   - Endpoint.metrics.system_impact.process.code_signature.exists
+  - Endpoint.metrics.system_impact.process.code_signature.signing_id
   - Endpoint.metrics.system_impact.process.code_signature.status
   - Endpoint.metrics.system_impact.process.code_signature.subject_name
+  - Endpoint.metrics.system_impact.process.code_signature.team_id
   - Endpoint.metrics.system_impact.process.code_signature.trusted
   - Endpoint.metrics.system_impact.process.executable
   - Endpoint.metrics.system_impact.process_events.week_idle_ms
