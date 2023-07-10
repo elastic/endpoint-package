@@ -1,0 +1,12 @@
+fields:
+  endpoint:
+  - '@timestamp'
+identification:
+  filter:
+    event.action: mount
+    event.dataset: endpoint.events.file
+    event.module: endpoint
+    host.os.type: macos
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
