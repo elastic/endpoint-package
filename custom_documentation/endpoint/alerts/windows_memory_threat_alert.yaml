@@ -1,13 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: Windows Memory Threat Alert
 identification:
   filter:
     event.code: memory_signature
     event.dataset: endpoint.alerts
     event.module: endpoint
     host.os.type: windows
-overview:
-  description: FILL ME IN
-  name: Windows Memory Threat Alert
 fields:
   endpoint:
-  - "@timestamp"
-
+  - '@timestamp'

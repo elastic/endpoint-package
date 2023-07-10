@@ -1,3 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: Endpoint Metrics
+identification:
+  filter:
+    event.action: creation
+    event.dataset: endpoint.events.file
+    event.module: endpoint
+    host.os.type: linux
 fields:
   endpoint:
   - '@timestamp'
@@ -55,12 +64,3 @@ fields:
   - user.Ext.real.name
   - user.id
   - user.name
-identification:
-  filter:
-    event.action: creation
-    event.dataset: endpoint.events.file
-    event.module: endpoint
-    host.os.type: linux
-overview:
-  description: FILL ME IN
-  name: Endpoint Metrics

@@ -1,12 +1,12 @@
-fields:
-  endpoint:
-    - "@timestamp"
+overview:
+  description: FILL ME IN
+  name: Windows Process Create
 identification:
   filter:
     event.action: creation
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: windows
-overview:
-  description: FILL ME IN
-  name: Windows Process Create
+fields:
+  endpoint:
+  - '@timestamp'

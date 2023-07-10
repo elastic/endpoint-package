@@ -1,3 +1,9 @@
+overview:
+  description: FILL ME IN
+  name: Endpoint Heartbeat
+identification:
+  filter:
+    data_stream.dataset: endpoint.heartbeat
 fields:
   endpoint:
   - '@timestamp'
@@ -6,9 +12,3 @@ fields:
   - data_stream.namespace
   - data_stream.type
   - message
-identification:
-  filter:
-    data_stream.dataset: endpoint.heartbeat
-overview:
-  description: FILL ME IN
-  name: Endpoint Heartbeat
