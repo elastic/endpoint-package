@@ -3,7 +3,7 @@ overview:
   name: Windows Process Create
 identification:
   filter:
-    event.action: creation
+    event.action: start
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: windows

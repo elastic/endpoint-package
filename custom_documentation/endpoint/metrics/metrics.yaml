@@ -23,10 +23,23 @@ fields:
   - Endpoint.metrics.documents_volume.alerts.sent_count
   - Endpoint.metrics.documents_volume.alerts.suppressed_bytes
   - Endpoint.metrics.documents_volume.alerts.suppressed_count
+  - Endpoint.metrics.documents_volume.api_events.sent_bytes
+  - Endpoint.metrics.documents_volume.api_events.sent_count
+  - Endpoint.metrics.documents_volume.api_events.sources.sent_bytes
+  - Endpoint.metrics.documents_volume.api_events.sources.sent_count
+  - Endpoint.metrics.documents_volume.api_events.sources.source
+  - Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes
+  - Endpoint.metrics.documents_volume.api_events.sources.suppressed_count
+  - Endpoint.metrics.documents_volume.api_events.suppressed_bytes
+  - Endpoint.metrics.documents_volume.api_events.suppressed_count
   - Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes
   - Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count
   - Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes
   - Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_count
+  - Endpoint.metrics.documents_volume.dns_events.sent_bytes
+  - Endpoint.metrics.documents_volume.dns_events.sent_count
+  - Endpoint.metrics.documents_volume.dns_events.suppressed_bytes
+  - Endpoint.metrics.documents_volume.dns_events.suppressed_count
   - Endpoint.metrics.documents_volume.file_events.sent_bytes
   - Endpoint.metrics.documents_volume.file_events.sent_count
   - Endpoint.metrics.documents_volume.file_events.suppressed_bytes
@@ -51,12 +64,18 @@ fields:
   - Endpoint.metrics.documents_volume.registry_events.sent_count
   - Endpoint.metrics.documents_volume.registry_events.suppressed_bytes
   - Endpoint.metrics.documents_volume.registry_events.suppressed_count
+  - Endpoint.metrics.documents_volume.security_events.sent_bytes
+  - Endpoint.metrics.documents_volume.security_events.sent_count
+  - Endpoint.metrics.documents_volume.security_events.suppressed_bytes
+  - Endpoint.metrics.documents_volume.security_events.suppressed_count
   - Endpoint.metrics.event_filter.active_global_count
   - Endpoint.metrics.event_filter.active_user_count
   - Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent
   - Endpoint.metrics.malicious_behavior_rules.id
   - Endpoint.metrics.memory.endpoint.private.latest
   - Endpoint.metrics.memory.endpoint.private.mean
+  - Endpoint.metrics.system_impact.authentication_events.week_idle_ms
+  - Endpoint.metrics.system_impact.authentication_events.week_ms
   - Endpoint.metrics.system_impact.behavior_protection.week_idle_ms
   - Endpoint.metrics.system_impact.behavior_protection.week_ms
   - Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms
@@ -69,6 +88,8 @@ fields:
   - Endpoint.metrics.system_impact.malware.week_ms
   - Endpoint.metrics.system_impact.memory_scan.week_idle_ms
   - Endpoint.metrics.system_impact.memory_scan.week_ms
+  - Endpoint.metrics.system_impact.network_events.week_idle_ms
+  - Endpoint.metrics.system_impact.network_events.week_ms
   - Endpoint.metrics.system_impact.overall.week_idle_ms
   - Endpoint.metrics.system_impact.overall.week_ms
   - Endpoint.metrics.system_impact.process.code_signature.exists
@@ -82,6 +103,8 @@ fields:
   - Endpoint.metrics.system_impact.process_events.week_ms
   - Endpoint.metrics.system_impact.registry_events.week_idle_ms
   - Endpoint.metrics.system_impact.registry_events.week_ms
+  - Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms
+  - Endpoint.metrics.system_impact.threat_intelligence_events.week_ms
   - Endpoint.metrics.threads.cpu.mean
   - Endpoint.metrics.threads.name
   - Endpoint.metrics.uptime.endpoint
