@@ -17,6 +17,8 @@ fields:
   - Endpoint.policy.applied.artifacts.user.identifiers.sha256
   - Endpoint.policy.applied.artifacts.user.version
   - Events.@timestamp
+  - Events.Target.process.name
+  - Events.Target.process.pid
   - Events._label
   - Events._state
   - Events.dll.Ext.code_signature.exists
@@ -68,6 +70,10 @@ fields:
   - Events.host.os.version
   - Events.message
   - Events.process.Ext.ancestry
+  - Events.process.Ext.api.name
+  - Events.process.Ext.api.parameters.desired_access
+  - Events.process.Ext.api.parameters.desired_access_numeric
+  - Events.process.Ext.api.parameters.handle_type
   - Events.process.Ext.authentication_id
   - Events.process.Ext.code_signature.exists
   - Events.process.Ext.code_signature.status
@@ -125,6 +131,8 @@ fields:
   - Events.process.pid
   - Events.process.thread.Ext.call_stack.callsite_leading_bytes
   - Events.process.thread.Ext.call_stack.callsite_trailing_bytes
+  - Events.process.thread.Ext.call_stack.instruction_pointer
+  - Events.process.thread.Ext.call_stack.module_path
   - Events.process.thread.Ext.call_stack.protection
   - Events.process.thread.Ext.call_stack.symbol_info
   - Events.process.thread.Ext.call_stack_contains_unbacked
@@ -159,6 +167,8 @@ fields:
   - Responses.process.name
   - Responses.process.pid
   - Responses.result
+  - Target.process.name
+  - Target.process.pid
   - agent.build.original
   - agent.id
   - agent.type
@@ -223,6 +233,10 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.api.name
+  - process.Ext.api.parameters.desired_access
+  - process.Ext.api.parameters.desired_access_numeric
+  - process.Ext.api.parameters.handle_type
   - process.Ext.authentication_id
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
@@ -280,6 +294,8 @@ fields:
   - process.pid
   - process.thread.Ext.call_stack.callsite_leading_bytes
   - process.thread.Ext.call_stack.callsite_trailing_bytes
+  - process.thread.Ext.call_stack.instruction_pointer
+  - process.thread.Ext.call_stack.module_path
   - process.thread.Ext.call_stack.protection
   - process.thread.Ext.call_stack.symbol_info
   - process.thread.Ext.call_stack_contains_unbacked

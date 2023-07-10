@@ -84,6 +84,7 @@ fields:
   - process.parent.name
   - process.parent.pid
   - process.pe.imphash
+  - process.pe.original_file_name
   - process.pid
   - user.domain
   - user.id

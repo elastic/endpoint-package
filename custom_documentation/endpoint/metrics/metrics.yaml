@@ -80,6 +80,8 @@ fields:
   - Endpoint.metrics.system_impact.behavior_protection.week_ms
   - Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms
   - Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms
+  - Endpoint.metrics.system_impact.dns_events.week_idle_ms
+  - Endpoint.metrics.system_impact.dns_events.week_ms
   - Endpoint.metrics.system_impact.file_events.week_idle_ms
   - Endpoint.metrics.system_impact.file_events.week_ms
   - Endpoint.metrics.system_impact.library_load_events.week_idle_ms
@@ -101,6 +103,8 @@ fields:
   - Endpoint.metrics.system_impact.process.executable
   - Endpoint.metrics.system_impact.process_events.week_idle_ms
   - Endpoint.metrics.system_impact.process_events.week_ms
+  - Endpoint.metrics.system_impact.ransomware.week_idle_ms
+  - Endpoint.metrics.system_impact.ransomware.week_ms
   - Endpoint.metrics.system_impact.registry_events.week_idle_ms
   - Endpoint.metrics.system_impact.registry_events.week_ms
   - Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms
