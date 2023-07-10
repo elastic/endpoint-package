@@ -74,6 +74,7 @@ fields:
   - process.entry_leader.working_directory
   - process.env_vars
   - process.executable
+  - process.exit_code
   - process.group.id
   - process.group.name
   - process.group_leader.args
