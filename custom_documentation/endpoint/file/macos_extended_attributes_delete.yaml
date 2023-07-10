@@ -1,12 +1,12 @@
-fields:
-  endpoint:
-  - '@timestamp'
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
 identification:
   filter:
     event.action: extended_attributes_delete
     event.dataset: endpoint.events.file
     event.module: endpoint
     host.os.type: macos
-overview:
-  description: FILL ME IN
-  name: FILL ME IN
+fields:
+  endpoint:
+  - '@timestamp'

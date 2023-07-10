@@ -1,3 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: macOS Process Exit
+identification:
+  filter:
+    event.action: end
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    host.os.type: macos
 fields:
   endpoint:
   - '@timestamp'
@@ -72,12 +81,3 @@ fields:
   - user.Ext.real.name
   - user.id
   - user.name
-identification:
-  filter:
-    event.action: end
-    event.dataset: endpoint.events.process
-    event.module: endpoint
-    host.os.type: macos
-overview:
-  description: FILL ME IN
-  name: macOS Process Exit

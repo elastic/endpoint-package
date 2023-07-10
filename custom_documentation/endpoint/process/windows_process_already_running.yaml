@@ -1,3 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: Windows Already Running Process
+identification:
+  filter:
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    event.type: info
+    host.os.type: windows
 fields:
   endpoint:
   - '@timestamp'
@@ -81,12 +90,3 @@ fields:
   - user.domain
   - user.id
   - user.name
-identification:
-  filter:
-    event.dataset: endpoint.events.process
-    event.module: endpoint
-    event.type: info
-    host.os.type: windows
-overview:
-  description: FILL ME IN
-  name: Windows Already Running Process

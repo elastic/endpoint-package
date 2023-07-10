@@ -1,3 +1,11 @@
+overview:
+  description: FILL ME IN
+  name: Endpoint Metrics
+identification:
+  filter:
+    event.action: endpoint_metrics
+    event.dataset: endpoint.metrics
+    event.module: endpoint
 fields:
   endpoint:
   - '@timestamp'
@@ -111,11 +119,3 @@ fields:
   - host.os.type
   - host.os.version
   - message
-identification:
-  filter:
-    event.action: endpoint_metrics
-    event.dataset: endpoint.metrics
-    event.module: endpoint
-overview:
-  description: FILL ME IN
-  name: Endpoint Metrics

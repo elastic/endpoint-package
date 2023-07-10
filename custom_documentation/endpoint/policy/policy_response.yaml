@@ -1,3 +1,11 @@
+overview:
+  description: FILL ME IN
+  name: Policy Response
+identification:
+  filter:
+    event.action: endpoint_policy_response
+    event.dataset: endpoint.policy
+    event.module: endpoint
 fields:
   endpoint:
   - '@timestamp'
@@ -81,11 +89,3 @@ fields:
   - host.os.type
   - host.os.version
   - message
-identification:
-  filter:
-    event.action: endpoint_policy_response
-    event.dataset: endpoint.policy
-    event.module: endpoint
-overview:
-  description: FILL ME IN
-  name: Policy Response

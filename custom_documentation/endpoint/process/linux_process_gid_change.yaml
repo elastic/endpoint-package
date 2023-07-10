@@ -1,3 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: Endpoint Process Group ID Change
+identification:
+  filter:
+    event.action: gid_change
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    host.os.type: linux
 fields:
   endpoint:
   - '@timestamp'
@@ -167,12 +176,3 @@ fields:
   - user.Ext.real.name
   - user.id
   - user.name
-identification:
-  filter:
-    event.action: gid_change
-    event.dataset: endpoint.events.process
-    event.module: endpoint
-    host.os.type: linux
-overview:
-  description: FILL ME IN
-  name: Endpoint Process Group ID Change

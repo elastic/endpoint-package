@@ -1,3 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: macOS Process Exec
+identification:
+  filter:
+    event.action: exec
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    host.os.type: macos
 fields:
   endpoint:
   - '@timestamp'
@@ -75,12 +84,3 @@ fields:
   - user.Ext.real.name
   - user.id
   - user.name
-identification:
-  filter:
-    event.action: exec
-    event.dataset: endpoint.events.process
-    event.module: endpoint
-    host.os.type: macos
-overview:
-  description: FILL ME IN
-  name: macOS Process Exec

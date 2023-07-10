@@ -1,12 +1,12 @@
-fields:
-  endpoint:
-  - '@timestamp'
+overview:
+  description: FILL ME IN
+  name: macOS Malicious Behavior Alert
 identification:
   filter:
     event.code: behavior
     event.dataset: endpoint.alerts
     event.module: endpoint
     host.os.type: macos
-overview:
-  description: FILL ME IN
-  name: macOS Malicious Behavior Alert
+fields:
+  endpoint:
+  - '@timestamp'
