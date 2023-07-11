@@ -54,6 +54,8 @@ fields:
   - process.Ext.session_info.relative_logon_time
   - process.Ext.session_info.relative_password_age
   - process.Ext.session_info.user_flags
+  - process.Ext.trusted
+  - process.Ext.trusted_descendant
   - process.args
   - process.args_count
   - process.code_signature.exists

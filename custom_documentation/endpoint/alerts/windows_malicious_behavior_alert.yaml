@@ -162,6 +162,7 @@ fields:
   - Responses.action.source.attributes
   - Responses.action.source.path
   - Responses.action.state
+  - Responses.action.tree
   - Responses.message
   - Responses.process.entity_id
   - Responses.process.name

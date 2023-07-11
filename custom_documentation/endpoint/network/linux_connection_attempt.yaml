@@ -6,6 +6,7 @@ identification:
     event.action: connection_attempted
     event.dataset: endpoint.events.network
     event.module: endpoint
+    host.os.type: linux
 fields:
   endpoint:
   - '@timestamp'

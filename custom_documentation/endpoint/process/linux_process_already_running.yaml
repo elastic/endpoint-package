@@ -18,6 +18,7 @@ fields:
   - data_stream.type
   - ecs.version
   - elastic.agent.id
+  - event.action
   - event.category
   - event.created
   - event.dataset
@@ -107,6 +108,13 @@ fields:
   - process.hash.sha1
   - process.hash.sha256
   - process.interactive
+  - process.io.bytes_skipped.length
+  - process.io.bytes_skipped.offset
+  - process.io.max_bytes_per_process_exceeded
+  - process.io.text
+  - process.io.total_bytes_captured
+  - process.io.total_bytes_skipped
+  - process.io.type
   - process.name
   - process.parent.args
   - process.parent.args_count
@@ -131,6 +139,9 @@ fields:
   - process.parent.user.name
   - process.parent.working_directory
   - process.pid
+  - process.previous.args
+  - process.previous.args_count
+  - process.previous.executable
   - process.real_group.id
   - process.real_group.name
   - process.real_user.id
@@ -162,6 +173,8 @@ fields:
   - process.supplemental_groups.name
   - process.tty.char_device.major
   - process.tty.char_device.minor
+  - process.tty.columns
+  - process.tty.rows
   - process.user.id
   - process.user.name
   - process.working_directory

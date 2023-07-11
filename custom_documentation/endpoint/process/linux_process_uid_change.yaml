@@ -48,6 +48,7 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.trusted_descendant
   - process.args
   - process.args_count
   - process.command_line
