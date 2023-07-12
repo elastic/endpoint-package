@@ -11,8 +11,6 @@ import (
 	"sort"
 	"strings"
 
-	"os"
-
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
@@ -35,77 +33,6 @@ type fieldsTableRecord struct {
 	name        string
 	description string
 	aType       string
-}
-
-func updateFilterFile(options generateOptions, fieldFiles []string, collected []fieldsTableRecord) error {
-	// if we are not doing this, just bail
-	if !options.updateFilters {
-		return nil
-	}
-
-	// gather the filter files (assert there is only one)
-	filterFiles := gatherFilterFiles(options, fieldFiles)
-	var filter allTheThings
-	var filterFile string
-
-	if len(filterFiles) > 1 {
-		panic(fmt.Sprintf("There are too many files (%d) in the path %s\n", len(filterFiles),
-			filterFiles[0]))
-		return errors.New(fmt.Sprintf("Too many files (%d) in path %s",
-			len(filterFiles), fieldFiles[0]))
-	}
-
-	if len(fieldFiles) == 0 {
-		return errors.New("Not enough files (0)!")
-	}
-
-	// below here, len(fieldFiles) is guaranteed to be 1
-	filterFile = filepath.Join(options.filteringDir, parePath(fieldFiles[0], options.packagesSourceDir))
-
-	for _, c := range collected {
-		filter.Fields = append(filter.Fields, fieldFilter{Ecs: c.name})
-	}
-
-	sort.Slice(filter.Fields, func(i, j int) bool {
-		return filter.Fields[i].Ecs < filter.Fields[j].Ecs
-	})
-
-	if len(filterFiles) == 0 {
-		// There are no filter files right now, so create them
-		fmt.Printf("No filter file found, so just dumping what we have to %s\n",
-			filterFile)
-		dir := filepath.Dir(filterFile)
-		if _, err := os.Stat(dir); errors.Is(err, os.ErrNotExist) {
-			err := os.MkdirAll(dir, os.ModePerm)
-
-			if err != nil {
-				return errors.Wrap(err, fmt.Sprintf("making directory path %s failed", dir))
-			}
-		}
-	} else {
-		// we have some filters, so join the ecs stuff with the existing filter
-		existing, _ := readInFilterFile(filterFile)
-		filter.Definitions = existing.Definitions
-		for i := range filter.Definitions {
-			if filter.Definitions[i].Kind == "" {
-				filter.Definitions[i].Kind = "event"
-			}
-			if len(filter.Definitions[i].Type) == 0 {
-				filter.Definitions[i].Type = append(filter.Definitions[i].Type, "info")
-			}
-		}
-		filter.Os = existing.Os
-		filter.Fields = join(existing.Fields, filter.Fields)
-	}
-
-	// update the things
-	blob, _ := yaml.Marshal(&filter)
-	err := ioutil.WriteFile(filterFile, blob, 0777)
-	if err != nil {
-		return errors.Wrapf(err, "Failed to write file %s", filterFile)
-	}
-
-	return nil
 }
 
 func getFilteredFields(filter allTheThings, name, os string, collected []fieldsTableRecord) []fieldsTableRecord {
@@ -213,12 +140,6 @@ func renderFilteredFields(options generateOptions, packageName, dataStreamName, 
 	collected, err := collectFieldsFromDefinitions(fields)
 	if err != nil {
 		return "", errors.Wrap(err, "collecting fields files failed")
-	}
-
-	// update the filters (bail early if we don't need to update)
-	err = updateFilterFile(options, fieldFiles, collected)
-	if err != nil {
-		return "", errors.Wrap(err, "updating filters failed")
 	}
 
 	var builder strings.Builder

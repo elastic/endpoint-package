@@ -18,7 +18,6 @@ type generateOptions struct {
 	packages          string
 	packagesSourceDir string
 	filteringDir      string
-	updateFilters     bool
 }
 
 func (o *generateOptions) validate() error {
@@ -55,7 +54,6 @@ func main() {
 	flag.StringVar(&options.packages, "packages", "endpoint", "Packages selected for generating docs")
 	flag.StringVar(&options.packagesSourceDir, "sourceDir", "./package", "Path to the packages directory")
 	flag.StringVar(&options.filteringDir, "filteringDir", "./custom_documentation", "Path to the custom_documentation directory (default: ./custom_documentation)")
-	flag.BoolVar(&options.updateFilters, "updateFilters", false, "Do you want to update the filters? (default: false)")
 	flag.Parse()
 
 	err := options.validate()
