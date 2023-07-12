@@ -17,7 +17,7 @@ type generateOptions struct {
 	docTemplatesDir   string
 	packages          string
 	packagesSourceDir string
-	filteringDir      string
+	customDocDir      string
 }
 
 func (o *generateOptions) validate() error {
@@ -29,11 +29,6 @@ func (o *generateOptions) validate() error {
 	_, err = os.Stat(o.docTemplatesDir)
 	if err != nil {
 		return errors.Wrapf(err, "stat file failed for doc templates (path: %s)", o.docTemplatesDir)
-	}
-
-	_, err = os.Stat(o.filteringDir)
-	if err != nil {
-		return errors.Wrapf(err, "stat file failed for filtering directory (path: %s)", o.filteringDir)
 	}
 
 	return nil
@@ -53,7 +48,7 @@ func main() {
 	flag.StringVar(&options.docTemplatesDir, "templates", "./doc_templates", "Path to the README templates directory")
 	flag.StringVar(&options.packages, "packages", "endpoint", "Packages selected for generating docs")
 	flag.StringVar(&options.packagesSourceDir, "sourceDir", "./package", "Path to the packages directory")
-	flag.StringVar(&options.filteringDir, "filteringDir", "./custom_documentation", "Path to the custom_documentation directory (default: ./custom_documentation)")
+	flag.StringVar(&options.customDocDir, "customDocDir", "./custom_documentation", "Path to the custom_documentation directory (default: ./custom_documentation)")
 	flag.Parse()
 
 	err := options.validate()
@@ -74,26 +69,12 @@ func generateDocs(options generateOptions) error {
 	}
 
 	for _, packageName := range packages {
-		streams,err := gatherStreams(options, packageName)
-		if err != nil {
-			return errors.Wrapf(err, "failed to gather streams (packageName: %s)", packageName)
-		}
+        // err = renderCustomDocumentation(options, packageName)
+		// if err != nil {
+		// 	return errors.Wrapf(err, "rendering custom documentation failed (packageName: %s)", packageName)
+		// }
 
-		existing := make(map[string][]string)
-		for _,stream := range streams {
-			for _,os_ := range []string{"linux", "macos", "windows"} {
-				output,err := renderReadmePlatform(options, packageName, stream, os_)
-				if err != nil {
-					return errors.Wrapf(err, "rendering README file for os %s failed (packageName/stream: %s/%s)", os_, packageName, stream)
-				}
-
-				if output {
-					existing[stream] = append(existing[stream], os_)
-				}
-			}
-		}
-
-		err = renderReadme(options, packageName, existing)
+		err = renderReadme(options, packageName)
 		if err != nil {
 			return errors.Wrapf(err, "rendering README file failed (packageName: %s)", packageName)
 		}

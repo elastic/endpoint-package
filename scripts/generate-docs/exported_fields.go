@@ -35,43 +35,7 @@ type fieldsTableRecord struct {
 	aType       string
 }
 
-func getFilteredFields(filter allTheThings, name, os string, collected []fieldsTableRecord) []fieldsTableRecord {
-	var result []fieldsTableRecord
-
-	// create a map from the filter that is limited by event and os
-	var mapping map[string]int = make(map[string]int)
-
-	var found bool = false
-	for i := range filter.Os {
-		if filter.Os[i] == os {
-			found = true
-			break
-		}
-	}
-
-	// if this event isn't supported on this os at all, don't output anything
-	if !found {
-		return result
-	}
-
-	// for each ecs path in the filter
-	for _,f := range filter.Fields {
-		if f.isEmpty() || f.findPath(name, os) {
-			mapping[f.Ecs] = 1
-		}
-	}
-
-	// loop over the collected fields
-	for _,f := range collected {
-		if v,ok := mapping[f.name]; ok && v == 1 {
-			result = append(result, f)
-		}
-	}
-
-	return result
-}
-
-func renderExportedFields(options generateOptions, packageName, dataStreamName string, osMap map[string][]string) (string, error) {
+func renderExportedFields(options generateOptions, packageName, dataStreamName string) (string, error) {
 	dataStreamPath := filepath.Join(options.packagesSourceDir, packageName, "data_stream", dataStreamName)
 	fieldFiles, err := listFieldFields(dataStreamPath)
 	if err != nil {
@@ -89,19 +53,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	}
 
 	var builder strings.Builder
-	builder.WriteString("#### Exported fields -- placeholder\n\n")
-
-	/*
-	var needNewParagraph = false
-	for _,os_ := range osMap[dataStreamName] {
-		needNewParagraph = true
-		builder.WriteString(fmt.Sprintf("* [link to %s-specific fields](%s)\n", os_, filepath.Join(".", dataStreamName, fmt.Sprintf("%s.md", os_))))
-	}
-
-	if needNewParagraph {
-		builder.WriteString("\n\n")
-	}
-	*/
+	builder.WriteString("#### Exported fields\n\n")
 
 	if len(collected) == 0 {
 		builder.WriteString("(no fields available)\n")
@@ -112,91 +64,6 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	for _, c := range collected {
 		description := strings.TrimSpace(strings.ReplaceAll(c.description, "\n", " "))
 		builder.WriteString(fmt.Sprintf("| %s | %s | %s |\n", c.name, description, c.aType))
-	}
-	return builder.String(), nil
-}
-
-func findNeedleInHaystack(needle string, haystack []string) bool {
-	for i := range haystack {
-		if needle == haystack[i] {
-			return true
-		}
-	}
-	return false
-}
-
-func renderFilteredFields(options generateOptions, packageName, dataStreamName, os_ string) (string, error) {
-	dataStreamPath := filepath.Join(options.packagesSourceDir, packageName, "data_stream", dataStreamName)
-	fieldFiles, err := listFieldFields(dataStreamPath)
-	if err != nil {
-		return "", errors.Wrapf(err, "listing field files failed (dataStreamPath: %s)", dataStreamPath)
-	}
-
-	fields, err := loadFields(fieldFiles)
-	if err != nil {
-		return "", errors.Wrap(err, "loading fields files failed")
-	}
-
-	collected, err := collectFieldsFromDefinitions(fields)
-	if err != nil {
-		return "", errors.Wrap(err, "collecting fields files failed")
-	}
-
-	var builder strings.Builder
-
-	// From here, we need to gather the filtered things
-	// If we are supposed to update the filters, do that, too
-	// There should really only be one file, but loop here, anyway
-	filterFiles := gatherFilterFiles(options, fieldFiles)
-	for _, f := range filterFiles {
-		// load the filter
-		var filter, err = readInFilterFile(f)
-		if err != nil {
-			return "", errors.Wrapf(err, "failed to load filter file %s", f)
-		}
-
-		// if this dataStream isn't supported on this os, just bail
-		if !findNeedleInHaystack(os_, filter.Os) {
-			continue
-		}
-
-		// output the definitions
-		if len(filter.Definitions) > 0 {
-			builder.WriteString(fmt.Sprintf("\n*Definitions for %s*\n", dataStreamName))
-			for _, def := range filter.Definitions {
-				def.dumpDefinition(&builder, os_)
-
-			}
-		}
-
-		// loop over the definitions
-		for _, def := range filter.Definitions {
-			// if this event type isn't supported on this os, don't output anything
-			if !def.matchesOs(os_) {
-				continue
-			}
-
-			filteredCollected := getFilteredFields(filter, def.Name, os_, collected)
-
-			builder.WriteString(fmt.Sprintf("Event type: %s\n", def.Name))
-			if len(filteredCollected) == 0 {
-				builder.WriteString("(no fields available)\n\n")
-				continue
-			}
-
-			builder.WriteString("#### Exported fields\n\n")
-			builder.WriteString("| Field | Description | Type |\n")
-			builder.WriteString("|---|---|---|\n")
-			for _, c := range filteredCollected {
-				description := strings.TrimSpace(strings.ReplaceAll(
-					c.description, "\n", " "))
-				builder.WriteString(fmt.Sprintf("| %s | %s | %s |\n",
-					c.name, description, c.aType))
-			}
-			builder.WriteString("\n")
-
-		}
-
 	}
 	return builder.String(), nil
 }
