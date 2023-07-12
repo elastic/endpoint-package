@@ -93,6 +93,8 @@ fields:
   - process.parent.Ext.code_signature.status
   - process.parent.Ext.code_signature.subject_name
   - process.parent.Ext.code_signature.trusted
+  - process.parent.Ext.real.entity_id
+  - process.parent.Ext.real.pid
   - process.parent.args
   - process.parent.args_count
   - process.parent.code_signature.exists
@@ -105,6 +107,7 @@ fields:
   - process.parent.name
   - process.parent.pid
   - process.parent.thread.Ext.call_stack.symbol_info
+  - process.parent.thread.Ext.call_stack_contains_unbacked
   - process.parent.thread.Ext.call_stack_summary
   - process.pe.imphash
   - process.pe.original_file_name

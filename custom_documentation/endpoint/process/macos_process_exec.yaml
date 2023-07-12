@@ -52,6 +52,8 @@ fields:
   - process.Ext.effective_parent.executable
   - process.Ext.effective_parent.name
   - process.Ext.effective_parent.pid
+  - process.Ext.trusted
+  - process.Ext.trusted_descendant
   - process.args
   - process.args_count
   - process.code_signature.exists
@@ -64,6 +66,7 @@ fields:
   - process.entity_id
   - process.env_vars
   - process.executable
+  - process.exit_code
   - process.hash.md5
   - process.hash.sha1
   - process.hash.sha256

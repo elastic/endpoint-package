@@ -10,6 +10,9 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - Target.process.executable
+  - Target.process.name
+  - Target.process.pid
   - agent.id
   - agent.type
   - agent.version
@@ -49,6 +52,7 @@ fields:
   - message
   - process.Ext.ancestry
   - process.Ext.effective_parent.pid
+  - process.Ext.trusted
   - process.Ext.trusted_descendant
   - process.args
   - process.args_count
@@ -60,6 +64,7 @@ fields:
   - process.code_signature.trusted
   - process.command_line
   - process.entity_id
+  - process.env_vars
   - process.executable
   - process.exit_code
   - process.hash.md5

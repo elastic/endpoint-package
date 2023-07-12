@@ -81,6 +81,7 @@ fields:
   - process.entry_leader.user.id
   - process.entry_leader.user.name
   - process.entry_leader.working_directory
+  - process.env_vars
   - process.executable
   - process.group.id
   - process.group.name
