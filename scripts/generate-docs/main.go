@@ -69,10 +69,10 @@ func generateDocs(options generateOptions) error {
 	}
 
 	for _, packageName := range packages {
-        // err = renderCustomDocumentation(options, packageName)
-		// if err != nil {
-		// 	return errors.Wrapf(err, "rendering custom documentation failed (packageName: %s)", packageName)
-		// }
+		err = renderCustomDocumentation(options, packageName)
+		if err != nil {
+			return errors.Wrapf(err, "rendering custom documentation failed (packageName: %s)", packageName)
+		}
 
 		err = renderReadme(options, packageName)
 		if err != nil {
