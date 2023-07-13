@@ -63,6 +63,7 @@ fields:
   - process.thread.Ext.call_stack.instruction_pointer
   - process.thread.Ext.call_stack.module_path
   - process.thread.Ext.call_stack_contains_unbacked
+  - process.thread.Ext.call_stack_final_user_module.path
   - process.thread.id
   - user.domain
   - user.id

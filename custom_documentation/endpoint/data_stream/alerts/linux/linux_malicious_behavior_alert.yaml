@@ -3,8 +3,8 @@ overview:
   name: Linux Malicious Behavior Alert
 identification:
   os:
-    - linux
-  data_stream: "logs-endpoint.alerts-*"
+  - linux
+  data_stream: logs-endpoint.alerts-*
   filter:
     event.code: behavior
     event.dataset: endpoint.alerts
