@@ -18,6 +18,7 @@ fields:
   - data_stream.type
   - ecs.version
   - elastic.agent.id
+  - event.action
   - event.category
   - event.created
   - event.dataset
