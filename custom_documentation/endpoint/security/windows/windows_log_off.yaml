@@ -1,0 +1,12 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  filter:
+    event.action: log_off
+    event.dataset: endpoint.events.security
+    event.module: endpoint
+    host.os.type: windows
+fields:
+  endpoint:
+  - '@timestamp'

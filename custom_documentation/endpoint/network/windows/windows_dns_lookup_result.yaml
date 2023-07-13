@@ -18,6 +18,7 @@ fields:
   - data_stream.type
   - destination.port
   - dns.Ext.options
+  - dns.Ext.status
   - dns.question.name
   - ecs.version
   - elastic.agent.id

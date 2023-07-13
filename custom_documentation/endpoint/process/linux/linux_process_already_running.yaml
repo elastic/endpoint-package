@@ -3,9 +3,9 @@ overview:
   name: Endpoint Already Running Process
 identification:
   filter:
+    event.action: already_running
     event.dataset: endpoint.events.process
     event.module: endpoint
-    event.type: info
     host.os.type: linux
 fields:
   endpoint:
