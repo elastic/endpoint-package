@@ -2,6 +2,9 @@ overview:
   description: FILL ME IN
   name: Linux Malicious Behavior Alert
 identification:
+  os:
+    - linux
+  data_stream: "logs-endpoint.alerts-*"
   filter:
     event.code: behavior
     event.dataset: endpoint.alerts
