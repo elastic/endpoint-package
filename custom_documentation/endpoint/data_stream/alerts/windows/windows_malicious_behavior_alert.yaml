@@ -17,6 +17,18 @@ fields:
   - Endpoint.policy.applied.artifacts.user.identifiers.sha256
   - Endpoint.policy.applied.artifacts.user.version
   - Events.@timestamp
+  - Events.Target.process.Ext.memory_region.allocation_base
+  - Events.Target.process.Ext.memory_region.allocation_protection
+  - Events.Target.process.Ext.memory_region.allocation_size
+  - Events.Target.process.Ext.memory_region.allocation_type
+  - Events.Target.process.Ext.memory_region.bytes_allocation_offset
+  - Events.Target.process.Ext.memory_region.hash.sha256
+  - Events.Target.process.Ext.memory_region.memory_pe_detected
+  - Events.Target.process.Ext.memory_region.region_base
+  - Events.Target.process.Ext.memory_region.region_protection
+  - Events.Target.process.Ext.memory_region.region_size
+  - Events.Target.process.Ext.memory_region.region_state
+  - Events.Target.process.Ext.memory_region.strings
   - Events.Target.process.name
   - Events.Target.process.pid
   - Events._label
@@ -45,6 +57,7 @@ fields:
   - Events.event.id
   - Events.event.kind
   - Events.event.outcome
+  - Events.event.provider
   - Events.event.type
   - Events.file.Ext.entropy
   - Events.file.Ext.header_bytes
@@ -70,15 +83,28 @@ fields:
   - Events.host.os.version
   - Events.message
   - Events.process.Ext.ancestry
+  - Events.process.Ext.api.behaviors
   - Events.process.Ext.api.name
+  - Events.process.Ext.api.parameters.address
   - Events.process.Ext.api.parameters.desired_access
   - Events.process.Ext.api.parameters.desired_access_numeric
   - Events.process.Ext.api.parameters.handle_type
+  - Events.process.Ext.api.parameters.size
+  - Events.process.Ext.api.summary
   - Events.process.Ext.authentication_id
   - Events.process.Ext.code_signature.exists
   - Events.process.Ext.code_signature.status
   - Events.process.Ext.code_signature.subject_name
   - Events.process.Ext.code_signature.trusted
+  - Events.process.Ext.memory_region.allocation_base
+  - Events.process.Ext.memory_region.allocation_protection
+  - Events.process.Ext.memory_region.allocation_size
+  - Events.process.Ext.memory_region.allocation_type
+  - Events.process.Ext.memory_region.mapped_path
+  - Events.process.Ext.memory_region.region_base
+  - Events.process.Ext.memory_region.region_protection
+  - Events.process.Ext.memory_region.region_size
+  - Events.process.Ext.memory_region.region_state
   - Events.process.Ext.mitigation_policies
   - Events.process.Ext.relative_file_creation_time
   - Events.process.Ext.relative_file_name_modify_time
@@ -169,6 +195,18 @@ fields:
   - Responses.process.name
   - Responses.process.pid
   - Responses.result
+  - Target.process.Ext.memory_region.allocation_base
+  - Target.process.Ext.memory_region.allocation_protection
+  - Target.process.Ext.memory_region.allocation_size
+  - Target.process.Ext.memory_region.allocation_type
+  - Target.process.Ext.memory_region.bytes_allocation_offset
+  - Target.process.Ext.memory_region.hash.sha256
+  - Target.process.Ext.memory_region.memory_pe_detected
+  - Target.process.Ext.memory_region.region_base
+  - Target.process.Ext.memory_region.region_protection
+  - Target.process.Ext.memory_region.region_size
+  - Target.process.Ext.memory_region.region_state
+  - Target.process.Ext.memory_region.strings
   - Target.process.name
   - Target.process.pid
   - agent.build.original
@@ -235,15 +273,28 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.api.behaviors
   - process.Ext.api.name
+  - process.Ext.api.parameters.address
   - process.Ext.api.parameters.desired_access
   - process.Ext.api.parameters.desired_access_numeric
   - process.Ext.api.parameters.handle_type
+  - process.Ext.api.parameters.size
+  - process.Ext.api.summary
   - process.Ext.authentication_id
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
   - process.Ext.code_signature.subject_name
   - process.Ext.code_signature.trusted
+  - process.Ext.memory_region.allocation_base
+  - process.Ext.memory_region.allocation_protection
+  - process.Ext.memory_region.allocation_size
+  - process.Ext.memory_region.allocation_type
+  - process.Ext.memory_region.mapped_path
+  - process.Ext.memory_region.region_base
+  - process.Ext.memory_region.region_protection
+  - process.Ext.memory_region.region_size
+  - process.Ext.memory_region.region_state
   - process.Ext.mitigation_policies
   - process.Ext.relative_file_creation_time
   - process.Ext.relative_file_name_modify_time

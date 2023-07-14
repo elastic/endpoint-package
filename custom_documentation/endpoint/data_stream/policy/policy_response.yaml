@@ -3,10 +3,10 @@ overview:
   name: Policy Response
 identification:
   os:
-    - linux
-    - macos
-    - windows
-  data_stream: "metrics-endpoint.policy-*"
+  - linux
+  - macos
+  - windows
+  data_stream: metrics-endpoint.policy-*
   filter:
     event.action: endpoint_policy_response
     event.dataset: endpoint.policy

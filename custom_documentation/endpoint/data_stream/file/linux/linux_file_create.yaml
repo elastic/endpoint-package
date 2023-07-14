@@ -3,8 +3,8 @@ overview:
   name: Linux File Create
 identification:
   os:
-    - linux
-  data_stream: "logs-endpoint.events.file-*"
+  - linux
+  data_stream: logs-endpoint.events.file-*
   filter:
     event.action: creation
     event.dataset: endpoint.events.file

@@ -62,6 +62,7 @@ fields:
   - process.command_line
   - process.entity_id
   - process.executable
+  - process.exit_code
   - process.hash.md5
   - process.hash.sha1
   - process.hash.sha256
