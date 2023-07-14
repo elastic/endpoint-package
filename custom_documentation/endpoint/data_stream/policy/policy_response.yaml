@@ -2,6 +2,11 @@ overview:
   description: FILL ME IN
   name: Policy Response
 identification:
+  os:
+    - linux
+    - macos
+    - windows
+  data_stream: "metrics-endpoint.policy-*"
   filter:
     event.action: endpoint_policy_response
     event.dataset: endpoint.policy
