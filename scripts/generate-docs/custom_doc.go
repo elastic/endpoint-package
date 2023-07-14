@@ -37,8 +37,13 @@ type eventIdentification struct {
 	Filter     map[string]string `yaml:"filter"`
 }
 
+type eventFieldDetails struct {
+	Description string `yaml:"description"`
+}
+
 type eventFields struct {
-	Endpoint []string `yaml:"endpoint"`
+	Endpoint []string                     `yaml:"endpoint"`
+	Details  map[string]eventFieldDetails `yaml:"details"`
 }
 
 type eventDoc struct {
@@ -111,9 +116,7 @@ func loadDataStreamFields(options generateOptions, packageName string, dataStrea
 	return collected, nil
 }
 
-type fieldsTableMap map[string]fieldsTableRecord
-
-func renderCustomDocumentationEvent(options generateOptions, packageName string, event customDocEvent, fields fieldsTableMap) error {
+func renderCustomDocumentationEvent(options generateOptions, packageName string, event customDocEvent) error {
 	templatePath := filepath.Join(options.docTemplatesDir, fmt.Sprintf("%s/docs", packageName), "CustomDocumentation.md")
 
 	_, err := os.Stat(templatePath)
@@ -130,8 +133,20 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 			return event.doc.Overview.Description, nil
 		},
 		"identification_os": func() (string, error) {
-			sort.Strings(event.doc.Identification.Os)
-			return strings.Join(event.doc.Identification.Os, ", "), nil
+			var styleOses []string
+			for _, _os := range event.doc.Identification.Os {
+				if strings.ToLower(_os) == "linux" {
+					styleOses = append(styleOses, "Linux")
+				} else if strings.ToLower(_os) == "windows" {
+					styleOses = append(styleOses, "Windows")
+				} else if strings.ToLower(_os) == "macos" {
+					styleOses = append(styleOses, "macOS")
+				} else {
+					styleOses = append(styleOses, _os)
+				}
+			}
+			sort.Strings(styleOses)
+			return strings.Join(styleOses, ", "), nil
 		},
 		"identification_data_stream": func() (string, error) {
 			return event.doc.Identification.DataStream, nil
@@ -150,10 +165,14 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 		},
 		"fields": func() (string, error) {
 			var builder strings.Builder
-			builder.WriteString("| Field | Description |\n")
+			builder.WriteString("| Field | Comment |\n")
 			builder.WriteString("|---|---|\n")
 			for _, f := range event.doc.Fields.Endpoint {
-				description := strings.TrimSpace(strings.ReplaceAll(fields[f].description, "\n", " "))
+				detail, ok := event.doc.Fields.Details[f]
+				description := ""
+				if ok {
+					description = strings.TrimSpace(strings.ReplaceAll(detail.Description, "\n", " "))
+				}
 				builder.WriteString(fmt.Sprintf("| %s | %s |\n", f, description))
 			}
 			return builder.String(), nil
@@ -164,9 +183,10 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 	}
 
 	subPath := event.fileSubPath
-	if strings.HasSuffix(subPath, "yaml") {
+	subPathLower := strings.ToLower(subPath)
+	if strings.HasSuffix(subPathLower, "yaml") {
 		subPath = subPath[:len(subPath)-4] + "md"
-	} else if strings.HasSuffix(subPath, "yml") {
+	} else if strings.HasSuffix(subPathLower, "yml") {
 		subPath = subPath[:len(subPath)-3] + "md"
 	} else {
 		subPath = subPath + ".md"
@@ -175,7 +195,7 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 	outputPath := filepath.Join(options.packagesSourceDir, packageName, "docs", "custom_documentation", subPath)
 	f, err := os.OpenFile(outputPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
-		return errors.Wrapf(err, "opening %s for writing failed", outputPath)
+		return errors.Wrapf(err, "opening %s for writing failed, does the directory exist?", outputPath)
 	}
 	defer f.Close()
 
@@ -207,34 +227,13 @@ func renderCustomDocumentation(options generateOptions, packageName string) erro
 		log.Printf(" - Overview.Name: %s", event.doc.Overview.Name)
 		log.Printf(" - Overview.Description: %s", event.doc.Overview.Description)
 		log.Printf(" - Identification.Filter: %s", event.doc.Identification.Filter)
+		log.Printf(" - Details: %s", event.doc.Fields.Details)
 
 		// TODO enforce good data in event.doc
 
-		fields, err := loadDataStreamFields(options, packageName, event.dataStream)
+		err = renderCustomDocumentationEvent(options, packageName, event)
 		if err != nil {
-			return errors.Wrapf(err, "failed to load data stream fields for %s", event.dataStream)
-		}
-
-		haveFields := make(fieldsTableMap)
-		for _, field := range fields {
-			haveFields[field.name] = field
-		}
-
-		for _, wantFieldName := range event.doc.Fields.Endpoint {
-			haveField, ok := haveFields[wantFieldName]
-			if !ok {
-				err := fmt.Errorf("field %s in %s is not in data_steam %s definition",
-					wantFieldName, event.filePath, event.dataStream)
-				// TODO return error don't just print it. this requires documentation updates first.
-				log.Printf("ERROR FIXME: %s", err)
-			}
-
-			log.Printf(" - HAVE %s %s", wantFieldName, haveField.name)
-
-			err := renderCustomDocumentationEvent(options, packageName, event, haveFields)
-			if err != nil {
-				return errors.Wrapf(err, "failed to render %s", event.filePath)
-			}
+			return errors.Wrapf(err, "failed to render %s", event.filePath)
 		}
 	}
 	return nil
