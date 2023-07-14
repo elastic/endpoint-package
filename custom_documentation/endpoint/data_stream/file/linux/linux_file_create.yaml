@@ -2,6 +2,9 @@ overview:
   description: FILL ME IN
   name: Endpoint Metrics
 identification:
+  os:
+    - linux
+  data_stream: "logs-endpoint.events.file-*"
   filter:
     event.action: creation
     event.dataset: endpoint.events.file

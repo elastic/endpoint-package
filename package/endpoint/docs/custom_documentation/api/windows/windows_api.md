@@ -67,6 +67,7 @@ FILL ME IN
 | process.thread.Ext.call_stack.instruction_pointer |  |
 | process.thread.Ext.call_stack.module_path |  |
 | process.thread.Ext.call_stack_contains_unbacked |  |
+| process.thread.Ext.call_stack_final_user_module.path |  |
 | process.thread.id | Thread ID. |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. |
 | user.id | Unique identifier of the user. |

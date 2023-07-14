@@ -4,8 +4,8 @@ FILL ME IN
 
 ## Identification
 
-- OS: 
-- Data Stream: ``
+- OS: linux
+- Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
 ## Fields

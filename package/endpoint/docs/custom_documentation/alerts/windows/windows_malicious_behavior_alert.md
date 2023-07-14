@@ -139,6 +139,7 @@ FILL ME IN
 | Events.process.thread.Ext.call_stack.protection |  |
 | Events.process.thread.Ext.call_stack.symbol_info |  |
 | Events.process.thread.Ext.call_stack_contains_unbacked |  |
+| Events.process.thread.Ext.call_stack_final_user_module.path |  |
 | Events.process.thread.Ext.call_stack_summary |  |
 | Events.process.thread.id |  |
 | Events.process.uptime |  |
@@ -303,6 +304,7 @@ FILL ME IN
 | process.thread.Ext.call_stack.protection |  |
 | process.thread.Ext.call_stack.symbol_info |  |
 | process.thread.Ext.call_stack_contains_unbacked |  |
+| process.thread.Ext.call_stack_final_user_module.path |  |
 | process.thread.Ext.call_stack_summary |  |
 | process.thread.id | Thread ID. |
 | process.uptime | Seconds the process has been up. |
