@@ -137,7 +137,26 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 			return event.doc.Identification.DataStream, nil
 		},
 		"identification_kql": func() (string, error) {
-			return "FILL ME IN", nil
+			var terms []string
+			var keys []string
+			for key := range event.doc.Identification.Filter {
+				keys = append(keys, key)
+			}
+			sort.Strings(keys)
+			for _, key := range keys {
+				terms = append(terms, fmt.Sprintf("%s : \"%s\"", key, event.doc.Identification.Filter[key]))
+			}
+			return strings.Join(terms, " and "), nil
+		},
+		"fields": func() (string, error) {
+			var builder strings.Builder
+			builder.WriteString("| Field | Description |\n")
+			builder.WriteString("|---|---|\n")
+			for _, f := range event.doc.Fields.Endpoint {
+				description := strings.TrimSpace(strings.ReplaceAll(fields[f].description, "\n", " "))
+				builder.WriteString(fmt.Sprintf("| %s | %s |\n", f, description))
+			}
+			return builder.String(), nil
 		},
 	}).ParseFiles(templatePath)
 	if err != nil {

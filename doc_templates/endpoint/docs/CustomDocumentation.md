@@ -6,4 +6,8 @@
 
 - OS: {{identification_os}}
 - Data Stream: `{{identification_data_stream}}`
-- KQL: {{identification_kql}}
+- KQL: `{{identification_kql}}`
+
+## Fields
+
+{{fields}}
