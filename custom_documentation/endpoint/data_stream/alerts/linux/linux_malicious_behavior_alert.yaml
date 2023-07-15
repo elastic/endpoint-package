@@ -19,9 +19,9 @@ fields:
   - Endpoint.policy.applied.artifacts.user.identifiers.name
   - Endpoint.policy.applied.artifacts.user.identifiers.sha256
   - Endpoint.policy.applied.artifacts.user.version
+  - Events.*
   - Events._label
   - Events._state
-  - Events.*
   - Responses.@timestamp
   - Responses.action.action
   - Responses.action.field
@@ -36,6 +36,9 @@ fields:
   - agent.id
   - agent.type
   - agent.version
+  - cloud.account.id
+  - cloud.provider
+  - cloud.region
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
@@ -76,6 +79,8 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - orchestrator.cluster.id
+  - orchestrator.cluster.name
   - process.Ext.ancestry
   - process.args
   - process.args_count
@@ -219,5 +224,5 @@ fields:
   - user.id
   - user.name
   details:
-   Events.*:
-     description: FILL ME IN
+    Events.*:
+      description: FILL ME IN

@@ -64,6 +64,9 @@ fields:
   - process.Ext.api.parameters.desired_access
   - process.Ext.api.parameters.desired_access_numeric
   - process.Ext.api.parameters.handle_type
+  - process.Ext.api.parameters.name
+  - process.Ext.api.parameters.protection
+  - process.Ext.api.parameters.protection_old
   - process.Ext.api.parameters.size
   - process.Ext.api.summary
   - process.Ext.code_signature.exists

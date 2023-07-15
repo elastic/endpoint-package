@@ -16,9 +16,9 @@ fields:
   - Endpoint.policy.applied.artifacts.user.identifiers.name
   - Endpoint.policy.applied.artifacts.user.identifiers.sha256
   - Endpoint.policy.applied.artifacts.user.version
+  - Events.*
   - Events._label
   - Events._state
-  - Events.*
   - Responses.@timestamp
   - Responses.action.action
   - Responses.action.field
@@ -122,5 +122,5 @@ fields:
   - user.id
   - user.name
   details:
-   Events.*:
-     description: FILL ME IN
+    Events.*:
+      description: FILL ME IN

@@ -13,6 +13,9 @@ fields:
   - agent.id
   - agent.type
   - agent.version
+  - cloud.account.id
+  - cloud.provider
+  - cloud.region
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
@@ -47,6 +50,8 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - orchestrator.cluster.id
+  - orchestrator.cluster.name
   - process.Ext.ancestry
   - process.args
   - process.args_count
