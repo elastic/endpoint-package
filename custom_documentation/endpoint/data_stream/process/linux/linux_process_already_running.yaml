@@ -179,6 +179,8 @@ fields:
   - process.session_leader.user.name
   - process.session_leader.working_directory
   - process.start
+  - process.supplemental_groups.id
+  - process.supplemental_groups.name
   - process.tty.char_device.major
   - process.tty.char_device.minor
   - process.user.id

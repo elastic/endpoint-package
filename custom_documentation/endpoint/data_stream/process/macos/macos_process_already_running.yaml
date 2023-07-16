@@ -48,6 +48,7 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.args
   - process.args_count
   - process.code_signature.exists
   - process.code_signature.signing_id
@@ -55,6 +56,7 @@ fields:
   - process.code_signature.subject_name
   - process.code_signature.team_id
   - process.code_signature.trusted
+  - process.command_line
   - process.entity_id
   - process.executable
   - process.hash.md5
