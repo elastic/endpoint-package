@@ -15,6 +15,7 @@ fields:
   - agent.version
   - cloud.account.id
   - cloud.instance.name
+  - cloud.project.id
   - cloud.provider
   - cloud.region
   - container.id

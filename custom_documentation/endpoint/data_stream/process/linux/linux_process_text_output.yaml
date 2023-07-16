@@ -13,6 +13,15 @@ fields:
   - agent.id
   - agent.type
   - agent.version
+  - cloud.instance.name
+  - cloud.project.id
+  - cloud.provider
+  - cloud.region
+  - container.id
+  - container.image.hash.all
+  - container.image.name
+  - container.image.tag
+  - container.name
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
@@ -47,6 +56,13 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - orchestrator.cluster.id
+  - orchestrator.cluster.name
+  - orchestrator.namespace
+  - orchestrator.resource.ip
+  - orchestrator.resource.name
+  - orchestrator.resource.parent.type
+  - orchestrator.resource.type
   - process.Ext.ancestry
   - process.args
   - process.args_count

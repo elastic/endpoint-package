@@ -15,6 +15,7 @@ fields:
   - agent.version
   - cloud.account.id
   - cloud.instance.name
+  - cloud.project.id
   - cloud.provider
   - cloud.region
   - container.id
@@ -69,6 +70,7 @@ fields:
   - process.args
   - process.args_count
   - process.command_line
+  - process.end
   - process.entity_id
   - process.entry_leader.args
   - process.entry_leader.args_count
