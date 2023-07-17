@@ -1,10 +1,11 @@
-# FILL ME IN
+# Endpoint Metrics
 
 - OS: Linux, Windows, macOS
 - Data Stream: `metrics-endpoint.metrics-*`
 - KQL: `event.action : "endpoint_metrics" and event.dataset : "endpoint.metrics" and event.module : "endpoint"`
 
-FILL ME IN
+This is an internal state management document that includes metrics on Endpoint's performance.
+
 
 | Field |
 |---|

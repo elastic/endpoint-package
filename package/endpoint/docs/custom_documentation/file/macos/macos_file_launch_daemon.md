@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Launch Daemon
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "launch_daemon" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event includes information about a macOS Launch Daemon.
+
 
 | Field |
 |---|

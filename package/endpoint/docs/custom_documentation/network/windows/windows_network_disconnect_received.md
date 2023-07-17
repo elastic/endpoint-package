@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Network Disconnect Received
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a request to terminate a network session is received.
+
 
 | Field |
 |---|

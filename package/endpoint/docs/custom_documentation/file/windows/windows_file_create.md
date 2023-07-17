@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows File Create
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a file is created.
+
 
 | Field |
 |---|

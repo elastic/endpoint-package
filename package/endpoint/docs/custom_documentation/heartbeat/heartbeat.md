@@ -1,10 +1,11 @@
-# FILL ME IN
+# Endpoint Heartbeat
 
 - OS: Linux, Windows, macOS
 - Data Stream: `metrics-endpoint.heartbeat-*`
 - KQL: `data_stream.dataset : "endpoint.heartbeat"`
 
-FILL ME IN
+This is a small state management documented generated periodically to validate that Endpoint is running and can write to Elasticsearch.
+
 
 | Field |
 |---|

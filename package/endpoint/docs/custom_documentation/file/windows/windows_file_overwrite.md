@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows File Overwrite
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "overwrite" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a file is overwritten
+
 
 | Field |
 |---|

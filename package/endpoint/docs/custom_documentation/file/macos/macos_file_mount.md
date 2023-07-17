@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Mount
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "mount" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a file system is mounted.
+
 
 | Field |
 |---|

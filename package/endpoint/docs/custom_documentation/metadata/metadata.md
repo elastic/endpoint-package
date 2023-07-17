@@ -1,10 +1,11 @@
-# FILL ME IN
+# Endpoint Metadata
 
 - OS: Linux, Windows, macOS
 - Data Stream: `metrics-endpoint.metadata-*`
 - KQL: `event.action : "endpoint_metadata" and event.dataset : "endpoint.metadata" and event.module : "endpoint"`
 
-FILL ME IN
+This is a relatively small state management document that includes details about an installed Endpoint.
+
 
 | Field |
 |---|

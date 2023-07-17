@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Network Connection Attempted
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "connection_attempted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a network connection is attempted.
+
 
 | Field |
 |---|

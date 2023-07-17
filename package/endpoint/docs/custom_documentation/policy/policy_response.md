@@ -1,10 +1,11 @@
-# FILL ME IN
+# Endpoint Policy Response
 
 - OS: Linux, Windows, macOS
 - Data Stream: `metrics-endpoint.policy-*`
 - KQL: `event.action : "endpoint_policy_response" and event.dataset : "endpoint.policy" and event.module : "endpoint"`
 
-FILL ME IN
+This is a state management document that is generated every time Endpoint refreshes it's policy. It contains details of what Endpoint features are and are not in a healthy state.
+
 
 | Field |
 |---|

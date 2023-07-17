@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Session ID Change
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "session_id_change" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a process's session id changes.
+
 
 | Field |
 |---|

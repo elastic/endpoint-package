@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Registry Modification
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.registry-*`
 - KQL: `event.action : "modification" and event.dataset : "endpoint.events.registry" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when the registry is modified.
+
 
 | Field |
 |---|

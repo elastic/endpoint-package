@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Network Disconnect
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generatd when a network session is terminated.
+
 
 | Field |
 |---|

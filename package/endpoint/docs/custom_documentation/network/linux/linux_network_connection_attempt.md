@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Network Connection Attempt
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "connection_attempted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generatd when there is an attempt to establish a network connection.
+
 
 | Field |
 |---|

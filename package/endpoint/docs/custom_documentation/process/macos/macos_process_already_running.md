@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Already Running Process
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "already_running" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated for a process that was already running before Endpoint's process event collection was enabled.
+
 
 | Field |
 |---|

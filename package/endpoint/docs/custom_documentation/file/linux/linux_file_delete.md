@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux File Delete
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "deletion" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a file is deleted.
+
 
 | Field |
 |---|

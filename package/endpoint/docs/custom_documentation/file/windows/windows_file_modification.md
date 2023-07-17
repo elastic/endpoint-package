@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows File Modification
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "modification" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a file is modified.
+
 
 | Field |
 |---|

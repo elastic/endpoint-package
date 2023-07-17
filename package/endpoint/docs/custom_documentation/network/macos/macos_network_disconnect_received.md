@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Network Disconnect Received
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a request to terminate a network connection occurs.
+
 
 | Field |
 |---|

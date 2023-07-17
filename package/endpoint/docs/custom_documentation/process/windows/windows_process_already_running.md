@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Already Running Process
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "already_running" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated for a process that was already running before process collection was enabled.
+
 
 | Field |
 |---|

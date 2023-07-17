@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Process User ID Change
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "uid_change" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when the user id changes for a process.
+
 
 | Field |
 |---|

@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Process Create
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "start" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a process is created.
+
 
 | Field |
 |---|

@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Malicious Behavior Alert
 
 - OS: macOS
 - Data Stream: `logs-endpoint.alerts-*`
 - KQL: `event.code : "behavior" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This alert is generated when a Malicious Behavior alert occurs.
+
 
 | Field |
 |---|
@@ -15,7 +16,7 @@ FILL ME IN
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.user.version |
-| Events.*<br /><br />FILL ME IN |
+| Events.*<br /><br />Events is a list containing embedded copies of all events that triggered the Malicious Behavior alert. All fields that can exist in any event document can appear in this list. |
 | Events._label |
 | Events._state |
 | Responses.@timestamp |

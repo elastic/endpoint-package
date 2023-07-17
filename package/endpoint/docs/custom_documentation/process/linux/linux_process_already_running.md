@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Already Running Process
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "already_running" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated for a process that was already running before Endpoint's process collection was enabled.
+
 
 | Field |
 |---|

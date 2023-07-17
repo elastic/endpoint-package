@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Process Exec
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "exec" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a process calls `exec()`.
+
 
 | Field |
 |---|

@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Memory Threat Alert
 
 - OS: macOS
 - Data Stream: `logs-endpoint.alerts-*`
 - KQL: `event.code : "memory_signature" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This alert is generated when a macOS Memory Thread alert occurs.
+
 
 | Field |
 |---|

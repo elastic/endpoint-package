@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Network Connection Accepted
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "connection_accepted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a network connection is accepted.
+
 
 | Field |
 |---|

@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows User Log On
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
 - KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a user logs on to the computer.
+
 
 | Field |
 |---|

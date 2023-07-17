@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Process Text Output
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "text_output" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a process generates text output.
+
 
 | Field |
 |---|

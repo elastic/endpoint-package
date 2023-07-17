@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Remote Thread
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "remote_thread" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a remote thread is created.
+
 
 | Field |
 |---|

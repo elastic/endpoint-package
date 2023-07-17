@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Registry Query
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.registry-*`
 - KQL: `event.action : "query" and event.dataset : "endpoint.events.registry" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when the Windows registry is queried.
+
 
 | Field |
 |---|

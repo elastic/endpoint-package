@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Process Exit
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "end" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a process exits.
+
 
 | Field |
 |---|

@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux File Rename
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "rename" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a file is renamed.
+
 
 | Field |
 |---|

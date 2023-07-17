@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows DNS Lookup Result
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "lookup_result" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when results are returned for a DNS lookup request.
+
 
 | Field |
 |---|

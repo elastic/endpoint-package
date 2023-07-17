@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Library Load
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.library-*`
 - KQL: `event.action : "load" and event.dataset : "endpoint.events.library" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a DLL or driver is loaded.
+
 
 | Field |
 |---|

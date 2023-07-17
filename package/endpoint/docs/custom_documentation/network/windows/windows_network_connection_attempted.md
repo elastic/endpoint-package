@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Network Connection Attempted
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "connection_attempted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when there is an attempt to establish a network connection.
+
 
 | Field |
 |---|

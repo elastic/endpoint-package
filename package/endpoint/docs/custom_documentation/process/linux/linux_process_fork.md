@@ -1,10 +1,11 @@
-# FILL ME IN
+# Linux Process Fork
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "fork" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-FILL ME IN
+This event is generated when a new process is created using `fork()`.
+
 
 | Field |
 |---|

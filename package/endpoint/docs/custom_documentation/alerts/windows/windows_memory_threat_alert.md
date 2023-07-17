@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows Memory Threat Alert
 
 - OS: Windows
 - Data Stream: `logs-endpoint.alerts-*`
 - KQL: `event.code : "memory_signature" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This alert is generated when a Memory Threat alert occurs.
+
 
 | Field |
 |---|

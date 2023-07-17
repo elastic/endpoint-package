@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows API
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.api-*`
 - KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when one of a currated set of monitored low-level APIs is invoked.
+
 
 | Field |
 |---|

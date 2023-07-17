@@ -1,10 +1,11 @@
-# FILL ME IN
+# Windows User Log Off
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
 - KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
 
-FILL ME IN
+This event is generated when a user logs off of the computer.
+
 
 | Field |
 |---|

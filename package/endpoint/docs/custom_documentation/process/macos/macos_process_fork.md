@@ -1,10 +1,11 @@
-# FILL ME IN
+# macOS Process Fork
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "fork" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-FILL ME IN
+This event is generated when a new process is created using `fork()`.
+
 
 | Field |
 |---|
