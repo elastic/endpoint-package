@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS Launch Daemon
+  description: >
+    This event includes information about a macOS Launch Daemon.
 identification:
   filter:
     event.action: launch_daemon

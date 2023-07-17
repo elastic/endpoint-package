@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux Network Disconnect
+  description: >
+    This event is generatd when a network session is terminated.
 identification:
   filter:
     event.action: disconnect_received

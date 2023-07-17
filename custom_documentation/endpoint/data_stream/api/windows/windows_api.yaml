@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows API
+  description: >
+    This event is generated when one of a currated set of monitored low-level APIs is invoked.
 identification:
   filter:
     event.dataset: endpoint.events.api
