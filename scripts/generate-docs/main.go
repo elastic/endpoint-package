@@ -17,6 +17,7 @@ type generateOptions struct {
 	docTemplatesDir   string
 	packages          string
 	packagesSourceDir string
+	customDocDir      string
 }
 
 func (o *generateOptions) validate() error {
@@ -47,6 +48,7 @@ func main() {
 	flag.StringVar(&options.docTemplatesDir, "templates", "./doc_templates", "Path to the README templates directory")
 	flag.StringVar(&options.packages, "packages", "endpoint", "Packages selected for generating docs")
 	flag.StringVar(&options.packagesSourceDir, "sourceDir", "./package", "Path to the packages directory")
+	flag.StringVar(&options.customDocDir, "customDocDir", "./custom_documentation", "Path to the custom_documentation directory (default: ./custom_documentation)")
 	flag.Parse()
 
 	err := options.validate()
@@ -67,6 +69,11 @@ func generateDocs(options generateOptions) error {
 	}
 
 	for _, packageName := range packages {
+		err = renderCustomDocumentation(options, packageName)
+		if err != nil {
+			return errors.Wrapf(err, "rendering custom documentation failed (packageName: %s)", packageName)
+		}
+
 		err = renderReadme(options, packageName)
 		if err != nil {
 			return errors.Wrapf(err, "rendering README file failed (packageName: %s)", packageName)
