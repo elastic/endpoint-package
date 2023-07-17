@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS Mount
+  description: >
+    This event is generated when a file system is mounted.
 identification:
   filter:
     event.action: mount

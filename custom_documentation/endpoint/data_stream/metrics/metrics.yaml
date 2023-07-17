@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Endpoint Metrics
+  description: >
+    This is an internal state management document that includes metrics on Endpoint's performance.
 identification:
   os:
   - linux

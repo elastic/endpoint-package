@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS File Extended Attributes Delete
+  description: >
+    This event is generated when extended file attributes are deleted.
 identification:
   filter:
     event.action: extended_attributes_delete

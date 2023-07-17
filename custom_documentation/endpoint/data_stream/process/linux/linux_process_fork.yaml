@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux Process Fork
+  description: >
+    This event is generated when a new process is created using `fork()`.
 identification:
   filter:
     event.action: fork
