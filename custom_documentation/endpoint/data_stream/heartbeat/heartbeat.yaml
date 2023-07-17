@@ -12,3 +12,8 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - agent.id
+  - data_stream.dataset
+  - data_stream.namespace
+  - data_stream.type
+  - message
