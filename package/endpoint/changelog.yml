@@ -1,8 +1,16 @@
-- version: "8.9.0-next"
+- version: "8.9.1"
   changes:
-    - description: TBD
+    - description: Update description copy
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/364
+      link: https://github.com/elastic/endpoint-package/pull/380
+- version: "8.9.0"
+  changes:
+    - description: Fix mapping error by replacing string with keyword
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/373
+    - description: ETW Threat-Intelligence API Event metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/370
 - version: "8.8.0"
   changes:
     - description: change action.key.values to object in alerts
