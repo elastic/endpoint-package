@@ -3,10 +3,13 @@ overview:
   name: FILL ME IN
 identification:
   filter:
-    event.action: mount
-    event.dataset: endpoint.events.file
+    event.action: lookup_result
+    event.dataset: endpoint.events.network
     event.module: endpoint
-    host.os.type: macos
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.network-*
 fields:
   endpoint:
   - '@timestamp'
@@ -16,6 +19,10 @@ fields:
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - destination.port
+  - dns.Ext.options
+  - dns.Ext.status
+  - dns.question.name
   - ecs.version
   - elastic.agent.id
   - event.action
@@ -28,13 +35,6 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
-  - file.Ext.original.path
-  - file.inode
-  - file.path
-  - group.Ext.real.id
-  - group.Ext.real.name
-  - group.id
-  - group.name
   - host.architecture
   - host.hostname
   - host.id
@@ -50,19 +50,21 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - network.destination.port
+  - network.protocol
   - process.Ext.ancestry
+  - process.Ext.code_signature.exists
+  - process.Ext.code_signature.status
+  - process.Ext.code_signature.subject_name
+  - process.Ext.code_signature.trusted
   - process.code_signature.exists
-  - process.code_signature.signing_id
   - process.code_signature.status
   - process.code_signature.subject_name
-  - process.code_signature.team_id
   - process.code_signature.trusted
   - process.entity_id
   - process.executable
   - process.name
-  - process.parent.pid
   - process.pid
-  - user.Ext.real.id
-  - user.Ext.real.name
+  - user.domain
   - user.id
   - user.name

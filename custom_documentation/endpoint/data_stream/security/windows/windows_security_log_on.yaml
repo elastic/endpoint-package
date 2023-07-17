@@ -3,10 +3,13 @@ overview:
   name: FILL ME IN
 identification:
   filter:
-    event.action: modification
-    event.dataset: endpoint.events.file
+    event.action: log_on
+    event.dataset: endpoint.events.security
     event.module: endpoint
-    host.os.type: macos
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.security-*
 fields:
   endpoint:
   - '@timestamp'
@@ -28,16 +31,6 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
-  - file.Ext.header_bytes
-  - file.extension
-  - file.inode
-  - file.name
-  - file.path
-  - file.size
-  - group.Ext.real.id
-  - group.Ext.real.name
-  - group.id
-  - group.name
   - host.architecture
   - host.hostname
   - host.id
@@ -54,18 +47,17 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.code_signature.exists
+  - process.Ext.code_signature.status
+  - process.Ext.code_signature.subject_name
+  - process.Ext.code_signature.trusted
   - process.code_signature.exists
-  - process.code_signature.signing_id
   - process.code_signature.status
   - process.code_signature.subject_name
-  - process.code_signature.team_id
   - process.code_signature.trusted
   - process.entity_id
   - process.executable
   - process.name
-  - process.parent.pid
-  - process.pid
-  - user.Ext.real.id
-  - user.Ext.real.name
+  - user.domain
   - user.id
   - user.name

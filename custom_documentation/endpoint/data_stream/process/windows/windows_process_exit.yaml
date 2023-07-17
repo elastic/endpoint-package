@@ -7,6 +7,9 @@ identification:
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.process-*
 fields:
   endpoint:
   - '@timestamp'

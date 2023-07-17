@@ -3,10 +3,13 @@ overview:
   name: FILL ME IN
 identification:
   filter:
-    event.action: extended_attributes_delete
-    event.dataset: endpoint.events.file
+    event.action: connection_accepted
+    event.dataset: endpoint.events.network
     event.module: endpoint
-    host.os.type: macos
+    host.os.type: linux
+  os:
+  - linux
+  data_stream: logs-endpoint.events.network-*
 fields:
   endpoint:
   - '@timestamp'
@@ -16,6 +19,9 @@ fields:
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - destination.address
+  - destination.ip
+  - destination.port
   - ecs.version
   - elastic.agent.id
   - event.action
@@ -28,11 +34,6 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
-  - file.attributes
-  - file.inode
-  - file.name
-  - file.path
-  - file.size
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id
@@ -52,18 +53,21 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - network.transport
+  - network.type
   - process.Ext.ancestry
-  - process.code_signature.exists
-  - process.code_signature.signing_id
-  - process.code_signature.status
-  - process.code_signature.subject_name
-  - process.code_signature.team_id
-  - process.code_signature.trusted
   - process.entity_id
+  - process.entry_leader.entity_id
+  - process.entry_leader.parent.entity_id
   - process.executable
+  - process.group_leader.entity_id
   - process.name
-  - process.parent.pid
+  - process.parent.entity_id
   - process.pid
+  - process.session_leader.entity_id
+  - source.address
+  - source.ip
+  - source.port
   - user.Ext.real.id
   - user.Ext.real.name
   - user.id

@@ -2,8 +2,13 @@ overview:
   description: FILL ME IN
   name: Endpoint Heartbeat
 identification:
+  os:
+  - linux
+  - macos
+  - windows
   filter:
     data_stream.dataset: endpoint.heartbeat
+  data_stream: metrics-endpoint.heartbeat-*
 fields:
   endpoint:
   - '@timestamp'

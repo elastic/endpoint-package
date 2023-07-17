@@ -2,10 +2,15 @@ overview:
   description: FILL ME IN
   name: Endpoint Metrics
 identification:
+  os:
+  - linux
+  - macos
+  - windows
   filter:
     event.action: endpoint_metrics
     event.dataset: endpoint.metrics
     event.module: endpoint
+  data_stream: metrics-endpoint.metrics-*
 fields:
   endpoint:
   - '@timestamp'
