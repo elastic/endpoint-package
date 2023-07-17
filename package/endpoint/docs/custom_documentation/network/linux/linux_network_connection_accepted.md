@@ -1,8 +1,8 @@
 # FILL ME IN
 
-- OS: Windows
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "rename" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- OS: Linux
+- Data Stream: `logs-endpoint.events.network-*`
+- KQL: `event.action : "connection_accepted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
 FILL ME IN
 
@@ -15,6 +15,9 @@ FILL ME IN
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
+| destination.address |
+| destination.ip |
+| destination.port |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -27,15 +30,10 @@ FILL ME IN
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.original.name |
-| file.Ext.original.path |
-| file.extension |
-| file.name |
-| file.path |
-| file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -51,22 +49,23 @@ FILL ME IN
 | host.os.type |
 | host.os.version |
 | message |
+| network.transport |
+| network.type |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
 | process.entity_id |
+| process.entry_leader.entity_id |
+| process.entry_leader.parent.entity_id |
 | process.executable |
+| process.group_leader.entity_id |
 | process.name |
-| process.parent.pid |
+| process.parent.entity_id |
 | process.pid |
-| process.thread.id |
-| user.domain |
+| process.session_leader.entity_id |
+| source.address |
+| source.ip |
+| source.port |
+| user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
 | user.name |
 

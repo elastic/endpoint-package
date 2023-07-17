@@ -7,7 +7,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -93,6 +92,34 @@ func loadCustomDocFile(path string) (eventDoc, error) {
 		return result, errors.Wrapf(err, "parsing yaml failed (path: %s)", path)
 	}
 
+	// do some light validation
+	if result.Overview.Name == "" {
+		return result, fmt.Errorf("missing overview.name in %s", path)
+	}
+	if result.Overview.Description == "" {
+		return result, fmt.Errorf("missing overview.description in %s", path)
+	}
+
+	if len(result.Identification.Os) == 0 {
+		return result, fmt.Errorf("missing identification.os in %s", path)
+	}
+	for _, _os := range result.Identification.Os {
+		low := strings.ToLower(_os)
+		if low != "linux" && low != "macos" && low != "windows" {
+			return result, fmt.Errorf("invalid identification.os value %s", path)
+		}
+	}
+
+	if result.Identification.DataStream == "" {
+		return result, fmt.Errorf("missing identification.data_stream in %s", path)
+	}
+	if len(result.Identification.Filter) == 0 {
+		return result, fmt.Errorf("missing identification.filter in %s", path)
+	}
+	if len(result.Fields.Endpoint) == 0 {
+		return result, fmt.Errorf("missing fields.endpoint in %s", path)
+	}
+
 	return result, nil
 }
 
@@ -114,6 +141,25 @@ func loadDataStreamFields(options generateOptions, packageName string, dataStrea
 	}
 
 	return collected, nil
+}
+
+func renderCustomDocumentationReadme(options generateOptions, packageName string) error {
+	readmePath := filepath.Join(options.docTemplatesDir, fmt.Sprintf("%s/docs", packageName), "CustomDocumentationREADME.md")
+
+	content, err := ioutil.ReadFile(readmePath)
+	if err != nil {
+		return errors.Wrapf(err, "failed to read readme file %s", readmePath)
+	}
+
+	outputPath := filepath.Join(options.packagesSourceDir, packageName, "docs", "custom_documentation", "README.md")
+
+	// Write data to dst
+	err = ioutil.WriteFile(outputPath, content, 0644)
+	if err != nil {
+		return errors.Wrapf(err, "write readme (path: %s)", outputPath)
+	}
+
+	return nil
 }
 
 func renderCustomDocumentationEvent(options generateOptions, packageName string, event customDocEvent) error {
@@ -165,15 +211,14 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 		},
 		"fields": func() (string, error) {
 			var builder strings.Builder
-			builder.WriteString("| Field | Comment |\n")
-			builder.WriteString("|---|---|\n")
+			builder.WriteString("| Field |\n")
+			builder.WriteString("|---|\n")
 			for _, f := range event.doc.Fields.Endpoint {
 				detail, ok := event.doc.Fields.Details[f]
-				description := ""
 				if ok {
-					description = strings.TrimSpace(strings.ReplaceAll(detail.Description, "\n", " "))
+					f += "<br /><br />" + strings.TrimSpace(strings.ReplaceAll(detail.Description, "\n", " "))
 				}
-				builder.WriteString(fmt.Sprintf("| %s | %s |\n", f, description))
+				builder.WriteString(fmt.Sprintf("| %s |\n", f))
 			}
 			return builder.String(), nil
 		},
@@ -221,20 +266,16 @@ func renderCustomDocumentation(options generateOptions, packageName string) erro
 		}
 
 		event.doc = doc
-
-		log.Printf("CUSTOM YAML %s", event.filePath)
-		log.Printf(" - Data Stream Name: %s", event.dataStream)
-		log.Printf(" - Overview.Name: %s", event.doc.Overview.Name)
-		log.Printf(" - Overview.Description: %s", event.doc.Overview.Description)
-		log.Printf(" - Identification.Filter: %s", event.doc.Identification.Filter)
-		log.Printf(" - Details: %s", event.doc.Fields.Details)
-
-		// TODO enforce good data in event.doc
-
 		err = renderCustomDocumentationEvent(options, packageName, event)
 		if err != nil {
 			return errors.Wrapf(err, "failed to render %s", event.filePath)
 		}
 	}
+
+	err = renderCustomDocumentationReadme(options, packageName)
+	if err != nil {
+		return errors.Wrapf(err, "failed to render readme after rendering all other documentation")
+	}
+
 	return nil
 }

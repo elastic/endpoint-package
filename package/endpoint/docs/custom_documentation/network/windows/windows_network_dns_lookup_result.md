@@ -1,8 +1,8 @@
 # FILL ME IN
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "rename" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.network-*`
+- KQL: `event.action : "lookup_result" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
 FILL ME IN
 
@@ -15,6 +15,10 @@ FILL ME IN
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
+| destination.port |
+| dns.Ext.options |
+| dns.Ext.status |
+| dns.question.name |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -27,15 +31,6 @@ FILL ME IN
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.original.name |
-| file.Ext.original.path |
-| file.extension |
-| file.name |
-| file.path |
-| file.size |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -51,6 +46,8 @@ FILL ME IN
 | host.os.type |
 | host.os.version |
 | message |
+| network.destination.port |
+| network.protocol |
 | process.Ext.ancestry |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
@@ -63,9 +60,7 @@ FILL ME IN
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
 | process.pid |
-| process.thread.id |
 | user.domain |
 | user.id |
 | user.name |

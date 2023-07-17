@@ -1,123 +1,123 @@
 # macOS Malicious Behavior Alert
 
-- OS: 
-- Data Stream: ``
+- OS: macOS
+- Data Stream: `logs-endpoint.alerts-*`
 - KQL: `event.code : "behavior" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "macos"`
 
 FILL ME IN
 
-| Field | Comment |
-|---|---|
-| @timestamp |  |
-| Endpoint.policy.applied.artifacts.global.identifiers.name |  |
-| Endpoint.policy.applied.artifacts.global.identifiers.sha256 |  |
-| Endpoint.policy.applied.artifacts.global.version |  |
-| Endpoint.policy.applied.artifacts.user.identifiers.name |  |
-| Endpoint.policy.applied.artifacts.user.identifiers.sha256 |  |
-| Endpoint.policy.applied.artifacts.user.version |  |
-| Events._label |  |
-| Events._state |  |
-| Events.* | FILL ME IN |
-| Responses.@timestamp |  |
-| Responses.action.action |  |
-| Responses.action.field |  |
-| Responses.action.state |  |
-| Responses.action.tree |  |
-| Responses.message |  |
-| Responses.process.entity_id |  |
-| Responses.process.name |  |
-| Responses.process.pid |  |
-| Responses.result |  |
-| agent.build.original |  |
-| agent.id |  |
-| agent.type |  |
-| agent.version |  |
-| data_stream.dataset |  |
-| data_stream.namespace |  |
-| data_stream.type |  |
-| ecs.version |  |
-| elastic.agent.id |  |
-| event.action |  |
-| event.category |  |
-| event.code |  |
-| event.created |  |
-| event.dataset |  |
-| event.id |  |
-| event.kind |  |
-| event.module |  |
-| event.outcome |  |
-| event.risk_score |  |
-| event.sequence |  |
-| event.severity |  |
-| event.type |  |
-| file.extension |  |
-| file.inode |  |
-| file.name |  |
-| file.path |  |
-| file.size |  |
-| group.Ext.real.id |  |
-| group.Ext.real.name |  |
-| group.id |  |
-| group.name |  |
-| host.architecture |  |
-| host.hostname |  |
-| host.id |  |
-| host.ip |  |
-| host.mac |  |
-| host.name |  |
-| host.os.Ext.variant |  |
-| host.os.family |  |
-| host.os.full |  |
-| host.os.kernel |  |
-| host.os.name |  |
-| host.os.platform |  |
-| host.os.type |  |
-| host.os.version |  |
-| message |  |
-| process.Ext.ancestry |  |
-| process.args |  |
-| process.args_count |  |
-| process.code_signature.exists |  |
-| process.code_signature.signing_id |  |
-| process.code_signature.status |  |
-| process.code_signature.subject_name |  |
-| process.code_signature.team_id |  |
-| process.code_signature.trusted |  |
-| process.command_line |  |
-| process.entity_id |  |
-| process.executable |  |
-| process.hash.md5 |  |
-| process.hash.sha1 |  |
-| process.hash.sha256 |  |
-| process.name |  |
-| process.parent.args_count |  |
-| process.parent.code_signature.exists |  |
-| process.parent.code_signature.signing_id |  |
-| process.parent.code_signature.status |  |
-| process.parent.code_signature.subject_name |  |
-| process.parent.code_signature.team_id |  |
-| process.parent.code_signature.trusted |  |
-| process.parent.entity_id |  |
-| process.parent.executable |  |
-| process.parent.name |  |
-| process.parent.pid |  |
-| process.pid |  |
-| rule.description |  |
-| rule.id |  |
-| rule.name |  |
-| rule.reference |  |
-| rule.ruleset |  |
-| rule.version |  |
-| threat.framework |  |
-| threat.tactic.id |  |
-| threat.tactic.name |  |
-| threat.tactic.reference |  |
-| threat.technique.id |  |
-| threat.technique.name |  |
-| threat.technique.reference |  |
-| threat.technique.subtechnique |  |
-| user.Ext.real.id |  |
-| user.Ext.real.name |  |
-| user.id |  |
-| user.name |  |
+| Field |
+|---|
+| @timestamp |
+| Endpoint.policy.applied.artifacts.global.identifiers.name |
+| Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.version |
+| Endpoint.policy.applied.artifacts.user.identifiers.name |
+| Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.user.version |
+| Events.*<br /><br />FILL ME IN |
+| Events._label |
+| Events._state |
+| Responses.@timestamp |
+| Responses.action.action |
+| Responses.action.field |
+| Responses.action.state |
+| Responses.action.tree |
+| Responses.message |
+| Responses.process.entity_id |
+| Responses.process.name |
+| Responses.process.pid |
+| Responses.result |
+| agent.build.original |
+| agent.id |
+| agent.type |
+| agent.version |
+| data_stream.dataset |
+| data_stream.namespace |
+| data_stream.type |
+| ecs.version |
+| elastic.agent.id |
+| event.action |
+| event.category |
+| event.code |
+| event.created |
+| event.dataset |
+| event.id |
+| event.kind |
+| event.module |
+| event.outcome |
+| event.risk_score |
+| event.sequence |
+| event.severity |
+| event.type |
+| file.extension |
+| file.inode |
+| file.name |
+| file.path |
+| file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
+| host.architecture |
+| host.hostname |
+| host.id |
+| host.ip |
+| host.mac |
+| host.name |
+| host.os.Ext.variant |
+| host.os.family |
+| host.os.full |
+| host.os.kernel |
+| host.os.name |
+| host.os.platform |
+| host.os.type |
+| host.os.version |
+| message |
+| process.Ext.ancestry |
+| process.args |
+| process.args_count |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
+| process.command_line |
+| process.entity_id |
+| process.executable |
+| process.hash.md5 |
+| process.hash.sha1 |
+| process.hash.sha256 |
+| process.name |
+| process.parent.args_count |
+| process.parent.code_signature.exists |
+| process.parent.code_signature.signing_id |
+| process.parent.code_signature.status |
+| process.parent.code_signature.subject_name |
+| process.parent.code_signature.team_id |
+| process.parent.code_signature.trusted |
+| process.parent.entity_id |
+| process.parent.executable |
+| process.parent.name |
+| process.parent.pid |
+| process.pid |
+| rule.description |
+| rule.id |
+| rule.name |
+| rule.reference |
+| rule.ruleset |
+| rule.version |
+| threat.framework |
+| threat.tactic.id |
+| threat.tactic.name |
+| threat.tactic.reference |
+| threat.technique.id |
+| threat.technique.name |
+| threat.technique.reference |
+| threat.technique.subtechnique |
+| user.Ext.real.id |
+| user.Ext.real.name |
+| user.id |
+| user.name |
 

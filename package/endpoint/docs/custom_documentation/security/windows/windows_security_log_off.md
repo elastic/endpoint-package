@@ -1,8 +1,8 @@
 # FILL ME IN
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "rename" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.security-*`
+- KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
 
 FILL ME IN
 
@@ -27,15 +27,6 @@ FILL ME IN
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.original.name |
-| file.Ext.original.path |
-| file.extension |
-| file.name |
-| file.path |
-| file.size |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -62,10 +53,6 @@ FILL ME IN
 | process.code_signature.trusted |
 | process.entity_id |
 | process.executable |
-| process.name |
-| process.parent.pid |
-| process.pid |
-| process.thread.id |
 | user.domain |
 | user.id |
 | user.name |

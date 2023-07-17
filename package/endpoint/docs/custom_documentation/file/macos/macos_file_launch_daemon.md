@@ -1,14 +1,19 @@
 # FILL ME IN
 
-- OS: Windows
+- OS: macOS
 - Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "rename" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "launch_daemon" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "macos"`
 
 FILL ME IN
 
 | Field |
 |---|
 | @timestamp |
+| Persistence.args |
+| Persistence.keepalive |
+| Persistence.name |
+| Persistence.path |
+| Persistence.runatload |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -27,15 +32,10 @@ FILL ME IN
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.original.name |
-| file.Ext.original.path |
-| file.extension |
-| file.name |
-| file.path |
-| file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -52,21 +52,18 @@ FILL ME IN
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
 | process.code_signature.exists |
+| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
 | process.pid |
-| process.thread.id |
-| user.domain |
+| user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
 | user.name |
 

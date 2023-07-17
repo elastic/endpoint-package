@@ -1,118 +1,118 @@
 # macOS Memory Threat Alert
 
-- OS: 
-- Data Stream: ``
+- OS: macOS
+- Data Stream: `logs-endpoint.alerts-*`
 - KQL: `event.code : "memory_signature" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "macos"`
 
 FILL ME IN
 
-| Field | Comment |
-|---|---|
-| @timestamp |  |
-| Endpoint.policy.applied.artifacts.global.identifiers.name |  |
-| Endpoint.policy.applied.artifacts.global.identifiers.sha256 |  |
-| Endpoint.policy.applied.artifacts.global.version |  |
-| Endpoint.policy.applied.artifacts.user.identifiers.name |  |
-| Endpoint.policy.applied.artifacts.user.identifiers.sha256 |  |
-| Endpoint.policy.applied.artifacts.user.version |  |
-| agent.build.original |  |
-| agent.id |  |
-| agent.type |  |
-| agent.version |  |
-| data_stream.dataset |  |
-| data_stream.namespace |  |
-| data_stream.type |  |
-| ecs.version |  |
-| elastic.agent.id |  |
-| event.category |  |
-| event.code |  |
-| event.created |  |
-| event.dataset |  |
-| event.id |  |
-| event.kind |  |
-| event.module |  |
-| event.outcome |  |
-| event.risk_score |  |
-| event.sequence |  |
-| event.severity |  |
-| event.type |  |
-| host.architecture |  |
-| host.hostname |  |
-| host.id |  |
-| host.ip |  |
-| host.mac |  |
-| host.name |  |
-| host.os.Ext.variant |  |
-| host.os.family |  |
-| host.os.full |  |
-| host.os.kernel |  |
-| host.os.name |  |
-| host.os.platform |  |
-| host.os.type |  |
-| host.os.version |  |
-| message |  |
-| process.Ext.ancestry |  |
-| process.Ext.memory_region.allocation_base |  |
-| process.Ext.memory_region.allocation_size |  |
-| process.Ext.memory_region.allocation_type |  |
-| process.Ext.memory_region.bytes_address |  |
-| process.Ext.memory_region.bytes_allocation_offset |  |
-| process.Ext.memory_region.bytes_compressed |  |
-| process.Ext.memory_region.bytes_compressed_present |  |
-| process.Ext.memory_region.malware_signature.all_names |  |
-| process.Ext.memory_region.malware_signature.identifier |  |
-| process.Ext.memory_region.malware_signature.primary.matches |  |
-| process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 |  |
-| process.Ext.memory_region.malware_signature.primary.signature.id |  |
-| process.Ext.memory_region.malware_signature.primary.signature.name |  |
-| process.Ext.memory_region.malware_signature.version |  |
-| process.Ext.memory_region.region_base |  |
-| process.Ext.memory_region.region_protection |  |
-| process.Ext.memory_region.region_size |  |
-| process.Ext.user |  |
-| process.args |  |
-| process.args_count |  |
-| process.code_signature.exists |  |
-| process.code_signature.signing_id |  |
-| process.code_signature.status |  |
-| process.code_signature.subject_name |  |
-| process.code_signature.team_id |  |
-| process.code_signature.trusted |  |
-| process.command_line |  |
-| process.entity_id |  |
-| process.executable |  |
-| process.hash.md5 |  |
-| process.hash.sha1 |  |
-| process.hash.sha256 |  |
-| process.name |  |
-| process.parent.Ext.user |  |
-| process.parent.args |  |
-| process.parent.args_count |  |
-| process.parent.code_signature.exists |  |
-| process.parent.code_signature.signing_id |  |
-| process.parent.code_signature.status |  |
-| process.parent.code_signature.subject_name |  |
-| process.parent.code_signature.team_id |  |
-| process.parent.code_signature.trusted |  |
-| process.parent.command_line |  |
-| process.parent.entity_id |  |
-| process.parent.executable |  |
-| process.parent.hash.md5 |  |
-| process.parent.hash.sha1 |  |
-| process.parent.hash.sha256 |  |
-| process.parent.name |  |
-| process.parent.pgid |  |
-| process.parent.pid |  |
-| process.parent.ppid |  |
-| process.parent.start |  |
-| process.parent.uptime |  |
-| process.pgid |  |
-| process.pid |  |
-| process.ppid |  |
-| process.start |  |
-| process.uptime |  |
-| rule.id |  |
-| rule.name |  |
-| rule.ruleset |  |
-| user.name |  |
+| Field |
+|---|
+| @timestamp |
+| Endpoint.policy.applied.artifacts.global.identifiers.name |
+| Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.version |
+| Endpoint.policy.applied.artifacts.user.identifiers.name |
+| Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.user.version |
+| agent.build.original |
+| agent.id |
+| agent.type |
+| agent.version |
+| data_stream.dataset |
+| data_stream.namespace |
+| data_stream.type |
+| ecs.version |
+| elastic.agent.id |
+| event.category |
+| event.code |
+| event.created |
+| event.dataset |
+| event.id |
+| event.kind |
+| event.module |
+| event.outcome |
+| event.risk_score |
+| event.sequence |
+| event.severity |
+| event.type |
+| host.architecture |
+| host.hostname |
+| host.id |
+| host.ip |
+| host.mac |
+| host.name |
+| host.os.Ext.variant |
+| host.os.family |
+| host.os.full |
+| host.os.kernel |
+| host.os.name |
+| host.os.platform |
+| host.os.type |
+| host.os.version |
+| message |
+| process.Ext.ancestry |
+| process.Ext.memory_region.allocation_base |
+| process.Ext.memory_region.allocation_size |
+| process.Ext.memory_region.allocation_type |
+| process.Ext.memory_region.bytes_address |
+| process.Ext.memory_region.bytes_allocation_offset |
+| process.Ext.memory_region.bytes_compressed |
+| process.Ext.memory_region.bytes_compressed_present |
+| process.Ext.memory_region.malware_signature.all_names |
+| process.Ext.memory_region.malware_signature.identifier |
+| process.Ext.memory_region.malware_signature.primary.matches |
+| process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 |
+| process.Ext.memory_region.malware_signature.primary.signature.id |
+| process.Ext.memory_region.malware_signature.primary.signature.name |
+| process.Ext.memory_region.malware_signature.version |
+| process.Ext.memory_region.region_base |
+| process.Ext.memory_region.region_protection |
+| process.Ext.memory_region.region_size |
+| process.Ext.user |
+| process.args |
+| process.args_count |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
+| process.command_line |
+| process.entity_id |
+| process.executable |
+| process.hash.md5 |
+| process.hash.sha1 |
+| process.hash.sha256 |
+| process.name |
+| process.parent.Ext.user |
+| process.parent.args |
+| process.parent.args_count |
+| process.parent.code_signature.exists |
+| process.parent.code_signature.signing_id |
+| process.parent.code_signature.status |
+| process.parent.code_signature.subject_name |
+| process.parent.code_signature.team_id |
+| process.parent.code_signature.trusted |
+| process.parent.command_line |
+| process.parent.entity_id |
+| process.parent.executable |
+| process.parent.hash.md5 |
+| process.parent.hash.sha1 |
+| process.parent.hash.sha256 |
+| process.parent.name |
+| process.parent.pgid |
+| process.parent.pid |
+| process.parent.ppid |
+| process.parent.start |
+| process.parent.uptime |
+| process.pgid |
+| process.pid |
+| process.ppid |
+| process.start |
+| process.uptime |
+| rule.id |
+| rule.name |
+| rule.ruleset |
+| user.name |
 
