@@ -163,6 +163,8 @@ fields:
   - process.parent.real_user.id
   - process.parent.real_user.name
   - process.parent.start
+  - process.parent.supplemental_groups.id
+  - process.parent.supplemental_groups.name
   - process.parent.user.id
   - process.parent.user.name
   - process.parent.working_directory
@@ -193,6 +195,8 @@ fields:
   - process.session_leader.user.name
   - process.session_leader.working_directory
   - process.start
+  - process.supplemental_groups.id
+  - process.supplemental_groups.name
   - process.user.id
   - process.user.name
   - process.working_directory
