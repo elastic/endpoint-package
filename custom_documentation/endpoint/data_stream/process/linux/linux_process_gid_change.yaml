@@ -1,0 +1,15 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  filter:
+    event.action: gid_change
+    event.dataset: endpoint.events.process
+    event.module: endpoint
+    host.os.type: linux
+  os:
+  - linux
+  data_stream: logs-endpoint.events.process-*
+fields:
+  endpoint:
+  - '@timestamp'

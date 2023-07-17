@@ -1,0 +1,16 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  os:
+  - linux
+  - macos
+  - windows
+  data_stream: metrics-endpoint.policy-*
+  filter:
+    event.action: endpoint_policy_response
+    event.dataset: endpoint.policy
+    event.module: endpoint
+fields:
+  endpoint:
+  - '@timestamp'

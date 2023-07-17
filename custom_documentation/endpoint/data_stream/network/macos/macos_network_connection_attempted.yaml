@@ -1,0 +1,15 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  filter:
+    event.action: connection_attempted
+    event.dataset: endpoint.events.network
+    event.module: endpoint
+    host.os.type: macos
+  os:
+  - macos
+  data_stream: logs-endpoint.events.network-*
+fields:
+  endpoint:
+  - '@timestamp'

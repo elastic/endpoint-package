@@ -1,0 +1,15 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  filter:
+    event.action: extended_attributes_delete
+    event.dataset: endpoint.events.file
+    event.module: endpoint
+    host.os.type: macos
+  os:
+  - macos
+  data_stream: logs-endpoint.events.file-*
+fields:
+  endpoint:
+  - '@timestamp'

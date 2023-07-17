@@ -1,0 +1,16 @@
+overview:
+  name: FILL ME IN
+  description: FILL ME IN
+identification:
+  os:
+  - linux
+  - macos
+  - windows
+  filter:
+    event.module: endpoint
+    event.action: endpoint_metadata
+    event.dataset: endpoint.metadata
+  data_stream: metrics-endpoint.metadata-*
+fields:
+  endpoint:
+  - '@timestamp'

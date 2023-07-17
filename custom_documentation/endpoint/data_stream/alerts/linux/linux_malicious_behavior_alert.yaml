@@ -1,0 +1,18 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  os:
+  - linux
+  data_stream: logs-endpoint.alerts-*
+  filter:
+    event.code: behavior
+    event.dataset: endpoint.alerts
+    event.module: endpoint
+    host.os.type: linux
+fields:
+  endpoint:
+  - '@timestamp'
+  details:
+    Events.*:
+      description: FILL ME IN

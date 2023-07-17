@@ -1,0 +1,15 @@
+overview:
+  description: FILL ME IN
+  name: FILL ME IN
+identification:
+  filter:
+    event.action: load
+    event.dataset: endpoint.events.library
+    event.module: endpoint
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.library-*
+fields:
+  endpoint:
+  - '@timestamp'
