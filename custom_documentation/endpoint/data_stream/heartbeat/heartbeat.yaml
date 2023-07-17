@@ -1,6 +1,8 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Endpoint Heartbeat
+  description: >
+    This is a small state management documented generated periodically to validate that Endpoint is
+    running and can write to Elasticsearch.
 identification:
   os:
   - linux

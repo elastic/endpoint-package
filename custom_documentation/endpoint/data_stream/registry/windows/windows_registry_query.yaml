@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows Registry Query
+  description: >
+    This event is generated when the Windows registry is queried.
 identification:
   filter:
     event.action: query

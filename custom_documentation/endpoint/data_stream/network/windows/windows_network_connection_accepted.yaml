@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows Network Connection Accepted
+  description: >
+    This event is generated when a network connection is accepted.
 identification:
   filter:
     event.action: connection_accepted

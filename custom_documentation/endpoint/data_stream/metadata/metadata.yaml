@@ -1,6 +1,8 @@
 overview:
-  name: FILL ME IN
-  description: FILL ME IN
+  name: Endpoint Metadata
+  description: >
+    This is a relatively small state management document that includes details about an installed
+    Endpoint.
 identification:
   os:
   - linux

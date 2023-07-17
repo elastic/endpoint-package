@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows Shellcode Thread Alert
+  description: >
+    This alert is generated when a Shellcode Threat alert occurs.
 identification:
   filter:
     event.code: shellcode_thread

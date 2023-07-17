@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux File Rename
+  description: >
+    This event is generated when a file is renamed.
 identification:
   filter:
     event.action: rename

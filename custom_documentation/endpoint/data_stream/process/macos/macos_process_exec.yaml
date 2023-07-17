@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS Process Exec
+  description: >
+    This event is generated when a process calls `exec()`.
 identification:
   filter:
     event.action: exec

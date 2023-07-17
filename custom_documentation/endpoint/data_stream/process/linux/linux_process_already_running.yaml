@@ -1,6 +1,8 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux Already Running Process
+  description: >
+    This event is generated for a process that was already running before Endpoint's process
+    collection was enabled.
 identification:
   filter:
     event.action: already_running

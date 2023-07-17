@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows DNS Lookup Result
+  description: >
+    This event is generated when results are returned for a DNS lookup request.
 identification:
   filter:
     event.action: lookup_result

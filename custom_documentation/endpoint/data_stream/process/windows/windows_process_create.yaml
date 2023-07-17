@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows Process Create
+  description: >
+    This event is generated when a process is created.
 identification:
   filter:
     event.action: start

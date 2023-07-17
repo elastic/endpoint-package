@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux Malicious Behavior Alert
+  description: >
+    This alert is generated when a Malicious Behavior alert occurs.
 identification:
   os:
   - linux
@@ -15,4 +16,6 @@ fields:
   - '@timestamp'
   details:
     Events.*:
-      description: FILL ME IN
+      description: >
+        Events is a list containing embedded copies of all events that triggered the Malicious
+        Behavior alert. All fields that can exist in any event document can appear in this list.
