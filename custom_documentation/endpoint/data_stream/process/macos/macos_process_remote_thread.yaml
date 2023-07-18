@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS Remote Thread
+  description: >
+    This event is generated when a remote thread is created.
 identification:
   filter:
     event.action: remote_thread

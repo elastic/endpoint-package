@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows User Log On
+  description: >
+    This event is generated when a user logs on to the computer.
 identification:
   filter:
     event.action: log_on

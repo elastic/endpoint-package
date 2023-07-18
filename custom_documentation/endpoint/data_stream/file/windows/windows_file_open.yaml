@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows File Open
+  description: >
+    This event is generated when a file is opened.
 identification:
   filter:
     event.action: open

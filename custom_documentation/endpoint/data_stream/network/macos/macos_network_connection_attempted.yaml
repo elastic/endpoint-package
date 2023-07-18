@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: macOS Network Connection Attempted
+  description: >
+    This event is generated when a network connection is attempted.
 identification:
   filter:
     event.action: connection_attempted

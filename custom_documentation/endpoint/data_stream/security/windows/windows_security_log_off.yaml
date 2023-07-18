@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows User Log Off
+  description: >
+    This event is generated when a user logs off of the computer.
 identification:
   filter:
     event.action: log_off

@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Linux Process Text Output
+  description: >
+    This event is generated when a process generates text output.
 identification:
   filter:
     event.action: text_output

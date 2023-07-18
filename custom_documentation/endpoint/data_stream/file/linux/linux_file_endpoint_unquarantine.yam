@@ -1,0 +1,16 @@
+overview:
+  name: Linux Malware Unquarantine
+  description: >
+    This event is generated when Endpoint restores a file from the malware quarantine.
+identification:
+  filter:
+    event.action: endpoint_unquarantine
+    event.dataset: endpoint.events.file
+    event.module: endpoint
+    host.os.type: linux
+  os:
+  - linux
+  data_stream: logs-endpoint.events.file-*
+fields:
+  endpoint:
+  - '@timestamp'

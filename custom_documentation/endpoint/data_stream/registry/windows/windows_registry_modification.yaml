@@ -1,6 +1,7 @@
 overview:
-  description: FILL ME IN
-  name: FILL ME IN
+  name: Windows Registry Modification
+  description: >
+    This event is generated when the registry is modified.
 identification:
   filter:
     event.action: modification
