@@ -91,6 +91,21 @@
       type: keyword
       description: Actions taken by Registry Rollback for value 
 
+    - name: action.process.path
+      level: custom
+      type: keyword
+      description: Path of process killed by Process Rollback
+
+    - name: action.process.message
+      level: custom
+      type: keyword
+      description: Status message for Process Rollback
+
+    - name: action.process.result
+      level: custom
+      type: long
+      description: Result code for Process Rollback
+
     - name: message
       level: custom
       type: text

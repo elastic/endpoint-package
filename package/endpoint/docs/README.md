@@ -83,6 +83,9 @@ sent by the endpoint.
 | Responses.action.key.values | Values modified | object |
 | Responses.action.key.values.actions | Actions taken by Registry Rollback for value | keyword |
 | Responses.action.key.values.name | Value name recovered by Rollback | keyword |
+| Responses.action.process.message | Status message for Process Rollback | keyword |
+| Responses.action.process.path | Path of process killed by Process Rollback | keyword |
+| Responses.action.process.result | Result code for Process Rollback | long |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |

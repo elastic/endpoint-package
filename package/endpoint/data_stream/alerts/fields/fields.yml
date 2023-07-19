@@ -434,6 +434,23 @@
       ignore_above: 1024
       description: Value name recovered by Rollback
       default_field: false
+    - name: action.process.message
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Status message for Process Rollback
+      default_field: false
+    - name: action.process.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Path of process killed by Process Rollback
+      default_field: false
+    - name: action.process.result
+      level: custom
+      type: long
+      description: Result code for Process Rollback
+      default_field: false
     - name: action.source.attributes
       level: custom
       type: keyword

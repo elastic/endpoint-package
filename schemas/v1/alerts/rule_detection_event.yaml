@@ -143,6 +143,35 @@ Responses.action.key.values.name:
   normalize: []
   short: Value name recovered by Rollback
   type: keyword
+Responses.action.process.message:
+  dashed_name: Responses-action-process-message
+  description: Status message for Process Rollback
+  flat_name: Responses.action.process.message
+  ignore_above: 1024
+  level: custom
+  name: action.process.message
+  normalize: []
+  short: Status message for Process Rollback
+  type: keyword
+Responses.action.process.path:
+  dashed_name: Responses-action-process-path
+  description: Path of process killed by Process Rollback
+  flat_name: Responses.action.process.path
+  ignore_above: 1024
+  level: custom
+  name: action.process.path
+  normalize: []
+  short: Path of process killed by Process Rollback
+  type: keyword
+Responses.action.process.result:
+  dashed_name: Responses-action-process-result
+  description: Result code for Process Rollback
+  flat_name: Responses.action.process.result
+  level: custom
+  name: action.process.result
+  normalize: []
+  short: Result code for Process Rollback
+  type: long
 Responses.action.source.attributes:
   dashed_name: Responses-action-source-attributes
   description: Source file attributes
