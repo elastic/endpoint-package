@@ -1,7 +1,9 @@
 overview:
   name: Windows API
-  description: >
-    This event is generated when one of a currated set of monitored low-level APIs is invoked.
+  description: 'This event is generated when one of a currated set of monitored low-level
+    APIs is invoked.
+
+    '
 identification:
   filter:
     event.dataset: endpoint.events.api
@@ -65,6 +67,7 @@ fields:
   - process.Ext.api.behaviors
   - process.Ext.api.name
   - process.Ext.api.parameters.address
+  - process.Ext.api.parameters.allocation_type
   - process.Ext.api.parameters.desired_access
   - process.Ext.api.parameters.desired_access_numeric
   - process.Ext.api.parameters.handle_type
