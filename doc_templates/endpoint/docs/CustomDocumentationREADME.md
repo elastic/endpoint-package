@@ -8,5 +8,5 @@ integration pipeline enrichment in Elasticsearch are not within the scope of thi
 
 Endpoint state management documents are desribed in a cross-platform way because they are largely
 identical on each OS. Events are documented per-OS. Documentation for each state management or event
-document includes the revelvant OS(es), the data stream the document is found in, a KQL filter to
+document includes the relevant OS(es), the data stream the document is found in, a KQL filter to
 match on the document, and all the fields associated with the document.
