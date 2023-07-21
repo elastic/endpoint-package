@@ -6,7 +6,7 @@ The subdirectories document all ECS fields that may exist in documents generated
 logs and metrics datastreams. Only fields included by Endpoint are documented, those added during
 integration pipeline enrichment in Elasticsearch are not within the scope of this documentation.
 
-Endpoint state management documents are desribed in a cross-platform way because they are largely
+Endpoint state management documents are described in a cross-platform way because they are largely
 identical on each OS. Events are documented per-OS. Documentation for each state management or event
 document includes the relevant OS(es), the data stream the document is found in, a KQL filter to
 match on the document, and all the fields associated with the document.
