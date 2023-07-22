@@ -1,7 +1,8 @@
 overview:
   name: Linux Process Text Output
-  description: >
-    This event is generated when a process generates text output.
+  description: 'This event is generated when a process generates text output.
+
+    '
 identification:
   filter:
     event.action: text_output
@@ -148,6 +149,8 @@ fields:
   - process.parent.start
   - process.parent.supplemental_groups.id
   - process.parent.supplemental_groups.name
+  - process.parent.tty.char_device.major
+  - process.parent.tty.char_device.minor
   - process.parent.user.id
   - process.parent.user.name
   - process.parent.working_directory

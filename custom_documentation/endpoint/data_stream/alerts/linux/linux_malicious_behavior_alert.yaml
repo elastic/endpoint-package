@@ -142,6 +142,8 @@ fields:
   - process.group_leader.real_user.name
   - process.group_leader.same_as_process
   - process.group_leader.start
+  - process.group_leader.supplemental_groups.id
+  - process.group_leader.supplemental_groups.name
   - process.group_leader.tty.char_device.major
   - process.group_leader.tty.char_device.minor
   - process.group_leader.user.id
@@ -197,6 +199,8 @@ fields:
   - process.session_leader.real_user.name
   - process.session_leader.same_as_process
   - process.session_leader.start
+  - process.session_leader.supplemental_groups.id
+  - process.session_leader.supplemental_groups.name
   - process.session_leader.tty.char_device.major
   - process.session_leader.tty.char_device.minor
   - process.session_leader.user.id
