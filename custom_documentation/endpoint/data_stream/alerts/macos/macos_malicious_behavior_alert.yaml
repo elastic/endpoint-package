@@ -1,7 +1,8 @@
 overview:
   name: macOS Malicious Behavior Alert
-  description: >
-    This alert is generated when a Malicious Behavior alert occurs.
+  description: 'This alert is generated when a Malicious Behavior alert occurs.
+
+    '
 identification:
   filter:
     event.code: behavior
@@ -91,6 +92,7 @@ fields:
   - process.command_line
   - process.entity_id
   - process.executable
+  - process.exit_code
   - process.hash.md5
   - process.hash.sha1
   - process.hash.sha256
@@ -127,6 +129,8 @@ fields:
   - user.name
   details:
     Events.*:
-      description: >
-        Events is a list containing embedded copies of all events that triggered the Malicious
-        Behavior alert. All fields that can exist in any event document can appear in this list.
+      description: 'Events is a list containing embedded copies of all events that
+        triggered the Malicious Behavior alert. All fields that can exist in any event
+        document can appear in this list.
+
+        '
