@@ -1,7 +1,7 @@
 overview:
   name: Linux Network Disconnect
   description: >
-    This event is generatd when a network session is terminated.
+    This event is generated when a network session is terminated.
 identification:
   filter:
     event.action: disconnect_received
