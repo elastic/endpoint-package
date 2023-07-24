@@ -1,7 +1,8 @@
 overview:
   name: Linux Malicious Behavior Alert
-  description: >
-    This alert is generated when a Malicious Behavior alert occurs.
+  description: 'This alert is generated when a Malicious Behavior alert occurs.
+
+    '
 identification:
   os:
   - linux
@@ -65,9 +66,7 @@ fields:
   - event.sequence
   - event.severity
   - event.type
-  - file.extension
-  - file.name
-  - file.path
+  - file.*
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id
@@ -94,113 +93,7 @@ fields:
   - orchestrator.resource.name
   - orchestrator.resource.parent.type
   - orchestrator.resource.type
-  - process.Ext.ancestry
-  - process.args
-  - process.args_count
-  - process.command_line
-  - process.end
-  - process.entity_id
-  - process.entry_leader.args
-  - process.entry_leader.args_count
-  - process.entry_leader.entity_id
-  - process.entry_leader.entry_meta.type
-  - process.entry_leader.executable
-  - process.entry_leader.group.id
-  - process.entry_leader.group.name
-  - process.entry_leader.interactive
-  - process.entry_leader.name
-  - process.entry_leader.parent.entity_id
-  - process.entry_leader.parent.pid
-  - process.entry_leader.parent.start
-  - process.entry_leader.pid
-  - process.entry_leader.real_group.id
-  - process.entry_leader.real_group.name
-  - process.entry_leader.real_user.id
-  - process.entry_leader.real_user.name
-  - process.entry_leader.same_as_process
-  - process.entry_leader.start
-  - process.entry_leader.user.id
-  - process.entry_leader.user.name
-  - process.entry_leader.working_directory
-  - process.executable
-  - process.exit_code
-  - process.group.id
-  - process.group.name
-  - process.group_leader.args
-  - process.group_leader.args_count
-  - process.group_leader.entity_id
-  - process.group_leader.executable
-  - process.group_leader.group.id
-  - process.group_leader.group.name
-  - process.group_leader.interactive
-  - process.group_leader.name
-  - process.group_leader.pid
-  - process.group_leader.real_group.id
-  - process.group_leader.real_group.name
-  - process.group_leader.real_user.id
-  - process.group_leader.real_user.name
-  - process.group_leader.same_as_process
-  - process.group_leader.start
-  - process.group_leader.user.id
-  - process.group_leader.user.name
-  - process.group_leader.working_directory
-  - process.hash.md5
-  - process.hash.sha1
-  - process.hash.sha256
-  - process.interactive
-  - process.name
-  - process.parent.args
-  - process.parent.args_count
-  - process.parent.command_line
-  - process.parent.entity_id
-  - process.parent.executable
-  - process.parent.group.id
-  - process.parent.group.name
-  - process.parent.interactive
-  - process.parent.name
-  - process.parent.pid
-  - process.parent.real_group.id
-  - process.parent.real_group.name
-  - process.parent.real_user.id
-  - process.parent.real_user.name
-  - process.parent.start
-  - process.parent.supplemental_groups.id
-  - process.parent.supplemental_groups.name
-  - process.parent.user.id
-  - process.parent.user.name
-  - process.parent.working_directory
-  - process.pid
-  - process.previous.args
-  - process.previous.args_count
-  - process.previous.executable
-  - process.real_group.id
-  - process.real_group.name
-  - process.real_user.id
-  - process.real_user.name
-  - process.session_leader.args
-  - process.session_leader.args_count
-  - process.session_leader.entity_id
-  - process.session_leader.executable
-  - process.session_leader.group.id
-  - process.session_leader.group.name
-  - process.session_leader.interactive
-  - process.session_leader.name
-  - process.session_leader.pid
-  - process.session_leader.real_group.id
-  - process.session_leader.real_group.name
-  - process.session_leader.real_user.id
-  - process.session_leader.real_user.name
-  - process.session_leader.same_as_process
-  - process.session_leader.start
-  - process.session_leader.user.id
-  - process.session_leader.user.name
-  - process.session_leader.working_directory
-  - process.start
-  - process.supplemental_groups.id
-  - process.supplemental_groups.name
-  - process.user.id
-  - process.user.name
-  - process.working_directory
+  - process.*
   - rule.description
   - rule.id
   - rule.name
@@ -221,6 +114,17 @@ fields:
   - user.name
   details:
     Events.*:
-      description: >
-        Events is a list containing embedded copies of all events that triggered the Malicious
-        Behavior alert. All fields that can exist in any event document can appear in this list.
+      description: 'Events is a list containing embedded copies of all events that
+        triggered the Malicious Behavior alert. All fields that can exist in any event
+        document can appear in this list.
+        '
+    file.*:
+      description: 'file contains the file data from the primary event in Events.
+        It can contain any fields that any other events includes within the
+        file fieldset.
+        '
+    process.*:
+      description: 'process contains the process data from the primary event
+        in Events. It can contain any fields that any other events includes
+        within the process fieldset.
+        '

@@ -1,7 +1,7 @@
 overview:
   name: Endpoint Heartbeat
   description: >
-    This is a small state management documented generated periodically to validate that Endpoint is
+    This is a small state management document generated periodically to validate that Endpoint is
     running and can write to Elasticsearch.
 identification:
   os:
@@ -10,7 +10,7 @@ identification:
   - windows
   filter:
     data_stream.dataset: endpoint.heartbeat
-  data_stream: metrics-endpoint.heartbeat-*
+  data_stream: logs-endpoint.heartbeat-*
 fields:
   endpoint:
   - '@timestamp'
