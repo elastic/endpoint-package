@@ -159,7 +159,7 @@ update-elastic-package:
 
 
 static-test: $(ESTC_PKG_BIN)
-	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=void $(ESTC_PKG_BIN) test -v static
+	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=$(ELASTIC_PACKAGE_ELASTICSEARCH_HOST) ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME=$(ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME) ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD=$(ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD) $(ESTC_PKG_BIN) test -v static
 
 # requires a running elasticsearch instance. one can be spun up with elastic-package stack up
 # requires these environment vars:

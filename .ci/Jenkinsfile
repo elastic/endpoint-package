@@ -78,8 +78,11 @@ pipeline {
               // - 1024 field limit workaround
               // - transform & index_templates added to spec
               //lint()
-              cmd(label: "static tests", script: "make static-test")
               prepareStack()
+              cmd(label: "static tests", script: '''
+                  eval "$(./scripts/go-tools/bin/elastic-package stack shellinit)"
+                  make static-test
+              ''')
               cmd(label: "pipeline tests", script: '''
                   eval "$(./scripts/go-tools/bin/elastic-package stack shellinit)"
                   make pipeline-test
