@@ -3,7 +3,7 @@
 @Library('apm@current') _
 
 pipeline {
-  agent { label 'ubuntu-20.04 && immutable' }
+  agent { label 'ubuntu-20 && immutable' }
   environment {
     REPO = "endpoint-package"
     REPO_BUILD_TAG = "${env.REPO}/${env.BUILD_TAG}"
