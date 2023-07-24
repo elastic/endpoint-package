@@ -48,7 +48,7 @@ func main() {
 	flag.StringVar(&options.docTemplatesDir, "templates", "./doc_templates", "Path to the README templates directory")
 	flag.StringVar(&options.packages, "packages", "endpoint", "Packages selected for generating docs")
 	flag.StringVar(&options.packagesSourceDir, "sourceDir", "./package", "Path to the packages directory")
-	flag.StringVar(&options.customDocDir, "customDocDir", "./custom_documentation", "Path to the custom_documentation directory (default: ./custom_documentation)")
+	flag.StringVar(&options.customDocDir, "customDocDir", "./custom_documentation", "Path to the custom_documentation directory")
 	flag.Parse()
 
 	err := options.validate()
