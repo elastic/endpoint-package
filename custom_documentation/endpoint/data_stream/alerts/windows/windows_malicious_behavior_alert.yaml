@@ -68,6 +68,20 @@ fields:
   - event.severity
   - event.type
   - file.*
+  - host.architecture
+  - host.hostname
+  - host.id
+  - host.ip
+  - host.mac
+  - host.name
+  - host.os.Ext.variant
+  - host.os.family
+  - host.os.full
+  - host.os.kernel
+  - host.os.name
+  - host.os.platform
+  - host.os.type
+  - host.os.version
   - message
   - process.*
   - registry.*
