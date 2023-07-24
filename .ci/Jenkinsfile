@@ -3,7 +3,7 @@
 @Library('apm@current') _
 
 pipeline {
-  agent { label 'ubuntu-20 && immutable' }
+  agent { label 'ubuntu-20.04 && immutable' }
   environment {
     REPO = "endpoint-package"
     REPO_BUILD_TAG = "${env.REPO}/${env.BUILD_TAG}"
@@ -15,7 +15,7 @@ pipeline {
     // Signing
     JOB_SIGNING_CREDENTIALS = 'sign-artifacts-with-gpg-job'
     INFRA_SIGNING_BUCKET_NAME = 'internal-ci-artifacts'
-    INFRA_SIGNING_BUCKET_SIGNED_ARTIFACTS_SUBFOLxDER = "${env.REPO_BUILD_TAG}/signed-artifacts"
+    INFRA_SIGNING_BUCKET_SIGNED_ARTIFACTS_SUBFOLDER = "${env.REPO_BUILD_TAG}/signed-artifacts"
     INFRA_SIGNING_BUCKET_ARTIFACTS_PATH = "gs://${env.INFRA_SIGNING_BUCKET_NAME}/${env.REPO_BUILD_TAG}"
     INFRA_SIGNING_BUCKET_SIGNED_ARTIFACTS_PATH = "gs://${env.INFRA_SIGNING_BUCKET_NAME}/${env.INFRA_SIGNING_BUCKET_SIGNED_ARTIFACTS_SUBFOLDER}"
 
@@ -56,7 +56,7 @@ pipeline {
           deleteDir()
           unstash 'source'
           dir("${BASE_DIR}"){
-            withMageEnv(){
+            withGoEnv(){
               // "go" is used during doc generation
               // and make should also perform installation of elastic-package
               cmd(label: 'Make', script: 'make')
@@ -70,7 +70,7 @@ pipeline {
       steps {
         withGithubNotify(context: "Check") {
           dir("${BASE_DIR}"){
-            withMageEnv(){
+            withGoEnv(){
               checkGitDiff()
               // disable until backlog addressed:
               // - changelog matchup
