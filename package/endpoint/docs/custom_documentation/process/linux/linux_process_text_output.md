@@ -144,6 +144,8 @@ This event is generated when a process generates text output.
 | process.parent.start |
 | process.parent.supplemental_groups.id |
 | process.parent.supplemental_groups.name |
+| process.parent.tty.char_device.major |
+| process.parent.tty.char_device.minor |
 | process.parent.user.id |
 | process.parent.user.name |
 | process.parent.working_directory |

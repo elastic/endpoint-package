@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.network-*`
 - KQL: `event.action : "connection_attempted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generatd when there is an attempt to establish a network connection.
+This event is generated when there is an attempt to establish a network connection.
 
 
 | Field |

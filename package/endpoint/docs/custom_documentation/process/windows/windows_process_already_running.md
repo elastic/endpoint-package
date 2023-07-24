@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "already_running" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated for a process that was already running before process collection was enabled.
+This event is generated for a process that was already running before Endpoint's process collection was enabled.
 
 
 | Field |

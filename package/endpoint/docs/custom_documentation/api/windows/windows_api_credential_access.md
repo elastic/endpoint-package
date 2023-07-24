@@ -1,28 +1,24 @@
-# Linux Network Disconnect
+# Windows API
 
-- OS: Linux
-- Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
+- OS: Windows
+- Data Stream: `logs-endpoint.events.api-*`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.type : "access" and host.os.type : "windows"`
 
-This event is generated when a network session is terminated.
-
+This event is generated when a process attempts to access priviledged credentials. 
 
 | Field |
 |---|
 | @timestamp |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
-| destination.address |
-| destination.bytes |
-| destination.ip |
-| destination.port |
 | ecs.version |
 | elastic.agent.id |
-| event.action |
 | event.category |
 | event.created |
 | event.dataset |
@@ -32,10 +28,6 @@ This event is generated when a network session is terminated.
 | event.outcome |
 | event.sequence |
 | event.type |
-| group.Ext.real.id |
-| group.Ext.real.name |
-| group.id |
-| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -51,36 +43,28 @@ This event is generated when a network session is terminated.
 | host.os.type |
 | host.os.version |
 | message |
-| network.direction |
-| network.transport |
-| network.type |
 | process.Ext.ancestry |
+| process.Ext.api.name |
+| process.Ext.api.parameters.desired_access |
+| process.Ext.api.parameters.desired_access_numeric |
+| process.Ext.api.parameters.handle_type |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
 | process.code_signature.exists |
-| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
-| process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.entity_id |
-| process.entry_leader.entity_id |
-| process.entry_leader.parent.entity_id |
 | process.executable |
-| process.group_leader.entity_id |
 | process.name |
-| process.parent.entity_id |
 | process.pid |
-| process.session_leader.entity_id |
-| process.uptime |
-| source.address |
-| source.bytes |
-| source.ip |
-| source.port |
-| user.Ext.real.id |
-| user.Ext.real.name |
+| process.thread.Ext.call_stack.instruction_pointer |
+| process.thread.Ext.call_stack.module_path |
+| process.thread.Ext.call_stack_contains_unbacked |
+| process.thread.Ext.call_stack_final_user_module.path |
+| process.thread.id |
 | user.domain |
 | user.id |
 | user.name |
