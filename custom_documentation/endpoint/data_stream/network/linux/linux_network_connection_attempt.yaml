@@ -1,7 +1,7 @@
 overview:
   name: Linux Network Connection Attempt
   description: >
-    This event is generatd when there is an attempt to establish a network connection.
+    This event is generated when there is an attempt to establish a network connection.
 identification:
   filter:
     event.action: connection_attempted
