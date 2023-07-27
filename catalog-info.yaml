@@ -3,10 +3,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
-  name: buildkite-pipeline-endpoint-package
+  name: endpoint-package-pipeline
   description: Buildkite Pipeline for endpoint-package
   links:
-    - title: Pipeline
+    - title: Endpoint Package Pipeline
       url: https://buildkite.com/elastic/endpoint-package
 
 spec:
