@@ -20,7 +20,7 @@ spec:
       name: endpoint-package
     spec:
       repository: elastic/endpoint-package
-      pipeline_file: ".buildkite/pipeline.yml"
+      pipeline_file: ".buildkite/pipeline.yml.py"
       teams:
         endpoint-ci-admin: {}
         security-defend-workflows:
