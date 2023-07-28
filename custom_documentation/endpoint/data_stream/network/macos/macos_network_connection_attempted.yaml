@@ -1,7 +1,8 @@
 overview:
   name: macOS Network Connection Attempted
-  description: >
-    This event is generated when a network connection is attempted.
+  description: 'This event is generated when a network connection is attempted.
+
+    '
 identification:
   filter:
     event.action: connection_attempted

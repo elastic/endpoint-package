@@ -1,7 +1,8 @@
 overview:
   name: Linux Network Connection Accepted
-  description: >
-    This event is generated when a network connection is accepted.
+  description: 'This event is generated when a network connection is accepted.
+
+    '
 identification:
   filter:
     event.action: connection_accepted

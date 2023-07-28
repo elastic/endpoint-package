@@ -1,8 +1,9 @@
 overview:
   name: Endpoint Heartbeat
-  description: >
-    This is a small state management document generated periodically to validate that Endpoint is
-    running and can write to Elasticsearch.
+  description: 'This is a small state management document generated periodically to
+    validate that Endpoint is running and can write to Elasticsearch.
+
+    '
 identification:
   os:
   - linux

@@ -1,8 +1,10 @@
 overview:
   name: Endpoint Policy Response
-  description: >
-    This is a state management document that is generated every time Endpoint refreshes it's policy.
-    It contains details of what Endpoint features are and are not in a healthy state.
+  description: 'This is a state management document that is generated every time Endpoint
+    refreshes it''s policy. It contains details of what Endpoint features are and
+    are not in a healthy state.
+
+    '
 identification:
   os:
   - linux

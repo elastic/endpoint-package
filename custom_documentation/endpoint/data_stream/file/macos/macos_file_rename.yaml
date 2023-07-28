@@ -1,7 +1,8 @@
 overview:
   name: macOS File Rename
-  description: >
-    This event is generated when a file is renamed.
+  description: 'This event is generated when a file is renamed.
+
+    '
 identification:
   filter:
     event.action: rename

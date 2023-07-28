@@ -1,7 +1,8 @@
 overview:
   name: macOS Process Exec
-  description: >
-    This event is generated when a process calls `exec()`.
+  description: 'This event is generated when a process calls `exec()`.
+
+    '
 identification:
   filter:
     event.action: exec

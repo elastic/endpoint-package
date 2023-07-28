@@ -116,15 +116,11 @@ fields:
     Events.*:
       description: 'Events is a list containing embedded copies of all events that
         triggered the Malicious Behavior alert. All fields that can exist in any event
-        document can appear in this list.
-        '
+        document can appear in this list. '
     file.*:
       description: 'file contains the file data from the primary event in Events.
-        It can contain any fields that any other events includes within the
-        file fieldset.
-        '
+        It can contain any fields that any other events includes within the file fieldset. '
     process.*:
-      description: 'process contains the process data from the primary event
-        in Events. It can contain any fields that any other events includes
-        within the process fieldset.
-        '
+      description: 'process contains the process data from the primary event in Events.
+        It can contain any fields that any other events includes within the process
+        fieldset. '

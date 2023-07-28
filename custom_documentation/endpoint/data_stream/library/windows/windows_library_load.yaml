@@ -1,7 +1,8 @@
 overview:
   name: Windows Library Load
-  description: >
-    This event is generated when a DLL or driver is loaded.
+  description: 'This event is generated when a DLL or driver is loaded.
+
+    '
 identification:
   filter:
     event.action: load

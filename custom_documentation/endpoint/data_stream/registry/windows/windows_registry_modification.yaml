@@ -1,7 +1,8 @@
 overview:
   name: Windows Registry Modification
-  description: >
-    This event is generated when the registry is modified.
+  description: 'This event is generated when the registry is modified.
+
+    '
 identification:
   filter:
     event.action: modification

@@ -1,7 +1,8 @@
 overview:
   name: Windows Registry Query
-  description: >
-    This event is generated when the Windows registry is queried.
+  description: 'This event is generated when the Windows registry is queried.
+
+    '
 identification:
   filter:
     event.action: query

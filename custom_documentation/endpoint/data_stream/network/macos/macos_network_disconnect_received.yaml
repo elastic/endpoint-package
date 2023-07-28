@@ -1,7 +1,9 @@
 overview:
   name: macOS Network Disconnect Received
-  description: >
-    This event is generated when a request to terminate a network connection occurs.
+  description: 'This event is generated when a request to terminate a network connection
+    occurs.
+
+    '
 identification:
   filter:
     event.action: disconnect_received

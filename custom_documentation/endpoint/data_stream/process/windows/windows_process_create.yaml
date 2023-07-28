@@ -1,7 +1,8 @@
 overview:
   name: Windows Process Create
-  description: >
-    This event is generated when a process is created.
+  description: 'This event is generated when a process is created.
+
+    '
 identification:
   filter:
     event.action: start

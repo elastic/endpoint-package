@@ -1,7 +1,8 @@
 overview:
   name: Linux Memory Threat Alert
-  description: >
-    This alert is generated when a Memory Threat alert occurs.
+  description: 'This alert is generated when a Memory Threat alert occurs.
+
+    '
 identification:
   filter:
     event.code: memory_signature

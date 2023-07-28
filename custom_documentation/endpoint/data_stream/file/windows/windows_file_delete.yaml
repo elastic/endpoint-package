@@ -1,7 +1,8 @@
 overview:
   name: Windows File Delete
-  description: >
-    This event is generated when a file is deleted.
+  description: 'This event is generated when a file is deleted.
+
+    '
 identification:
   filter:
     event.action: deletion

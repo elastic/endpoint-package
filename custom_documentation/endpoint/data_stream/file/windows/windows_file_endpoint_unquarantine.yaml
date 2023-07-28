@@ -1,7 +1,9 @@
 overview:
   name: Windows Malware Unquarantine
-  description: >
-    This event is generated when Endpoint restores a file from the malware quarantine.
+  description: 'This event is generated when Endpoint restores a file from the malware
+    quarantine.
+
+    '
 identification:
   filter:
     event.action: endpoint_unquarantine

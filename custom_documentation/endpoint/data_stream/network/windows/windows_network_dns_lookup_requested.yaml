@@ -1,7 +1,8 @@
 overview:
   name: Windows DNS Lookup Request
-  description: >
-    This event is generated when a DNS lookup request is initiated.
+  description: 'This event is generated when a DNS lookup request is initiated.
+
+    '
 identification:
   filter:
     event.action: lookup_requested

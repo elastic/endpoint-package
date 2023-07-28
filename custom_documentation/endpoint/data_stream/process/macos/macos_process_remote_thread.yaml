@@ -1,7 +1,8 @@
 overview:
   name: macOS Remote Thread
-  description: >
-    This event is generated when a remote thread is created.
+  description: 'This event is generated when a remote thread is created.
+
+    '
 identification:
   filter:
     event.action: remote_thread

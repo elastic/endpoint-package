@@ -1,7 +1,8 @@
 overview:
   name: macOS Process Fork
-  description: >
-    This event is generated when a new process is created using `fork()`.
+  description: 'This event is generated when a new process is created using `fork()`.
+
+    '
 identification:
   filter:
     event.action: fork

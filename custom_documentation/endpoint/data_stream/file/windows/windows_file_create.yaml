@@ -1,7 +1,8 @@
 overview:
   name: Windows File Create
-  description: >
-    This event is generated when a file is created.
+  description: 'This event is generated when a file is created.
+
+    '
 identification:
   filter:
     event.action: creation

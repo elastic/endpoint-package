@@ -1,7 +1,8 @@
 overview:
   name: Linux Process Group ID Change
-  description: >
-    This event is generated when the group id changes for a process.
+  description: 'This event is generated when the group id changes for a process.
+
+    '
 identification:
   filter:
     event.action: gid_change

@@ -1,7 +1,8 @@
 overview:
   name: Windows File Overwrite
-  description: >
-    This event is generated when a file is overwritten
+  description: 'This event is generated when a file is overwritten
+
+    '
 identification:
   filter:
     event.action: overwrite

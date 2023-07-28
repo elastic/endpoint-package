@@ -1,7 +1,8 @@
 overview:
   name: Linux Process Exit
-  description: >
-    This event is generated when a process exits.
+  description: 'This event is generated when a process exits.
+
+    '
 identification:
   filter:
     event.action: end

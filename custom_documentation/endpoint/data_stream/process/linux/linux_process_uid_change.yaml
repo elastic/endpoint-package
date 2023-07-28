@@ -1,7 +1,8 @@
 overview:
   name: Linux Process User ID Change
-  description: >
-    This event is generated when the user id changes for a process.
+  description: 'This event is generated when the user id changes for a process.
+
+    '
 identification:
   filter:
     event.action: uid_change

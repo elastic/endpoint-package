@@ -1,7 +1,9 @@
 overview:
   name: Endpoint Metrics
-  description: >
-    This is an internal state management document that includes metrics on Endpoint's performance.
+  description: 'This is an internal state management document that includes metrics
+    on Endpoint''s performance.
+
+    '
 identification:
   os:
   - linux

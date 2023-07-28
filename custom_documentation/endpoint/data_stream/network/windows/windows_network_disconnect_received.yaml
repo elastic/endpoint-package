@@ -1,7 +1,9 @@
 overview:
   name: Windows Network Disconnect Received
-  description: >
-    This event is generated when a request to terminate a network session is received.
+  description: 'This event is generated when a request to terminate a network session
+    is received.
+
+    '
 identification:
   filter:
     event.action: disconnect_received

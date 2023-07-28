@@ -1,7 +1,8 @@
 overview:
   name: Linux Session ID Change
-  description: >
-    This event is generated when a process's session id changes.
+  description: 'This event is generated when a process''s session id changes.
+
+    '
 identification:
   filter:
     event.action: session_id_change

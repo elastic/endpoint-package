@@ -1,7 +1,8 @@
 overview:
   name: Windows File Modification
-  description: >
-    This event is generated when a file is modified.
+  description: 'This event is generated when a file is modified.
+
+    '
 identification:
   filter:
     event.action: modification
