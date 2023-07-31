@@ -1,0 +1,15 @@
+---
+name: heartbeat
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  agent:
+    fields:
+      id: {}
+  data_stream:
+    fields: "*"
+  event:
+    fields:
+      ingested: {}

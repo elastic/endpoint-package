@@ -1,0 +1,14 @@
+title: Endpoint Heartbeat
+type: logs
+dataset: endpoint.heartbeat
+hidden: true
+elasticsearch:
+  index_template:
+    mappings:
+      dynamic: false
+    settings:
+      index:
+        sort.field:
+          - event.ingested
+        sort.order:
+          - desc
