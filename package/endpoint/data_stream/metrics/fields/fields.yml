@@ -448,6 +448,20 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.system_impact.etw_win32k_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing ETW Win32k events (currently, only keylogging events) for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.etw_win32k_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on ETW Win32k events (currently, only keylogging events) for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.system_impact.file_events.week_idle_ms
       level: custom
       type: unsigned_long
@@ -459,20 +473,6 @@
       level: custom
       type: unsigned_long
       description: The total milliseconds spent on file events for the process over the last week
-      index: false
-      doc_values: false
-      default_field: false
-    - name: metrics.system_impact.keylogging_events.week_idle_ms
-      level: custom
-      type: unsigned_long
-      description: The total milliseconds spent queueing keylogging (ETW Win32k) events for the process over the last week
-      index: false
-      doc_values: false
-      default_field: false
-    - name: metrics.system_impact.keylogging_events.week_ms
-      level: custom
-      type: unsigned_long
-      description: The total milliseconds spent on keylogging (ETW Win32k) events for the process over the last week
       index: false
       doc_values: false
       default_field: false

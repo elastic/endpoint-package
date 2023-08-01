@@ -766,6 +766,32 @@ Endpoint.metrics.system_impact.dns_events.week_ms:
   short: The total milliseconds spent on DNS events for the process over the last
     week
   type: unsigned_long
+Endpoint.metrics.system_impact.etw_win32k_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-etw-win32k-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW Win32k events (currently,
+    only keylogging events) for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.etw_win32k_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.etw_win32k_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW Win32k events (currently, only
+    keylogging events) for the process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.etw_win32k_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-etw-win32k-events-week-ms
+  description: The total milliseconds spent on ETW Win32k events (currently, only
+    keylogging events) for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.etw_win32k_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.etw_win32k_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW Win32k events (currently, only keylogging
+    events) for the process over the last week
+  type: unsigned_long
 Endpoint.metrics.system_impact.file_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-file-events-week-idle-ms
   description: The total milliseconds spent queueing file events for the process over
@@ -791,32 +817,6 @@ Endpoint.metrics.system_impact.file_events.week_ms:
   normalize: []
   short: The total milliseconds spent on file events for the process over the last
     week
-  type: unsigned_long
-Endpoint.metrics.system_impact.keylogging_events.week_idle_ms:
-  dashed_name: Endpoint-metrics-system-impact-keylogging-events-week-idle-ms
-  description: The total milliseconds spent queueing keylogging (ETW Win32k) events
-    for the process over the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.keylogging_events.week_idle_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.keylogging_events.week_idle_ms
-  normalize: []
-  short: The total milliseconds spent queueing keylogging (ETW Win32k) events for
-    the process over the last week
-  type: unsigned_long
-Endpoint.metrics.system_impact.keylogging_events.week_ms:
-  dashed_name: Endpoint-metrics-system-impact-keylogging-events-week-ms
-  description: The total milliseconds spent on keylogging (ETW Win32k) events for
-    the process over the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.keylogging_events.week_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.keylogging_events.week_ms
-  normalize: []
-  short: The total milliseconds spent on keylogging (ETW Win32k) events for the process
-    over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.library_load_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-library-load-events-week-idle-ms

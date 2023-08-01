@@ -908,17 +908,17 @@
       index: false
       description: The total milliseconds spent queueing ETW Threat-Intelligence events for the process over the last week
 
-    - name: metrics.system_impact.keylogging_events.week_ms
+    - name: metrics.system_impact.etw_win32k_events.week_ms
       level: custom
       type: unsigned_long
       index: false
-      description: The total milliseconds spent on keylogging (ETW Win32k) events for the process over the last week
+      description: The total milliseconds spent on ETW Win32k events (currently, only keylogging events) for the process over the last week
 
-    - name: metrics.system_impact.keylogging_events.week_idle_ms
+    - name: metrics.system_impact.etw_win32k_events.week_idle_ms
       level: custom
       type: unsigned_long
       index: false
-      description: The total milliseconds spent queueing keylogging (ETW Win32k) events for the process over the last week
+      description: The total milliseconds spent queueing ETW Win32k events (currently, only keylogging events) for the process over the last week
 
     - name: metrics.system_impact.process.executable
       level: custom
