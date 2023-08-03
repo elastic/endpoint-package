@@ -474,6 +474,45 @@ process.entry_leader.args_count:
   original_fieldset: process
   short: Length of the process.args array.
   type: long
+process.entry_leader.attested_groups.name:
+  dashed_name: process-entry-leader-attested-groups-name
+  description: Name of the group.
+  flat_name: process.entry_leader.attested_groups.name
+  ignore_above: 1024
+  level: extended
+  name: name
+  normalize: []
+  original_fieldset: group
+  short: Name of the group.
+  type: keyword
+process.entry_leader.attested_user.id:
+  dashed_name: process-entry-leader-attested-user-id
+  description: Unique identifier of the user.
+  example: S-1-5-21-202424912787-2692429404-2351956786-1000
+  flat_name: process.entry_leader.attested_user.id
+  ignore_above: 1024
+  level: core
+  name: id
+  normalize: []
+  original_fieldset: user
+  short: Unique identifier of the user.
+  type: keyword
+process.entry_leader.attested_user.name:
+  dashed_name: process-entry-leader-attested-user-name
+  description: Short name or login of the user.
+  example: a.einstein
+  flat_name: process.entry_leader.attested_user.name
+  ignore_above: 1024
+  level: core
+  multi_fields:
+  - flat_name: process.entry_leader.attested_user.name.text
+    name: text
+    type: match_only_text
+  name: name
+  normalize: []
+  original_fieldset: user
+  short: Short name or login of the user.
+  type: keyword
 process.entry_leader.command_line:
   dashed_name: process-entry-leader-command-line
   description: 'Full command line that started the process, including the absolute
@@ -529,7 +568,6 @@ process.entry_leader.entry_meta.source.ip:
   short: IP address of the source.
   type: ip
 process.entry_leader.entry_meta.type:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-entry-meta-type
   description: 'The entry type for the entry session leader. Values include: init(e.g
     systemd), sshd, ssm, kubelet, teleport, terminal, console
@@ -588,7 +626,6 @@ process.entry_leader.group.name:
   short: Name of the group.
   type: keyword
 process.entry_leader.interactive:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
@@ -782,7 +819,6 @@ process.entry_leader.real_user.name:
   short: Short name or login of the user.
   type: keyword
 process.entry_leader.same_as_process:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
@@ -896,7 +932,6 @@ process.entry_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.entry_leader.tty:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -908,7 +943,6 @@ process.entry_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.entry_leader.tty.char_device.major:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
@@ -923,7 +957,6 @@ process.entry_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.entry_leader.tty.char_device.minor:
-  beta: This field is beta and subject to change.
   dashed_name: process-entry-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
@@ -990,17 +1023,19 @@ process.entry_leader.working_directory:
 process.env_vars:
   beta: This field is beta and subject to change.
   dashed_name: process-env-vars
-  description: 'Environment variables (`env_vars`) set at the time of the event. May
-    be filtered to protect sensitive information.
+  description: 'Array of environment variable bindings. Captured from a snapshot of
+    the environment at the time of execution.
 
-    The field should not contain nested objects. All values should use `keyword`.'
-  example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
+    May be filtered to protect sensitive information.'
+  example: '["PATH=/usr/local/bin:/usr/bin", "USER=ubuntu"]'
   flat_name: process.env_vars
+  ignore_above: 1024
   level: extended
   name: env_vars
-  normalize: []
-  short: Environment variables set at the time of the event.
-  type: object
+  normalize:
+  - array
+  short: Array of environment variable bindings.
+  type: keyword
 process.executable:
   dashed_name: process-executable
   description: Absolute path to the process executable.
@@ -1142,7 +1177,6 @@ process.group_leader.group.name:
   short: Name of the group.
   type: keyword
 process.group_leader.interactive:
-  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
@@ -1250,7 +1284,6 @@ process.group_leader.real_user.name:
   short: Short name or login of the user.
   type: keyword
 process.group_leader.same_as_process:
-  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
@@ -1364,7 +1397,6 @@ process.group_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.group_leader.tty:
-  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -1376,7 +1408,6 @@ process.group_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.group_leader.tty.char_device.major:
-  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
@@ -1391,7 +1422,6 @@ process.group_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.group_leader.tty.char_device.minor:
-  beta: This field is beta and subject to change.
   dashed_name: process-group-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
@@ -1456,7 +1486,6 @@ process.group_leader.working_directory:
   short: The working directory of the process.
   type: keyword
 process.interactive:
-  beta: This field is beta and subject to change.
   dashed_name: process-interactive
   description: 'Whether the process is connected to an interactive shell.
 
@@ -1725,7 +1754,6 @@ process.parent.group_leader.start:
   short: The time the process started.
   type: date
 process.parent.interactive:
-  beta: This field is beta and subject to change.
   dashed_name: process-parent-interactive
   description: 'Whether the process is connected to an interactive shell.
 
@@ -1916,7 +1944,6 @@ process.parent.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.parent.tty:
-  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -1928,7 +1955,6 @@ process.parent.tty:
   short: Information about the controlling TTY device.
   type: object
 process.parent.tty.char_device.major:
-  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
@@ -1943,7 +1969,6 @@ process.parent.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.parent.tty.char_device.minor:
-  beta: This field is beta and subject to change.
   dashed_name: process-parent-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
@@ -2291,7 +2316,6 @@ process.session_leader.group.name:
   short: Name of the group.
   type: keyword
 process.session_leader.interactive:
-  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-interactive
   description: 'Whether the process is connected to an interactive shell.
 
@@ -2485,7 +2509,6 @@ process.session_leader.real_user.name:
   short: Short name or login of the user.
   type: keyword
 process.session_leader.same_as_process:
-  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-same-as-process
   description: 'This boolean is used to identify if a leader process is the same as
     the top level process.
@@ -2599,7 +2622,6 @@ process.session_leader.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.session_leader.tty:
-  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -2611,7 +2633,6 @@ process.session_leader.tty:
   short: Information about the controlling TTY device.
   type: object
 process.session_leader.tty.char_device.major:
-  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
@@ -2626,7 +2647,6 @@ process.session_leader.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.session_leader.tty.char_device.minor:
-  beta: This field is beta and subject to change.
   dashed_name: process-session-leader-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\
@@ -2723,7 +2743,6 @@ process.supplemental_groups.name:
   short: Name of the group.
   type: keyword
 process.tty:
-  beta: This field is beta and subject to change.
   dashed_name: process-tty
   description: Information about the controlling TTY device. If set, the process belongs
     to an interactive session.
@@ -2734,7 +2753,6 @@ process.tty:
   short: Information about the controlling TTY device.
   type: object
 process.tty.char_device.major:
-  beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-major
   description: The major number identifies the driver associated with the device.
     The character device's major and minor numbers can be algorithmically combined
@@ -2748,7 +2766,6 @@ process.tty.char_device.major:
   short: The TTY character device's major number.
   type: long
 process.tty.char_device.minor:
-  beta: This field is beta and subject to change.
   dashed_name: process-tty-char-device-minor
   description: "The minor number is used only by the driver specified by the major\
     \ number; other parts of the kernel don\u2019t use it, and merely pass it along\

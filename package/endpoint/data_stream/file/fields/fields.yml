@@ -61,6 +61,47 @@
       description: Process ID.
       example: 4242
       default_field: false
+- name: Persistence
+  title: Persistence
+  group: 2
+  description: These fields contain information about a Persistence event.
+  type: group
+  default_field: true
+  fields:
+    - name: args
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Arguments used to execute the persistence item
+      default_field: false
+    - name: executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The persistence item's executable
+      default_field: false
+    - name: keepalive
+      level: custom
+      type: boolean
+      description: Keep alive option boolean
+      default_field: false
+    - name: name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The persistence item's name
+      default_field: false
+    - name: path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file's path
+      default_field: false
+    - name: runatload
+      level: custom
+      type: boolean
+      description: Run at load option boolean
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -402,6 +443,14 @@
       type: keyword
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
+      default_field: false
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
       default_field: false
     - name: Ext.device.nt_name
       level: custom
@@ -901,7 +950,7 @@
       ignore_above: 1024
       description: 'Name of the host.
 
-        It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use.'
+        It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host.'
     - name: os.Ext
       level: custom
       type: object
@@ -970,9 +1019,7 @@
       ignore_above: 1024
       description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
 
-        One of these following values should be used (lowercase): linux, macos, unix, windows.
-
-        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+        If the OS you''re dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
       example: macos
       default_field: false
     - name: os.version
@@ -1131,6 +1178,28 @@
         Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
       example: c2c455d9f99375d
       default_field: false
+    - name: entry_leader.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
+    - name: entry_leader.parent.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
     - name: executable
       level: extended
       type: keyword
@@ -1147,6 +1216,17 @@
           default_field: false
       description: Absolute path to the process executable.
       example: /usr/bin/ssh
+    - name: group_leader.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
     - name: name
       level: extended
       type: keyword
@@ -1165,6 +1245,28 @@
 
         Sometimes called program name or similar.'
       example: ssh
+    - name: parent.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
+    - name: parent.group_leader.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
     - name: parent.pid
       level: core
       type: long
@@ -1184,6 +1286,64 @@
       format: string
       description: Parent process' pid.
       example: 4241
+    - name: session_leader.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
+    - name: thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: true
+      default_field: false
+    - name: thread.Ext.call_stack.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_leading_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes preceding the callsite
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_trailing_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes after the callsite (where control will return to)
+      default_field: false
+    - name: thread.Ext.call_stack.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
+      default_field: false
+    - name: thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      default_field: false
     - name: thread.id
       level: extended
       type: long

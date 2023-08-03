@@ -1,7 +1,8 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-ECS_GIT_REF ?= v8.3.1
+# cd3227cb3eb0de7e422aef90a64321ac68f7896e is 8.7-dev
+ECS_GIT_REF ?= cd3227cb3eb0de7e422aef90a64321ac68f7896e
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
@@ -74,6 +75,7 @@ clean:
 	rm -rf $(ROOT_DIR)/build
 	rm -rf $(GO_TOOLS)
 	rm -rf $(VENV_DIR)
+	find $(ROOT_DIR)/package/endpoint/data_stream -name fields.yml -delete
 
 # create package/endpoint/docs/README.md based on the template file, and the fields inputs
 $(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)
@@ -146,12 +148,9 @@ run-registry: check-docker build-package
 	docker-compose up
 
 # Use this target to release the package (dev or prod) to the package storage repo
-release: $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
+#release: $(VENV_DIR)
+#	. $(VENV_DIR)/bin/activate; python $(ROOT_DIR)/scripts/release_manager/main.py $(PACKAGE_STORAGE_REPO) $(ROOT_DIR)/package
 
-# Use this target to promote a package that exists in the package-storage repo from one environment to another
-promote: $(ESTC_PKG_BIN)
-	$(ESTC_PKG_BIN) promote
 
 # Update elastic-package tooling
 update-elastic-package:
@@ -160,7 +159,7 @@ update-elastic-package:
 
 
 static-test: $(ESTC_PKG_BIN)
-	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=void $(ESTC_PKG_BIN) test -v static
+	cd $(PKG_DIR) && ELASTIC_PACKAGE_ELASTICSEARCH_HOST=$(ELASTIC_PACKAGE_ELASTICSEARCH_HOST) ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME=$(ELASTIC_PACKAGE_ELASTICSEARCH_USERNAME) ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD=$(ELASTIC_PACKAGE_ELASTICSEARCH_PASSWORD) $(ESTC_PKG_BIN) test -v static
 
 # requires a running elasticsearch instance. one can be spun up with elastic-package stack up
 # requires these environment vars:
@@ -174,4 +173,4 @@ pipeline-test: $(ESTC_PKG_BIN)
 test: static-test pipeline-test
 
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package promote release run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test

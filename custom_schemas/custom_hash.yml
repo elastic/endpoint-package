@@ -18,3 +18,5 @@
       - macro.collection
       - macro.project_file
       - macro.stream
+      - pe.Ext.streams
+      - pe.Ext.sections

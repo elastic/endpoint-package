@@ -19,6 +19,24 @@
                 }
             ]
         },
+        "parent": {
+            "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA=",
+            "group_leader": {
+                "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
+            }
+        },
+        "entry_leader": {
+            "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA=",
+            "parent": {
+                "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
+            }
+        },
+        "session_leader": {
+            "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
+        },
+        "group_leader": {
+            "entity_id": "YWZkMzQ4YzYtMGVjOS00OTYxLTgwNWUtOGVkMmZjNGMwNDNiLTU4MC0xMzI5MzU0OTExMy40ODIyMTUwMDA="
+        },
         "code_signature": {
             "trusted": false,
             "subject_name": "Google LLC",

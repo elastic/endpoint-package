@@ -1,6 +1,16 @@
 # Elastic Defend Integration
 
-This integration sets up templates and index patterns required for Elastic Defend.
+Elastic Defend provides organizations with prevention, detection, and response capabilities with deep visibility for EPP, EDR, SIEM, and Security Analytics use cases across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
+
+- **Prevent complex attacks** - Prevent malware (Windows, macOS, Linux) and ransomware (Windows) from executing, and stop advanced threats with malicious behavior (Windows, macOS, Linux), memory threat (Windows, macOS, Linux), and credential hardening (Windows) protections. All powered by [Elastic Labs](https://www.elastic.co/security-labs/) and our global community.
+- **Alert in high fidelity** - Bolster team efficacy by detecting threats centrally and minimizing false positives via extensive corroboration.
+- **Detect threats in high fidelity** - Elastic Defend facilitates deep visibility by instrumenting the process, file, and network data in your environments with minimal data collection overhead.
+- **Triage and respond rapidly** - Quickly analyze detailed data from across your hosts. Examine host-based activity with interactive visualizations. Invoke remote response actions across distributed endpoints. Extend investigation capabilities even further with the Osquery integration, fully integrated into Elastic Security workflows.
+- **Secure your cloud workloads** - Stop threats targeting cloud workloads and cloud-native applications. Gain real-time visibility and control with a lightweight user-space agent, powered by eBPF. Automate the identification of cloud threats with detection rules and machine learning (ML). Achieve rapid time-to-value with MITRE ATT&CK-aligned detections honed by Elastic Security Labs. 
+- **View terminal sessions** - Give your security team a unique and powerful investigative tool for digital forensics and incident response (DFIR), reducing the mean time to respond (MTTR). Session view provides a time-ordered series of process executions in your Linux workloads in the form of a terminal shell, as well as the ability to replay the terminal session.
+
+**Installation guide**
+For in-depth, step-by-step instructions to help you get started with Elastic Defend, read through our [installation guide](https://www.elastic.co/guide/en/security/current/install-endpoint.html). For macOS endpoints, we recommend reviewing our documentation on [enabling full disk access](https://www.elastic.co/guide/en/security/current/deploy-elastic-endpoint.html#enable-fda-endpoint).
 
 ## Compatibility
 
@@ -67,6 +77,12 @@ sent by the endpoint.
 | Responses.action.field | Field in the triggering event to use as input for action | text |
 | Responses.action.file.attributes | Destination file attributes | keyword |
 | Responses.action.file.path | Destination file path | keyword |
+| Responses.action.file.reason | Combined USN file modification reason | long |
+| Responses.action.key.actions | Actions taken by Registry Rollback for key | keyword |
+| Responses.action.key.path | NT path of registry key recovered by Rollback | keyword |
+| Responses.action.key.values | Values modified | object |
+| Responses.action.key.values.actions | Actions taken by Registry Rollback for value | keyword |
+| Responses.action.key.values.name | Value name recovered by Rollback | keyword |
 | Responses.action.source.attributes | Source file attributes | keyword |
 | Responses.action.source.path | Source file path | keyword |
 | Responses.action.state | Index of event in events array to use for field lookup | long |
@@ -327,6 +343,13 @@ sent by the endpoint.
 | Target.process.ppid | Parent process' pid. | long |
 | Target.process.start | The time the process started. | date |
 | Target.process.thread.Ext | Object for all custom defined fields to live in. | object |
+| Target.process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| Target.process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| Target.process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| Target.process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | Target.process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | Target.process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | Target.process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
@@ -520,6 +543,15 @@ sent by the endpoint.
 | file.name | Name of the file including the extension, without the directory. | keyword |
 | file.owner | File owner's username. | keyword |
 | file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
+| file.pe.Ext.dotnet | Whether this file is a .NET PE | boolean |
+| file.pe.Ext.sections | The file's relevant sections, if it is a PE | object |
+| file.pe.Ext.sections.hash.md5 | MD5 hash. | keyword |
+| file.pe.Ext.sections.hash.sha256 | SHA256 hash. | keyword |
+| file.pe.Ext.sections.name | The section's name | keyword |
+| file.pe.Ext.streams | The file's streams, if it is a PE | object |
+| file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
+| file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
+| file.pe.Ext.streams.name | The stream's name | keyword |
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -555,7 +587,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -563,7 +595,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -736,7 +768,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
-| process.env_vars | Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information. The field should not contain nested objects. All values should use `keyword`. | object |
+| process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
@@ -940,6 +972,13 @@ sent by the endpoint.
 | process.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.supplemental_groups.name | Name of the group. | keyword |
 | process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
+| process.thread.Ext.original_start_address | When a trampoline was detected, this indicates the original content for the thread start address in memory. | unsigned_long |
+| process.thread.Ext.original_start_address_allocation_offset | When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base. | unsigned_long |
+| process.thread.Ext.original_start_address_bytes | When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm | When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_bytes_disasm_hash | When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address. | keyword |
+| process.thread.Ext.original_start_address_module | When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution. | keyword |
 | process.thread.Ext.parameter | When a thread is created, this is the raw numerical value of its parameter. | unsigned_long |
 | process.thread.Ext.parameter_bytes_compressed | Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times. | keyword |
 | process.thread.Ext.parameter_bytes_compressed_present | Whether parameter_bytes_compressed is present in this event. | boolean |
@@ -1012,10 +1051,12 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.enrichments.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.enrichments.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.enrichments.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.enrichments.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.enrichments.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.enrichments.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.enrichments.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.enrichments.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1074,6 +1115,11 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.enrichments.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.enrichments.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.enrichments.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.enrichments.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.enrichments.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1082,7 +1128,10 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.enrichments.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.enrichments.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.enrichments.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.enrichments.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.enrichments.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.enrichments.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.enrichments.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.enrichments.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.enrichments.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1091,6 +1140,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.enrichments.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.enrichments.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.enrichments.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.enrichments.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.enrichments.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1138,7 +1188,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
 | threat.enrichments.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.enrichments.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
-| threat.enrichments.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
+| threat.enrichments.indicator.marking.tlp | Traffic Light Protocol sharing markings. | keyword |
 | threat.enrichments.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
 | threat.enrichments.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.enrichments.indicator.provider | The name of the indicator's provider. | keyword |
@@ -1152,7 +1202,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.registry.value | Name of the value written. | keyword |
 | threat.enrichments.indicator.scanner_stats | Count of AV/EDR vendors that successfully detected malicious file or URL. | long |
 | threat.enrichments.indicator.sightings | Number of times this indicator was observed conducting threat activity. | long |
-| threat.enrichments.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. Recommended values:   * autonomous-system   * artifact   * directory   * domain-name   * email-addr   * file   * ipv4-addr   * ipv6-addr   * mac-addr   * mutex   * port   * process   * software   * url   * user-account   * windows-registry-key   * x509-certificate | keyword |
+| threat.enrichments.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. | keyword |
 | threat.enrichments.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.enrichments.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.enrichments.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
@@ -1169,7 +1219,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.url.username | Username of the request. | keyword |
 | threat.enrichments.indicator.x509.alternative_names | List of subject alternative names (SAN). Name types vary by certificate authority and certificate type but commonly contain IP addresses, DNS names (and wildcards), and email addresses. | keyword |
 | threat.enrichments.indicator.x509.issuer.common_name | List of common name (CN) of issuing certificate authority. | keyword |
-| threat.enrichments.indicator.x509.issuer.country | List of country (C) codes | keyword |
+| threat.enrichments.indicator.x509.issuer.country | List of country \(C) codes | keyword |
 | threat.enrichments.indicator.x509.issuer.distinguished_name | Distinguished name (DN) of issuing certificate authority. | keyword |
 | threat.enrichments.indicator.x509.issuer.locality | List of locality names (L) | keyword |
 | threat.enrichments.indicator.x509.issuer.organization | List of organizations (O) of issuing certificate authority. | keyword |
@@ -1184,7 +1234,7 @@ sent by the endpoint.
 | threat.enrichments.indicator.x509.serial_number | Unique serial number issued by the certificate authority. For consistency, if this value is alphanumeric, it should be formatted without colons and uppercase characters. | keyword |
 | threat.enrichments.indicator.x509.signature_algorithm | Identifier for certificate signature algorithm. We recommend using names found in Go Lang Crypto library. See https://github.com/golang/go/blob/go1.14/src/crypto/x509/x509.go#L337-L353. | keyword |
 | threat.enrichments.indicator.x509.subject.common_name | List of common names (CN) of subject. | keyword |
-| threat.enrichments.indicator.x509.subject.country | List of country (C) code | keyword |
+| threat.enrichments.indicator.x509.subject.country | List of country \(C) code | keyword |
 | threat.enrichments.indicator.x509.subject.distinguished_name | Distinguished name (DN) of the certificate subject entity. | keyword |
 | threat.enrichments.indicator.x509.subject.locality | List of locality names (L) | keyword |
 | threat.enrichments.indicator.x509.subject.organization | List of organizations (O) of subject. | keyword |
@@ -1203,7 +1253,7 @@ sent by the endpoint.
 | threat.group.reference | The reference URL of the group for a set of related intrusion activity that are tracked by a common name in the security community. While not required, you can use a MITRE ATT&CK® group reference URL. | keyword |
 | threat.indicator.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
 | threat.indicator.as.organization.name | Organization name. | keyword |
-| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. Expected values are:   * Not Specified   * None   * Low   * Medium   * High | keyword |
+| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. | keyword |
 | threat.indicator.description | Describes the type of action conducted by the threat. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.indicator.file.Ext | Object for all custom defined fields to live in. | object |
@@ -1215,10 +1265,12 @@ sent by the endpoint.
 | threat.indicator.file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | threat.indicator.file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | threat.indicator.file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| threat.indicator.file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | threat.indicator.file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | threat.indicator.file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
 | threat.indicator.file.Ext.device.vendor_id | VendorID of the device. It is provided by the vendor of the device. | keyword |
+| threat.indicator.file.Ext.device.volume_device_type | Volume device type. Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System | keyword |
 | threat.indicator.file.Ext.entropy | Entropy calculation of file's header and footer used to check file integrity. | double |
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
@@ -1277,6 +1329,11 @@ sent by the endpoint.
 | threat.indicator.file.elf.cpu_type | CPU type of the ELF file. | keyword |
 | threat.indicator.file.elf.creation_date | Extracted when possible from the file's metadata. Indicates when it was built or compiled. It can also be faked by malware creators. | date |
 | threat.indicator.file.elf.exports | List of exported element names and types. | flattened |
+| threat.indicator.file.elf.go_import_hash | A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma). | keyword |
+| threat.indicator.file.elf.go_imports | List of imported Go language element names and types. | flattened |
+| threat.indicator.file.elf.go_imports_names_entropy | Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_imports_names_var_entropy | Variance for Shannon entropy calculation from the list of Go imports. | long |
+| threat.indicator.file.elf.go_stripped | Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable. | boolean |
 | threat.indicator.file.elf.header.abi_version | Version of the ELF Application Binary Interface (ABI). | keyword |
 | threat.indicator.file.elf.header.class | Header class of the ELF file. | keyword |
 | threat.indicator.file.elf.header.data | Data table of the ELF header. | keyword |
@@ -1285,7 +1342,10 @@ sent by the endpoint.
 | threat.indicator.file.elf.header.os_abi | Application Binary Interface (ABI) of the Linux OS. | keyword |
 | threat.indicator.file.elf.header.type | Header type of the ELF file. | keyword |
 | threat.indicator.file.elf.header.version | Version of the ELF header. | keyword |
+| threat.indicator.file.elf.import_hash | A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. This is an ELF implementation of the Windows PE imphash. | keyword |
 | threat.indicator.file.elf.imports | List of imported element names and types. | flattened |
+| threat.indicator.file.elf.imports_names_entropy | Shannon entropy calculation from the list of imported element names and types. | long |
+| threat.indicator.file.elf.imports_names_var_entropy | Variance for Shannon entropy calculation from the list of imported element names and types. | long |
 | threat.indicator.file.elf.sections | An array containing an object for each section of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.sections.*`. | nested |
 | threat.indicator.file.elf.sections.chi2 | Chi-square probability distribution of the section. | long |
 | threat.indicator.file.elf.sections.entropy | Shannon entropy calculation from the section. | long |
@@ -1294,6 +1354,7 @@ sent by the endpoint.
 | threat.indicator.file.elf.sections.physical_offset | ELF Section List offset. | keyword |
 | threat.indicator.file.elf.sections.physical_size | ELF Section List physical size. | long |
 | threat.indicator.file.elf.sections.type | ELF Section List type. | keyword |
+| threat.indicator.file.elf.sections.var_entropy | Variance for Shannon entropy calculation from the section. | long |
 | threat.indicator.file.elf.sections.virtual_address | ELF Section List virtual address. | long |
 | threat.indicator.file.elf.sections.virtual_size | ELF Section List virtual size. | long |
 | threat.indicator.file.elf.segments | An array containing an object for each segment of the ELF file. The keys that should be present in these objects are defined by sub-fields underneath `elf.segments.*`. | nested |
@@ -1341,7 +1402,7 @@ sent by the endpoint.
 | threat.indicator.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
 | threat.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.indicator.last_seen | The date and time when intelligence source last reported sighting this indicator. | date |
-| threat.indicator.marking.tlp | Traffic Light Protocol sharing markings. Recommended values are:   * WHITE   * GREEN   * AMBER   * RED | keyword |
+| threat.indicator.marking.tlp | Traffic Light Protocol sharing markings. | keyword |
 | threat.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
 | threat.indicator.port | Identifies a threat indicator as a port number (irrespective of direction). | long |
 | threat.indicator.provider | The name of the indicator's provider. | keyword |
@@ -1355,7 +1416,7 @@ sent by the endpoint.
 | threat.indicator.registry.value | Name of the value written. | keyword |
 | threat.indicator.scanner_stats | Count of AV/EDR vendors that successfully detected malicious file or URL. | long |
 | threat.indicator.sightings | Number of times this indicator was observed conducting threat activity. | long |
-| threat.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. Recommended values:   * autonomous-system   * artifact   * directory   * domain-name   * email-addr   * file   * ipv4-addr   * ipv6-addr   * mac-addr   * mutex   * port   * process   * software   * url   * user-account   * windows-registry-key   * x509-certificate | keyword |
+| threat.indicator.type | Type of indicator as represented by Cyber Observable in STIX 2.0. | keyword |
 | threat.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.indicator.url.extension | The field contains the file extension from the original request url, excluding the leading dot. The file extension is only set if it exists, as not every url has a file extension. The leading period must not be included. For example, the value must be "png", not ".png". Note that when the file name has multiple extensions (example.tar.gz), only the last one should be captured ("gz", not "tar.gz"). | keyword |
 | threat.indicator.url.fragment | Portion of the url after the `#`, such as "top". The `#` is not part of the fragment. | keyword |
@@ -1372,7 +1433,7 @@ sent by the endpoint.
 | threat.indicator.url.username | Username of the request. | keyword |
 | threat.indicator.x509.alternative_names | List of subject alternative names (SAN). Name types vary by certificate authority and certificate type but commonly contain IP addresses, DNS names (and wildcards), and email addresses. | keyword |
 | threat.indicator.x509.issuer.common_name | List of common name (CN) of issuing certificate authority. | keyword |
-| threat.indicator.x509.issuer.country | List of country (C) codes | keyword |
+| threat.indicator.x509.issuer.country | List of country \(C) codes | keyword |
 | threat.indicator.x509.issuer.distinguished_name | Distinguished name (DN) of issuing certificate authority. | keyword |
 | threat.indicator.x509.issuer.locality | List of locality names (L) | keyword |
 | threat.indicator.x509.issuer.organization | List of organizations (O) of issuing certificate authority. | keyword |
@@ -1387,7 +1448,7 @@ sent by the endpoint.
 | threat.indicator.x509.serial_number | Unique serial number issued by the certificate authority. For consistency, if this value is alphanumeric, it should be formatted without colons and uppercase characters. | keyword |
 | threat.indicator.x509.signature_algorithm | Identifier for certificate signature algorithm. We recommend using names found in Go Lang Crypto library. See https://github.com/golang/go/blob/go1.14/src/crypto/x509/x509.go#L337-L353. | keyword |
 | threat.indicator.x509.subject.common_name | List of common names (CN) of subject. | keyword |
-| threat.indicator.x509.subject.country | List of country (C) code | keyword |
+| threat.indicator.x509.subject.country | List of country \(C) code | keyword |
 | threat.indicator.x509.subject.distinguished_name | Distinguished name (DN) of the certificate subject entity. | keyword |
 | threat.indicator.x509.subject.locality | List of locality names (L) | keyword |
 | threat.indicator.x509.subject.organization | List of organizations (O) of subject. | keyword |
@@ -1396,9 +1457,9 @@ sent by the endpoint.
 | threat.indicator.x509.version_number | Version of x509 format. | keyword |
 | threat.software.id | The id of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software id. | keyword |
 | threat.software.name | The name of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software name. | keyword |
-| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended Values:   * AWS   * Azure   * Azure AD   * GCP   * Linux   * macOS   * Network   * Office 365   * SaaS   * Windows  While not required, you can use a MITRE ATT&CK® software platforms. | keyword |
+| threat.software.platforms | The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use MITRE ATT&CK® software platform values. | keyword |
 | threat.software.reference | The reference URL of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software reference URL. | keyword |
-| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. Recommended values   * Malware   * Tool   While not required, you can use a MITRE ATT&CK® software type. | keyword |
+| threat.software.type | The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. While not required, you can use a MITRE ATT&CK® software type. | keyword |
 | threat.tactic.id | The id of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
 | threat.tactic.name | Name of the type of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/) | keyword |
 | threat.tactic.reference | The reference url of tactic used by this threat. You can use a MITRE ATT&CK® tactic, for example. (ex. https://attack.mitre.org/tactics/TA0002/ ) | keyword |
@@ -1438,6 +1499,12 @@ sent by the endpoint.
 | Effective_process.executable | Executable name for the effective process. | keyword |
 | Effective_process.name | Process name for the effective process. | keyword |
 | Effective_process.pid | Process ID. | long |
+| Persistence.args | Arguments used to execute the persistence item | keyword |
+| Persistence.executable | The persistence item's executable | keyword |
+| Persistence.keepalive | Keep alive option boolean | boolean |
+| Persistence.name | The persistence item's name | keyword |
+| Persistence.path | The file's path | keyword |
+| Persistence.runatload | Run at load option boolean | boolean |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
@@ -1477,6 +1544,7 @@ sent by the endpoint.
 | file.Ext | Object for all custom defined fields to live in. | object |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | file.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | file.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | file.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1552,7 +1620,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1560,7 +1628,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1582,11 +1650,25 @@ sent by the endpoint.
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
+| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.ppid | Parent process' pid. | long |
+| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1652,6 +1734,7 @@ sent by the endpoint.
 | dll.Ext.defense_evasions | List of defense evasions found for this DLL. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include KnownDlls hijacking and PPLDump. | keyword |
 | dll.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | dll.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| dll.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | dll.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | dll.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | dll.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -1660,6 +1743,7 @@ sent by the endpoint.
 | dll.Ext.load_index | A DLL can be loaded into a process multiple times. This field indicates the Nth time that this DLL has been loaded. The first load index is 1. | unsigned_long |
 | dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
+| dll.Ext.size | Size of DLL | unsigned_long |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1734,7 +1818,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1742,7 +1826,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1766,6 +1850,14 @@ sent by the endpoint.
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1869,7 +1961,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -1877,7 +1969,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -1893,7 +1985,7 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | network.bytes | Total bytes transferred in both directions. If `source.bytes` and `destination.bytes` are known, `network.bytes` is their sum. | long |
 | network.community_id | A hash of source and destination IPs and ports, as well as the protocol used in a communication. This is a tool-agnostic standard to identify flows. Learn more at https://github.com/corelight/community-id-spec. | keyword |
-| network.direction | Direction of the network traffic. Recommended values are:   * ingress   * egress   * inbound   * outbound   * internal   * external   * unknown  When mapping events from a host-based monitoring context, populate this field from the host's point of view, using the values "ingress" or "egress". When mapping events from a network or perimeter-based monitoring context, populate this field from the point of view of the network perimeter, using the values "inbound", "outbound", "internal" or "external". Note that "internal" is not crossing perimeter boundaries, and is meant to describe communication between two hosts within the perimeter. Note also that "external" is meant to describe traffic between two hosts that are external to the perimeter. This could for example be useful for ISPs or VPN service providers. | keyword |
+| network.direction | Direction of the network traffic. When mapping events from a host-based monitoring context, populate this field from the host's point of view, using the values "ingress" or "egress". When mapping events from a network or perimeter-based monitoring context, populate this field from the point of view of the network perimeter, using the values "inbound", "outbound", "internal" or "external". Note that "internal" is not crossing perimeter boundaries, and is meant to describe communication between two hosts within the perimeter. Note also that "external" is meant to describe traffic between two hosts that are external to the perimeter. This could for example be useful for ISPs or VPN service providers. | keyword |
 | network.iana_number | IANA Protocol Number (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Standardized list of protocols. This aligns well with NetFlow and sFlow related logs which use the IANA Protocol Number. | keyword |
 | network.packets | Total packets transferred in both directions. If `source.packets` and `destination.packets` are known, `network.packets` is their sum. | long |
 | network.protocol | In the OSI Model this would be the Application Layer protocol. For example, `http`, `dns`, or `ssh`. The field value must be normalized to lowercase for querying. | keyword |
@@ -1915,9 +2007,15 @@ sent by the endpoint.
 | process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.entry_leader.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
+| process.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
+| process.parent.group_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.pid | Process id. | long |
+| process.session_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.thread.id | Thread ID. | long |
 | source.address | Some event source addresses are defined ambiguously. The event will sometimes list an IP, a domain or a unix socket.  You should always store the raw address in the `.address` field. Then it should be duplicated to `.ip` or `.domain`, depending on which one it is. | keyword |
 | source.as.number | Unique number allocated to the autonomous system. The autonomous system number (ASN) uniquely identifies each network on the Internet. | long |
@@ -2025,7 +2123,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2033,7 +2131,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.pid_ns_ino | This is the inode number of the namespace in the namespace file system (nsfs). Unsigned int inum in include/linux/ns_common.h. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
@@ -2060,6 +2158,7 @@ sent by the endpoint.
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
+| process.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
 | process.Ext.device.nt_name | NT name of the device. NT device name is in the format such as: \Device\HarddiskVolume2 | keyword |
 | process.Ext.device.product_id | ProductID of the device. It is provided by the vendor of the device if any. | keyword |
 | process.Ext.device.serial_number | Serial Number of the device. It is provided by the vendor of the device if any. | keyword |
@@ -2074,10 +2173,18 @@ sent by the endpoint.
 | process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
 | process.Ext.effective_parent.name | Process name for the effective process. | keyword |
 | process.Ext.effective_parent.pid | Process ID. | long |
+| process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
+| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
+| process.Ext.session_info.client_address | Client's IPv4 or IPv6 address as a string, if available. | keyword |
+| process.Ext.session_info.id | Session ID | unsigned_long |
+| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
+| process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
+| process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
+| process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |
@@ -2099,6 +2206,9 @@ sent by the endpoint.
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.entry_leader.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
+| process.entry_leader.attested_groups.name | Name of the group. | keyword |
+| process.entry_leader.attested_user.id | Unique identifier of the user. | keyword |
+| process.entry_leader.attested_user.name | Short name or login of the user. | keyword |
 | process.entry_leader.command_line | Full command line that started the process, including the absolute path to the executable, and all arguments. Some arguments may be filtered to protect sensitive information. | wildcard |
 | process.entry_leader.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.entry_leader.entry_meta.source.ip | IP address of the source (IPv4 or IPv6). | ip |
@@ -2133,7 +2243,7 @@ sent by the endpoint.
 | process.entry_leader.user.id | Unique identifier of the user. | keyword |
 | process.entry_leader.user.name | Short name or login of the user. | keyword |
 | process.entry_leader.working_directory | The working directory of the process. | keyword |
-| process.env_vars | Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information. The field should not contain nested objects. All values should use `keyword`. | object |
+| process.env_vars | Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution. May be filtered to protect sensitive information. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |
 | process.group.id | Unique identifier for the group on the system/platform. | keyword |
@@ -2233,6 +2343,15 @@ sent by the endpoint.
 | process.parent.start | The time the process started. | date |
 | process.parent.supplemental_groups.id | Unique identifier for the group on the system/platform. | keyword |
 | process.parent.supplemental_groups.name | Name of the group. | keyword |
+| process.parent.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.parent.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.parent.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.parent.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.parent.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.parent.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.parent.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
+| process.parent.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -2399,7 +2518,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2407,7 +2526,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2431,6 +2550,14 @@ sent by the endpoint.
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
 | process.pid | Process id. | long |
+| process.thread.Ext | Object for all custom defined fields to live in. | object |
+| process.thread.Ext.call_stack | Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame. | object |
+| process.thread.Ext.call_stack.allocation_private_bytes | The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing. | unsigned_long |
+| process.thread.Ext.call_stack.callsite_leading_bytes | Hex opcode bytes preceding the callsite | keyword |
+| process.thread.Ext.call_stack.callsite_trailing_bytes | Hex opcode bytes after the callsite (where control will return to) | keyword |
+| process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
+| process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
+| process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
 | process.thread.id | Thread ID. | long |
 | registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
@@ -2522,7 +2649,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2530,7 +2657,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2639,7 +2766,7 @@ sent by the endpoint.
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2647,7 +2774,7 @@ sent by the endpoint.
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2673,6 +2800,16 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.alerts.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.alerts.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.alerts.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.api_events.sent_bytes | Total size of API Event sent documents | long |
+| Endpoint.metrics.documents_volume.api_events.sent_count | Number of sent API Event documents | long |
+| Endpoint.metrics.documents_volume.api_events.sources | An array of API Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.api_events.sources.sent_bytes | Total size of API Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.sent_count | Number of sent API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.source | API Event document source name | keyword |
+| Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes | Total size of suppressed API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.sources.suppressed_count | Number of suppressed API Event documents from source | long |
+| Endpoint.metrics.documents_volume.api_events.suppressed_bytes | Total size of suppressed API Event documents | long |
+| Endpoint.metrics.documents_volume.api_events.suppressed_count | Number of suppressed API Event documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes | Total size of suppressed documents | long |
@@ -2749,7 +2886,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2757,7 +2894,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | host.type | Type of host. For Cloud providers this can be the machine type like `t2.medium`. If vm, this could be the container, for example, or other information meaningful in your environment. | keyword |
 | host.uptime | Seconds the host has been up. | long |
@@ -2810,7 +2947,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.id | Unique host id. As hostname is not always unique, use values that are meaningful in your environment. Example: The current usage of `beat.name`. | keyword |
 | host.ip | Host ip addresses. | ip |
 | host.mac | Host MAC addresses. The notation format from RFC 7042 is suggested: Each octet (that is, 8-bit byte) is represented by two [uppercase] hexadecimal digits giving the value of the octet as an unsigned integer. Successive octets are separated by a hyphen. | keyword |
-| host.name | Name of the host. It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use. | keyword |
+| host.name | Name of the host. It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host. | keyword |
 | host.os.Ext | Object for all custom defined fields to live in. | object |
 | host.os.Ext.variant | A string value or phrase that further aid to classify or qualify the operating system (OS).  For example the distribution for a Linux OS will be entered in this field. | keyword |
 | host.os.family | OS family (such as redhat, debian, freebsd, windows). | keyword |
@@ -2818,7 +2955,7 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.kernel | Operating system kernel version as a raw string. | keyword |
 | host.os.name | Operating system name, without the version. | keyword |
 | host.os.platform | Operating system platform (such centos, ubuntu, windows). | keyword |
-| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. One of these following values should be used (lowercase): linux, macos, unix, windows. If the OS you're dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
+| host.os.type | Use the `os.type` field to categorize the operating system into one of the broad commercial families. If the OS you're dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition. | keyword |
 | host.os.version | Operating system version as a raw string. | keyword |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 

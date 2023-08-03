@@ -125,6 +125,13 @@
         Number of seconds since the DLL's name was modified.
         This information can come from the NTFS MFT.
         This number may be negative if the file's timestamp is in the future.
+        
+    - name: Ext.size
+      level: custom
+      type: unsigned_long
+      short: Size of DLL
+      description: >
+        Size of DLL
 
     - name: Ext.device.bus_type
       level: custom
@@ -181,6 +188,17 @@
         Following are examples of the most frequently seen volume device types:
         Disk File System
         CD-ROM File System
+
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
 
     - name: code_signature.exists
       level: core

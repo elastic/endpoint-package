@@ -52,6 +52,14 @@
       description: >
         The action request information
 
+    - name: data.alert_id
+      type: alias
+      path: EndpointActions.data.alert_id
+      level: custom
+      short: EndpointActions.data.alert_id
+      description: >
+        List of alert ids that triggered the action
+
     - name: data.command
       type: alias
       path: EndpointActions.data.command
@@ -100,6 +108,23 @@
       short: user id
       description: >
         The user id
+
+    - name: rule_id
+      type: alias
+      path: rule.id
+      level: custom
+      short: rule id
+      description: >
+        ID of the rule that triggered the action
+
+    - name: rule_name
+      type: alias
+      path: rule.name
+      level: custom
+      short: rule name
+      description: >
+        Name of the rule that triggered the action
+
 
     # response alias fields
     - name: completed_at

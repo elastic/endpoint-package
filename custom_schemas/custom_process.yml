@@ -55,6 +55,16 @@
       description: Parent process' pid.
       example: 4241
 
+    - name: parent.thread
+      level: custom
+      type: object
+      description: The parent thread
+
+    - name: parent.thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields for the parent thread to live in.
+
     - name: parent.ppid
       level: extended
       type: long
@@ -96,12 +106,22 @@
       type: object
       description: Object for all custom defined fields to live in.
 
+    - name: thread.Ext.call_stack_contains_unbacked
+      level: custom
+      type: boolean
+      description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
+
     - name: thread.Ext.call_stack_summary
       level: custom
       type: keyword
       example: "ntdll.dll, example.exe, kernel32.dll, ntdll.dll"
       description: >
         Concatentation of the non-repeated modules in the call stack.
+
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: The thread's call stack
 
     - name: thread.Ext.call_stack_final_user_module
       level: custom
@@ -183,6 +203,15 @@
       description: The sha256 of the call_stack_final_user_module.
       example: "d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0"
 
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      short: Whether a hardware breakpoint was set for the thread.
+      description:  >
+        Whether a hardware breakpoint was set for the thread.
+        This field is omitted if false.
+      example: "true"
+
     - name: thread.Ext.start
       level: custom
       type: date
@@ -231,6 +260,54 @@
       example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
       description: >
         The dll/module where the thread began execution.
+
+    - name: thread.Ext.start_address_details
+      level: custom
+      type: object
+      description: >
+        Additional information about the memory containing the thread start address.
+
+    - name: thread.Ext.original_start_address
+      level: custom
+      type: unsigned_long
+      example: 4194304
+      description: >
+        When a trampoline was detected, this indicates the original content for the thread start address in memory.
+
+    - name: thread.Ext.original_start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      example: 0
+      description: >
+        When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+
+    - name: thread.Ext.original_start_address_bytes
+      level: custom
+      type: keyword
+      example: "48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc"
+      description: >
+        When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+
+    - name: thread.Ext.original_start_address_bytes_disasm
+      level: custom
+      type: keyword
+      example: "mov rax, 0x4141414141414141\\njmp rax"
+      description: >
+        When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+
+    - name: thread.Ext.original_start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
+      description: >
+        When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+
+    - name: thread.Ext.original_start_address_module
+      level: custom
+      type: keyword
+      example: "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"
+      description: >
+        When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution.
 
     - name: thread.Ext.start_address_details
       level: custom
@@ -331,6 +408,14 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
+    - name: Ext.mitigation_policies
+      level: custom
+      type: keyword
+      short: Process mitigation policies.
+      description: >
+        Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc.
+        Examples include Microsoft only, CF Guard, User Shadow Stack enabled
+
     - name: Ext.real
       level: custom
       type: object
@@ -377,6 +462,49 @@
       description: >
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+
+    - name: Ext.session_info.logon_type
+      level: custom
+      type: keyword
+      description: >
+        Session logon type.  Examples include Interactive, Network, and Service.
+
+    - name: Ext.session_info.client_address
+      level: custom
+      type: keyword
+      description: >
+        Client's IPv4 or IPv6 address as a string, if available.
+
+    - name: Ext.session_info.id
+      level: custom
+      type: unsigned_long
+      description: >
+        Session ID
+
+    - name: Ext.session_info.authentication_package
+      level: custom
+      type: keyword
+      description: >
+        Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+
+    - name: Ext.session_info.relative_logon_time
+      level: custom
+      type: double
+      description: >
+        Process creation time, relative to logon time, in seconds.
+
+    - name: Ext.session_info.relative_password_age
+      level: custom
+      type: double
+      description: >
+        Process creation time, relative to the last time the password was changed, in seconds.
+
+    - name: Ext.session_info.user_flags
+      level: custom
+      type: keyword
+      description: >
+        List of user flags associated with this logon session.
+        Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
 
     - name: Ext.device.bus_type
       level: custom
@@ -433,6 +561,17 @@
         Following are examples of the most frequently seen volume device types:
         Disk File System
         CD-ROM File System
+
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
 
     - name: Ext.trusted
       level: custom
@@ -591,14 +730,14 @@
 
     - name: io.total_bytes_captured
       level: extended
-      type: long 
+      type: long
       beta: This field is beta and subject to change.
       description: >
         The total number of bytes captured in this event.
 
     - name: io.total_bytes_skipped
       level: extended
-      type: long 
+      type: long
       beta: This field is beta and subject to change.
       short: The total number of bytes that were not captured due to implementation restrictions such as buffer size limits.
       description: >
@@ -622,14 +761,14 @@
 
     - name: io.bytes_skipped.offset
       level: extended
-      type: long 
+      type: long
       beta: This field is beta and subject to change.
       description: >
         The byte offset into this event's io.text (or io.bytes in the future) where length bytes were skipped.
 
     - name: io.bytes_skipped.length
       level: extended
-      type: long 
+      type: long
       beta: This field is beta and subject to change.
       description: >
         The length of bytes skipped.

@@ -3171,6 +3171,100 @@ Target.process.thread.Ext.call_stack_summary:
   original_fieldset: process
   short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
+Target.process.thread.Ext.hardware_breakpoint_set:
+  dashed_name: Target-process-thread-Ext-hardware-breakpoint-set
+  description: Whether a hardware breakpoint was set for the thread. This field is
+    omitted if false.
+  example: 'true'
+  flat_name: Target.process.thread.Ext.hardware_breakpoint_set
+  level: custom
+  name: thread.Ext.hardware_breakpoint_set
+  normalize: []
+  original_fieldset: process
+  short: Whether a hardware breakpoint was set for the thread.
+  type: boolean
+Target.process.thread.Ext.original_start_address:
+  dashed_name: Target-process-thread-Ext-original-start-address
+  description: When a trampoline was detected, this indicates the original content
+    for the thread start address in memory.
+  example: 4194304
+  flat_name: Target.process.thread.Ext.original_start_address
+  level: custom
+  name: thread.Ext.original_start_address
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this indicates the original content for the
+    thread start address in memory.
+  type: unsigned_long
+Target.process.thread.Ext.original_start_address_allocation_offset:
+  dashed_name: Target-process-thread-Ext-original-start-address-allocation-offset
+  description: When a trampoline was detected, this indicates the original content
+    for the offset of original_start_address to the allocation base.
+  example: 0
+  flat_name: Target.process.thread.Ext.original_start_address_allocation_offset
+  level: custom
+  name: thread.Ext.original_start_address_allocation_offset
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this indicates the original content for the
+    offset of original_start_address to the allocation base.
+  type: unsigned_long
+Target.process.thread.Ext.original_start_address_bytes:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes
+  description: When a trampoline was detected, this holds the original content of
+    the hex-encoded bytes at the original thread start address.
+  example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+  flat_name: Target.process.thread.Ext.original_start_address_bytes
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this holds the original content of the hex-encoded
+    bytes at the original thread start address.
+  type: keyword
+Target.process.thread.Ext.original_start_address_bytes_disasm:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm
+  description: When a trampoline was detected, this indicates the original content
+    for the disassembled code pointed by the thread start address.
+  example: mov rax, 0x4141414141414141\njmp rax
+  flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this indicates the original content for the
+    disassembled code pointed by the thread start address.
+  type: keyword
+Target.process.thread.Ext.original_start_address_bytes_disasm_hash:
+  dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm-hash
+  description: When a trampoline was detected, this indicates the hash of original
+    content for the disassembled code pointed by the thread start address.
+  example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+  flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm_hash
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm_hash
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this indicates the hash of original content
+    for the disassembled code pointed by the thread start address.
+  type: keyword
+Target.process.thread.Ext.original_start_address_module:
+  dashed_name: Target-process-thread-Ext-original-start-address-module
+  description: When a trampoline was detected, this indicates the original content
+    for the dll/module where the thread began execution.
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: Target.process.thread.Ext.original_start_address_module
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_module
+  normalize: []
+  original_fieldset: process
+  short: When a trampoline was detected, this indicates the original content for the
+    dll/module where the thread began execution.
+  type: keyword
 Target.process.thread.Ext.parameter:
   dashed_name: Target-process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -4188,6 +4282,24 @@ event.action:
   type: keyword
 event.category:
   allowed_values:
+  - description: Events in this category annotate API calls that occured on a system.
+      Typical sources for those events could be from the Operating System level through
+      the native libraries (for example Windows Win32, Linux libc, etc.), or managed
+      sources of events (such as ETW, syslog), but can also include network protocols
+      (such as SOAP, RPC, Websocket, REST, etc.)
+    expected_event_types:
+    - access
+    - admin
+    - allowed
+    - change
+    - creation
+    - deletion
+    - denied
+    - end
+    - info
+    - start
+    - user
+    name: api
   - description: Events in this category are related to the challenge and response
       process in which credentials are supplied and verified to allow the creation
       of a session. Common sources for these logs are Windows event logs and ssh logs.
@@ -4357,6 +4469,12 @@ event.category:
     expected_event_types:
     - indicator
     name: threat
+  - description: Relating to vulnerability scan results. Use this category to analyze
+      vulnerabilities detected by Tenable, Qualys, internal scanners, and other vulnerability
+      management sources.
+    expected_event_types:
+    - info
+    name: vulnerability
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -5093,8 +5211,9 @@ host.name:
   dashed_name: host-name
   description: 'Name of the host.
 
-    It can contain what `hostname` returns on Unix systems, the fully qualified domain
-    name, or a name specified by the user. The sender decides which value to use.'
+    It can contain what hostname returns on Unix systems, the fully qualified domain
+    name (FQDN), or a name specified by the user. The recommended value is the lowercase
+    FQDN of the host.'
   flat_name: host.name
   ignore_above: 1024
   level: core
@@ -5212,19 +5331,25 @@ host.os.type:
   description: 'Use the `os.type` field to categorize the operating system into one
     of the broad commercial families.
 
-    One of these following values should be used (lowercase): linux, macos, unix,
-    windows.
-
-    If the OS you''re dealing with is not in the list, the field should not be populated.
-    Please let us know by opening an issue with ECS, to propose its addition.'
+    If the OS you''re dealing with is not listed as an expected value, the field should
+    not be populated. Please let us know by opening an issue with ECS, to propose
+    its addition.'
   example: macos
+  expected_values:
+  - linux
+  - macos
+  - unix
+  - windows
+  - ios
+  - android
   flat_name: host.os.type
   ignore_above: 1024
   level: extended
   name: type
   normalize: []
   original_fieldset: os
-  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  short: 'Which commercial OS family (one of: linux, macos, unix, windows, ios or
+    android).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version
@@ -8369,6 +8494,93 @@ process.thread.Ext.call_stack_summary:
   normalize: []
   short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
+process.thread.Ext.hardware_breakpoint_set:
+  dashed_name: process-thread-Ext-hardware-breakpoint-set
+  description: Whether a hardware breakpoint was set for the thread. This field is
+    omitted if false.
+  example: 'true'
+  flat_name: process.thread.Ext.hardware_breakpoint_set
+  level: custom
+  name: thread.Ext.hardware_breakpoint_set
+  normalize: []
+  short: Whether a hardware breakpoint was set for the thread.
+  type: boolean
+process.thread.Ext.original_start_address:
+  dashed_name: process-thread-Ext-original-start-address
+  description: When a trampoline was detected, this indicates the original content
+    for the thread start address in memory.
+  example: 4194304
+  flat_name: process.thread.Ext.original_start_address
+  level: custom
+  name: thread.Ext.original_start_address
+  normalize: []
+  short: When a trampoline was detected, this indicates the original content for the
+    thread start address in memory.
+  type: unsigned_long
+process.thread.Ext.original_start_address_allocation_offset:
+  dashed_name: process-thread-Ext-original-start-address-allocation-offset
+  description: When a trampoline was detected, this indicates the original content
+    for the offset of original_start_address to the allocation base.
+  example: 0
+  flat_name: process.thread.Ext.original_start_address_allocation_offset
+  level: custom
+  name: thread.Ext.original_start_address_allocation_offset
+  normalize: []
+  short: When a trampoline was detected, this indicates the original content for the
+    offset of original_start_address to the allocation base.
+  type: unsigned_long
+process.thread.Ext.original_start_address_bytes:
+  dashed_name: process-thread-Ext-original-start-address-bytes
+  description: When a trampoline was detected, this holds the original content of
+    the hex-encoded bytes at the original thread start address.
+  example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+  flat_name: process.thread.Ext.original_start_address_bytes
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes
+  normalize: []
+  short: When a trampoline was detected, this holds the original content of the hex-encoded
+    bytes at the original thread start address.
+  type: keyword
+process.thread.Ext.original_start_address_bytes_disasm:
+  dashed_name: process-thread-Ext-original-start-address-bytes-disasm
+  description: When a trampoline was detected, this indicates the original content
+    for the disassembled code pointed by the thread start address.
+  example: mov rax, 0x4141414141414141\njmp rax
+  flat_name: process.thread.Ext.original_start_address_bytes_disasm
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm
+  normalize: []
+  short: When a trampoline was detected, this indicates the original content for the
+    disassembled code pointed by the thread start address.
+  type: keyword
+process.thread.Ext.original_start_address_bytes_disasm_hash:
+  dashed_name: process-thread-Ext-original-start-address-bytes-disasm-hash
+  description: When a trampoline was detected, this indicates the hash of original
+    content for the disassembled code pointed by the thread start address.
+  example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+  flat_name: process.thread.Ext.original_start_address_bytes_disasm_hash
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_bytes_disasm_hash
+  normalize: []
+  short: When a trampoline was detected, this indicates the hash of original content
+    for the disassembled code pointed by the thread start address.
+  type: keyword
+process.thread.Ext.original_start_address_module:
+  dashed_name: process-thread-Ext-original-start-address-module
+  description: When a trampoline was detected, this indicates the original content
+    for the dll/module where the thread began execution.
+  example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+  flat_name: process.thread.Ext.original_start_address_module
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.original_start_address_module
+  normalize: []
+  short: When a trampoline was detected, this indicates the original content for the
+    dll/module where the thread began execution.
+  type: keyword
 process.thread.Ext.parameter:
   dashed_name: process-thread-Ext-parameter
   description: When a thread is created, this is the raw numerical value of its parameter.
@@ -8989,7 +9201,6 @@ source.geo.timezone:
   short: Time zone.
   type: keyword
 threat.enrichments:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments
   description: A list of associated indicators objects enriching the event, and the
     context of that association/enrichment.
@@ -9001,7 +9212,6 @@ threat.enrichments:
   short: List of objects containing indicators enriching the event.
   type: nested
 threat.enrichments.indicator:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator
   description: Object containing associated indicators enriching the event.
   flat_name: threat.enrichments.indicator
@@ -9843,6 +10053,67 @@ threat.enrichments.indicator.file.elf.exports:
   original_fieldset: elf
   short: List of exported element names and types.
   type: flattened
+threat.enrichments.indicator.file.elf.go_import_hash:
+  dashed_name: threat-enrichments-indicator-file-elf-go-import-hash
+  description: 'A hash of the Go language imports in an ELF file excluding standard
+    library imports. An import hash can be used to fingerprint binaries even after
+    recompilation or other code-level transformations have occurred, which would change
+    more traditional hash values.
+
+    The algorithm used to calculate the Go symbol hash and a reference implementation
+    are available [here](https://github.com/elastic/toutoumomoma).'
+  example: 10bddcb4cee42080f76c88d9ff964491
+  flat_name: threat.enrichments.indicator.file.elf.go_import_hash
+  ignore_above: 1024
+  level: extended
+  name: go_import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the Go language imports in an ELF file.
+  type: keyword
+threat.enrichments.indicator.file.elf.go_imports:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports
+  description: List of imported Go language element names and types.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports
+  level: extended
+  name: go_imports
+  normalize: []
+  original_fieldset: elf
+  short: List of imported Go language element names and types.
+  type: flattened
+threat.enrichments.indicator.file.elf.go_imports_names_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports-names-entropy
+  description: Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports_names_entropy
+  format: number
+  level: extended
+  name: go_imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.enrichments.indicator.file.elf.go_imports_names_var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-go-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.enrichments.indicator.file.elf.go_imports_names_var_entropy
+  format: number
+  level: extended
+  name: go_imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.enrichments.indicator.file.elf.go_stripped:
+  dashed_name: threat-enrichments-indicator-file-elf-go-stripped
+  description: Set to true if the file is a Go executable that has had its symbols
+    stripped or obfuscated and false if an unobfuscated Go executable.
+  flat_name: threat.enrichments.indicator.file.elf.go_stripped
+  level: extended
+  name: go_stripped
+  normalize: []
+  original_fieldset: elf
+  short: Whether the file is a stripped or obfuscated Go executable.
+  type: boolean
 threat.enrichments.indicator.file.elf.header.abi_version:
   dashed_name: threat-enrichments-indicator-file-elf-header-abi-version
   description: Version of the ELF Application Binary Interface (ABI).
@@ -9931,6 +10202,22 @@ threat.enrichments.indicator.file.elf.header.version:
   original_fieldset: elf
   short: Version of the ELF header.
   type: keyword
+threat.enrichments.indicator.file.elf.import_hash:
+  dashed_name: threat-enrichments-indicator-file-elf-import-hash
+  description: 'A hash of the imports in an ELF file. An import hash can be used to
+    fingerprint binaries even after recompilation or other code-level transformations
+    have occurred, which would change more traditional hash values.
+
+    This is an ELF implementation of the Windows PE imphash.'
+  example: d41d8cd98f00b204e9800998ecf8427e
+  flat_name: threat.enrichments.indicator.file.elf.import_hash
+  ignore_above: 1024
+  level: extended
+  name: import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the imports in an ELF file.
+  type: keyword
 threat.enrichments.indicator.file.elf.imports:
   dashed_name: threat-enrichments-indicator-file-elf-imports
   description: List of imported element names and types.
@@ -9942,6 +10229,31 @@ threat.enrichments.indicator.file.elf.imports:
   original_fieldset: elf
   short: List of imported element names and types.
   type: flattened
+threat.enrichments.indicator.file.elf.imports_names_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-imports-names-entropy
+  description: Shannon entropy calculation from the list of imported element names
+    and types.
+  flat_name: threat.enrichments.indicator.file.elf.imports_names_entropy
+  format: number
+  level: extended
+  name: imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of imported element names and types.
+  type: long
+threat.enrichments.indicator.file.elf.imports_names_var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of imported
+    element names and types.
+  flat_name: threat.enrichments.indicator.file.elf.imports_names_var_entropy
+  format: number
+  level: extended
+  name: imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of imported element
+    names and types.
+  type: long
 threat.enrichments.indicator.file.elf.sections:
   dashed_name: threat-enrichments-indicator-file-elf-sections
   description: 'An array containing an object for each section of the ELF file.
@@ -10033,6 +10345,17 @@ threat.enrichments.indicator.file.elf.sections.type:
   original_fieldset: elf
   short: ELF Section List type.
   type: keyword
+threat.enrichments.indicator.file.elf.sections.var_entropy:
+  dashed_name: threat-enrichments-indicator-file-elf-sections-var-entropy
+  description: Variance for Shannon entropy calculation from the section.
+  flat_name: threat.enrichments.indicator.file.elf.sections.var_entropy
+  format: number
+  level: extended
+  name: sections.var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the section.
+  type: long
 threat.enrichments.indicator.file.elf.sections.virtual_address:
   dashed_name: threat-enrichments-indicator-file-elf-sections-virtual-address
   description: ELF Section List virtual address.
@@ -10450,7 +10773,6 @@ threat.enrichments.indicator.file.uid:
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
 threat.enrichments.indicator.first_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-first-seen
   description: The date and time when intelligence source first reported sighting
     this indicator.
@@ -10602,7 +10924,6 @@ threat.enrichments.indicator.geo.timezone:
   short: Time zone.
   type: keyword
 threat.enrichments.indicator.ip:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-ip
   description: Identifies a threat indicator as an IP address (irrespective of direction).
   example: 1.2.3.4
@@ -10613,7 +10934,6 @@ threat.enrichments.indicator.ip:
   short: Indicator IP address
   type: ip
 threat.enrichments.indicator.last_seen:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-last-seen
   description: The date and time when intelligence source last reported sighting this
     indicator.
@@ -10625,11 +10945,16 @@ threat.enrichments.indicator.last_seen:
   short: Date/time indicator was last reported.
   type: date
 threat.enrichments.indicator.marking.tlp:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-marking-tlp
-  description: "Traffic Light Protocol sharing markings. Recommended values are:\n\
-    \  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
-  example: White
+  description: Traffic Light Protocol sharing markings.
+  example: CLEAR
+  expected_values:
+  - WHITE
+  - CLEAR
+  - GREEN
+  - AMBER
+  - AMBER+STRICT
+  - RED
   flat_name: threat.enrichments.indicator.marking.tlp
   ignore_above: 1024
   level: extended
@@ -10638,7 +10963,6 @@ threat.enrichments.indicator.marking.tlp:
   short: Indicator TLP marking
   type: keyword
 threat.enrichments.indicator.modified_at:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-modified-at
   description: The date and time when intelligence source last modified information
     for this indicator.
@@ -10650,7 +10974,6 @@ threat.enrichments.indicator.modified_at:
   short: Date/time indicator was last updated.
   type: date
 threat.enrichments.indicator.port:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-port
   description: Identifies a threat indicator as a port number (irrespective of direction).
   example: 443
@@ -10661,7 +10984,6 @@ threat.enrichments.indicator.port:
   short: Indicator port
   type: long
 threat.enrichments.indicator.provider:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-provider
   description: The name of the indicator's provider.
   example: lrz_urlhaus
@@ -10673,7 +10995,6 @@ threat.enrichments.indicator.provider:
   short: Indicator provider
   type: keyword
 threat.enrichments.indicator.reference:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-reference
   description: Reference URL linking to additional information about this indicator.
   example: https://system.example.com/indicator/0001234
@@ -10780,7 +11101,6 @@ threat.enrichments.indicator.registry.value:
   short: Name of the value written.
   type: keyword
 threat.enrichments.indicator.scanner_stats:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-scanner-stats
   description: Count of AV/EDR vendors that successfully detected malicious file or
     URL.
@@ -10792,7 +11112,6 @@ threat.enrichments.indicator.scanner_stats:
   short: Scanner statistics
   type: long
 threat.enrichments.indicator.sightings:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-sightings
   description: Number of times this indicator was observed conducting threat activity.
   example: 20
@@ -10803,14 +11122,27 @@ threat.enrichments.indicator.sightings:
   short: Number of times indicator observed
   type: long
 threat.enrichments.indicator.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-indicator-type
-  description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\
-    \ Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  *\
-    \ domain-name\n  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n\
-    \  * mutex\n  * port\n  * process\n  * software\n  * url\n  * user-account\n \
-    \ * windows-registry-key\n  * x509-certificate"
+  description: Type of indicator as represented by Cyber Observable in STIX 2.0.
   example: ipv4-addr
+  expected_values:
+  - autonomous-system
+  - artifact
+  - directory
+  - domain-name
+  - email-addr
+  - file
+  - ipv4-addr
+  - ipv6-addr
+  - mac-addr
+  - mutex
+  - port
+  - process
+  - software
+  - url
+  - user-account
+  - windows-registry-key
+  - x509-certificate
   flat_name: threat.enrichments.indicator.type
   ignore_above: 1024
   level: extended
@@ -11066,7 +11398,7 @@ threat.enrichments.indicator.x509.issuer.common_name:
   type: keyword
 threat.enrichments.indicator.x509.issuer.country:
   dashed_name: threat-enrichments-indicator-x509-issuer-country
-  description: List of country (C) codes
+  description: List of country \(C) codes
   example: US
   flat_name: threat.enrichments.indicator.x509.issuer.country
   ignore_above: 1024
@@ -11075,7 +11407,7 @@ threat.enrichments.indicator.x509.issuer.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) codes
+  short: List of country \(C) codes
   type: keyword
 threat.enrichments.indicator.x509.issuer.distinguished_name:
   dashed_name: threat-enrichments-indicator-x509-issuer-distinguished-name
@@ -11256,7 +11588,7 @@ threat.enrichments.indicator.x509.subject.common_name:
   type: keyword
 threat.enrichments.indicator.x509.subject.country:
   dashed_name: threat-enrichments-indicator-x509-subject-country
-  description: List of country (C) code
+  description: List of country \(C) code
   example: US
   flat_name: threat.enrichments.indicator.x509.subject.country
   ignore_above: 1024
@@ -11265,7 +11597,7 @@ threat.enrichments.indicator.x509.subject.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) code
+  short: List of country \(C) code
   type: keyword
 threat.enrichments.indicator.x509.subject.distinguished_name:
   dashed_name: threat-enrichments-indicator-x509-subject-distinguished-name
@@ -11343,7 +11675,6 @@ threat.enrichments.indicator.x509.version_number:
   short: Version of x509 format.
   type: keyword
 threat.enrichments.matched.atomic:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-atomic
   description: Identifies the atomic indicator value that matched a local environment
     endpoint or network event.
@@ -11356,7 +11687,6 @@ threat.enrichments.matched.atomic:
   short: Matched indicator value
   type: keyword
 threat.enrichments.matched.field:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-field
   description: Identifies the field of the atomic indicator that matched a local environment
     endpoint or network event.
@@ -11369,7 +11699,6 @@ threat.enrichments.matched.field:
   short: Matched indicator field
   type: keyword
 threat.enrichments.matched.id:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-id
   description: Identifies the _id of the indicator document enriching the event.
   example: ff93aee5-86a1-4a61-b0e6-0cdc313d01b5
@@ -11381,7 +11710,6 @@ threat.enrichments.matched.id:
   short: Matched indicator identifier
   type: keyword
 threat.enrichments.matched.index:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-index
   description: Identifies the _index of the indicator document enriching the event.
   example: filebeat-8.0.0-2021.05.23-000011
@@ -11393,7 +11721,6 @@ threat.enrichments.matched.index:
   short: Matched indicator index
   type: keyword
 threat.enrichments.matched.type:
-  beta: This field is beta and subject to change.
   dashed_name: threat-enrichments-matched-type
   description: Identifies the type of match that caused the event to be enriched with
     the given indicator
@@ -11502,11 +11829,16 @@ threat.indicator.as.organization.name:
   type: keyword
 threat.indicator.confidence:
   dashed_name: threat-indicator-confidence
-  description: "Identifies\_the\_vendor-neutral confidence\_rating\_using\_the None/Low/Medium/High\_\
-    scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence\
-    \ scales may be added as custom fields.\nExpected values are:\n  * Not Specified\n\
-    \  * None\n  * Low\n  * Medium\n  * High"
+  description: Identifies the vendor-neutral confidence rating using the None/Low/Medium/High
+    scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence
+    scales may be added as custom fields.
   example: Medium
+  expected_values:
+  - Not Specified
+  - None
+  - Low
+  - Medium
+  - High
   flat_name: threat.indicator.confidence
   ignore_above: 1024
   level: extended
@@ -12370,6 +12702,67 @@ threat.indicator.file.elf.exports:
   original_fieldset: elf
   short: List of exported element names and types.
   type: flattened
+threat.indicator.file.elf.go_import_hash:
+  dashed_name: threat-indicator-file-elf-go-import-hash
+  description: 'A hash of the Go language imports in an ELF file excluding standard
+    library imports. An import hash can be used to fingerprint binaries even after
+    recompilation or other code-level transformations have occurred, which would change
+    more traditional hash values.
+
+    The algorithm used to calculate the Go symbol hash and a reference implementation
+    are available [here](https://github.com/elastic/toutoumomoma).'
+  example: 10bddcb4cee42080f76c88d9ff964491
+  flat_name: threat.indicator.file.elf.go_import_hash
+  ignore_above: 1024
+  level: extended
+  name: go_import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the Go language imports in an ELF file.
+  type: keyword
+threat.indicator.file.elf.go_imports:
+  dashed_name: threat-indicator-file-elf-go-imports
+  description: List of imported Go language element names and types.
+  flat_name: threat.indicator.file.elf.go_imports
+  level: extended
+  name: go_imports
+  normalize: []
+  original_fieldset: elf
+  short: List of imported Go language element names and types.
+  type: flattened
+threat.indicator.file.elf.go_imports_names_entropy:
+  dashed_name: threat-indicator-file-elf-go-imports-names-entropy
+  description: Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.indicator.file.elf.go_imports_names_entropy
+  format: number
+  level: extended
+  name: go_imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.indicator.file.elf.go_imports_names_var_entropy:
+  dashed_name: threat-indicator-file-elf-go-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of Go imports.
+  flat_name: threat.indicator.file.elf.go_imports_names_var_entropy
+  format: number
+  level: extended
+  name: go_imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of Go imports.
+  type: long
+threat.indicator.file.elf.go_stripped:
+  dashed_name: threat-indicator-file-elf-go-stripped
+  description: Set to true if the file is a Go executable that has had its symbols
+    stripped or obfuscated and false if an unobfuscated Go executable.
+  flat_name: threat.indicator.file.elf.go_stripped
+  level: extended
+  name: go_stripped
+  normalize: []
+  original_fieldset: elf
+  short: Whether the file is a stripped or obfuscated Go executable.
+  type: boolean
 threat.indicator.file.elf.header.abi_version:
   dashed_name: threat-indicator-file-elf-header-abi-version
   description: Version of the ELF Application Binary Interface (ABI).
@@ -12458,6 +12851,22 @@ threat.indicator.file.elf.header.version:
   original_fieldset: elf
   short: Version of the ELF header.
   type: keyword
+threat.indicator.file.elf.import_hash:
+  dashed_name: threat-indicator-file-elf-import-hash
+  description: 'A hash of the imports in an ELF file. An import hash can be used to
+    fingerprint binaries even after recompilation or other code-level transformations
+    have occurred, which would change more traditional hash values.
+
+    This is an ELF implementation of the Windows PE imphash.'
+  example: d41d8cd98f00b204e9800998ecf8427e
+  flat_name: threat.indicator.file.elf.import_hash
+  ignore_above: 1024
+  level: extended
+  name: import_hash
+  normalize: []
+  original_fieldset: elf
+  short: A hash of the imports in an ELF file.
+  type: keyword
 threat.indicator.file.elf.imports:
   dashed_name: threat-indicator-file-elf-imports
   description: List of imported element names and types.
@@ -12469,6 +12878,31 @@ threat.indicator.file.elf.imports:
   original_fieldset: elf
   short: List of imported element names and types.
   type: flattened
+threat.indicator.file.elf.imports_names_entropy:
+  dashed_name: threat-indicator-file-elf-imports-names-entropy
+  description: Shannon entropy calculation from the list of imported element names
+    and types.
+  flat_name: threat.indicator.file.elf.imports_names_entropy
+  format: number
+  level: extended
+  name: imports_names_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Shannon entropy calculation from the list of imported element names and types.
+  type: long
+threat.indicator.file.elf.imports_names_var_entropy:
+  dashed_name: threat-indicator-file-elf-imports-names-var-entropy
+  description: Variance for Shannon entropy calculation from the list of imported
+    element names and types.
+  flat_name: threat.indicator.file.elf.imports_names_var_entropy
+  format: number
+  level: extended
+  name: imports_names_var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the list of imported element
+    names and types.
+  type: long
 threat.indicator.file.elf.sections:
   dashed_name: threat-indicator-file-elf-sections
   description: 'An array containing an object for each section of the ELF file.
@@ -12560,6 +12994,17 @@ threat.indicator.file.elf.sections.type:
   original_fieldset: elf
   short: ELF Section List type.
   type: keyword
+threat.indicator.file.elf.sections.var_entropy:
+  dashed_name: threat-indicator-file-elf-sections-var-entropy
+  description: Variance for Shannon entropy calculation from the section.
+  flat_name: threat.indicator.file.elf.sections.var_entropy
+  format: number
+  level: extended
+  name: sections.var_entropy
+  normalize: []
+  original_fieldset: elf
+  short: Variance for Shannon entropy calculation from the section.
+  type: long
 threat.indicator.file.elf.sections.virtual_address:
   dashed_name: threat-indicator-file-elf-sections-virtual-address
   description: ELF Section List virtual address.
@@ -13150,9 +13595,15 @@ threat.indicator.last_seen:
   type: date
 threat.indicator.marking.tlp:
   dashed_name: threat-indicator-marking-tlp
-  description: "Traffic Light Protocol sharing markings.\nRecommended values are:\n\
-    \  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
-  example: WHITE
+  description: Traffic Light Protocol sharing markings.
+  example: CLEAR
+  expected_values:
+  - WHITE
+  - CLEAR
+  - GREEN
+  - AMBER
+  - AMBER+STRICT
+  - RED
   flat_name: threat.indicator.marking.tlp
   ignore_above: 1024
   level: extended
@@ -13321,12 +13772,26 @@ threat.indicator.sightings:
   type: long
 threat.indicator.type:
   dashed_name: threat-indicator-type
-  description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\n\
-    Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  * domain-name\n\
-    \  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n  * mutex\n\
-    \  * port\n  * process\n  * software\n  * url\n  * user-account\n  * windows-registry-key\n\
-    \  * x509-certificate"
+  description: Type of indicator as represented by Cyber Observable in STIX 2.0.
   example: ipv4-addr
+  expected_values:
+  - autonomous-system
+  - artifact
+  - directory
+  - domain-name
+  - email-addr
+  - file
+  - ipv4-addr
+  - ipv6-addr
+  - mac-addr
+  - mutex
+  - port
+  - process
+  - software
+  - url
+  - user-account
+  - windows-registry-key
+  - x509-certificate
   flat_name: threat.indicator.type
   ignore_above: 1024
   level: extended
@@ -13582,7 +14047,7 @@ threat.indicator.x509.issuer.common_name:
   type: keyword
 threat.indicator.x509.issuer.country:
   dashed_name: threat-indicator-x509-issuer-country
-  description: List of country (C) codes
+  description: List of country \(C) codes
   example: US
   flat_name: threat.indicator.x509.issuer.country
   ignore_above: 1024
@@ -13591,7 +14056,7 @@ threat.indicator.x509.issuer.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) codes
+  short: List of country \(C) codes
   type: keyword
 threat.indicator.x509.issuer.distinguished_name:
   dashed_name: threat-indicator-x509-issuer-distinguished-name
@@ -13772,7 +14237,7 @@ threat.indicator.x509.subject.common_name:
   type: keyword
 threat.indicator.x509.subject.country:
   dashed_name: threat-indicator-x509-subject-country
-  description: List of country (C) code
+  description: List of country \(C) code
   example: US
   flat_name: threat.indicator.x509.subject.country
   ignore_above: 1024
@@ -13781,7 +14246,7 @@ threat.indicator.x509.subject.country:
   normalize:
   - array
   original_fieldset: x509
-  short: List of country (C) code
+  short: List of country \(C) code
   type: keyword
 threat.indicator.x509.subject.distinguished_name:
   dashed_name: threat-indicator-x509-subject-distinguished-name
@@ -13887,11 +14352,20 @@ threat.software.name:
 threat.software.platforms:
   dashed_name: threat-software-platforms
   description: "The platforms of the software used by this threat to conduct behavior\
-    \ commonly modeled using MITRE ATT&CK\xAE.\nRecommended Values:\n  * AWS\n  *\
-    \ Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office\
-    \ 365\n  * SaaS\n  * Windows\n\nWhile not required, you can use a MITRE ATT&CK\xAE\
-    \ software platforms."
+    \ commonly modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use MITRE\
+    \ ATT&CK\xAE software platform values."
   example: '[ "Windows" ]'
+  expected_values:
+  - AWS
+  - Azure
+  - Azure AD
+  - GCP
+  - Linux
+  - macOS
+  - Network
+  - Office 365
+  - SaaS
+  - Windows
   flat_name: threat.software.platforms
   ignore_above: 1024
   level: extended
@@ -13916,9 +14390,12 @@ threat.software.reference:
 threat.software.type:
   dashed_name: threat-software-type
   description: "The type of software used by this threat to conduct behavior commonly\
-    \ modeled using MITRE ATT&CK\xAE.\nRecommended values\n  * Malware\n  * Tool\n\
-    \n While not required, you can use a MITRE ATT&CK\xAE software type."
+    \ modeled using MITRE ATT&CK\xAE.\nWhile not required, you can use a MITRE ATT&CK\xAE\
+    \ software type."
   example: Tool
+  expected_values:
+  - Malware
+  - Tool
   flat_name: threat.software.type
   ignore_above: 1024
   level: extended

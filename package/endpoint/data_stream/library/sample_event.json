@@ -28,7 +28,22 @@
         "name": "VSSVC.exe",
         "pid": 4528,
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ1MjgtMTMyOTM1NzEwODYuNjI4MzM0NzAw",
-        "executable": "C:\\Windows\\System32\\VSSVC.exe"
+        "executable": "C:\\Windows\\System32\\VSSVC.exe",
+        "thread": {
+            "id": 340,
+            "Ext": {
+                "call_stack": [
+                    {
+                        "allocation_private_bytes": 16384,
+                        "callsite_leading_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                        "callsite_trailing_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                        "protection": "RWX",
+                        "symbol_info": "C:\\Windows\\System32\\ntdll.dll!RtlUserThreadStart+0x21"
+                    }
+                ],
+                "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll"
+            }
+        }
     },
     "dll": {
         "Ext": {
@@ -45,7 +60,8 @@
             },
             "load_index": 1,
             "relative_file_creation_time": 48628704.4029488,
-            "relative_file_name_modify_time": 48628704.4029488
+            "relative_file_name_modify_time": 48628704.4029488,
+            "size": 65536
         },
         "path": "C:\\Windows\\System32\\msxml3.dll",
         "code_signature": {

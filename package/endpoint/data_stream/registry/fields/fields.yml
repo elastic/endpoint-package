@@ -464,7 +464,7 @@
       ignore_above: 1024
       description: 'Name of the host.
 
-        It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use.'
+        It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host.'
     - name: os.Ext
       level: custom
       type: object
@@ -533,9 +533,7 @@
       ignore_above: 1024
       description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
 
-        One of these following values should be used (lowercase): linux, macos, unix, windows.
-
-        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+        If the OS you''re dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
       example: macos
       default_field: false
     - name: os.version
@@ -726,6 +724,53 @@
       format: string
       description: Process id.
       example: 4242
+    - name: thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: true
+      default_field: false
+    - name: thread.Ext.call_stack.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_leading_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes preceding the callsite
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_trailing_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes after the callsite (where control will return to)
+      default_field: false
+    - name: thread.Ext.call_stack.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
+      default_field: false
+    - name: thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      default_field: false
     - name: thread.id
       level: extended
       type: long

@@ -27,7 +27,23 @@
         },
         "args_count": 1,
         "parent": {
-            "pid": 604
+            "pid": 604,
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
+            "group_leader": {
+                "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+            }
+        },
+        "entry_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
+            "parent": {
+                "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+            }
+        },
+        "session_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
+        },
+        "group_leader": {
+            "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw"
         },
         "code_signature": {
             "trusted": true,
@@ -38,7 +54,19 @@
         "name": "winlogbeat.exe",
         "pid": 4512,
         "thread": {
-            "id": 340
+            "id": 340,
+            "Ext": {
+                "call_stack": [
+                    {
+                        "allocation_private_bytes": 16384,
+                        "callsite_leading_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                        "callsite_trailing_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                        "protection": "RWX",
+                        "symbol_info": "C:\\Windows\\System32\\ntdll.dll!RtlUserThreadStart+0x21"
+                    }
+                ],
+                "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll"
+            }
         },
         "entity_id": "Y2NiN2IxYTEtMzAzZS00MTZmLWI5NzUtMzExNzM3ZThlMTI1LTQ1MTItMTMyOTM1NDkyODYuNzQ2MjY0MDAw",
         "executable": "C:\\Program Files\\Winlogbeat\\winlogbeat.exe"

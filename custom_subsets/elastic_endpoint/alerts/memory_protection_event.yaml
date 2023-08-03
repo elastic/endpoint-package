@@ -599,6 +599,7 @@ fields:
                   hash:
                     fields:
                       sha256: {}
+              hardware_breakpoint_set: {}
               parameter: {}
               parameter_bytes_compressed: {}
               parameter_bytes_compressed_present: {}
@@ -609,6 +610,12 @@ fields:
               start_address_bytes: {}
               start_address_bytes_disasm: {}
               start_address_bytes_disasm_hash: {}
+              original_start_address: {}
+              original_start_address_module: {}
+              original_start_address_allocation_offset: {}
+              original_start_address_bytes: {}
+              original_start_address_bytes_disasm: {}
+              original_start_address_bytes_disasm_hash: {}
               service: {}
               token:
                 fields:

@@ -400,6 +400,40 @@
       ignore_above: 1024
       description: Destination file path
       default_field: false
+    - name: action.file.reason
+      level: custom
+      type: long
+      description: Combined USN file modification reason
+      default_field: false
+    - name: action.key.actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Actions taken by Registry Rollback for key
+      default_field: false
+    - name: action.key.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: NT path of registry key recovered by Rollback
+      default_field: false
+    - name: action.key.values
+      level: custom
+      type: object
+      description: Values modified
+      default_field: false
+    - name: action.key.values.actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Actions taken by Registry Rollback for value
+      default_field: false
+    - name: action.key.values.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Value name recovered by Rollback
+      default_field: false
     - name: action.source.attributes
       level: custom
       type: keyword
@@ -2408,6 +2442,52 @@
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
+    - name: process.thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread. This field is omitted if false.
+      example: 'true'
+      default_field: false
+    - name: process.thread.Ext.original_start_address
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the thread start address in memory.
+      example: 4194304
+      default_field: false
+    - name: process.thread.Ext.original_start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      example: 0
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes_disasm
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      example: mov rax, 0x4141414141414141\njmp rax
+      default_field: false
+    - name: process.thread.Ext.original_start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+      default_field: false
+    - name: process.thread.Ext.original_start_address_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+      default_field: false
     - name: process.thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -3841,6 +3921,60 @@
           default_field: false
       description: Full path to the file, including the file name. It should include the drive letter, when appropriate.
       example: /home/alice/example.png
+    - name: pe.Ext.dotnet
+      level: custom
+      type: boolean
+      description: Whether this file is a .NET PE
+      example: 'true'
+      default_field: false
+    - name: pe.Ext.sections
+      level: custom
+      type: object
+      description: The file's relevant sections, if it is a PE
+      default_field: false
+    - name: pe.Ext.sections.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: pe.Ext.sections.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: pe.Ext.sections.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The section's name
+      example: .reloc
+      default_field: false
+    - name: pe.Ext.streams
+      level: custom
+      type: object
+      description: The file's streams, if it is a PE
+      default_field: false
+    - name: pe.Ext.streams.hash.md5
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: MD5 hash.
+      default_field: false
+    - name: pe.Ext.streams.hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: pe.Ext.streams.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The stream's name
+      example: .reloc
+      default_field: false
     - name: pe.company
       level: extended
       type: keyword
@@ -4103,7 +4237,7 @@
       ignore_above: 1024
       description: 'Name of the host.
 
-        It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use.'
+        It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host.'
     - name: os.Ext
       level: custom
       type: object
@@ -4172,9 +4306,7 @@
       ignore_above: 1024
       description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
 
-        One of these following values should be used (lowercase): linux, macos, unix, windows.
-
-        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+        If the OS you''re dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
       example: macos
       default_field: false
     - name: os.version
@@ -5426,11 +5558,12 @@
       default_field: false
     - name: env_vars
       level: extended
-      type: object
-      description: 'Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information.
+      type: keyword
+      ignore_above: 1024
+      description: 'Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution.
 
-        The field should not contain nested objects. All values should use `keyword`.'
-      example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
+        May be filtered to protect sensitive information.'
+      example: '["PATH=/usr/local/bin:/usr/bin", "USER=ubuntu"]'
       default_field: false
     - name: executable
       level: extended
@@ -7146,6 +7279,52 @@
       description: Concatentation of the non-repeated modules in the call stack.
       example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
+    - name: thread.Ext.hardware_breakpoint_set
+      level: custom
+      type: boolean
+      description: Whether a hardware breakpoint was set for the thread. This field is omitted if false.
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.original_start_address
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the thread start address in memory.
+      example: 4194304
+      default_field: false
+    - name: thread.Ext.original_start_address_allocation_offset
+      level: custom
+      type: unsigned_long
+      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      example: 0
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes_disasm
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      example: mov rax, 0x4141414141414141\njmp rax
+      default_field: false
+    - name: thread.Ext.original_start_address_bytes_disasm_hash
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
+      default_field: false
+    - name: thread.Ext.original_start_address_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: When a trampoline was detected, this indicates the original content for the dll/module where the thread began execution.
+      example: C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+      default_field: false
     - name: thread.Ext.parameter
       level: custom
       type: unsigned_long
@@ -7654,6 +7833,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: enrichments.indicator.file.Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: enrichments.indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
@@ -7677,6 +7864,14 @@
       type: keyword
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
+    - name: enrichments.indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
       default_field: false
     - name: enrichments.indicator.file.Ext.entropy
       level: custom
@@ -8037,6 +8232,37 @@
       type: flattened
       description: List of exported element names and types.
       default_field: false
+    - name: enrichments.indicator.file.elf.go_import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
+      example: 10bddcb4cee42080f76c88d9ff964491
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports
+      level: extended
+      type: flattened
+      description: List of imported Go language element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: enrichments.indicator.file.elf.go_stripped
+      level: extended
+      type: boolean
+      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
+      default_field: false
     - name: enrichments.indicator.file.elf.header.abi_version
       level: extended
       type: keyword
@@ -8085,10 +8311,31 @@
       ignore_above: 1024
       description: Version of the ELF header.
       default_field: false
+    - name: enrichments.indicator.file.elf.import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        This is an ELF implementation of the Windows PE imphash.'
+      example: d41d8cd98f00b204e9800998ecf8427e
+      default_field: false
     - name: enrichments.indicator.file.elf.imports
       level: extended
       type: flattened
       description: List of imported element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of imported element names and types.
+      default_field: false
+    - name: enrichments.indicator.file.elf.imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of imported element names and types.
       default_field: false
     - name: enrichments.indicator.file.elf.sections
       level: extended
@@ -8138,6 +8385,12 @@
       type: keyword
       ignore_above: 1024
       description: ELF Section List type.
+      default_field: false
+    - name: enrichments.indicator.file.elf.sections.var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the section.
       default_field: false
     - name: enrichments.indicator.file.elf.sections.virtual_address
       level: extended
@@ -8480,8 +8733,8 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Traffic Light Protocol sharing markings. Recommended values are:\n  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
-      example: White
+      description: Traffic Light Protocol sharing markings.
+      example: CLEAR
       default_field: false
     - name: enrichments.indicator.modified_at
       level: extended
@@ -8577,7 +8830,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Type of indicator as represented by Cyber Observable in STIX 2.0. Recommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  * domain-name\n  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n  * mutex\n  * port\n  * process\n  * software\n  * url\n  * user-account\n  * windows-registry-key\n  * x509-certificate"
+      description: Type of indicator as represented by Cyber Observable in STIX 2.0.
       example: ipv4-addr
       default_field: false
     - name: enrichments.indicator.url.domain
@@ -8722,7 +8975,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: List of country (C) codes
+      description: List of country \(C) codes
       example: US
       default_field: false
     - name: enrichments.indicator.x509.issuer.distinguished_name
@@ -8825,7 +9078,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: List of country (C) code
+      description: List of country \(C) code
       example: US
       default_field: false
     - name: enrichments.indicator.x509.subject.distinguished_name
@@ -8958,7 +9211,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields.\nExpected values are:\n  * Not Specified\n  * None\n  * Low\n  * Medium\n  * High"
+      description: Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields.
       example: Medium
       default_field: false
     - name: indicator.description
@@ -9035,6 +9288,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: indicator.file.Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: indicator.file.Ext.device.nt_name
       level: custom
       type: keyword
@@ -9058,6 +9319,14 @@
       type: keyword
       ignore_above: 1024
       description: VendorID of the device. It is provided by the vendor of the device.
+      default_field: false
+    - name: indicator.file.Ext.device.volume_device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device type.
+
+        Following are examples of the most frequently seen volume device types: Disk File System CD-ROM File System'
       default_field: false
     - name: indicator.file.Ext.entropy
       level: custom
@@ -9418,6 +9687,37 @@
       type: flattened
       description: List of exported element names and types.
       default_field: false
+    - name: indicator.file.elf.go_import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the Go language imports in an ELF file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
+      example: 10bddcb4cee42080f76c88d9ff964491
+      default_field: false
+    - name: indicator.file.elf.go_imports
+      level: extended
+      type: flattened
+      description: List of imported Go language element names and types.
+      default_field: false
+    - name: indicator.file.elf.go_imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: indicator.file.elf.go_imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of Go imports.
+      default_field: false
+    - name: indicator.file.elf.go_stripped
+      level: extended
+      type: boolean
+      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
+      default_field: false
     - name: indicator.file.elf.header.abi_version
       level: extended
       type: keyword
@@ -9466,10 +9766,31 @@
       ignore_above: 1024
       description: Version of the ELF header.
       default_field: false
+    - name: indicator.file.elf.import_hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'A hash of the imports in an ELF file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
+
+        This is an ELF implementation of the Windows PE imphash.'
+      example: d41d8cd98f00b204e9800998ecf8427e
+      default_field: false
     - name: indicator.file.elf.imports
       level: extended
       type: flattened
       description: List of imported element names and types.
+      default_field: false
+    - name: indicator.file.elf.imports_names_entropy
+      level: extended
+      type: long
+      format: number
+      description: Shannon entropy calculation from the list of imported element names and types.
+      default_field: false
+    - name: indicator.file.elf.imports_names_var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the list of imported element names and types.
       default_field: false
     - name: indicator.file.elf.sections
       level: extended
@@ -9519,6 +9840,12 @@
       type: keyword
       ignore_above: 1024
       description: ELF Section List type.
+      default_field: false
+    - name: indicator.file.elf.sections.var_entropy
+      level: extended
+      type: long
+      format: number
+      description: Variance for Shannon entropy calculation from the section.
       default_field: false
     - name: indicator.file.elf.sections.virtual_address
       level: extended
@@ -9861,8 +10188,8 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Traffic Light Protocol sharing markings.\nRecommended values are:\n  * WHITE\n  * GREEN\n  * AMBER\n  * RED"
-      example: WHITE
+      description: Traffic Light Protocol sharing markings.
+      example: CLEAR
       default_field: false
     - name: indicator.modified_at
       level: extended
@@ -9958,7 +10285,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "Type of indicator as represented by Cyber Observable in STIX 2.0.\nRecommended values:\n  * autonomous-system\n  * artifact\n  * directory\n  * domain-name\n  * email-addr\n  * file\n  * ipv4-addr\n  * ipv6-addr\n  * mac-addr\n  * mutex\n  * port\n  * process\n  * software\n  * url\n  * user-account\n  * windows-registry-key\n  * x509-certificate"
+      description: Type of indicator as represented by Cyber Observable in STIX 2.0.
       example: ipv4-addr
       default_field: false
     - name: indicator.url.domain
@@ -10103,7 +10430,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: List of country (C) codes
+      description: List of country \(C) codes
       example: US
       default_field: false
     - name: indicator.x509.issuer.distinguished_name
@@ -10206,7 +10533,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: List of country (C) code
+      description: List of country \(C) code
       example: US
       default_field: false
     - name: indicator.x509.subject.distinguished_name
@@ -10268,7 +10595,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nRecommended Values:\n  * AWS\n  * Azure\n  * Azure AD\n  * GCP\n  * Linux\n  * macOS\n  * Network\n  * Office 365\n  * SaaS\n  * Windows\n\nWhile not required, you can use a MITRE ATT&CK® software platforms."
+      description: "The platforms of the software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nWhile not required, you can use MITRE ATT&CK® software platform values."
       example: '[ "Windows" ]'
       default_field: false
     - name: software.reference
@@ -10282,7 +10609,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      description: "The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nRecommended values\n  * Malware\n  * Tool\n\n While not required, you can use a MITRE ATT&CK® software type."
+      description: "The type of software used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®.\nWhile not required, you can use a MITRE ATT&CK® software type."
       example: Tool
       default_field: false
     - name: tactic.id

@@ -343,6 +343,17 @@
         Disk File System
         CD-ROM File System
 
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
+
     - name: code_signature.exists
       level: core
       type: boolean
@@ -408,3 +419,8 @@
         This is used to identify the team or vendor of a software product. The field is
         relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+
+    - name: pe
+      level: custom
+      type: object
+      description: PE fields

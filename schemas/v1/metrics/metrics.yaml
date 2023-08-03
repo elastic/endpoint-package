@@ -188,6 +188,97 @@ Endpoint.metrics.documents_volume.alerts.suppressed_count:
   normalize: []
   short: Number of suppressed documents
   type: long
+Endpoint.metrics.documents_volume.api_events.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sent-bytes
+  description: Total size of API Event sent documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.sent_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sent_bytes
+  normalize: []
+  short: Total size of API Event sent documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sent-count
+  description: Number of sent API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.sent_count
+  level: custom
+  name: metrics.documents_volume.api_events.sent_count
+  normalize: []
+  short: Number of sent API Event documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources
+  description: An array of API Event document statistics per source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources
+  level: custom
+  name: metrics.documents_volume.api_events.sources
+  normalize: []
+  short: An array of API Event document statistics per source
+  type: object
+Endpoint.metrics.documents_volume.api_events.sources.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-sent-bytes
+  description: Total size of API Event sent documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.sent_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sources.sent_bytes
+  normalize: []
+  short: Total size of API Event sent documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-sent-count
+  description: Number of sent API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.sent_count
+  level: custom
+  name: metrics.documents_volume.api_events.sources.sent_count
+  normalize: []
+  short: Number of sent API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.source:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-source
+  description: API Event document source name
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.source
+  ignore_above: 1024
+  level: custom
+  name: metrics.documents_volume.api_events.sources.source
+  normalize: []
+  short: API Event document source name
+  type: keyword
+Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-suppressed-bytes
+  description: Total size of suppressed API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.sources.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.sources.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-sources-suppressed-count
+  description: Number of suppressed API Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.api_events.sources.suppressed_count
+  level: custom
+  name: metrics.documents_volume.api_events.sources.suppressed_count
+  normalize: []
+  short: Number of suppressed API Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.api_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-suppressed-bytes
+  description: Total size of suppressed API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.api_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed API Event documents
+  type: long
+Endpoint.metrics.documents_volume.api_events.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-api-events-suppressed-count
+  description: Number of suppressed API Event documents
+  flat_name: Endpoint.metrics.documents_volume.api_events.suppressed_count
+  level: custom
+  name: metrics.documents_volume.api_events.suppressed_count
+  normalize: []
+  short: Number of suppressed API Event documents
+  type: long
 Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes:
   dashed_name: Endpoint-metrics-documents-volume-diagnostic-alerts-sent-bytes
   description: Total size of sent documents
@@ -675,32 +766,6 @@ Endpoint.metrics.system_impact.dns_events.week_ms:
   short: The total milliseconds spent on DNS events for the process over the last
     week
   type: unsigned_long
-Endpoint.metrics.system_impact.etw_events.week_idle_ms:
-  dashed_name: Endpoint-metrics-system-impact-etw-events-week-idle-ms
-  description: The total milliseconds spent queueing ETW-based events for the process
-    over the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.etw_events.week_idle_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.etw_events.week_idle_ms
-  normalize: []
-  short: The total milliseconds spent queueing ETW-based events for the process over
-    the last week
-  type: unsigned_long
-Endpoint.metrics.system_impact.etw_events.week_ms:
-  dashed_name: Endpoint-metrics-system-impact-etw-events-week-ms
-  description: The total milliseconds spent on ETW-based events for the process over
-    the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.etw_events.week_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.etw_events.week_ms
-  normalize: []
-  short: The total milliseconds spent on ETW-based events for the process over the
-    last week
-  type: unsigned_long
 Endpoint.metrics.system_impact.file_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-file-events-week-idle-ms
   description: The total milliseconds spent queueing file events for the process over
@@ -1004,6 +1069,32 @@ Endpoint.metrics.system_impact.registry_events.week_ms:
   short: The total milliseconds spent on registry events for the process over the
     last week
   type: unsigned_long
+Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-threat-intelligence-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW Threat-Intelligence events
+    for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.threat_intelligence_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW Threat-Intelligence events for
+    the process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.threat_intelligence_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-threat-intelligence-events-week-ms
+  description: The total milliseconds spent on ETW Threat-Intelligence events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.threat_intelligence_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.threat_intelligence_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW Threat-Intelligence events for the process
+    over the last week
+  type: unsigned_long
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
   description: Statistics about the individual Endpoint threads (array)
@@ -1167,6 +1258,24 @@ event.action:
   type: keyword
 event.category:
   allowed_values:
+  - description: Events in this category annotate API calls that occured on a system.
+      Typical sources for those events could be from the Operating System level through
+      the native libraries (for example Windows Win32, Linux libc, etc.), or managed
+      sources of events (such as ETW, syslog), but can also include network protocols
+      (such as SOAP, RPC, Websocket, REST, etc.)
+    expected_event_types:
+    - access
+    - admin
+    - allowed
+    - change
+    - creation
+    - deletion
+    - denied
+    - end
+    - info
+    - start
+    - user
+    name: api
   - description: Events in this category are related to the challenge and response
       process in which credentials are supplied and verified to allow the creation
       of a session. Common sources for these logs are Windows event logs and ssh logs.
@@ -1336,6 +1445,12 @@ event.category:
     expected_event_types:
     - indicator
     name: threat
+  - description: Relating to vulnerability scan results. Use this category to analyze
+      vulnerabilities detected by Tenable, Qualys, internal scanners, and other vulnerability
+      management sources.
+    expected_event_types:
+    - info
+    name: vulnerability
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -1885,8 +2000,9 @@ host.name:
   dashed_name: host-name
   description: 'Name of the host.
 
-    It can contain what `hostname` returns on Unix systems, the fully qualified domain
-    name, or a name specified by the user. The sender decides which value to use.'
+    It can contain what hostname returns on Unix systems, the fully qualified domain
+    name (FQDN), or a name specified by the user. The recommended value is the lowercase
+    FQDN of the host.'
   flat_name: host.name
   ignore_above: 1024
   level: core
@@ -2004,19 +2120,25 @@ host.os.type:
   description: 'Use the `os.type` field to categorize the operating system into one
     of the broad commercial families.
 
-    One of these following values should be used (lowercase): linux, macos, unix,
-    windows.
-
-    If the OS you''re dealing with is not in the list, the field should not be populated.
-    Please let us know by opening an issue with ECS, to propose its addition.'
+    If the OS you''re dealing with is not listed as an expected value, the field should
+    not be populated. Please let us know by opening an issue with ECS, to propose
+    its addition.'
   example: macos
+  expected_values:
+  - linux
+  - macos
+  - unix
+  - windows
+  - ios
+  - android
   flat_name: host.os.type
   ignore_above: 1024
   level: extended
   name: type
   normalize: []
   original_fieldset: os
-  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  short: 'Which commercial OS family (one of: linux, macos, unix, windows, ios or
+    android).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version

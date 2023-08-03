@@ -111,6 +111,22 @@ fields:
       parent:
         fields:
           pid: {}
+          entity_id: {}
+          group_leader:
+            fields:
+              entity_id: {}
+      entry_leader:
+        fields:
+          entity_id: {}
+          parent:
+           fields:
+            entity_id: {}
+      session_leader:
+        fields:
+          entity_id: {}
+      group_leader:
+        fields:
+          entity_id: {}
       code_signature:
         fields:
           exists: {}
@@ -123,6 +139,17 @@ fields:
       thread:
         fields:
           id: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: true
+                fields:
+                  allocation_private_bytes: {}
+                  callsite_leading_bytes: {}
+                  callsite_trailing_bytes: {}
+                  protection: {}
+                  symbol_info: {}
+              call_stack_summary: {}
       Ext:
         fields:
           ancestry: {}
@@ -139,6 +166,14 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+  Persistence:
+    fields:
+      args: {}
+      keepalive: {}
+      executable: {}
+      name: {}
+      path: {}
+      runatload: {}
   file:
     fields:
       accessed: {}
@@ -219,4 +254,5 @@ fields:
              serial_number: {}
              vendor_id: {}
              volume_device_type: {}
+             file_system_type: {}
 

@@ -60,6 +60,64 @@ Effective_process.pid:
   normalize: []
   short: Process ID.
   type: long
+Persistence.args:
+  dashed_name: Persistence-args
+  description: Arguments used to execute the persistence item
+  flat_name: Persistence.args
+  ignore_above: 1024
+  level: custom
+  name: args
+  normalize: []
+  short: Arguments used to execute the persistence item
+  type: keyword
+Persistence.executable:
+  dashed_name: Persistence-executable
+  description: The persistence item's executable
+  flat_name: Persistence.executable
+  ignore_above: 1024
+  level: custom
+  name: executable
+  normalize: []
+  short: The persistence item's executable
+  type: keyword
+Persistence.keepalive:
+  dashed_name: Persistence-keepalive
+  description: Keep alive option boolean
+  flat_name: Persistence.keepalive
+  level: custom
+  name: keepalive
+  normalize: []
+  short: Keep alive option boolean
+  type: boolean
+Persistence.name:
+  dashed_name: Persistence-name
+  description: The persistence item's name
+  flat_name: Persistence.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  short: The persistence item's name
+  type: keyword
+Persistence.path:
+  dashed_name: Persistence-path
+  description: The file's path
+  flat_name: Persistence.path
+  ignore_above: 1024
+  level: custom
+  name: path
+  normalize: []
+  short: The file's path
+  type: keyword
+Persistence.runatload:
+  dashed_name: Persistence-runatload
+  description: Run at load option boolean
+  flat_name: Persistence.runatload
+  level: custom
+  name: runatload
+  normalize: []
+  short: Run at load option boolean
+  type: boolean
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -304,6 +362,24 @@ event.action:
   type: keyword
 event.category:
   allowed_values:
+  - description: Events in this category annotate API calls that occured on a system.
+      Typical sources for those events could be from the Operating System level through
+      the native libraries (for example Windows Win32, Linux libc, etc.), or managed
+      sources of events (such as ETW, syslog), but can also include network protocols
+      (such as SOAP, RPC, Websocket, REST, etc.)
+    expected_event_types:
+    - access
+    - admin
+    - allowed
+    - change
+    - creation
+    - deletion
+    - denied
+    - end
+    - info
+    - start
+    - user
+    name: api
   - description: Events in this category are related to the challenge and response
       process in which credentials are supplied and verified to allow the creation
       of a session. Common sources for these logs are Windows event logs and ssh logs.
@@ -473,6 +549,12 @@ event.category:
     expected_event_types:
     - indicator
     name: threat
+  - description: Relating to vulnerability scan results. Use this category to analyze
+      vulnerabilities detected by Tenable, Qualys, internal scanners, and other vulnerability
+      management sources.
+    expected_event_types:
+    - info
+    name: vulnerability
   - description: 'Relating to web server access. Use this category to create a dashboard
       of web server/proxy activity from apache, IIS, nginx web servers, etc. Note:
       events from network observers such as Zeek http log may also be included in
@@ -947,6 +1029,19 @@ file.Ext.device.dos_name:
   name: Ext.device.dos_name
   normalize: []
   short: DOS name of the device.
+  type: keyword
+file.Ext.device.file_system_type:
+  dashed_name: file-Ext-device-file-system-type
+  description: 'Volume device file system type.
+
+    Following are examples of the most frequently seen volume device file system types:
+    NTFS UDF'
+  flat_name: file.Ext.device.file_system_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.device.file_system_type
+  normalize: []
+  short: Volume device file system type.
   type: keyword
 file.Ext.device.nt_name:
   dashed_name: file-Ext-device-nt-name
@@ -1796,8 +1891,9 @@ host.name:
   dashed_name: host-name
   description: 'Name of the host.
 
-    It can contain what `hostname` returns on Unix systems, the fully qualified domain
-    name, or a name specified by the user. The sender decides which value to use.'
+    It can contain what hostname returns on Unix systems, the fully qualified domain
+    name (FQDN), or a name specified by the user. The recommended value is the lowercase
+    FQDN of the host.'
   flat_name: host.name
   ignore_above: 1024
   level: core
@@ -1915,19 +2011,25 @@ host.os.type:
   description: 'Use the `os.type` field to categorize the operating system into one
     of the broad commercial families.
 
-    One of these following values should be used (lowercase): linux, macos, unix,
-    windows.
-
-    If the OS you''re dealing with is not in the list, the field should not be populated.
-    Please let us know by opening an issue with ECS, to propose its addition.'
+    If the OS you''re dealing with is not listed as an expected value, the field should
+    not be populated. Please let us know by opening an issue with ECS, to propose
+    its addition.'
   example: macos
+  expected_values:
+  - linux
+  - macos
+  - unix
+  - windows
+  - ios
+  - android
   flat_name: host.os.type
   ignore_above: 1024
   level: extended
   name: type
   normalize: []
   original_fieldset: os
-  short: 'Which commercial OS family (one of: linux, macos, unix or windows).'
+  short: 'Which commercial OS family (one of: linux, macos, unix, windows, ios or
+    android).'
   type: keyword
 host.os.version:
   dashed_name: host-os-version
@@ -2202,6 +2304,46 @@ process.entity_id:
   normalize: []
   short: Unique identifier for the process.
   type: keyword
+process.entry_leader.entity_id:
+  dashed_name: process-entry-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.entry_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
+process.entry_leader.parent.entity_id:
+  dashed_name: process-entry-leader-parent-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.entry_leader.parent.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
 process.executable:
   dashed_name: process-executable
   description: Absolute path to the process executable.
@@ -2222,6 +2364,26 @@ process.executable:
   name: executable
   normalize: []
   short: Absolute path to the process executable.
+  type: keyword
+process.group_leader.entity_id:
+  dashed_name: process-group-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.group_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
   type: keyword
 process.name:
   dashed_name: process-name
@@ -2245,6 +2407,46 @@ process.name:
   name: name
   normalize: []
   short: Process name.
+  type: keyword
+process.parent.entity_id:
+  dashed_name: process-parent-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.parent.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
+process.parent.group_leader.entity_id:
+  dashed_name: process-parent-group-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.parent.group_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
   type: keyword
 process.parent.pid:
   dashed_name: process-parent-pid
@@ -2280,6 +2482,116 @@ process.ppid:
   normalize: []
   short: Parent process' pid.
   type: long
+process.session_leader.entity_id:
+  dashed_name: process-session-leader-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.session_leader.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  original_fieldset: process
+  short: Unique identifier for the process.
+  type: keyword
+process.thread.Ext:
+  dashed_name: process-thread-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.thread.Ext
+  level: custom
+  name: thread.Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+process.thread.Ext.call_stack:
+  dashed_name: process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: true
+  flat_name: process.thread.Ext.call_stack
+  level: custom
+  name: call_stack
+  normalize: []
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: object
+process.thread.Ext.call_stack.allocation_private_bytes:
+  dashed_name: process-thread-Ext-call-stack-allocation-private-bytes
+  description: The number of bytes in this memory allocation/image that are both +X
+    and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  flat_name: process.thread.Ext.call_stack.allocation_private_bytes
+  level: custom
+  name: allocation_private_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: The number of bytes in this memory allocation/image that are both +X and
+    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+  type: unsigned_long
+process.thread.Ext.call_stack.callsite_leading_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes
+  description: Hex opcode bytes preceding the callsite
+  flat_name: process.thread.Ext.call_stack.callsite_leading_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_leading_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes preceding the callsite
+  type: keyword
+process.thread.Ext.call_stack.callsite_trailing_bytes:
+  dashed_name: process-thread-Ext-call-stack-callsite-trailing-bytes
+  description: Hex opcode bytes after the callsite (where control will return to)
+  flat_name: process.thread.Ext.call_stack.callsite_trailing_bytes
+  ignore_above: 1024
+  level: custom
+  name: callsite_trailing_bytes
+  normalize: []
+  original_fieldset: call_stack
+  short: Hex opcode bytes after the callsite (where control will return to)
+  type: keyword
+process.thread.Ext.call_stack.protection:
+  dashed_name: process-thread-Ext-call-stack-protection
+  description: Protection of the page containing this instruction.  This is `R-X'
+    by default if omitted.
+  flat_name: process.thread.Ext.call_stack.protection
+  ignore_above: 1024
+  level: custom
+  name: protection
+  normalize: []
+  original_fieldset: call_stack
+  short: Protection of the page containing this instruction.  This is `R-X' by default
+    if omitted.
+  type: keyword
+process.thread.Ext.call_stack.symbol_info:
+  dashed_name: process-thread-Ext-call-stack-symbol-info
+  description: The nearest symbol for `instruction_pointer`.
+  flat_name: process.thread.Ext.call_stack.symbol_info
+  ignore_above: 1024
+  level: custom
+  name: symbol_info
+  normalize: []
+  original_fieldset: call_stack
+  short: The nearest symbol for `instruction_pointer`.
+  type: keyword
+process.thread.Ext.call_stack_summary:
+  dashed_name: process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  flat_name: process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  short: Concatentation of the non-repeated modules in the call stack.
+  type: keyword
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.

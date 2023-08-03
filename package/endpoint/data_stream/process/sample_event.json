@@ -50,6 +50,15 @@
         }
     },
     "process": {
+        "entry_leader": {
+            "attested_user": {
+                "id": "123",
+                "name": "userA"
+            },
+            "attested_groups": {
+                "name": "groupA"
+            }
+        },
         "Ext": {
             "ancestry": [
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
@@ -62,6 +71,11 @@
                     "exists": true,
                     "status": "trusted"
                 }
+            ],
+            "mitigation_policies": [
+                "Microsoft only, Opt-in to restrict to Microsoft, Windows Store and WHQL",
+                "CET dynamic APIs can only be called out of proc",
+                "CF Guard"
             ],
             "device": {
                 "volume_device_type": "Disk File System"
@@ -81,7 +95,20 @@
                 "pid": 2732
             },
             "relative_file_creation_time": 48628704.4029488,
-            "relative_file_name_modify_time": 48628704.4029488
+            "relative_file_name_modify_time": 48628704.4029488,
+            "session_info": {
+                "logon_type": "Interactive",
+                "client_address": "127.0.0.1",
+                "id": 1,
+                "authentication_package": "NTLM",
+                "relative_logon_time": 0.1,
+                "relative_password_age": 2592000.123,
+                "user_flags": [
+                    "LOGON_EXTRA_SIDS",
+                    "LOGON_NTLMV2_ENABLED",
+                    "LOGON_WINLOGON"
+                ]
+            }
         },
         "parent": {
             "args": [],
@@ -90,7 +117,22 @@
             "args_count": 0,
             "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
             "command_line": "",
-            "executable": "C:\\Windows\\System32\\services.exe"
+            "executable": "C:\\Windows\\System32\\services.exe",
+            "thread": {
+                "Ext": {
+                    "call_stack": [
+                        {
+                            "allocation_private_bytes": 16384,
+                            "callsite_leading_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "callsite_trailing_bytes": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "protection": "RWX",
+                            "symbol_info": "C:\\Windows\\System32\\ntdll.dll!RtlUserThreadStart+0x21"
+                        }
+                    ],
+                    "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll",
+                    "call_stack_contains_unbacked": true
+                }
+            }
         },
         "pid": 2772,
         "working_directory": "C:\\Windows\\system32\\",
@@ -132,7 +174,11 @@
             "total_bytes_captured": 10,
             "total_bytes_skipped": 0,
             "max_bytes_per_process_exceeded": false
-        }
+        },
+        "env_vars": [
+            "NICK=test",
+            "OTHER=why"
+        ]
     },
     "message": "Endpoint process event",
     "@timestamp": "2022-04-04T18:53:08.6578986Z",

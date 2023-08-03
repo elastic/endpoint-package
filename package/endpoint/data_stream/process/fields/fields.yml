@@ -527,7 +527,7 @@
       ignore_above: 1024
       description: 'Name of the host.
 
-        It can contain what `hostname` returns on Unix systems, the fully qualified domain name, or a name specified by the user. The sender decides which value to use.'
+        It can contain what hostname returns on Unix systems, the fully qualified domain name (FQDN), or a name specified by the user. The recommended value is the lowercase FQDN of the host.'
     - name: os.Ext
       level: custom
       type: object
@@ -596,9 +596,7 @@
       ignore_above: 1024
       description: 'Use the `os.type` field to categorize the operating system into one of the broad commercial families.
 
-        One of these following values should be used (lowercase): linux, macos, unix, windows.
-
-        If the OS you''re dealing with is not in the list, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
+        If the OS you''re dealing with is not listed as an expected value, the field should not be populated. Please let us know by opening an issue with ECS, to propose its addition.'
       example: macos
       default_field: false
     - name: os.version
@@ -785,6 +783,14 @@
       ignore_above: 1024
       description: DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,...
       default_field: false
+    - name: Ext.device.file_system_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types: NTFS UDF'
+      default_field: false
     - name: Ext.device.nt_name
       level: custom
       type: keyword
@@ -875,6 +881,12 @@
       description: Process ID.
       example: 4242
       default_field: false
+    - name: Ext.mitigation_policies
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled
+      default_field: false
     - name: Ext.protection
       level: custom
       type: keyword
@@ -896,6 +908,45 @@
       type: keyword
       ignore_above: 1024
       description: Session information for the current process
+      default_field: false
+    - name: Ext.session_info.authentication_package
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+      default_field: false
+    - name: Ext.session_info.client_address
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Client's IPv4 or IPv6 address as a string, if available.
+      default_field: false
+    - name: Ext.session_info.id
+      level: custom
+      type: unsigned_long
+      description: Session ID
+      default_field: false
+    - name: Ext.session_info.logon_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session logon type.  Examples include Interactive, Network, and Service.
+      default_field: false
+    - name: Ext.session_info.relative_logon_time
+      level: custom
+      type: double
+      description: Process creation time, relative to logon time, in seconds.
+      default_field: false
+    - name: Ext.session_info.relative_password_age
+      level: custom
+      type: double
+      description: Process creation time, relative to the last time the password was changed, in seconds.
+      default_field: false
+    - name: Ext.session_info.user_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
       default_field: false
     - name: Ext.token.elevation
       level: custom
@@ -1061,6 +1112,29 @@
 
         This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity.'
       example: 4
+      default_field: false
+    - name: entry_leader.attested_groups.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Name of the group.
+      default_field: false
+    - name: entry_leader.attested_user.id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier of the user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
+      default_field: false
+    - name: entry_leader.attested_user.name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: match_only_text
+      description: Short name or login of the user.
+      example: a.einstein
       default_field: false
     - name: entry_leader.command_line
       level: extended
@@ -1352,11 +1426,12 @@
       default_field: false
     - name: env_vars
       level: extended
-      type: object
-      description: 'Environment variables (`env_vars`) set at the time of the event. May be filtered to protect sensitive information.
+      type: keyword
+      ignore_above: 1024
+      description: 'Array of environment variable bindings. Captured from a snapshot of the environment at the time of execution.
 
-        The field should not contain nested objects. All values should use `keyword`.'
-      example: '{"USER": "elastic","LANG": "en_US.UTF-8","HOME": "/home/elastic"}'
+        May be filtered to protect sensitive information.'
+      example: '["PATH=/usr/local/bin:/usr/bin", "USER=ubuntu"]'
       default_field: false
     - name: executable
       level: extended
@@ -2143,6 +2218,58 @@
       type: keyword
       ignore_above: 1024
       description: Name of the group.
+      default_field: false
+    - name: parent.thread.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: parent.thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: true
+      default_field: false
+    - name: parent.thread.Ext.call_stack.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+      default_field: false
+    - name: parent.thread.Ext.call_stack.callsite_leading_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes preceding the callsite
+      default_field: false
+    - name: parent.thread.Ext.call_stack.callsite_trailing_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes after the callsite (where control will return to)
+      default_field: false
+    - name: parent.thread.Ext.call_stack.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
+      default_field: false
+    - name: parent.thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: parent.thread.Ext.call_stack_contains_unbacked
+      level: custom
+      type: boolean
+      description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
+      default_field: false
+    - name: parent.thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
       default_field: false
     - name: parent.thread.id
       level: extended
