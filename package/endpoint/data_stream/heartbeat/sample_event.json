@@ -1,0 +1,15 @@
+{
+    "@timestamp": "2023-07-18T20:40:09.279939Z",
+    "agent": {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    },
+    "data_stream": {
+        "dataset": "endpoint.heartbeat",
+        "namespace": "default",
+        "type": ".logs"
+    },
+    "message": "Endpoint heartbeat",
+    "event": {
+        "ingested": "2023-07-18T20:40:09.279939Z"
+    }
+}
