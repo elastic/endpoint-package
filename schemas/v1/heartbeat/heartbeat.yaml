@@ -17,6 +17,29 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Endpoint.state:
+  dashed_name: Endpoint-state
+  description: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  flat_name: Endpoint.state
+  level: custom
+  name: state
+  normalize: []
+  short: Represents the current state of a non-policy setting These fields reflect
+    the current status of a field, which may differ from what it is configured to
+    be (see Endpoint.configuration)
+  type: object
+Endpoint.state.enabled_features:
+  dashed_name: Endpoint-state-enabled-features
+  description: High level summary of policy features actively in use
+  flat_name: Endpoint.state.enabled_features
+  ignore_above: 1024
+  level: custom
+  name: state.enabled_features
+  normalize: []
+  short: High level summary of policy features actively in use
+  type: keyword
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).

@@ -21,6 +21,24 @@
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
   default_field: true
+- name: Endpoint
+  title: Endpoint
+  group: 2
+  description: Fields describing the state of the Elastic Endpoint when an event occurs.
+  type: group
+  default_field: true
+  fields:
+    - name: state
+      level: custom
+      type: object
+      description: Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
+      default_field: false
+    - name: state.enabled_features
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: High level summary of policy features actively in use
+      default_field: false
 - name: agent
   title: Agent
   group: 2
