@@ -51,15 +51,15 @@
                     "library_load_events": {
                         "week_ms": 3028
                     },
-		    "cred_access_events": {
+                    "cred_access_events": {
                         "week_ms": 10
-		    },
-		    "threat_intelligence_events": {
+                    },
+                    "threat_intelligence_events": {
                         "week_ms": 250
-		    },
-		    "etw_win32k_events": {
+                    },
+                    "etw_win32k_events": {
                         "week_ms": 50
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -91,15 +91,15 @@
                     "library_load_events": {
                         "week_ms": 7890
                     },
-		    "cred_access_events": {
+                    "cred_access_events": {
                         "week_ms": 20
-		    },
-		    "threat_intelligence_events": {
+                    },
+                    "threat_intelligence_events": {
                         "week_ms": 300
-		    },
-		    "etw_win32k_events": {
+                    },
+                    "etw_win32k_events": {
                         "week_ms": 10
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -134,9 +134,9 @@
                     "library_load_events": {
                         "week_ms": 4
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 360
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -168,12 +168,12 @@
                     "library_load_events": {
                         "week_ms": 26
                     },
-		    "cred_access_events": {
+                    "cred_access_events": {
                         "week_ms": 1350
-		    },
-		    "threat_intelligence_events": {
+                    },
+                    "threat_intelligence_events": {
                         "week_ms": 120
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -202,9 +202,9 @@
                     "library_load_events": {
                         "week_ms": 2966
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 250
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -272,9 +272,9 @@
                     "library_load_events": {
                         "week_ms": 417
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 150
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -309,9 +309,9 @@
                     "library_load_events": {
                         "week_ms": 85
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 250
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -362,9 +362,9 @@
                     "library_load_events": {
                         "week_ms": 3
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 50
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -390,9 +390,9 @@
                     "library_load_events": {
                         "week_ms": 627
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 120
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -424,9 +424,9 @@
                     "library_load_events": {
                         "week_ms": 61
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 30
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -464,9 +464,9 @@
                     "library_load_events": {
                         "week_ms": 70
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 20
-		    }
+                    }
                 },
                 {
                     "file_events": {
@@ -495,9 +495,9 @@
                     "overall": {
                         "week_ms": 494
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 40
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -548,9 +548,9 @@
                     "library_load_events": {
                         "week_ms": 216
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 70
-		    }
+                    }
                 },
                 {
                     "process": {
@@ -617,9 +617,9 @@
                     "library_load_events": {
                         "week_ms": 14
                     },
-		    "threat_intelligence_events": {
+                    "threat_intelligence_events": {
                         "week_ms": 50
-		    }
+                    }
                 }
             ],
             "memory": {
