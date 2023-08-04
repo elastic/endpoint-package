@@ -1050,6 +1050,11 @@
       type: boolean
       description: Current network isolation state of the host
 
+    - name: state.enabled_features
+      level: custom
+      type: keyword
+      description: High level summary of policy features actively in use
+
     - name: capabilities
       level: custom
       type: keyword

@@ -13,3 +13,8 @@ fields:
   event:
     fields:
       ingested: {}
+  Endpoint:
+    fields:
+      state:
+        fields:
+          enabled_features: {}
