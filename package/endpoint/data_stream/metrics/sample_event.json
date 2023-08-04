@@ -90,7 +90,7 @@
                     },
                     "library_load_events": {
                         "week_ms": 7890
-                    }
+                    },
 		    "cred_access_events": {
                         "week_ms": 20
 		    },
@@ -167,7 +167,7 @@
                     },
                     "library_load_events": {
                         "week_ms": 26
-                    }
+                    },
 		    "cred_access_events": {
                         "week_ms": 1350
 		    },
