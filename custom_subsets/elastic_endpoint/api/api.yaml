@@ -79,6 +79,18 @@ fields:
                   desired_access: {}
                   desired_access_numeric: {}
                   handle_type: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+      code_signature:
+        fields:
+          exists: {}
+          status: {}
+          subject_name: {}
+          trusted: {}
       thread:
         fields:
           id: {}

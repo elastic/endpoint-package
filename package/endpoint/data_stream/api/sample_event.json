@@ -69,7 +69,21 @@
                     "desired_access_numeric": 4112,
                     "handle_type": "process"
                 }
-            }
+            },
+            "code_signature": [
+                {
+                    "exists": true,
+                    "status": "errorBadDigest",
+                    "subject_name": "Microsoft Windows",
+                    "trusted": false
+                }
+            ]
+        },
+        "code_signature": {
+            "exists": true,
+            "status": "errorBadDigest",
+            "subject_name": "Microsoft Windows",
+            "trusted": false
         },
         "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNi0xNjczMjkzMTMwLjk0NjAwMjAw",
         "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimikatz.exe",
