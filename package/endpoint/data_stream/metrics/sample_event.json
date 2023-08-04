@@ -57,7 +57,7 @@
                     "threat_intelligence_events": {
                         "week_ms": 250
                     },
-                    "etw_win32k_events": {
+                    "win32k_events": {
                         "week_ms": 50
                     }
                 },
@@ -97,7 +97,7 @@
                     "threat_intelligence_events": {
                         "week_ms": 300
                     },
-                    "etw_win32k_events": {
+                    "win32k_events": {
                         "week_ms": 10
                     }
                 },
