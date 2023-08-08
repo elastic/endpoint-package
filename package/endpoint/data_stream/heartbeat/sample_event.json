@@ -11,17 +11,5 @@
     "message": "Endpoint heartbeat",
     "event": {
         "ingested": "2023-07-18T20:40:09.279939Z"
-    },
-    "Endpoint": {
-        "state": {
-            "enabled_features": [
-                "malware",
-                "ransomware",
-                "attack_surface_reduction",
-                "memory_threat",
-                "malicious_behavior",
-                "events"
-            ]
-        }
     }
 }
