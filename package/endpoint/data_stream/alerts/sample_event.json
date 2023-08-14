@@ -605,7 +605,7 @@
                 }
             }
         },
-	{
+        {
             "@timestamp": "2023-07-19T14:21:05.0Z",
             "action": {
                 "action": "process_rollback",
@@ -615,6 +615,6 @@
             },
             "message": "Successful production process rollback",
             "result": 0
-	}
+        }
     ]
 }
