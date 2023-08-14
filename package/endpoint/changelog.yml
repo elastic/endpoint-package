@@ -1,8 +1,8 @@
-- version: "8.10.1-preview"
+- version: "8.10.1"
   changes:
-    - description: TBD
-      type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/TBD
+    - description: revert unattended transforms
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/407
 - version: "8.10.0"
   changes:
     - description: set transforms to be unattended
