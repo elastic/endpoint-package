@@ -3,6 +3,11 @@
     - description: TBD
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/9999
+- version: "8.10.1"
+  changes:
+    - description: revert unattended transforms
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/407
 - version: "8.10.0"
   changes:
     - description: set transforms to be unattended
