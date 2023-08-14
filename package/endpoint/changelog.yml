@@ -1,3 +1,29 @@
+- version: "8.10.0"
+  changes:
+    - description: set transforms to be unattended
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/401
+    - description: Added Process Rollback fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/393
+    - description: Transform schema v2
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/270
+    - description: Add `code_signature` mappings for API events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/398
+    - description: Keylogging (Win32k ETW) API Event metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/395
+    - description: add heartbeat ds
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/396
+    - description: add endpoint custom documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/389
+    - description: '[Security Solution] Update description copy'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/380
 - version: "8.9.1"
   changes:
     - description: Update description copy
