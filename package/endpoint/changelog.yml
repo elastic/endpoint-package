@@ -3,6 +3,11 @@
     - description: TBD
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/9999
+- version: "8.10.2"
+  changes:
+    - description: revert transform schema v2
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/411
 - version: "8.10.1"
   changes:
     - description: revert unattended transforms
