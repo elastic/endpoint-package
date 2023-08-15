@@ -11,7 +11,7 @@ metadata:
 
 spec:
   type: buildkite-pipeline
-  owner: group: security-defend-workflows
+  owner: group:security-defend-workflows
   system: buildkite
   implementation:
     apiVersion: buildkite.elastic.dev/v1
