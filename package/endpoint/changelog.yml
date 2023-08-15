@@ -1,8 +1,8 @@
-- version: "8.10.2-preview"
+- version: "8.10.2"
   changes:
-    - description: TBD
-      type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999
+    - description: revert transform schema v2
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/411
 - version: "8.10.1"
   changes:
     - description: revert unattended transforms
