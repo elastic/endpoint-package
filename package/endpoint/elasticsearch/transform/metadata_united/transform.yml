@@ -21,6 +21,8 @@ pivot:
     agent.id:
       terms:
         field: agent.id
+settings:
+  unattended: true
 description: Merges latest Endpoint and Agent metadata documents
 _meta:
   managed: true
