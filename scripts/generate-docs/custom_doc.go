@@ -151,7 +151,7 @@ func renderCustomDocumentationReadme(options generateOptions, packageName string
 		return errors.Wrapf(err, "failed to read readme file %s", readmePath)
 	}
 
-	outputPath := filepath.Join(options.packagesSourceDir, packageName, "docs", "custom_documentation", "README.md")
+	outputPath := filepath.Join(options.customDocDir, "doc", packageName, "README.md")
 
 	// Write data to dst
 	err = ioutil.WriteFile(outputPath, content, 0644)
@@ -237,7 +237,7 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 		subPath = subPath + ".md"
 	}
 
-	outputPath := filepath.Join(options.packagesSourceDir, packageName, "docs", "custom_documentation", subPath)
+	outputPath := filepath.Join(options.customDocDir, "doc", packageName, subPath)
 	f, err := os.OpenFile(outputPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
 		return errors.Wrapf(err, "opening %s for writing failed, does the directory exist?", outputPath)
@@ -252,7 +252,7 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 }
 
 func renderCustomDocumentation(options generateOptions, packageName string) error {
-	customDocPackageDir := filepath.Join(options.customDocDir, packageName)
+	customDocPackageDir := filepath.Join(options.customDocDir, "src", packageName)
 	customFiles, err := findCustomDocFiles(customDocPackageDir)
 
 	if err != nil {
