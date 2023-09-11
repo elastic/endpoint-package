@@ -66,4 +66,8 @@ This event is generated when a file system is mounted.
 | user.Ext.real.name |
 | user.id |
 | user.name |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 
