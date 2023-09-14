@@ -2,6 +2,10 @@
 
 import json
 
+build_agent = {
+    "image": "golang:1.21-bookworm"
+}
+
 test_agent = {
     "provider": "gcp",
     "machineType": "n1-highmem-8",
@@ -13,9 +17,9 @@ def main():
     steps = [
         {
             "label": "Build",
-            "command": "make",
+            "command": ".buildkite/scripts/build.sh",
             "key": "build",
-            #"agents": test_agent,
+            "agents": build_agent,
             "artifact_paths": [
                 "build/packages/*.zip",
             ],
