@@ -4,7 +4,6 @@ import requests
 import sys
 import yaml
 import unittest
-from unittest import mock
 
 VERSION_URL = "https://artifacts-api.elastic.co/v1/versions?x-elastic-no-kpi=true"
 
@@ -28,7 +27,7 @@ def find_oldest_supported_version(kibana_version_condition: str) -> str:
         version += ".0"
         parts.append("0")
 
-    major, minor, patch = parts
+    major, minor, patch = parts[0], parts[1], parts[2]
 
     # Use the snapshot if this is the last patch version.
     next_patch = ".".join((major, minor, str(int(patch)+1)))
