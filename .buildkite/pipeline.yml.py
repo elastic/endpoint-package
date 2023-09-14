@@ -35,15 +35,14 @@ def main():
             ],
         },
         {
-            "label": "Run static test",
-            "depends_on": "build",
-            "key": "static_test",
+            "label": "Run Static and Pipeline check",
+            "key": "check",
             "command": ".buildkite/scripts/check.sh",
             "agents": test_agent,
             "notify": [
                 {
                     "github_commit_status": {
-                        "context": "Buildkite Check Static Test",
+                        "context": "Buildkite Check",
                     },
                 },
             ],
@@ -52,8 +51,7 @@ def main():
             "label": "Publish",
             "command": "echo Do publish when it is ready",
             "depends_on": [
-                "static_test",
-                "pipeline_test",
+                "check",
             ],
             "notify": [
                 {
