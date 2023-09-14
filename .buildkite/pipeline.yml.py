@@ -14,9 +14,9 @@ def main():
             "command": "make",
             "key": "build",
             #"agents": test_agent,
-            "artifact_paths": {
+            "artifact_paths": [
                 "build/packages/*.zip",
-            },
+            ],
             "notify": [
                 {
                     "github_commit_status": {
