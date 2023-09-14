@@ -47,20 +47,6 @@ def main():
                 },
             ],
         },
-        {
-            "label": "Publish",
-            "command": "echo Do publish when it is ready",
-            "depends_on": [
-                "check",
-            ],
-            "notify": [
-                {
-                    "github_commit_status": {
-                        "context": "Buildktie Publish",
-                    },
-                },
-            ],
-        },
     ]
 
     pipeline = {

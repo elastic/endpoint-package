@@ -5,9 +5,10 @@ set -euo pipefail
 echo "--- Install requirement"
 echo "Install Go"
 GO_INSTALLER=go1.21.1.linux-amd64.tar.gz
-curl -LO https://go.dev/dl/$GO_INSTALLER
+curl -sLO https://go.dev/dl/$GO_INSTALLER
 mkdir ~/.local/
 tar xzf $GO_INSTALLER -C $HOME/.local
+rm -f $GO_INSTALLER
 export PATH=$HOME/.local/go/bin:$PATH
 
 echo "Install elastic-package"
