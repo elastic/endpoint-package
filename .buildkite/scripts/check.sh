@@ -3,8 +3,12 @@
 set -euo pipefail
 
 echo "--- Install requirement"
-echo "Install Python and Go"
-sudo apt update -y && sudo apt install -y python3-requests golang-go
+echo "Install Go"
+GO_INSTALLER=go1.21.1.linux-amd64.tar.gz
+curl -O https://go.dev/dl/$GO_INSTALLER
+mkdir ~/.local/
+tar xzf $GO_INSTALLER  -C $HOME/.local
+export PATH=$HOME/.local/go/bin:$PATH
 
 echo "Install elastic-package"
 make elastic-package
