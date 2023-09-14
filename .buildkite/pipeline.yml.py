@@ -5,6 +5,7 @@ import json
 build_agent = {
     "cpu": "2",
     "memory": "2G",
+    "ephemeralStorage": "10G",
     "image": "golang:1.21-bookworm",
 }
 
