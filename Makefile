@@ -172,5 +172,7 @@ pipeline-test: $(ESTC_PKG_BIN)
 
 test: static-test pipeline-test
 
+elastic-package: $(ESTC_PKG_BIN)
+
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test elastic-package

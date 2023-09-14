@@ -7,7 +7,8 @@ echo "Install Python and Go"
 sudo apt update -y && sudo apt install -y python3-requests golang-go
 
 echo "Install elastic-package"
-go install github.com/elastic/elastic-package
+make update-elastic-package
+
 
 echo "--- Retrieving stack version"
 # Use STACK_VERSION if defined, else use the output of .buildkite/scripts/find_oldest_supported_version.py
