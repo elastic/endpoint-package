@@ -5,7 +5,6 @@ import json
 build_agent = {
     "cpu": "2",
     "memory": "2G",
-    "ephemeralStorage": "20G",
     "image": "golang:1.21-bookworm",
 }
 
@@ -38,26 +37,12 @@ def main():
             "label": "Run static test",
             "depends_on": "build",
             "key": "static_test",
-            "command": "echo do static test",
-            #"agents": test_agent,
+            "command": ".buildkite/scripts/check.sh",
+            "agents": test_agent,
             "notify": [
                 {
                     "github_commit_status": {
                         "context": "Buildkite Check Static Test",
-                    },
-                },
-            ],
-        },
-        {
-            "label": "Run pipeline test",
-            "depends_on": "build",
-            "key": "pipeline_test",
-            "command": "echo do pipeline test",
-            #"agents": test_agent,
-            "notify": [
-                {
-                    "github_commit_status": {
-                        "context": "Buildkite Check Pipeline Test",
                     },
                 },
             ],
