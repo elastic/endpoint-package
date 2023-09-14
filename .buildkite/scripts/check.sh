@@ -7,7 +7,7 @@ echo "Install Python and Go"
 sudo apt update -y && sudo apt install -y python3-requests golang-go
 
 echo "Install elastic-package"
-make update-elastic-package
+make elastic-package
 
 
 echo "--- Retrieving stack version"
