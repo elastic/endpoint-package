@@ -13,7 +13,7 @@ test_agent = {
     "provider": "gcp",
     "machineType": "n1-highmem-8",
     "assignExternalIP": False,
-    "image": "family/elastic-buildkite-agent-ubuntu-2204-lts",
+    "image": "family/core-ubuntu-2204-lts",
 }
 
 def main():
