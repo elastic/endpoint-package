@@ -3,7 +3,10 @@
 import json
 
 build_agent = {
-    "image": "golang:1.21-bookworm"
+    "cpu": "2",
+    "memory": "2G",
+    "ephemeralStorage": "20G",
+    "image": "golang:1.21-bookworm",
 }
 
 test_agent = {
@@ -26,7 +29,7 @@ def main():
             "notify": [
                 {
                     "github_commit_status": {
-                        "context": "Build",
+                        "context": "Buildkite Build",
                     },
                 },
             ],
@@ -40,7 +43,7 @@ def main():
             "notify": [
                 {
                     "github_commit_status": {
-                        "context": "Check Static Test",
+                        "context": "Buildkite Check Static Test",
                     },
                 },
             ],
@@ -54,7 +57,7 @@ def main():
             "notify": [
                 {
                     "github_commit_status": {
-                        "context": "Check Pipeline Test",
+                        "context": "Buildkite Check Pipeline Test",
                     },
                 },
             ],
@@ -69,7 +72,7 @@ def main():
             "notify": [
                 {
                     "github_commit_status": {
-                        "context": "Publish",
+                        "context": "Buildktie Publish",
                     },
                 },
             ],
