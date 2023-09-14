@@ -118,6 +118,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.registry_events.week_ms |
 | Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms |
 | Endpoint.metrics.system_impact.threat_intelligence_events.week_ms |
+| Endpoint.metrics.system_impact.win32k_events.week_idle_ms |
+| Endpoint.metrics.system_impact.win32k_events.week_ms |
 | Endpoint.metrics.threads.cpu.mean |
 | Endpoint.metrics.threads.name |
 | Endpoint.metrics.uptime.endpoint |
