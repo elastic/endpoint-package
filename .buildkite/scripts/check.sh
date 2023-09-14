@@ -3,7 +3,7 @@
 set -euo pipefail
 
 echo "--- Install requirement"
-sudo apt update -y sudo apt install -y python3-requests golang-go
+sudo apt update -y && sudo apt install -y python3-requests golang-go
 
 
 echo "--- Retrieving stack version"
