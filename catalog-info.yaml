@@ -21,6 +21,8 @@ spec:
     spec:
       repository: elastic/endpoint-package
       pipeline_file: ".buildkite/pipeline.yml.py"
+      cancel_intermediate_builds: true
+      skip_intermediate_builds: true
       teams:
         endpoint-ci-admin: {}
         security-defend-workflows:
