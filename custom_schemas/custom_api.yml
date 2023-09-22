@@ -77,3 +77,252 @@
       description: >
         The path of the memory region targeted by the API call.
       example: "C:\\programdata\\example.dll"
+
+    - name: parameters
+      level: custom
+      type: object
+      description: >
+        Parameter values passed to the API call.
+
+    - name: parameters.handle_type
+      level: custom
+      type: keyword
+      description: >
+        This parameter indicates whether the detected access was attempt against a process or a thread.
+      example: process
+
+    - name: parameters.desired_access_numeric
+      level: custom
+      type: long
+      description: >
+        This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`.
+
+    - name: parameters.desired_access
+      level: custom
+      type: keyword
+      description: >
+        This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
+
+    - name: parameters.address
+      level: custom
+      type: unsigned_long
+      description: >
+        The target memory address.
+      example: 2431737462784
+
+    - name: parameters.size
+      level: custom
+      type: unsigned_long
+      description: >
+        The size.
+      example: 4096
+
+    - name: parameters.protection
+      level: custom
+      type: keyword
+      description: >
+        The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      example: "RWX|GUARD"
+
+    - name: parameters.protection_old
+      level: custom
+      type: keyword
+      example: "RCX"
+      description: >
+        The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+
+    - name: parameters.allocation_type
+      level: custom
+      type: keyword
+      description: >
+        The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
+      example: "COMMIT|RESERVE"
+
+    - name: parameters.procedure
+      level: custom
+      type: unsigned_long
+      description: >
+        The memory address of the procedure or function.
+      example: 2431737462784
+
+    - name: parameters.argument1
+      level: custom
+      type: unsigned_long
+      description: >
+        The first argument to the procedure.
+      example: 1
+
+    - name: parameters.argument2
+      level: custom
+      type: unsigned_long
+      description: >
+        The second argument to the procedure.
+      example: 2
+
+    - name: parameters.argument3
+      level: custom
+      type: unsigned_long
+      description: >
+        The third argument to the procedure.
+      example: 3
+
+    - name: parameters.context_flags
+      level: custom
+      type: unsigned_long
+      description: >
+        The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
+      example: 1048607
+
+    - name: parameters.rip
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RIP instruction pointer register.
+      example: 140706153693184
+
+    - name: parameters.rsp
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RSP stack pointer register.
+      example: 2431737462784
+
+    - name: parameters.rax
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RAX general purpose register. Return value in a __fastcall.
+      example: 0
+
+    - name: parameters.rcx
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RCX general purpose register. First argument in a __fastcall.
+      example: 1
+
+    - name: parameters.rdx
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RDX general purpose register. Second argument in a __fastcall.
+      example: 2
+
+    - name: parameters.r8
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 R8 general purpose register. Third argument in a __fastcall.
+      example: 3
+
+    - name: parameters.r9
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 R9 general purpose register. Fourth argument in a __fastcall.
+      example: 4
+
+    - name: parameters.rbp
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RBP general purpose register.
+      example: 0
+
+    - name: parameters.rbx
+      level: custom
+      type: keyword
+      description: >
+        The x64 RBX general purpose register.
+      example: 0
+
+    - name: parameters.rsi
+      level: custom
+      type: keyword
+      description: >
+        The x64 RSI general purpose register.
+      example: 0
+
+    - name: parameters.rdi
+      level: custom
+      type: unsigned_long
+      description: >
+        The x64 RDI general purpose register.
+      example: 0
+
+    - name: parameters.eip
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EIP instruction pointer register.
+      example: 1472790528
+
+    - name: parameters.esp
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 ESP stack pointer register.
+      example: 15007744
+
+    - name: parameters.ebp
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EBP frame pointer register.
+      example: 15006644
+
+    - name: parameters.eax
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EAX general purpose register. Return value in __cdecl, __stdcall, __thiscall and __fastcall.
+      example: 0
+
+    - name: parameters.ecx
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 ECX general purpose register. First argument in __fastcall and __thiscall.
+      example: 0
+
+    - name: parameters.edx
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EDX general purpose register. Second argument in a __fastcall.
+      example: 0
+
+    - name: parameters.ebx
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EBX general purpose register.
+      example: 0
+
+    - name: parameters.esi
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 ESI general purpose register.
+      example: 0
+
+    - name: parameters.edi
+      level: custom
+      type: unsigned_long
+      description: >
+        The x86 EDI general purpose register.
+      example: 0
+
+    - name: parameters.device
+      level: custom
+      type: keyword
+      description: >
+        The name of the device object.
+      example: "\\Device\\NPCAP"
+
+    - name: parameters.driver
+      level: custom
+      type: keyword
+      description: >
+        The name of the driver object.
+      example: "\\Driver\\npcap"

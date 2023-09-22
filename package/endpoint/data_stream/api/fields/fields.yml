@@ -429,6 +429,11 @@
       description: The name of the API, usually the name of the function or system call.
       example: VirtualAlloc
       default_field: false
+    - name: Ext.api.parameters
+      level: custom
+      type: object
+      description: Parameter values passed to the API call.
+      default_field: false
     - name: Ext.api.parameters.address
       level: custom
       type: unsigned_long
@@ -441,6 +446,122 @@
       ignore_above: 1024
       description: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
       example: COMMIT|RESERVE
+      default_field: false
+    - name: Ext.api.parameters.argument1
+      level: custom
+      type: unsigned_long
+      description: The first argument to the procedure.
+      example: 1
+      default_field: false
+    - name: Ext.api.parameters.argument2
+      level: custom
+      type: unsigned_long
+      description: The second argument to the procedure.
+      example: 2
+      default_field: false
+    - name: Ext.api.parameters.argument3
+      level: custom
+      type: unsigned_long
+      description: The third argument to the procedure.
+      example: 3
+      default_field: false
+    - name: Ext.api.parameters.context_flags
+      level: custom
+      type: unsigned_long
+      description: The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
+      example: 1048607
+      default_field: false
+    - name: Ext.api.parameters.desired_access
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
+      default_field: false
+    - name: Ext.api.parameters.desired_access_numeric
+      level: custom
+      type: long
+      description: This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`.
+      default_field: false
+    - name: Ext.api.parameters.device
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the device object.
+      example: \Device\NPCAP
+      default_field: false
+    - name: Ext.api.parameters.driver
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the driver object.
+      example: \Driver\npcap
+      default_field: false
+    - name: Ext.api.parameters.eax
+      level: custom
+      type: unsigned_long
+      description: The x86 EAX general purpose register. Return value in __cdecl, __stdcall, __thiscall and __fastcall.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.ebp
+      level: custom
+      type: unsigned_long
+      description: The x86 EBP frame pointer register.
+      example: 15006644
+      default_field: false
+    - name: Ext.api.parameters.ebx
+      level: custom
+      type: unsigned_long
+      description: The x86 EBX general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.ecx
+      level: custom
+      type: unsigned_long
+      description: The x86 ECX general purpose register. First argument in __fastcall and __thiscall.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.edi
+      level: custom
+      type: unsigned_long
+      description: The x86 EDI general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.edx
+      level: custom
+      type: unsigned_long
+      description: The x86 EDX general purpose register. Second argument in a __fastcall.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.eip
+      level: custom
+      type: unsigned_long
+      description: The x86 EIP instruction pointer register.
+      example: 1472790528
+      default_field: false
+    - name: Ext.api.parameters.esi
+      level: custom
+      type: unsigned_long
+      description: The x86 ESI general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.esp
+      level: custom
+      type: unsigned_long
+      description: The x86 ESP stack pointer register.
+      example: 15007744
+      default_field: false
+    - name: Ext.api.parameters.handle_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates whether the detected access was attempt against a process or a thread.
+      example: process
+      default_field: false
+    - name: Ext.api.parameters.procedure
+      level: custom
+      type: unsigned_long
+      description: The memory address of the procedure or function.
+      example: 2431737462784
       default_field: false
     - name: Ext.api.parameters.protection
       level: custom
@@ -455,6 +576,74 @@
       ignore_above: 1024
       description: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
       example: RCX
+      default_field: false
+    - name: Ext.api.parameters.r8
+      level: custom
+      type: unsigned_long
+      description: The x64 R8 general purpose register. Third argument in a __fastcall.
+      example: 3
+      default_field: false
+    - name: Ext.api.parameters.r9
+      level: custom
+      type: unsigned_long
+      description: The x64 R9 general purpose register. Fourth argument in a __fastcall.
+      example: 4
+      default_field: false
+    - name: Ext.api.parameters.rax
+      level: custom
+      type: unsigned_long
+      description: The x64 RAX general purpose register. Return value in a __fastcall.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.rbp
+      level: custom
+      type: unsigned_long
+      description: The x64 RBP general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.rbx
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The x64 RBX general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.rcx
+      level: custom
+      type: unsigned_long
+      description: The x64 RCX general purpose register. First argument in a __fastcall.
+      example: 1
+      default_field: false
+    - name: Ext.api.parameters.rdi
+      level: custom
+      type: unsigned_long
+      description: The x64 RDI general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.rdx
+      level: custom
+      type: unsigned_long
+      description: The x64 RDX general purpose register. Second argument in a __fastcall.
+      example: 2
+      default_field: false
+    - name: Ext.api.parameters.rip
+      level: custom
+      type: unsigned_long
+      description: The x64 RIP instruction pointer register.
+      example: 140706153693184
+      default_field: false
+    - name: Ext.api.parameters.rsi
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The x64 RSI general purpose register.
+      example: 0
+      default_field: false
+    - name: Ext.api.parameters.rsp
+      level: custom
+      type: unsigned_long
+      description: The x64 RSP stack pointer register.
+      example: 2431737462784
       default_field: false
     - name: Ext.api.parameters.size
       level: custom

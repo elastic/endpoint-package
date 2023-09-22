@@ -1047,15 +1047,25 @@ process.Ext.api.name:
   original_fieldset: api
   short: The name of the API, usually the name of the function or system call.
   type: keyword
+process.Ext.api.parameters:
+  dashed_name: process-Ext-api-parameters
+  description: Parameter values passed to the API call.
+  flat_name: process.Ext.api.parameters
+  level: custom
+  name: parameters
+  normalize: []
+  original_fieldset: api
+  short: Parameter values passed to the API call.
+  type: object
 process.Ext.api.parameters.address:
   dashed_name: process-Ext-api-parameters-address
   description: The target memory address.
   example: 2431737462784
   flat_name: process.Ext.api.parameters.address
   level: custom
-  name: address
+  name: parameters.address
   normalize: []
-  original_fieldset: virtualmemory
+  original_fieldset: api
   short: The target memory address.
   type: unsigned_long
 process.Ext.api.parameters.allocation_type:
@@ -1065,11 +1075,232 @@ process.Ext.api.parameters.allocation_type:
   flat_name: process.Ext.api.parameters.allocation_type
   ignore_above: 1024
   level: custom
-  name: allocation_type
+  name: parameters.allocation_type
   normalize: []
-  original_fieldset: virtualmemory
+  original_fieldset: api
   short: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
   type: keyword
+process.Ext.api.parameters.argument1:
+  dashed_name: process-Ext-api-parameters-argument1
+  description: The first argument to the procedure.
+  example: 1
+  flat_name: process.Ext.api.parameters.argument1
+  level: custom
+  name: parameters.argument1
+  normalize: []
+  original_fieldset: api
+  short: The first argument to the procedure.
+  type: unsigned_long
+process.Ext.api.parameters.argument2:
+  dashed_name: process-Ext-api-parameters-argument2
+  description: The second argument to the procedure.
+  example: 2
+  flat_name: process.Ext.api.parameters.argument2
+  level: custom
+  name: parameters.argument2
+  normalize: []
+  original_fieldset: api
+  short: The second argument to the procedure.
+  type: unsigned_long
+process.Ext.api.parameters.argument3:
+  dashed_name: process-Ext-api-parameters-argument3
+  description: The third argument to the procedure.
+  example: 3
+  flat_name: process.Ext.api.parameters.argument3
+  level: custom
+  name: parameters.argument3
+  normalize: []
+  original_fieldset: api
+  short: The third argument to the procedure.
+  type: unsigned_long
+process.Ext.api.parameters.context_flags:
+  dashed_name: process-Ext-api-parameters-context-flags
+  description: The bitmask of CPU registers operated on by this call. Corresponds
+    to `CONTEXT.ContextFlags`
+  example: 1048607
+  flat_name: process.Ext.api.parameters.context_flags
+  level: custom
+  name: parameters.context_flags
+  normalize: []
+  original_fieldset: api
+  short: The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
+  type: unsigned_long
+process.Ext.api.parameters.desired_access:
+  dashed_name: process-Ext-api-parameters-desired-access
+  description: This parameter indicates the string value of the `DesiredAccess` field  to
+    `OpenProcess` or `OpenThread`.
+  flat_name: process.Ext.api.parameters.desired_access
+  ignore_above: 1024
+  level: custom
+  name: parameters.desired_access
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the string value of the `DesiredAccess` field  to
+    `OpenProcess` or `OpenThread`.
+  type: keyword
+process.Ext.api.parameters.desired_access_numeric:
+  dashed_name: process-Ext-api-parameters-desired-access-numeric
+  description: This parameter indicates the numeric value of the `DesiredAccess` field
+    passed to `OpenProcess` or `OpenThread`.
+  flat_name: process.Ext.api.parameters.desired_access_numeric
+  level: custom
+  name: parameters.desired_access_numeric
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the numeric value of the `DesiredAccess` field passed
+    to `OpenProcess` or `OpenThread`.
+  type: long
+process.Ext.api.parameters.device:
+  dashed_name: process-Ext-api-parameters-device
+  description: The name of the device object.
+  example: \Device\NPCAP
+  flat_name: process.Ext.api.parameters.device
+  ignore_above: 1024
+  level: custom
+  name: parameters.device
+  normalize: []
+  original_fieldset: api
+  short: The name of the device object.
+  type: keyword
+process.Ext.api.parameters.driver:
+  dashed_name: process-Ext-api-parameters-driver
+  description: The name of the driver object.
+  example: \Driver\npcap
+  flat_name: process.Ext.api.parameters.driver
+  ignore_above: 1024
+  level: custom
+  name: parameters.driver
+  normalize: []
+  original_fieldset: api
+  short: The name of the driver object.
+  type: keyword
+process.Ext.api.parameters.eax:
+  dashed_name: process-Ext-api-parameters-eax
+  description: The x86 EAX general purpose register. Return value in __cdecl, __stdcall,
+    __thiscall and __fastcall.
+  example: 0
+  flat_name: process.Ext.api.parameters.eax
+  level: custom
+  name: parameters.eax
+  normalize: []
+  original_fieldset: api
+  short: The x86 EAX general purpose register. Return value in __cdecl, __stdcall,
+    __thiscall and __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.ebp:
+  dashed_name: process-Ext-api-parameters-ebp
+  description: The x86 EBP frame pointer register.
+  example: 15006644
+  flat_name: process.Ext.api.parameters.ebp
+  level: custom
+  name: parameters.ebp
+  normalize: []
+  original_fieldset: api
+  short: The x86 EBP frame pointer register.
+  type: unsigned_long
+process.Ext.api.parameters.ebx:
+  dashed_name: process-Ext-api-parameters-ebx
+  description: The x86 EBX general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.ebx
+  level: custom
+  name: parameters.ebx
+  normalize: []
+  original_fieldset: api
+  short: The x86 EBX general purpose register.
+  type: unsigned_long
+process.Ext.api.parameters.ecx:
+  dashed_name: process-Ext-api-parameters-ecx
+  description: The x86 ECX general purpose register. First argument in __fastcall
+    and __thiscall.
+  example: 0
+  flat_name: process.Ext.api.parameters.ecx
+  level: custom
+  name: parameters.ecx
+  normalize: []
+  original_fieldset: api
+  short: The x86 ECX general purpose register. First argument in __fastcall and __thiscall.
+  type: unsigned_long
+process.Ext.api.parameters.edi:
+  dashed_name: process-Ext-api-parameters-edi
+  description: The x86 EDI general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.edi
+  level: custom
+  name: parameters.edi
+  normalize: []
+  original_fieldset: api
+  short: The x86 EDI general purpose register.
+  type: unsigned_long
+process.Ext.api.parameters.edx:
+  dashed_name: process-Ext-api-parameters-edx
+  description: The x86 EDX general purpose register. Second argument in a __fastcall.
+  example: 0
+  flat_name: process.Ext.api.parameters.edx
+  level: custom
+  name: parameters.edx
+  normalize: []
+  original_fieldset: api
+  short: The x86 EDX general purpose register. Second argument in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.eip:
+  dashed_name: process-Ext-api-parameters-eip
+  description: The x86 EIP instruction pointer register.
+  example: 1472790528
+  flat_name: process.Ext.api.parameters.eip
+  level: custom
+  name: parameters.eip
+  normalize: []
+  original_fieldset: api
+  short: The x86 EIP instruction pointer register.
+  type: unsigned_long
+process.Ext.api.parameters.esi:
+  dashed_name: process-Ext-api-parameters-esi
+  description: The x86 ESI general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.esi
+  level: custom
+  name: parameters.esi
+  normalize: []
+  original_fieldset: api
+  short: The x86 ESI general purpose register.
+  type: unsigned_long
+process.Ext.api.parameters.esp:
+  dashed_name: process-Ext-api-parameters-esp
+  description: The x86 ESP stack pointer register.
+  example: 15007744
+  flat_name: process.Ext.api.parameters.esp
+  level: custom
+  name: parameters.esp
+  normalize: []
+  original_fieldset: api
+  short: The x86 ESP stack pointer register.
+  type: unsigned_long
+process.Ext.api.parameters.handle_type:
+  dashed_name: process-Ext-api-parameters-handle-type
+  description: This parameter indicates whether the detected access was attempt against
+    a process or a thread.
+  example: process
+  flat_name: process.Ext.api.parameters.handle_type
+  ignore_above: 1024
+  level: custom
+  name: parameters.handle_type
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates whether the detected access was attempt against
+    a process or a thread.
+  type: keyword
+process.Ext.api.parameters.procedure:
+  dashed_name: process-Ext-api-parameters-procedure
+  description: The memory address of the procedure or function.
+  example: 2431737462784
+  flat_name: process.Ext.api.parameters.procedure
+  level: custom
+  name: parameters.procedure
+  normalize: []
+  original_fieldset: api
+  short: The memory address of the procedure or function.
+  type: unsigned_long
 process.Ext.api.parameters.protection:
   dashed_name: process-Ext-api-parameters-protection
   description: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
@@ -1077,9 +1308,9 @@ process.Ext.api.parameters.protection:
   flat_name: process.Ext.api.parameters.protection
   ignore_above: 1024
   level: custom
-  name: protection
+  name: parameters.protection
   normalize: []
-  original_fieldset: virtualmemory
+  original_fieldset: api
   short: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
   type: keyword
 process.Ext.api.parameters.protection_old:
@@ -1090,20 +1321,143 @@ process.Ext.api.parameters.protection_old:
   flat_name: process.Ext.api.parameters.protection_old
   ignore_above: 1024
   level: custom
-  name: protection_old
+  name: parameters.protection_old
   normalize: []
-  original_fieldset: virtualmemory
+  original_fieldset: api
   short: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
   type: keyword
+process.Ext.api.parameters.r8:
+  dashed_name: process-Ext-api-parameters-r8
+  description: The x64 R8 general purpose register. Third argument in a __fastcall.
+  example: 3
+  flat_name: process.Ext.api.parameters.r8
+  level: custom
+  name: parameters.r8
+  normalize: []
+  original_fieldset: api
+  short: The x64 R8 general purpose register. Third argument in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.r9:
+  dashed_name: process-Ext-api-parameters-r9
+  description: The x64 R9 general purpose register. Fourth argument in a __fastcall.
+  example: 4
+  flat_name: process.Ext.api.parameters.r9
+  level: custom
+  name: parameters.r9
+  normalize: []
+  original_fieldset: api
+  short: The x64 R9 general purpose register. Fourth argument in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.rax:
+  dashed_name: process-Ext-api-parameters-rax
+  description: The x64 RAX general purpose register. Return value in a __fastcall.
+  example: 0
+  flat_name: process.Ext.api.parameters.rax
+  level: custom
+  name: parameters.rax
+  normalize: []
+  original_fieldset: api
+  short: The x64 RAX general purpose register. Return value in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.rbp:
+  dashed_name: process-Ext-api-parameters-rbp
+  description: The x64 RBP general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.rbp
+  level: custom
+  name: parameters.rbp
+  normalize: []
+  original_fieldset: api
+  short: The x64 RBP general purpose register.
+  type: unsigned_long
+process.Ext.api.parameters.rbx:
+  dashed_name: process-Ext-api-parameters-rbx
+  description: The x64 RBX general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.rbx
+  ignore_above: 1024
+  level: custom
+  name: parameters.rbx
+  normalize: []
+  original_fieldset: api
+  short: The x64 RBX general purpose register.
+  type: keyword
+process.Ext.api.parameters.rcx:
+  dashed_name: process-Ext-api-parameters-rcx
+  description: The x64 RCX general purpose register. First argument in a __fastcall.
+  example: 1
+  flat_name: process.Ext.api.parameters.rcx
+  level: custom
+  name: parameters.rcx
+  normalize: []
+  original_fieldset: api
+  short: The x64 RCX general purpose register. First argument in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.rdi:
+  dashed_name: process-Ext-api-parameters-rdi
+  description: The x64 RDI general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.rdi
+  level: custom
+  name: parameters.rdi
+  normalize: []
+  original_fieldset: api
+  short: The x64 RDI general purpose register.
+  type: unsigned_long
+process.Ext.api.parameters.rdx:
+  dashed_name: process-Ext-api-parameters-rdx
+  description: The x64 RDX general purpose register. Second argument in a __fastcall.
+  example: 2
+  flat_name: process.Ext.api.parameters.rdx
+  level: custom
+  name: parameters.rdx
+  normalize: []
+  original_fieldset: api
+  short: The x64 RDX general purpose register. Second argument in a __fastcall.
+  type: unsigned_long
+process.Ext.api.parameters.rip:
+  dashed_name: process-Ext-api-parameters-rip
+  description: The x64 RIP instruction pointer register.
+  example: 140706153693184
+  flat_name: process.Ext.api.parameters.rip
+  level: custom
+  name: parameters.rip
+  normalize: []
+  original_fieldset: api
+  short: The x64 RIP instruction pointer register.
+  type: unsigned_long
+process.Ext.api.parameters.rsi:
+  dashed_name: process-Ext-api-parameters-rsi
+  description: The x64 RSI general purpose register.
+  example: 0
+  flat_name: process.Ext.api.parameters.rsi
+  ignore_above: 1024
+  level: custom
+  name: parameters.rsi
+  normalize: []
+  original_fieldset: api
+  short: The x64 RSI general purpose register.
+  type: keyword
+process.Ext.api.parameters.rsp:
+  dashed_name: process-Ext-api-parameters-rsp
+  description: The x64 RSP stack pointer register.
+  example: 2431737462784
+  flat_name: process.Ext.api.parameters.rsp
+  level: custom
+  name: parameters.rsp
+  normalize: []
+  original_fieldset: api
+  short: The x64 RSP stack pointer register.
+  type: unsigned_long
 process.Ext.api.parameters.size:
   dashed_name: process-Ext-api-parameters-size
   description: The size.
   example: 4096
   flat_name: process.Ext.api.parameters.size
   level: custom
-  name: size
+  name: parameters.size
   normalize: []
-  original_fieldset: virtualmemory
+  original_fieldset: api
   short: The size.
   type: unsigned_long
 process.Ext.api.summary:

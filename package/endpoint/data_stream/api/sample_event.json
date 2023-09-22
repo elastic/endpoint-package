@@ -1,114 +1,145 @@
 {
-    "@timestamp": "2023-09-20T14:01:30.6016331Z",
+    "@timestamp": "2023-01-09T19:38:51.5141503Z",
     "Target": {
         "process": {
-            "pid": 5428
-        }
-    },
-    "agent": {
-        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-        "type": "endpoint",
-        "version": "8.11.0-SNAPSHOT"
-    },
-    "data_stream": {
-        "dataset": "endpoint.events.api",
-        "namespace": "default",
-        "type": "logs"
-    },
-    "ecs": {
-        "version": "1.11.0"
-    },
-    "elastic": {
-        "agent": {
-            "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+            "name": "lsass.exe",
+            "pid": 956
         }
     },
     "event": {
         "category": [
-            "api",
-            "intrusion_detection"
+            "api"
         ],
-        "created": "2023-09-20T14:01:30.6016331Z",
-        "dataset": "endpoint.events.api",
-        "id": "NEfuwt0urn1z3O7D+++++/6U",
+        "created": "2023-01-09T19:38:51.5141503Z",
+        "id": "MvlgiHxIZtj1+Abi++++++ul",
         "kind": "event",
-        "module": "endpoint",
-        "outcome": "success",
-        "provider": "Microsoft-Windows-Threat-Intelligence",
-        "sequence": 3802,
         "type": [
-            "info"
+            "credential_access"
         ]
     },
     "host": {
         "architecture": "x86_64",
-        "hostname": "windows-dev",
+        "hostname": "DESKTOP-OCG8CR6",
         "id": "dabadaba-0000-0000-0000-000000000000",
         "ip": [
-            "192.168.75.128",
-            "fe80::8003:a9e5:4336:bc29",
-            "169.254.191.140",
-            "fe80::8c94:4fc1:a1f0:42d9",
+            "169.254.104.226",
+            "fe80::6037:d589:2ee9:772f",
+            "172.22.6.230",
+            "fe80::80ea:8e8d:e1f2:6622",
+            "169.254.74.35",
+            "fe80::900c:a9d3:fd8:9345",
             "127.0.0.1",
             "::1"
         ],
         "mac": [
-            "00-0c-29-be-32-ae",
-            "88-66-5a-21-26-26"
+            "00-15-5D-00-09-18",
+            "00-15-5D-00-09-19",
+            "00-15-5D-00-09-17"
         ],
-        "name": "windows-dev",
+        "name": "DESKTOP-OCG8CR6",
         "os": {
             "Ext": {
-                "variant": "Windows 10 Pro"
+                "variant": "Windows 11 Enterprise N"
             },
             "family": "windows",
-            "full": "Windows 10 Pro 22H2 (10.0.19045.3448)",
-            "kernel": "22H2 (10.0.19045.3448)",
+            "full": "Windows 11 Enterprise N 22H2 (10.0.22621.963)",
+            "kernel": "22H2 (10.0.22621.963)",
             "name": "Windows",
             "platform": "windows",
             "type": "windows",
-            "version": "22H2 (10.0.19045.3448)"
+            "version": "22H2 (10.0.22621.963)"
         }
     },
-    "message": "Endpoint API event - NtQueueApcThread",
+    "message": "Endpoint Credential Access event",
     "process": {
         "Ext": {
             "ancestry": [
-                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTAtMTY5NDc0OTI4Ny40NjgwMjkyMDA="
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTgxMi0xNjczMjkxNTMzLjcxNjczMTgwMA==",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQ5NjAtMTY3Mjk2NTgzMC4yODc0OTYxMDA=",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTY2MjgtMTY3Mjk2NTc3Mi41MTg4MDA1MDA=",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQ2MDAtMTY3Mjk2NTcxMy40NzY1NDUyMDA="
             ],
             "api": {
-                "behaviors": [
-                    "native_api",
-                    "cross-process"
-                ],
-                "metadata": {
-                    "target_address_name": "unity.dll",
-                    "target_address_path": "c:\\program files\\vmware\\vmware tools\\plugins\\vmusr\\unity.dll"
-                },
-                "name": "NtQueueApcThread",
+                "name": "OpenProcess",
                 "parameters": {
-                    "argument1": 2583984274656,
-                    "argument2": 4105953215,
-                    "argument3": 31058890,
-                    "procedure": 140705553857280
-                },
-                "summary": "NtQueueApcThread( vmtoolsd.exe, unity.dll, Data, Data, Data )"
+                    "desired_access": [
+                        "PROCESS_QUERY_LIMITED_INFORMATION",
+                        "PROCESS_VM_READ"
+                    ],
+                    "desired_access_numeric": 4112,
+                    "handle_type": "process"
+                }
             },
-            "token": {
-                "integrity_level_name": "system"
-            }
+            "code_signature": [
+                {
+                    "exists": true,
+                    "status": "errorBadDigest",
+                    "subject_name": "Microsoft Windows",
+                    "trusted": false
+                }
+            ]
         },
-        "command_line": "",
-        "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQtMTY5NDc0OTI4Ny40NjgwMjkyMDA=",
-        "name": "System",
-        "pid": 4,
+        "code_signature": {
+            "exists": true,
+            "status": "errorBadDigest",
+            "subject_name": "Microsoft Windows",
+            "trusted": false
+        },
+        "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNi0xNjczMjkzMTMwLjk0NjAwMjAw",
+        "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimikatz.exe",
+        "name": "mimikatz.exe",
+        "pid": 916,
         "thread": {
-            "id": 0
+            "Ext": {
+                "call_stack": [
+                    {
+                        "instruction_pointer": 140717353267908,
+                        "module_path": "C:\\Windows\\System32\\ntdll.dll"
+                    },
+                    {
+                        "instruction_pointer": 140717309764254,
+                        "module_path": "C:\\Windows\\System32\\KernelBase.dll"
+                    },
+                    {
+                        "instruction_pointer": 140697175487234,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175488197,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175487041,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175277748,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175277292,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175276599,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    },
+                    {
+                        "instruction_pointer": 140697175514281,
+                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                    }
+                ],
+                "call_stack_contains_unbacked": false,
+                "call_stack_final_user_module": {
+                    "path": "mimikatz.exe"
+                }
+            },
+            "id": 11628
         }
     },
     "user": {
-        "domain": "NT AUTHORITY",
-        "id": "S-1-5-18",
-        "name": "SYSTEM"
+        "domain": "DESKTOP-OCG8CR6",
+        "id": "S-1-5-21-3820246941-898183108-3095036578-1001",
+        "name": "User"
     }
 }
