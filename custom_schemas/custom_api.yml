@@ -60,7 +60,7 @@
 
     - name: metadata
       level: custom
-      type: nested
+      type: object
       description: >
         Information related to the API call.
 
@@ -80,7 +80,7 @@
 
     - name: parameters
       level: custom
-      type: nested
+      type: object
       description: >
         Parameter values passed to the API call.
 

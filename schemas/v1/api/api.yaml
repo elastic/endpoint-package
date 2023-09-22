@@ -1010,7 +1010,7 @@ process.Ext.api.metadata:
   normalize: []
   original_fieldset: api
   short: Information related to the API call.
-  type: nested
+  type: object
 process.Ext.api.metadata.target_address_name:
   dashed_name: process-Ext-api-metadata-target-address-name
   description: The name of the memory region targeted by the API call.
@@ -1304,6 +1304,18 @@ process.thread.Ext:
   normalize: []
   short: Object for all custom defined fields to live in.
   type: object
+process.thread.Ext.call_stack:
+  dashed_name: process-thread-Ext-call-stack
+  description: Fields describing a stack frame.  call_stack is expected to be an array
+    where each array element represents a stack frame.
+  enabled: false
+  flat_name: process.thread.Ext.call_stack
+  level: custom
+  name: call_stack
+  normalize: []
+  original_fieldset: call_stack
+  short: Fields describing a stack frame.
+  type: object
 process.thread.Ext.call_stack.allocation_private_bytes:
   dashed_name: process-thread-Ext-call-stack-allocation-private-bytes
   description: The number of bytes in this memory allocation/image that are both +X
@@ -1349,56 +1361,6 @@ process.thread.Ext.call_stack.instruction_pointer:
   original_fieldset: call_stack
   short: The return address of this stack frame.
   type: keyword
-process.thread.Ext.call_stack.memory_section.memory_address:
-  dashed_name: process-thread-Ext-call-stack-memory-section-memory-address
-  description: Base address of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.BaseAddress`
-  doc_values: false
-  flat_name: process.thread.Ext.call_stack.memory_section.memory_address
-  index: false
-  level: custom
-  name: memory_section.memory_address
-  normalize: []
-  original_fieldset: call_stack
-  short: Base address of the memory region containing `instruction_pointer`.
-  type: keyword
-process.thread.Ext.call_stack.memory_section.memory_size:
-  dashed_name: process-thread-Ext-call-stack-memory-section-memory-size
-  description: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  doc_values: false
-  flat_name: process.thread.Ext.call_stack.memory_section.memory_size
-  index: false
-  level: custom
-  name: memory_section.memory_size
-  normalize: []
-  original_fieldset: call_stack
-  short: Size of the memory region containing `instruction_pointer`.  Corresponds
-    to `MEMORY_BASIC_INFORMATION.RegionSize`
-  type: keyword
-process.thread.Ext.call_stack.memory_section.protection:
-  dashed_name: process-thread-Ext-call-stack-memory-section-protection
-  description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  flat_name: process.thread.Ext.call_stack.memory_section.protection
-  ignore_above: 1024
-  level: custom
-  name: memory_section.protection
-  normalize: []
-  original_fieldset: call_stack
-  short: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  type: keyword
-process.thread.Ext.call_stack.module_name:
-  dashed_name: process-thread-Ext-call-stack-module-name
-  description: The name of the DLL/module containing `instruction_pointer`.
-  doc_values: false
-  flat_name: process.thread.Ext.call_stack.module_name
-  index: false
-  level: custom
-  name: module_name
-  normalize: []
-  original_fieldset: call_stack
-  short: The name of the DLL/module containing `instruction_pointer`.
-  type: keyword
 process.thread.Ext.call_stack.module_path:
   dashed_name: process-thread-Ext-call-stack-module-path
   description: The path to the DLL/module containing `instruction_pointer`.
@@ -1435,18 +1397,6 @@ process.thread.Ext.call_stack.protection_provenance:
   original_fieldset: call_stack
   short: The name of the memory region that last modified the protection of this page.  "Unbacked"
     can indicate shellcode.
-  type: keyword
-process.thread.Ext.call_stack.rva:
-  dashed_name: process-thread-Ext-call-stack-rva
-  description: The relative virtual address of `instruction_pointer`.  Computed as
-    `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
-  flat_name: process.thread.Ext.call_stack.rva
-  ignore_above: 1024
-  level: custom
-  name: rva
-  normalize: []
-  original_fieldset: call_stack
-  short: The relative virtual address of `instruction_pointer`.
   type: keyword
 process.thread.Ext.call_stack.symbol_info:
   dashed_name: process-thread-Ext-call-stack-symbol-info

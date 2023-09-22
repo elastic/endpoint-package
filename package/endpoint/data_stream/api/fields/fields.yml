@@ -405,7 +405,7 @@
       default_field: false
     - name: Ext.api.metadata
       level: custom
-      type: nested
+      type: object
       description: Information related to the API call.
       default_field: false
     - name: Ext.api.metadata.target_address_name
@@ -582,6 +582,12 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: thread.Ext.call_stack
+      level: custom
+      type: object
+      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
+      enabled: false
+      default_field: false
     - name: thread.Ext.call_stack.allocation_private_bytes
       level: custom
       type: unsigned_long
@@ -605,33 +611,6 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
-    - name: thread.Ext.call_stack.memory_section.memory_address
-      level: custom
-      type: keyword
-      description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
-      index: false
-      doc_values: false
-      default_field: false
-    - name: thread.Ext.call_stack.memory_section.memory_size
-      level: custom
-      type: keyword
-      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
-      index: false
-      doc_values: false
-      default_field: false
-    - name: thread.Ext.call_stack.memory_section.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      default_field: false
-    - name: thread.Ext.call_stack.module_name
-      level: custom
-      type: keyword
-      description: The name of the DLL/module containing `instruction_pointer`.
-      index: false
-      doc_values: false
-      default_field: false
     - name: thread.Ext.call_stack.module_path
       level: custom
       type: keyword
@@ -649,12 +628,6 @@
       type: keyword
       ignore_above: 1024
       description: The name of the memory region that last modified the protection of this page.  "Unbacked" can indicate shellcode.
-      default_field: false
-    - name: thread.Ext.call_stack.rva
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
       default_field: false
     - name: thread.Ext.call_stack.symbol_info
       level: custom

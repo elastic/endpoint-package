@@ -106,7 +106,29 @@ fields:
           Ext:
             fields:
               call_stack:
-                fields: "*"
+                enabled: false
+                fields:
+                  module_path: {}
+                  instruction_pointer: {}
+                  allocation_private_bytes: {}
+                  callsite_leading_bytes: {}
+                  callsite_trailing_bytes: {}
+                  protection: {}
+                  protection_provenance: {}
+                  symbol_info: {}
               call_stack_contains_unbacked: {}
               call_stack_final_user_module:
-                fields: "*"
+                fields:
+                  name: {}
+                  path: {}
+                  protection_provenance: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                      valid: {}
+                  hash:
+                    fields:
+                      sha256: {}
