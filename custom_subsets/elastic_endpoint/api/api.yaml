@@ -25,8 +25,6 @@ fields:
   user:
     fields:
       domain: {}
-      email: {}
-      full_name: {}
       hash: {}
       id: {}
       name: {}
@@ -59,6 +57,13 @@ fields:
         fields:
           name: {}
           pid: {}
+          executable: {}
+          entity_id: {}
+          Ext:
+            fields:
+              token:
+                fields:
+                  integrity_level_name: {}
   process:
     fields:
       pid: {}
@@ -74,11 +79,15 @@ fields:
           api:
             fields:
               name: {}
+              summary: {}
+              behaviors: {}
+              metadata:
+                fields: "*"
               parameters:
-                fields:
-                  desired_access: {}
-                  desired_access_numeric: {}
-                  handle_type: {}
+                fields: "*"
+          token:
+            fields:
+              integrity_level_name: {}
           code_signature:
             fields:
               exists: {}
@@ -97,12 +106,7 @@ fields:
           Ext:
             fields:
               call_stack:
-                enabled: false
-                fields:
-                  module_path: {}
-                  instruction_pointer: {}
+                fields: "*"
               call_stack_contains_unbacked: {}
               call_stack_final_user_module:
-                fields:
-                  path: {}
-
+                fields: "*"
