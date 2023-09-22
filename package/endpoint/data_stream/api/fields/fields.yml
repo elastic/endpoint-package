@@ -30,6 +30,44 @@
   type: group
   default_field: true
   fields:
+    - name: process.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: process.Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
+      default_field: false
+    - name: process.entity_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier for the process.
+
+        The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process.
+
+        Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts.'
+      example: c2c455d9f99375d
+      default_field: false
+    - name: process.executable
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: Absolute path to the process executable.
+      example: /usr/bin/ssh
+      default_field: false
     - name: process.name
       level: extended
       type: keyword
@@ -355,11 +393,41 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.api.behaviors
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  'write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  'hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set"
+      example:
+        - cross-process
+        - native_api
+        - shellcode
+      default_field: false
+    - name: Ext.api.metadata
+      level: custom
+      type: nested
+      description: Information related to the API call.
+      default_field: false
+    - name: Ext.api.metadata.target_address_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the memory region targeted by the API call.
+      example: Unbacked
+      default_field: false
+    - name: Ext.api.metadata.target_address_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The path of the memory region targeted by the API call.
+      example: C:\ProgramData\example.dll
+      default_field: false
     - name: Ext.api.name
       level: custom
       type: keyword
       ignore_above: 1024
       description: The name of the API, usually the name of the function or system call.
+      example: VirtualAlloc
       default_field: false
     - name: Ext.api.parameters.desired_access
       level: custom
@@ -378,6 +446,13 @@
       ignore_above: 1024
       description: This parameter indicates whether the detected access was attempt against a process or a thread.
       example: process
+      default_field: false
+    - name: Ext.api.summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The summary of the API call and its parameters.
+      example: VirtualAllocEx( file.exe, NULL, 0x42000, COMMIT|RESERVE, RWX )
       default_field: false
     - name: Ext.code_signature
       level: custom
@@ -413,6 +488,13 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
       example: 'true'
+      default_field: false
+    - name: Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
       default_field: false
     - name: code_signature.exists
       level: core
@@ -500,11 +582,22 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
-    - name: thread.Ext.call_stack
+    - name: thread.Ext.call_stack.allocation_private_bytes
       level: custom
-      type: object
-      description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
-      enabled: false
+      type: unsigned_long
+      description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_leading_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes preceding the callsite
+      default_field: false
+    - name: thread.Ext.call_stack.callsite_trailing_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Hex opcode bytes after the callsite (where control will return to)
       default_field: false
     - name: thread.Ext.call_stack.instruction_pointer
       level: custom
@@ -512,11 +605,62 @@
       ignore_above: 1024
       description: The return address of this stack frame.
       default_field: false
+    - name: thread.Ext.call_stack.memory_section.memory_address
+      level: custom
+      type: keyword
+      description: Base address of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.BaseAddress`
+      index: false
+      doc_values: false
+      default_field: false
+    - name: thread.Ext.call_stack.memory_section.memory_size
+      level: custom
+      type: keyword
+      description: Size of the memory region containing `instruction_pointer`.  Corresponds to `MEMORY_BASIC_INFORMATION.RegionSize`
+      index: false
+      doc_values: false
+      default_field: false
+    - name: thread.Ext.call_stack.memory_section.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Memory protection flags of this memory region.  Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      default_field: false
+    - name: thread.Ext.call_stack.module_name
+      level: custom
+      type: keyword
+      description: The name of the DLL/module containing `instruction_pointer`.
+      index: false
+      doc_values: false
+      default_field: false
     - name: thread.Ext.call_stack.module_path
       level: custom
       type: keyword
       ignore_above: 1024
       description: The path to the DLL/module containing `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
+      default_field: false
+    - name: thread.Ext.call_stack.protection_provenance
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the memory region that last modified the protection of this page.  "Unbacked" can indicate shellcode.
+      default_field: false
+    - name: thread.Ext.call_stack.rva
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The relative virtual address of `instruction_pointer`.  Computed as `instruction_pointer - MEMORY_BASIC_INFORMATION.AllocationBase`.
+      default_field: false
+    - name: thread.Ext.call_stack.symbol_info
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The nearest symbol for `instruction_pointer`.
       default_field: false
     - name: thread.Ext.call_stack_contains_unbacked
       level: custom
@@ -528,12 +672,81 @@
       type: nested
       description: The final non-win32 module in the call stack.
       default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature
+      level: custom
+      type: nested
+      description: Code signature of the call_stack_final_user_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.valid
+      level: custom
+      type: boolean
+      description: 'Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.hash
+      level: custom
+      type: object
+      description: Hashes of the call_stack_final_user_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The sha256 of the call_stack_final_user_module.
+      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file name of the call_stack_final_user_module.
+      example: example.dll
+      default_field: false
     - name: thread.Ext.call_stack_final_user_module.path
       level: custom
       type: keyword
       ignore_above: 1024
       description: The file path of the call_stack_final_user_module.
       example: C:\Program Files\Example\example.dll
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.protection_provenance
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
+      example: third_party_hook.dll
       default_field: false
     - name: thread.id
       level: extended
@@ -557,21 +770,6 @@
       description: 'Name of the directory the user is a member of.
 
         For example, an LDAP or Active Directory domain name.'
-    - name: email
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: User email address.
-    - name: full_name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      multi_fields:
-        - name: text
-          type: match_only_text
-          default_field: false
-      description: User's full name, if available.
-      example: Albert Einstein
     - name: hash
       level: extended
       type: keyword
