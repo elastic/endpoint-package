@@ -10,7 +10,7 @@
     order: 1
     top_level: false
     expected:
-      - process.thread.Ext
+      - { at: process.thread.Ext, as: call_stack }
       - process.parent.thread.Ext
   fields:
     - name: module_name

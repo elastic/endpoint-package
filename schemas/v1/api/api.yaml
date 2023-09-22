@@ -1047,45 +1047,65 @@ process.Ext.api.name:
   original_fieldset: api
   short: The name of the API, usually the name of the function or system call.
   type: keyword
-process.Ext.api.parameters.desired_access:
-  dashed_name: process-Ext-api-parameters-desired-access
-  description: This parameter indicates the string value of the `DesiredAccess` field  to
-    `OpenProcess` or `OpenThread`.
-  flat_name: process.Ext.api.parameters.desired_access
+process.Ext.api.parameters.address:
+  dashed_name: process-Ext-api-parameters-address
+  description: The target memory address.
+  example: 2431737462784
+  flat_name: process.Ext.api.parameters.address
+  level: custom
+  name: address
+  normalize: []
+  original_fieldset: virtualmemory
+  short: The target memory address.
+  type: unsigned_long
+process.Ext.api.parameters.allocation_type:
+  dashed_name: process-Ext-api-parameters-allocation-type
+  description: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
+  example: COMMIT|RESERVE
+  flat_name: process.Ext.api.parameters.allocation_type
   ignore_above: 1024
   level: custom
-  name: desired_access
+  name: allocation_type
   normalize: []
-  original_fieldset: Credential_access
-  short: This parameter indicates the string value of the `DesiredAccess` field  to
-    `OpenProcess` or `OpenThread`.
+  original_fieldset: virtualmemory
+  short: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
   type: keyword
-process.Ext.api.parameters.desired_access_numeric:
-  dashed_name: process-Ext-api-parameters-desired-access-numeric
-  description: This parameter indicates the numeric value of the `DesiredAccess` field
-    passed to `OpenProcess` or `OpenThread`.
-  flat_name: process.Ext.api.parameters.desired_access_numeric
-  level: custom
-  name: desired_access_numeric
-  normalize: []
-  original_fieldset: Credential_access
-  short: This parameter indicates the numeric value of the `DesiredAccess` field passed
-    to `OpenProcess` or `OpenThread`.
-  type: long
-process.Ext.api.parameters.handle_type:
-  dashed_name: process-Ext-api-parameters-handle-type
-  description: This parameter indicates whether the detected access was attempt against
-    a process or a thread.
-  example: process
-  flat_name: process.Ext.api.parameters.handle_type
+process.Ext.api.parameters.protection:
+  dashed_name: process-Ext-api-parameters-protection
+  description: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+  example: RWX|GUARD
+  flat_name: process.Ext.api.parameters.protection
   ignore_above: 1024
   level: custom
-  name: handle_type
+  name: protection
   normalize: []
-  original_fieldset: Credential_access
-  short: This parameter indicates whether the detected access was attempt against
-    a process or a thread.
+  original_fieldset: virtualmemory
+  short: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
   type: keyword
+process.Ext.api.parameters.protection_old:
+  dashed_name: process-Ext-api-parameters-protection-old
+  description: The previous memory protection returned by the API call. Corresponds
+    to `MEMORY_BASIC_INFORMATION.Protect`
+  example: RCX
+  flat_name: process.Ext.api.parameters.protection_old
+  ignore_above: 1024
+  level: custom
+  name: protection_old
+  normalize: []
+  original_fieldset: virtualmemory
+  short: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+  type: keyword
+process.Ext.api.parameters.size:
+  dashed_name: process-Ext-api-parameters-size
+  description: The size.
+  example: 4096
+  flat_name: process.Ext.api.parameters.size
+  level: custom
+  name: size
+  normalize: []
+  original_fieldset: virtualmemory
+  short: The size.
+  type: unsigned_long
 process.Ext.api.summary:
   dashed_name: process-Ext-api-summary
   description: The summary of the API call and its parameters.
@@ -1156,6 +1176,18 @@ process.Ext.code_signature.trusted:
   normalize: []
   short: Stores the trust status of the certificate chain.
   type: boolean
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
 process.Ext.token.integrity_level_name:
   dashed_name: process-Ext-token-integrity-level-name
   description: Human readable integrity level.
@@ -1221,6 +1253,29 @@ process.code_signature.trusted:
   original_fieldset: code_signature
   short: Stores the trust status of the certificate chain.
   type: boolean
+process.command_line:
+  dashed_name: process-command-line
+  description: 'Full command line that started the process, including the absolute
+    path to the executable, and all arguments.
+
+    Some arguments may be filtered to protect sensitive information.'
+  example: /usr/bin/ssh -l user 10.0.0.16
+  flat_name: process.command_line
+  level: extended
+  multi_fields:
+  - flat_name: process.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.command_line.text
+    name: text
+    norms: false
+    type: text
+  name: command_line
+  normalize: []
+  short: Full command line that started the process.
+  type: wildcard
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.

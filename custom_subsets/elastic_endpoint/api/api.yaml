@@ -70,6 +70,7 @@ fields:
       name: {}
       executable: {}
       entity_id: {}
+      command_line: {}
       thread:
         fields:
           id: {}
@@ -88,6 +89,7 @@ fields:
           token:
             fields:
               integrity_level_name: {}
+          protection: {}
           code_signature:
             fields:
               exists: {}

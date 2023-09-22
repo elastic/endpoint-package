@@ -429,23 +429,38 @@
       description: The name of the API, usually the name of the function or system call.
       example: VirtualAlloc
       default_field: false
-    - name: Ext.api.parameters.desired_access
+    - name: Ext.api.parameters.address
+      level: custom
+      type: unsigned_long
+      description: The target memory address.
+      example: 2431737462784
+      default_field: false
+    - name: Ext.api.parameters.allocation_type
       level: custom
       type: keyword
       ignore_above: 1024
-      description: This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
+      description: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
+      example: COMMIT|RESERVE
       default_field: false
-    - name: Ext.api.parameters.desired_access_numeric
-      level: custom
-      type: long
-      description: This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`.
-      default_field: false
-    - name: Ext.api.parameters.handle_type
+    - name: Ext.api.parameters.protection
       level: custom
       type: keyword
       ignore_above: 1024
-      description: This parameter indicates whether the detected access was attempt against a process or a thread.
-      example: process
+      description: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      example: RWX|GUARD
+      default_field: false
+    - name: Ext.api.parameters.protection_old
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      example: RCX
+      default_field: false
+    - name: Ext.api.parameters.size
+      level: custom
+      type: unsigned_long
+      description: The size.
+      example: 4096
       default_field: false
     - name: Ext.api.summary
       level: custom
@@ -489,6 +504,12 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
       example: 'true'
       default_field: false
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
     - name: Ext.token.integrity_level_name
       level: custom
       type: keyword
@@ -525,6 +546,22 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
       example: 'true'
+      default_field: false
+    - name: command_line
+      level: extended
+      type: wildcard
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: 'Full command line that started the process, including the absolute path to the executable, and all arguments.
+
+        Some arguments may be filtered to protect sensitive information.'
+      example: /usr/bin/ssh -l user 10.0.0.16
       default_field: false
     - name: entity_id
       level: extended
