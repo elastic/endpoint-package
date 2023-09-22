@@ -420,7 +420,7 @@
       type: keyword
       ignore_above: 1024
       description: The path of the memory region targeted by the API call.
-      example: C:\ProgramData\example.dll
+      example: C:\programdata\example.dll
       default_field: false
     - name: Ext.api.name
       level: custom

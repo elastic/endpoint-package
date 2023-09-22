@@ -76,7 +76,7 @@
       type: keyword
       description: >
         The path of the memory region targeted by the API call.
-      example: "C:\\ProgramData\\example.dll"
+      example: "C:\\programdata\\example.dll"
 
     - name: parameters
       level: custom
@@ -149,10 +149,10 @@
 
     - name: context_flags
       level: custom
-      type: keyword
+      type: unsigned_long
       description: >
-        The set of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
-      example: "CONTROL|DEBUG"
+        The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
+      example: 1048607
 
     - name: rip
       level: custom
