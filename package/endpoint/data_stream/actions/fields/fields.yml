@@ -1,6 +1,5 @@
 - name: '@timestamp'
   level: core
-  required: true
   type: date
   description: 'Date/time when the event originated.
 
@@ -161,10 +160,9 @@
   fields:
     - name: version
       level: core
-      required: true
       type: keyword
       ignore_above: 1024
-      description: 'ECS version this event conforms to. `ecs.version` is a required field and must exist in all events.
+      description: 'ECS version this event conforms to.
 
         When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events.'
       example: 1.0.0
