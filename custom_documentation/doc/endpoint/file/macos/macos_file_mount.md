@@ -10,6 +10,10 @@ This event is generated when a file system is mounted.
 | Field |
 |---|
 | @timestamp |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -66,8 +70,4 @@ This event is generated when a file system is mounted.
 | user.Ext.real.name |
 | user.id |
 | user.name |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 

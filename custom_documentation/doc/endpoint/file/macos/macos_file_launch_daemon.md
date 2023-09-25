@@ -10,6 +10,10 @@ This event includes information about a macOS Launch Daemon.
 | Field |
 |---|
 | @timestamp |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 | Persistence.args |
 | Persistence.keepalive |
 | Persistence.name |
@@ -67,8 +71,4 @@ This event includes information about a macOS Launch Daemon.
 | user.Ext.real.name |
 | user.id |
 | user.name |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 
