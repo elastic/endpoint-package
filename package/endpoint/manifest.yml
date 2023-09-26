@@ -7,7 +7,6 @@ categories: ["security", "edr_xdr"]
 # The package type. The options for now are [integration, input], more type might be added in the future.
 # The default type is integration and will be set if empty.
 type: integration
-license: basic
 policy_templates:
   - name: endpoint
     title: Endpoint Security Integration
@@ -26,3 +25,4 @@ icons:
     type: "image/svg+xml"
 owner:
   github: elastic/security-onboarding-and-lifecycle-mgt
+  type: elastic
