@@ -19,6 +19,7 @@ conditions:
   # >= <the version> && < 8.0.0
   elastic:
     capabilities: ["security"]
+    subscription: basic
 icons:
   - src: "/img/security-logo-color-64px.svg"
     size: "16x16"
