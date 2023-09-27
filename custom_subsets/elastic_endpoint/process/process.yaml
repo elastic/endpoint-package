@@ -144,6 +144,10 @@ fields:
         fields:
           id: {}
           name: {}
+          capabilities:
+            fields:
+              permitted: {}
+              effective: {}
       title: {}
       uptime: {}
       working_directory: {}
