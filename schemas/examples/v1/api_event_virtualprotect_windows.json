@@ -1,0 +1,165 @@
+{
+    "@timestamp": "2023-09-28T18:05:30.2669822Z",
+    "Target": {
+        "process": {
+            "pid": 9176
+        }
+    },
+    "_label": "labels_state_0",
+    "_state": 0,
+    "event": {
+        "category": [
+            "api",
+            "intrusion_detection"
+        ],
+        "created": "2023-09-28T18:05:30.2669822Z",
+        "id": "NFL+DWc/3/kJDvWp++++++GV",
+        "kind": "event",
+        "outcome": "success",
+        "provider": "Microsoft-Windows-Threat-Intelligence",
+        "type": [
+            "change"
+        ]
+    },
+    "host": {
+        "architecture": "x86_64",
+        "hostname": "hostname",
+        "id": "dabadaba-0000-0000-0000-000000000000",
+        "ip": [
+            "127.0.0.1",
+            "::1"
+        ],
+        "mac": [
+            "00-00-00-00-00-00",
+            "00-00-00-00-00-01"
+        ],
+        "name": "system-name",
+        "os": {
+            "Ext": {
+                "variant": "Windows 10 Pro"
+            },
+            "family": "windows",
+            "full": "Windows 10 Pro 22H2 (10.0.19045.3448)",
+            "kernel": "22H2 (10.0.19045.3448)",
+            "name": "Windows",
+            "platform": "windows",
+            "type": "windows",
+            "version": "22H2 (10.0.19045.3448)"
+        }
+    },
+    "message": "Endpoint API event - VirtualProtect",
+    "process": {
+        "Ext": {
+            "ancestry": [
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTEwMTE2LTE2OTU5MjQyMTQuODgzNTAwMTAw",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTIwMjAtMTY5NTkyNDIxNC44NjMxMjk3MDA=",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQ4OC0xNjk1NzU3MTk0LjY1NzA3NDEwMA==",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTU1MjQtMTY5NTc1NzEwOS4zNjU0MDcxMDA=",
+                "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTk0OTItMTY5NTkyNDIxNC44NzcyNDY3MDA="
+            ],
+            "api": {
+                "behaviors": [
+                    "hollow_image"
+                ],
+                "metadata": {
+                    "target_address_name": "clr.dll",
+                    "target_address_path": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll"
+                },
+                "name": "VirtualProtect",
+                "parameters": {
+                    "address": 140710045929472,
+                    "name": "clr.dll",
+                    "protection": "RWX",
+                    "protection_old": "R-X",
+                    "size": 272
+                },
+                "summary": "VirtualProtect( clr.dll, 0x110, RWX, R-X )"
+            },
+            "code_signature": [],
+            "token": {
+                "integrity_level_name": "high"
+            }
+        },
+        "code_signature": {
+            "exists": false
+        },
+        "command_line": "c:\\temp\\LfsFileDeps\\Tools\\Tamper\\TamperETW.exe",
+        "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNzYtMTY5NTkyNDMzMC4yMTc5MDE5MDA=",
+        "executable": "c:\\temp\\LfsFileDeps\\Tools\\Tamper\\TamperETW.exe",
+        "name": "TamperETW.exe",
+        "parent": {
+            "executable": "C:\\Program Files\\Python38\\python.exe"
+        },
+        "pid": 9176,
+        "thread": {
+            "Ext": {
+                "call_stack": [
+                    {
+                        "symbol_info": "c:\\windows\\system32\\ntdll.dll!ZwProtectVirtualMemory+0x14"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\system32\\kernelbase.dll!VirtualProtect+0x36"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!StrongNameFreeBuffer+0xaae"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!StrongNameSignatureVerification+0xed2f"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!StrongNameSignatureVerification+0xe850"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!LogHelp_TerminateOnAssert+0x55361"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!IEE+0x2fed"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!LogHelp_TerminateOnAssert+0x34389"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!GetClassActivatorForApplicationImpl+0x70d3"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll!GetClassActivatorForApplicationImpl+0x6f8e"
+                    },
+                    {
+                        "symbol_info": "c:\\temp\\lfsfiledeps\\tools\\tamper\\tamperetw.exe+0x13c9"
+                    },
+                    {
+                        "symbol_info": "c:\\temp\\lfsfiledeps\\tools\\tamper\\tamperetw.exe+0x1794"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\system32\\kernel32.dll!BaseThreadInitThunk+0x14"
+                    },
+                    {
+                        "symbol_info": "c:\\windows\\system32\\ntdll.dll!RtlUserThreadStart+0x21"
+                    }
+                ],
+                "call_stack_final_user_module": {
+                    "code_signature": [
+                        {
+                            "exists": true,
+                            "status": "trusted",
+                            "subject_name": "Microsoft Corporation",
+                            "trusted": true
+                        }
+                    ],
+                    "hash": {
+                        "sha256": "157ac3f5978f8561b9d3d0951e13501baeb8b0a7400d85b92878758ab2137b94"
+                    },
+                    "name": "clr.dll",
+                    "path": "c:\\windows\\microsoft.net\\framework64\\v4.0.30319\\clr.dll"
+                },
+                "call_stack_summary": "ntdll.dll|kernelbase.dll|clr.dll|tamperetw.exe|kernel32.dll|ntdll.dll"
+            },
+            "id": 8580
+        }
+    },
+    "user": {
+        "domain": "SYSTEM-NAME",
+        "id": "S-1-2-3-4-5-6-1001",
+        "name": "user"
+    }
+}
