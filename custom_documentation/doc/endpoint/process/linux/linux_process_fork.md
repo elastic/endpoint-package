@@ -70,6 +70,7 @@ This event is generated when a new process is created using `fork()`.
 | process.args |
 | process.args_count |
 | process.command_line |
+| process.end |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |
@@ -100,6 +101,7 @@ This event is generated when a new process is created using `fork()`.
 | process.entry_leader.working_directory |
 | process.env_vars |
 | process.executable |
+| process.exit_code |
 | process.group.id |
 | process.group.name |
 | process.group_leader.args |
@@ -181,6 +183,8 @@ This event is generated when a new process is created using `fork()`.
 | process.start |
 | process.supplemental_groups.id |
 | process.supplemental_groups.name |
+| process.thread.capabilities.permitted |
+| process.thread.capabilities.effective |
 | process.tty.char_device.major |
 | process.tty.char_device.minor |
 | process.user.id |

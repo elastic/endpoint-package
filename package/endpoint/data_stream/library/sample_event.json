@@ -140,5 +140,11 @@
         "domain": "NT AUTHORITY",
         "name": "SYSTEM",
         "id": "S-1-5-18"
+    },
+    "Effective_process": {
+        "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTU2NS0xNjk1MTkyOTQ3",
+        "executable": "/System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",
+        "name": "Terminal",
+        "pid": 565
     }
 }

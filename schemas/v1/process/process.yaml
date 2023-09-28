@@ -339,6 +339,7 @@ event.category:
       from both host-based and network-based sources. An example source of a network-based
       detection of a file transfer would be the Zeek file.log.
     expected_event_types:
+    - access
     - change
     - creation
     - deletion
@@ -381,6 +382,13 @@ event.category:
     - denied
     - info
     name: intrusion_detection
+  - description: Events in this category refer to the loading of a library, such as
+      (dll / so / dynlib), into a process. Use this category to visualize and analyze
+      library loading related activity on hosts.  Keep in mind that driver related
+      activity will be captured under the "driver" category above.
+    expected_event_types:
+    - start
+    name: library
   - description: Malware detection events and alerts. Use this category to visualize
       and analyze malware detections from EDR/EPP systems such as Elastic Endpoint
       Security, Symantec Endpoint Protection, Crowdstrike, and network IDS/IPS systems
@@ -499,18 +507,18 @@ event.code:
   type: keyword
 event.created:
   dashed_name: event-created
-  description: 'event.created contains the date/time when the event was first read
+  description: '`event.created` contains the date/time when the event was first read
     by an agent, or by your pipeline.
 
-    This field is distinct from @timestamp in that @timestamp typically contain the
-    time extracted from the original event.
+    This field is distinct from `@timestamp` in that `@timestamp` typically contain
+    the time extracted from the original event.
 
     In most situations, these two timestamps will be slightly different. The difference
     can be used to calculate the delay between your source generating an event, and
     the time when your agent first processed it. This can be used to monitor your
     agent''s or pipeline''s ability to keep up with your event source.
 
-    In case the two timestamps are identical, @timestamp should be used.'
+    In case the two timestamps are identical, `@timestamp` should be used.'
   example: '2016-05-23T08:05:34.857Z'
   flat_name: event.created
   level: core
@@ -587,6 +595,22 @@ event.kind:
       This value is not used by Elastic solutions for alert documents that are created
       by rules executing within the Kibana alerting framework.'
     name: alert
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This value indicates events whose primary purpose is to store an
+      inventory of assets/entities and their attributes. Assets/entities are objects
+      (such as users and hosts) that are expected to be subjects of detailed analysis
+      within the system.
+
+      Examples include lists of user identities or accounts ingested from directory
+      services such as Active Directory (AD), inventory of hosts pulled from configuration
+      management databases (CMDB), and lists of cloud storage buckets pulled from
+      cloud provider APIs.
+
+      This value is used by Elastic Security for asset management solutions. `event.kind:
+      asset` is not used for normal system events or logs that are coming from an
+      asset/entity, nor is it used for system events or logs coming from a directory
+      or CMDB system.'
+    name: asset
   - description: 'The `enrichment` value indicates an event collected to provide additional
       context, often to other events.
 
@@ -646,7 +670,8 @@ event.kind:
 
     The value of this field can be used to inform how these kinds of events should
     be handled. They may warrant different retention, different access control, it
-    may also help understand whether the data coming in at a regular interval or not.'
+    may also help understand whether the data is coming in at a regular interval or
+    not.'
   example: alert
   flat_name: event.kind
   ignore_above: 1024
@@ -2905,6 +2930,34 @@ process.ppid:
   normalize: []
   short: Parent process' pid.
   type: long
+process.thread.capabilities.effective:
+  dashed_name: process-thread-capabilities-effective
+  description: This is the set of capabilities used by the kernel to perform permission
+    checks for the thread.
+  example: '["CAP_BPF", "CAP_SYS_ADMIN"]'
+  flat_name: process.thread.capabilities.effective
+  ignore_above: 1024
+  level: extended
+  name: thread.capabilities.effective
+  normalize:
+  - array
+  pattern: ^(CAP_[A-Z_]+|\d+)$
+  short: Array of capabilities used for permission checks.
+  type: keyword
+process.thread.capabilities.permitted:
+  dashed_name: process-thread-capabilities-permitted
+  description: This is a limiting superset for the effective capabilities that the
+    thread may assume.
+  example: '["CAP_BPF", "CAP_SYS_ADMIN"]'
+  flat_name: process.thread.capabilities.permitted
+  ignore_above: 1024
+  level: extended
+  name: thread.capabilities.permitted
+  normalize:
+  - array
+  pattern: ^(CAP_[A-Z_]+|\d+)$
+  short: Array of capabilities a thread could assume.
+  type: keyword
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.
