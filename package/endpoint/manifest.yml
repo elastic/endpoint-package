@@ -1,4 +1,4 @@
-format_version: 1.0.0
+format_version: 3.0.0
 name: endpoint
 title: Elastic Defend
 description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
@@ -7,19 +7,23 @@ categories: ["security", "edr_xdr"]
 # The package type. The options for now are [integration, input], more type might be added in the future.
 # The default type is integration and will be set if empty.
 type: integration
-license: basic
 policy_templates:
   - name: endpoint
     title: Endpoint Security Integration
     description: Interact with the endpoint.
     multiple: false
 conditions:
-  kibana.version: "^8.11.0"
+  kibana:
+    version: "^8.11.0"
   # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
   # >= <the version> && < 8.0.0
+  elastic:
+    capabilities: ["security"]
+    subscription: basic
 icons:
   - src: "/img/security-logo-color-64px.svg"
     size: "16x16"
     type: "image/svg+xml"
 owner:
-  github: elastic/security-onboarding-and-lifecycle-mgt
+  github: elastic/security-defend-workflows
+  type: elastic
