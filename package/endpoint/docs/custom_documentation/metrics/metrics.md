@@ -33,6 +33,10 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.documents_volume.api_events.sources.suppressed_count |
 | Endpoint.metrics.documents_volume.api_events.suppressed_bytes |
 | Endpoint.metrics.documents_volume.api_events.suppressed_count |
+| Endpoint.metrics.documents_volume.device_events.sent_bytes |
+| Endpoint.metrics.documents_volume.device_events.sent_count |
+| Endpoint.metrics.documents_volume.device_events.suppressed_bytes |
+| Endpoint.metrics.documents_volume.device_events.suppressed_count |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count |
 | Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes |
@@ -114,6 +118,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.registry_events.week_ms |
 | Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms |
 | Endpoint.metrics.system_impact.threat_intelligence_events.week_ms |
+| Endpoint.metrics.system_impact.win32k_events.week_idle_ms |
+| Endpoint.metrics.system_impact.win32k_events.week_ms |
 | Endpoint.metrics.threads.cpu.mean |
 | Endpoint.metrics.threads.name |
 | Endpoint.metrics.uptime.endpoint |
