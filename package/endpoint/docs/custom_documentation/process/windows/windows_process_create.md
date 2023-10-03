@@ -107,6 +107,9 @@ This event is generated when a process is created.
 | process.parent.name |
 | process.parent.pid |
 | process.parent.thread.Ext.call_stack.symbol_info |
+| process.parent.thread.Ext.call_stack.protection |
+| process.parent.thread.Ext.call_stack.callsite_leading_bytes |
+| process.parent.thread.Ext.call_stack.callsite_trailing_bytes |
 | process.parent.thread.Ext.call_stack_contains_unbacked |
 | process.parent.thread.Ext.call_stack_summary |
 | process.pe.imphash |
