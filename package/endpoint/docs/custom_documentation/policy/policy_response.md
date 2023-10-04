@@ -57,6 +57,7 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.status |
 | Endpoint.policy.applied.version |
 | Endpoint.state.isolation |
+| Endpoint.state.tamper_protection |
 | agent.build.original |
 | agent.id |
 | agent.type |
