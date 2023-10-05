@@ -525,6 +525,7 @@
                                 "name": "production-rules-windows-v1"
                             }
                         ],
+                        "update_age": 0,
                         "version": "1.0.261"
                     },
                     "user": {
