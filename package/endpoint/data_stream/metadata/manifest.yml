@@ -6,9 +6,10 @@ elasticsearch:
       dynamic: false
     settings:
       index:
-        sort.field:
-          - "@timestamp"
-          - agent.id
-        sort.order:
-          - desc
-          - asc
+        sort:
+          field:
+            - "@timestamp"
+            - agent.id
+          order:
+            - desc
+            - asc
