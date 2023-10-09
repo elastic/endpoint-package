@@ -147,6 +147,16 @@ Endpoint.policy.applied.artifacts.global.identifiers.sha256:
   normalize: []
   short: the sha256 of global artifacts applied.
   type: keyword
+Endpoint.policy.applied.artifacts.global.snapshot:
+  dashed_name: Endpoint-policy-applied-artifacts-global-snapshot
+  description: the snapshot date of applied global artifacts or 'latest'
+  flat_name: Endpoint.policy.applied.artifacts.global.snapshot
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.artifacts.global.snapshot
+  normalize: []
+  short: the snapshot date of applied global artifacts or 'latest'
+  type: keyword
 Endpoint.policy.applied.artifacts.global.update_age:
   dashed_name: Endpoint-policy-applied-artifacts-global-update-age
   description: number of days since global artifacts were made up-to-date

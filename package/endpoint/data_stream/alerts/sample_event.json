@@ -475,6 +475,7 @@
                             }
                         ],
                         "update_age": 0,
+                        "snapshot": "2023-09-26",
                         "version": "1.0.0"
                     }
                 }

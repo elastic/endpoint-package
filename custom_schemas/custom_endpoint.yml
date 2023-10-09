@@ -341,6 +341,11 @@
       type: unsigned_long
       description: number of days since global artifacts were made up-to-date
 
+    - name: policy.applied.artifacts.global.snapshot
+      level: custom
+      type: keyword
+      description: the snapshot date of applied global artifacts or 'latest'
+
     - name: policy.applied.artifacts.global.version
       level: custom
       type: keyword
