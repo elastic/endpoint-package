@@ -577,7 +577,8 @@
     - name: dll.Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: dll.Ext.malware_classification.features.data.buffer
@@ -1049,7 +1050,8 @@
     - name: process.Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: process.Ext.malware_classification.features.data.buffer
@@ -3030,7 +3032,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -3634,7 +3637,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -4806,7 +4810,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -7959,6 +7964,13 @@
       type: text
       description: First 16 bytes of file used to check file integrity.
       default_field: false
+    - name: enrichments.indicator.file.Ext.malware_classification.features
+      level: custom
+      type: object
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
+      enabled: false
+      default_field: false
     - name: enrichments.indicator.file.Ext.malware_classification.features.data.buffer
       level: custom
       type: keyword
@@ -9416,6 +9428,13 @@
       level: custom
       type: text
       description: First 16 bytes of file used to check file integrity.
+      default_field: false
+    - name: indicator.file.Ext.malware_classification.features
+      level: custom
+      type: object
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
+      enabled: false
       default_field: false
     - name: indicator.file.Ext.malware_classification.features.data.buffer
       level: custom

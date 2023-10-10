@@ -787,6 +787,18 @@ threat.enrichments.indicator.file.Ext.header_data:
   original_fieldset: file
   short: Header data
   type: text
+threat.enrichments.indicator.file.Ext.malware_classification.features:
+  dashed_name: threat-enrichments-indicator-file-Ext-malware-classification-features
+  description: The features extracted from this file and evaluated by the model.
+  enabled: false
+  flat_name: threat.enrichments.indicator.file.Ext.malware_classification.features
+  level: custom
+  name: features
+  normalize: []
+  object_type: keyword
+  original_fieldset: malware_classification
+  short: The features extracted from this file and evaluated by the model.
+  type: object
 threat.enrichments.indicator.file.Ext.malware_classification.features.data.buffer:
   dashed_name: threat-enrichments-indicator-file-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -3439,6 +3451,18 @@ threat.indicator.file.Ext.header_data:
   original_fieldset: file
   short: Header data
   type: text
+threat.indicator.file.Ext.malware_classification.features:
+  dashed_name: threat-indicator-file-Ext-malware-classification-features
+  description: The features extracted from this file and evaluated by the model.
+  enabled: false
+  flat_name: threat.indicator.file.Ext.malware_classification.features
+  level: custom
+  name: features
+  normalize: []
+  object_type: keyword
+  original_fieldset: malware_classification
+  short: The features extracted from this file and evaluated by the model.
+  type: object
 threat.indicator.file.Ext.malware_classification.features.data.buffer:
   dashed_name: threat-indicator-file-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
