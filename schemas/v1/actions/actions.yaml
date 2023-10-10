@@ -34,6 +34,7 @@ EndpointActions.data:
   level: custom
   name: data
   normalize: []
+  object_type: keyword
   short: data
   type: object
 EndpointActions.data.alert_id:

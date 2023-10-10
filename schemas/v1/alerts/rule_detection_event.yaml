@@ -24,6 +24,7 @@ Events:
   level: custom
   name: Events
   normalize: []
+  object_type: keyword
   short: events array
   type: object
 Responses.@timestamp:
@@ -121,6 +122,7 @@ Responses.action.key.values:
   level: custom
   name: action.key.values
   normalize: []
+  object_type: keyword
   short: Values modified
   type: object
 Responses.action.key.values.actions:
@@ -591,6 +593,7 @@ threat.enrichments.indicator.file.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Object for all custom defined fields to live in.
   type: object
@@ -1017,6 +1020,7 @@ threat.enrichments.indicator.file.Ext.original:
   level: custom
   name: Ext.original
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Original file information during a modification event.
   type: object
@@ -1153,6 +1157,7 @@ threat.enrichments.indicator.file.Ext.windows:
   level: custom
   name: Ext.windows
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Platform-specific Windows fields
   type: object
@@ -3240,6 +3245,7 @@ threat.indicator.file.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Object for all custom defined fields to live in.
   type: object
@@ -3666,6 +3672,7 @@ threat.indicator.file.Ext.original:
   level: custom
   name: Ext.original
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Original file information during a modification event.
   type: object
@@ -3802,6 +3809,7 @@ threat.indicator.file.Ext.windows:
   level: custom
   name: Ext.windows
   normalize: []
+  object_type: keyword
   original_fieldset: file
   short: Platform-specific Windows fields
   type: object

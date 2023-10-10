@@ -15,11 +15,13 @@
     - name: process
       level: custom
       type: object
+      object_type: keyword
       description: >
         Process.
 
     - name: dll
       level: custom
       type: object
+      object_type: keyword
       description: >
         Dll core fieldset reused here.

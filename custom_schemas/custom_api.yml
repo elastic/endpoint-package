@@ -4,6 +4,7 @@
   group: 2
   short: Fields describing an API call.
   type: object
+  object_type: keyword
   description: >
     These fields describe an API call (function, or system call).
 
@@ -61,6 +62,7 @@
     - name: metadata
       level: custom
       type: object
+      object_type: keyword
       description: >
         Information related to the API call.
 
@@ -81,6 +83,7 @@
     - name: parameters
       level: custom
       type: object
+      object_type: keyword
       description: >
         Parameter values passed to the API call.
 
