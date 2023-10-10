@@ -427,11 +427,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: Ext.real.id
@@ -531,6 +533,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -701,6 +704,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -826,6 +830,7 @@
     - name: Ext.dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.dll.Ext.mapped_address
@@ -1378,6 +1383,7 @@
     - name: entry_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: entry_leader.tty.char_device.major
@@ -1667,6 +1673,7 @@
     - name: group_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: group_leader.tty.char_device.major
@@ -1746,6 +1753,7 @@
     - name: io
       level: extended
       type: object
+      object_type: keyword
       description: 'A chunk of input or output (IO) from a single process.
 
         This field only appears on the top level process object, which is the process that wrote the output or read the input.'
@@ -1793,6 +1801,7 @@
     - name: parent.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: parent.Ext.architecture
@@ -1854,6 +1863,7 @@
     - name: parent.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
       default_field: false
     - name: parent.Ext.real.pid
@@ -2222,11 +2232,13 @@
     - name: parent.thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: parent.thread.Ext.call_stack
       level: custom
       type: object
+      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: true
       default_field: false
@@ -2299,6 +2311,7 @@
     - name: parent.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: parent.tty.char_device.major
@@ -2750,6 +2763,7 @@
     - name: session_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: session_leader.tty.char_device.major
@@ -2855,6 +2869,7 @@
     - name: tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: tty.char_device.major
@@ -3018,11 +3033,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: Ext.real.id
@@ -3062,11 +3079,13 @@
     - name: group.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: group.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: group.Ext.real.id

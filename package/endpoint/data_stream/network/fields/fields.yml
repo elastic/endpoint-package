@@ -241,6 +241,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.options
@@ -471,11 +472,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: Ext.real.id
@@ -568,6 +571,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -685,6 +689,7 @@
     - name: response.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: response.Ext.version
@@ -806,6 +811,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -1199,11 +1205,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: Ext.real.id
@@ -1243,11 +1251,13 @@
     - name: group.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: group.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: group.Ext.real.id

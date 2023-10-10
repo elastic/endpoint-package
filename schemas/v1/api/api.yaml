@@ -24,6 +24,7 @@ Target.process.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
@@ -775,6 +776,7 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object
@@ -956,6 +958,7 @@ process.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.Ext.ancestry:
@@ -1016,6 +1019,7 @@ process.Ext.api.metadata:
   level: custom
   name: metadata
   normalize: []
+  object_type: keyword
   original_fieldset: api
   short: Information related to the API call.
   type: object
@@ -1062,6 +1066,7 @@ process.Ext.api.parameters:
   level: custom
   name: parameters
   normalize: []
+  object_type: keyword
   original_fieldset: api
   short: Parameter values passed to the API call.
   type: object
@@ -1719,6 +1724,7 @@ process.thread.Ext:
   level: custom
   name: thread.Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.thread.Ext.call_stack:
@@ -1730,6 +1736,7 @@ process.thread.Ext.call_stack:
   level: custom
   name: call_stack
   normalize: []
+  object_type: keyword
   original_fieldset: call_stack
   short: Fields describing a stack frame.
   type: object
@@ -1925,6 +1932,7 @@ process.thread.Ext.call_stack_final_user_module.hash:
   level: custom
   name: thread.Ext.call_stack_final_user_module.hash
   normalize: []
+  object_type: keyword
   short: Hashes of the call_stack_final_user_module.
   type: object
 process.thread.Ext.call_stack_final_user_module.hash.sha256:

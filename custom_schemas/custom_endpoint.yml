@@ -15,11 +15,13 @@
     - name: policy
       level: custom
       type: object
+      object_type: keyword
       description: The policy fields are used to hold information about applied policy.
 
     - name: policy.applied
       level: custom
       type: object
+      object_type: keyword
       description: information about the policy that is applied
 
     - name: policy.applied.actions
@@ -71,18 +73,21 @@
     - name: policy.applied.response
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: the response of actions that failed in the applied policy
 
     - name: policy.applied.response.configurations
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: the configurations of the applied policy
 
     - name: policy.applied.response.configurations.events
       level: custom
       type: object
+      object_type: keyword
       description: overall event collection configuration and status of the applied policy
 
     - name: policy.applied.response.configurations.events.concerned_actions
@@ -101,6 +106,7 @@
     - name: policy.applied.response.configurations.logging
       level: custom
       type: object
+      object_type: keyword
       description: overall logging configuration and status of the applied policy
 
     - name: policy.applied.response.configurations.logging.concerned_actions
@@ -119,6 +125,7 @@
     - name: policy.applied.response.configurations.antivirus_registration
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: overall antivirus registration configuration and status of the applied policy
 
@@ -138,6 +145,7 @@
     - name: policy.applied.response.configurations.malware
       level: custom
       type: object
+      object_type: keyword
       description: overall malware configuration and status of the applied policy
 
     - name: policy.applied.response.configurations.malware.concerned_actions
@@ -156,6 +164,7 @@
     - name: policy.applied.response.configurations.memory_protection
       level: custom
       type: object
+      object_type: keyword
       description: overall memory_protection configuration and status of the applied policy
 
     - name: policy.applied.response.configurations.memory_protection.concerned_actions
@@ -174,6 +183,7 @@
     - name: policy.applied.response.configurations.streaming
       level: custom
       type: object
+      object_type: keyword
       description: overall data streaming configuration and status of the applied policy
 
     - name: policy.applied.response.configurations.streaming.concerned_actions
@@ -244,6 +254,7 @@
     - name: policy.applied.response.diagnostic
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: the diagnostic configurations of the applied policy
 
@@ -328,12 +339,14 @@
     - name: policy.applied.artifacts
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: information about protection artifacts applied.
 
     - name: policy.applied.artifacts.global
       level: custom
       type: object
+      object_type: keyword
       description: information about global protection artifacts applied.
 
     - name: policy.applied.artifacts.global.version
@@ -359,6 +372,7 @@
     - name: policy.applied.artifacts.user
       level: custom
       type: object
+      object_type: keyword
       description: information about user protection artifacts applied.
 
     - name: policy.applied.artifacts.user.version
@@ -384,11 +398,13 @@
     - name: metrics
       level: custom
       type: object
+      object_type: keyword
       description: Metrics fields hold the endpoint and system's performance metrics
 
     - name: metrics.documents_volume
       level: custom
       type: object
+      object_type: keyword
       description: Statistics about sent documents
 
     - name: metrics.documents_volume.overall
@@ -619,6 +635,7 @@
     - name: metrics.documents_volume.api_events.sources
       level: custom
       type: object
+      object_type: keyword
       description: An array of API Event document statistics per source
 
     - name: metrics.documents_volume.api_events.sources.source
@@ -649,6 +666,7 @@
     - name: metrics.uptime
       level: custom
       type: object
+      object_type: keyword
       description: Number of seconds since boot
 
     - name: metrics.uptime.endpoint
@@ -664,11 +682,13 @@
     - name: metrics.cpu
       level: custom
       type: object
+      object_type: keyword
       description: CPU statistics
 
     - name: metrics.cpu.endpoint
       level: custom
       type: object
+      object_type: keyword
       description: CPU metrics for the endpoint
 
     - name: metrics.cpu.endpoint.mean
@@ -693,16 +713,19 @@
     - name: metrics.memory
       level: custom
       type: object
+      object_type: keyword
       description: Memory statistics
 
     - name: metrics.memory.endpoint
       level: custom
       type: object
+      object_type: keyword
       description: Endpoint memory utilization
 
     - name: metrics.memory.endpoint.private
       level: custom
       type: object
+      object_type: keyword
       description: The memory private to the endpoint
 
     - name: metrics.memory.endpoint.private.mean
@@ -718,6 +741,7 @@
     - name: metrics.disks
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: An array of disk information for the host
 
@@ -766,6 +790,7 @@
     - name: metrics.malicious_behavior_rules
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       description: An array of performance information about each malicious behavior rule
 
@@ -784,6 +809,7 @@
     - name: metrics.system_impact
       level: custom
       type: object
+      object_type: keyword
       enabled: false
       index: false
       description: An array of system impact information
@@ -1011,6 +1037,7 @@
       # using an object here even though it is actually an array because you can only have a limited number
       # of nested fields
       type: object
+      object_type: keyword
       enabled: false
       description: Statistics about the individual Endpoint threads (array)
 
@@ -1029,6 +1056,7 @@
     - name: configuration
       level: custom
       type: object
+      object_type: keyword
       description:
         Configuration fields represent the intended and applied setting for fields not part of a Policy setting
         This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
@@ -1041,6 +1069,7 @@
     - name: state
       level: custom
       type: object
+      object_type: keyword
       description:
         Represents the current state of a non-policy setting
         These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)

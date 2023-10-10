@@ -31,6 +31,7 @@
     - name: configuration
       level: custom
       type: object
+      object_type: keyword
       description: Configuration fields represent the intended and applied setting for fields not part of a Policy setting This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
       default_field: false
     - name: configuration.isolation
@@ -41,11 +42,13 @@
     - name: policy
       level: custom
       type: object
+      object_type: keyword
       description: The policy fields are used to hold information about applied policy.
       default_field: false
     - name: policy.applied
       level: custom
       type: object
+      object_type: keyword
       description: information about the policy that is applied
       default_field: false
     - name: policy.applied.actions
@@ -75,12 +78,14 @@
     - name: policy.applied.artifacts
       level: custom
       type: object
+      object_type: keyword
       description: information about protection artifacts applied.
       enabled: false
       default_field: false
     - name: policy.applied.artifacts.global
       level: custom
       type: object
+      object_type: keyword
       description: information about global protection artifacts applied.
       default_field: false
     - name: policy.applied.artifacts.global.identifiers
@@ -109,6 +114,7 @@
     - name: policy.applied.artifacts.user
       level: custom
       type: object
+      object_type: keyword
       description: information about user protection artifacts applied.
       default_field: false
     - name: policy.applied.artifacts.user.identifiers
@@ -155,18 +161,21 @@
     - name: policy.applied.response
       level: custom
       type: object
+      object_type: keyword
       description: the response of actions that failed in the applied policy
       enabled: false
       default_field: false
     - name: policy.applied.response.configurations
       level: custom
       type: object
+      object_type: keyword
       description: the configurations of the applied policy
       enabled: false
       default_field: false
     - name: policy.applied.response.configurations.antivirus_registration
       level: custom
       type: object
+      object_type: keyword
       description: overall antivirus registration configuration and status of the applied policy
       enabled: false
       default_field: false
@@ -209,6 +218,7 @@
     - name: policy.applied.response.configurations.events
       level: custom
       type: object
+      object_type: keyword
       description: overall event collection configuration and status of the applied policy
       default_field: false
     - name: policy.applied.response.configurations.events.concerned_actions
@@ -238,6 +248,7 @@
     - name: policy.applied.response.configurations.logging
       level: custom
       type: object
+      object_type: keyword
       description: overall logging configuration and status of the applied policy
       default_field: false
     - name: policy.applied.response.configurations.logging.concerned_actions
@@ -255,6 +266,7 @@
     - name: policy.applied.response.configurations.malware
       level: custom
       type: object
+      object_type: keyword
       description: overall malware configuration and status of the applied policy
       default_field: false
     - name: policy.applied.response.configurations.malware.concerned_actions
@@ -272,6 +284,7 @@
     - name: policy.applied.response.configurations.memory_protection
       level: custom
       type: object
+      object_type: keyword
       description: overall memory_protection configuration and status of the applied policy
       default_field: false
     - name: policy.applied.response.configurations.memory_protection.concerned_actions
@@ -301,6 +314,7 @@
     - name: policy.applied.response.configurations.streaming
       level: custom
       type: object
+      object_type: keyword
       description: overall data streaming configuration and status of the applied policy
       default_field: false
     - name: policy.applied.response.configurations.streaming.concerned_actions
@@ -318,6 +332,7 @@
     - name: policy.applied.response.diagnostic
       level: custom
       type: object
+      object_type: keyword
       description: the diagnostic configurations of the applied policy
       enabled: false
       default_field: false
@@ -408,6 +423,7 @@
     - name: state
       level: custom
       type: object
+      object_type: keyword
       description: Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
       default_field: false
     - name: state.isolation
@@ -695,6 +711,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant

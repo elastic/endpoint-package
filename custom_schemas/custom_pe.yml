@@ -21,6 +21,7 @@
     - name: Ext.sections
       level: custom
       type: object
+      object_type: keyword
       short: The file's sections, if it is a PE
       description: >
         The file's relevant sections, if it is a PE
@@ -35,12 +36,14 @@
     - name: Ext.sections.hash
       level: custom
       type: object
+      object_type: keyword
       description: >
         Hashes
         
     - name: Ext.streams
       level: custom
       type: object
+      object_type: keyword
       short: The file's streams, if it is a PE
       description: >
         The file's streams, if it is a PE
@@ -55,5 +58,6 @@
     - name: Ext.streams.hash
       level: custom
       type: object
+      object_type: keyword
       description: >
         Hashes

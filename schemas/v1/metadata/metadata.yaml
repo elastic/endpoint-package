@@ -37,6 +37,7 @@ Endpoint.configuration:
   level: custom
   name: configuration
   normalize: []
+  object_type: keyword
   short: Configuration fields represent the intended and applied setting for fields
     not part of a Policy setting This reflects what a given field is configured to
     do. The actual state of that same field is found in Endpoint.state
@@ -57,6 +58,7 @@ Endpoint.policy:
   level: custom
   name: policy
   normalize: []
+  object_type: keyword
   short: The policy fields are used to hold information about applied policy.
   type: object
 Endpoint.policy.applied:
@@ -66,6 +68,7 @@ Endpoint.policy.applied:
   level: custom
   name: policy.applied
   normalize: []
+  object_type: keyword
   short: information about the policy that is applied
   type: object
 Endpoint.policy.applied.id:
@@ -107,6 +110,7 @@ Endpoint.state:
   level: custom
   name: state
   normalize: []
+  object_type: keyword
   short: Represents the current state of a non-policy setting These fields reflect
     the current status of a field, which may differ from what it is configured to
     be (see Endpoint.configuration)
@@ -240,6 +244,7 @@ elastic.agent:
   level: custom
   name: agent
   normalize: []
+  object_type: keyword
   short: The agent fields contain data about the Elastic Agent.
   type: object
 elastic.agent.id:
@@ -1032,6 +1037,7 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object

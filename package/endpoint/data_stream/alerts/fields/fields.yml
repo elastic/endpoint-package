@@ -14,6 +14,7 @@
 - name: Events
   level: custom
   type: object
+  object_type: keyword
   description: events array
 - name: message
   level: core
@@ -35,22 +36,26 @@
     - name: policy
       level: custom
       type: object
+      object_type: keyword
       description: The policy fields are used to hold information about applied policy.
       default_field: false
     - name: policy.applied
       level: custom
       type: object
+      object_type: keyword
       description: information about the policy that is applied
       default_field: false
     - name: policy.applied.artifacts
       level: custom
       type: object
+      object_type: keyword
       description: information about protection artifacts applied.
       enabled: false
       default_field: false
     - name: policy.applied.artifacts.global
       level: custom
       type: object
+      object_type: keyword
       description: information about global protection artifacts applied.
       default_field: false
     - name: policy.applied.artifacts.global.identifiers
@@ -79,6 +84,7 @@
     - name: policy.applied.artifacts.user
       level: custom
       type: object
+      object_type: keyword
       description: information about user protection artifacts applied.
       default_field: false
     - name: policy.applied.artifacts.user.identifiers
@@ -420,6 +426,7 @@
     - name: action.key.values
       level: custom
       type: object
+      object_type: keyword
       description: Values modified
       default_field: false
     - name: action.key.values.actions
@@ -516,6 +523,7 @@
     - name: dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: dll.Ext.code_signature
@@ -569,7 +577,8 @@
     - name: dll.Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: dll.Ext.malware_classification.features.data.buffer
@@ -769,6 +778,7 @@
     - name: process.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.Ext.ancestry
@@ -836,6 +846,7 @@
     - name: process.Ext.dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.Ext.dll.Ext.code_signature
@@ -1039,7 +1050,8 @@
     - name: process.Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: process.Ext.malware_classification.features.data.buffer
@@ -1154,6 +1166,7 @@
     - name: process.Ext.memory_region.malware_signature.primary
       level: custom
       type: object
+      object_type: keyword
       description: The first matching details.
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
@@ -1604,6 +1617,7 @@
     - name: process.parent.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.parent.Ext.architecture
@@ -1659,6 +1673,7 @@
     - name: process.parent.Ext.dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.parent.Ext.dll.Ext.code_signature
@@ -1868,6 +1883,7 @@
     - name: process.parent.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
       default_field: false
     - name: process.parent.Ext.real.pid
@@ -2319,11 +2335,13 @@
     - name: process.thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.thread.Ext.call_stack
       level: custom
       type: object
+      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
@@ -2429,6 +2447,7 @@
     - name: process.thread.Ext.call_stack_final_user_module.hash
       level: custom
       type: object
+      object_type: keyword
       description: Hashes of the call_stack_final_user_module.
       default_field: false
     - name: process.thread.Ext.call_stack_final_user_module.hash.sha256
@@ -2959,6 +2978,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.code_signature
@@ -3012,7 +3032,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -3258,6 +3279,7 @@
     - name: agent
       level: custom
       type: object
+      object_type: keyword
       description: The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host.
       default_field: false
     - name: agent.id
@@ -3427,6 +3449,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.code_signature
@@ -3485,6 +3508,7 @@
     - name: Ext.macro.collection
       level: custom
       type: object
+      object_type: keyword
       description: Object containing hashes for the macro collection.
       default_field: false
     - name: Ext.macro.collection.hash.md5
@@ -3536,6 +3560,7 @@
     - name: Ext.macro.project_file
       level: custom
       type: object
+      object_type: keyword
       description: Metadata about the corresponding VBA project file
       default_field: false
     - name: Ext.macro.project_file.hash.md5
@@ -3612,7 +3637,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -3662,6 +3688,7 @@
     - name: Ext.original
       level: custom
       type: object
+      object_type: keyword
       description: Original file information during a modification event.
       default_field: false
     - name: Ext.original.gid
@@ -3736,6 +3763,7 @@
     - name: Ext.windows
       level: custom
       type: object
+      object_type: keyword
       description: Platform-specific Windows fields
       default_field: false
     - name: Ext.windows.zone_identifier
@@ -3947,6 +3975,7 @@
     - name: pe.Ext.sections
       level: custom
       type: object
+      object_type: keyword
       description: The file's relevant sections, if it is a PE
       default_field: false
     - name: pe.Ext.sections.hash.md5
@@ -3971,6 +4000,7 @@
     - name: pe.Ext.streams
       level: custom
       type: object
+      object_type: keyword
       description: The file's streams, if it is a PE
       default_field: false
     - name: pe.Ext.streams.hash.md5
@@ -4080,11 +4110,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: Ext.real.id
@@ -4258,6 +4290,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -4354,11 +4387,13 @@
     - name: user.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: user.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: user.Ext.real.id
@@ -4398,11 +4433,13 @@
     - name: user.group.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: user.group.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: user.group.Ext.real.id
@@ -4501,6 +4538,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -4568,6 +4606,7 @@
     - name: Ext.dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.dll.Ext.code_signature
@@ -4771,7 +4810,8 @@
     - name: Ext.malware_classification.features
       level: custom
       type: object
-      description: Intermediate field included by adding option with subset
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
       enabled: false
       default_field: false
     - name: Ext.malware_classification.features.data.buffer
@@ -4886,6 +4926,7 @@
     - name: Ext.memory_region.malware_signature.primary
       level: custom
       type: object
+      object_type: keyword
       description: The first matching details.
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
@@ -5527,6 +5568,7 @@
     - name: entry_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: entry_leader.tty.char_device.major
@@ -5804,6 +5846,7 @@
     - name: group_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: group_leader.tty.char_device.major
@@ -5901,6 +5944,7 @@
     - name: parent.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: parent.Ext.architecture
@@ -5956,6 +6000,7 @@
     - name: parent.Ext.dll.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: parent.Ext.dll.Ext.code_signature
@@ -6165,6 +6210,7 @@
     - name: parent.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
       default_field: false
     - name: parent.Ext.real.pid
@@ -6639,6 +6685,7 @@
     - name: parent.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: parent.tty.char_device.major
@@ -7090,6 +7137,7 @@
     - name: session_leader.tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: session_leader.tty.char_device.major
@@ -7156,11 +7204,13 @@
     - name: thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: thread.Ext.call_stack
       level: custom
       type: object
+      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
@@ -7266,6 +7316,7 @@
     - name: thread.Ext.call_stack_final_user_module.hash
       level: custom
       type: object
+      object_type: keyword
       description: Hashes of the call_stack_final_user_module.
       default_field: false
     - name: thread.Ext.call_stack_final_user_module.hash.sha256
@@ -7524,6 +7575,7 @@
     - name: tty
       level: extended
       type: object
+      object_type: keyword
       description: Information about the controlling TTY device. If set, the process belongs to an interactive session.
       default_field: false
     - name: tty.char_device.major
@@ -7793,6 +7845,7 @@
     - name: enrichments.indicator.file.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: enrichments.indicator.file.Ext.code_signature
@@ -7911,6 +7964,13 @@
       type: text
       description: First 16 bytes of file used to check file integrity.
       default_field: false
+    - name: enrichments.indicator.file.Ext.malware_classification.features
+      level: custom
+      type: object
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
+      enabled: false
+      default_field: false
     - name: enrichments.indicator.file.Ext.malware_classification.features.data.buffer
       level: custom
       type: keyword
@@ -8027,6 +8087,7 @@
     - name: enrichments.indicator.file.Ext.original
       level: custom
       type: object
+      object_type: keyword
       description: Original file information during a modification event.
       default_field: false
     - name: enrichments.indicator.file.Ext.original.gid
@@ -8101,6 +8162,7 @@
     - name: enrichments.indicator.file.Ext.windows
       level: custom
       type: object
+      object_type: keyword
       description: Platform-specific Windows fields
       default_field: false
     - name: enrichments.indicator.file.Ext.windows.zone_identifier
@@ -9248,6 +9310,7 @@
     - name: indicator.file.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: indicator.file.Ext.code_signature
@@ -9366,6 +9429,13 @@
       type: text
       description: First 16 bytes of file used to check file integrity.
       default_field: false
+    - name: indicator.file.Ext.malware_classification.features
+      level: custom
+      type: object
+      object_type: keyword
+      description: The features extracted from this file and evaluated by the model.
+      enabled: false
+      default_field: false
     - name: indicator.file.Ext.malware_classification.features.data.buffer
       level: custom
       type: keyword
@@ -9482,6 +9552,7 @@
     - name: indicator.file.Ext.original
       level: custom
       type: object
+      object_type: keyword
       description: Original file information during a modification event.
       default_field: false
     - name: indicator.file.Ext.original.gid
@@ -9556,6 +9627,7 @@
     - name: indicator.file.Ext.windows
       level: custom
       type: object
+      object_type: keyword
       description: Platform-specific Windows fields
       default_field: false
     - name: indicator.file.Ext.windows.zone_identifier
@@ -10705,11 +10777,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: Ext.real.id
@@ -10749,11 +10823,13 @@
     - name: group.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: group.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: group.Ext.real.id

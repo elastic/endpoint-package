@@ -30,6 +30,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: Ext.entry_modified
@@ -65,6 +66,7 @@
     - name: Ext.windows
       level: custom
       type: object
+      object_type: keyword
       description: Platform-specific Windows fields
 
     - name: Ext.windows.zone_identifier
@@ -76,6 +78,7 @@
     - name: Ext.original
       level: custom
       type: object
+      object_type: keyword
       description: Original file information during a modification event.
 
     - name: Ext.original.name
@@ -423,4 +426,5 @@
     - name: pe
       level: custom
       type: object
+      object_type: keyword
       description: PE fields

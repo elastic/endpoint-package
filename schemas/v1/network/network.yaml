@@ -365,6 +365,7 @@ dns.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 dns.Ext.options:
@@ -1183,6 +1184,7 @@ group.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 group.Ext.real:
@@ -1192,6 +1194,7 @@ group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
+  object_type: keyword
   short: Group info prior to any setgid operations.
   type: object
 group.Ext.real.id:
@@ -1344,6 +1347,7 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object
@@ -1545,6 +1549,7 @@ http.response.Ext:
   level: custom
   name: response.Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 http.response.Ext.version:
@@ -1755,6 +1760,7 @@ process.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.Ext.ancestry:
@@ -2420,6 +2426,7 @@ user.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 user.Ext.real:
@@ -2429,6 +2436,7 @@ user.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
+  object_type: keyword
   short: User info prior to any setuid operations.
   type: object
 user.Ext.real.id:
@@ -2495,6 +2503,7 @@ user.group.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: group
   short: Object for all custom defined fields to live in.
   type: object
@@ -2505,6 +2514,7 @@ user.group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
+  object_type: keyword
   original_fieldset: group
   short: Group info prior to any setgid operations.
   type: object
