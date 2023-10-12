@@ -70,6 +70,17 @@
       ignore_above: 1024
       description: the sha256 of global artifacts applied.
       default_field: false
+    - name: policy.applied.artifacts.global.snapshot
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the snapshot date of applied global artifacts or 'latest'
+      default_field: false
+    - name: policy.applied.artifacts.global.update_age
+      level: custom
+      type: unsigned_long
+      description: number of days since global artifacts were made up-to-date
+      default_field: false
     - name: policy.applied.artifacts.global.version
       level: custom
       type: keyword
