@@ -8,7 +8,8 @@ elasticsearch:
       dynamic: false
     settings:
       index:
-        sort.field:
-          - event.ingested
-        sort.order:
-          - desc
+        sort:
+          field:
+            - event.ingested
+          order:
+            - desc
