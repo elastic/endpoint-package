@@ -1,0 +1,17 @@
+overview:
+  name: Windows Library Load
+  description: 'This event is generated when a dynlib is loaded.
+
+    '
+identification:
+  filter:
+    event.action: load
+    event.dataset: endpoint.events.library
+    event.module: endpoint
+    host.os.type: macos
+  os:
+  - macos
+  data_stream: logs-endpoint.events.library-*
+fields:
+  endpoint:
+  - '@timestamp'

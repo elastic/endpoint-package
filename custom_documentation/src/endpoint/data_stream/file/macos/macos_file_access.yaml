@@ -1,0 +1,17 @@
+overview:
+  name: macOS File Rename
+  description: 'This event is generated when a file is accessed.
+
+    '
+identification:
+  filter:
+    event.action: open
+    event.dataset: endpoint.events.file
+    event.module: endpoint
+    host.os.type: macos
+  os:
+  - macos
+  data_stream: logs-endpoint.events.file-*
+fields:
+  endpoint:
+  - '@timestamp'
