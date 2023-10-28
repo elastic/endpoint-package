@@ -70,6 +70,7 @@ fields:
   - process.code_signature.exists
   - process.code_signature.signing_id
   - process.code_signature.status
+  - process.code_signature.subject_name
   - process.code_signature.team_id
   - process.code_signature.trusted
   - process.entity_id
