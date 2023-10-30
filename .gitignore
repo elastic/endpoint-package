@@ -8,3 +8,4 @@ venv/
 vendor/
 generated/
 .DS_Store
+*.swp

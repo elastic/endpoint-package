@@ -1,8 +1,9 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-# cd3227cb3eb0de7e422aef90a64321ac68f7896e is 8.7-dev
-ECS_GIT_REF ?= cd3227cb3eb0de7e422aef90a64321ac68f7896e
+# 43a1a61a4a4db88e2de60da9019733610717ff7e is v8.10.0
+ECS_GIT_REF ?= 43a1a61a4a4db88e2de60da9019733610717ff7e
+
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
 # to release a new endpoint package. This can be overridden with the location on your file system using the config.mk
@@ -172,5 +173,7 @@ pipeline-test: $(ESTC_PKG_BIN)
 
 test: static-test pipeline-test
 
+elastic-package: $(ESTC_PKG_BIN)
+
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test
+.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test elastic-package

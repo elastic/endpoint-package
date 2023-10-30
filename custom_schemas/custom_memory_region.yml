@@ -126,3 +126,9 @@
       index: false
       description: >
         Array of strings found within the memory region.
+
+    - name: hash.sha256
+      level: custom
+      type: keyword
+      description: The sha256 of the memory region.
+      example: "d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0"

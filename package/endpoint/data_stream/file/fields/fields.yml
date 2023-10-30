@@ -270,11 +270,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.correlation
       level: custom
       type: object
+      object_type: keyword
       description: Information about event this should be correlated with.
       default_field: false
     - name: Ext.correlation.id
@@ -312,13 +314,13 @@
     - name: created
       level: core
       type: date
-      description: 'event.created contains the date/time when the event was first read by an agent, or by your pipeline.
+      description: '`event.created` contains the date/time when the event was first read by an agent, or by your pipeline.
 
-        This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event.
+        This field is distinct from `@timestamp` in that `@timestamp` typically contain the time extracted from the original event.
 
         In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent''s or pipeline''s ability to keep up with your event source.
 
-        In case the two timestamps are identical, @timestamp should be used.'
+        In case the two timestamps are identical, `@timestamp` should be used.'
       example: '2016-05-23T08:05:34.857Z'
     - name: dataset
       level: core
@@ -360,7 +362,7 @@
 
         `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events.
 
-        The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not.'
+        The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data is coming in at a regular interval or not.'
       example: alert
     - name: module
       level: core
@@ -430,6 +432,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.device.bus_type
@@ -572,6 +575,7 @@
     - name: Ext.original
       level: custom
       type: object
+      object_type: keyword
       description: Original file information during a modification event.
       default_field: false
     - name: Ext.original.gid
@@ -623,6 +627,7 @@
     - name: Ext.windows
       level: custom
       type: object
+      object_type: keyword
       description: Platform-specific Windows fields
       default_field: false
     - name: Ext.windows.zone_identifier
@@ -857,11 +862,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: Ext.real.id
@@ -954,6 +961,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -1052,6 +1060,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -1300,11 +1309,13 @@
     - name: thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: thread.Ext.call_stack
       level: custom
       type: object
+      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: true
       default_field: false
@@ -1445,11 +1456,13 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: Ext.real.id
@@ -1489,11 +1502,13 @@
     - name: group.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: group.Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: group.Ext.real.id

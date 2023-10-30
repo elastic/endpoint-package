@@ -25,8 +25,6 @@ fields:
   user:
     fields:
       domain: {}
-      email: {}
-      full_name: {}
       hash: {}
       id: {}
       name: {}
@@ -59,12 +57,20 @@ fields:
         fields:
           name: {}
           pid: {}
+          executable: {}
+          entity_id: {}
+          Ext:
+            fields:
+              token:
+                fields:
+                  integrity_level_name: {}
   process:
     fields:
       pid: {}
       name: {}
       executable: {}
       entity_id: {}
+      command_line: {}
       thread:
         fields:
           id: {}
@@ -74,11 +80,16 @@ fields:
           api:
             fields:
               name: {}
+              summary: {}
+              behaviors: {}
+              metadata:
+                fields: "*"
               parameters:
-                fields:
-                  desired_access: {}
-                  desired_access_numeric: {}
-                  handle_type: {}
+                fields: "*"
+          token:
+            fields:
+              integrity_level_name: {}
+          protection: {}
           code_signature:
             fields:
               exists: {}
@@ -101,8 +112,25 @@ fields:
                 fields:
                   module_path: {}
                   instruction_pointer: {}
+                  allocation_private_bytes: {}
+                  callsite_leading_bytes: {}
+                  callsite_trailing_bytes: {}
+                  protection: {}
+                  protection_provenance: {}
+                  symbol_info: {}
               call_stack_contains_unbacked: {}
               call_stack_final_user_module:
                 fields:
+                  name: {}
                   path: {}
-
+                  protection_provenance: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                      valid: {}
+                  hash:
+                    fields:
+                      sha256: {}

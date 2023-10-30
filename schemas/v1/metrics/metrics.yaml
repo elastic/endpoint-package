@@ -24,6 +24,7 @@ Endpoint.metrics:
   level: custom
   name: metrics
   normalize: []
+  object_type: keyword
   short: Metrics fields hold the endpoint and system's performance metrics
   type: object
 Endpoint.metrics.cpu:
@@ -33,6 +34,7 @@ Endpoint.metrics.cpu:
   level: custom
   name: metrics.cpu
   normalize: []
+  object_type: keyword
   short: CPU statistics
   type: object
 Endpoint.metrics.cpu.endpoint:
@@ -42,6 +44,7 @@ Endpoint.metrics.cpu.endpoint:
   level: custom
   name: metrics.cpu.endpoint
   normalize: []
+  object_type: keyword
   short: CPU metrics for the endpoint
   type: object
 Endpoint.metrics.cpu.endpoint.histogram:
@@ -82,6 +85,7 @@ Endpoint.metrics.disks:
   level: custom
   name: metrics.disks
   normalize: []
+  object_type: keyword
   short: An array of disk information for the host
   type: object
 Endpoint.metrics.disks.device:
@@ -150,6 +154,7 @@ Endpoint.metrics.documents_volume:
   level: custom
   name: metrics.documents_volume
   normalize: []
+  object_type: keyword
   short: Statistics about sent documents
   type: object
 Endpoint.metrics.documents_volume.alerts.sent_bytes:
@@ -213,6 +218,7 @@ Endpoint.metrics.documents_volume.api_events.sources:
   level: custom
   name: metrics.documents_volume.api_events.sources
   normalize: []
+  object_type: keyword
   short: An array of API Event document statistics per source
   type: object
 Endpoint.metrics.documents_volume.api_events.sources.sent_bytes:
@@ -633,6 +639,7 @@ Endpoint.metrics.malicious_behavior_rules:
   level: custom
   name: metrics.malicious_behavior_rules
   normalize: []
+  object_type: keyword
   short: An array of performance information about each malicious behavior rule
   type: object
 Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent:
@@ -664,6 +671,7 @@ Endpoint.metrics.memory:
   level: custom
   name: metrics.memory
   normalize: []
+  object_type: keyword
   short: Memory statistics
   type: object
 Endpoint.metrics.memory.endpoint:
@@ -673,6 +681,7 @@ Endpoint.metrics.memory.endpoint:
   level: custom
   name: metrics.memory.endpoint
   normalize: []
+  object_type: keyword
   short: Endpoint memory utilization
   type: object
 Endpoint.metrics.memory.endpoint.private:
@@ -682,6 +691,7 @@ Endpoint.metrics.memory.endpoint.private:
   level: custom
   name: metrics.memory.endpoint.private
   normalize: []
+  object_type: keyword
   short: The memory private to the endpoint
   type: object
 Endpoint.metrics.memory.endpoint.private.latest:
@@ -712,6 +722,7 @@ Endpoint.metrics.system_impact:
   level: custom
   name: metrics.system_impact
   normalize: []
+  object_type: keyword
   short: An array of system impact information
   type: object
 Endpoint.metrics.system_impact.authentication_events.week_idle_ms:
@@ -1129,6 +1140,7 @@ Endpoint.metrics.threads:
   level: custom
   name: metrics.threads
   normalize: []
+  object_type: keyword
   short: Statistics about the individual Endpoint threads (array)
   type: object
 Endpoint.metrics.threads.cpu.mean:
@@ -1160,6 +1172,7 @@ Endpoint.metrics.uptime:
   level: custom
   name: metrics.uptime
   normalize: []
+  object_type: keyword
   short: Number of seconds since boot
   type: object
 Endpoint.metrics.uptime.endpoint:
@@ -1362,6 +1375,7 @@ event.category:
       from both host-based and network-based sources. An example source of a network-based
       detection of a file transfer would be the Zeek file.log.
     expected_event_types:
+    - access
     - change
     - creation
     - deletion
@@ -1404,6 +1418,13 @@ event.category:
     - denied
     - info
     name: intrusion_detection
+  - description: Events in this category refer to the loading of a library, such as
+      (dll / so / dynlib), into a process. Use this category to visualize and analyze
+      library loading related activity on hosts.  Keep in mind that driver related
+      activity will be captured under the "driver" category above.
+    expected_event_types:
+    - start
+    name: library
   - description: Malware detection events and alerts. Use this category to visualize
       and analyze malware detections from EDR/EPP systems such as Elastic Endpoint
       Security, Symantec Endpoint Protection, Crowdstrike, and network IDS/IPS systems
@@ -1522,18 +1543,18 @@ event.code:
   type: keyword
 event.created:
   dashed_name: event-created
-  description: 'event.created contains the date/time when the event was first read
+  description: '`event.created` contains the date/time when the event was first read
     by an agent, or by your pipeline.
 
-    This field is distinct from @timestamp in that @timestamp typically contain the
-    time extracted from the original event.
+    This field is distinct from `@timestamp` in that `@timestamp` typically contain
+    the time extracted from the original event.
 
     In most situations, these two timestamps will be slightly different. The difference
     can be used to calculate the delay between your source generating an event, and
     the time when your agent first processed it. This can be used to monitor your
     agent''s or pipeline''s ability to keep up with your event source.
 
-    In case the two timestamps are identical, @timestamp should be used.'
+    In case the two timestamps are identical, `@timestamp` should be used.'
   example: '2016-05-23T08:05:34.857Z'
   flat_name: event.created
   level: core
@@ -1560,14 +1581,14 @@ event.dataset:
   type: keyword
 event.end:
   dashed_name: event-end
-  description: event.end contains the date when the event ended or when the activity
-    was last observed.
+  description: '`event.end` contains the date when the event ended or when the activity
+    was last observed.'
   flat_name: event.end
   level: extended
   name: end
   normalize: []
-  short: event.end contains the date when the event ended or when the activity was
-    last observed.
+  short: '`event.end` contains the date when the event ended or when the activity
+    was last observed.'
   type: date
 event.hash:
   dashed_name: event-hash
@@ -1621,6 +1642,22 @@ event.kind:
       This value is not used by Elastic solutions for alert documents that are created
       by rules executing within the Kibana alerting framework.'
     name: alert
+  - beta: This event categorization value is beta and subject to change.
+    description: 'This value indicates events whose primary purpose is to store an
+      inventory of assets/entities and their attributes. Assets/entities are objects
+      (such as users and hosts) that are expected to be subjects of detailed analysis
+      within the system.
+
+      Examples include lists of user identities or accounts ingested from directory
+      services such as Active Directory (AD), inventory of hosts pulled from configuration
+      management databases (CMDB), and lists of cloud storage buckets pulled from
+      cloud provider APIs.
+
+      This value is used by Elastic Security for asset management solutions. `event.kind:
+      asset` is not used for normal system events or logs that are coming from an
+      asset/entity, nor is it used for system events or logs coming from a directory
+      or CMDB system.'
+    name: asset
   - description: 'The `enrichment` value indicates an event collected to provide additional
       context, often to other events.
 
@@ -1680,7 +1717,8 @@ event.kind:
 
     The value of this field can be used to inform how these kinds of events should
     be handled. They may warrant different retention, different access control, it
-    may also help understand whether the data coming in at a regular interval or not.'
+    may also help understand whether the data is coming in at a regular interval or
+    not.'
   example: alert
   flat_name: event.kind
   ignore_above: 1024
@@ -1797,14 +1835,14 @@ event.severity:
   type: long
 event.start:
   dashed_name: event-start
-  description: event.start contains the date when the event started or when the activity
-    was first observed.
+  description: '`event.start` contains the date when the event started or when the
+    activity was first observed.'
   flat_name: event.start
   level: extended
   name: start
   normalize: []
-  short: event.start contains the date when the event started or when the activity
-    was first observed.
+  short: '`event.start` contains the date when the event started or when the activity
+    was first observed.'
   type: date
 event.type:
   allowed_values:
@@ -2043,6 +2081,7 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
+  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object

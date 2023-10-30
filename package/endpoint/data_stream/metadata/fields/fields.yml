@@ -28,6 +28,7 @@
     - name: configuration
       level: custom
       type: object
+      object_type: keyword
       description: Configuration fields represent the intended and applied setting for fields not part of a Policy setting This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
       default_field: false
     - name: configuration.isolation
@@ -38,11 +39,13 @@
     - name: policy
       level: custom
       type: object
+      object_type: keyword
       description: The policy fields are used to hold information about applied policy.
       default_field: false
     - name: policy.applied
       level: custom
       type: object
+      object_type: keyword
       description: information about the policy that is applied
       default_field: false
     - name: policy.applied.id
@@ -66,6 +69,7 @@
     - name: state
       level: custom
       type: object
+      object_type: keyword
       description: Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
       default_field: false
     - name: state.isolation
@@ -170,6 +174,7 @@
     - name: agent
       level: custom
       type: object
+      object_type: keyword
       description: The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host.
       default_field: false
     - name: agent.id
@@ -217,13 +222,13 @@
     - name: created
       level: core
       type: date
-      description: 'event.created contains the date/time when the event was first read by an agent, or by your pipeline.
+      description: '`event.created` contains the date/time when the event was first read by an agent, or by your pipeline.
 
-        This field is distinct from @timestamp in that @timestamp typically contain the time extracted from the original event.
+        This field is distinct from `@timestamp` in that `@timestamp` typically contain the time extracted from the original event.
 
         In most situations, these two timestamps will be slightly different. The difference can be used to calculate the delay between your source generating an event, and the time when your agent first processed it. This can be used to monitor your agent''s or pipeline''s ability to keep up with your event source.
 
-        In case the two timestamps are identical, @timestamp should be used.'
+        In case the two timestamps are identical, `@timestamp` should be used.'
       example: '2016-05-23T08:05:34.857Z'
     - name: dataset
       level: core
@@ -265,7 +270,7 @@
 
         `event.kind` gives high-level information about what type of information the event contains, without being specific to the contents of the event. For example, values of this field distinguish alert events from metric events.
 
-        The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data coming in at a regular interval or not.'
+        The value of this field can be used to inform how these kinds of events should be handled. They may warrant different retention, different access control, it may also help understand whether the data is coming in at a regular interval or not.'
       example: alert
     - name: module
       level: core
@@ -386,6 +391,7 @@
     - name: os.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant

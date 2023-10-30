@@ -58,11 +58,13 @@
     - name: parent.thread
       level: custom
       type: object
+      object_type: keyword
       description: The parent thread
 
     - name: parent.thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields for the parent thread to live in.
 
     - name: parent.ppid
@@ -76,6 +78,7 @@
     - name: Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: Ext.ancestry
@@ -104,6 +107,7 @@
     - name: thread.Ext
       level: custom
       type: object
+      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: thread.Ext.call_stack_contains_unbacked
@@ -121,6 +125,7 @@
     - name: thread.Ext.call_stack
       level: custom
       type: object
+      object_type: keyword
       description: The thread's call stack
 
     - name: thread.Ext.call_stack_final_user_module
@@ -142,6 +147,13 @@
       example: "C:\\Program Files\\Example\\example.dll"
       description: >
         The file path of the call_stack_final_user_module.
+
+    - name: thread.Ext.call_stack_final_user_module.protection_provenance
+      level: custom
+      type: keyword
+      example: "third_party_hook.dll"
+      description: >
+        The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
 
     - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
@@ -195,6 +207,7 @@
     - name: thread.Ext.call_stack_final_user_module.hash
       level: custom
       type: object
+      object_type: keyword
       description: Hashes of the call_stack_final_user_module.
 
     - name: thread.Ext.call_stack_final_user_module.hash.sha256
@@ -264,6 +277,7 @@
     - name: thread.Ext.start_address_details
       level: custom
       type: object
+      object_type: keyword
       description: >
         Additional information about the memory containing the thread start address.
 
@@ -312,6 +326,7 @@
     - name: thread.Ext.start_address_details
       level: custom
       type: object
+      object_type: keyword
       description: >
         Additional information about the memory containing the thread start address.
 
@@ -419,6 +434,7 @@
     - name: Ext.real
       level: custom
       type: object
+      object_type: keyword
       description: >
         The field set containing process info in case of any pid spoofing. This is mainly useful for process.parent.
 
@@ -656,6 +672,7 @@
     - name: tty
       level: extended
       type: object
+      object_type: keyword
       short: Information about the controlling TTY device.
       description: >
         Information about the controlling TTY device. If set, the process belongs to an interactive session.
@@ -701,6 +718,7 @@
     - name: io
       level: extended
       type: object
+      object_type: keyword
       beta: This field is beta and subject to change.
       short: A chunk of input or output (IO) from a single process.
       description: >
@@ -753,6 +771,7 @@
     - name: io.bytes_skipped
       level: extended
       type: object
+      object_type: keyword
       beta: This field is beta and subject to change.
       description: >
         An array of byte offsets and lengths denoting where IO data has been skipped.

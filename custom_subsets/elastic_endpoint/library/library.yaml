@@ -226,3 +226,9 @@ fields:
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
           size: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
