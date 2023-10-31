@@ -17,6 +17,8 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.actions.status |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.snapshot |
+| Endpoint.policy.applied.artifacts.global.update_age |
 | Endpoint.policy.applied.artifacts.global.version |
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |

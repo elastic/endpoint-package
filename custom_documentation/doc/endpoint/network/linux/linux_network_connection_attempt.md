@@ -68,6 +68,8 @@ This event is generated when there is an attempt to establish a network connecti
 | process.parent.entity_id |
 | process.pid |
 | process.session_leader.entity_id |
+| process.thread.capabilities.effective |
+| process.thread.capabilities.permitted |
 | source.address |
 | source.ip |
 | source.port |
