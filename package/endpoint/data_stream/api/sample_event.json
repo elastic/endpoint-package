@@ -8,11 +8,17 @@
     },
     "event": {
         "category": [
-            "api"
+            "api",
+            "intrusion_detection"
         ],
         "created": "2023-01-09T19:38:51.5141503Z",
+        "dataset": "endpoint.events.api",
         "id": "MvlgiHxIZtj1+Abi++++++ul",
         "kind": "event",
+        "module": "endpoint",
+        "outcome": "success",
+        "provider": "Microsoft-Windows-Threat-Intelligence",
+        "sequence": 3802,
         "type": [
             "credential_access"
         ]
@@ -50,7 +56,7 @@
             "version": "22H2 (10.0.22621.963)"
         }
     },
-    "message": "Endpoint Credential Access event",
+    "message": "Endpoint API event - hand-crafted with a superset of fields",
     "process": {
         "Ext": {
             "ancestry": [
@@ -60,6 +66,13 @@
                 "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQ2MDAtMTY3Mjk2NTcxMy40NzY1NDUyMDA="
             ],
             "api": {
+                "behaviors": [
+                    "cross-process"
+                ],
+                "metadata": {
+                    "target_address_name": "Unbacked",
+                    "target_address_path": "c:\\windows\\system32\\ntdll.dll"
+                },
                 "name": "OpenProcess",
                 "parameters": {
                     "desired_access": [
@@ -67,8 +80,39 @@
                         "PROCESS_VM_READ"
                     ],
                     "desired_access_numeric": 4112,
-                    "handle_type": "process"
-                }
+                    "handle_type": "process",
+                    "address": 2904525045760,
+                    "allocation_type": "COMMIT|RESERVE",
+                    "protection": "R-X",
+                    "protection_old": "R-X",
+                    "size": 16,
+                    "context_flags": 1048607,
+                    "r8": 8,
+                    "r9": 9,
+                    "rax": 10,
+                    "rbp": 3,
+                    "rbx": 11,
+                    "rcx": 2883351609344,
+                    "rdi": 5,
+                    "rdx": 13,
+                    "rip": 140706538588528,
+                    "rsi": 4,
+                    "rsp": 2,
+                    "eax": 10,
+                    "ebp": 3,
+                    "ebx": 11,
+                    "ecx": 12,
+                    "edi": 5,
+                    "edx": 0,
+                    "eip": 1,
+                    "esi": 4,
+                    "esp": 2,
+                    "argument1": 2583984274656,
+                    "argument2": 4105953215,
+                    "argument3": 31058890,
+                    "procedure": 140705553857280
+                },
+                "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
             "code_signature": [
                 {
@@ -77,7 +121,10 @@
                     "subject_name": "Microsoft Windows",
                     "trusted": false
                 }
-            ]
+            ],
+            "token": {
+                "integrity_level_name": "system"
+            }
         },
         "code_signature": {
             "exists": true,
@@ -85,6 +132,7 @@
             "subject_name": "Microsoft Windows",
             "trusted": false
         },
+        "command_line": "",
         "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNi0xNjczMjkzMTMwLjk0NjAwMjAw",
         "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimikatz.exe",
         "name": "mimikatz.exe",
@@ -93,45 +141,40 @@
             "Ext": {
                 "call_stack": [
                     {
-                        "instruction_pointer": 140717353267908,
-                        "module_path": "C:\\Windows\\System32\\ntdll.dll"
+                        "allocation_private_bytes": 4096,
+                        "protection_provenance": "dabapi.dll",
+                        "symbol_info": "c:\\windows\\system32\\ntdll.dll!ZwProtectVirtualMemory+0x14"
                     },
                     {
-                        "instruction_pointer": 140717309764254,
-                        "module_path": "C:\\Windows\\System32\\KernelBase.dll"
+                        "symbol_info": "c:\\windows\\system32\\kernelbase.dll!VirtualProtect+0x36"
                     },
                     {
-                        "instruction_pointer": 140697175487234,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "allocation_private_bytes": 8192,
+                        "callsite_leading_bytes": "c048895424204c8bc9488d0d801f0000418d500248ff15052a00000f1f4400004883c438c3cccccccccccccccccccccc4883ec2048b880bf1acaf87f0000ffd0",
+                        "callsite_trailing_bytes": "4883c420c3ec48498363e800498d4320ba2500000049c743e004000000440fb7ca4c8d05d0320000ba2b000000498943d848ff15f82a00000f1f4400004883c4",
+                        "protection": "RWX",
+                        "protection_provenance": "eventstests.exe",
+                        "symbol_info": "c:\\windows\\system32\\dabapi.dll!DabApiBufferFree+0x10"
                     },
                     {
-                        "instruction_pointer": 140697175488197,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
-                    },
-                    {
-                        "instruction_pointer": 140697175487041,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
-                    },
-                    {
-                        "instruction_pointer": 140697175277748,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
-                    },
-                    {
-                        "instruction_pointer": 140697175277292,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
-                    },
-                    {
-                        "instruction_pointer": 140697175276599,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
-                    },
-                    {
-                        "instruction_pointer": 140697175514281,
-                        "module_path": "c\\users\\user\\desktop\\mimikatz.exe"
+                        "symbol_info": "Unknown"
                     }
                 ],
-                "call_stack_contains_unbacked": false,
                 "call_stack_final_user_module": {
-                    "path": "mimikatz.exe"
+                    "code_signature": [
+                        {
+                            "exists": true,
+                            "status": "trusted",
+                            "subject_name": "Microsoft Windows",
+                            "trusted": true
+                        }
+                    ],
+                    "hash": {
+                        "sha256": "0386c57d59ee1292bb74d9878358da7a0ba00e5b56ed52fd6171b9e6d29d85aa"
+                    },
+                    "name": "dabapi.dll",
+                    "path": "c:\\windows\\system32\\dabapi.dll",
+                    "protection_provenance": "eventstests.exe"
                 }
             },
             "id": 11628
