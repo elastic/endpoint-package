@@ -2,8 +2,37 @@
     "@timestamp": "2023-01-09T19:38:51.5141503Z",
     "Target": {
         "process": {
-            "name": "lsass.exe",
-            "pid": 956
+            "Ext": {
+                "memory_region": {
+                    "allocation_base": 1649160290304,
+                    "allocation_protection": "RWX",
+                    "allocation_size": 4096,
+                    "allocation_type": "PRIVATE",
+                    "bytes_address": 1649160290304,
+                    "bytes_allocation_offset": 0,
+                    "bytes_compressed": "eJztwbEJACAMALA+5uAtWnAoOPg/+EWnJO9k1bo742XuMRsEAAAA0OsD8lge9g==",
+                    "bytes_compressed_present": true,
+                    "hash": {
+                        "sha256": "0b28b598ef70fd2377613fd88a50d52047ae31c16f2c688f3aa4e0b98d63730c"
+                    },
+                    "memory_pe_detected": false,
+                    "region_base": 1649160290304,
+                    "region_protection": "R--",
+                    "region_size": 4096,
+                    "region_state": "COMMIT",
+                    "strings": [
+                        "shellcode",
+                        "seed=AAAA"
+                    ]
+                },
+                "token": {
+                    "integrity_level_name": "high"
+                }
+            },
+            "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTI1NzMyLTE2OTkwMDE3NDAuOTU4NTY4MDAw",
+            "executable": "C:\\Temp\\1_StayRunningWin32_x64.exe",
+            "name": "1_StayRunningWin32_x64.exe",
+            "pid": 25732
         }
     },
     "event": {
@@ -122,6 +151,17 @@
                     "trusted": false
                 }
             ],
+            "memory_region": {
+                "allocation_base": 140712018378752,
+                "allocation_protection": "RCX",
+                "allocation_size": 45056,
+                "allocation_type": "IMAGE",
+                "mapped_path": "C:\\Program Files\\Python39\\DLLs\\libffi-7.dll",
+                "region_base": 140712018395136,
+                "region_protection": "R-X",
+                "region_size": 8192,
+                "region_state": "COMMIT"
+            },
             "token": {
                 "integrity_level_name": "system"
             }
