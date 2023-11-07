@@ -18,3 +18,5 @@ sync:
   time:
     field: event.ingested
     delay: 1s
+settings:
+  unattended: true
