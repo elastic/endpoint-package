@@ -1,24 +1,35 @@
-# Linux Network Connection Accepted
+# Windows Library Load
 
-- OS: Linux
-- Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "connection_accepted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
+- OS: macOS
+- Data Stream: `logs-endpoint.events.library-*`
+- KQL: `event.action : "load" and event.dataset : "endpoint.events.library" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a network connection is accepted.
+This event is generated when a dynlib is loaded.
 
 
 | Field |
 |---|
 | @timestamp |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
-| destination.address |
-| destination.ip |
-| destination.port |
+| dll.Ext.size |
+| dll.code_signature.exists |
+| dll.code_signature.subject_name |
+| dll.code_signature.team_id |
+| dll.code_signature.trusted |
+| dll.hash.md5 |
+| dll.hash.sha1 |
+| dll.hash.sha256 |
+| dll.name |
+| dll.path |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -50,23 +61,17 @@ This event is generated when a network connection is accepted.
 | host.os.type |
 | host.os.version |
 | message |
-| network.transport |
-| network.type |
 | process.Ext.ancestry |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
 | process.entity_id |
-| process.entry_leader.entity_id |
-| process.entry_leader.parent.entity_id |
 | process.executable |
-| process.group_leader.entity_id |
 | process.name |
-| process.parent.entity_id |
 | process.pid |
-| process.session_leader.entity_id |
-| process.thread.capabilities.effective |
-| process.thread.capabilities.permitted |
-| source.address |
-| source.ip |
-| source.port |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |

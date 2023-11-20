@@ -182,8 +182,8 @@ This event is generated when a process generates text output.
 | process.start |
 | process.supplemental_groups.id |
 | process.supplemental_groups.name |
-| process.thread.capabilities.permitted |
 | process.thread.capabilities.effective |
+| process.thread.capabilities.permitted |
 | process.tty.char_device.major |
 | process.tty.char_device.minor |
 | process.tty.columns |

@@ -74,6 +74,8 @@ This event is generated when a network session is terminated.
 | process.parent.entity_id |
 | process.pid |
 | process.session_leader.entity_id |
+| process.thread.capabilities.effective |
+| process.thread.capabilities.permitted |
 | process.uptime |
 | source.address |
 | source.bytes |

@@ -10,6 +10,9 @@ This event is generated when a process calls `exec()`.
 | Field |
 |---|
 | @timestamp |
+| Target.process.executable |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |

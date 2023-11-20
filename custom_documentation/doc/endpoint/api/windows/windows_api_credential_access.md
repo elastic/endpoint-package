@@ -2,7 +2,7 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.api-*`
-- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.type : "access" and host.os.type : "windows"`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "ObjectCallback" and host.os.type : "windows"`
 
 This event is generated when a process attempts to access priviledged credentials. 
 
@@ -26,6 +26,7 @@ This event is generated when a process attempts to access priviledged credential
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
 | host.architecture |

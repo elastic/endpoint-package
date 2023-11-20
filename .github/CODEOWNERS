@@ -1,2 +1,6 @@
 # The security onboarding team manages this package.
 * @elastic/security-defend-workflows
+
+# The custom_docs do not ship with the package itself, and are managed by the endpoint team
+# later rules in this file take precedence over earlier
+/custom_documentation/ @elastic/elastic-endpoint

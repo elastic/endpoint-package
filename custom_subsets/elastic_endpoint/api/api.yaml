@@ -61,6 +61,8 @@ fields:
           entity_id: {}
           Ext:
             fields:
+              memory_region:
+                fields: "*"
               token:
                 fields:
                   integrity_level_name: {}
@@ -86,6 +88,8 @@ fields:
                 fields: "*"
               parameters:
                 fields: "*"
+          memory_region:
+            fields: "*"
           token:
             fields:
               integrity_level_name: {}
