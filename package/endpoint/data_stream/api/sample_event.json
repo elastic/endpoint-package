@@ -95,93 +95,93 @@
                 "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTQ2MDAtMTY3Mjk2NTcxMy40NzY1NDUyMDA="
             ],
             "api": {
-              "behaviors": [
-                  "cross-process",
-                  "rapid_background_polling",
-                  "multiple_polling_processes"
-            ],
-              "metadata": {
-                  "target_address_name": "Unbacked",
-                  "target_address_path": "c:\\windows\\system32\\ntdll.dll",
-                  "return_value": 1,
-                  "windows_count": 2,
-                  "visible_windows_count": 0,
-                  "thread_info_flags": 16,
-                  "module_name": "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe",
-                  "allocation_protection": "RCX",
-                  "procedure_symbol": "taskbar.dll",
-                  "ms_since_last_keyevent": 94,
-                  "background_callcount": 6021
-            },
-            "name": "OpenProcess",
-            "parameters": {
-                "desired_access": [
-                    "PROCESS_QUERY_LIMITED_INFORMATION",
-                    "PROCESS_VM_READ"
+                "behaviors": [
+                    "cross-process",
+                    "rapid_background_polling",
+                    "multiple_polling_processes"
                 ],
-                "desired_access_numeric": 4112,
-                "handle_type": "process",
-                "address": 2904525045760,
-                "allocation_type": "COMMIT|RESERVE",
-                "protection": "R-X",
-                "protection_old": "R-X",
-                "size": 16,
-                "context_flags": 1048607,
-                "r8": 8,
-                "r9": 9,
-                "rax": 10,
-                "rbp": 3,
-                "rbx": 11,
-                "rcx": 2883351609344,
-                "rdi": 5,
-                "rdx": 13,
-                "rip": 140706538588528,
-                "rsi": 4,
-                "rsp": 2,
-                "eax": 10,
-                "ebp": 3,
-                "ebx": 11,
-                "ecx": 12,
-                "edi": 5,
-                "edx": 0,
-                "eip": 1,
-                "esi": 4,
-                "esp": 2,
-                "argument1": 2583984274656,
-                "argument2": 4105953215,
-                "argument3": 31058890,
-                "procedure": 140705553857280,
-                "usage_page": "GENERIC",
-                "usage": "KEYBOARD",
-                "flags": "INPUTSINK",
-                "hook_type": "WH_KEYBOARD_LL",
-                "hook_module": "c:\\windows\\system32\\taskbar.dll"
-              },
-              "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
+                "metadata": {
+                    "target_address_name": "Unbacked",
+                    "target_address_path": "c:\\windows\\system32\\ntdll.dll",
+                    "return_value": 1,
+                    "windows_count": 2,
+                    "visible_windows_count": 0,
+                    "thread_info_flags": 16,
+                    "module_name": "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe",
+                    "allocation_protection": "RCX",
+                    "procedure_symbol": "taskbar.dll",
+                    "ms_since_last_keyevent": 94,
+                    "background_callcount": 6021
+                },
+                "name": "OpenProcess",
+                "parameters": {
+                    "desired_access": [
+                        "PROCESS_QUERY_LIMITED_INFORMATION",
+                        "PROCESS_VM_READ"
+                    ],
+                    "desired_access_numeric": 4112,
+                    "handle_type": "process",
+                    "address": 2904525045760,
+                    "allocation_type": "COMMIT|RESERVE",
+                    "protection": "R-X",
+                    "protection_old": "R-X",
+                    "size": 16,
+                    "context_flags": 1048607,
+                    "r8": 8,
+                    "r9": 9,
+                    "rax": 10,
+                    "rbp": 3,
+                    "rbx": 11,
+                    "rcx": 2883351609344,
+                    "rdi": 5,
+                    "rdx": 13,
+                    "rip": 140706538588528,
+                    "rsi": 4,
+                    "rsp": 2,
+                    "eax": 10,
+                    "ebp": 3,
+                    "ebx": 11,
+                    "ecx": 12,
+                    "edi": 5,
+                    "edx": 0,
+                    "eip": 1,
+                    "esi": 4,
+                    "esp": 2,
+                    "argument1": 2583984274656,
+                    "argument2": 4105953215,
+                    "argument3": 31058890,
+                    "procedure": 140705553857280,
+                    "usage_page": "GENERIC",
+                    "usage": "KEYBOARD",
+                    "flags": "INPUTSINK",
+                    "hook_type": "WH_KEYBOARD_LL",
+                    "hook_module": "c:\\windows\\system32\\taskbar.dll"
+                },
+                "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
             "code_signature": [
-               {
-                  "exists": true,
-                  "status": "errorBadDigest",
-                  "subject_name": "Microsoft Windows",
-                  "trusted": false
-               }
+                {
+                    "exists": true,
+                    "status": "errorBadDigest",
+                    "subject_name": "Microsoft Windows",
+                    "trusted": false
+                }
             ],
             "memory_region": {
-               "allocation_base": 140712018378752,
-               "allocation_protection": "RCX",
-               "allocation_size": 45056,
-               "allocation_type": "IMAGE",
-               "mapped_path": "C:\\Program Files\\Python39\\DLLs\\libffi-7.dll",
-               "region_base": 140712018395136,
-               "region_protection": "R-X",
-               "region_size": 8192,
-               "region_state": "COMMIT"
+                "allocation_base": 140712018378752,
+                "allocation_protection": "RCX",
+                "allocation_size": 45056,
+                "allocation_type": "IMAGE",
+                "mapped_path": "C:\\Program Files\\Python39\\DLLs\\libffi-7.dll",
+                "region_base": 140712018395136,
+                "region_protection": "R-X",
+                "region_size": 8192,
+                "region_state": "COMMIT"
             },
             "token": {
-               "integrity_level_name": "system"
+                "integrity_level_name": "system"
             }
-         },
+        },
         "code_signature": {
             "exists": true,
             "status": "errorBadDigest",
