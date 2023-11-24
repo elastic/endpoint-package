@@ -59,7 +59,7 @@
           "hardware_breakpoint_set" - a hardware breakpoint was set
           "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed
           "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed
-      example: [ "cross-process", "native_api", "shellcode" ]
+      example: [ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]
 
     - name: metadata
       level: custom
@@ -144,13 +144,6 @@
       description: >
         This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
       example: 6021
-
-    - name: metadata.window_titles[]
-      level: custom
-      type: keyword
-      description: >
-        Window titles.
-      example: "TBD"
 
     - name: parameters
       level: custom
@@ -436,10 +429,3 @@
       description: >
         DLL containing the hook procedure. 
       example: "c:\\windows\\system32\\taskbar.dll"
-
-    - name: parameters.procedure
-      level: custom
-      type: unsigned_long
-      description: >
-        Pointer to the hook procedure.
-      example: 140709109311408
