@@ -1109,9 +1109,11 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  'write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  'hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set"
+      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  'write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  'hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed"
       example:
         - cross-process
+        - rapid_background_polling
+        - multiple_polling_processes
         - native_api
         - shellcode
       default_field: false
@@ -1119,6 +1121,45 @@
       level: custom
       type: object
       description: Information related to the API call.
+      default_field: false
+    - name: Ext.api.metadata.allocation_protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Memory protection attributes associated with the starting address of a thread.
+      example: RCX
+      default_field: false
+    - name: Ext.api.metadata.background_callcount
+      level: custom
+      type: unsigned_long
+      description: This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+      example: 6021
+      default_field: false
+    - name: Ext.api.metadata.module_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the module associated with the starting address of a thread.
+      example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
+      default_field: false
+    - name: Ext.api.metadata.ms_since_last_keyevent
+      level: custom
+      type: unsigned_long
+      description: This parameter indicates an elapsed time in milliseconds between the last GetAsyncKeyState event.
+      example: 94
+      default_field: false
+    - name: Ext.api.metadata.procedure_symbol
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Summary of the hook procedure.
+      example: taskbar.dll
+      default_field: false
+    - name: Ext.api.metadata.return_value
+      level: custom
+      type: unsigned_long
+      description: Return value of RegisterRawInputDevices API call.
+      example: 1
       default_field: false
     - name: Ext.api.metadata.target_address_name
       level: custom
@@ -1133,6 +1174,24 @@
       ignore_above: 1024
       description: The path of the memory region targeted by the API call.
       example: C:\programdata\example.dll
+      default_field: false
+    - name: Ext.api.metadata.thread_info_flags
+      level: custom
+      type: unsigned_long
+      description: Thread info flags.
+      example: 16
+      default_field: false
+    - name: Ext.api.metadata.visible_windows_count
+      level: custom
+      type: unsigned_long
+      description: Number of visible windows owned by the caller thread.
+      example: 0
+      default_field: false
+    - name: Ext.api.metadata.windows_count
+      level: custom
+      type: unsigned_long
+      description: Number of windows owned by the caller thread.
+      example: 2
       default_field: false
     - name: Ext.api.name
       level: custom
@@ -1262,12 +1321,33 @@
       description: The x86 ESP stack pointer register.
       example: 15007744
       default_field: false
+    - name: Ext.api.parameters.flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Mode flag that specifies how to interpret the information provided by UsagePage and Usage. Third member RAWINPUTDEVICE structure.
+      example: INPUTSINK
+      default_field: false
     - name: Ext.api.parameters.handle_type
       level: custom
       type: keyword
       ignore_above: 1024
       description: This parameter indicates whether the detected access was attempt against a process or a thread.
       example: process
+      default_field: false
+    - name: Ext.api.parameters.hook_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: DLL containing the hook procedure.
+      example: c:\windows\system32\taskbar.dll
+      default_field: false
+    - name: Ext.api.parameters.hook_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Type of hook procedure to be installed.
+      example: WH_KEYBOARD_LL
       default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
@@ -1362,6 +1442,20 @@
       type: unsigned_long
       description: The size.
       example: 4096
+      default_field: false
+    - name: Ext.api.parameters.usage
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates the specific device (Usage) within the Usage Page. Second member RAWINPUTDEVICE structure.
+      example: KEYBOARD
+      default_field: false
+    - name: Ext.api.parameters.usage_page
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates the top-level collection (Usage Page) of the device. First member RAWINPUTDEVICE structure.
+      example: GENERIC
       default_field: false
     - name: Ext.api.summary
       level: custom
