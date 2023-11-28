@@ -57,7 +57,9 @@
           "hidden_code" - executable memory was unexpectedly marked as PAGE_NOACCESS
           "execute_shellcode" - a region of non-image executable memory was unexpectedly transferred control
           "hardware_breakpoint_set" - a hardware breakpoint was set
-      example: [ "cross-process", "native_api", "shellcode" ]
+          "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed
+          "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed
+      example: [ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]
 
     - name: metadata
       level: custom
@@ -79,6 +81,69 @@
       description: >
         The path of the memory region targeted by the API call.
       example: "C:\\programdata\\example.dll"
+
+    - name: metadata.return_value
+      level: custom
+      type: unsigned_long
+      description: >
+        Return value of RegisterRawInputDevices API call.
+      example: 1
+
+    - name: metadata.windows_count
+      level: custom
+      type: unsigned_long
+      description: >
+        Number of windows owned by the caller thread.
+      example: 2
+
+    - name: metadata.visible_windows_count
+      level: custom
+      type: unsigned_long
+      description: >
+        Number of visible windows owned by the caller thread.
+      example: 0
+
+    - name: metadata.thread_info_flags
+      level: custom
+      type: unsigned_long
+      description: >
+        Thread info flags.
+      example: 16
+
+    - name: metadata.module_name
+      level: custom
+      type: keyword
+      description: >
+        Name of the module associated with the starting address of a thread.
+      example: "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe"
+
+    - name: metadata.allocation_protection
+      level: custom
+      type: keyword
+      description: >
+        Memory protection attributes associated with the starting address of a thread.
+      example: "RCX"
+
+    - name: metadata.procedure_symbol
+      level: custom
+      type: keyword
+      description: >
+        Summary of the hook procedure.
+      example: "taskbar.dll"
+
+    - name: metadata.ms_since_last_keyevent
+      level: custom
+      type: unsigned_long
+      description: >
+        This parameter indicates an elapsed time in milliseconds between the last GetAsyncKeyState event.
+      example: 94
+
+    - name: metadata.background_callcount
+      level: custom
+      type: unsigned_long
+      description: >
+        This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+      example: 6021
 
     - name: parameters
       level: custom
@@ -329,3 +394,38 @@
       description: >
         The name of the driver object.
       example: "\\Driver\\npcap"
+
+    - name: parameters.usage_page
+      level: custom
+      type: keyword
+      description: >
+        This parameter indicates the top-level collection (Usage Page) of the device. First member RAWINPUTDEVICE structure.
+      example: "GENERIC"
+
+    - name: parameters.usage
+      level: custom
+      type: keyword
+      description: >
+        This parameter indicates the specific device (Usage) within the Usage Page. Second member RAWINPUTDEVICE structure.
+      example: "KEYBOARD"
+
+    - name: parameters.flags
+      level: custom
+      type: keyword
+      description: >
+        Mode flag that specifies how to interpret the information provided by UsagePage and Usage. Third member RAWINPUTDEVICE structure.
+      example: "INPUTSINK"
+
+    - name: parameters.hook_type
+      level: custom
+      type: keyword
+      description: >
+        Type of hook procedure to be installed.
+      example: "WH_KEYBOARD_LL"
+
+    - name: parameters.hook_module
+      level: custom
+      type: keyword
+      description: >
+        DLL containing the hook procedure. 
+      example: "c:\\windows\\system32\\taskbar.dll"

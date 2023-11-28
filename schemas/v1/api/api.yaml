@@ -2311,9 +2311,14 @@ process.Ext.api.behaviors:
     \  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n\
     \  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly\
     \ transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was\
-    \ set"
+    \ set\n  \"rapid_background_polling\" - a suspicious process which does rapid\
+    \ input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\"\
+    \ - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState\
+    \ API were observed"
   example:
   - cross-process
+  - rapid_background_polling
+  - multiple_polling_processes
   - native_api
   - shellcode
   flat_name: process.Ext.api.behaviors
@@ -2335,6 +2340,80 @@ process.Ext.api.metadata:
   original_fieldset: api
   short: Information related to the API call.
   type: object
+process.Ext.api.metadata.allocation_protection:
+  dashed_name: process-Ext-api-metadata-allocation-protection
+  description: Memory protection attributes associated with the starting address of
+    a thread.
+  example: RCX
+  flat_name: process.Ext.api.metadata.allocation_protection
+  ignore_above: 1024
+  level: custom
+  name: metadata.allocation_protection
+  normalize: []
+  original_fieldset: api
+  short: Memory protection attributes associated with the starting address of a thread.
+  type: keyword
+process.Ext.api.metadata.background_callcount:
+  dashed_name: process-Ext-api-metadata-background-callcount
+  description: This parameter indicates a number of all GetAsyncKeyState api calls,
+    including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+  example: 6021
+  flat_name: process.Ext.api.metadata.background_callcount
+  level: custom
+  name: metadata.background_callcount
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates a number of all GetAsyncKeyState api calls, including
+    unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+  type: unsigned_long
+process.Ext.api.metadata.module_name:
+  dashed_name: process-Ext-api-metadata-module-name
+  description: Name of the module associated with the starting address of a thread.
+  example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
+  flat_name: process.Ext.api.metadata.module_name
+  ignore_above: 1024
+  level: custom
+  name: metadata.module_name
+  normalize: []
+  original_fieldset: api
+  short: Name of the module associated with the starting address of a thread.
+  type: keyword
+process.Ext.api.metadata.ms_since_last_keyevent:
+  dashed_name: process-Ext-api-metadata-ms-since-last-keyevent
+  description: This parameter indicates an elapsed time in milliseconds between the
+    last GetAsyncKeyState event.
+  example: 94
+  flat_name: process.Ext.api.metadata.ms_since_last_keyevent
+  level: custom
+  name: metadata.ms_since_last_keyevent
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates an elapsed time in milliseconds between the last
+    GetAsyncKeyState event.
+  type: unsigned_long
+process.Ext.api.metadata.procedure_symbol:
+  dashed_name: process-Ext-api-metadata-procedure-symbol
+  description: Summary of the hook procedure.
+  example: taskbar.dll
+  flat_name: process.Ext.api.metadata.procedure_symbol
+  ignore_above: 1024
+  level: custom
+  name: metadata.procedure_symbol
+  normalize: []
+  original_fieldset: api
+  short: Summary of the hook procedure.
+  type: keyword
+process.Ext.api.metadata.return_value:
+  dashed_name: process-Ext-api-metadata-return-value
+  description: Return value of RegisterRawInputDevices API call.
+  example: 1
+  flat_name: process.Ext.api.metadata.return_value
+  level: custom
+  name: metadata.return_value
+  normalize: []
+  original_fieldset: api
+  short: Return value of RegisterRawInputDevices API call.
+  type: unsigned_long
 process.Ext.api.metadata.target_address_name:
   dashed_name: process-Ext-api-metadata-target-address-name
   description: The name of the memory region targeted by the API call.
@@ -2359,6 +2438,39 @@ process.Ext.api.metadata.target_address_path:
   original_fieldset: api
   short: The path of the memory region targeted by the API call.
   type: keyword
+process.Ext.api.metadata.thread_info_flags:
+  dashed_name: process-Ext-api-metadata-thread-info-flags
+  description: Thread info flags.
+  example: 16
+  flat_name: process.Ext.api.metadata.thread_info_flags
+  level: custom
+  name: metadata.thread_info_flags
+  normalize: []
+  original_fieldset: api
+  short: Thread info flags.
+  type: unsigned_long
+process.Ext.api.metadata.visible_windows_count:
+  dashed_name: process-Ext-api-metadata-visible-windows-count
+  description: Number of visible windows owned by the caller thread.
+  example: 0
+  flat_name: process.Ext.api.metadata.visible_windows_count
+  level: custom
+  name: metadata.visible_windows_count
+  normalize: []
+  original_fieldset: api
+  short: Number of visible windows owned by the caller thread.
+  type: unsigned_long
+process.Ext.api.metadata.windows_count:
+  dashed_name: process-Ext-api-metadata-windows-count
+  description: Number of windows owned by the caller thread.
+  example: 2
+  flat_name: process.Ext.api.metadata.windows_count
+  level: custom
+  name: metadata.windows_count
+  normalize: []
+  original_fieldset: api
+  short: Number of windows owned by the caller thread.
+  type: unsigned_long
 process.Ext.api.name:
   dashed_name: process-Ext-api-name
   description: The name of the API, usually the name of the function or system call.
@@ -2601,6 +2713,20 @@ process.Ext.api.parameters.esp:
   original_fieldset: api
   short: The x86 ESP stack pointer register.
   type: unsigned_long
+process.Ext.api.parameters.flags:
+  dashed_name: process-Ext-api-parameters-flags
+  description: Mode flag that specifies how to interpret the information provided
+    by UsagePage and Usage. Third member RAWINPUTDEVICE structure.
+  example: INPUTSINK
+  flat_name: process.Ext.api.parameters.flags
+  ignore_above: 1024
+  level: custom
+  name: parameters.flags
+  normalize: []
+  original_fieldset: api
+  short: Mode flag that specifies how to interpret the information provided by UsagePage
+    and Usage. Third member RAWINPUTDEVICE structure.
+  type: keyword
 process.Ext.api.parameters.handle_type:
   dashed_name: process-Ext-api-parameters-handle-type
   description: This parameter indicates whether the detected access was attempt against
@@ -2614,6 +2740,30 @@ process.Ext.api.parameters.handle_type:
   original_fieldset: api
   short: This parameter indicates whether the detected access was attempt against
     a process or a thread.
+  type: keyword
+process.Ext.api.parameters.hook_module:
+  dashed_name: process-Ext-api-parameters-hook-module
+  description: DLL containing the hook procedure.
+  example: c:\windows\system32\taskbar.dll
+  flat_name: process.Ext.api.parameters.hook_module
+  ignore_above: 1024
+  level: custom
+  name: parameters.hook_module
+  normalize: []
+  original_fieldset: api
+  short: DLL containing the hook procedure.
+  type: keyword
+process.Ext.api.parameters.hook_type:
+  dashed_name: process-Ext-api-parameters-hook-type
+  description: Type of hook procedure to be installed.
+  example: WH_KEYBOARD_LL
+  flat_name: process.Ext.api.parameters.hook_type
+  ignore_above: 1024
+  level: custom
+  name: parameters.hook_type
+  normalize: []
+  original_fieldset: api
+  short: Type of hook procedure to be installed.
   type: keyword
 process.Ext.api.parameters.procedure:
   dashed_name: process-Ext-api-parameters-procedure
@@ -2785,6 +2935,34 @@ process.Ext.api.parameters.size:
   original_fieldset: api
   short: The size.
   type: unsigned_long
+process.Ext.api.parameters.usage:
+  dashed_name: process-Ext-api-parameters-usage
+  description: This parameter indicates the specific device (Usage) within the Usage
+    Page. Second member RAWINPUTDEVICE structure.
+  example: KEYBOARD
+  flat_name: process.Ext.api.parameters.usage
+  ignore_above: 1024
+  level: custom
+  name: parameters.usage
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the specific device (Usage) within the Usage Page.
+    Second member RAWINPUTDEVICE structure.
+  type: keyword
+process.Ext.api.parameters.usage_page:
+  dashed_name: process-Ext-api-parameters-usage-page
+  description: This parameter indicates the top-level collection (Usage Page) of the
+    device. First member RAWINPUTDEVICE structure.
+  example: GENERIC
+  flat_name: process.Ext.api.parameters.usage_page
+  ignore_above: 1024
+  level: custom
+  name: parameters.usage_page
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the top-level collection (Usage Page) of the device.
+    First member RAWINPUTDEVICE structure.
+  type: keyword
 process.Ext.api.summary:
   dashed_name: process-Ext-api-summary
   description: The summary of the API call and its parameters.

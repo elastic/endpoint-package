@@ -96,11 +96,22 @@
             ],
             "api": {
                 "behaviors": [
-                    "cross-process"
+                    "cross-process",
+                    "rapid_background_polling",
+                    "multiple_polling_processes"
                 ],
                 "metadata": {
                     "target_address_name": "Unbacked",
-                    "target_address_path": "c:\\windows\\system32\\ntdll.dll"
+                    "target_address_path": "c:\\windows\\system32\\ntdll.dll",
+                    "return_value": 1,
+                    "windows_count": 2,
+                    "visible_windows_count": 0,
+                    "thread_info_flags": 16,
+                    "module_name": "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe",
+                    "allocation_protection": "RCX",
+                    "procedure_symbol": "taskbar.dll",
+                    "ms_since_last_keyevent": 94,
+                    "background_callcount": 6021
                 },
                 "name": "OpenProcess",
                 "parameters": {
@@ -139,7 +150,12 @@
                     "argument1": 2583984274656,
                     "argument2": 4105953215,
                     "argument3": 31058890,
-                    "procedure": 140705553857280
+                    "procedure": 140705553857280,
+                    "usage_page": "GENERIC",
+                    "usage": "KEYBOARD",
+                    "flags": "INPUTSINK",
+                    "hook_type": "WH_KEYBOARD_LL",
+                    "hook_module": "c:\\windows\\system32\\taskbar.dll"
                 },
                 "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
