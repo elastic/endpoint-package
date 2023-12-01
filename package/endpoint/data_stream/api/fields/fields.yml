@@ -1126,25 +1126,11 @@
       object_type: keyword
       description: Information related to the API call.
       default_field: false
-    - name: Ext.api.metadata.allocation_protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Memory protection attributes associated with the starting address of a thread.
-      example: RCX
-      default_field: false
     - name: Ext.api.metadata.background_callcount
       level: custom
       type: unsigned_long
       description: This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
       example: 6021
-      default_field: false
-    - name: Ext.api.metadata.module_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Name of the module associated with the starting address of a thread.
-      example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
       default_field: false
     - name: Ext.api.metadata.ms_since_last_keyevent
       level: custom
@@ -1164,6 +1150,20 @@
       type: unsigned_long
       description: Return value of RegisterRawInputDevices API call.
       example: 1
+      default_field: false
+    - name: Ext.api.metadata.start_address_allocation_protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Memory protection attributes associated with the starting address of a thread.
+      example: RCX
+      default_field: false
+    - name: Ext.api.metadata.start_address_module
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the module associated with the starting address of a thread.
+      example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
       default_field: false
     - name: Ext.api.metadata.target_address_name
       level: custom

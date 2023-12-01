@@ -2340,19 +2340,6 @@ process.Ext.api.metadata:
   original_fieldset: api
   short: Information related to the API call.
   type: object
-process.Ext.api.metadata.allocation_protection:
-  dashed_name: process-Ext-api-metadata-allocation-protection
-  description: Memory protection attributes associated with the starting address of
-    a thread.
-  example: RCX
-  flat_name: process.Ext.api.metadata.allocation_protection
-  ignore_above: 1024
-  level: custom
-  name: metadata.allocation_protection
-  normalize: []
-  original_fieldset: api
-  short: Memory protection attributes associated with the starting address of a thread.
-  type: keyword
 process.Ext.api.metadata.background_callcount:
   dashed_name: process-Ext-api-metadata-background-callcount
   description: This parameter indicates a number of all GetAsyncKeyState api calls,
@@ -2366,18 +2353,6 @@ process.Ext.api.metadata.background_callcount:
   short: This parameter indicates a number of all GetAsyncKeyState api calls, including
     unsuccessfull calls, between the last successfull GetAsyncKeyState call.
   type: unsigned_long
-process.Ext.api.metadata.module_name:
-  dashed_name: process-Ext-api-metadata-module-name
-  description: Name of the module associated with the starting address of a thread.
-  example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
-  flat_name: process.Ext.api.metadata.module_name
-  ignore_above: 1024
-  level: custom
-  name: metadata.module_name
-  normalize: []
-  original_fieldset: api
-  short: Name of the module associated with the starting address of a thread.
-  type: keyword
 process.Ext.api.metadata.ms_since_last_keyevent:
   dashed_name: process-Ext-api-metadata-ms-since-last-keyevent
   description: This parameter indicates an elapsed time in milliseconds between the
@@ -2414,6 +2389,31 @@ process.Ext.api.metadata.return_value:
   original_fieldset: api
   short: Return value of RegisterRawInputDevices API call.
   type: unsigned_long
+process.Ext.api.metadata.start_address_allocation_protection:
+  dashed_name: process-Ext-api-metadata-start-address-allocation-protection
+  description: Memory protection attributes associated with the starting address of
+    a thread.
+  example: RCX
+  flat_name: process.Ext.api.metadata.start_address_allocation_protection
+  ignore_above: 1024
+  level: custom
+  name: metadata.start_address_allocation_protection
+  normalize: []
+  original_fieldset: api
+  short: Memory protection attributes associated with the starting address of a thread.
+  type: keyword
+process.Ext.api.metadata.start_address_module:
+  dashed_name: process-Ext-api-metadata-start-address-module
+  description: Name of the module associated with the starting address of a thread.
+  example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
+  flat_name: process.Ext.api.metadata.start_address_module
+  ignore_above: 1024
+  level: custom
+  name: metadata.start_address_module
+  normalize: []
+  original_fieldset: api
+  short: Name of the module associated with the starting address of a thread.
+  type: keyword
 process.Ext.api.metadata.target_address_name:
   dashed_name: process-Ext-api-metadata-target-address-name
   description: The name of the memory region targeted by the API call.
