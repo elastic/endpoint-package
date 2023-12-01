@@ -107,8 +107,8 @@
                     "windows_count": 2,
                     "visible_windows_count": 0,
                     "thread_info_flags": 16,
-                    "module_name": "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe",
-                    "allocation_protection": "RCX",
+                    "start_address_module": "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe",
+                    "start_address_allocation_protection": "RCX",
                     "procedure_symbol": "taskbar.dll",
                     "ms_since_last_keyevent": 94,
                     "background_callcount": 6021
