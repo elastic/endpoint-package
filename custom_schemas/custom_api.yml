@@ -108,14 +108,14 @@
         Thread info flags.
       example: 16
 
-    - name: metadata.module_name
+    - name: metadata.start_address_module
       level: custom
       type: keyword
       description: >
         Name of the module associated with the starting address of a thread.
       example: "C:\\Windows\\System32\\DellTPad\\ApMsgFwd.exe"
 
-    - name: metadata.allocation_protection
+    - name: metadata.start_address_allocation_protection
       level: custom
       type: keyword
       description: >
