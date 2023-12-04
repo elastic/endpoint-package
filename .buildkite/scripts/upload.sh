@@ -37,20 +37,16 @@ upload_for_sign() {
 
     echo "--- Uploading unpublished artifacts from $_PKG_DIR for signing"
 
-    pushd "${_PKG_DIR}"
+    buildkite-agent artifact download "build/packages/*.zip" "$_PKG_DIR"
 
-    find . -name "*.zip" | sort | while read -r _PKG; do
+    find "$_PKG_DIR" -name "*.zip" | sort | while read -r _PKG; do
         
         echo "Checking if $_PKG is already published."
         if is_published "$_PKG"; then
             echo "$_PKG is already published. Skipping."
             continue
         fi
-
-        buildkite-agent artifact upload "$_PKG"
     done
-
-    popd
 
 }
 
@@ -63,10 +59,16 @@ upload_for_publish() {
     local _PKG_DIR
     _PKG_DIR="${1}"
 
-    echo "--- Uploading unpublished artifacts from $_PKG_DIR for publishing"
+    echo "--- Performing buildkite-agent step get"
+    buildkite-agent step get --step package_sign --format json
 
-    find "$_PKG_DIR" -name "*.zip" | sort | while read -r _PKG; do
-        
+    echo "--- Uploading unpublished artifacts from $_PKG_DIR for publishing"
+    buildkite-agent artifact download "build/packages/*.asc" "$_PKG_DIR"
+
+    find "$_PKG_DIR" -name "*.asc" | sort | while read -r _PKG_SIGN; do
+
+        _PKG=${_PKG_SIGN%.asc}
+
         echo "Checking if $_PKG is already published."
         if is_published "$_PKG"; then
             echo "$_PKG is already published. Skipping."
@@ -74,13 +76,10 @@ upload_for_publish() {
         fi
 
         # download artifact from different pipeline
-        buildkite-agent step get --step package_sign --format json
         buildkite-agent artifact download --build SOMETHING "$_PKG.asc" "$_PKG_DIR"
         mv "$_PKG_DIR/$_PKG.asc" "$_PKG_DIR/$_PKG.sig"
         buildkite-agent artifact upload "$_PKG_DIR/$_PKG.sig"
     done
-
-    popd
 
 }
 
