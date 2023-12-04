@@ -66,7 +66,6 @@ def main():
                 {
                     "label": "Trigger package sign",
                     "trigger": "unified-release-gpg-signing",
-                    "depends_on": "upload_for_sign",
                     "key": "package_sign",
                 },
                 {
