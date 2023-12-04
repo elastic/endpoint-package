@@ -23,6 +23,15 @@ spec:
       pipeline_file: ".buildkite/pipeline.yml.py"
       cancel_intermediate_builds: true
       skip_intermediate_builds: true
+      provider_settings:
+        build_branches: false
+        build_pull_request_forks: false
+        build_pull_request_labels_changed: true
+        build_pull_requests: true
+        build_tags: false
+        cancel_deleted_branch_builds: true
+        skip_builds_for_existing_commits: true
+        skip_pull_request_builds_for_existing_commits: true
       teams:
         endpoint-ci-admin: {}
         security-defend-workflows:
