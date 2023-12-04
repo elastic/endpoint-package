@@ -25,8 +25,6 @@ publish_agent = {
 
 def main():
     current_branch = os.getenv("BUILDKITE_BRANCH")
-    steps = []
-    """
     steps = [
         {
             "label": "Build",
@@ -58,18 +56,13 @@ def main():
             ],
         },
     ]
-    """
 
     #if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
     if current_branch == "bk/sign":
         steps.append({
             "group": "Publish",
             "steps": [
-                {
-                    "label": "Upload unpublished package",
-                    "command": ".buildkite/scripts/publish.py build/packages",
-                    "key": "upload_for_sign",
-                },
+                # TODO: check if we can sign.
                 {
                     "label": "Trigger package sign",
                     "trigger": "unified-release-gpg-signing",
@@ -77,16 +70,10 @@ def main():
                     "key": "package_sign",
                 },
                 {
-                    "label": "Download package signature",
-                    "command": ".buildkite/scripts/publish.py build/packages",
+                    "label": "Pullpackage signature",
+                    "command": ".buildkite/scripts/upload.sh publish",
                     "depends_on": "package_sign",
-                    "key": "package_sign",
-                },
-                {
-                    "label": "Upload for publish",
-                    "command": ".buildkite/scripts/publish.py build/packages",
-                    "key": "upload_for_publish",
-                    "depends_on": "package_sign"
+                    "key": "download_sign",
                 },
                 # {
                 #     "label": "Trigger publish sign",
