@@ -67,6 +67,11 @@ def main():
                     "label": "Trigger package sign",
                     "trigger": "unified-release-gpg-signing",
                     "key": "package_sign",
+                    "build": {
+                        "env": {
+                            "INPUT_PATH": "buildkite://",
+                        },
+                    },
                 },
                 {
                     "label": "Pullpackage signature",
