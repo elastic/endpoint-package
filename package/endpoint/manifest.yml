@@ -20,6 +20,9 @@ conditions:
   elastic:
     capabilities: ["security"]
     subscription: basic
+agent:
+  privileges:
+    root: true
 icons:
   - src: "/img/security-logo-color-64px.svg"
     size: "16x16"
