@@ -1289,6 +1289,16 @@ file.Ext.original:
   object_type: keyword
   short: Original file information during a modification event.
   type: object
+file.Ext.original.extension:
+  dashed_name: file-Ext-original-extension
+  description: Original file extension prior to a modification event
+  flat_name: file.Ext.original.extension
+  ignore_above: 1024
+  level: custom
+  name: Ext.original.extension
+  normalize: []
+  short: Original file extension prior to a modification event
+  type: keyword
 file.Ext.original.gid:
   dashed_name: file-Ext-original-gid
   description: Primary group ID (GID) of the file.

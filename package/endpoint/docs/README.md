@@ -1564,6 +1564,7 @@ sent by the endpoint.
 | file.Ext.malware_signature.version | Primary malware signature version. | keyword |
 | file.Ext.monotonic_id | File event monotonic ID. | unsigned_long |
 | file.Ext.original | Original file information during a modification event. | object |
+| file.Ext.original.extension | Original file extension prior to a modification event | keyword |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |
 | file.Ext.original.mode | Original file mode prior to a modification event | keyword |

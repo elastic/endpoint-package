@@ -617,6 +617,12 @@
       ignore_above: 1024
       description: Original file path prior to a modification event
       default_field: false
+    - name: Ext.original.extension
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Original file extension prior to a modification event
+      default_field: false
     - name: Ext.original.uid
       level: custom
       type: keyword
