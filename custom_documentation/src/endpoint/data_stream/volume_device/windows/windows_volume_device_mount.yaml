@@ -1,0 +1,17 @@
+overview:
+  name: Windows Device Mount
+  description: 'This event is generated when a device is mounted.
+
+    '
+identification:
+  filter:
+    event.action: mount
+    event.dataset: endpoint.events.volume_device
+    event.module: endpoint
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.volume_device-*
+fields:
+  endpoint:
+  - '@timestamp'
