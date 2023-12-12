@@ -63,7 +63,7 @@ def main():
             "group": "Publish",
             "steps": [
                 {
-                    "label": "Prepare package sign",
+                    "label": "Prepare package for sign",
                     "command": ".buildkite/scripts/upload.sh --sign",
                     "key": "upload_for_sign",
                     "artifact_paths": "artifacts-to-sign/*.zip"
@@ -80,7 +80,7 @@ def main():
                     },
                 },
                 {
-                    "label": "Pullpackage signature",
+                    "label": "Prepare package for publish",
                     "command": ".buildkite/scripts/upload.sh --publish",
                     "depends_on": "package_sign",
                     "key": "download_sign",

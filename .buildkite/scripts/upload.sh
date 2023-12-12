@@ -9,7 +9,7 @@
 set -euo pipefail
 
 CMD="${1:-unknown}"
-PACKAGE_DIR="${2:-build/packages}"
+PACKAGE_DIR="${2:-"build/packages"}"
 
 
 #
@@ -32,14 +32,15 @@ is_published() {
 #
 upload_for_sign() {
 
-    local _PKG_DIR
+    local _PKG_DIR _TO_SIGN_DIR
     _PKG_DIR="${1}"
+    _TO_SIGN_DIR="artifacts-to-sign"
+    mkdir -p "$_PKG_DIR"
+    mkdir -p "$_TO_SIGN_DIR"
 
-    echo "--- Uploading unpublished artifacts from $_PKG_DIR for signing"
-
+    echo "--- Download artifacts into $_PKG_DIR for checking publish status"
     buildkite-agent artifact download "build/packages/*.zip" "$_PKG_DIR"
 
-    mkdir -p artifacts-to-sign
     find "$_PKG_DIR" -name "*.zip" | sort | while read -r _PKG; do
         
         echo "Checking if $_PKG is already published."
@@ -48,7 +49,7 @@ upload_for_sign() {
             continue
         fi
 
-        mv "$_PKG" artifacts-to-sign/
+        mv "$_PKG" "$_TO_SIGN_DIR"
 
     done
 
@@ -62,11 +63,12 @@ upload_for_publish() {
 
     local _PKG_DIR
     _PKG_DIR="${1}"
+    mkdir -p "$_PKG_DIR"
 
     echo "--- Performing buildkite-agent step get"
     buildkite-agent step get --step package_sign --format json
 
-    echo "--- Uploading unpublished artifacts from $_PKG_DIR for publishing"
+    echo "--- Downloading artifacts into $_PKG_DIR for publishing"
     buildkite-agent artifact download "build/packages/*.asc" "$_PKG_DIR"
 
     find "$_PKG_DIR" -name "*.asc" | sort | while read -r _PKG_SIGN; do
