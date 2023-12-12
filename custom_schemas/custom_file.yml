@@ -93,6 +93,12 @@
       description: >
         Original file path prior to a modification event
 
+    - name: Ext.original.extension
+      level: custom
+      type: keyword
+      description: >
+        Original file extension prior to a modification event
+
     - name: Ext.original.mode
       level: custom
       type: keyword

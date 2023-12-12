@@ -225,6 +225,7 @@ fields:
               name: {}
               path: {}
               mode: {}
+              extension: {}
               uid: {}
               owner: {}
               gid: {}
