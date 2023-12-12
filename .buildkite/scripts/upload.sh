@@ -90,7 +90,7 @@ upload_for_publish() {
 
 case $CMD in
 "--sign")
-  upload_sign "$PACKAGE_DIR"
+  upload_for_sign "$PACKAGE_DIR"
   ;;
 
 "--publish")
