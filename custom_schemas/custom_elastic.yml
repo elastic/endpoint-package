@@ -11,7 +11,6 @@
     - name: agent
       level: custom
       type: object
-      object_type: keyword
       description: >
         The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent
         that manages other agents or process on the host.

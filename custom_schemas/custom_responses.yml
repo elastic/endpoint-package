@@ -79,7 +79,6 @@
     - name: action.key.values
       level: custom
       type: object
-      object_type: keyword
       description: Values modified
 
     - name: action.key.values.name

@@ -20,7 +20,6 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: Ext.mapped_address

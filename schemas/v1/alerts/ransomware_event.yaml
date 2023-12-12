@@ -24,7 +24,6 @@ Endpoint.policy:
   level: custom
   name: policy
   normalize: []
-  object_type: keyword
   short: The policy fields are used to hold information about applied policy.
   type: object
 Endpoint.policy.applied:
@@ -34,7 +33,6 @@ Endpoint.policy.applied:
   level: custom
   name: policy.applied
   normalize: []
-  object_type: keyword
   short: information about the policy that is applied
   type: object
 Endpoint.policy.applied.artifacts:
@@ -45,7 +43,6 @@ Endpoint.policy.applied.artifacts:
   level: custom
   name: policy.applied.artifacts
   normalize: []
-  object_type: keyword
   short: information about protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.global:
@@ -55,7 +52,6 @@ Endpoint.policy.applied.artifacts.global:
   level: custom
   name: policy.applied.artifacts.global
   normalize: []
-  object_type: keyword
   short: information about global protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.global.identifiers:
@@ -123,7 +119,6 @@ Endpoint.policy.applied.artifacts.user:
   level: custom
   name: policy.applied.artifacts.user
   normalize: []
-  object_type: keyword
   short: information about user protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.user.identifiers:
@@ -779,7 +774,6 @@ dll.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 dll.Ext.code_signature:
@@ -1148,7 +1142,6 @@ elastic.agent:
   level: custom
   name: agent
   normalize: []
-  object_type: keyword
   short: The agent fields contain data about the Elastic Agent.
   type: object
 elastic.agent.id:
@@ -1849,7 +1842,6 @@ group.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 group.Ext.real:
@@ -1859,7 +1851,6 @@ group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   short: Group info prior to any setgid operations.
   type: object
 group.Ext.real.id:
@@ -2152,7 +2143,6 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object
@@ -2318,7 +2308,6 @@ host.user.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: user
   short: Object for all custom defined fields to live in.
   type: object
@@ -2329,7 +2318,6 @@ host.user.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   original_fieldset: user
   short: User info prior to any setuid operations.
   type: object
@@ -2402,7 +2390,6 @@ host.user.group.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Object for all custom defined fields to live in.
   type: object
@@ -2413,7 +2400,6 @@ host.user.group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Group info prior to any setgid operations.
   type: object
@@ -2539,7 +2525,6 @@ process.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.Ext.ancestry:
@@ -3104,7 +3089,6 @@ process.parent.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
@@ -3207,7 +3191,6 @@ process.parent.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: The field set containing process info in case of any pid spoofing. This is
     mainly useful for process.parent.
@@ -3752,7 +3735,6 @@ process.thread.Ext:
   level: custom
   name: thread.Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.thread.Ext.call_stack:
@@ -3764,7 +3746,6 @@ process.thread.Ext.call_stack:
   level: custom
   name: call_stack
   normalize: []
-  object_type: keyword
   original_fieldset: call_stack
   short: Fields describing a stack frame.
   type: object
@@ -4412,7 +4393,6 @@ threat.enrichments.indicator.file.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Object for all custom defined fields to live in.
   type: object
@@ -4606,18 +4586,6 @@ threat.enrichments.indicator.file.Ext.header_data:
   original_fieldset: file
   short: Header data
   type: text
-threat.enrichments.indicator.file.Ext.malware_classification.features:
-  dashed_name: threat-enrichments-indicator-file-Ext-malware-classification-features
-  description: The features extracted from this file and evaluated by the model.
-  enabled: false
-  flat_name: threat.enrichments.indicator.file.Ext.malware_classification.features
-  level: custom
-  name: features
-  normalize: []
-  object_type: keyword
-  original_fieldset: malware_classification
-  short: The features extracted from this file and evaluated by the model.
-  type: object
 threat.enrichments.indicator.file.Ext.malware_classification.features.data.buffer:
   dashed_name: threat-enrichments-indicator-file-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -4851,7 +4819,6 @@ threat.enrichments.indicator.file.Ext.original:
   level: custom
   name: Ext.original
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Original file information during a modification event.
   type: object
@@ -4988,7 +4955,6 @@ threat.enrichments.indicator.file.Ext.windows:
   level: custom
   name: Ext.windows
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Platform-specific Windows fields
   type: object
@@ -7076,7 +7042,6 @@ threat.indicator.file.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Object for all custom defined fields to live in.
   type: object
@@ -7270,18 +7235,6 @@ threat.indicator.file.Ext.header_data:
   original_fieldset: file
   short: Header data
   type: text
-threat.indicator.file.Ext.malware_classification.features:
-  dashed_name: threat-indicator-file-Ext-malware-classification-features
-  description: The features extracted from this file and evaluated by the model.
-  enabled: false
-  flat_name: threat.indicator.file.Ext.malware_classification.features
-  level: custom
-  name: features
-  normalize: []
-  object_type: keyword
-  original_fieldset: malware_classification
-  short: The features extracted from this file and evaluated by the model.
-  type: object
 threat.indicator.file.Ext.malware_classification.features.data.buffer:
   dashed_name: threat-indicator-file-Ext-malware-classification-features-data-buffer
   description: The features extracted from this file and evaluated by the model.  Usually
@@ -7515,7 +7468,6 @@ threat.indicator.file.Ext.original:
   level: custom
   name: Ext.original
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Original file information during a modification event.
   type: object
@@ -7652,7 +7604,6 @@ threat.indicator.file.Ext.windows:
   level: custom
   name: Ext.windows
   normalize: []
-  object_type: keyword
   original_fieldset: file
   short: Platform-specific Windows fields
   type: object
@@ -9751,7 +9702,6 @@ user.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 user.Ext.real:
@@ -9761,7 +9711,6 @@ user.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   short: User info prior to any setuid operations.
   type: object
 user.Ext.real.id:
@@ -9828,7 +9777,6 @@ user.group.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Object for all custom defined fields to live in.
   type: object
@@ -9839,7 +9787,6 @@ user.group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Group info prior to any setgid operations.
   type: object
