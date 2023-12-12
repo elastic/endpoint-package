@@ -39,6 +39,7 @@ upload_for_sign() {
 
     buildkite-agent artifact download "build/packages/*.zip" "$_PKG_DIR"
 
+    mkdir -p artifacts-to-sign
     find "$_PKG_DIR" -name "*.zip" | sort | while read -r _PKG; do
         
         echo "Checking if $_PKG is already published."
@@ -46,6 +47,9 @@ upload_for_sign() {
             echo "$_PKG is already published. Skipping."
             continue
         fi
+
+        mv "$_PKG" artifacts-to-sign/
+
     done
 
 }
@@ -85,11 +89,11 @@ upload_for_publish() {
 
 
 case $CMD in
-"sign")
+"--sign")
   upload_sign "$PACKAGE_DIR"
   ;;
 
-"publish")
+"--publish")
   upload_for_publish "$PACKAGE_DIR"
   ;;
 
