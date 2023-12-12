@@ -69,9 +69,11 @@ def main():
                     "artifact_paths": "artifacts-to-sign/*.zip"
                 },
                 {
+                    "wait": None
+                },
+                {
                     "label": "Trigger package sign",
                     "trigger": "unified-release-gpg-signing",
-                    "depends_on": "upload_for_sign",
                     "key": "package_sign",
                     "build": {
                         "env": {
@@ -80,10 +82,13 @@ def main():
                     },
                 },
                 {
+                    "wait": None
+                },
+                {
                     "label": "Prepare package for publish",
                     "command": ".buildkite/scripts/upload.sh --publish",
-                    "depends_on": "package_sign",
                     "key": "download_sign",
+                    "artifact_paths": "artifacts-to-publish/*"
                 },
                 # {
                 #     "label": "Trigger publish sign",

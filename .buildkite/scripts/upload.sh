@@ -9,8 +9,6 @@
 set -euo pipefail
 
 CMD="${1:-unknown}"
-PACKAGE_DIR="${2:-"build/packages"}"
-
 
 #
 # Check if a given zip file is already published
@@ -32,20 +30,20 @@ is_published() {
 #
 upload_for_sign() {
 
-    local _PKG_DIR _TO_SIGN_DIR
-    _PKG_DIR="${1}"
-    _TO_SIGN_DIR="artifacts-to-sign"
-    mkdir -p "$_PKG_DIR"
+    local _TMP_DIR _TO_SIGN_DIR _PKG_NAME
+    _TO_SIGN_DIR="${1:-artifacts-to-sign}"
+    _TMP_DIR="$(mktemp -d)"
     mkdir -p "$_TO_SIGN_DIR"
 
-    echo "--- Download artifacts into $_PKG_DIR for checking publish status"
-    buildkite-agent artifact download "build/packages/*.zip" "$_PKG_DIR"
+    echo "--- Download artifacts to check publish status"
+    buildkite-agent artifact download "build/packages/*.zip" "$_TMP_DIR"
 
-    find "$_PKG_DIR" -name "*.zip" | sort | while read -r _PKG; do
-        
-        echo "Checking if $_PKG is already published."
-        if is_published "$_PKG"; then
-            echo "$_PKG is already published. Skipping."
+    find "$_TMP_DIR" -name "*.zip" | sort | while read -r _PKG; do
+
+        _PKG_NAME=$(basename "$_PKG")
+        echo "Checking if $_PKG_NAME is already published."
+        if is_published "$_PKG_NAME"; then
+            echo "$_PKG_NAME is already published. Skipping."
             continue
         fi
 
@@ -61,30 +59,31 @@ upload_for_sign() {
 #
 upload_for_publish() {
 
-    local _PKG_DIR
-    _PKG_DIR="${1}"
-    mkdir -p "$_PKG_DIR"
+    local _TMP_DIR _TO_PUBLISH_DIR _PKG_NAME
+    _TO_PUBLISH_DIR="${1:artifacts-to-publish}"
+    _TMP_DIR="$(mktemp -d)"
+    mkdir -p "$_TO_PUBLISH_DIR"
 
     echo "--- Performing buildkite-agent step get"
-    buildkite-agent step get --step package_sign --format json
+    ARTIFACTS_BUILD_ID=$(python .buildkite/scripts/build_info.py --step-key package_sign --print-triggered-build-id)
 
-    echo "--- Downloading artifacts into $_PKG_DIR for publishing"
-    buildkite-agent artifact download "build/packages/*.asc" "$_PKG_DIR"
+    echo "--- Downloading signature to check publishing status"
+    buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
 
     find "$_PKG_DIR" -name "*.asc" | sort | while read -r _PKG_SIGN; do
 
-        _PKG=${_PKG_SIGN%.asc}
+        _PKG_NAME=$(basename "${_PKG_SIGN%.asc}.zip")
 
-        echo "Checking if $_PKG is already published."
-        if is_published "$_PKG"; then
+        echo "Checking if $_PKG_NAME is already published."
+        if is_published "$_PKG_NAME"; then
             echo "$_PKG is already published. Skipping."
             continue
         fi
 
-        # download artifact from different pipeline
-        buildkite-agent artifact download --build SOMETHING "$_PKG.asc" "$_PKG_DIR"
-        mv "$_PKG_DIR/$_PKG.asc" "$_PKG_DIR/$_PKG.sig"
-        buildkite-agent artifact upload "$_PKG_DIR/$_PKG.sig"
+        echo "Downloading $_PKG_NAME for publishing."
+        buildkite-agent artifact download "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR"
+
+        mv "$_PKG_SIGN" "$_PKG_DIR/"
     done
 
 }
@@ -92,11 +91,11 @@ upload_for_publish() {
 
 case $CMD in
 "--sign")
-  upload_for_sign "$PACKAGE_DIR"
+  upload_for_sign artifacts-to-sign
   ;;
 
 "--publish")
-  upload_for_publish "$PACKAGE_DIR"
+  upload_for_publish artifacts-to-publish
   ;;
 
 *)
