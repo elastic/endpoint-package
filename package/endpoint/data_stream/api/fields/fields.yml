@@ -110,7 +110,6 @@
     - name: process.Ext.memory_region.malware_signature.primary
       level: custom
       type: object
-      object_type: keyword
       description: The first matching details.
       default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
@@ -171,7 +170,6 @@
     - name: process.Ext.memory_region.mapped_pe.Ext.sections
       level: custom
       type: object
-      object_type: keyword
       description: The file's relevant sections, if it is a PE
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.md5
@@ -226,7 +224,6 @@
     - name: process.Ext.memory_region.mapped_pe.Ext.streams
       level: custom
       type: object
-      object_type: keyword
       description: The file's streams, if it is a PE
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.md5
@@ -447,7 +444,6 @@
     - name: process.Ext.memory_region.memory_pe.Ext.sections
       level: custom
       type: object
-      object_type: keyword
       description: The file's relevant sections, if it is a PE
       default_field: false
     - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.md5
@@ -502,7 +498,6 @@
     - name: process.Ext.memory_region.memory_pe.Ext.streams
       level: custom
       type: object
-      object_type: keyword
       description: The file's streams, if it is a PE
       default_field: false
     - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.md5
@@ -1574,7 +1569,6 @@
     - name: Ext.memory_region.malware_signature.primary
       level: custom
       type: object
-      object_type: keyword
       description: The first matching details.
       default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
@@ -1635,7 +1629,6 @@
     - name: Ext.memory_region.mapped_pe.Ext.sections
       level: custom
       type: object
-      object_type: keyword
       description: The file's relevant sections, if it is a PE
       default_field: false
     - name: Ext.memory_region.mapped_pe.Ext.sections.hash.md5
@@ -1690,7 +1683,6 @@
     - name: Ext.memory_region.mapped_pe.Ext.streams
       level: custom
       type: object
-      object_type: keyword
       description: The file's streams, if it is a PE
       default_field: false
     - name: Ext.memory_region.mapped_pe.Ext.streams.hash.md5
@@ -1911,7 +1903,6 @@
     - name: Ext.memory_region.memory_pe.Ext.sections
       level: custom
       type: object
-      object_type: keyword
       description: The file's relevant sections, if it is a PE
       default_field: false
     - name: Ext.memory_region.memory_pe.Ext.sections.hash.md5
@@ -1966,7 +1957,6 @@
     - name: Ext.memory_region.memory_pe.Ext.streams
       level: custom
       type: object
-      object_type: keyword
       description: The file's streams, if it is a PE
       default_field: false
     - name: Ext.memory_region.memory_pe.Ext.streams.hash.md5
