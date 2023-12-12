@@ -168,7 +168,6 @@ Target.process.Ext.memory_region.malware_signature.primary:
   level: custom
   name: primary
   normalize: []
-  object_type: keyword
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
@@ -279,7 +278,6 @@ Target.process.Ext.memory_region.mapped_pe.Ext.sections:
   level: custom
   name: Ext.sections
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's sections, if it is a PE
   type: object
@@ -379,7 +377,6 @@ Target.process.Ext.memory_region.mapped_pe.Ext.streams:
   level: custom
   name: Ext.streams
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's streams, if it is a PE
   type: object
@@ -787,7 +784,6 @@ Target.process.Ext.memory_region.memory_pe.Ext.sections:
   level: custom
   name: Ext.sections
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's sections, if it is a PE
   type: object
@@ -887,7 +883,6 @@ Target.process.Ext.memory_region.memory_pe.Ext.streams:
   level: custom
   name: Ext.streams
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's streams, if it is a PE
   type: object
@@ -3169,7 +3164,6 @@ process.Ext.memory_region.malware_signature.primary:
   level: custom
   name: primary
   normalize: []
-  object_type: keyword
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
@@ -3280,7 +3274,6 @@ process.Ext.memory_region.mapped_pe.Ext.sections:
   level: custom
   name: Ext.sections
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's sections, if it is a PE
   type: object
@@ -3380,7 +3373,6 @@ process.Ext.memory_region.mapped_pe.Ext.streams:
   level: custom
   name: Ext.streams
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's streams, if it is a PE
   type: object
@@ -3788,7 +3780,6 @@ process.Ext.memory_region.memory_pe.Ext.sections:
   level: custom
   name: Ext.sections
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's sections, if it is a PE
   type: object
@@ -3888,7 +3879,6 @@ process.Ext.memory_region.memory_pe.Ext.streams:
   level: custom
   name: Ext.streams
   normalize: []
-  object_type: keyword
   original_fieldset: pe
   short: The file's streams, if it is a PE
   type: object
