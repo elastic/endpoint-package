@@ -851,7 +851,6 @@ process.entry_leader.tty:
   level: extended
   name: tty
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: Information about the controlling TTY device.
   type: object
@@ -1317,7 +1316,6 @@ process.group_leader.tty:
   level: extended
   name: tty
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: Information about the controlling TTY device.
   type: object
@@ -1802,7 +1800,6 @@ process.parent.tty:
   level: extended
   name: tty
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: Information about the controlling TTY device.
   type: object
@@ -2481,7 +2478,6 @@ process.session_leader.tty:
   level: extended
   name: tty
   normalize: []
-  object_type: keyword
   original_fieldset: process
   short: Information about the controlling TTY device.
   type: object
@@ -2603,7 +2599,6 @@ process.tty:
   level: extended
   name: tty
   normalize: []
-  object_type: keyword
   short: Information about the controlling TTY device.
   type: object
 process.tty.char_device.major:

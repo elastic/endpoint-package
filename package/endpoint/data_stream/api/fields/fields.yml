@@ -33,7 +33,6 @@
     - name: process.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: process.Ext.memory_region.allocation_base
@@ -1000,7 +999,6 @@
     - name: os.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -1099,7 +1097,6 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -1123,7 +1120,6 @@
     - name: Ext.api.metadata
       level: custom
       type: object
-      object_type: keyword
       description: Information related to the API call.
       default_field: false
     - name: Ext.api.metadata.background_callcount
@@ -1207,7 +1203,6 @@
     - name: Ext.api.parameters
       level: custom
       type: object
-      object_type: keyword
       description: Parameter values passed to the API call.
       default_field: false
     - name: Ext.api.parameters.address
@@ -2329,13 +2324,11 @@
     - name: thread.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: thread.Ext.call_stack
       level: custom
       type: object
-      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
@@ -2442,7 +2435,6 @@
     - name: thread.Ext.call_stack_final_user_module.hash
       level: custom
       type: object
-      object_type: keyword
       description: Hashes of the call_stack_final_user_module.
       default_field: false
     - name: thread.Ext.call_stack_final_user_module.hash.sha256

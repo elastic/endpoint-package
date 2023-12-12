@@ -21,13 +21,11 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: Ext.correlation
       level: custom
       type: object
-      object_type: keyword
       description: Information about event this should be correlated with.
     
     - name: Ext.correlation.id

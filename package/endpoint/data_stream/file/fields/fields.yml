@@ -270,13 +270,11 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.correlation
       level: custom
       type: object
-      object_type: keyword
       description: Information about event this should be correlated with.
       default_field: false
     - name: Ext.correlation.id
@@ -432,7 +430,6 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.device.bus_type
@@ -575,7 +572,6 @@
     - name: Ext.original
       level: custom
       type: object
-      object_type: keyword
       description: Original file information during a modification event.
       default_field: false
     - name: Ext.original.gid
@@ -627,7 +623,6 @@
     - name: Ext.windows
       level: custom
       type: object
-      object_type: keyword
       description: Platform-specific Windows fields
       default_field: false
     - name: Ext.windows.zone_identifier
@@ -862,13 +857,11 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
-      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: Ext.real.id
@@ -961,7 +954,6 @@
     - name: os.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant
@@ -1060,7 +1052,6 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.ancestry
@@ -1309,13 +1300,11 @@
     - name: thread.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: thread.Ext.call_stack
       level: custom
       type: object
-      object_type: keyword
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: true
       default_field: false
@@ -1456,13 +1445,11 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: Ext.real
       level: custom
       type: object
-      object_type: keyword
       description: User info prior to any setuid operations.
       default_field: false
     - name: Ext.real.id
@@ -1502,13 +1489,11 @@
     - name: group.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: group.Ext.real
       level: custom
       type: object
-      object_type: keyword
       description: Group info prior to any setgid operations.
       default_field: false
     - name: group.Ext.real.id

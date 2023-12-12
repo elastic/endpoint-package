@@ -39,13 +39,11 @@
     - name: Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
 
     - name: Ext.real
       level: custom
       type: object
-      object_type: keyword
       description: Group info prior to any setgid operations.
 
     - name: Ext.real.id
