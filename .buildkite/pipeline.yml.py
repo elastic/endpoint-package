@@ -68,33 +68,7 @@ def main():
                     "key": "upload_for_sign",
                     "artifact_paths": "artifacts-to-sign/*.zip"
                 },
-                {
-                    "wait": None
-                },
-                {
-                    "label": "Trigger package sign",
-                    "trigger": "unified-release-gpg-signing",
-                    "key": "package_sign",
-                    "build": {
-                        "env": {
-                            "INPUT_PATH": "buildkite://",
-                        },
-                    },
-                },
-                {
-                    "wait": None
-                },
-                {
-                    "label": "Prepare package for publish",
-                    "command": ".buildkite/scripts/upload.sh --publish",
-                    "key": "download_sign",
-                    "artifact_paths": "artifacts-to-publish/*"
-                },
-                # {
-                #     "label": "Trigger publish sign",
-                #     "trigger": "unified-release-gpg-signing",
-                #     "depends_on": "upload_for_publish",
-                # },
+                # This steps can be extended by sign_and_publish.yml.py depending on the outcome of upload.sh
             ],
             "depends_on": [
                 "check",

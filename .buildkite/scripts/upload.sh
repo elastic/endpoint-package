@@ -30,9 +30,10 @@ is_published() {
 #
 upload_for_sign() {
 
-    local _TMP_DIR _TO_SIGN_DIR _PKG_NAME
+    local _TMP_DIR _TO_SIGN_DIR _PKG_NAME _PKG_TO_SIGN_EXISTS
     _TO_SIGN_DIR="${1:-artifacts-to-sign}"
     _TMP_DIR="$(mktemp -d)"
+    _PKG_TO_SIGN_EXISTS=false
     mkdir -p "$_TO_SIGN_DIR"
 
     echo "--- Download artifacts to check publish status"
@@ -48,8 +49,15 @@ upload_for_sign() {
         fi
 
         mv "$_PKG" "$_TO_SIGN_DIR"
+        _PKG_TO_SIGN_EXISTS=true
 
     done
+
+    if $_PKG_TO_SIGN_EXISTS; then
+        python3 .buildkite/sign_and_publish.yml.py \
+            --group-name "$BUILDKITE_GROUP_LABEL" \
+            --depends-on "$BUILDKITE_STEP_KEY"
+    fi
 
 }
 
@@ -60,7 +68,7 @@ upload_for_sign() {
 upload_for_publish() {
 
     local _TMP_DIR _TO_PUBLISH_DIR _PKG_NAME
-    _TO_PUBLISH_DIR="${1:artifacts-to-publish}"
+    _TO_PUBLISH_DIR="${1:-artifacts-to-publish}"
     _TMP_DIR="$(mktemp -d)"
     mkdir -p "$_TO_PUBLISH_DIR"
 
