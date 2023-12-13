@@ -63,6 +63,10 @@ def main():
                 "label": "Check publish status",
                 "command": ".buildkite/scripts/upload.sh --sign",
                 "key": "check_for_sign",
+                "depends_on": [
+                    "build",
+                    "check",
+                ],
                 # This artifact_paths is required by the gpg signinig pipeline.
                 "artifact_paths": "artifacts-to-sign/*.zip"
         })
