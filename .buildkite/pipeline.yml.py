@@ -59,19 +59,13 @@ def main():
 
     # if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
     if current_branch == "bk/sign":
-        steps.extend([
-            {
-                "wait": None
-            },
-            {
+        steps.append({
                 "label": "Check publish status",
                 "command": ".buildkite/scripts/upload.sh --sign",
                 "key": "check_for_sign",
                 # This artifact_paths is required by the gpg signinig pipeline.
                 "artifact_paths": "artifacts-to-sign/*.zip"
-            },
-
-        ])
+        })
 
     pipeline = {
         "steps": steps,
