@@ -974,7 +974,6 @@ group.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 group.Ext.real:
@@ -984,7 +983,6 @@ group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   short: Group info prior to any setgid operations.
   type: object
 group.Ext.real.id:
@@ -1137,7 +1135,6 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object
@@ -1319,7 +1316,6 @@ process.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.Ext.ancestry:
@@ -1583,7 +1579,6 @@ process.thread.Ext:
   level: custom
   name: thread.Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 process.thread.Ext.call_stack:
@@ -1595,7 +1590,6 @@ process.thread.Ext.call_stack:
   level: custom
   name: call_stack
   normalize: []
-  object_type: keyword
   original_fieldset: call_stack
   short: Fields describing a stack frame.
   type: object
@@ -1914,7 +1908,6 @@ user.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 user.Ext.real:
@@ -1924,7 +1917,6 @@ user.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   short: User info prior to any setuid operations.
   type: object
 user.Ext.real.id:
@@ -1991,7 +1983,6 @@ user.group.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Object for all custom defined fields to live in.
   type: object
@@ -2002,7 +1993,6 @@ user.group.Ext.real:
   level: custom
   name: Ext.real
   normalize: []
-  object_type: keyword
   original_fieldset: group
   short: Group info prior to any setgid operations.
   type: object

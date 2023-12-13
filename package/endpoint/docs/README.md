@@ -1064,6 +1064,9 @@ sent by the endpoint.
 | threat.enrichments.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.enrichments.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | threat.enrichments.indicator.file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
+| threat.enrichments.indicator.file.Ext.malware_classification.features.data.buffer | The features extracted from this file and evaluated by the model.  Usually an array of floats.  Likely zlib-encoded. | keyword |
+| threat.enrichments.indicator.file.Ext.malware_classification.features.data.decompressed_size | The decompressed size of buffer. | integer |
+| threat.enrichments.indicator.file.Ext.malware_classification.features.data.encoding | The encoding of buffer (e.g. zlib). | keyword |
 | threat.enrichments.indicator.file.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | threat.enrichments.indicator.file.Ext.malware_classification.score | The score produced by the classification model. | double |
 | threat.enrichments.indicator.file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
@@ -1275,6 +1278,9 @@ sent by the endpoint.
 | threat.indicator.file.Ext.entry_modified | Time of last status change.  See `st_ctim` member of `struct stat`. | double |
 | threat.indicator.file.Ext.header_bytes | First 16 bytes of file used to check file integrity. | keyword |
 | threat.indicator.file.Ext.header_data | First 16 bytes of file used to check file integrity. | text |
+| threat.indicator.file.Ext.malware_classification.features.data.buffer | The features extracted from this file and evaluated by the model.  Usually an array of floats.  Likely zlib-encoded. | keyword |
+| threat.indicator.file.Ext.malware_classification.features.data.decompressed_size | The decompressed size of buffer. | integer |
+| threat.indicator.file.Ext.malware_classification.features.data.encoding | The encoding of buffer (e.g. zlib). | keyword |
 | threat.indicator.file.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | threat.indicator.file.Ext.malware_classification.score | The score produced by the classification model. | double |
 | threat.indicator.file.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
@@ -1564,6 +1570,7 @@ sent by the endpoint.
 | file.Ext.malware_signature.version | Primary malware signature version. | keyword |
 | file.Ext.monotonic_id | File event monotonic ID. | unsigned_long |
 | file.Ext.original | Original file information during a modification event. | object |
+| file.Ext.original.extension | Original file extension prior to a modification event | keyword |
 | file.Ext.original.gid | Primary group ID (GID) of the file. | keyword |
 | file.Ext.original.group | Primary group name of the file. | keyword |
 | file.Ext.original.mode | Original file mode prior to a modification event | keyword |

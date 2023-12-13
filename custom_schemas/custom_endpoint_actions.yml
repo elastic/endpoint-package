@@ -33,7 +33,6 @@
       type: object
       level: custom
       short: data
-      object_type: keyword
       description: >
         The action request information
 

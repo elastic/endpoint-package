@@ -24,7 +24,6 @@ Endpoint.metrics:
   level: custom
   name: metrics
   normalize: []
-  object_type: keyword
   short: Metrics fields hold the endpoint and system's performance metrics
   type: object
 Endpoint.metrics.cpu:
@@ -34,7 +33,6 @@ Endpoint.metrics.cpu:
   level: custom
   name: metrics.cpu
   normalize: []
-  object_type: keyword
   short: CPU statistics
   type: object
 Endpoint.metrics.cpu.endpoint:
@@ -44,7 +42,6 @@ Endpoint.metrics.cpu.endpoint:
   level: custom
   name: metrics.cpu.endpoint
   normalize: []
-  object_type: keyword
   short: CPU metrics for the endpoint
   type: object
 Endpoint.metrics.cpu.endpoint.histogram:
@@ -85,7 +82,6 @@ Endpoint.metrics.disks:
   level: custom
   name: metrics.disks
   normalize: []
-  object_type: keyword
   short: An array of disk information for the host
   type: object
 Endpoint.metrics.disks.device:
@@ -154,7 +150,6 @@ Endpoint.metrics.documents_volume:
   level: custom
   name: metrics.documents_volume
   normalize: []
-  object_type: keyword
   short: Statistics about sent documents
   type: object
 Endpoint.metrics.documents_volume.alerts.sent_bytes:
@@ -218,7 +213,6 @@ Endpoint.metrics.documents_volume.api_events.sources:
   level: custom
   name: metrics.documents_volume.api_events.sources
   normalize: []
-  object_type: keyword
   short: An array of API Event document statistics per source
   type: object
 Endpoint.metrics.documents_volume.api_events.sources.sent_bytes:
@@ -639,7 +633,6 @@ Endpoint.metrics.malicious_behavior_rules:
   level: custom
   name: metrics.malicious_behavior_rules
   normalize: []
-  object_type: keyword
   short: An array of performance information about each malicious behavior rule
   type: object
 Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent:
@@ -671,7 +664,6 @@ Endpoint.metrics.memory:
   level: custom
   name: metrics.memory
   normalize: []
-  object_type: keyword
   short: Memory statistics
   type: object
 Endpoint.metrics.memory.endpoint:
@@ -681,7 +673,6 @@ Endpoint.metrics.memory.endpoint:
   level: custom
   name: metrics.memory.endpoint
   normalize: []
-  object_type: keyword
   short: Endpoint memory utilization
   type: object
 Endpoint.metrics.memory.endpoint.private:
@@ -691,7 +682,6 @@ Endpoint.metrics.memory.endpoint.private:
   level: custom
   name: metrics.memory.endpoint.private
   normalize: []
-  object_type: keyword
   short: The memory private to the endpoint
   type: object
 Endpoint.metrics.memory.endpoint.private.latest:
@@ -722,7 +712,6 @@ Endpoint.metrics.system_impact:
   level: custom
   name: metrics.system_impact
   normalize: []
-  object_type: keyword
   short: An array of system impact information
   type: object
 Endpoint.metrics.system_impact.authentication_events.week_idle_ms:
@@ -1140,7 +1129,6 @@ Endpoint.metrics.threads:
   level: custom
   name: metrics.threads
   normalize: []
-  object_type: keyword
   short: Statistics about the individual Endpoint threads (array)
   type: object
 Endpoint.metrics.threads.cpu.mean:
@@ -1172,7 +1160,6 @@ Endpoint.metrics.uptime:
   level: custom
   name: metrics.uptime
   normalize: []
-  object_type: keyword
   short: Number of seconds since boot
   type: object
 Endpoint.metrics.uptime.endpoint:
@@ -2081,7 +2068,6 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object

@@ -28,7 +28,6 @@
     - name: configuration
       level: custom
       type: object
-      object_type: keyword
       description: Configuration fields represent the intended and applied setting for fields not part of a Policy setting This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
       default_field: false
     - name: configuration.isolation
@@ -39,13 +38,11 @@
     - name: policy
       level: custom
       type: object
-      object_type: keyword
       description: The policy fields are used to hold information about applied policy.
       default_field: false
     - name: policy.applied
       level: custom
       type: object
-      object_type: keyword
       description: information about the policy that is applied
       default_field: false
     - name: policy.applied.id
@@ -69,7 +66,6 @@
     - name: state
       level: custom
       type: object
-      object_type: keyword
       description: Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
       default_field: false
     - name: state.isolation
@@ -174,7 +170,6 @@
     - name: agent
       level: custom
       type: object
-      object_type: keyword
       description: The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host.
       default_field: false
     - name: agent.id
@@ -391,7 +386,6 @@
     - name: os.Ext
       level: custom
       type: object
-      object_type: keyword
       description: Object for all custom defined fields to live in.
       default_field: false
     - name: os.Ext.variant

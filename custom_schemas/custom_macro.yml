@@ -32,14 +32,12 @@
     - name: collection
       level: custom
       type: object
-      object_type: keyword
       description: >
         Object containing hashes for the macro collection.
 
     - name: project_file
       level: custom
       type: object
-      object_type: keyword
       description: >
         Metadata about the corresponding VBA project file
 

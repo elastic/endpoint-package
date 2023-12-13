@@ -72,7 +72,6 @@
     - name: data
       level: custom
       type: object
-      object_type: keyword
       description: The action request information
       default_field: false
     - name: data.alert_id
