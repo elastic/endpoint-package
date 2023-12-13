@@ -39,7 +39,7 @@ upload_for_sign() {
     echo "--- Download artifacts to check publish status"
     buildkite-agent artifact download "build/packages/*.zip" "$_TMP_DIR"
 
-    find "$_TMP_DIR" -name "*.zip" | sort | while read -r _PKG; do
+    while read -r _PKG; do
 
         _PKG_NAME=$(basename "$_PKG")
         echo "Checking if $_PKG_NAME is already published."
@@ -51,7 +51,7 @@ upload_for_sign() {
         mv "$_PKG" "$_TO_SIGN_DIR"
         _PKG_TO_SIGN_EXISTS=true
 
-    done
+    done <<< "$( find "$_TMP_DIR" -name "*.zip" | sort )"
 
     if $_PKG_TO_SIGN_EXISTS; then
         python3 .buildkite/sign_and_publish.yml.py \
