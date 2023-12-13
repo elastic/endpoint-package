@@ -29,7 +29,7 @@ def main():
         {
             "label": "Prepare package for publish",
             "command": ".buildkite/scripts/upload.sh --publish",
-            "key": "download_sign",
+            "key": "download_signature",
             "depends_on": [
                 "package_sign",
             ],
@@ -40,7 +40,7 @@ def main():
         #     "label": "Trigger publish sign",
         #     "trigger": "unified-release-gpg-signing",
         #     "depends_on": [
-        #         "upload_for_publish",
+        #         "download_signature",
         #     ],
         #},
     ]

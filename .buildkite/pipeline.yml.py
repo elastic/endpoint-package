@@ -57,24 +57,20 @@ def main():
         },
     ]
 
-    #if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
+    # if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
     if current_branch == "bk/sign":
-        steps.append({
-            "group": "Publish",
-            "steps": [
-                {
-                    "label": "Prepare package for sign",
-                    "command": ".buildkite/scripts/upload.sh --sign",
-                    "key": "upload_for_sign",
-                    "artifact_paths": "artifacts-to-sign/*.zip"
-                },
-                # This steps can be extended by sign_and_publish.yml.py depending on the outcome of upload.sh
-            ],
-            "depends_on": [
-                "check",
-                "build",
-            ]
-        })
+        steps.extend([
+            {
+                "wait": None
+            },
+            {
+                "label": "Check publish status",
+                "command": ".buildkite/scripts/upload.sh --sign",
+                "key": "check_for_sign",
+                "artifact_paths": "artifacts-to-sign/*.zip"
+            },
+
+        ])
 
     pipeline = {
         "steps": steps,

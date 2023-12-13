@@ -55,8 +55,7 @@ upload_for_sign() {
 
     if $_PKG_TO_SIGN_EXISTS; then
         python3 .buildkite/sign_and_publish.yml.py \
-            --group-name "$BUILDKITE_GROUP_LABEL" \
-            --depends-on "$BUILDKITE_STEP_KEY"
+            --depends-on "$BUILDKITE_STEP_KEY" | buildkite-agent pipeline upload
     fi
 
 }
