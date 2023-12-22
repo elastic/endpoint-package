@@ -54,6 +54,7 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.Ext.effective_parent.pid
   - process.args
   - process.args_count
   - process.code_signature.exists
