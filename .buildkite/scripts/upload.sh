@@ -74,9 +74,10 @@ upload_for_publish() {
     mkdir -p "$_TO_PUBLISH_DIR"
 
     echo "--- Performing buildkite-agent step get"
-    BUILDKITE_API_TOKEN="$(vault kv get -field=token kv/ci-shared/endpoint/buildkite)"
-    export BUILDKITE_API_TOKEN
-    ARTIFACTS_BUILD_ID=$(python .buildkite/scripts/build_info.py --step-key package_sign --print-triggered-build-id)
+    #BUILDKITE_API_TOKEN="$(vault kv get -field=token kv/ci-shared/endpoint/buildkite)"
+    #export BUILDKITE_API_TOKEN
+    #ARTIFACTS_BUILD_ID=$(python .buildkite/scripts/build_info.py --step-key package_sign --print-triggered-build-id)
+    buildkite-agent step get --step package_sign --format json
 
     echo "--- Downloading signature to check publishing status"
     buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
