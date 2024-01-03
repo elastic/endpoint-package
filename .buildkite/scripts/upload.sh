@@ -80,7 +80,8 @@ upload_for_publish() {
     buildkite-agent step get --step package_sign --format json
 
     echo "--- Downloading signature to check publishing status"
-    buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
+    buildkite-agent artifact download "*.asc" "$_TMP_DIR" --step package_sign
+    #buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
 
     find "$_PKG_DIR" -name "*.asc" | sort | while read -r _PKG_SIGN; do
 
