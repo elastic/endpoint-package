@@ -251,7 +251,6 @@ event.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 event.Ext.correlation:
@@ -261,7 +260,6 @@ event.Ext.correlation:
   level: custom
   name: Ext.correlation
   normalize: []
-  object_type: keyword
   short: Information about event this should be correlated with.
   type: object
 event.Ext.correlation.id:
@@ -900,7 +898,6 @@ file.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   short: Object for all custom defined fields to live in.
   type: object
 file.Ext.original:
@@ -910,7 +907,6 @@ file.Ext.original:
   level: custom
   name: Ext.original
   normalize: []
-  object_type: keyword
   short: Original file information during a modification event.
   type: object
 file.Ext.original.path:
@@ -1074,7 +1070,6 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object

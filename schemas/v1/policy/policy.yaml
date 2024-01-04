@@ -26,7 +26,6 @@ Endpoint.configuration:
   level: custom
   name: configuration
   normalize: []
-  object_type: keyword
   short: Configuration fields represent the intended and applied setting for fields
     not part of a Policy setting This reflects what a given field is configured to
     do. The actual state of that same field is found in Endpoint.state
@@ -47,7 +46,6 @@ Endpoint.policy:
   level: custom
   name: policy
   normalize: []
-  object_type: keyword
   short: The policy fields are used to hold information about applied policy.
   type: object
 Endpoint.policy.applied:
@@ -57,7 +55,6 @@ Endpoint.policy.applied:
   level: custom
   name: policy.applied
   normalize: []
-  object_type: keyword
   short: information about the policy that is applied
   type: object
 Endpoint.policy.applied.actions:
@@ -110,7 +107,6 @@ Endpoint.policy.applied.artifacts:
   level: custom
   name: policy.applied.artifacts
   normalize: []
-  object_type: keyword
   short: information about protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.global:
@@ -120,7 +116,6 @@ Endpoint.policy.applied.artifacts.global:
   level: custom
   name: policy.applied.artifacts.global
   normalize: []
-  object_type: keyword
   short: information about global protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.global.identifiers:
@@ -188,7 +183,6 @@ Endpoint.policy.applied.artifacts.user:
   level: custom
   name: policy.applied.artifacts.user
   normalize: []
-  object_type: keyword
   short: information about user protection artifacts applied.
   type: object
 Endpoint.policy.applied.artifacts.user.identifiers:
@@ -268,7 +262,6 @@ Endpoint.policy.applied.response:
   level: custom
   name: policy.applied.response
   normalize: []
-  object_type: keyword
   short: the response of actions that failed in the applied policy
   type: object
 Endpoint.policy.applied.response.configurations:
@@ -279,7 +272,6 @@ Endpoint.policy.applied.response.configurations:
   level: custom
   name: policy.applied.response.configurations
   normalize: []
-  object_type: keyword
   short: the configurations of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.antivirus_registration:
@@ -291,7 +283,6 @@ Endpoint.policy.applied.response.configurations.antivirus_registration:
   level: custom
   name: policy.applied.response.configurations.antivirus_registration
   normalize: []
-  object_type: keyword
   short: overall antivirus registration configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions:
@@ -364,7 +355,6 @@ Endpoint.policy.applied.response.configurations.events:
   level: custom
   name: policy.applied.response.configurations.events
   normalize: []
-  object_type: keyword
   short: overall event collection configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.events.concerned_actions:
@@ -416,7 +406,6 @@ Endpoint.policy.applied.response.configurations.logging:
   level: custom
   name: policy.applied.response.configurations.logging
   normalize: []
-  object_type: keyword
   short: overall logging configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.logging.concerned_actions:
@@ -447,7 +436,6 @@ Endpoint.policy.applied.response.configurations.malware:
   level: custom
   name: policy.applied.response.configurations.malware
   normalize: []
-  object_type: keyword
   short: overall malware configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.malware.concerned_actions:
@@ -478,7 +466,6 @@ Endpoint.policy.applied.response.configurations.memory_protection:
   level: custom
   name: policy.applied.response.configurations.memory_protection
   normalize: []
-  object_type: keyword
   short: overall memory_protection configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions:
@@ -530,7 +517,6 @@ Endpoint.policy.applied.response.configurations.streaming:
   level: custom
   name: policy.applied.response.configurations.streaming
   normalize: []
-  object_type: keyword
   short: overall data streaming configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.streaming.concerned_actions:
@@ -562,7 +548,6 @@ Endpoint.policy.applied.response.diagnostic:
   level: custom
   name: policy.applied.response.diagnostic
   normalize: []
-  object_type: keyword
   short: the diagnostic configurations of the applied policy
   type: object
 Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions:
@@ -732,7 +717,6 @@ Endpoint.state:
   level: custom
   name: state
   normalize: []
-  object_type: keyword
   short: Represents the current state of a non-policy setting These fields reflect
     the current status of a field, which may differ from what it is configured to
     be (see Endpoint.configuration)
@@ -1613,7 +1597,6 @@ host.os.Ext:
   level: custom
   name: Ext
   normalize: []
-  object_type: keyword
   original_fieldset: os
   short: Object for all custom defined fields to live in.
   type: object
