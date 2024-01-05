@@ -21,7 +21,7 @@ spec:
     spec:
       repository: elastic/endpoint-package
       pipeline_file: ".buildkite/pipeline.yml.py"
-      branch_configuration: main 7.* 8.*
+      branch_configuration: build.branch == "main" || build.branch =~ /^[78]\.[0-9]{1,2}$/
       cancel_intermediate_builds: true
       skip_intermediate_builds: true
       provider_settings:
