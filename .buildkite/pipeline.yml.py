@@ -61,7 +61,7 @@ def main():
     if current_branch == "bk/sign":
         steps.append({
                 "label": "Check publish status",
-                "command": ".buildkite/scripts/upload.sh --sign",
+                "command": ".buildkite/scripts/upload.sh --generate",
                 "key": "check_for_sign",
                 "depends_on": [
                     "build",

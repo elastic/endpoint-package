@@ -11,6 +11,16 @@ set -euo pipefail
 CMD="${1:-unknown}"
 
 #
+# Print usage
+#
+print_usage() {
+    echo "Usage: $(basename $0) Option"
+    echo "    Option:"
+    echo "        --sign    "
+    echo "        --publish "
+}
+
+#
 # Check if a given zip file is already published
 #
 is_published() {
@@ -26,9 +36,11 @@ is_published() {
 
 
 #
-# Upload package file for signing
+# Generate signing and publishing pipieline if the package is not published
 #
-upload_for_sign() {
+# $1 - Optional directory path for package upload. Default: artifacts-to-sign
+#
+generate_signing_publishing() {
 
     local _TMP_DIR _TO_SIGN_DIR _PKG_NAME _PKG_TO_SIGN_EXISTS
     _TO_SIGN_DIR="${1:-artifacts-to-sign}"
@@ -48,7 +60,7 @@ upload_for_sign() {
             continue
         fi
 
-        echo "$_PKG_NAME is unpublished. Setting it up for signing."
+        echo "$_PKG_NAME is unpublished. Preparing for signing."
 
         mv "$_PKG" "$_TO_SIGN_DIR"
         _PKG_TO_SIGN_EXISTS=true
@@ -56,6 +68,7 @@ upload_for_sign() {
     done <<< "$( find "$_TMP_DIR" -name "*.zip" | sort )"
 
     if $_PKG_TO_SIGN_EXISTS; then
+        echo "--- Generating pipeline for signing and publishing"
         python3 .buildkite/sign_and_publish.yml.py \
             --depends-on "$BUILDKITE_STEP_KEY" | buildkite-agent pipeline upload
     fi
@@ -64,7 +77,9 @@ upload_for_sign() {
 
 
 #
-# Upload package and signature file for publish
+# Upload package and signature file for publish if not published already
+#
+# $1 - Optional directory path for package upload. Default: artifacts-to-publish
 #
 upload_for_publish() {
 
@@ -92,7 +107,8 @@ upload_for_publish() {
         fi
 
         echo "Downloading $_PKG_NAME for publishing."
-        buildkite-agent artifact download "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR"
+        buildkite-agent artifact download "build/packages/$_PKG_NAME" ./
+        mv "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR/"
 
         echo "Moving signature $_PKG_SIGN for publishing."
         mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/"
@@ -103,8 +119,8 @@ upload_for_publish() {
 
 
 case $CMD in
-"--sign")
-  upload_for_sign artifacts-to-sign
+"--generate")
+  generate_signing_publishing artifacts-to-sign
   ;;
 
 "--publish")
@@ -113,5 +129,7 @@ case $CMD in
 
 *)
   echo "Unknown command"
+  print_usage
+  exit 1
   ;;
 esac
