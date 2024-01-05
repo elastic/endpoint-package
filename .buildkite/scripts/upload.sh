@@ -83,7 +83,7 @@ upload_for_publish() {
 
     while read -r _PKG_SIGN; do
 
-        _PKG_NAME=$(basename "${_PKG_SIGN%.asc}.zip")
+        _PKG_NAME=$(basename "${_PKG_SIGN%.asc}")
 
         echo "Checking if $_PKG_NAME is already published."
         if is_published "$_PKG_NAME"; then
