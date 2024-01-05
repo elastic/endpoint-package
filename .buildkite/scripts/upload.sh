@@ -81,7 +81,7 @@ upload_for_publish() {
     echo "--- Downloading signature to check publishing status"
     buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
 
-    find "$_PKG_DIR" -name "*.asc" | sort | while read -r _PKG_SIGN; do
+    while read -r _PKG_SIGN; do
 
         _PKG_NAME=$(basename "${_PKG_SIGN%.asc}.zip")
 
@@ -94,8 +94,10 @@ upload_for_publish() {
         echo "Downloading $_PKG_NAME for publishing."
         buildkite-agent artifact download "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR"
 
-        mv "$_PKG_SIGN" "$_PKG_DIR/"
-    done
+        echo "Moving signature $_PKG_SIGN for publishing."
+        mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/"
+
+    done <<< "$(find "$_TMP_DIR" -name "*.asc" | sort )"
 
 }
 
