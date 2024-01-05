@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+#
+# This script generates nested pipeline which isn't intended to be used alone.
+#
 
 import json
-import os
 import argparse
 
 def parse_args() -> argparse.Namespace:
