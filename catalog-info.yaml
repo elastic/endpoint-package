@@ -21,12 +21,12 @@ spec:
     spec:
       repository: elastic/endpoint-package
       pipeline_file: ".buildkite/pipeline.yml.py"
+      branch_configuration: main 7.* 8.*
       cancel_intermediate_builds: true
       skip_intermediate_builds: true
       provider_settings:
-        build_branches: false
         build_pull_request_forks: false
-        build_pull_request_labels_changed: true
+        build_pull_request_labels_changed: false
         build_pull_requests: true
         build_tags: false
         cancel_deleted_branch_builds: true
