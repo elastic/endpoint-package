@@ -119,7 +119,7 @@ upload_for_publish() {
 
 case $CMD in
 "--check")
-  check_fi_published artifacts-to-sign
+  check_if_published artifacts-to-sign
   ;;
 
 "--publish")
