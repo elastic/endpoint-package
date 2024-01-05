@@ -35,14 +35,14 @@ def main():
             ],
             "artifact_paths": "artifacts-to-publish/*"
         },
-        # TODO: add release later
-        #{
-        #     "label": "Trigger publish sign",
-        #     "trigger": "unified-release-gpg-signing",
-        #     "depends_on": [
-        #         "download_signature",
-        #     ],
-        #},
+        {
+             "label": "Trigger publish sign",
+             "trigger": "unified-release-gpg-signing",
+             "depends_on": [
+                 "download_signature",
+             ],
+             "skip": "Not Ready",
+        },
     ]
 
     if args.depends_on:
