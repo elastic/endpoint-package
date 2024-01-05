@@ -2,9 +2,6 @@
 #
 # The script upload package for signing and publishing.
 #
-# Usage:
-#   upload.sh sign|publish <package_dir>
-#
 
 set -euo pipefail
 
@@ -71,6 +68,8 @@ check_if_published() {
         echo "--- Generating pipeline for signing and publishing"
         python3 .buildkite/sign_and_publish.yml.py \
             --depends-on "$BUILDKITE_STEP_KEY" | buildkite-agent pipeline upload
+    else
+        echo "--- No package needs to be published"
     fi
 
 }

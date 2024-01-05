@@ -28,7 +28,7 @@ def main():
         },
         {
             "label": "Prepare package for publish",
-            "command": ".buildkite/scripts/upload.sh --publish",
+            "command": ".buildkite/scripts/sign_and_publish.sh --publish",
             "key": "download_signature",
             "depends_on": [
                 "package_sign",
