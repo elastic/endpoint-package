@@ -16,8 +16,9 @@ CMD="${1:-unknown}"
 print_usage() {
     echo "Usage: $(basename $0) Option"
     echo "    Option:"
-    echo "        --sign    "
-    echo "        --publish "
+    echo "        --check     Setup pipeline for signing and publish if"
+    echo "                    generates artifact is not published."
+    echo "        --publish   Publish if a given artifacts is not published."
 }
 
 #
@@ -34,13 +35,12 @@ is_published() {
     return 1
 }
 
-
 #
 # Generate signing and publishing pipieline if the package is not published
 #
 # $1 - Optional directory path for package upload. Default: artifacts-to-sign
 #
-generate_signing_publishing() {
+check_if_published() {
 
     local _TMP_DIR _TO_SIGN_DIR _PKG_NAME _PKG_TO_SIGN_EXISTS
     _TO_SIGN_DIR="${1:-artifacts-to-sign}"
@@ -119,8 +119,8 @@ upload_for_publish() {
 
 
 case $CMD in
-"--generate")
-  generate_signing_publishing artifacts-to-sign
+"--check")
+  check_fi_published artifacts-to-sign
   ;;
 
 "--publish")
