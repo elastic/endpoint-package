@@ -78,7 +78,7 @@ check_if_published() {
 #
 # Upload package and signature file for publish if not published already
 #
-# $1 - Optional directory path for package upload. Default: artifacts-to-publish
+# $1 - Optional directory path for package upload. Default: packageArtifacts
 #
 upload_for_publish() {
 
@@ -92,7 +92,7 @@ upload_for_publish() {
     export BUILDKITE_API_TOKEN
     ARTIFACTS_BUILD_ID=$(python .buildkite/scripts/build_info.py --step-key package_sign --print-triggered-build-id)
 
-    echo "--- Downloading signature to check publishing status"
+    echo "--- Downloading signature"
     buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
 
     while read -r _PKG_SIGN; do
@@ -123,7 +123,7 @@ case $CMD in
   ;;
 
 "--publish")
-  upload_for_publish artifacts-to-publish
+  upload_for_publish packageArtifacts
   ;;
 
 *)

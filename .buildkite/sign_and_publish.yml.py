@@ -49,8 +49,7 @@ def main():
              ],
             "build": {
                 "env": {
-                    "DRY_RUN": "true",
-                    #"DRY_RUN": "true" if dry_run else "false",
+                    "DRY_RUN": "true" if dry_run else "false",
                     # From legacy Jenkins pipeline:
                     #   FIXME legacy_package=false
                     #   endpoint-package must be aligned with spec first, this option disables validation on the job side
