@@ -57,7 +57,8 @@ def main():
         },
     ]
 
-    if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
+    #if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
+    if current_branch == "bk/publishing":
         steps.append({
                 "label": "Check if published",
                 "command": ".buildkite/scripts/sign_and_publish.sh --check",
