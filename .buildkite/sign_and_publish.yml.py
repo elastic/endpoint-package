@@ -18,11 +18,12 @@ def main():
     args = parse_args()
     # This only gets triggered when the branch is either main or 7.\d or 8.\d
     # So, dry_run is true for non main branch
-    dry_run = os.getenv("BUILDKITE_BRANCH") != "main"
+    branch = os.getenv("BUILDKITE_BRANCH")
+    dry_run = branch != "main"
     pipeline = {}
     steps = [
         {
-            "label": "Trigger package sign",
+            "label": f"Trigger package sign for endpoint-package {branch} branch",
             "trigger": "unified-release-gpg-signing",
             "key": "package_sign",
             "depends_on": [],
@@ -42,7 +43,7 @@ def main():
             "artifact_paths": "packageArtifacts/*"
         },
         {
-             "label": f"Trigger publishing with DRY_RUN={dry_run}",
+             "label": f"Trigger publishing for endpoint-package {branch} branch",
              "trigger": "package-storage-infra-publishing",
              "depends_on": [
                  "download_signature",
