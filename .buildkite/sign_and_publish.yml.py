@@ -23,7 +23,7 @@ def main():
     pipeline = {}
     steps = [
         {
-            "label": f"Trigger package sign for endpoint-package {branch} branch",
+            "label": "Trigger package sign for endpoint-package",
             "trigger": "unified-release-gpg-signing",
             "key": "package_sign",
             "depends_on": [],
@@ -43,7 +43,7 @@ def main():
             "artifact_paths": "packageArtifacts/*"
         },
         {
-             "label": f"Trigger publishing for endpoint-package {branch} branch",
+             "label": "Trigger publishing for endpoint-package",
              "trigger": "package-storage-infra-publishing",
              "depends_on": [
                  "download_signature",
