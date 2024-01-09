@@ -83,7 +83,7 @@ check_if_published() {
 upload_for_publish() {
 
     local _TMP_DIR _TO_PUBLISH_DIR _PKG_NAME
-    _TO_PUBLISH_DIR="${1:-artifacts-to-publish}"
+    _TO_PUBLISH_DIR="${1:-packageArtifacts}"
     _TMP_DIR="$(mktemp -d)"
     mkdir -p "$_TO_PUBLISH_DIR"
 
@@ -110,7 +110,7 @@ upload_for_publish() {
         mv "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR/"
 
         echo "Moving signature $_PKG_SIGN for publishing."
-        mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/"
+        mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/${_PKG_NAME}.sig"
 
     done <<< "$(find "$_TMP_DIR" -name "*.asc" | sort )"
 

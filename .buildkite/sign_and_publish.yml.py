@@ -35,14 +35,20 @@ def main():
             "depends_on": [
                 "package_sign",
             ],
-            "artifact_paths": "artifacts-to-publish/*"
+            "artifact_paths": "packageArtifacts/*"
         },
         {
-             "label": "Trigger publish sign",
-             "trigger": "unified-release-gpg-signing",
+             "label": "Trigger publishing",
+             "trigger": "package-storage-infra-publishing",
              "depends_on": [
                  "download_signature",
              ],
+            "build": {
+                "env": {
+                    "DRY_RUN": "true",
+                    "PACKAGE_ARTIFACTS_FOLDER": "packageArtifacts"
+                },
+            },
              "skip": "Not Ready",
         },
     ]
