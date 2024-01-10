@@ -21,7 +21,9 @@ spec:
     spec:
       repository: elastic/endpoint-package
       pipeline_file: ".buildkite/pipeline.yml.py"
-      branch_configuration: build.branch == "main" || build.branch =~ /^[78]\.[0-9]{1,2}$/
+      # branch_configuration must be a space separated list of branches
+      # to build automatically.
+      branch_configuration: main 8.12
       cancel_intermediate_builds: true
       skip_intermediate_builds: true
       provider_settings:
