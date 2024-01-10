@@ -3,8 +3,9 @@
 # This script generates nested pipeline which isn't intended to be used alone.
 #
 
-import json
 import argparse
+import json
+import os
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -15,10 +16,14 @@ def parse_args() -> argparse.Namespace:
 
 def main():
     args = parse_args()
+    # This only gets triggered when the branch is either main or 7.\d or 8.\d
+    # So, dry_run is true for non main branch
+    branch = os.getenv("BUILDKITE_BRANCH")
+    dry_run = branch != "main"
     pipeline = {}
     steps = [
         {
-            "label": "Trigger package sign",
+            "label": "Trigger package sign for endpoint-package",
             "trigger": "unified-release-gpg-signing",
             "key": "package_sign",
             "depends_on": [],
@@ -35,15 +40,24 @@ def main():
             "depends_on": [
                 "package_sign",
             ],
-            "artifact_paths": "artifacts-to-publish/*"
+            "artifact_paths": "packageArtifacts/*"
         },
         {
-             "label": "Trigger publish sign",
-             "trigger": "unified-release-gpg-signing",
+             "label": "Trigger publishing for endpoint-package",
+             "trigger": "package-storage-infra-publishing",
              "depends_on": [
                  "download_signature",
              ],
-             "skip": "Not Ready",
+            "build": {
+                "env": {
+                    "DRY_RUN": "true" if dry_run else "false",
+                    # From legacy Jenkins pipeline:
+                    #   FIXME legacy_package=false
+                    #   endpoint-package must be aligned with spec first, this option disables validation on the job side
+                    "LEGACY_PACKAGE": "true",
+                    "PACKAGE_ARTIFACTS_FOLDER": "packageArtifacts"
+                },
+            },
         },
     ]
 

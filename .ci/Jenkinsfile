@@ -208,7 +208,9 @@ def signUnpublishedArtifactsWithElastic(builtPackagesPath) {
 }
 
 def uploadUnpublishedToPackageStorage(builtPackagesPath) {
-  def dryRun = env.BRANCH_NAME != 'main'
+  // def dryRun = env.BRANCH_NAME != 'main'
+  // This is set true to prevent both Buildkite and Jenkins from publishing at the same time.
+  def dryRun = true
   if (dryRun) {
     echo "Dry run: endpoint-package won't be published"
   }

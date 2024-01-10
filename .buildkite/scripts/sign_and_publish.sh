@@ -78,12 +78,12 @@ check_if_published() {
 #
 # Upload package and signature file for publish if not published already
 #
-# $1 - Optional directory path for package upload. Default: artifacts-to-publish
+# $1 - Optional directory path for package upload. Default: packageArtifacts
 #
 upload_for_publish() {
 
     local _TMP_DIR _TO_PUBLISH_DIR _PKG_NAME
-    _TO_PUBLISH_DIR="${1:-artifacts-to-publish}"
+    _TO_PUBLISH_DIR="${1:-packageArtifacts}"
     _TMP_DIR="$(mktemp -d)"
     mkdir -p "$_TO_PUBLISH_DIR"
 
@@ -92,7 +92,7 @@ upload_for_publish() {
     export BUILDKITE_API_TOKEN
     ARTIFACTS_BUILD_ID=$(python .buildkite/scripts/build_info.py --step-key package_sign --print-triggered-build-id)
 
-    echo "--- Downloading signature to check publishing status"
+    echo "--- Downloading signature"
     buildkite-agent artifact download "*.asc" "$_TMP_DIR" --build "${ARTIFACTS_BUILD_ID}"
 
     while read -r _PKG_SIGN; do
@@ -110,7 +110,7 @@ upload_for_publish() {
         mv "build/packages/$_PKG_NAME" "$_TO_PUBLISH_DIR/"
 
         echo "Moving signature $_PKG_SIGN for publishing."
-        mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/"
+        mv "$_PKG_SIGN" "$_TO_PUBLISH_DIR/${_PKG_NAME}.sig"
 
     done <<< "$(find "$_TMP_DIR" -name "*.asc" | sort )"
 
@@ -123,7 +123,7 @@ case $CMD in
   ;;
 
 "--publish")
-  upload_for_publish artifacts-to-publish
+  upload_for_publish packageArtifacts
   ;;
 
 *)
