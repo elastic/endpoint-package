@@ -5,6 +5,7 @@
     description: endpoint-package
     project-type: multibranch
     script-path: .ci/Jenkinsfile
+    disabled: true
     scm:
       - github:
           branch-discovery: no-pr
