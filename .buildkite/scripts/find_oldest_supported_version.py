@@ -116,8 +116,16 @@ def run(cfg: argparse.Namespace):
     with open(cfg.manifest_path, "r") as src:
         manifest_doc = yaml.safe_load(src)
 
-    kibana_version_condition = manifest_doc["conditions"]["kibana"]["version"]
-    print(find_oldest_supported_version(kibana_version_condition), end="")
+    kibana_version_condition = ""
+    if "kibana.version" in manifest_doc["conditions"]:
+        kibana_version_condition = manifest_doc["conditions"]["kibana.version"]
+    elif "kibana" in manifest_doc["conditions"]:
+        kibana_version_condition = manifest_doc["conditions"]["kibana"]["version"]
+
+    if kibana_version_condition:
+        print(find_oldest_supported_version(kibana_version_condition), end="")
+    else:
+        print("null")
 
 
 def main():
