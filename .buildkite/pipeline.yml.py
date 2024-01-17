@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import json
+import os
+import re
 
 build_agent = {
     "cpu": "2",
@@ -16,7 +18,13 @@ test_agent = {
     "image": "family/core-ubuntu-2204",
 }
 
+publish_agent = {
+    "image": "google/cloud-sdk:slim",
+}
+
+
 def main():
+    current_branch = os.getenv("BUILDKITE_BRANCH")
     steps = [
         {
             "label": "Build",
@@ -48,6 +56,19 @@ def main():
             ],
         },
     ]
+
+    if current_branch == "main" or re.match(r"^[78]\.\d+$", current_branch):
+        steps.append({
+                "label": "Check if published",
+                "command": ".buildkite/scripts/sign_and_publish.sh --check",
+                "key": "check_for_sign",
+                "depends_on": [
+                    "build",
+                    "check",
+                ],
+                # This artifact_paths is required by the gpg signinig pipeline.
+                "artifact_paths": "artifacts-to-sign/*.zip"
+        })
 
     pipeline = {
         "steps": steps,
