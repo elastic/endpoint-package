@@ -19,7 +19,7 @@ def main():
     # This only gets triggered when the branch is either main or 7.\d or 8.\d
     # So, dry_run is true for non main branch
     branch = os.getenv("BUILDKITE_BRANCH")
-    dry_run = branch != "main"
+    dry_run = branch != "8.12"
     pipeline = {}
     steps = [
         {
