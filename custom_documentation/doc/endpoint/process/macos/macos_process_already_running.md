@@ -48,6 +48,7 @@ This event is generated for a process that was already running before Endpoint's
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.effective_parent.pid |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
