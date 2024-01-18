@@ -25,7 +25,11 @@ spec:
       # to build automatically.
       branch_configuration: main 8.12
       cancel_intermediate_builds: true
+      # Do not accidently skip main or release branch that may be in the middle of releasing
+      cancel_intermediate_builds_branch_filter: '!main !8.12'
       skip_intermediate_builds: true
+      # Do not accidently skip main or release branch that may be in the middle of releasing
+      skip_intermediate_builds_branch_filter: '!main !8.12'
       provider_settings:
         build_pull_request_forks: false
         build_pull_request_labels_changed: false
