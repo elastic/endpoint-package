@@ -1,8 +1,26 @@
-- version: "8.13.0-next"
+- version: "8.13.0"
   changes:
-    - description: TBD
+    - description: Fix kibana version condition and additional buildkite settings
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/473
+    - description: add 8.12 custom documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/470
+    - description: Original Extension field for file rename events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/457
+    - description: Replace more dotted keys
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/442
+    - description: artifacts manifest update age, snapshot date
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/440
+    - description: 'object_type: keyword'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/443
+    - description: reformat metadata yaml, removed dotted-keys
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/441
 - version: "8.12.0"
   changes:
     - description: additional process callstack fields
