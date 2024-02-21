@@ -1,3 +1,8 @@
+- version: "8.13.1-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/9999
 - version: "8.13.0"
   changes:
     - description: Fix kibana version condition and additional buildkite settings
