@@ -61,8 +61,10 @@ fields:
           entity_id: {}
           Ext:
             fields:
+              created_suspended: {}
               memory_region:
                 fields: "*"
+              protection: {}
               token:
                 fields:
                   integrity_level_name: {}
@@ -88,6 +90,7 @@ fields:
                 fields: "*"
               parameters:
                 fields: "*"
+          created_suspended: {}
           memory_region:
             fields: "*"
           token:
