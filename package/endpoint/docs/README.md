@@ -140,7 +140,6 @@ sent by the endpoint.
 | Target.process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | Target.process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | Target.process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| Target.process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
 | Target.process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | Target.process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -636,7 +635,6 @@ sent by the endpoint.
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
-| process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
