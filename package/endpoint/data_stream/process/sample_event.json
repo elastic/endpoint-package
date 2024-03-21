@@ -72,6 +72,7 @@
                     "status": "trusted"
                 }
             ],
+            "created_suspended": true,
             "mitigation_policies": [
                 "Microsoft only, Opt-in to restrict to Microsoft, Windows Store and WHQL",
                 "CET dynamic APIs can only be called out of proc",
