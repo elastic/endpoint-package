@@ -27,6 +27,19 @@ Target.process.Ext:
   original_fieldset: process
   short: Object for all custom defined fields to live in.
   type: object
+Target.process.Ext.created_suspended:
+  dashed_name: Target-process-Ext-created-suspended
+  description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the
+    Win32 CreateProcess API. Not valid for direct syscalls.
+  example: 'true'
+  flat_name: Target.process.Ext.created_suspended
+  level: custom
+  name: Ext.created_suspended
+  normalize: []
+  original_fieldset: process
+  short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
+    CreateProcess API. Not valid for direct syscalls.
+  type: boolean
 Target.process.Ext.memory_region.allocation_base:
   dashed_name: Target-process-Ext-memory-region-allocation-base
   description: Base address of the memory allocation containing the memory region.
@@ -1333,6 +1346,19 @@ Target.process.Ext.memory_region.strings:
   normalize: []
   original_fieldset: memory_region
   short: Array of strings found within the memory region.
+  type: keyword
+Target.process.Ext.protection:
+  dashed_name: Target-process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: Target.process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
   type: keyword
 Target.process.Ext.token.integrity_level_name:
   dashed_name: Target-process-Ext-token-integrity-level-name
@@ -3022,6 +3048,18 @@ process.Ext.code_signature.trusted:
   name: Ext.code_signature.trusted
   normalize: []
   short: Stores the trust status of the certificate chain.
+  type: boolean
+process.Ext.created_suspended:
+  dashed_name: process-Ext-created-suspended
+  description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the
+    Win32 CreateProcess API. Not valid for direct syscalls.
+  example: 'true'
+  flat_name: process.Ext.created_suspended
+  level: custom
+  name: Ext.created_suspended
+  normalize: []
+  short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
+    CreateProcess API. Not valid for direct syscalls.
   type: boolean
 process.Ext.memory_region.allocation_base:
   dashed_name: process-Ext-memory-region-allocation-base

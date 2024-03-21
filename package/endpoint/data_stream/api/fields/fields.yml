@@ -35,6 +35,12 @@
       type: object
       description: Object for all custom defined fields to live in.
       default_field: false
+    - name: process.Ext.created_suspended
+      level: custom
+      type: boolean
+      description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
+      example: 'true'
+      default_field: false
     - name: process.Ext.memory_region.allocation_base
       level: custom
       type: unsigned_long
@@ -741,6 +747,12 @@
       description: Array of strings found within the memory region.
       index: false
       doc_values: false
+      default_field: false
+    - name: process.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
       default_field: false
     - name: process.Ext.token.integrity_level_name
       level: custom
@@ -1492,6 +1504,12 @@
       description: 'Stores the trust status of the certificate chain.
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: Ext.created_suspended
+      level: custom
+      type: boolean
+      description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
       default_field: false
     - name: Ext.memory_region.allocation_base
