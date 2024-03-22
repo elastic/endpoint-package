@@ -426,3 +426,31 @@
       description: >
         DLL containing the hook procedure. 
       example: "c:\\windows\\system32\\taskbar.dll"
+
+    - name: parameters.network_type
+      level: custom
+      type: keyword
+      description: >
+        Network layer protocol. Typically ipv4 or ipv6.
+      example: "ipv4"
+
+    - name: parameters.transport
+      level: custom
+      type: keyword
+      description: >
+        Transport layer protocol. Typically tcp or udp.
+      example: "tcp"
+
+    - name: parameters.ip
+      level: custom
+      type: ip
+      description: >
+        IP address (IPv4 or IPv6).
+      example: "35.238.164.82"
+
+    - name: parameters.port
+      level: custom
+      type: long
+      description: >
+        Network port, such as 443.
+      example: 80
