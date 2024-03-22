@@ -4,6 +4,7 @@
         "process": {
             "Ext": {
                 "created_suspended": true,
+                "protection": "PsProtectedSignerWinTcb",
                 "memory_region": {
                     "allocation_base": 1649160290304,
                     "allocation_protection": "RWX",
