@@ -1356,6 +1356,25 @@
       description: Type of hook procedure to be installed.
       example: WH_KEYBOARD_LL
       default_field: false
+    - name: Ext.api.parameters.ip
+      level: custom
+      type: ip
+      description: IP address (IPv4 or IPv6).
+      example: 35.238.164.82
+      default_field: false
+    - name: Ext.api.parameters.network_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Network layer protocol. Typically ipv4 or ipv6.
+      example: ipv4
+      default_field: false
+    - name: Ext.api.parameters.port
+      level: custom
+      type: long
+      description: Network port, such as 443.
+      example: 80
+      default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
       type: unsigned_long
@@ -1449,6 +1468,13 @@
       type: unsigned_long
       description: The size.
       example: 4096
+      default_field: false
+    - name: Ext.api.parameters.transport
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Transport layer protocol. Typically tcp or udp.
+      example: tcp
       default_field: false
     - name: Ext.api.parameters.usage
       level: custom
