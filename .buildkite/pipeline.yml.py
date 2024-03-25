@@ -71,6 +71,9 @@ def main():
         })
 
     pipeline = {
+        "env": {
+            "USE_HTTPS_CLONE": True,
+        },
         "steps": steps,
     }
 
