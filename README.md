@@ -1,5 +1,7 @@
 # The Endpoint Package
 
+test
+
 The Endpoint package handles installing mapping templates, ILM policies, ingest pipelines, and other functionality
 that should be done prior to the Endpoint streaming data to ES and using the Endpoint app in Kibana.
 
