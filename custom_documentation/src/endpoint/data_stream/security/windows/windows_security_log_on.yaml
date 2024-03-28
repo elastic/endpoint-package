@@ -63,3 +63,6 @@ fields:
   - user.domain
   - user.id
   - user.name
+  - user.effective.domain
+  - user.effective.id
+  - user.effective.name
