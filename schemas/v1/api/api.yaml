@@ -1481,6 +1481,25 @@ data_stream.type:
   normalize: []
   short: An overarching type for the data stream.
   type: constant_keyword
+destination.ip:
+  dashed_name: destination-ip
+  description: IP address of the destination (IPv4 or IPv6).
+  flat_name: destination.ip
+  level: core
+  name: ip
+  normalize: []
+  short: IP address of the destination.
+  type: ip
+destination.port:
+  dashed_name: destination-port
+  description: Port of the destination.
+  flat_name: destination.port
+  format: string
+  level: core
+  name: port
+  normalize: []
+  short: Port of the destination.
+  type: long
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
@@ -2282,6 +2301,35 @@ message:
   normalize: []
   short: Log message optimized for viewing in a log viewer.
   type: match_only_text
+network.transport:
+  dashed_name: network-transport
+  description: 'Same as network.iana_number, but instead using the Keyword name of
+    the transport layer (udp, tcp, ipv6-icmp, etc.)
+
+    The field value must be normalized to lowercase for querying.'
+  example: tcp
+  flat_name: network.transport
+  ignore_above: 1024
+  level: core
+  name: transport
+  normalize: []
+  short: Protocol Name corresponding to the field `iana_number`.
+  type: keyword
+network.type:
+  dashed_name: network-type
+  description: 'In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec,
+    pim, etc
+
+    The field value must be normalized to lowercase for querying.'
+  example: ipv4
+  flat_name: network.type
+  ignore_above: 1024
+  level: core
+  name: type
+  normalize: []
+  short: In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim,
+    etc
+  type: keyword
 process.Ext:
   dashed_name: process-Ext
   description: Object for all custom defined fields to live in.
@@ -2781,40 +2829,6 @@ process.Ext.api.parameters.hook_type:
   original_fieldset: api
   short: Type of hook procedure to be installed.
   type: keyword
-process.Ext.api.parameters.ip:
-  dashed_name: process-Ext-api-parameters-ip
-  description: IP address (IPv4 or IPv6).
-  example: 35.238.164.82
-  flat_name: process.Ext.api.parameters.ip
-  level: custom
-  name: parameters.ip
-  normalize: []
-  original_fieldset: api
-  short: IP address (IPv4 or IPv6).
-  type: ip
-process.Ext.api.parameters.network_type:
-  dashed_name: process-Ext-api-parameters-network-type
-  description: Network layer protocol. Typically ipv4 or ipv6.
-  example: ipv4
-  flat_name: process.Ext.api.parameters.network_type
-  ignore_above: 1024
-  level: custom
-  name: parameters.network_type
-  normalize: []
-  original_fieldset: api
-  short: Network layer protocol. Typically ipv4 or ipv6.
-  type: keyword
-process.Ext.api.parameters.port:
-  dashed_name: process-Ext-api-parameters-port
-  description: Network port, such as 443.
-  example: 80
-  flat_name: process.Ext.api.parameters.port
-  level: custom
-  name: parameters.port
-  normalize: []
-  original_fieldset: api
-  short: Network port, such as 443.
-  type: long
 process.Ext.api.parameters.procedure:
   dashed_name: process-Ext-api-parameters-procedure
   description: The memory address of the procedure or function.
@@ -2985,18 +2999,6 @@ process.Ext.api.parameters.size:
   original_fieldset: api
   short: The size.
   type: unsigned_long
-process.Ext.api.parameters.transport:
-  dashed_name: process-Ext-api-parameters-transport
-  description: Transport layer protocol. Typically tcp or udp.
-  example: tcp
-  flat_name: process.Ext.api.parameters.transport
-  ignore_above: 1024
-  level: custom
-  name: parameters.transport
-  normalize: []
-  original_fieldset: api
-  short: Transport layer protocol. Typically tcp or udp.
-  type: keyword
 process.Ext.api.parameters.usage:
   dashed_name: process-Ext-api-parameters-usage
   description: This parameter indicates the specific device (Usage) within the Usage

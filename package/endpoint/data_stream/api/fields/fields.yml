@@ -836,6 +836,24 @@
       description: Data stream type.
       example: logs
       default_field: false
+- name: destination
+  title: Destination
+  group: 2
+  description: 'Destination fields capture details about the receiver of a network exchange/packet. These fields are populated from a network event, packet, or other event containing details of a network transaction.
+
+    Destination fields are usually populated in conjunction with source fields. The source and destination fields are considered the baseline and should always be filled if an event contains source and destination details from a network transaction. If the event also contains identification of the client and server roles, then the client and server fields should also be populated.'
+  type: group
+  default_field: true
+  fields:
+    - name: ip
+      level: core
+      type: ip
+      description: IP address of the destination (IPv4 or IPv6).
+    - name: port
+      level: core
+      type: long
+      format: string
+      description: Port of the destination.
 - name: ecs
   title: ECS
   group: 2
@@ -1092,6 +1110,31 @@
       type: long
       description: Seconds the host has been up.
       example: 1325
+- name: network
+  title: Network
+  group: 2
+  description: 'The network is defined as the communication path over which a host or network event happens.
+
+    The network.* fields should be populated with details about the network activity associated with an event.'
+  type: group
+  default_field: true
+  fields:
+    - name: transport
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Same as network.iana_number, but instead using the Keyword name of the transport layer (udp, tcp, ipv6-icmp, etc.)
+
+        The field value must be normalized to lowercase for querying.'
+      example: tcp
+    - name: type
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc
+
+        The field value must be normalized to lowercase for querying.'
+      example: ipv4
 - name: process
   title: Process
   group: 2
@@ -1356,25 +1399,6 @@
       description: Type of hook procedure to be installed.
       example: WH_KEYBOARD_LL
       default_field: false
-    - name: Ext.api.parameters.ip
-      level: custom
-      type: ip
-      description: IP address (IPv4 or IPv6).
-      example: 35.238.164.82
-      default_field: false
-    - name: Ext.api.parameters.network_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Network layer protocol. Typically ipv4 or ipv6.
-      example: ipv4
-      default_field: false
-    - name: Ext.api.parameters.port
-      level: custom
-      type: long
-      description: Network port, such as 443.
-      example: 80
-      default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
       type: unsigned_long
@@ -1468,13 +1492,6 @@
       type: unsigned_long
       description: The size.
       example: 4096
-      default_field: false
-    - name: Ext.api.parameters.transport
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Transport layer protocol. Typically tcp or udp.
-      example: tcp
       default_field: false
     - name: Ext.api.parameters.usage
       level: custom

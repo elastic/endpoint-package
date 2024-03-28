@@ -626,20 +626,6 @@
       index: false
       doc_values: false
       default_field: false
-    - name: metrics.system_impact.tcpip_events.week_idle_ms
-      level: custom
-      type: unsigned_long
-      description: The total milliseconds spent queueing ETW TCP/IP events for the process over the last week
-      index: false
-      doc_values: false
-      default_field: false
-    - name: metrics.system_impact.tcpip_events.week_ms
-      level: custom
-      type: unsigned_long
-      description: The total milliseconds spent on ETW TCP/IP events for the process over the last week
-      index: false
-      doc_values: false
-      default_field: false
     - name: metrics.system_impact.threat_intelligence_events.week_idle_ms
       level: custom
       type: unsigned_long

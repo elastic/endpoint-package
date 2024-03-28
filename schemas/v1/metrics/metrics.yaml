@@ -1069,32 +1069,6 @@ Endpoint.metrics.system_impact.registry_events.week_ms:
   short: The total milliseconds spent on registry events for the process over the
     last week
   type: unsigned_long
-Endpoint.metrics.system_impact.tcpip_events.week_idle_ms:
-  dashed_name: Endpoint-metrics-system-impact-tcpip-events-week-idle-ms
-  description: The total milliseconds spent queueing ETW TCP/IP events for the process
-    over the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.tcpip_events.week_idle_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.tcpip_events.week_idle_ms
-  normalize: []
-  short: The total milliseconds spent queueing ETW TCP/IP events for the process over
-    the last week
-  type: unsigned_long
-Endpoint.metrics.system_impact.tcpip_events.week_ms:
-  dashed_name: Endpoint-metrics-system-impact-tcpip-events-week-ms
-  description: The total milliseconds spent on ETW TCP/IP events for the process over
-    the last week
-  doc_values: false
-  flat_name: Endpoint.metrics.system_impact.tcpip_events.week_ms
-  index: false
-  level: custom
-  name: metrics.system_impact.tcpip_events.week_ms
-  normalize: []
-  short: The total milliseconds spent on ETW TCP/IP events for the process over the
-    last week
-  type: unsigned_long
 Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-threat-intelligence-events-week-idle-ms
   description: The total milliseconds spent queueing ETW Threat-Intelligence events
