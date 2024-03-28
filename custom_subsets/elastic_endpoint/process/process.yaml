@@ -165,6 +165,7 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+          created_suspended: {}
           defense_evasions: {}
           mitigation_policies: {}
           dll:
