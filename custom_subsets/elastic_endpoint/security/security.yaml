@@ -83,7 +83,7 @@ fields:
       hash: {}
       id: {}
       name: {}
-      effective: {}
+      effective:
         fields:
           domain: {}
           email: {}
