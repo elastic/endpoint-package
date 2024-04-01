@@ -886,3 +886,26 @@
           default_field: false
       description: Short name or login of the user.
       example: a.einstein
+    - name: user.effective.id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier of the effective user.
+      example: S-1-5-21-202424912787-2692429404-2351956786-1000
+    - name: user.effective.name
+      level: core
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: match_only_text
+          default_field: false
+      description: Short name or login of the effective user.
+      example: a.einstein
+    - name: user.effective.domain
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the directory the effective user is a member of.
+
+        For example, an LDAP or Active Directory domain name.'
