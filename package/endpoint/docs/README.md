@@ -1895,9 +1895,6 @@ sent by the endpoint.
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
-| user.effective.domain | Name of the directory the effective user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
-| user.effective.id | Unique identifier of the effective user. | keyword |
-| user.effective.name | Short name or login of the effective user. | keyword |
 
 
 ### network
