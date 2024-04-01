@@ -58,4 +58,7 @@ This event is generated when a user logs on to the computer.
 | user.domain |
 | user.id |
 | user.name |
+| user.effective.domain |
+| user.effective.id |
+| user.effective.name |
 
