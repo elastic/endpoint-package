@@ -2723,6 +2723,9 @@ sent by the endpoint.
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
+| user.email | Effective user's email address, if available | keyword |
+| user.full_name | Effective user's full name, if available. | keyword |
+| user.hash| Unique hash to correlate information for an effective user in anonymized form. Useful if `user.effective.id` or `user.effective.name` contain confidential information and cannot be used.| keyword |
 
 
 ## Metrics

@@ -909,3 +909,25 @@
       description: 'Name of the directory the effective user is a member of.
 
         For example, an LDAP or Active Directory domain name.'
+    - name: effective.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Effective user's email address, if available
+    - name: effective.full_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: text
+          type: match_only_text
+          default_field: false
+      description: Effective user's full name, if available.
+      example: Albert Einstein
+    - name: effective.hash
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique hash to correlate information for an effective user in anonymized form.
+
+        Useful if `user.effective.id` or `user.effective.name` contain confidential information and cannot be used.'

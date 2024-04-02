@@ -61,4 +61,7 @@ This event is generated when a user logs on to the computer.
 | user.effective.domain |
 | user.effective.id |
 | user.effective.name |
+| user.effective.email |
+| user.effective.full_name |
+| user.effective.hash |
 
