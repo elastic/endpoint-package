@@ -83,6 +83,14 @@ fields:
       hash: {}
       id: {}
       name: {}
+      effective:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          hash: {}
+          id: {}
+          name: {}
       group:
         fields:
           domain: {}

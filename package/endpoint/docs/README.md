@@ -2708,6 +2708,9 @@ sent by the endpoint.
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.effective.domain | Name of the directory the effective user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.effective.id | Unique identifier of the effective user. | keyword |
+| user.effective.name | Short name or login of the effective user. | keyword |
 | user.email | User email address. | keyword |
 | user.full_name | User's full name, if available. | keyword |
 | user.group.Ext | Object for all custom defined fields to live in. | object |
@@ -2720,6 +2723,9 @@ sent by the endpoint.
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
+| user.email | Effective user's email address, if available | keyword |
+| user.full_name | Effective user's full name, if available. | keyword |
+| user.hash| Unique hash to correlate information for an effective user in anonymized form. Useful if `user.effective.id` or `user.effective.name` contain confidential information and cannot be used.| keyword |
 
 
 ## Metrics
