@@ -415,6 +415,12 @@
         Leave unpopulated if the validity or trust of the certificate was unchecked.
       example: ERROR_UNTRUSTED_ROOT
 
+    - name: Ext.created_suspended
+      level: custom
+      type: boolean
+      description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
+      example: "true"
+
     - name: Ext.mitigation_policies
       level: custom
       type: keyword

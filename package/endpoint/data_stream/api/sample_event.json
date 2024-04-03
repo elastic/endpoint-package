@@ -3,6 +3,8 @@
     "Target": {
         "process": {
             "Ext": {
+                "created_suspended": true,
+                "protection": "PsProtectedSignerWinTcb",
                 "memory_region": {
                     "allocation_base": 1649160290304,
                     "allocation_protection": "RWX",
@@ -34,6 +36,10 @@
             "name": "1_StayRunningWin32_x64.exe",
             "pid": 25732
         }
+    },
+    "destination": {
+        "ip": "2001:4860:4860::8844",
+        "port": 139
     },
     "event": {
         "category": [
@@ -86,6 +92,10 @@
         }
     },
     "message": "Endpoint API event - hand-crafted with a superset of fields",
+    "network": {
+        "transport": "tcp",
+        "type": "ipv6"
+    },
     "process": {
         "Ext": {
             "ancestry": [

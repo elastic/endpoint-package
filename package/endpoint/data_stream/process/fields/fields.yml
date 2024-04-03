@@ -765,6 +765,12 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: Ext.created_suspended
+      level: custom
+      type: boolean
+      description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
+      example: 'true'
+      default_field: false
     - name: Ext.defense_evasions
       level: custom
       type: keyword

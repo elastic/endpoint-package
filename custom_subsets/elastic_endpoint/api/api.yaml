@@ -7,6 +7,10 @@ fields:
       message: {}
   data_stream:
     fields: "*"
+  destination:
+    fields:
+      ip: {}
+      port: {}
   ecs:
     fields:
       version: {}
@@ -51,6 +55,10 @@ fields:
           Ext:
             fields:
               variant: {}
+  network:
+    fields:
+      transport: {}
+      type: {}
   Target:
     fields:
       process:
@@ -61,8 +69,10 @@ fields:
           entity_id: {}
           Ext:
             fields:
+              created_suspended: {}
               memory_region:
                 fields: "*"
+              protection: {}
               token:
                 fields:
                   integrity_level_name: {}
@@ -88,6 +98,7 @@ fields:
                 fields: "*"
               parameters:
                 fields: "*"
+          created_suspended: {}
           memory_region:
             fields: "*"
           token:
