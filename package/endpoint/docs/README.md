@@ -1673,6 +1673,7 @@ sent by the endpoint.
 | process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
 | process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
 | process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -1866,6 +1867,7 @@ sent by the endpoint.
 | process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
 | process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
 | process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
 | source.geo.continent_code | Two-letter code representing continent's name. | keyword |
@@ -2361,6 +2363,7 @@ sent by the endpoint.
 | process.parent.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
 | process.parent.thread.Ext.call_stack_contains_unbacked | Indicates whether the creating thread's stack contains frames pointing outside any known executable image. | boolean |
 | process.parent.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
+| process.parent.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
 | process.parent.thread.id | Thread ID. | long |
 | process.parent.thread.name | Thread name. | keyword |
 | process.parent.title | Process title. The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened. | keyword |
@@ -2569,6 +2572,7 @@ sent by the endpoint.
 | process.thread.Ext.call_stack.protection | Protection of the page containing this instruction.  This is `R-X' by default if omitted. | keyword |
 | process.thread.Ext.call_stack.symbol_info | The nearest symbol for `instruction_pointer`. | keyword |
 | process.thread.Ext.call_stack_summary | Concatentation of the non-repeated modules in the call stack. | keyword |
+| process.thread.Ext.hardware_breakpoint_set | Whether a hardware breakpoint was set for the thread. This field is omitted if false. | boolean |
 | process.thread.id | Thread ID. | long |
 | registry.data.bytes | Original bytes written with base64 encoding. For Windows registry operations, such as SetValueEx and RegQueryValueEx, this corresponds to the data pointed by `lp_data`. This is optional but provides better recoverability and should be populated for REG_BINARY encoded values. | keyword |
 | registry.data.strings | Content when writing string types. Populated as an array when writing string data to the registry. For single string registry types (REG_SZ, REG_EXPAND_SZ), this should be an array with one string. For sequences of string with REG_MULTI_SZ, this array will be variable length. For numeric data, such as REG_DWORD and REG_QWORD, this should be populated with the decimal representation (e.g `"1"`). | wildcard |
@@ -2710,6 +2714,9 @@ sent by the endpoint.
 | user.Ext.real.name | Short name or login of the user. | keyword |
 | user.domain | Name of the directory the user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
 | user.effective.domain | Name of the directory the effective user is a member of. For example, an LDAP or Active Directory domain name. | keyword |
+| user.effective.email | Effective user's email address, if available | keyword |
+| user.effective.full_name | Effective user's full name, if available. | keyword |
+| user.effective.hash | Unique hash to correlate information for an effective user in anonymized form. Useful if `user.effective.id` or `user.effective.name` contain confidential information and cannot be used. | keyword |
 | user.effective.id | Unique identifier of the effective user. | keyword |
 | user.effective.name | Short name or login of the effective user. | keyword |
 | user.email | User email address. | keyword |
@@ -2724,9 +2731,6 @@ sent by the endpoint.
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
-| user.email | Effective user's email address, if available | keyword |
-| user.full_name | Effective user's full name, if available. | keyword |
-| user.hash| Unique hash to correlate information for an effective user in anonymized form. Useful if `user.effective.id` or `user.effective.name` contain confidential information and cannot be used.| keyword |
 
 
 ## Metrics

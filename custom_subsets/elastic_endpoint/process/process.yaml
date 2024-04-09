@@ -263,6 +263,7 @@ fields:
                       symbol_info: {}
                   call_stack_summary: {}
                   call_stack_contains_unbacked: {}
+                  hardware_breakpoint_set: {}
           title: {}
           uptime: {}
           working_directory: {}

@@ -2756,6 +2756,18 @@ process.parent.thread.Ext.call_stack_summary:
   original_fieldset: process
   short: Concatentation of the non-repeated modules in the call stack.
   type: keyword
+process.parent.thread.Ext.hardware_breakpoint_set:
+  dashed_name: process-parent-thread-Ext-hardware-breakpoint-set
+  description: Whether a hardware breakpoint was set for the thread. This field is
+    omitted if false.
+  example: 'true'
+  flat_name: process.parent.thread.Ext.hardware_breakpoint_set
+  level: custom
+  name: thread.Ext.hardware_breakpoint_set
+  normalize: []
+  original_fieldset: process
+  short: Whether a hardware breakpoint was set for the thread.
+  type: boolean
 process.parent.thread.id:
   dashed_name: process-parent-thread-id
   description: Thread ID.
