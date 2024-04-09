@@ -129,6 +129,7 @@ fields:
                   protection: {}
                   symbol_info: {}
               call_stack_summary: {}
+              hardware_breakpoint_set: {}
       Ext:
         fields:
           ancestry: {}
