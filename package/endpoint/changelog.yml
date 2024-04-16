@@ -1,8 +1,14 @@
-- version: "8.14.0-next"
+- version: "8.14.0"
   changes:
-    - description: TBD
+    - description: 'HWBP => Production'
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/490
+    - description: 'API event field updates'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/479
+    - description: Added effective user field.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/485
 - version: "8.13.0"
   changes:
     - description: Fix kibana version condition and additional buildkite settings
