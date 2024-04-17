@@ -2695,7 +2695,7 @@
           type: match_only_text
       description: 'Process title.
 
-        The proctitle, some times the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
+        The process title, sometimes the same as process name. Can also be different: for example a browser setting its title to the web page currently opened.'
       default_field: false
     - name: process.uptime
       level: extended
