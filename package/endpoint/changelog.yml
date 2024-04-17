@@ -1,3 +1,8 @@
+- version: "8.14.1-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/99999
 - version: "8.14.0"
   changes:
     - description: 'HWBP => Production'
