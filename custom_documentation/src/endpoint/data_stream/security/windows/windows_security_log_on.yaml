@@ -25,6 +25,7 @@ fields:
   - elastic.agent.id
   - event.action
   - event.category
+  - event.code
   - event.created
   - event.dataset
   - event.id
