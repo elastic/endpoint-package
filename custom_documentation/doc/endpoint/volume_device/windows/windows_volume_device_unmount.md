@@ -1,10 +1,10 @@
-# Windows User Log On
+# Windows Device Unmount
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.volume_device-*`
+- KQL: `event.action : "unmount" and event.dataset : "endpoint.events.volume_device" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when a user logs on to the computer.
+This event is generated when a device is unmounted.
 
 
 | Field |
@@ -20,7 +20,6 @@ This event is generated when a user logs on to the computer.
 | elastic.agent.id |
 | event.action |
 | event.category |
-| event.code |
 | event.created |
 | event.dataset |
 | event.id |
@@ -45,19 +44,18 @@ This event is generated when a user logs on to the computer.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
-| process.Ext.session_info.logon_type |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
 | process.entity_id |
-| process.executable |
 | process.name |
+| process.pid |
 | user.domain |
 | user.id |
 | user.name |
+| volume.bus_type |
+| volume.device_type |
+| volume.dos_name |
+| volume.file_system_type |
+| volume.nt_name |
+| volume.product_name |
+| volume.serial_number |
+| volume.vendor_name |
 

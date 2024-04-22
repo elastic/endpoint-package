@@ -35,6 +35,7 @@ This event is generated when a file is renamed.
 | file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
+| file.Ext.original.extension |
 | file.Ext.original.name |
 | file.Ext.original.path |
 | file.extension |

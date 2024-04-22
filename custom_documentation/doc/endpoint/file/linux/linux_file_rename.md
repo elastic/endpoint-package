@@ -28,6 +28,8 @@ This event is generated when a file is renamed.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.original.extension |
+| file.Ext.original.name |
 | file.Ext.original.path |
 | file.extension |
 | file.name |
