@@ -20,6 +20,7 @@ This event is generated when a user logs on to the computer.
 | elastic.agent.id |
 | event.action |
 | event.category |
+| event.code |
 | event.created |
 | event.dataset |
 | event.id |
@@ -48,6 +49,7 @@ This event is generated when a user logs on to the computer.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.session_info.logon_type |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
