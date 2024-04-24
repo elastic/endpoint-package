@@ -37,6 +37,7 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.Ext.original.extension
   - file.Ext.original.path
   - file.extension
   - file.inode
