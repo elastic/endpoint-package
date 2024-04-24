@@ -71,6 +71,7 @@ fields:
   - orchestrator.resource.parent.type
   - orchestrator.resource.type
   - process.Ext.ancestry
+  - process.Ext.trusted
   - process.args
   - process.args_count
   - process.command_line

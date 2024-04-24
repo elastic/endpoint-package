@@ -61,11 +61,11 @@ fields:
   - process.executable
   - process.name
   - user.domain
-  - user.id
-  - user.name
   - user.effective.domain
-  - user.effective.id
-  - user.effective.name
   - user.effective.email
   - user.effective.full_name
   - user.effective.hash
+  - user.effective.id
+  - user.effective.name
+  - user.id
+  - user.name
