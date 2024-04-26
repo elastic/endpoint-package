@@ -59,7 +59,6 @@ This event is generated for a process that was already running before Endpoint's
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
-| process.env_vars |
 | process.executable |
 | process.hash.md5 |
 | process.hash.sha1 |

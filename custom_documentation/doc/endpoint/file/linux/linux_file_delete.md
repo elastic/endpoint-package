@@ -51,7 +51,6 @@ This event is generated when a file is deleted.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |

@@ -48,8 +48,6 @@ This alert occurs when a Malicious Behavior alert occurs.
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
-| destination.ip |
-| destination.port |
 | dll.*<br /><br />dll contains dll data from the primary event in Events. It can contain any fields that any other events includes within the dll fieldset. |
 | ecs.version |
 | elastic.agent.id |
@@ -82,8 +80,6 @@ This alert occurs when a Malicious Behavior alert occurs.
 | host.os.type |
 | host.os.version |
 | message |
-| network.transport |
-| network.type |
 | process.*<br /><br />process contains the process data from the primary event in Events. It can contain any fields that any other events includes within the process fieldset. |
 | registry.*<br /><br />registry contains the registry data from the primary event in Events. It can contain any fields that any other events includes within the registry fieldset. |
 | rule.description |

@@ -87,8 +87,6 @@ This event is generated when a process generates text output.
 | process.entry_leader.real_user.name |
 | process.entry_leader.same_as_process |
 | process.entry_leader.start |
-| process.entry_leader.supplemental_groups.id |
-| process.entry_leader.supplemental_groups.name |
 | process.entry_leader.user.id |
 | process.entry_leader.user.name |
 | process.entry_leader.working_directory |

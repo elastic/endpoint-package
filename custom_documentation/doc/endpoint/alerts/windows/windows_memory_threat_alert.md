@@ -57,9 +57,6 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.ancestry |
 | process.Ext.architecture |
 | process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
 | process.Ext.memory_region.allocation_base |
 | process.Ext.memory_region.allocation_protection |
 | process.Ext.memory_region.allocation_size |
@@ -90,9 +87,6 @@ This alert is generated when a Memory Threat alert occurs.
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
 | process.executable |

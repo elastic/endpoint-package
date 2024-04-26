@@ -28,8 +28,6 @@ This event is generated when a file is renamed.
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.Ext.original.extension |
-| file.Ext.original.name |
 | file.Ext.original.path |
 | file.extension |
 | file.name |
@@ -54,7 +52,6 @@ This event is generated when a file is renamed.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |

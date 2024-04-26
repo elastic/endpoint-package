@@ -59,7 +59,6 @@ This event is generated when a network connection is attempted.
 | process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
-| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |

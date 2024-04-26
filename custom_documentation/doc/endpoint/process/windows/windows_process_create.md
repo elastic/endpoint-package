@@ -49,7 +49,6 @@ This event is generated when a process is created.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
-| process.Ext.created_suspended |
 | process.Ext.defense_evasions |
 | process.Ext.device.bus_type |
 | process.Ext.device.dos_name |
@@ -67,7 +66,6 @@ This event is generated when a process is created.
 | process.Ext.relative_file_creation_time |
 | process.Ext.relative_file_name_modify_time |
 | process.Ext.session_info.authentication_package |
-| process.Ext.session_info.client_address |
 | process.Ext.session_info.id |
 | process.Ext.session_info.logon_type |
 | process.Ext.session_info.relative_logon_time |

@@ -20,7 +20,6 @@ This event is generated when a user logs off of the computer.
 | elastic.agent.id |
 | event.action |
 | event.category |
-| event.code |
 | event.created |
 | event.dataset |
 | event.id |
@@ -49,7 +48,6 @@ This event is generated when a user logs off of the computer.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
-| process.Ext.session_info.logon_type |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
@@ -57,12 +55,12 @@ This event is generated when a user logs off of the computer.
 | process.entity_id |
 | process.executable |
 | user.domain |
+| user.id |
+| user.name |
 | user.effective.domain |
+| user.effective.id |
+| user.effective.name |
 | user.effective.email |
 | user.effective.full_name |
 | user.effective.hash |
-| user.effective.id |
-| user.effective.name |
-| user.id |
-| user.name |
 
