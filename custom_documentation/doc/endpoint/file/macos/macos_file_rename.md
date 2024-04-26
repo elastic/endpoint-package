@@ -32,6 +32,7 @@ This event is generated when a file is renamed.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.original.extension |
 | file.Ext.original.path |
 | file.extension |
 | file.inode |
@@ -64,6 +65,7 @@ This event is generated when a file is renamed.
 | process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
