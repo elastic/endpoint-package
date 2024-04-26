@@ -60,6 +60,7 @@ This event is generated when a request to terminate a network connection occurs.
 | process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |

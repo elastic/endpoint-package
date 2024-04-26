@@ -48,8 +48,10 @@ This event is generated when a process exits.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.hidden.behaviors.api |
 | process.Ext.mitigation_policies |
 | process.Ext.session_info.authentication_package |
+| process.Ext.session_info.client_address |
 | process.Ext.session_info.logon_type |
 | process.Ext.session_info.relative_logon_time |
 | process.Ext.session_info.relative_password_age |

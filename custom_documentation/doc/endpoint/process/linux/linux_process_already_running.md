@@ -65,6 +65,7 @@ This event is generated for a process that was already running before Endpoint's
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
+| process.Ext.trusted |
 | process.args |
 | process.args_count |
 | process.command_line |
