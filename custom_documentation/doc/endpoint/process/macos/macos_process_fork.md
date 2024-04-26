@@ -61,6 +61,7 @@ This event is generated when a new process is created using `fork()`.
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
+| process.env_vars |
 | process.executable |
 | process.exit_code |
 | process.hash.md5 |

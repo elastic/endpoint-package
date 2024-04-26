@@ -53,6 +53,8 @@ fields:
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - destination.ip
+  - destination.port
   - dll.*
   - ecs.version
   - elastic.agent.id
@@ -85,6 +87,8 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - network.transport
+  - network.type
   - process.*
   - registry.*
   - rule.description
