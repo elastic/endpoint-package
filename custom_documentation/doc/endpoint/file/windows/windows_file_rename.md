@@ -35,6 +35,7 @@ This event is generated when a file is renamed.
 | file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
+| file.Ext.original.extension |
 | file.Ext.original.name |
 | file.Ext.original.path |
 | file.extension |
@@ -65,6 +66,7 @@ This event is generated when a file is renamed.
 | process.code_signature.status |
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |

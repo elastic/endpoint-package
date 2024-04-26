@@ -53,6 +53,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.protection |
 | process.Ext.relative_file_creation_time |
 | process.Ext.session_info.authentication_package |
+| process.Ext.session_info.client_address |
 | process.Ext.session_info.id |
 | process.Ext.session_info.logon_type |
 | process.Ext.session_info.relative_logon_time |

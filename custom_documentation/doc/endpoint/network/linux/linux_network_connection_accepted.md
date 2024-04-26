@@ -53,6 +53,7 @@ This event is generated when a network connection is accepted.
 | network.transport |
 | network.type |
 | process.Ext.ancestry |
+| process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |

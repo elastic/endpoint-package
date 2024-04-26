@@ -65,6 +65,7 @@ This event is generated when a network session is terminated.
 | process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |
