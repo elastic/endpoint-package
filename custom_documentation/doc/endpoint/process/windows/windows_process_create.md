@@ -49,7 +49,6 @@ This event is generated when a process is created.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
-| process.Ext.created_suspended |
 | process.Ext.defense_evasions |
 | process.Ext.device.bus_type |
 | process.Ext.device.dos_name |
