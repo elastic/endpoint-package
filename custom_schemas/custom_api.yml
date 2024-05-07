@@ -45,9 +45,10 @@
           "image_rop" - no call instruction preceded an entry in the call stack
           "image_rwx" - an entry in the callstack is writable
           "unbacked_rwx" - an entry in the callstack is non-image and writable
+          "truncated_stack" - call stack is unexpected truncated due to malicious tampering or system load
           "allocate_shellcode" - a region of non-image executable memory allocated more executable memory
           "execute_fluctuation" - the PAGE_EXECUTE protection is unexpectedly fluctuating
-          'write_fluctuation" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating
+          "write_fluctuation" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating
           "hook_api" - a change to the memory protection of a small executable image memory region was made
           "hollow_image" - a change to the memory protection of a large executable image memory region was made
           "hook_unbacked" - a change to the memory protection of a small executable non-image memory was made

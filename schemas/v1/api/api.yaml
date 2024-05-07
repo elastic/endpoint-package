@@ -2290,16 +2290,17 @@ process.Ext.api.behaviors:
     \ to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded\
     \ an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n\
     \  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"\
-    allocate_shellcode\" - a region of non-image executable memory allocated more\
-    \ executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is\
-    \ unexpectedly fluctuating\n  'write_fluctuation\" - the PAGE_WRITE protection\
-    \ of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change\
-    \ to the memory protection of a small executable image memory region was made\n\
-    \  \"hollow_image\" - a change to the memory protection of a large executable\
-    \ image memory region was made\n  \"hook_unbacked\" - a change to the memory protection\
-    \ of a small executable non-image memory was made\n  'hollow_unbacked\" - a change\
-    \ to the memory protection of a large executable non-image memory was made\n \
-    \ \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n\
+    truncated_stack\" - call stack is unexpected truncated due to malicious tampering\
+    \ or system load\n  \"allocate_shellcode\" - a region of non-image executable\
+    \ memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE\
+    \ protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE\
+    \ protection of executable memory is unexpectedly fluctuating\n  \"hook_api\"\
+    \ - a change to the memory protection of a small executable image memory region\
+    \ was made\n  \"hollow_image\" - a change to the memory protection of a large\
+    \ executable image memory region was made\n  \"hook_unbacked\" - a change to the\
+    \ memory protection of a small executable non-image memory was made\n  'hollow_unbacked\"\
+    \ - a change to the memory protection of a large executable non-image memory was\
+    \ made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n\
     \  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n\
     \  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly\
     \ transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was\
