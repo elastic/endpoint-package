@@ -19,6 +19,7 @@ fields:
       action: {}
       category: {}
       created: {}
+      dataset: {}
       end: {}
       hash: {}
       id: {}
