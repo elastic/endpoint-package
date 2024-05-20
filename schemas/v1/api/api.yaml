@@ -1784,6 +1784,23 @@ event.created:
   normalize: []
   short: Time when the event was first read by an agent or by your pipeline.
   type: date
+event.dataset:
+  dashed_name: event-dataset
+  description: 'Name of the dataset.
+
+    If an event source publishes more than one type of log or events (e.g. access
+    log, error log), the dataset is used to specify which one the event comes from.
+
+    It''s recommended but not required to start the dataset name with the module name,
+    followed by a dot, then the dataset name.'
+  example: apache.access
+  flat_name: event.dataset
+  ignore_above: 1024
+  level: core
+  name: dataset
+  normalize: []
+  short: Name of the dataset.
+  type: keyword
 event.end:
   dashed_name: event-end
   description: '`event.end` contains the date when the event ended or when the activity
