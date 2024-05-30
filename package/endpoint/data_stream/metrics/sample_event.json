@@ -43,7 +43,7 @@
                         "week_ms": 8
                     },
                     "overall": {
-                        "week_ms": 11744
+                        "week_ms": 11774
                     },
                     "authentication_events": {
                         "week_ms": 155
@@ -59,6 +59,9 @@
                     },
                     "win32k_events": {
                         "week_ms": 50
+                    },
+                    "wmi_events": {
+                        "week_ms": 30
                     }
                 },
                 {
@@ -86,7 +89,7 @@
                         "week_ms": 3
                     },
                     "overall": {
-                        "week_ms": 8290
+                        "week_ms": 8300
                     },
                     "library_load_events": {
                         "week_ms": 7890
@@ -98,6 +101,9 @@
                         "week_ms": 300
                     },
                     "win32k_events": {
+                        "week_ms": 10
+                    },
+                    "wmi_events": {
                         "week_ms": 10
                     }
                 },
@@ -304,13 +310,16 @@
                         "week_ms": 8
                     },
                     "overall": {
-                        "week_ms": 1068
+                        "week_ms": 1098
                     },
                     "library_load_events": {
                         "week_ms": 85
                     },
                     "threat_intelligence_events": {
                         "week_ms": 250
+                    },
+                    "wmi_events": {
+                        "week_ms": 30
                     }
                 },
                 {
@@ -612,13 +621,16 @@
                         "week_ms": 5
                     },
                     "overall": {
-                        "week_ms": 345
+                        "week_ms": 375
                     },
                     "library_load_events": {
                         "week_ms": 14
                     },
                     "threat_intelligence_events": {
                         "week_ms": 50
+                    },
+                    "wmi_events": {
+                        "week_ms": 30
                     }
                 }
             ],

@@ -930,6 +930,18 @@
       index: false
       description: The total milliseconds spent queueing ETW Win32k events (currently, only keylogging events) for the process over the last week
 
+    - name: metrics.system_impact.wmi_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on ETW WMI Activity events for the process over the last week
+
+    - name: metrics.system_impact.wmi_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing ETW Activity events for the process over the last week
+
     - name: metrics.system_impact.process.executable
       level: custom
       type: unsigned_long
