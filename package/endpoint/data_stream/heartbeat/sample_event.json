@@ -11,5 +11,6 @@
     "message": "Endpoint heartbeat",
     "event": {
         "ingested": "2023-07-18T20:40:09.279939Z"
-    }
+    },
+    "billable": true
 }

@@ -30,6 +30,15 @@ agent.id:
   normalize: []
   short: Unique identifier of this agent.
   type: keyword
+billable:
+  dashed_name: billable
+  description: Whether document should be included in billing calculations
+  flat_name: billable
+  level: custom
+  name: billable
+  normalize: []
+  short: billable
+  type: boolean
 data_stream.dataset:
   dashed_name: data-stream-dataset
   description: Data stream dataset name.
