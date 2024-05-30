@@ -654,6 +654,20 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.system_impact.wmi_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing ETW Activity events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.wmi_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on ETW WMI Activity events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.threads
       level: custom
       type: object
