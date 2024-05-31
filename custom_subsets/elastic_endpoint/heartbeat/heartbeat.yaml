@@ -5,6 +5,7 @@ fields:
     fields:
       "@timestamp": {}
       message: {}
+      billable: {}
   agent:
     fields:
       id: {}

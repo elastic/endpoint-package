@@ -11,6 +11,10 @@
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
   default_field: true
+- name: billable
+  level: custom
+  type: boolean
+  description: Whether document should be included in billing calculations
 - name: message
   level: core
   type: match_only_text

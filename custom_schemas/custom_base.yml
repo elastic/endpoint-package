@@ -17,7 +17,7 @@
         events array
 
     # endpoint action and responses fields
-    # that are at the root level    
+    # that are at the root level
     - name: action_id
       type: alias
       path: EndpointActions.action_id
@@ -83,7 +83,7 @@
       short: expiration
       description: >
         Request expiration timestamp
-    
+
     # most likely redundant
     - name: input_type
       type: alias
@@ -134,7 +134,7 @@
       short: completed at
       description: >
         Request completion timestamp when the response is done executing. Usually matches with @timestamp.
-    
+
     - name: status
       type: alias
       path: EndpointActions.status
@@ -149,4 +149,11 @@
       level: custom
       short: started at
       description:
-        Timestamp of start of request         
+        Timestamp of start of request
+
+    - name: billable
+      type: boolean
+      level: custom
+      short: billable
+      description: >
+        Whether document should be included in billing calculations
