@@ -434,6 +434,20 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.system_impact.cred_access_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing Credential Access events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.cred_access_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on Credential Access events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.system_impact.dns_events.week_idle_ms
       level: custom
       type: unsigned_long
@@ -609,6 +623,34 @@
       level: custom
       type: unsigned_long
       description: The total milliseconds spent on process events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.process_injection.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing Process Injection events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.process_injection.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on Process Injection events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.ransomware.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing Ransomware events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.ransomware.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on Ransomware events for the process over the last week
       index: false
       doc_values: false
       default_field: false

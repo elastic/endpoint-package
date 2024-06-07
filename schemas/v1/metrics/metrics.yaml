@@ -740,6 +740,32 @@ Endpoint.metrics.system_impact.authentication_events.week_ms:
   short: The total milliseconds spent on authentication events for the process over
     the last week
   type: unsigned_long
+Endpoint.metrics.system_impact.cred_access_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-cred-access-events-week-idle-ms
+  description: The total milliseconds spent queueing Credential Access events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.cred_access_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.cred_access_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing Credential Access events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.cred_access_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-cred-access-events-week-ms
+  description: The total milliseconds spent on Credential Access events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.cred_access_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.cred_access_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on Credential Access events for the process
+    over the last week
+  type: unsigned_long
 Endpoint.metrics.system_impact.dns_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-dns-events-week-idle-ms
   description: The total milliseconds spent queueing DNS events for the process over
@@ -1042,6 +1068,58 @@ Endpoint.metrics.system_impact.process_events.week_ms:
   normalize: []
   short: The total milliseconds spent on process events for the process over the last
     week
+  type: unsigned_long
+Endpoint.metrics.system_impact.process_injection.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-process-injection-week-idle-ms
+  description: The total milliseconds spent queueing Process Injection events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.process_injection.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.process_injection.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing Process Injection events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.process_injection.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-process-injection-week-ms
+  description: The total milliseconds spent on Process Injection events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.process_injection.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.process_injection.week_ms
+  normalize: []
+  short: The total milliseconds spent on Process Injection events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.ransomware.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-ransomware-week-idle-ms
+  description: The total milliseconds spent queueing Ransomware events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.ransomware.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.ransomware.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing Ransomware events for the process over
+    the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.ransomware.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-ransomware-week-ms
+  description: The total milliseconds spent on Ransomware events for the process over
+    the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.ransomware.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.ransomware.week_ms
+  normalize: []
+  short: The total milliseconds spent on Ransomware events for the process over the
+    last week
   type: unsigned_long
 Endpoint.metrics.system_impact.registry_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-registry-events-week-idle-ms
