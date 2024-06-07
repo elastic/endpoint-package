@@ -1121,6 +1121,32 @@ Endpoint.metrics.system_impact.win32k_events.week_ms:
   short: The total milliseconds spent on ETW Win32k events (currently, only keylogging
     events) for the process over the last week
   type: unsigned_long
+Endpoint.metrics.system_impact.wmi_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-wmi-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW Activity events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.wmi_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.wmi_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW Activity events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.wmi_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-wmi-events-week-ms
+  description: The total milliseconds spent on ETW WMI Activity events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.wmi_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.wmi_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW WMI Activity events for the process over
+    the last week
+  type: unsigned_long
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
   description: Statistics about the individual Endpoint threads (array)
