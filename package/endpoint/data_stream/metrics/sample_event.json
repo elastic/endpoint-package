@@ -43,7 +43,7 @@
                         "week_ms": 8
                     },
                     "overall": {
-                        "week_ms": 11790
+                        "week_ms": 11920
                     },
                     "authentication_events": {
                         "week_ms": 155
@@ -68,6 +68,18 @@
                     },
                     "process_injection": {
                         "week_ms": 6
+                    },
+                    "memory_scan": {
+                        "week_ms": 20
+                    },
+                    "behavior_protection": {
+                        "week_ms": 40
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 50
+                    },
+                    "tcpip_events": {
+                        "week_ms": 20
                     }
                 },
                 {
@@ -95,7 +107,7 @@
                         "week_ms": 3
                     },
                     "overall": {
-                        "week_ms": 8400
+                        "week_ms": 8530
                     },
                     "library_load_events": {
                         "week_ms": 7890
@@ -114,6 +126,18 @@
                     },
                     "process_injection": {
                         "week_ms": 100
+                    },
+                    "memory_scan": {
+                        "week_ms": 30
+                    },
+                    "behavior_protection": {
+                        "week_ms": 40
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 50
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -144,13 +168,19 @@
                         "week_ms": 32
                     },
                     "overall": {
-                        "week_ms": 5046
+                        "week_ms": 5166
                     },
                     "library_load_events": {
                         "week_ms": 4
                     },
                     "threat_intelligence_events": {
                         "week_ms": 360
+                    },
+                    "memory_scan": {
+                        "week_ms": 100
+                    },
+                    "tcpip_events": {
+                        "week_ms": 20
                     }
                 },
                 {
@@ -175,7 +205,7 @@
                         "week_ms": 83
                     },
                     "overall": {
-                        "week_ms": 4761
+                        "week_ms": 4981
                     },
                     "authentication_events": {
                         "week_ms": 3177
@@ -188,6 +218,18 @@
                     },
                     "threat_intelligence_events": {
                         "week_ms": 120
+                    },
+                    "memory_scan": {
+                        "week_ms": 10
+                    },
+                    "behavior_protection": {
+                        "week_ms": 100
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 100
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -212,13 +254,16 @@
                         "week_ms": 3
                     },
                     "overall": {
-                        "week_ms": 3261
+                        "week_ms": 3561
                     },
                     "library_load_events": {
                         "week_ms": 2966
                     },
                     "threat_intelligence_events": {
                         "week_ms": 250
+                    },
+                    "tcpip_events": {
+                        "week_ms": 300
                     }
                 },
                 {
@@ -282,13 +327,16 @@
                         "week_ms": 1
                     },
                     "overall": {
-                        "week_ms": 1162
+                        "week_ms": 1163
                     },
                     "library_load_events": {
                         "week_ms": 417
                     },
                     "threat_intelligence_events": {
                         "week_ms": 150
+                    },
+                    "tcpip_events": {
+                        "week_ms": 1
                     }
                 },
                 {
@@ -319,7 +367,7 @@
                         "week_ms": 8
                     },
                     "overall": {
-                        "week_ms": 1200
+                        "week_ms": 1260
                     },
                     "library_load_events": {
                         "week_ms": 85
@@ -335,6 +383,18 @@
                     },
                     "process_injection": {
                         "week_ms": 100
+                    },
+                    "memory_scan": {
+                        "week_ms": 10
+                    },
+                    "behavior_protection": {
+                        "week_ms": 20
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 20
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -381,13 +441,16 @@
                         "week_ms": 4
                     },
                     "overall": {
-                        "week_ms": 744
+                        "week_ms": 754
                     },
                     "library_load_events": {
                         "week_ms": 3
                     },
                     "threat_intelligence_events": {
                         "week_ms": 50
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -409,7 +472,7 @@
                         "week_ms": 40
                     },
                     "overall": {
-                        "week_ms": 780
+                        "week_ms": 810
                     },
                     "library_load_events": {
                         "week_ms": 627
@@ -419,6 +482,12 @@
                     },
                     "ransomware": {
                         "week_ms": 5
+                    },
+                    "behavior_protection": {
+                        "week_ms": 20
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -446,13 +515,16 @@
                         "week_ms": 1
                     },
                     "overall": {
-                        "week_ms": 599
+                        "week_ms": 604
                     },
                     "library_load_events": {
                         "week_ms": 61
                     },
                     "threat_intelligence_events": {
                         "week_ms": 30
+                    },
+                    "tcpip_events": {
+                        "week_ms": 5
                     }
                 },
                 {
@@ -486,7 +558,7 @@
                         "week_ms": 1
                     },
                     "overall": {
-                        "week_ms": 500
+                        "week_ms": 580
                     },
                     "library_load_events": {
                         "week_ms": 70
@@ -496,6 +568,15 @@
                     },
                     "ransomware": {
                         "week_ms": 20
+                    },
+                    "behavior_protection": {
+                        "week_ms": 61
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 9
+                    },
+                    "tcpip_events": {
+                        "week_ms": 10
                     }
                 },
                 {
@@ -523,10 +604,13 @@
                         "week_ms": 2
                     },
                     "overall": {
-                        "week_ms": 494
+                        "week_ms": 500
                     },
                     "threat_intelligence_events": {
                         "week_ms": 40
+                    },
+                    "tcpip_events": {
+                        "week_ms": 6
                     }
                 },
                 {
@@ -570,7 +654,7 @@
                         "week_ms": 124
                     },
                     "overall": {
-                        "week_ms": 576
+                        "week_ms": 610
                     },
                     "authentication_events": {
                         "week_ms": 8
@@ -583,6 +667,18 @@
                     },
                     "process_injection": {
                         "week_ms": 100
+                    },
+                    "memory_scan": {
+                        "week_ms": 20
+                    },
+                    "behavior_protection": {
+                        "week_ms": 4
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 9
+                    },
+                    "tcpip_events": {
+                        "week_ms": 1
                     }
                 },
                 {
@@ -645,7 +741,7 @@
                         "week_ms": 5
                     },
                     "overall": {
-                        "week_ms": 390
+                        "week_ms": 468
                     },
                     "library_load_events": {
                         "week_ms": 14
@@ -658,6 +754,18 @@
                     },
                     "ransomware": {
                         "week_ms": 15
+                    },
+                    "memory_scan": {
+                        "week_ms": 40
+                    },
+                    "behavior_protection": {
+                        "week_ms": 20
+                    },
+                    "diagnostic_behavior_protection": {
+                        "week_ms": 10
+                    },
+                    "tcpip_events": {
+                        "week_ms": 8
                     }
                 }
             ],
