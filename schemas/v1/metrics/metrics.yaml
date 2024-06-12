@@ -740,9 +740,35 @@ Endpoint.metrics.system_impact.authentication_events.week_ms:
   short: The total milliseconds spent on authentication events for the process over
     the last week
   type: unsigned_long
+Endpoint.metrics.system_impact.behavior_protection.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-behavior-protection-week-idle-ms
+  description: The total milliseconds spent queueing behavior protection events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.behavior_protection.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.behavior_protection.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing behavior protection events for the
+    process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.behavior_protection.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-behavior-protection-week-ms
+  description: The total milliseconds spent on behavior protection events for the
+    process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.behavior_protection.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.behavior_protection.week_ms
+  normalize: []
+  short: The total milliseconds spent on behavior protection events for the process
+    over the last week
+  type: unsigned_long
 Endpoint.metrics.system_impact.cred_access_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-cred-access-events-week-idle-ms
-  description: The total milliseconds spent queueing Credential Access events for
+  description: The total milliseconds spent queueing credential access events for
     the process over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.cred_access_events.week_idle_ms
@@ -750,12 +776,12 @@ Endpoint.metrics.system_impact.cred_access_events.week_idle_ms:
   level: custom
   name: metrics.system_impact.cred_access_events.week_idle_ms
   normalize: []
-  short: The total milliseconds spent queueing Credential Access events for the process
+  short: The total milliseconds spent queueing credential access events for the process
     over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.cred_access_events.week_ms:
   dashed_name: Endpoint-metrics-system-impact-cred-access-events-week-ms
-  description: The total milliseconds spent on Credential Access events for the process
+  description: The total milliseconds spent on credential access events for the process
     over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.cred_access_events.week_ms
@@ -763,8 +789,34 @@ Endpoint.metrics.system_impact.cred_access_events.week_ms:
   level: custom
   name: metrics.system_impact.cred_access_events.week_ms
   normalize: []
-  short: The total milliseconds spent on Credential Access events for the process
+  short: The total milliseconds spent on credential access events for the process
     over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-diagnostic-behavior-protection-week-idle-ms
+  description: The total milliseconds spent queueing diagnostic behavior protection
+    for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.diagnostic_behavior_protection.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing diagnostic behavior protection for
+    the process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-diagnostic-behavior-protection-week-ms
+  description: The total milliseconds spent on diagnostic behavior protection events
+    for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.diagnostic_behavior_protection.week_ms
+  normalize: []
+  short: The total milliseconds spent on diagnostic behavior protection events for
+    the process over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.dns_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-dns-events-week-idle-ms
@@ -869,6 +921,32 @@ Endpoint.metrics.system_impact.malware.week_ms:
   normalize: []
   short: The total milliseconds spent on malware scanning due to the process over
     the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.memory_scan.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-memory-scan-week-idle-ms
+  description: The total milliseconds spent queueing memory scan events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.memory_scan.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.memory_scan.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing memory scan events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.memory_scan.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-memory-scan-week-ms
+  description: The total milliseconds spent on memory scan events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.memory_scan.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.memory_scan.week_ms
+  normalize: []
+  short: The total milliseconds spent on memory scan events for the process over the
+    last week
   type: unsigned_long
 Endpoint.metrics.system_impact.network_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-network-events-week-idle-ms
@@ -1071,7 +1149,7 @@ Endpoint.metrics.system_impact.process_events.week_ms:
   type: unsigned_long
 Endpoint.metrics.system_impact.process_injection.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-process-injection-week-idle-ms
-  description: The total milliseconds spent queueing Process Injection events for
+  description: The total milliseconds spent queueing process injection events for
     the process over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.process_injection.week_idle_ms
@@ -1079,12 +1157,12 @@ Endpoint.metrics.system_impact.process_injection.week_idle_ms:
   level: custom
   name: metrics.system_impact.process_injection.week_idle_ms
   normalize: []
-  short: The total milliseconds spent queueing Process Injection events for the process
+  short: The total milliseconds spent queueing process injection events for the process
     over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.process_injection.week_ms:
   dashed_name: Endpoint-metrics-system-impact-process-injection-week-ms
-  description: The total milliseconds spent on Process Injection events for the process
+  description: The total milliseconds spent on process injection events for the process
     over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.process_injection.week_ms
@@ -1092,12 +1170,12 @@ Endpoint.metrics.system_impact.process_injection.week_ms:
   level: custom
   name: metrics.system_impact.process_injection.week_ms
   normalize: []
-  short: The total milliseconds spent on Process Injection events for the process
+  short: The total milliseconds spent on process injection events for the process
     over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.ransomware.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-ransomware-week-idle-ms
-  description: The total milliseconds spent queueing Ransomware events for the process
+  description: The total milliseconds spent queueing ransomware events for the process
     over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.ransomware.week_idle_ms
@@ -1105,12 +1183,12 @@ Endpoint.metrics.system_impact.ransomware.week_idle_ms:
   level: custom
   name: metrics.system_impact.ransomware.week_idle_ms
   normalize: []
-  short: The total milliseconds spent queueing Ransomware events for the process over
+  short: The total milliseconds spent queueing ransomware events for the process over
     the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.ransomware.week_ms:
   dashed_name: Endpoint-metrics-system-impact-ransomware-week-ms
-  description: The total milliseconds spent on Ransomware events for the process over
+  description: The total milliseconds spent on ransomware events for the process over
     the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.ransomware.week_ms
@@ -1118,7 +1196,7 @@ Endpoint.metrics.system_impact.ransomware.week_ms:
   level: custom
   name: metrics.system_impact.ransomware.week_ms
   normalize: []
-  short: The total milliseconds spent on Ransomware events for the process over the
+  short: The total milliseconds spent on ransomware events for the process over the
     last week
   type: unsigned_long
 Endpoint.metrics.system_impact.registry_events.week_idle_ms:
@@ -1145,6 +1223,32 @@ Endpoint.metrics.system_impact.registry_events.week_ms:
   name: metrics.system_impact.registry_events.week_ms
   normalize: []
   short: The total milliseconds spent on registry events for the process over the
+    last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.tcpip_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-tcpip-events-week-idle-ms
+  description: The total milliseconds spent queueing ETW TCP/IP events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.tcpip_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.tcpip_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing ETW TCP/IP events for the process over
+    the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.tcpip_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-tcpip-events-week-ms
+  description: The total milliseconds spent on ETW TCP/IP events for the process over
+    the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.tcpip_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.tcpip_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on ETW TCP/IP events for the process over the
     last week
   type: unsigned_long
 Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms:
@@ -1201,15 +1305,15 @@ Endpoint.metrics.system_impact.win32k_events.week_ms:
   type: unsigned_long
 Endpoint.metrics.system_impact.wmi_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-wmi-events-week-idle-ms
-  description: The total milliseconds spent queueing ETW Activity events for the process
-    over the last week
+  description: The total milliseconds spent queueing ETW WMI Activity events for the
+    process over the last week
   doc_values: false
   flat_name: Endpoint.metrics.system_impact.wmi_events.week_idle_ms
   index: false
   level: custom
   name: metrics.system_impact.wmi_events.week_idle_ms
   normalize: []
-  short: The total milliseconds spent queueing ETW Activity events for the process
+  short: The total milliseconds spent queueing ETW WMI Activity events for the process
     over the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.wmi_events.week_ms:

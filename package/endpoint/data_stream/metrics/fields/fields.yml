@@ -434,17 +434,45 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.system_impact.behavior_protection.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing behavior protection events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.behavior_protection.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on behavior protection events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.system_impact.cred_access_events.week_idle_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent queueing Credential Access events for the process over the last week
+      description: The total milliseconds spent queueing credential access events for the process over the last week
       index: false
       doc_values: false
       default_field: false
     - name: metrics.system_impact.cred_access_events.week_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent on Credential Access events for the process over the last week
+      description: The total milliseconds spent on credential access events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.diagnostic_behavior_protection.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing diagnostic behavior protection for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.diagnostic_behavior_protection.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on diagnostic behavior protection events for the process over the last week
       index: false
       doc_values: false
       default_field: false
@@ -501,6 +529,20 @@
       level: custom
       type: unsigned_long
       description: The total milliseconds spent on malware scanning due to the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.memory_scan.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing memory scan events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.memory_scan.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on memory scan events for the process over the last week
       index: false
       doc_values: false
       default_field: false
@@ -629,28 +671,28 @@
     - name: metrics.system_impact.process_injection.week_idle_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent queueing Process Injection events for the process over the last week
+      description: The total milliseconds spent queueing process injection events for the process over the last week
       index: false
       doc_values: false
       default_field: false
     - name: metrics.system_impact.process_injection.week_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent on Process Injection events for the process over the last week
+      description: The total milliseconds spent on process injection events for the process over the last week
       index: false
       doc_values: false
       default_field: false
     - name: metrics.system_impact.ransomware.week_idle_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent queueing Ransomware events for the process over the last week
+      description: The total milliseconds spent queueing ransomware events for the process over the last week
       index: false
       doc_values: false
       default_field: false
     - name: metrics.system_impact.ransomware.week_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent on Ransomware events for the process over the last week
+      description: The total milliseconds spent on ransomware events for the process over the last week
       index: false
       doc_values: false
       default_field: false
@@ -665,6 +707,20 @@
       level: custom
       type: unsigned_long
       description: The total milliseconds spent on registry events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.tcpip_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing ETW TCP/IP events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.tcpip_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on ETW TCP/IP events for the process over the last week
       index: false
       doc_values: false
       default_field: false
@@ -699,7 +755,7 @@
     - name: metrics.system_impact.wmi_events.week_idle_ms
       level: custom
       type: unsigned_long
-      description: The total milliseconds spent queueing ETW Activity events for the process over the last week
+      description: The total milliseconds spent queueing ETW WMI Activity events for the process over the last week
       index: false
       doc_values: false
       default_field: false
