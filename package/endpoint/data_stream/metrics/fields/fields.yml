@@ -353,6 +353,26 @@
       type: long
       description: Number of suppressed documents
       default_field: false
+    - name: metrics.documents_volume.volume_device_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+      default_field: false
+    - name: metrics.documents_volume.volume_device_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+      default_field: false
+    - name: metrics.documents_volume.volume_device_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.documents_volume.volume_device_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
     - name: metrics.event_filter.active_global_count
       level: custom
       type: long
@@ -417,6 +437,20 @@
       type: object
       description: An array of system impact information
       enabled: false
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.attack_surface_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing attack surface events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.attack_surface_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on attack surface events for the process over the last week
       index: false
       doc_values: false
       default_field: false
@@ -735,6 +769,20 @@
       level: custom
       type: unsigned_long
       description: The total milliseconds spent on ETW Threat-Intelligence events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.volume_device_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing volume device events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.volume_device_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on volume device events for the process over the last week
       index: false
       doc_values: false
       default_field: false

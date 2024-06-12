@@ -2867,6 +2867,10 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.security_events.sent_count | Number of sent documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.documents_volume.volume_device_events.sent_bytes | Total size of sent documents | long |
+| Endpoint.metrics.documents_volume.volume_device_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.volume_device_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.documents_volume.volume_device_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.event_filter.active_global_count | The number of active global event filters | long |
 | Endpoint.metrics.event_filter.active_user_count | The number of active user event filters | long |
 | Endpoint.metrics.memory | Memory statistics | object |

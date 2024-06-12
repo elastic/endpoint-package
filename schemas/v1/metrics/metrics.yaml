@@ -603,6 +603,42 @@ Endpoint.metrics.documents_volume.security_events.suppressed_count:
   normalize: []
   short: Number of suppressed documents
   type: long
+Endpoint.metrics.documents_volume.volume_device_events.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-volume-device-events-sent-bytes
+  description: Total size of sent documents
+  flat_name: Endpoint.metrics.documents_volume.volume_device_events.sent_bytes
+  level: custom
+  name: metrics.documents_volume.volume_device_events.sent_bytes
+  normalize: []
+  short: Total size of sent documents
+  type: long
+Endpoint.metrics.documents_volume.volume_device_events.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-volume-device-events-sent-count
+  description: Number of sent documents
+  flat_name: Endpoint.metrics.documents_volume.volume_device_events.sent_count
+  level: custom
+  name: metrics.documents_volume.volume_device_events.sent_count
+  normalize: []
+  short: Number of sent documents
+  type: long
+Endpoint.metrics.documents_volume.volume_device_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-volume-device-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.documents_volume.volume_device_events.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.volume_device_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.documents_volume.volume_device_events.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-volume-device-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.documents_volume.volume_device_events.suppressed_count
+  level: custom
+  name: metrics.documents_volume.volume_device_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
 Endpoint.metrics.event_filter.active_global_count:
   dashed_name: Endpoint-metrics-event-filter-active-global-count
   description: The number of active global event filters
@@ -714,6 +750,32 @@ Endpoint.metrics.system_impact:
   normalize: []
   short: An array of system impact information
   type: object
+Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-attack-surface-events-week-idle-ms
+  description: The total milliseconds spent queueing attack surface events for the
+    process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.attack_surface_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing attack surface events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.attack_surface_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-attack-surface-events-week-ms
+  description: The total milliseconds spent on attack surface events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.attack_surface_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.attack_surface_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on attack surface events for the process over
+    the last week
+  type: unsigned_long
 Endpoint.metrics.system_impact.authentication_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-authentication-events-week-idle-ms
   description: The total milliseconds spent queueing authentication events for the
@@ -1276,6 +1338,32 @@ Endpoint.metrics.system_impact.threat_intelligence_events.week_ms:
   normalize: []
   short: The total milliseconds spent on ETW Threat-Intelligence events for the process
     over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.volume_device_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-volume-device-events-week-idle-ms
+  description: The total milliseconds spent queueing volume device events for the
+    process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.volume_device_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.volume_device_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing volume device events for the process
+    over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.volume_device_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-volume-device-events-week-ms
+  description: The total milliseconds spent on volume device events for the process
+    over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.volume_device_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.volume_device_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on volume device events for the process over
+    the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.win32k_events.week_idle_ms:
   dashed_name: Endpoint-metrics-system-impact-win32k-events-week-idle-ms
