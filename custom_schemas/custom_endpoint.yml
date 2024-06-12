@@ -566,6 +566,26 @@
       type: long
       description: Total size of suppressed documents
 
+    - name: metrics.documents_volume.volume_device_events.sent_count
+      level: custom
+      type: long
+      description: Number of sent documents
+
+    - name: metrics.documents_volume.volume_device_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of sent documents
+
+    - name: metrics.documents_volume.volume_device_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+
+    - name: metrics.documents_volume.volume_device_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+
     - name: metrics.documents_volume.alerts.sent_count
       level: custom
       type: long
@@ -1025,6 +1045,30 @@
       type: unsigned_long
       index: false
       description: The total milliseconds spent queueing ETW TCP/IP events for the process over the last week
+
+    - name: metrics.system_impact.volume_device_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on volume device events for the process over the last week
+
+    - name: metrics.system_impact.volume_device_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing volume device events for the process over the last week
+
+    - name: metrics.system_impact.attack_surface_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on attack surface events for the process over the last week
+
+    - name: metrics.system_impact.attack_surface_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing attack surface events for the process over the last week
 
     - name: metrics.system_impact.process.executable
       level: custom
