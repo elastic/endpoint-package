@@ -1380,6 +1380,26 @@ file.Ext.windows:
   normalize: []
   short: Platform-specific Windows fields
   type: object
+file.Ext.windows.host_url:
+  dashed_name: file-Ext-windows-host-url
+  description: The url where the file is hosted
+  flat_name: file.Ext.windows.host_url
+  ignore_above: 1024
+  level: custom
+  name: Ext.windows.host_url
+  normalize: []
+  short: The url where the file is hosted
+  type: keyword
+file.Ext.windows.referrer_url:
+  dashed_name: file-Ext-windows-referrer-url
+  description: The url of the webpage that linked to the file
+  flat_name: file.Ext.windows.referrer_url
+  ignore_above: 1024
+  level: custom
+  name: Ext.windows.referrer_url
+  normalize: []
+  short: The url of the webpage that linked to the file
+  type: keyword
 file.Ext.windows.zone_identifier:
   dashed_name: file-Ext-windows-zone-identifier
   description: Windows zone identifier for a file

@@ -631,6 +631,18 @@
       type: object
       description: Platform-specific Windows fields
       default_field: false
+    - name: Ext.windows.host_url
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The url where the file is hosted
+      default_field: false
+    - name: Ext.windows.referrer_url
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The url of the webpage that linked to the file
+      default_field: false
     - name: Ext.windows.zone_identifier
       level: custom
       type: keyword

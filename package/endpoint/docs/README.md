@@ -1579,6 +1579,8 @@ sent by the endpoint.
 | file.Ext.original.path | Original file path prior to a modification event | keyword |
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
+| file.Ext.windows.host_url | The url where the file is hosted | keyword |
+| file.Ext.windows.referrer_url | The url of the webpage that linked to the file | keyword |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
