@@ -73,6 +73,18 @@
       description: >
         Windows zone identifier for a file
 
+    - name: Ext.windows.referrer_url
+      level: custom
+      type: keyword
+      description: >
+        The url of the webpage that linked to the file
+
+    - name: Ext.windows.host_url
+      level: custom
+      type: keyword
+      description: >
+        The url where the file is hosted
+
     - name: Ext.original
       level: custom
       type: object
