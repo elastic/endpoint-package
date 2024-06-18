@@ -221,6 +221,8 @@ fields:
           windows:
             fields:
               zone_identifier: {}
+              referrer_url: {}
+              host_url: {}
           original:
             fields:
               name: {}
