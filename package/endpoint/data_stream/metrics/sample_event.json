@@ -1041,6 +1041,100 @@
             "uptime": {
                 "endpoint": 21930,
                 "system": 21992
+            },
+            "cloud_services": {
+                "reputation_lookups": {
+                    "behavior": {
+                        "rtt": [
+                            1,
+                            1,
+                            0,
+                            0,
+                            2,
+                            0,
+                            0,
+                            0,
+                            0,
+                            3
+                        ],
+                        "timeout_count": 3
+                    },
+                    "malware_score": {
+                        "rtt": [
+                            0,
+                            1,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "timeout_count": 0
+                    },
+                    "memory_signature": {
+                        "rtt": [
+                            0,
+                            0,
+                            1,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "timeout_count": 0
+                    },
+                    "ransomware": {
+                        "rtt": [
+                            0,
+                            0,
+                            0,
+                            1,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "timeout_count": 0
+                    },
+                    "reputation_rule": {
+                        "rtt": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            1,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "timeout_count": 0
+                    },
+                    "shell_code": {
+                        "rtt": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            1,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "timeout_count": 0
+                    }
+                }
             }
         }
     },

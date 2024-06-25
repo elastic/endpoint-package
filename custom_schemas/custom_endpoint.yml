@@ -656,6 +656,96 @@
       type: long
       description: Total size of suppressed API Event documents from source
 
+    - name: metrics.cloud_services.reputation_lookups.reputation_rule.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for reputation rules (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.reputation_rule.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.behavior.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for behavior rules (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.behavior.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for behavior rules
+
+    - name: metrics.cloud_services.reputation_lookups.shell_code.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for shell code (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.shell_code.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for shell code
+
+    - name: metrics.cloud_services.reputation_lookups.ransomware.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for ransomware (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.ransomware.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for ransomware
+
+    - name: metrics.cloud_services.reputation_lookups.memory_signature.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for memory signature (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.memory_signature.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for memory signature
+
+    - name: metrics.cloud_services.reputation_lookups.malware_score.rtt
+      level: custom
+      type: object
+      index: false
+      description: 
+        Reputation lookup round trip time seconds for malware score (array)
+        Each index contains count of lookups done within i seconds
+      short: Reputation lookup RTT for reputation rules
+
+    - name: metrics.cloud_services.reputation_lookups.malware_score.timeout_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Reputation lookup timeouts count for malware score
+
     - name: metrics.uptime
       level: custom
       type: object
