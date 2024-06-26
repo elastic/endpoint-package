@@ -10,6 +10,18 @@ This is an internal state management document that includes metrics on Endpoint'
 | Field |
 |---|
 | @timestamp |
+| Endpoint.metrics.cloud_services.reputation_lookups.behavior.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.behavior.timeout_count |
+| Endpoint.metrics.cloud_services.reputation_lookups.malware_score.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.malware_score.timeout_count |
+| Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.timeout_count |
+| Endpoint.metrics.cloud_services.reputation_lookups.ransomware.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.ransomware.timeout_count |
+| Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.timeout_count |
+| Endpoint.metrics.cloud_services.reputation_lookups.shell_code.rtt |
+| Endpoint.metrics.cloud_services.reputation_lookups.shell_code.timeout_count |
 | Endpoint.metrics.cpu.endpoint.histogram.counts |
 | Endpoint.metrics.cpu.endpoint.histogram.values |
 | Endpoint.metrics.cpu.endpoint.latest |
@@ -130,6 +142,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.volume_device_events.week_ms |
 | Endpoint.metrics.system_impact.win32k_events.week_idle_ms |
 | Endpoint.metrics.system_impact.win32k_events.week_ms |
+| Endpoint.metrics.system_impact.wmi_events.week_idle_ms |
+| Endpoint.metrics.system_impact.wmi_events.week_ms |
 | Endpoint.metrics.threads.cpu.mean |
 | Endpoint.metrics.threads.name |
 | Endpoint.metrics.uptime.endpoint |

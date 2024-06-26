@@ -50,6 +50,7 @@ This event is generated when a network connection is accepted.
 | host.os.type |
 | host.os.version |
 | message |
+| network.direction |
 | network.transport |
 | network.type |
 | process.Ext.ancestry |

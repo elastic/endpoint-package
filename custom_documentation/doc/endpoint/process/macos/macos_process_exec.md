@@ -10,6 +10,7 @@ This event is generated when a process calls `exec()`.
 | Field |
 |---|
 | @timestamp |
+| Effective_process.pid |
 | Target.process.executable |
 | Target.process.name |
 | Target.process.pid |
