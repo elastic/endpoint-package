@@ -50,6 +50,7 @@ This event is generated when there is an attempt to establish a network connecti
 | host.os.type |
 | host.os.version |
 | message |
+| network.direction |
 | network.transport |
 | network.type |
 | process.Ext.ancestry |

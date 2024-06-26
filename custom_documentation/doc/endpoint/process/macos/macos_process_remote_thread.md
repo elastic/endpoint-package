@@ -10,6 +10,7 @@ This event is generated when a remote thread is created.
 | Field |
 |---|
 | @timestamp |
+| Effective_process.pid |
 | Target.process.entity_id |
 | Target.process.executable |
 | Target.process.name |

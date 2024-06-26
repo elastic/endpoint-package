@@ -56,6 +56,7 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - network.direction
   - network.transport
   - network.type
   - process.Ext.ancestry
