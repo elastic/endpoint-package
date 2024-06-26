@@ -15,6 +15,7 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - Effective_process.pid
   - Target.process.entity_id
   - Target.process.executable
   - Target.process.name
