@@ -426,6 +426,17 @@
         relevant to Apple *OS only.'
       example: EQHXZ8M8AV
 
+    - name: origin_referrer_url
+      level: extended
+      type: keyword
+      description: >
+        The url of the webpage that linked to the file.
+
+    - name: origin_url
+      level: extended
+      type: keyword
+      description: >
+        The url where the file is hosted.
     - name: pe
       level: custom
       type: object
