@@ -756,15 +756,15 @@
     - name: origin_referrer_url
       level: extended
       type: keyword
-      ignore_above: 1024
+      ignore_above: 8192
       description: The url of the webpage that linked to the file.
-      default_field: false
+      default_field: true
     - name: origin_url
       level: extended
       type: keyword
-      ignore_above: 1024
+      ignore_above: 8192
       description: The url where the file is hosted.
-      default_field: false
+      default_field: true
     - name: owner
       level: extended
       type: keyword
