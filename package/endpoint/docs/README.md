@@ -1599,6 +1599,8 @@ sent by the endpoint.
 | file.mode | Mode of the file in octal representation. | keyword |
 | file.mtime | Last time the file content was modified. | date |
 | file.name | Name of the file including the extension, without the directory. | keyword |
+| file.origin_referrer_url | The url of the webpage that linked to the file. | keyword |
+| file.origin_url | The url where the file is hosted. | keyword |
 | file.owner | File owner's username. | keyword |
 | file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
