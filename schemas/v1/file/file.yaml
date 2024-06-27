@@ -1616,7 +1616,7 @@ file.origin_referrer_url:
   dashed_name: file-origin-referrer-url
   description: The url of the webpage that linked to the file.
   flat_name: file.origin_referrer_url
-  ignore_above: 1024
+  ignore_above: 8192
   level: extended
   name: origin_referrer_url
   normalize: []
@@ -1626,7 +1626,7 @@ file.origin_url:
   dashed_name: file-origin-url
   description: The url where the file is hosted.
   flat_name: file.origin_url
-  ignore_above: 1024
+  ignore_above: 8192
   level: extended
   name: origin_url
   normalize: []
