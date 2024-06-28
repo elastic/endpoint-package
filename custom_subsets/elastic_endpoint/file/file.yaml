@@ -200,6 +200,8 @@ fields:
       name: {}
       owner: {}
       path: {}
+      origin_referrer_url: {}
+      origin_url: {}
       pe:
         fields:
           company: {}
