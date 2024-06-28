@@ -90,7 +90,9 @@
         "path": "C:\\ProgramData\\winlogbeat\\.winlogbeat.yml.new",
         "extension": "new",
         "size": 1406,
-        "name": ".winlogbeat.yml.new"
+        "name": ".winlogbeat.yml.new",
+        "origin_referrer_url": "https://example.com",
+        "origin_url": "https://example.com/file.zip"
     },
     "ecs": {
         "version": "1.11.0"
