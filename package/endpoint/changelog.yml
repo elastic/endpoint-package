@@ -1,8 +1,20 @@
-- version: "8.15.0-next"
+- version: "8.15.0"
   changes:
-    - description: TBD
+    - description: Add `file.origin_referrer_url` and `file.origin_url` to FileEvent
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/514
+    - description: add heartbeat `billable` field
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/510
+    - description: add event.dataset to api datastream
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/507
+    - description: add truncated_stack to api.behaviors documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/504
+    - description: fix formatting/order from ecs build tool
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/505
 - version: "8.14.0"
   changes:
     - description: 'HWBP => Production'
