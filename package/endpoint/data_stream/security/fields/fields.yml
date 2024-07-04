@@ -534,6 +534,12 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: A local identifier that can help correlates log-on events with recent events (such as 4672) that might contain the same Logon ID.
+      default_field: false
     - name: Ext.code_signature
       level: custom
       type: nested
