@@ -1285,6 +1285,16 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.authentication_id:
+  dashed_name: process-Ext-authentication-id
+  description: A local identifier that can help correlates log-on events with recent
+    events (such as 4672) that might contain the same Logon ID.
+  flat_name: process.Ext.authentication_id
+  level: custom
+  name: Ext.authentication_id
+  normalize: []
+  short: Process authentication ID
+  type: keyword
 process.Ext.code_signature:
   dashed_name: process-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
