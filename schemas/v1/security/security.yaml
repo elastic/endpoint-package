@@ -18,10 +18,10 @@
   short: Date/time when the event originated.
   type: date
 Target.process.Ext.authentication_id:
-  dashed_name: Target-process-Ext-authentication_id-id
+  dashed_name: Target-process-Ext-authentication-id
   description: A local identifier that can help correlates log-on events with recent
     events (such as 4672) that might contain the same Logon ID.
-  example: 0x12dd8d
+  example: 0x3ad3ad68
   flat_name: Target.process.Ext.authentication_id
   level: custom
   name: process.Ext.authentication_id
