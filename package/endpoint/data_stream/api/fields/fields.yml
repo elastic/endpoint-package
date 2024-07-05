@@ -2526,6 +2526,13 @@
       description: The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
       example: third_party_hook.dll
       default_field: false
+    - name: thread.Ext.call_stack_summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Concatentation of the non-repeated modules in the call stack.
+      example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
+      default_field: false
     - name: thread.id
       level: extended
       type: long

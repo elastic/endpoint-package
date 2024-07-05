@@ -114,7 +114,7 @@
     - name: thread.Ext.call_stack_summary
       level: custom
       type: keyword
-      example: "ntdll.dll, example.exe, kernel32.dll, ntdll.dll"
+      example: "ntdll.dll|example.exe|kernel32.dll|ntdll.dll"
       description: >
         Concatentation of the non-repeated modules in the call stack.
 

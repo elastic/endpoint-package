@@ -150,3 +150,4 @@ fields:
                   hash:
                     fields:
                       sha256: {}
+              call_stack_summary: {}
