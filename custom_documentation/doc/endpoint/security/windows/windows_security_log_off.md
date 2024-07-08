@@ -10,6 +10,7 @@ This event is generated when a user logs off of the computer.
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.authentication_id |
 | agent.id |
 | agent.type |
 | agent.version |

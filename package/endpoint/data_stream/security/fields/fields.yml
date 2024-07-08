@@ -11,6 +11,21 @@
     Required field for all events.'
   example: '2016-05-23T08:05:34.853Z'
   default_field: true
+- name: Target
+  title: Target
+  group: 2
+  description: 'These fields contain information about a target.
+
+    These fields provide more context about the target process and thread that are related to the data in the document. Useful in a security context where a target process or thread may be acted on by another process or thread.'
+  type: group
+  default_field: true
+  fields:
+    - name: process.Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
 - name: message
   level: core
   type: match_only_text
@@ -533,6 +548,12 @@
       type: keyword
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
+      default_field: false
+    - name: Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: A local identifier that can help correlates log-on events with recent events (such as 4672) that might contain the same Logon ID.
       default_field: false
     - name: Ext.code_signature
       level: custom
