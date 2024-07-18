@@ -4869,6 +4869,17 @@ process.thread.Ext.call_stack_final_user_module.protection_provenance:
   short: The name of the memory region that last modified the protection of this page.
     "Unbacked" may indicate shellcode.
   type: keyword
+process.thread.Ext.call_stack_summary:
+  dashed_name: process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
+  flat_name: process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  short: Concatentation of the non-repeated modules in the call stack.
+  type: keyword
 process.thread.id:
   dashed_name: process-thread-id
   description: Thread ID.

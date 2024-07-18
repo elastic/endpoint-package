@@ -3181,7 +3181,7 @@ Target.process.thread.Ext.call_stack_final_user_module.path:
 Target.process.thread.Ext.call_stack_summary:
   dashed_name: Target-process-thread-Ext-call-stack-summary
   description: Concatentation of the non-repeated modules in the call stack.
-  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
   flat_name: Target.process.thread.Ext.call_stack_summary
   ignore_above: 1024
   level: custom
@@ -8530,7 +8530,7 @@ process.thread.Ext.call_stack_final_user_module.path:
 process.thread.Ext.call_stack_summary:
   dashed_name: process-thread-Ext-call-stack-summary
   description: Concatentation of the non-repeated modules in the call stack.
-  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
   flat_name: process.thread.Ext.call_stack_summary
   ignore_above: 1024
   level: custom
