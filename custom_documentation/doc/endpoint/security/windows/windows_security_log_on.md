@@ -10,7 +10,6 @@ This event is generated when a user logs on to the computer.
 | Field |
 |---|
 | @timestamp |
-| Target.process.Ext.authentication_id |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -46,7 +45,6 @@ This event is generated when a user logs on to the computer.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |

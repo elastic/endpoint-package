@@ -1,11 +1,4 @@
 {
-    "Target": {
-        "process": {
-            "Ext": {
-                "authentication_id": "0x3e7"
-            }
-        }
-    },
     "agent": {
         "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
         "type": "endpoint",
@@ -16,7 +9,6 @@
             "ancestry": [
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
             ],
-            "authentication_id": "0x3e7",
             "code_signature": [
                 {
                     "trusted": true,

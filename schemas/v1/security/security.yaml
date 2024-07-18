@@ -17,18 +17,6 @@
   required: true
   short: Date/time when the event originated.
   type: date
-Target.process.Ext.authentication_id:
-  dashed_name: Target-process-Ext-authentication-id
-  description: A local identifier that can help correlates log-on events with recent
-    events (such as 4672) that might contain the same Logon ID.
-  example: 0x3ad3ad68
-  flat_name: Target.process.Ext.authentication_id
-  level: custom
-  name: process.Ext.authentication_id
-  normalize: []
-  original_fieldset: process
-  short: Target process logon ID.
-  type: keyword
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -1296,17 +1284,6 @@ process.Ext.ancestry:
   name: Ext.ancestry
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
-  type: keyword
-process.Ext.authentication_id:
-  dashed_name: process-Ext-authentication-id
-  description: A local identifier that can help correlates log-on events with recent
-    events (such as 4672) that might contain the same Logon ID.
-  example: 0x12dd8d
-  flat_name: process.Ext.authentication_id
-  level: custom
-  name: Ext.authentication_id
-  normalize: []
-  short: Subject process logon ID
   type: keyword
 process.Ext.code_signature:
   dashed_name: process-Ext-code-signature
