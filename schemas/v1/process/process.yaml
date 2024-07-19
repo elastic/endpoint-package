@@ -2747,7 +2747,7 @@ process.parent.thread.Ext.call_stack_contains_unbacked:
 process.parent.thread.Ext.call_stack_summary:
   dashed_name: process-parent-thread-Ext-call-stack-summary
   description: Concatentation of the non-repeated modules in the call stack.
-  example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+  example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
   flat_name: process.parent.thread.Ext.call_stack_summary
   ignore_above: 1024
   level: custom

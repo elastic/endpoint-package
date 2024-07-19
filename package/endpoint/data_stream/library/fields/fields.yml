@@ -1252,7 +1252,7 @@
       type: keyword
       ignore_above: 1024
       description: Concatentation of the non-repeated modules in the call stack.
-      example: ntdll.dll, example.exe, kernel32.dll, ntdll.dll
+      example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
       default_field: false
     - name: thread.Ext.hardware_breakpoint_set
       level: custom
