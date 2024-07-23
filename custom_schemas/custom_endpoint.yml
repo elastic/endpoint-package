@@ -328,7 +328,6 @@
     - name: policy.applied.artifacts
       level: custom
       type: object
-      enabled: false
       description: information about protection artifacts applied.
 
     - name: policy.applied.artifacts.global

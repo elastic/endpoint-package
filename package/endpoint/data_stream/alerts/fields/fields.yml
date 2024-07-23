@@ -46,7 +46,6 @@
       level: custom
       type: object
       description: information about protection artifacts applied.
-      enabled: false
       default_field: false
     - name: policy.applied.artifacts.global
       level: custom
