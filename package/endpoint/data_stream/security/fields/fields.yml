@@ -21,6 +21,26 @@
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
   default_field: true
+- name: Target
+  title: Target
+  group: 2
+  description: 'These fields contain information about a target.
+
+    These fields provide more context about the target process and thread that are related to the data in the document. Useful in a security context where a target process or thread may be acted on by another process or thread.'
+  type: group
+  default_field: true
+  fields:
+    - name: process.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: process.Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -533,6 +553,12 @@
       type: keyword
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
+      default_field: false
+    - name: Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
       default_field: false
     - name: Ext.code_signature
       level: custom
