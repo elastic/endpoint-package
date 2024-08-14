@@ -500,4 +500,4 @@
       type: keyword
       description: >
          WMI namespace to which the connection is made.
-      example: "root\Microsoft\Windows\DeviceGuard"
+      example: "root\\Microsoft\\Windows\\DeviceGuard"
