@@ -140,6 +140,7 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+          protection: {}
   file:
     fields:
       pe:

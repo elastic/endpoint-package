@@ -1100,6 +1100,12 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
     - name: code_signature.exists
       level: core
       type: boolean
