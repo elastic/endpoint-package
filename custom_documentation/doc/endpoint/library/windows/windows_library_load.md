@@ -69,6 +69,7 @@ This event is generated when a DLL or driver is loaded.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
