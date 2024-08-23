@@ -1,3 +1,8 @@
+- version: "8.15.2-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/999999
 - version: "8.15.1"
   changes:
     - description: Add process.Ext.protection to Windows library events
