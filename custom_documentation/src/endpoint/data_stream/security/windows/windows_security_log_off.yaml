@@ -15,6 +15,7 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - Target.process.Ext.authentication_id
   - agent.id
   - agent.type
   - agent.version
