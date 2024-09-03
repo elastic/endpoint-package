@@ -36,6 +36,7 @@ This event is generated when a file is opened.
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
 | file.extension |
+| file.hash.sha256 |
 | file.name |
 | file.path |
 | file.size |

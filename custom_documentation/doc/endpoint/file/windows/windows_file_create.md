@@ -37,6 +37,7 @@ This event is generated when a file is created.
 | file.Ext.monotonic_id |
 | file.Ext.windows.zone_identifier |
 | file.extension |
+| file.hash.sha256 |
 | file.name |
 | file.path |
 | file.size |

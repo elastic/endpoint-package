@@ -32,6 +32,7 @@ This event is generated when a file is renamed.
 | file.Ext.original.name |
 | file.Ext.original.path |
 | file.extension |
+| file.hash.sha256 |
 | file.name |
 | file.path |
 | group.Ext.real.id |
