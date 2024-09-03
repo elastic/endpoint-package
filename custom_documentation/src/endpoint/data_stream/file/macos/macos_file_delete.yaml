@@ -38,6 +38,7 @@ fields:
   - event.sequence
   - event.type
   - file.extension
+  - file.hash.sha256
   - file.inode
   - file.name
   - file.path
