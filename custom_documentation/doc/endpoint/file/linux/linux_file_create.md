@@ -32,7 +32,6 @@ This event is generated when a file is created.
 | file.hash.sha256 |
 | file.name |
 | file.path |
-| file.hash.sha256 |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
