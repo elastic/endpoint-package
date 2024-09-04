@@ -29,6 +29,7 @@ This event is generated when a file is created.
 | event.sequence |
 | event.type |
 | file.extension |
+| file.hash.sha256 |
 | file.name |
 | file.path |
 | group.Ext.real.id |

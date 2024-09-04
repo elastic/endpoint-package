@@ -32,6 +32,7 @@ This event is generated when a file is accessed.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.hash.sha256 |
 | file.inode |
 | file.name |
 | file.path |

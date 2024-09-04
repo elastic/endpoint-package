@@ -34,6 +34,7 @@ This event is generated when a file is modified.
 | event.type |
 | file.Ext.header_bytes |
 | file.extension |
+| file.hash.sha256 |
 | file.inode |
 | file.name |
 | file.path |

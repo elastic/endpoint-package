@@ -35,6 +35,7 @@ This event is generated when a file is renamed.
 | file.Ext.original.extension |
 | file.Ext.original.path |
 | file.extension |
+| file.hash.sha256 |
 | file.inode |
 | file.name |
 | file.path |
