@@ -26,6 +26,7 @@ fields:
   - dns.Ext.options
   - dns.Ext.status
   - dns.question.name
+  - dns.resolved_ip
   - ecs.version
   - elastic.agent.id
   - event.action

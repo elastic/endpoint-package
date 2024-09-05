@@ -20,6 +20,7 @@ This event is generated when results are returned for a DNS lookup request.
 | dns.Ext.options |
 | dns.Ext.status |
 | dns.question.name |
+| dns.resolved_ip |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
