@@ -250,6 +250,65 @@ Target.process.Ext.memory_region.malware_signature.secondary:
   original_fieldset: malware_signature
   short: Additional matching details if available.
   type: nested
+Target.process.Ext.memory_region.malware_signature.secondary.matches:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-matches
+  description: The second matching details.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.matches
+  ignore_above: 1024
+  level: custom
+  name: secondary.matches
+  normalize: []
+  original_fieldset: malware_signature
+  short: The second matching details.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.secondary.signature.hash:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-signature-hash
+  description: hash of second file matching signature.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.signature.hash
+  level: custom
+  name: secondary.signature.hash
+  normalize: []
+  original_fieldset: malware_signature
+  short: hash of second file matching signature.
+  type: nested
+Target.process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-signature-hash-sha256
+  description: sha256 hash of second file matching signature.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.hash.sha256
+  normalize: []
+  original_fieldset: malware_signature
+  short: sha256 hash of second file matching signature.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.secondary.signature.id:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-signature-id
+  description: The id of the second yara rule matched.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.signature.id
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.id
+  normalize: []
+  original_fieldset: malware_signature
+  short: The id of the second yara rule matched.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.secondary.signature.name:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-signature-name
+  description: The name of the second yara rule matched.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.signature.name
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.name
+  normalize: []
+  original_fieldset: malware_signature
+  short: The name of the second yara rule matched.
+  type: keyword
 Target.process.Ext.memory_region.malware_signature.version:
   dashed_name: Target-process-Ext-memory-region-malware-signature-version
   description: malware signature version
@@ -3337,6 +3396,65 @@ process.Ext.memory_region.malware_signature.secondary:
   original_fieldset: malware_signature
   short: Additional matching details if available.
   type: nested
+process.Ext.memory_region.malware_signature.secondary.matches:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-matches
+  description: The second matching details.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.matches
+  ignore_above: 1024
+  level: custom
+  name: secondary.matches
+  normalize: []
+  original_fieldset: malware_signature
+  short: The second matching details.
+  type: keyword
+process.Ext.memory_region.malware_signature.secondary.signature.hash:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-signature-hash
+  description: hash of second file matching signature.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.signature.hash
+  level: custom
+  name: secondary.signature.hash
+  normalize: []
+  original_fieldset: malware_signature
+  short: hash of second file matching signature.
+  type: nested
+process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-signature-hash-sha256
+  description: sha256 hash of second file matching signature.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.hash.sha256
+  normalize: []
+  original_fieldset: malware_signature
+  short: sha256 hash of second file matching signature.
+  type: keyword
+process.Ext.memory_region.malware_signature.secondary.signature.id:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-signature-id
+  description: The id of the second yara rule matched.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.signature.id
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.id
+  normalize: []
+  original_fieldset: malware_signature
+  short: The id of the second yara rule matched.
+  type: keyword
+process.Ext.memory_region.malware_signature.secondary.signature.name:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-signature-name
+  description: The name of the second yara rule matched.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.signature.name
+  ignore_above: 1024
+  level: custom
+  name: secondary.signature.name
+  normalize: []
+  original_fieldset: malware_signature
+  short: The name of the second yara rule matched.
+  type: keyword
 process.Ext.memory_region.malware_signature.version:
   dashed_name: process-Ext-memory-region-malware-signature-version
   description: malware signature version
