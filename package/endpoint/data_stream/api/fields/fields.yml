@@ -154,6 +154,40 @@
       description: Additional matching details if available.
       enabled: false
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.matches
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The second matching details.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash
+      level: custom
+      type: nested
+      description: hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The id of the second yara rule matched.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the second yara rule matched.
+      enabled: false
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.version
       level: custom
       type: keyword
@@ -1676,6 +1710,40 @@
       level: custom
       type: nested
       description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.matches
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The second matching details.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.hash
+      level: custom
+      type: nested
+      description: hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The id of the second yara rule matched.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the second yara rule matched.
       enabled: false
       default_field: false
     - name: Ext.memory_region.malware_signature.version
