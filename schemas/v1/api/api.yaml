@@ -2389,7 +2389,7 @@ process.Ext.api.behaviors:
     \ - a change to the memory protection of a small executable image memory region\
     \ was made\n  \"hollow_image\" - a change to the memory protection of a large\
     \ executable image memory region was made\n  \"hook_unbacked\" - a change to the\
-    \ memory protection of a small executable non-image memory was made\n  'hollow_unbacked\"\
+    \ memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\"\
     \ - a change to the memory protection of a large executable non-image memory was\
     \ made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n\
     \  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n\
@@ -2398,7 +2398,8 @@ process.Ext.api.behaviors:
     \ set\n  \"rapid_background_polling\" - a suspicious process which does rapid\
     \ input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\"\
     \ - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState\
-    \ API were observed"
+    \ API were observed\n  \"pid_spoofing\" - WMI client proceess passed a forged\
+    \ process ID to the WMI server to spoof their origin"
   example:
   - cross-process
   - rapid_background_polling
@@ -2435,6 +2436,54 @@ process.Ext.api.metadata.background_callcount:
   original_fieldset: api
   short: This parameter indicates a number of all GetAsyncKeyState api calls, including
     unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+  type: unsigned_long
+process.Ext.api.metadata.client_is_local:
+  dashed_name: process-Ext-api-metadata-client-is-local
+  description: Indicates whether a method was called locally or remotely. It will
+    be true if called locally, and false if called remotely.
+  example: 'true'
+  flat_name: process.Ext.api.metadata.client_is_local
+  level: custom
+  name: metadata.client_is_local
+  normalize: []
+  original_fieldset: api
+  short: Indicates whether a method was called locally or remotely. It will be true
+    if called locally, and false if called remotely.
+  type: boolean
+process.Ext.api.metadata.client_machine:
+  dashed_name: process-Ext-api-metadata-client-machine
+  description: Client process's machine name.
+  example: DESKTOP-EXAMPLE
+  flat_name: process.Ext.api.metadata.client_machine
+  ignore_above: 1024
+  level: custom
+  name: metadata.client_machine
+  normalize: []
+  original_fieldset: api
+  short: Client process's machine name.
+  type: keyword
+process.Ext.api.metadata.client_machine_fqdn:
+  dashed_name: process-Ext-api-metadata-client-machine-fqdn
+  description: Client process's machine name FQDN
+  example: DESKTOP-EXAMPLE
+  flat_name: process.Ext.api.metadata.client_machine_fqdn
+  ignore_above: 1024
+  level: custom
+  name: metadata.client_machine_fqdn
+  normalize: []
+  original_fieldset: api
+  short: Client process's machine name FQDN
+  type: keyword
+process.Ext.api.metadata.client_process_id:
+  dashed_name: process-Ext-api-metadata-client-process-id
+  description: Client process id
+  example: 3600
+  flat_name: process.Ext.api.metadata.client_process_id
+  level: custom
+  name: metadata.client_process_id
+  normalize: []
+  original_fieldset: api
+  short: Client process id
   type: unsigned_long
 process.Ext.api.metadata.ms_since_last_keyevent:
   dashed_name: process-Ext-api-metadata-ms-since-last-keyevent
@@ -2632,6 +2681,60 @@ process.Ext.api.parameters.argument3:
   original_fieldset: api
   short: The third argument to the procedure.
   type: unsigned_long
+process.Ext.api.parameters.consumer_details:
+  dashed_name: process-Ext-api-parameters-consumer-details
+  description: Provides specific information about an event consumer, including its
+    configuration, such as the command it executes, associated SID, and the consumer's
+    name.
+  flat_name: process.Ext.api.parameters.consumer_details
+  ignore_above: 1024
+  level: custom
+  name: parameters.consumer_details
+  normalize: []
+  original_fieldset: api
+  short: Provides specific information about an event consumer, including its configuration,
+    such as the command it executes, associated SID, and the consumer's name.
+  type: keyword
+process.Ext.api.parameters.consumer_name:
+  dashed_name: process-Ext-api-parameters-consumer-name
+  description: Consumer Name. Consumers specify what should happen when the conditions
+    in the Event Filter are triggered.
+  example: ExampleConsumer
+  flat_name: process.Ext.api.parameters.consumer_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.consumer_name
+  normalize: []
+  original_fieldset: api
+  short: Consumer Name. Consumers specify what should happen when the conditions in
+    the Event Filter are triggered.
+  type: keyword
+process.Ext.api.parameters.consumer_type:
+  dashed_name: process-Ext-api-parameters-consumer-type
+  description: "An example list of consumer type.\n  \"ActiveScriptEventConsumer\"\
+    \ - Executes a predefined script in an arbitrary scripting language when an event\
+    \ is delivered to it.\n  \"CommandLineEventConsumer\" - Launches an arbitrary\
+    \ process in the local system context when an event is delivered to it.\n  \"\
+    LogFileEventConsumer\" - Writes customized strings to a text log file when events\
+    \ are delivered to it.\n  \"NTEventLogEventConsumer\" - Logs a specific message\
+    \ to the Windows event log when an event is delivered to it.\n  \"SMTPEventConsumer\"\
+    \ - Sends an email message using SMTP each time an event is delivered to it."
+  example: CommandLineEventConsumer
+  flat_name: process.Ext.api.parameters.consumer_type
+  ignore_above: 1024
+  level: custom
+  name: parameters.consumer_type
+  normalize: []
+  original_fieldset: api
+  short: "An example list of consumer type.\n  \"ActiveScriptEventConsumer\" - Executes\
+    \ a predefined script in an arbitrary scripting language when an event is delivered\
+    \ to it.\n  \"CommandLineEventConsumer\" - Launches an arbitrary process in the\
+    \ local system context when an event is delivered to it.\n  \"LogFileEventConsumer\"\
+    \ - Writes customized strings to a text log file when events are delivered to\
+    \ it.\n  \"NTEventLogEventConsumer\" - Logs a specific message to the Windows\
+    \ event log when an event is delivered to it.\n  \"SMTPEventConsumer\" - Sends\
+    \ an email message using SMTP each time an event is delivered to it."
+  type: keyword
 process.Ext.api.parameters.context_flags:
   dashed_name: process-Ext-api-parameters-context-flags
   description: The bitmask of CPU registers operated on by this call. Corresponds
@@ -2795,6 +2898,32 @@ process.Ext.api.parameters.esp:
   original_fieldset: api
   short: The x86 ESP stack pointer register.
   type: unsigned_long
+process.Ext.api.parameters.event_filter_details:
+  dashed_name: process-Ext-api-parameters-event-filter-details
+  description: Provide an overview of the rules that define when an event should be
+    triggered.
+  flat_name: process.Ext.api.parameters.event_filter_details
+  ignore_above: 1024
+  level: custom
+  name: parameters.event_filter_details
+  normalize: []
+  original_fieldset: api
+  short: Provide an overview of the rules that define when an event should be triggered.
+  type: keyword
+process.Ext.api.parameters.event_filter_name:
+  dashed_name: process-Ext-api-parameters-event-filter-name
+  description: Event filter name. An event filter is a WMI class that defines which
+    events WMI delivers to a consumer.
+  example: ExampleFilter
+  flat_name: process.Ext.api.parameters.event_filter_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.event_filter_name
+  normalize: []
+  original_fieldset: api
+  short: Event filter name. An event filter is a WMI class that defines which events
+    WMI delivers to a consumer.
+  type: keyword
 process.Ext.api.parameters.flags:
   dashed_name: process-Ext-api-parameters-flags
   description: Mode flag that specifies how to interpret the information provided
@@ -2846,6 +2975,18 @@ process.Ext.api.parameters.hook_type:
   normalize: []
   original_fieldset: api
   short: Type of hook procedure to be installed.
+  type: keyword
+process.Ext.api.parameters.namespace:
+  dashed_name: process-Ext-api-parameters-namespace
+  description: WMI namespace to which the connection is made.
+  example: root\Microsoft\Windows\DeviceGuard
+  flat_name: process.Ext.api.parameters.namespace
+  ignore_above: 1024
+  level: custom
+  name: parameters.namespace
+  normalize: []
+  original_fieldset: api
+  short: WMI namespace to which the connection is made.
   type: keyword
 process.Ext.api.parameters.procedure:
   dashed_name: process-Ext-api-parameters-procedure

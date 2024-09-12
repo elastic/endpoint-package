@@ -1437,7 +1437,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Event filter name. An event filter is a WMI class that describes which events WMI delivers to a physical consumer.(???)
+      description: Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer.
       example: ExampleFilter
       default_field: false
     - name: Ext.api.parameters.flags

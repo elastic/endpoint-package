@@ -461,7 +461,7 @@
       level: custom
       type: keyword
       description: >
-        Event filter name. An event filter is a WMI class that describes which events WMI delivers to a physical consumer.(???)
+        Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer.
       example: "ExampleFilter"
 
     - name: parameters.event_filter_details
