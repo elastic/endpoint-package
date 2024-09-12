@@ -20,6 +20,7 @@ This event is generated when a request to terminate a network connection occurs.
 | destination.bytes |
 | destination.ip |
 | destination.port |
+| destination.domain |
 | ecs.version |
 | elastic.agent.id |
 | event.action |

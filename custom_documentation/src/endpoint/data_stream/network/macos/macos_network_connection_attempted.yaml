@@ -24,6 +24,7 @@ fields:
   - destination.address
   - destination.ip
   - destination.port
+  - destination.domain
   - ecs.version
   - elastic.agent.id
   - event.action
