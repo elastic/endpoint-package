@@ -19,6 +19,7 @@ This event is generated when a network connection is attempted.
 | destination.address |
 | destination.ip |
 | destination.port |
+| destination.domain |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
