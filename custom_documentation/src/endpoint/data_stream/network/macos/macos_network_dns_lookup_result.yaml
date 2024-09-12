@@ -84,4 +84,3 @@ fields:
   - dns.question.name
   - dns.resolved_ip
   - dns.question.type
-  
