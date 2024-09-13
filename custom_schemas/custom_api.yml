@@ -52,13 +52,14 @@
           "hook_api" - a change to the memory protection of a small executable image memory region was made
           "hollow_image" - a change to the memory protection of a large executable image memory region was made
           "hook_unbacked" - a change to the memory protection of a small executable non-image memory was made
-          'hollow_unbacked" - a change to the memory protection of a large executable non-image memory was made
+          "hollow_unbacked" - a change to the memory protection of a large executable non-image memory was made
           "guarded_code" - executable memory was unexpectedly marked as PAGE_GUARD
           "hidden_code" - executable memory was unexpectedly marked as PAGE_NOACCESS
           "execute_shellcode" - a region of non-image executable memory was unexpectedly transferred control
           "hardware_breakpoint_set" - a hardware breakpoint was set
           "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed
           "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed
+          "pid_spoofing" - WMI client proceess passed a forged process ID to the WMI server to spoof their origin
       example: [ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]
 
     - name: metadata
@@ -143,6 +144,34 @@
       description: >
         This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
       example: 6021
+
+    - name: metadata.client_machine
+      level: custom
+      type: keyword
+      description: >
+        Client process's machine name.
+      example: DESKTOP-EXAMPLE
+
+    - name: metadata.client_machine_fqdn
+      level: custom
+      type: keyword
+      description: >
+        Client process's machine name FQDN
+      example: DESKTOP-EXAMPLE
+
+    - name: metadata.client_process_id
+      level: custom
+      type: unsigned_long
+      description: >
+        Client process id
+      example: 3600
+
+    - name: metadata.client_is_local
+      level: custom
+      type: boolean
+      description: >
+        Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely.
+      example: 'true'
 
     - name: parameters
       level: custom
@@ -427,3 +456,48 @@
       description: >
         DLL containing the hook procedure. 
       example: "c:\\windows\\system32\\taskbar.dll"
+
+    - name: parameters.event_filter_name
+      level: custom
+      type: keyword
+      description: >
+        Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer.
+      example: "ExampleFilter"
+
+    - name: parameters.event_filter_details
+      level: custom
+      type: keyword
+      description: >
+        Provide an overview of the rules that define when an event should be triggered.
+
+    - name: parameters.consumer_name
+      level: custom
+      type: keyword
+      description: >
+        Consumer Name. Consumers specify what should happen when the conditions in the Event Filter are triggered.
+      example: "ExampleConsumer"
+
+    - name: parameters.consumer_type
+      level: custom
+      type: keyword
+      description: |
+        An example list of consumer type.
+          "ActiveScriptEventConsumer" - Executes a predefined script in an arbitrary scripting language when an event is delivered to it.
+          "CommandLineEventConsumer" - Launches an arbitrary process in the local system context when an event is delivered to it.
+          "LogFileEventConsumer" - Writes customized strings to a text log file when events are delivered to it.
+          "NTEventLogEventConsumer" - Logs a specific message to the Windows event log when an event is delivered to it.
+          "SMTPEventConsumer" - Sends an email message using SMTP each time an event is delivered to it.
+      example: "CommandLineEventConsumer"
+
+    - name: parameters.consumer_details
+      level: custom
+      type: keyword
+      description: >
+        Provides specific information about an event consumer, including its configuration, such as the command it executes, associated SID, and the consumer's name.
+
+    - name: parameters.namespace
+      level: custom
+      type: keyword
+      description: >
+         WMI namespace to which the connection is made.
+      example: "root\\Microsoft\\Windows\\DeviceGuard"

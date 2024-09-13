@@ -1203,7 +1203,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  'hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed"
+      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - WMI client proceess passed a forged process ID to the WMI server to spoof their origin"
       example:
         - cross-process
         - rapid_background_polling
@@ -1221,6 +1221,32 @@
       type: unsigned_long
       description: This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
       example: 6021
+      default_field: false
+    - name: Ext.api.metadata.client_is_local
+      level: custom
+      type: boolean
+      description: Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely.
+      example: 'true'
+      default_field: false
+    - name: Ext.api.metadata.client_machine
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Client process's machine name.
+      example: DESKTOP-EXAMPLE
+      default_field: false
+    - name: Ext.api.metadata.client_machine_fqdn
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Client process's machine name FQDN
+      example: DESKTOP-EXAMPLE
+      default_field: false
+    - name: Ext.api.metadata.client_process_id
+      level: custom
+      type: unsigned_long
+      description: Client process id
+      example: 3600
       default_field: false
     - name: Ext.api.metadata.ms_since_last_keyevent
       level: custom
@@ -1330,6 +1356,26 @@
       description: The third argument to the procedure.
       example: 3
       default_field: false
+    - name: Ext.api.parameters.consumer_details
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Provides specific information about an event consumer, including its configuration, such as the command it executes, associated SID, and the consumer's name.
+      default_field: false
+    - name: Ext.api.parameters.consumer_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Consumer Name. Consumers specify what should happen when the conditions in the Event Filter are triggered.
+      example: ExampleConsumer
+      default_field: false
+    - name: Ext.api.parameters.consumer_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "An example list of consumer type.\n  \"ActiveScriptEventConsumer\" - Executes a predefined script in an arbitrary scripting language when an event is delivered to it.\n  \"CommandLineEventConsumer\" - Launches an arbitrary process in the local system context when an event is delivered to it.\n  \"LogFileEventConsumer\" - Writes customized strings to a text log file when events are delivered to it.\n  \"NTEventLogEventConsumer\" - Logs a specific message to the Windows event log when an event is delivered to it.\n  \"SMTPEventConsumer\" - Sends an email message using SMTP each time an event is delivered to it."
+      example: CommandLineEventConsumer
+      default_field: false
     - name: Ext.api.parameters.context_flags
       level: custom
       type: unsigned_long
@@ -1415,6 +1461,19 @@
       description: The x86 ESP stack pointer register.
       example: 15007744
       default_field: false
+    - name: Ext.api.parameters.event_filter_details
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Provide an overview of the rules that define when an event should be triggered.
+      default_field: false
+    - name: Ext.api.parameters.event_filter_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer.
+      example: ExampleFilter
+      default_field: false
     - name: Ext.api.parameters.flags
       level: custom
       type: keyword
@@ -1442,6 +1501,13 @@
       ignore_above: 1024
       description: Type of hook procedure to be installed.
       example: WH_KEYBOARD_LL
+      default_field: false
+    - name: Ext.api.parameters.namespace
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: WMI namespace to which the connection is made.
+      example: root\Microsoft\Windows\DeviceGuard
       default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
