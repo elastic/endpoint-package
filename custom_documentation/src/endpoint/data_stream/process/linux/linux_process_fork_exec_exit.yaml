@@ -1,11 +1,14 @@
 overview:
-  name: Linux Process Fork
-  description: 'This event is generated when a new process is created using `fork()`.
+  name: Linux Process Exec
+  description: 'This event is generated when a process calls `fork()`, `exec()`, exits, or an aggregation of the previous.
 
     '
 identification:
   filter:
-    event.action: fork
+    event.action:
+    - fork
+    - exec
+    - end
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: linux
@@ -159,6 +162,9 @@ fields:
   - process.parent.user.name
   - process.parent.working_directory
   - process.pid
+  - process.previous.args
+  - process.previous.args_count
+  - process.previous.executable
   - process.real_group.id
   - process.real_group.name
   - process.real_user.id
