@@ -1,4 +1,4 @@
-# Linux Process Exec
+# Linux Process Fork, Exec, and Exit
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`

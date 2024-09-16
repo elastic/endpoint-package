@@ -1,5 +1,5 @@
 overview:
-  name: Linux Process Exec
+  name: Linux Process Fork, Exec, and Exit
   description: 'This event is generated when a process calls `fork()`, `exec()`, exits, or an aggregation of the previous.
 
     '
