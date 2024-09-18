@@ -143,12 +143,40 @@
       description: >
         The file path of the call_stack_final_user_module.
 
+    - name: thread.Ext.call_stack_final_user_module.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      description:  >
+        The number of bytes in this memory region that are both +X and non-shareable.
+        Non-zero values can indicate code hooking, patching, or hollowing.
+
+    - name: thread.Ext.call_stack_final_user_module.protection
+      level: custom
+      type: keyword
+      example: "RWX"
+      description: >
+        The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+
     - name: thread.Ext.call_stack_final_user_module.protection_provenance
       level: custom
       type: keyword
       example: "third_party_hook.dll"
       description: >
-        The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
+        The name of the memory region that caused the last modification of the protection of this page. "Unbacked" may indicate shellcode.
+
+    - name: thread.Ext.call_stack_final_user_module.protection_provenance_path
+      level: custom
+      type: keyword
+      example: "C:\\Program Files\\Hook Inc\\third_party_hook.dll"
+      description: >
+        The path of the module that caused the last modification the protection of this page. "Unbacked" may indicate shellcode.
+
+    - name: thread.Ext.call_stack_final_user_module.reason
+      level: custom
+      type: keyword
+      example: "ntdll.dll|kernelbase.dll"
+      description: >
+        The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
 
     - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
