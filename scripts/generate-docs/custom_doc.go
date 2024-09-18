@@ -30,10 +30,28 @@ type eventOverview struct {
 	Description string `yaml:"description"`
 }
 
+type StringArray []string
+
 type eventIdentification struct {
-	Os         []string          `yaml:"os"`
-	DataStream string            `yaml:"data_stream"`
-	Filter     map[string]string `yaml:"filter"`
+	Os         []string               `yaml:"os"`
+	DataStream string                 `yaml:"data_stream"`
+	Filter     map[string]StringArray `yaml:"filter"`
+}
+
+func (a *StringArray) UnmarshalYAML(unmarshal func(interface{}) error) error {
+	var multi []string
+	err := unmarshal(&multi)
+	if err != nil {
+		var single string
+		err := unmarshal(&single)
+		if err != nil {
+			return err
+		}
+		*a = []string{single}
+	} else {
+		*a = multi
+	}
+	return nil
 }
 
 type eventFieldDetails struct {
@@ -205,7 +223,16 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 			}
 			sort.Strings(keys)
 			for _, key := range keys {
-				terms = append(terms, fmt.Sprintf("%s : \"%s\"", key, event.doc.Identification.Filter[key]))
+				if len(event.doc.Identification.Filter[key]) == 1 {
+					terms = append(terms, fmt.Sprintf("%s : \"%s\"", key, event.doc.Identification.Filter[key][0]))
+				} else {
+					term := fmt.Sprintf("%s : (\"%s\"", key, event.doc.Identification.Filter[key][0])
+					for i := 1; i < len(event.doc.Identification.Filter[key]); i++ {
+						term += fmt.Sprintf(" or \"%s\"", event.doc.Identification.Filter[key][i])
+					}
+					term += ")"
+					terms = append(terms, term)
+				}
 			}
 			return strings.Join(terms, " and "), nil
 		},
