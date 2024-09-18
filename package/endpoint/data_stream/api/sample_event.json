@@ -37,6 +37,22 @@
             "pid": 25732
         }
     },
+    "dll": {
+        "Ext": {
+            "code_signature": [
+                {
+                    "exists": true,
+                    "status": "trusted",
+                    "subject_name": "Microsoft Windows",
+                    "trusted": true
+                }
+            ]
+        },
+        "hash": {
+            "sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54"
+        },
+        "path": "c:\\windows\\system32\\drivers\\pktmon.sys"
+    },
     "destination": {
         "ip": "2001:4860:4860::8844",
         "port": 139
@@ -123,6 +139,7 @@
                     "procedure_symbol": "taskbar.dll",
                     "ms_since_last_keyevent": 94,
                     "background_callcount": 6021,
+                    "security_descriptor": "O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)",
                     "client_machine": "DESKTOP-EXAMPLE",
                     "client_machine_fqdn": "DESKTOP-EXAMPLE",
                     "client_process_id": 3600,
@@ -171,6 +188,8 @@
                     "flags": "INPUTSINK",
                     "hook_type": "WH_KEYBOARD_LL",
                     "hook_module": "c:\\windows\\system32\\taskbar.dll",
+                    "device": "\\Device\\PktMonDev",
+                    "io_control_code": 27365,
                     "event_filter_name": "ExampleFilter",
                     "event_filter_details": "__EventFilter{EventNamespace = \"root\\CimV2\"; Name = \"ExampleFilter\";};",
                     "consumer_name": "ExampleConsumer",
