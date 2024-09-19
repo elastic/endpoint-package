@@ -1399,7 +1399,7 @@ process.Ext.created_suspended:
   name: Ext.created_suspended
   normalize: []
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
-    CreateProcess API. Not valid for direct syscalls.
+    CreateProcess API.
   type: boolean
 process.Ext.defense_evasions:
   dashed_name: process-Ext-defense-evasions
@@ -2684,7 +2684,7 @@ process.parent.thread.Ext.call_stack.allocation_private_bytes:
   normalize: []
   original_fieldset: call_stack
   short: The number of bytes in this memory allocation/image that are both +X and
-    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+    non-shareable.
   type: unsigned_long
 process.parent.thread.Ext.call_stack.callsite_leading_bytes:
   dashed_name: process-parent-thread-Ext-call-stack-callsite-leading-bytes
