@@ -60,7 +60,7 @@
           "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed
           "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed
           "pid_spoofing" - WMI client proceess passed a forged process ID to the WMI server to spoof their origin
-      example: [ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]
+      example: "[ \"cross-process\", \"rapid_background_polling\", \"multiple_polling_processes\", \"native_api\", \"shellcode\" ]"
 
     - name: metadata
       level: custom
@@ -135,14 +135,15 @@
       level: custom
       type: unsigned_long
       description: >
-        This parameter indicates an elapsed time in milliseconds between the last GetAsyncKeyState event.
+        This field indicates the elapsed time in milliseconds since the last GetAsyncKeyState event.
       example: 94
 
     - name: metadata.background_callcount
       level: custom
       type: unsigned_long
+      short: The number of api calls since the last successful call.
       description: >
-        This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+        This field indicates a number of all GetAsyncKeyState api calls, including unsuccessful calls, between the last successful GetAsyncKeyState call.
       example: 6021
 
     - name: metadata.client_machine
@@ -169,6 +170,7 @@
     - name: metadata.client_is_local
       level: custom
       type: boolean
+      short: Indicates whether a method was called locally or from a remote host.
       description: >
         Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely.
       example: 'true'
@@ -439,6 +441,7 @@
     - name: parameters.flags
       level: custom
       type: keyword
+      short: Mode flag that specifies how to interpret the information provided by UsagePage and Usage.
       description: >
         Mode flag that specifies how to interpret the information provided by UsagePage and Usage. Third member RAWINPUTDEVICE structure.
       example: "INPUTSINK"
@@ -480,6 +483,7 @@
     - name: parameters.consumer_type
       level: custom
       type: keyword
+      short: WMI event consumer type.
       description: |
         An example list of consumer type.
           "ActiveScriptEventConsumer" - Executes a predefined script in an arbitrary scripting language when an event is delivered to it.
@@ -492,6 +496,7 @@
     - name: parameters.consumer_details
       level: custom
       type: keyword
+      short: WMI Event consumer details.
       description: >
         Provides specific information about an event consumer, including its configuration, such as the command it executes, associated SID, and the consumer's name.
 
