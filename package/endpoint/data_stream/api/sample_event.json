@@ -176,7 +176,8 @@
                     "consumer_name": "ExampleConsumer",
                     "consumer_type": "CommandLineEventConsumer",
                     "consumer_details": "CommandLineEventConsumer{Name = \"ExampleConsumer\";};",
-                    "namespace": "root\\Microsoft\\Windows\\DeviceGuard"
+                    "namespace": "root\\Microsoft\\Windows\\DeviceGuard",
+                    "operation": "Win32_Process::Create"                
                 },
                 "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
