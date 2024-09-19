@@ -44,6 +44,8 @@ fields:
   - file.extension
   - file.hash.sha256
   - file.name
+  - file.origin_referrer_url
+  - file.origin_url
   - file.path
   - file.size
   - host.architecture
