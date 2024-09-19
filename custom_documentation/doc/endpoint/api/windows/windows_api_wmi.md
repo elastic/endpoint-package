@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.api-*`
 - KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Microsoft-Windows-WMI-Activity" and host.os.type : "windows"`
 
-This event is generated when 
+This event is generated when WMI Activity-related APIs are called.
 
 | Field |
 |---|
@@ -46,6 +46,19 @@ This event is generated when
 | message |
 | process.Ext.ancestry |
 | process.Ext.api.name |
+| process.Ext.api.summary |
+| process.Ext.api.behaviors |
+| process.Ext.api.metadata.client_machine |
+| process.Ext.api.metadata.client_machine_fqdn |
+| process.Ext.api.metadata.client_process_id |
+| process.Ext.api.metadata.client_is_local |
+| process.Ext.api.parameters.event_filter_name |
+| process.Ext.api.parameters.event_filter_details |
+| process.Ext.api.parameters.consumer_name |
+| process.Ext.api.parameters.consumer_type |
+| process.Ext.api.parameters.consumer_details |
+| process.Ext.api.parameters.namespace |
+| process.Ext.api.parameters.operation |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
