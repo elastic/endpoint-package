@@ -16,6 +16,7 @@
     - name: thread_count
       level: custom
       type: long
+      short: The number of threads that this alert applies to.
       description: The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1.
     
     - name: self_injection

@@ -2413,7 +2413,7 @@ process.thread.Ext.call_stack.allocation_private_bytes:
   normalize: []
   original_fieldset: call_stack
   short: The number of bytes in this memory allocation/image that are both +X and
-    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+    non-shareable.
   type: unsigned_long
 process.thread.Ext.call_stack.callsite_leading_bytes:
   dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes

@@ -1105,8 +1105,8 @@ Endpoint.metrics.system_impact.win32k_events.week_idle_ms:
   level: custom
   name: metrics.system_impact.win32k_events.week_idle_ms
   normalize: []
-  short: The total milliseconds spent queueing ETW Win32k events (currently, only
-    keylogging events) for the process over the last week
+  short: The total milliseconds spent queueing ETW Win32k events for the process over
+    the last week
   type: unsigned_long
 Endpoint.metrics.system_impact.win32k_events.week_ms:
   dashed_name: Endpoint-metrics-system-impact-win32k-events-week-ms
@@ -1118,8 +1118,8 @@ Endpoint.metrics.system_impact.win32k_events.week_ms:
   level: custom
   name: metrics.system_impact.win32k_events.week_ms
   normalize: []
-  short: The total milliseconds spent on ETW Win32k events (currently, only keylogging
-    events) for the process over the last week
+  short: The total milliseconds spent on ETW Win32k events for the process over the
+    last week
   type: unsigned_long
 Endpoint.metrics.threads:
   dashed_name: Endpoint-metrics-threads
