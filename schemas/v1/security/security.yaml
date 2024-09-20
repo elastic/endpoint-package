@@ -1985,3 +1985,25 @@ user.name:
   normalize: []
   short: Short name or login of the user.
   type: keyword
+winlog.event_data:
+  dashed_name: winlog-event-data
+  description: The event-specific data. This is a non-exhaustive list of parameters
+    that are used in Windows events.
+  flat_name: winlog.event_data
+  level: custom
+  name: event_data
+  normalize: []
+  short: The event-specific data. This is a non-exhaustive list of parameters that
+    are used in Windows events.
+  type: object
+winlog.event_data.PrivilegeList:
+  dashed_name: winlog-event-data-PrivilegeList
+  description: An array of sensitive privileges, assigned to the new logon.
+  example: SeTcbPrivilege, SeSecurityPrivilege
+  flat_name: winlog.event_data.PrivilegeList
+  ignore_above: 1024
+  level: custom
+  name: event_data.PrivilegeList
+  normalize: []
+  short: An array of sensitive privileges, assigned to the new logon.
+  type: keyword
