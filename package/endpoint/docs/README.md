@@ -2750,6 +2750,8 @@ sent by the endpoint.
 | user.hash | Unique user hash to correlate information for a user in anonymized form. Useful if `user.id` or `user.name` contain confidential information and cannot be used. | keyword |
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
+| winlog.event_data | The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events. | object |
+| winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
 
 
 ## Metrics
