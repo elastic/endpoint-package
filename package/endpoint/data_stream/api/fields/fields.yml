@@ -888,6 +888,75 @@
       type: long
       format: string
       description: Port of the destination.
+- name: dll
+  title: DLL
+  group: 2
+  description: 'These fields contain information about code libraries dynamically loaded into processes.
+
+
+    Many operating systems refer to "shared code libraries" with different names, but this field set refers to all of the following:
+
+    * Dynamic-link library (`.dll`) commonly used on Windows
+
+    * Shared Object (`.so`) commonly used on Unix-like operating systems
+
+    * Dynamic library (`.dylib`) commonly used on macOS'
+  type: group
+  default_field: true
+  fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: Ext.code_signature
+      level: custom
+      type: nested
+      description: Nested version of ECS code_signature fieldset.
+      default_field: false
+    - name: Ext.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: Ext.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: Ext.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: Ext.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: hash.sha256
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: SHA256 hash.
+      default_field: false
+    - name: path
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Full file path of the library.
+      example: C:\Windows\System32\kernel32.dll
+      default_field: false
 - name: ecs
   title: ECS
   group: 2
@@ -1204,12 +1273,7 @@
       type: keyword
       ignore_above: 1024
       description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - WMI client proceess passed a forged process ID to the WMI server to spoof their origin"
-      example:
-        - cross-process
-        - rapid_background_polling
-        - multiple_polling_processes
-        - native_api
-        - shellcode
+      example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]'
       default_field: false
     - name: Ext.api.metadata
       level: custom
@@ -1219,7 +1283,7 @@
     - name: Ext.api.metadata.background_callcount
       level: custom
       type: unsigned_long
-      description: This parameter indicates a number of all GetAsyncKeyState api calls, including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+      description: This field indicates a number of all GetAsyncKeyState api calls, including unsuccessful calls, between the last successful GetAsyncKeyState call.
       example: 6021
       default_field: false
     - name: Ext.api.metadata.client_is_local
@@ -1251,7 +1315,7 @@
     - name: Ext.api.metadata.ms_since_last_keyevent
       level: custom
       type: unsigned_long
-      description: This parameter indicates an elapsed time in milliseconds between the last GetAsyncKeyState event.
+      description: This field indicates the elapsed time in milliseconds since the last GetAsyncKeyState event.
       example: 94
       default_field: false
     - name: Ext.api.metadata.procedure_symbol
@@ -1266,6 +1330,13 @@
       type: unsigned_long
       description: Return value of RegisterRawInputDevices API call.
       example: 1
+      default_field: false
+    - name: Ext.api.metadata.security_descriptor
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The security descriptor of the device.
+      example: O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)
       default_field: false
     - name: Ext.api.metadata.start_address_allocation_protection
       level: custom
@@ -1501,6 +1572,12 @@
       ignore_above: 1024
       description: Type of hook procedure to be installed.
       example: WH_KEYBOARD_LL
+      default_field: false
+    - name: Ext.api.parameters.io_control_code
+      level: custom
+      type: unsigned_long
+      description: The I/O control code for the requested device operation.
+      example: 27365
       default_field: false
     - name: Ext.api.parameters.namespace
       level: custom
@@ -2584,6 +2661,11 @@
       type: nested
       description: The final non-win32 module in the call stack.
       default_field: false
+    - name: thread.Ext.call_stack_final_user_module.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      description: The number of bytes in this memory region that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+      default_field: false
     - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
       type: nested
@@ -2653,12 +2735,33 @@
       description: The file path of the call_stack_final_user_module.
       example: C:\Program Files\Example\example.dll
       default_field: false
+    - name: thread.Ext.call_stack_final_user_module.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+      example: RWX
+      default_field: false
     - name: thread.Ext.call_stack_final_user_module.protection_provenance
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
+      description: The name of the memory region that caused the last modification of the protection of this page. "Unbacked" may indicate shellcode.
       example: third_party_hook.dll
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.protection_provenance_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The path of the module that caused the last modification the protection of this page.
+      example: C:\Program Files\Hook Inc\third_party_hook.dll
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.reason
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
+      example: ntdll.dll|kernelbase.dll
       default_field: false
     - name: thread.Ext.call_stack_summary
       level: custom

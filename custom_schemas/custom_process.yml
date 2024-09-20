@@ -143,12 +143,42 @@
       description: >
         The file path of the call_stack_final_user_module.
 
+    - name: thread.Ext.call_stack_final_user_module.allocation_private_bytes
+      level: custom
+      type: unsigned_long
+      short: The number of bytes in this memory region that are both +X and non-shareable.
+      description:  >
+        The number of bytes in this memory region that are both +X and non-shareable.
+        Non-zero values can indicate code hooking, patching, or hollowing.
+
+    - name: thread.Ext.call_stack_final_user_module.protection
+      level: custom
+      type: keyword
+      example: "RWX"
+      description: >
+        The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+
     - name: thread.Ext.call_stack_final_user_module.protection_provenance
       level: custom
       type: keyword
       example: "third_party_hook.dll"
+      short: The name of the memory region that caused the last modification of the protection of this page.
       description: >
-        The name of the memory region that last modified the protection of this page. "Unbacked" may indicate shellcode.
+        The name of the memory region that caused the last modification of the protection of this page. "Unbacked" may indicate shellcode.
+
+    - name: thread.Ext.call_stack_final_user_module.protection_provenance_path
+      level: custom
+      type: keyword
+      example: "C:\\Program Files\\Hook Inc\\third_party_hook.dll"
+      description: >
+        The path of the module that caused the last modification the protection of this page.
+
+    - name: thread.Ext.call_stack_final_user_module.reason
+      level: custom
+      type: keyword
+      example: "ntdll.dll|kernelbase.dll"
+      description: >
+        The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
 
     - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
@@ -258,6 +288,7 @@
       level: custom
       type: keyword
       example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
+      short: The hash of the disassembled code at the thread start_address.
       description: >
         The bytes at the thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
 
@@ -285,29 +316,33 @@
       level: custom
       type: unsigned_long
       example: 0
+      short: The offset of original_start_address from the allocation base.
       description: >
-        When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+        When a trampoline was detected, this indicates the offset of original_start_address from the allocation base.
 
     - name: thread.Ext.original_start_address_bytes
       level: custom
       type: keyword
       example: "48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc"
+      short: The hex-encoded bytes at the original_start_address.
       description: >
-        When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+        When a trampoline was detected, this holds the hex-encoded bytes at the original thread start address.
 
     - name: thread.Ext.original_start_address_bytes_disasm
       level: custom
       type: keyword
       example: "mov rax, 0x4141414141414141\\njmp rax"
+      short: The disassembled code at the original_start_address.
       description: >
-        When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+        When a trampoline was detected, this holds the disassembled code at the original thread start address.
 
     - name: thread.Ext.original_start_address_bytes_disasm_hash
       level: custom
       type: keyword
       example: "aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c"
+      short: The hash of the disassembled code at the original_start_address.
       description: >
-        When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+        When a trampoline was detected, this holds the bytes at the original thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
 
     - name: thread.Ext.original_start_address_module
       level: custom
@@ -345,6 +380,7 @@
       level: custom
       type: keyword
       index: false
+      short: Up to 512KB of raw data from the thread parameter.
       description: >
         Up to 512KB of raw data from the thread parameter, if it is a valid pointer. This is compressed with zlib. To reduce data volume, this is de-duplicated on the endpoint, and may be missing from many alerts if the same data would be sent multiple times.
 
@@ -418,6 +454,7 @@
     - name: Ext.created_suspended
       level: custom
       type: boolean
+      short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API.
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: "true"
 

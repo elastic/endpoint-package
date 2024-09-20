@@ -921,12 +921,14 @@
       level: custom
       type: unsigned_long
       index: false
+      short: The total milliseconds spent on ETW Win32k events for the process over the last week
       description: The total milliseconds spent on ETW Win32k events (currently, only keylogging events) for the process over the last week
 
     - name: metrics.system_impact.win32k_events.week_idle_ms
       level: custom
       type: unsigned_long
       index: false
+      short:  The total milliseconds spent queueing ETW Win32k events for the process over the last week
       description: The total milliseconds spent queueing ETW Win32k events (currently, only keylogging events) for the process over the last week
 
     - name: metrics.system_impact.process.executable
@@ -1038,6 +1040,7 @@
     - name: configuration
       level: custom
       type: object
+      short: The intended and applied setting for fields not part of a Policy setting
       description:
         Configuration fields represent the intended and applied setting for fields not part of a Policy setting
         This reflects what a given field is configured to do. The actual state of that same field is found in Endpoint.state
@@ -1050,6 +1053,7 @@
     - name: state
       level: custom
       type: object
+      short: The current state of a non-policy setting
       description:
         Represents the current state of a non-policy setting
         These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration)
