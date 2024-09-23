@@ -144,3 +144,8 @@ fields:
           Ext:
             fields:
               authentication_id: {}
+  winlog:
+    fields:
+      event_data:
+        fields:
+          PrivilegeList: {}

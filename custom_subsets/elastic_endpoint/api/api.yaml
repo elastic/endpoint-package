@@ -11,6 +11,20 @@ fields:
     fields:
       ip: {}
       port: {}
+  dll:
+    fields:
+      path: {}
+      hash:
+        fields:
+          sha256: {}
+      Ext:
+        fields:
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
   ecs:
     fields:
       version: {}
@@ -139,7 +153,11 @@ fields:
                 fields:
                   name: {}
                   path: {}
+                  allocation_private_bytes: {}
+                  protection: {}
                   protection_provenance: {}
+                  protection_provenance_path: {}
+                  reason: {}
                   code_signature:
                     fields:
                       exists: {}

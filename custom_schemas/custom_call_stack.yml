@@ -89,6 +89,7 @@
     - name: allocation_private_bytes
       level: custom
       type: unsigned_long
+      short: The number of bytes in this memory allocation/image that are both +X and non-shareable.
       description:  >
         The number of bytes in this memory allocation/image that are both +X and non-shareable.
         Non-zero values can indicate code hooking, patching, or hollowing.

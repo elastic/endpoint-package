@@ -38,7 +38,7 @@ Target.process.Ext.created_suspended:
   normalize: []
   original_fieldset: process
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
-    CreateProcess API. Not valid for direct syscalls.
+    CreateProcess API.
   type: boolean
 Target.process.Ext.memory_region.allocation_base:
   dashed_name: Target-process-Ext-memory-region-allocation-base
@@ -1559,6 +1559,95 @@ destination.port:
   normalize: []
   short: Port of the destination.
   type: long
+dll.Ext:
+  dashed_name: dll-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: dll.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+dll.Ext.code_signature:
+  dashed_name: dll-Ext-code-signature
+  description: Nested version of ECS code_signature fieldset.
+  flat_name: dll.Ext.code_signature
+  level: custom
+  name: Ext.code_signature
+  normalize: []
+  short: Nested version of ECS code_signature fieldset.
+  type: nested
+dll.Ext.code_signature.exists:
+  dashed_name: dll-Ext-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: dll.Ext.code_signature.exists
+  level: custom
+  name: Ext.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+dll.Ext.code_signature.status:
+  dashed_name: dll-Ext-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: dll.Ext.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+dll.Ext.code_signature.subject_name:
+  dashed_name: dll-Ext-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: dll.Ext.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+dll.Ext.code_signature.trusted:
+  dashed_name: dll-Ext-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: dll.Ext.code_signature.trusted
+  level: custom
+  name: Ext.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+dll.hash.sha256:
+  dashed_name: dll-hash-sha256
+  description: SHA256 hash.
+  flat_name: dll.hash.sha256
+  ignore_above: 1024
+  level: extended
+  name: sha256
+  normalize: []
+  original_fieldset: hash
+  short: SHA256 hash.
+  type: keyword
+dll.path:
+  dashed_name: dll-path
+  description: Full file path of the library.
+  example: C:\Windows\System32\kernel32.dll
+  flat_name: dll.path
+  ignore_above: 1024
+  level: extended
+  name: path
+  normalize: []
+  short: Full file path of the library.
+  type: keyword
 ecs.version:
   dashed_name: ecs-version
   description: 'ECS version this event conforms to. `ecs.version` is a required field
@@ -2459,12 +2548,8 @@ process.Ext.api.behaviors:
     \ - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState\
     \ API were observed\n  \"pid_spoofing\" - WMI client proceess passed a forged\
     \ process ID to the WMI server to spoof their origin"
-  example:
-  - cross-process
-  - rapid_background_polling
-  - multiple_polling_processes
-  - native_api
-  - shellcode
+  example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes",
+    "native_api", "shellcode" ]'
   flat_name: process.Ext.api.behaviors
   ignore_above: 1024
   level: custom
@@ -2485,16 +2570,15 @@ process.Ext.api.metadata:
   type: object
 process.Ext.api.metadata.background_callcount:
   dashed_name: process-Ext-api-metadata-background-callcount
-  description: This parameter indicates a number of all GetAsyncKeyState api calls,
-    including unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+  description: This field indicates a number of all GetAsyncKeyState api calls, including
+    unsuccessful calls, between the last successful GetAsyncKeyState call.
   example: 6021
   flat_name: process.Ext.api.metadata.background_callcount
   level: custom
   name: metadata.background_callcount
   normalize: []
   original_fieldset: api
-  short: This parameter indicates a number of all GetAsyncKeyState api calls, including
-    unsuccessfull calls, between the last successfull GetAsyncKeyState call.
+  short: The number of api calls since the last successful call.
   type: unsigned_long
 process.Ext.api.metadata.client_is_local:
   dashed_name: process-Ext-api-metadata-client-is-local
@@ -2506,8 +2590,7 @@ process.Ext.api.metadata.client_is_local:
   name: metadata.client_is_local
   normalize: []
   original_fieldset: api
-  short: Indicates whether a method was called locally or remotely. It will be true
-    if called locally, and false if called remotely.
+  short: Indicates whether a method was called locally or from a remote host.
   type: boolean
 process.Ext.api.metadata.client_machine:
   dashed_name: process-Ext-api-metadata-client-machine
@@ -2546,16 +2629,16 @@ process.Ext.api.metadata.client_process_id:
   type: unsigned_long
 process.Ext.api.metadata.ms_since_last_keyevent:
   dashed_name: process-Ext-api-metadata-ms-since-last-keyevent
-  description: This parameter indicates an elapsed time in milliseconds between the
-    last GetAsyncKeyState event.
+  description: This field indicates the elapsed time in milliseconds since the last
+    GetAsyncKeyState event.
   example: 94
   flat_name: process.Ext.api.metadata.ms_since_last_keyevent
   level: custom
   name: metadata.ms_since_last_keyevent
   normalize: []
   original_fieldset: api
-  short: This parameter indicates an elapsed time in milliseconds between the last
-    GetAsyncKeyState event.
+  short: This field indicates the elapsed time in milliseconds since the last GetAsyncKeyState
+    event.
   type: unsigned_long
 process.Ext.api.metadata.procedure_symbol:
   dashed_name: process-Ext-api-metadata-procedure-symbol
@@ -2580,6 +2663,18 @@ process.Ext.api.metadata.return_value:
   original_fieldset: api
   short: Return value of RegisterRawInputDevices API call.
   type: unsigned_long
+process.Ext.api.metadata.security_descriptor:
+  dashed_name: process-Ext-api-metadata-security-descriptor
+  description: The security descriptor of the device.
+  example: O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)
+  flat_name: process.Ext.api.metadata.security_descriptor
+  ignore_above: 1024
+  level: custom
+  name: metadata.security_descriptor
+  normalize: []
+  original_fieldset: api
+  short: The security descriptor of the device.
+  type: keyword
 process.Ext.api.metadata.start_address_allocation_protection:
   dashed_name: process-Ext-api-metadata-start-address-allocation-protection
   description: Memory protection attributes associated with the starting address of
@@ -2751,8 +2846,7 @@ process.Ext.api.parameters.consumer_details:
   name: parameters.consumer_details
   normalize: []
   original_fieldset: api
-  short: Provides specific information about an event consumer, including its configuration,
-    such as the command it executes, associated SID, and the consumer's name.
+  short: WMI Event consumer details.
   type: keyword
 process.Ext.api.parameters.consumer_name:
   dashed_name: process-Ext-api-parameters-consumer-name
@@ -2785,14 +2879,7 @@ process.Ext.api.parameters.consumer_type:
   name: parameters.consumer_type
   normalize: []
   original_fieldset: api
-  short: "An example list of consumer type.\n  \"ActiveScriptEventConsumer\" - Executes\
-    \ a predefined script in an arbitrary scripting language when an event is delivered\
-    \ to it.\n  \"CommandLineEventConsumer\" - Launches an arbitrary process in the\
-    \ local system context when an event is delivered to it.\n  \"LogFileEventConsumer\"\
-    \ - Writes customized strings to a text log file when events are delivered to\
-    \ it.\n  \"NTEventLogEventConsumer\" - Logs a specific message to the Windows\
-    \ event log when an event is delivered to it.\n  \"SMTPEventConsumer\" - Sends\
-    \ an email message using SMTP each time an event is delivered to it."
+  short: WMI event consumer type.
   type: keyword
 process.Ext.api.parameters.context_flags:
   dashed_name: process-Ext-api-parameters-context-flags
@@ -2995,7 +3082,7 @@ process.Ext.api.parameters.flags:
   normalize: []
   original_fieldset: api
   short: Mode flag that specifies how to interpret the information provided by UsagePage
-    and Usage. Third member RAWINPUTDEVICE structure.
+    and Usage.
   type: keyword
 process.Ext.api.parameters.handle_type:
   dashed_name: process-Ext-api-parameters-handle-type
@@ -3035,6 +3122,17 @@ process.Ext.api.parameters.hook_type:
   original_fieldset: api
   short: Type of hook procedure to be installed.
   type: keyword
+process.Ext.api.parameters.io_control_code:
+  dashed_name: process-Ext-api-parameters-io-control-code
+  description: The I/O control code for the requested device operation.
+  example: 27365
+  flat_name: process.Ext.api.parameters.io_control_code
+  level: custom
+  name: parameters.io_control_code
+  normalize: []
+  original_fieldset: api
+  short: The I/O control code for the requested device operation.
+  type: unsigned_long
 process.Ext.api.parameters.namespace:
   dashed_name: process-Ext-api-parameters-namespace
   description: WMI namespace to which the connection is made.
@@ -3325,7 +3423,7 @@ process.Ext.created_suspended:
   name: Ext.created_suspended
   normalize: []
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
-    CreateProcess API. Not valid for direct syscalls.
+    CreateProcess API.
   type: boolean
 process.Ext.memory_region.allocation_base:
   dashed_name: process-Ext-memory-region-allocation-base
@@ -4898,7 +4996,7 @@ process.thread.Ext.call_stack.allocation_private_bytes:
   normalize: []
   original_fieldset: call_stack
   short: The number of bytes in this memory allocation/image that are both +X and
-    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+    non-shareable.
   type: unsigned_long
 process.thread.Ext.call_stack.callsite_leading_bytes:
   dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes
@@ -5001,6 +5099,16 @@ process.thread.Ext.call_stack_final_user_module:
   normalize: []
   short: The final non-win32 module in the call stack.
   type: nested
+process.thread.Ext.call_stack_final_user_module.allocation_private_bytes:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-allocation-private-bytes
+  description: The number of bytes in this memory region that are both +X and non-shareable.
+    Non-zero values can indicate code hooking, patching, or hollowing.
+  flat_name: process.thread.Ext.call_stack_final_user_module.allocation_private_bytes
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.allocation_private_bytes
+  normalize: []
+  short: The number of bytes in this memory region that are both +X and non-shareable.
+  type: unsigned_long
 process.thread.Ext.call_stack_final_user_module.code_signature:
   dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature
   description: Code signature of the call_stack_final_user_module.
@@ -5115,18 +5223,54 @@ process.thread.Ext.call_stack_final_user_module.path:
   normalize: []
   short: The file path of the call_stack_final_user_module.
   type: keyword
+process.thread.Ext.call_stack_final_user_module.protection:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-protection
+  description: The memory protection for the acting region of pages. Corresponds to
+    `MEMORY_BASIC_INFORMATION.Protect`
+  example: RWX
+  flat_name: process.thread.Ext.call_stack_final_user_module.protection
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.protection
+  normalize: []
+  short: The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
+  type: keyword
 process.thread.Ext.call_stack_final_user_module.protection_provenance:
   dashed_name: process-thread-Ext-call-stack-final-user-module-protection-provenance
-  description: The name of the memory region that last modified the protection of
-    this page. "Unbacked" may indicate shellcode.
+  description: The name of the memory region that caused the last modification of
+    the protection of this page. "Unbacked" may indicate shellcode.
   example: third_party_hook.dll
   flat_name: process.thread.Ext.call_stack_final_user_module.protection_provenance
   ignore_above: 1024
   level: custom
   name: thread.Ext.call_stack_final_user_module.protection_provenance
   normalize: []
-  short: The name of the memory region that last modified the protection of this page.
-    "Unbacked" may indicate shellcode.
+  short: The name of the memory region that caused the last modification of the protection
+    of this page.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.protection_provenance_path:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-protection-provenance-path
+  description: The path of the module that caused the last modification the protection
+    of this page.
+  example: C:\Program Files\Hook Inc\third_party_hook.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.protection_provenance_path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.protection_provenance_path
+  normalize: []
+  short: The path of the module that caused the last modification the protection of
+    this page.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.reason:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-reason
+  description: The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
+  example: ntdll.dll|kernelbase.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.reason
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.reason
+  normalize: []
+  short: The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
   type: keyword
 process.thread.Ext.call_stack_summary:
   dashed_name: process-thread-Ext-call-stack-summary
