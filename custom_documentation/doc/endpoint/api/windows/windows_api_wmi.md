@@ -1,19 +1,16 @@
-# Windows File Create
+# Windows API
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.api-*`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Microsoft-Windows-WMI-Activity" and host.os.type : "windows"`
 
-This event is generated when a file is created.
-
+This event is generated when WMI Activity-related APIs are called.
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -22,7 +19,6 @@ This event is generated when a file is created.
 | data_stream.type |
 | ecs.version |
 | elastic.agent.id |
-| event.action |
 | event.category |
 | event.created |
 | event.dataset |
@@ -30,19 +26,9 @@ This event is generated when a file is created.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.windows.zone_identifier |
-| file.extension |
-| file.hash.sha256 |
-| file.name |
-| file.origin_referrer_url |
-| file.origin_url |
-| file.path |
-| file.size |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -59,6 +45,20 @@ This event is generated when a file is created.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.api.name |
+| process.Ext.api.summary |
+| process.Ext.api.behaviors |
+| process.Ext.api.metadata.client_machine |
+| process.Ext.api.metadata.client_machine_fqdn |
+| process.Ext.api.metadata.client_process_id |
+| process.Ext.api.metadata.client_is_local |
+| process.Ext.api.parameters.event_filter_name |
+| process.Ext.api.parameters.event_filter_details |
+| process.Ext.api.parameters.consumer_name |
+| process.Ext.api.parameters.consumer_type |
+| process.Ext.api.parameters.consumer_details |
+| process.Ext.api.parameters.namespace |
+| process.Ext.api.parameters.operation |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
@@ -67,11 +67,9 @@ This event is generated when a file is created.
 | process.code_signature.status |
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
-| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
 | process.pid |
 | process.thread.id |
 | user.domain |
