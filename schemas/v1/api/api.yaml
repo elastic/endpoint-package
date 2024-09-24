@@ -2546,8 +2546,9 @@ process.Ext.api.behaviors:
     \ set\n  \"rapid_background_polling\" - a suspicious process which does rapid\
     \ input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\"\
     \ - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState\
-    \ API were observed\n  \"pid_spoofing\" - WMI client proceess passed a forged\
-    \ process ID to the WMI server to spoof their origin"
+    \ API were observed\n  \"pid_spoofing\" - The acting process details may have\
+    \ been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded\
+    \ API was called"
   example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes",
     "native_api", "shellcode" ]'
   flat_name: process.Ext.api.behaviors
@@ -2594,7 +2595,8 @@ process.Ext.api.metadata.client_is_local:
   type: boolean
 process.Ext.api.metadata.client_machine:
   dashed_name: process-Ext-api-metadata-client-machine
-  description: Client process's machine name.
+  description: Client process's machine name (provided by the client and potentially
+    untrustworthy).
   example: DESKTOP-EXAMPLE
   flat_name: process.Ext.api.metadata.client_machine
   ignore_above: 1024
@@ -2602,19 +2604,21 @@ process.Ext.api.metadata.client_machine:
   name: metadata.client_machine
   normalize: []
   original_fieldset: api
-  short: Client process's machine name.
+  short: Client process's machine name (provided by the client and potentially untrustworthy).
   type: keyword
 process.Ext.api.metadata.client_machine_fqdn:
   dashed_name: process-Ext-api-metadata-client-machine-fqdn
-  description: Client process's machine name FQDN
-  example: DESKTOP-EXAMPLE
+  description: Client process's machine name FQDN (provided by the client and potentially
+    untrustworthy).
+  example: DESKTOP-EXAMPLE.elastic.co
   flat_name: process.Ext.api.metadata.client_machine_fqdn
   ignore_above: 1024
   level: custom
   name: metadata.client_machine_fqdn
   normalize: []
   original_fieldset: api
-  short: Client process's machine name FQDN
+  short: Client process's machine name FQDN (provided by the client and potentially
+    untrustworthy).
   type: keyword
 process.Ext.api.metadata.client_process_id:
   dashed_name: process-Ext-api-metadata-client-process-id
@@ -3046,7 +3050,7 @@ process.Ext.api.parameters.esp:
   type: unsigned_long
 process.Ext.api.parameters.event_filter_details:
   dashed_name: process-Ext-api-parameters-event-filter-details
-  description: Provide an overview of the rules that define when an event should be
+  description: Provide an overview of the query that define when an event should be
     triggered.
   flat_name: process.Ext.api.parameters.event_filter_details
   ignore_above: 1024
@@ -3054,7 +3058,7 @@ process.Ext.api.parameters.event_filter_details:
   name: parameters.event_filter_details
   normalize: []
   original_fieldset: api
-  short: Provide an overview of the rules that define when an event should be triggered.
+  short: Provide an overview of the query that define when an event should be triggered.
   type: keyword
 process.Ext.api.parameters.event_filter_name:
   dashed_name: process-Ext-api-parameters-event-filter-name
@@ -3144,6 +3148,18 @@ process.Ext.api.parameters.namespace:
   normalize: []
   original_fieldset: api
   short: WMI namespace to which the connection is made.
+  type: keyword
+process.Ext.api.parameters.operation:
+  dashed_name: process-Ext-api-parameters-operation
+  description: Specifies the connection or request to WMI
+  example: Win32_Process::Create
+  flat_name: process.Ext.api.parameters.operation
+  ignore_above: 1024
+  level: custom
+  name: parameters.operation
+  normalize: []
+  original_fieldset: api
+  short: Specifies the connection or request to WMI
   type: keyword
 process.Ext.api.parameters.procedure:
   dashed_name: process-Ext-api-parameters-procedure
