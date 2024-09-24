@@ -1,10 +1,10 @@
-# Windows Process Create
+# Windows Process Create And Exit
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "start" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : ("start" or "end") and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when a process is created.
+This event is generated when a process is created or exits.
 
 
 | Field |
@@ -87,6 +87,7 @@ This event is generated when a process is created.
 | process.command_line |
 | process.entity_id |
 | process.executable |
+| process.exit_code |
 | process.hash.md5 |
 | process.hash.sha1 |
 | process.hash.sha256 |
