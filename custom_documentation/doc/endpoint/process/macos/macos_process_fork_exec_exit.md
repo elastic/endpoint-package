@@ -1,10 +1,10 @@
-# macOS Process Exit
+# macOS Process Fork, Exec, and Exit
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "end" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
+- KQL: `event.action : ("fork" or "exec" or "end") and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a process exits.
+This event is generated when a process calls `fork()`, `exec()`, or exits.
 
 
 | Field |
@@ -52,6 +52,9 @@ This event is generated when a process exits.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.effective_parent.entity_id |
+| process.Ext.effective_parent.executable |
+| process.Ext.effective_parent.name |
 | process.Ext.effective_parent.pid |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
