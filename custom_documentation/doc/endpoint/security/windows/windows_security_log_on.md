@@ -68,4 +68,5 @@ This event is generated when a user logs on to the computer.
 | user.effective.name |
 | user.id |
 | user.name |
+| winlog.event_data.PrivilegeList |
 
