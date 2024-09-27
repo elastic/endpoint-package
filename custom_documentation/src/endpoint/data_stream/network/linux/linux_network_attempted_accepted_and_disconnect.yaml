@@ -1,11 +1,14 @@
 overview:
-  name: Linux Network Disconnect
-  description: 'This event is generated when a network session is terminated.
+  name: Linux Network Connection Attempted, Connection Accepted, and Disconnect
+  description: 'This event is generated when a network session is accepted, attempted or terminated.
 
     '
 identification:
   filter:
-    event.action: disconnect_received
+    event.action:
+    - connection_attempted
+    - connection_accepted
+    - disconnect_received
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: linux
@@ -60,16 +63,6 @@ fields:
   - network.transport
   - network.type
   - process.Ext.ancestry
-  - process.Ext.code_signature.exists
-  - process.Ext.code_signature.status
-  - process.Ext.code_signature.subject_name
-  - process.Ext.code_signature.trusted
-  - process.code_signature.exists
-  - process.code_signature.signing_id
-  - process.code_signature.status
-  - process.code_signature.subject_name
-  - process.code_signature.team_id
-  - process.code_signature.trusted
   - process.command_line
   - process.entity_id
   - process.entry_leader.entity_id
