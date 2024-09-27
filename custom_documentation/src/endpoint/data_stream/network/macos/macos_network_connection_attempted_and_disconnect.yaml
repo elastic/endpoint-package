@@ -1,11 +1,14 @@
 overview:
-  name: macOS Network Connection Attempted
-  description: 'This event is generated when a network connection is attempted.
+  name: macOS Network Conncetion Attempted and Disconnect Received
+  description: 'This event is generated when a connection is attempted or a request to terminate a network connection
+    occurs.
 
     '
 identification:
   filter:
-    event.action: connection_attempted
+    event.action:
+    - connection_attempted
+    - disconnect_received
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: macos
@@ -22,6 +25,7 @@ fields:
   - data_stream.namespace
   - data_stream.type
   - destination.address
+  - destination.bytes
   - destination.ip
   - destination.port
   - destination.domain
@@ -72,6 +76,7 @@ fields:
   - process.parent.entity_id
   - process.pid
   - source.address
+  - source.bytes
   - source.ip
   - source.port
   - user.Ext.real.id

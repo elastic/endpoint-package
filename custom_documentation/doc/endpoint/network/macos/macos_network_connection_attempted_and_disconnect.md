@@ -1,10 +1,10 @@
-# macOS Network Disconnect Received
+# macOS Network Conncetion Attempted and Disconnect Received
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
+- KQL: `event.action : ("connection_attempted" or "disconnect_received") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a request to terminate a network connection occurs.
+This event is generated when a connection is attempted or a request to terminate a network connection occurs.
 
 
 | Field |
