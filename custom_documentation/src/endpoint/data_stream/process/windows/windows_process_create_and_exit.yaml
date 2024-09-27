@@ -1,11 +1,13 @@
 overview:
-  name: Windows Process Create
-  description: 'This event is generated when a process is created.
+  name: Windows Process Create And Exit
+  description: 'This event is generated when a process is created or exits.
 
     '
 identification:
   filter:
-    event.action: start
+    event.action:
+        - start
+        - end
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: windows
@@ -92,6 +94,7 @@ fields:
   - process.command_line
   - process.entity_id
   - process.executable
+  - process.exit_code
   - process.hash.md5
   - process.hash.sha1
   - process.hash.sha256
