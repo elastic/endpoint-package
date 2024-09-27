@@ -1,10 +1,10 @@
-# Windows Network Connection Attempted
+# Windows Network Disconnect Received
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "connection_attempted" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when there is an attempt to establish a network connection.
+This event is generated when a connection is attempted, a connection is accepted, or a request to terminate a network session is received.
 
 
 | Field |
@@ -17,6 +17,7 @@ This event is generated when there is an attempt to establish a network connecti
 | data_stream.namespace |
 | data_stream.type |
 | destination.address |
+| destination.bytes |
 | destination.ip |
 | destination.port |
 | ecs.version |
@@ -64,6 +65,7 @@ This event is generated when there is an attempt to establish a network connecti
 | process.pid |
 | process.uptime |
 | source.address |
+| source.bytes |
 | source.ip |
 | source.port |
 | user.domain |
