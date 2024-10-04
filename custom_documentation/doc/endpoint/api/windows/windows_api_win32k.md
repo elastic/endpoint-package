@@ -60,7 +60,6 @@ This event is generated when keylogging-related Win32k APIs are called.
 | process.Ext.api.name |
 | process.Ext.api.parameters.address |
 | process.Ext.api.parameters.allocation_type |
-| process.Ext.api.parameters.context_flags |
 | process.Ext.api.parameters.flags |
 | process.Ext.api.parameters.hook_module |
 | process.Ext.api.parameters.hook_type |
