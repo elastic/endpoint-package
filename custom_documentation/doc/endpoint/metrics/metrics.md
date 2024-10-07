@@ -95,6 +95,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.malicious_behavior_rules.id |
 | Endpoint.metrics.memory.endpoint.private.latest |
 | Endpoint.metrics.memory.endpoint.private.mean |
+| Endpoint.metrics.system_impact.amsi_events.week_idle_ms |
+| Endpoint.metrics.system_impact.amsi_events.week_ms |
 | Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms |
 | Endpoint.metrics.system_impact.attack_surface_events.week_ms |
 | Endpoint.metrics.system_impact.authentication_events.week_idle_ms |

@@ -1,11 +1,11 @@
 overview:
   name: Windows API
-  description: This event is generated when WMI Activity-related APIs are called.
+  description: This event is generated when ETW AttackSurfaceMonitor events are generated.
 identification:
   filter:
     event.dataset: endpoint.events.api
     event.module: endpoint
-    event.provider: Microsoft-Windows-WMI-Activity
+    event.provider: AttackSurfaceMonitor
     host.os.type: windows
   os:
   - windows
@@ -13,14 +13,18 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
-  - Target.process.name
-  - Target.process.pid
   - agent.id
   - agent.type
   - agent.version
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - dll.Ext.code_signature.exists
+  - dll.Ext.code_signature.status
+  - dll.Ext.code_signature.subject_name
+  - dll.Ext.code_signature.trusted
+  - dll.hash.sha256
+  - dll.path
   - ecs.version
   - elastic.agent.id
   - event.category
@@ -48,20 +52,10 @@ fields:
   - host.os.type
   - host.os.version
   - message
-  - process.Ext.ancestry
   - process.Ext.api.behaviors
-  - process.Ext.api.metadata.client_is_local
-  - process.Ext.api.metadata.client_machine
-  - process.Ext.api.metadata.client_machine_fqdn
-  - process.Ext.api.metadata.client_process_id
   - process.Ext.api.name
-  - process.Ext.api.parameters.consumer_details
-  - process.Ext.api.parameters.consumer_name
-  - process.Ext.api.parameters.consumer_type
-  - process.Ext.api.parameters.event_filter_details
-  - process.Ext.api.parameters.event_filter_name
-  - process.Ext.api.parameters.namespace
-  - process.Ext.api.parameters.operation
+  - process.Ext.api.parameters.device
+  - process.Ext.api.parameters.io_control_code
   - process.Ext.api.summary
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
