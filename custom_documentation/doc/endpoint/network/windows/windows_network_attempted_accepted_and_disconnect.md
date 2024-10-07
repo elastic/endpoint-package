@@ -1,4 +1,4 @@
-# Windows Network Disconnect Received
+# Windows Network Connection Attempted, Connection Accepted and Disconnect Received
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`

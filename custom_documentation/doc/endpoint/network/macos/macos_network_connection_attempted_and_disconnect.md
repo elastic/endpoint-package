@@ -1,4 +1,4 @@
-# macOS Network Conncetion Attempted and Disconnect Received
+# macOS Network Connection Attempted and Disconnect Received
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.network-*`

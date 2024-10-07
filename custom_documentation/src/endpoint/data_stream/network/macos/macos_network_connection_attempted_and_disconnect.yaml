@@ -1,5 +1,5 @@
 overview:
-  name: macOS Network Conncetion Attempted and Disconnect Received
+  name: macOS Network Connection Attempted and Disconnect Received
   description: 'This event is generated when a connection is attempted or a request to terminate a network connection
     occurs.
 
