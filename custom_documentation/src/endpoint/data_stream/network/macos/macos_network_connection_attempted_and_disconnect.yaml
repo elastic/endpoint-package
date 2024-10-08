@@ -1,17 +1,19 @@
 overview:
-  name: Windows Network Connection Attempted
-  description: 'This event is generated when there is an attempt to establish a network
-    connection.
+  name: macOS Network Connection Attempted and Disconnect Received
+  description: 'This event is generated when a connection is attempted or a request to terminate a network connection
+    occurs.
 
     '
 identification:
   filter:
-    event.action: connection_attempted
+    event.action:
+    - connection_attempted
+    - disconnect_received
     event.dataset: endpoint.events.network
     event.module: endpoint
-    host.os.type: windows
+    host.os.type: macos
   os:
-  - windows
+  - macos
   data_stream: logs-endpoint.events.network-*
 fields:
   endpoint:
@@ -23,8 +25,10 @@ fields:
   - data_stream.namespace
   - data_stream.type
   - destination.address
+  - destination.bytes
   - destination.ip
   - destination.port
+  - destination.domain
   - ecs.version
   - elastic.agent.id
   - event.action
@@ -37,6 +41,10 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - group.Ext.real.id
+  - group.Ext.real.name
+  - group.id
+  - group.name
   - host.architecture
   - host.hostname
   - host.id
@@ -52,26 +60,26 @@ fields:
   - host.os.type
   - host.os.version
   - message
-  - network.direction
   - network.transport
   - network.type
   - process.Ext.ancestry
-  - process.Ext.code_signature.exists
-  - process.Ext.code_signature.status
-  - process.Ext.code_signature.subject_name
-  - process.Ext.code_signature.trusted
   - process.code_signature.exists
+  - process.code_signature.signing_id
   - process.code_signature.status
   - process.code_signature.subject_name
+  - process.code_signature.team_id
   - process.code_signature.trusted
+  - process.command_line
   - process.entity_id
   - process.executable
   - process.name
+  - process.parent.entity_id
   - process.pid
-  - process.uptime
   - source.address
+  - source.bytes
   - source.ip
   - source.port
-  - user.domain
+  - user.Ext.real.id
+  - user.Ext.real.name
   - user.id
   - user.name
