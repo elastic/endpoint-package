@@ -1,8 +1,31 @@
-- version: "8.16.0-next"
+- version: "8.16.0"
   changes:
-    - description: TBD
+    - description: WMI event fields and add missing custom documentation fields
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/9999
+      link: https://github.com/elastic/endpoint-package/pull/546
+    - description: Add winlog.event_data.PrivilegeList to security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/547
+    - description: API - DeviceIoControl events and new final_user_module fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/545
+    - description: WMI (WMI-Activity ETW Provider) API Event (production)
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/527
+    - description: Add Target.process.Ext.authentication_id and process.Ext.authentication_id to Security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/525
+    - description: enable endpoint policy.applied.artifacts mapping
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/523
+    - description: index call_stack_summary in API events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/520
+- version: "8.15.2"
+  changes:
+    - description: Secondary Malware Signature Fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/538
 - version: "8.15.1"
   changes:
     - description: Add process.Ext.protection to Windows library events
