@@ -2,7 +2,7 @@ format_version: 3.0.0
 name: endpoint
 title: Elastic Defend
 description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
-version: 8.16.0
+version: 8.17.0-prerelease.0
 categories: ["security", "edr_xdr"]
 # The package type. The options for now are [integration, input], more type might be added in the future.
 # The default type is integration and will be set if empty.
@@ -14,7 +14,7 @@ policy_templates:
     multiple: false
 conditions:
   kibana:
-    version: "^8.16.0"
+    version: "^8.17.0"
   # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
   # >= <the version> && < 8.0.0
   elastic:
