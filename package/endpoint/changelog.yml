@@ -1,8 +1,8 @@
-- version: "8.15.2-next"
+- version: "8.15.2"
   changes:
-    - description: TBD
+    - description: Secondary Malware Signature Fields
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/538
 - version: "8.15.1"
   changes:
     - description: Add process.Ext.protection to Windows library events
