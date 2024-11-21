@@ -1,8 +1,8 @@
-- version: "8.17.0-next"
+- version: "8.17.0"
   changes:
-    - description: TBD
+    - description: prep 8.17
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/558
 - version: "8.16.0"
   changes:
     - description: WMI event fields and add missing custom documentation fields
