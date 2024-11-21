@@ -26,9 +26,7 @@ Endpoint.configuration:
   level: custom
   name: configuration
   normalize: []
-  short: Configuration fields represent the intended and applied setting for fields
-    not part of a Policy setting This reflects what a given field is configured to
-    do. The actual state of that same field is found in Endpoint.state
+  short: The intended and applied setting for fields not part of a Policy setting
   type: object
 Endpoint.configuration.isolation:
   dashed_name: Endpoint-configuration-isolation
@@ -102,7 +100,6 @@ Endpoint.policy.applied.actions.status:
 Endpoint.policy.applied.artifacts:
   dashed_name: Endpoint-policy-applied-artifacts
   description: information about protection artifacts applied.
-  enabled: false
   flat_name: Endpoint.policy.applied.artifacts
   level: custom
   name: policy.applied.artifacts
@@ -717,9 +714,7 @@ Endpoint.state:
   level: custom
   name: state
   normalize: []
-  short: Represents the current state of a non-policy setting These fields reflect
-    the current status of a field, which may differ from what it is configured to
-    be (see Endpoint.configuration)
+  short: The current state of a non-policy setting
   type: object
 Endpoint.state.isolation:
   dashed_name: Endpoint-state-isolation

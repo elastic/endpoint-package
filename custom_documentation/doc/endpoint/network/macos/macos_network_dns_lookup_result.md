@@ -1,25 +1,24 @@
-# macOS Process Exit
+# macOS DNS Lookup Result
 
 - OS: macOS
-- Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "end" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
+- Data Stream: `logs-endpoint.events.network-*`
+- KQL: `event.action : "lookup_result" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a process exits.
+This event is generated when results are returned for a DNS lookup request.
 
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.pid |
-| Target.process.executable |
-| Target.process.name |
-| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
+| destination.address |
+| destination.ip |
+| destination.port |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -51,12 +50,10 @@ This event is generated when a process exits.
 | host.os.type |
 | host.os.version |
 | message |
+| network.transport |
+| network.type |
+| network.protocol |
 | process.Ext.ancestry |
-| process.Ext.effective_parent.pid |
-| process.Ext.trusted |
-| process.Ext.trusted_descendant |
-| process.args |
-| process.args_count |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
@@ -65,27 +62,20 @@ This event is generated when a process exits.
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
-| process.env_vars |
 | process.executable |
-| process.exit_code |
-| process.hash.md5 |
-| process.hash.sha1 |
-| process.hash.sha256 |
 | process.name |
-| process.parent.args_count |
-| process.parent.code_signature.exists |
-| process.parent.code_signature.signing_id |
-| process.parent.code_signature.status |
-| process.parent.code_signature.subject_name |
-| process.parent.code_signature.team_id |
-| process.parent.code_signature.trusted |
 | process.parent.entity_id |
-| process.parent.executable |
-| process.parent.name |
-| process.parent.pid |
 | process.pid |
+| source.address |
+| source.ip |
+| source.port |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |
 | user.name |
+| dns.Ext.options |
+| dns.Ext.status |
+| dns.question.name |
+| dns.resolved_ip |
+| dns.question.type |
 

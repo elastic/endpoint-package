@@ -2198,6 +2198,18 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
 process.code_signature.exists:
   dashed_name: process-code-signature-exists
   description: Boolean to capture if a signature is present.
@@ -2401,7 +2413,7 @@ process.thread.Ext.call_stack.allocation_private_bytes:
   normalize: []
   original_fieldset: call_stack
   short: The number of bytes in this memory allocation/image that are both +X and
-    non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
+    non-shareable.
   type: unsigned_long
 process.thread.Ext.call_stack.callsite_leading_bytes:
   dashed_name: process-thread-Ext-call-stack-callsite-leading-bytes

@@ -1,10 +1,10 @@
-# Linux Process Exec
+# Linux Process Fork, Exec, and Exit
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "exec" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.action : ("fork" or "exec" or "end") and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a process calls `exec()`.
+This event is generated when a process calls `fork()`, `exec()`, exits, or an aggregation of the previous.
 
 
 | Field |

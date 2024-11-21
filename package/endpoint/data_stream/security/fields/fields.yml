@@ -21,6 +21,26 @@
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
   default_field: true
+- name: Target
+  title: Target
+  group: 2
+  description: 'These fields contain information about a target.
+
+    These fields provide more context about the target process and thread that are related to the data in the document. Useful in a security context where a target process or thread may be acted on by another process or thread.'
+  type: group
+  default_field: true
+  fields:
+    - name: process.Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: process.Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -534,6 +554,12 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.authentication_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process authentication ID
+      default_field: false
     - name: Ext.code_signature
       level: custom
       type: nested
@@ -935,3 +961,22 @@
           default_field: false
       description: Short name or login of the user.
       example: a.einstein
+- name: winlog
+  title: Winlog
+  group: 2
+  description: These fields provide detailed information regarding events logged in the Windows Event Log. The Windows Event Log is a centralized system used by Windows to record events related to system, application, and security activities. Each event log entry is categorized by a specific event type, and contains relevant metadata that can include the event source, event ID, timestamp, user details, and other associated data.
+  type: group
+  default_field: true
+  fields:
+    - name: event_data
+      level: custom
+      type: object
+      description: The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events.
+      default_field: false
+    - name: event_data.PrivilegeList
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: An array of sensitive privileges, assigned to the new logon.
+      example: SeTcbPrivilege, SeSecurityPrivilege
+      default_field: false

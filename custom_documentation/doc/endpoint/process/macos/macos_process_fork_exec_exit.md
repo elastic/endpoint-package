@@ -1,15 +1,19 @@
-# Windows Process Exit
+# macOS Process Fork, Exec, and Exit
 
-- OS: Windows
+- OS: macOS
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "end" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : ("fork" or "exec" or "end") and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a process exits.
+This event is generated when a process calls `fork()`, `exec()`, or exits.
 
 
 | Field |
 |---|
 | @timestamp |
+| Effective_process.pid |
+| Target.process.executable |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -28,6 +32,10 @@ This event is generated when a process exits.
 | event.outcome |
 | event.sequence |
 | event.type |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -44,52 +52,43 @@ This event is generated when a process exits.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
-| process.Ext.mitigation_policies |
-| process.Ext.session_info.authentication_package |
-| process.Ext.session_info.client_address |
-| process.Ext.session_info.logon_type |
-| process.Ext.session_info.relative_logon_time |
-| process.Ext.session_info.relative_password_age |
-| process.Ext.session_info.user_flags |
+| process.Ext.effective_parent.entity_id |
+| process.Ext.effective_parent.executable |
+| process.Ext.effective_parent.name |
+| process.Ext.effective_parent.pid |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
+| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
+| process.env_vars |
 | process.executable |
 | process.exit_code |
 | process.hash.md5 |
 | process.hash.sha1 |
 | process.hash.sha256 |
 | process.name |
-| process.parent.Ext.code_signature.exists |
-| process.parent.Ext.code_signature.status |
-| process.parent.Ext.code_signature.subject_name |
-| process.parent.Ext.code_signature.trusted |
-| process.parent.args |
 | process.parent.args_count |
 | process.parent.code_signature.exists |
+| process.parent.code_signature.signing_id |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
+| process.parent.code_signature.team_id |
 | process.parent.code_signature.trusted |
-| process.parent.command_line |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.name |
 | process.parent.pid |
-| process.pe.imphash |
-| process.pe.original_file_name |
 | process.pid |
-| user.domain |
+| user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
 | user.name |
 

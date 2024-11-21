@@ -17,6 +17,27 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Target.process.Ext:
+  dashed_name: Target-process-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: Target.process.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  original_fieldset: process
+  short: Object for all custom defined fields to live in.
+  type: object
+Target.process.Ext.authentication_id:
+  dashed_name: Target-process-Ext-authentication-id
+  description: Process authentication ID
+  flat_name: Target.process.Ext.authentication_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.authentication_id
+  normalize: []
+  original_fieldset: process
+  short: Process authentication ID
+  type: keyword
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -1285,6 +1306,16 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.authentication_id:
+  dashed_name: process-Ext-authentication-id
+  description: Process authentication ID
+  flat_name: process.Ext.authentication_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.authentication_id
+  normalize: []
+  short: Process authentication ID
+  type: keyword
 process.Ext.code_signature:
   dashed_name: process-Ext-code-signature
   description: Nested version of ECS code_signature fieldset.
@@ -1953,4 +1984,26 @@ user.name:
   name: name
   normalize: []
   short: Short name or login of the user.
+  type: keyword
+winlog.event_data:
+  dashed_name: winlog-event-data
+  description: The event-specific data. This is a non-exhaustive list of parameters
+    that are used in Windows events.
+  flat_name: winlog.event_data
+  level: custom
+  name: event_data
+  normalize: []
+  short: The event-specific data. This is a non-exhaustive list of parameters that
+    are used in Windows events.
+  type: object
+winlog.event_data.PrivilegeList:
+  dashed_name: winlog-event-data-PrivilegeList
+  description: An array of sensitive privileges, assigned to the new logon.
+  example: SeTcbPrivilege, SeSecurityPrivilege
+  flat_name: winlog.event_data.PrivilegeList
+  ignore_above: 1024
+  level: custom
+  name: event_data.PrivilegeList
+  normalize: []
+  short: An array of sensitive privileges, assigned to the new logon.
   type: keyword

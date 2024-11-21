@@ -75,6 +75,20 @@
         "bytes": 498,
         "ip": "10.201.0.32"
     },
+    "dns": {
+        "Ext": {
+            "status": 123,
+            "options": 9223372036854775808
+        },
+        "resolved_ip": [
+            "10.10.10.10",
+            "10.10.10.11"
+        ],
+        "question": {
+            "name": "foo",
+            "type": "A"
+        }
+    },
     "message": "Endpoint network event",
     "network": {
         "transport": "tcp",

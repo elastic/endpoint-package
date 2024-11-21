@@ -39,6 +39,7 @@ fields:
   - event.type
   - file.Ext.header_bytes
   - file.extension
+  - file.hash.sha256
   - file.inode
   - file.name
   - file.path

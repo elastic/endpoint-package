@@ -17,7 +17,8 @@
                     "exists": true,
                     "status": "trusted"
                 }
-            ]
+            ],
+            "protection": "PsProtectedSignerAntimalware-Light"
         },
         "code_signature": {
             "trusted": true,

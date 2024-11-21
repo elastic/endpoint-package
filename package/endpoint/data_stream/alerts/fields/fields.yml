@@ -46,7 +46,6 @@
       level: custom
       type: object
       description: information about protection artifacts applied.
-      enabled: false
       default_field: false
     - name: policy.applied.artifacts.global
       level: custom
@@ -2485,28 +2484,28 @@
     - name: process.thread.Ext.original_start_address_allocation_offset
       level: custom
       type: unsigned_long
-      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      description: When a trampoline was detected, this indicates the offset of original_start_address from the allocation base.
       example: 0
       default_field: false
     - name: process.thread.Ext.original_start_address_bytes
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      description: When a trampoline was detected, this holds the hex-encoded bytes at the original thread start address.
       example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
       default_field: false
     - name: process.thread.Ext.original_start_address_bytes_disasm
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      description: When a trampoline was detected, this holds the disassembled code at the original thread start address.
       example: mov rax, 0x4141414141414141\njmp rax
       default_field: false
     - name: process.thread.Ext.original_start_address_bytes_disasm_hash
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      description: When a trampoline was detected, this holds the bytes at the original thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
       example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
       default_field: false
     - name: process.thread.Ext.original_start_address_module
@@ -7322,28 +7321,28 @@
     - name: thread.Ext.original_start_address_allocation_offset
       level: custom
       type: unsigned_long
-      description: When a trampoline was detected, this indicates the original content for the offset of original_start_address to the allocation base.
+      description: When a trampoline was detected, this indicates the offset of original_start_address from the allocation base.
       example: 0
       default_field: false
     - name: thread.Ext.original_start_address_bytes
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this holds the original content of the hex-encoded bytes at the original thread start address.
+      description: When a trampoline was detected, this holds the hex-encoded bytes at the original thread start address.
       example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
       default_field: false
     - name: thread.Ext.original_start_address_bytes_disasm
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this indicates the original content for the disassembled code pointed by the thread start address.
+      description: When a trampoline was detected, this holds the disassembled code at the original thread start address.
       example: mov rax, 0x4141414141414141\njmp rax
       default_field: false
     - name: thread.Ext.original_start_address_bytes_disasm_hash
       level: custom
       type: keyword
       ignore_above: 1024
-      description: When a trampoline was detected, this indicates the hash of original content for the disassembled code pointed by the thread start address.
+      description: When a trampoline was detected, this holds the bytes at the original thread start address, with immediate values capped to 0x100, disassembled into human-readable assembly code, then hashed.
       example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
       default_field: false
     - name: thread.Ext.original_start_address_module

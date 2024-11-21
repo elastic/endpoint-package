@@ -37,6 +37,22 @@
             "pid": 25732
         }
     },
+    "dll": {
+        "Ext": {
+            "code_signature": [
+                {
+                    "exists": true,
+                    "status": "trusted",
+                    "subject_name": "Microsoft Windows",
+                    "trusted": true
+                }
+            ]
+        },
+        "hash": {
+            "sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54"
+        },
+        "path": "c:\\windows\\system32\\drivers\\pktmon.sys"
+    },
     "destination": {
         "ip": "2001:4860:4860::8844",
         "port": 139
@@ -108,7 +124,8 @@
                 "behaviors": [
                     "cross-process",
                     "rapid_background_polling",
-                    "multiple_polling_processes"
+                    "multiple_polling_processes",
+                    "pid_spoofing"
                 ],
                 "metadata": {
                     "target_address_name": "Unbacked",
@@ -121,7 +138,12 @@
                     "start_address_allocation_protection": "RCX",
                     "procedure_symbol": "taskbar.dll",
                     "ms_since_last_keyevent": 94,
-                    "background_callcount": 6021
+                    "background_callcount": 6021,
+                    "security_descriptor": "O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)",
+                    "client_machine": "DESKTOP-EXAMPLE",
+                    "client_machine_fqdn": "DESKTOP-EXAMPLE",
+                    "client_process_id": 3600,
+                    "client_is_local": true
                 },
                 "name": "OpenProcess",
                 "parameters": {
@@ -165,7 +187,16 @@
                     "usage": "KEYBOARD",
                     "flags": "INPUTSINK",
                     "hook_type": "WH_KEYBOARD_LL",
-                    "hook_module": "c:\\windows\\system32\\taskbar.dll"
+                    "hook_module": "c:\\windows\\system32\\taskbar.dll",
+                    "device": "\\Device\\PktMonDev",
+                    "io_control_code": 27365,
+                    "event_filter_name": "ExampleFilter",
+                    "event_filter_details": "__EventFilter{EventNamespace = \"root\\CimV2\"; Name = \"ExampleFilter\";};",
+                    "consumer_name": "ExampleConsumer",
+                    "consumer_type": "CommandLineEventConsumer",
+                    "consumer_details": "CommandLineEventConsumer{Name = \"ExampleConsumer\";};",
+                    "namespace": "root\\Microsoft\\Windows\\DeviceGuard",
+                    "operation": "Win32_Process::Create"
                 },
                 "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
@@ -227,6 +258,7 @@
                     }
                 ],
                 "call_stack_final_user_module": {
+                    "allocation_private_bytes": 4096,
                     "code_signature": [
                         {
                             "exists": true,
@@ -240,7 +272,10 @@
                     },
                     "name": "dabapi.dll",
                     "path": "c:\\windows\\system32\\dabapi.dll",
-                    "protection_provenance": "eventstests.exe"
+                    "protection": "RWX",
+                    "protection_provenance": "eventstests.exe",
+                    "protection_provenance_path": "c:\\dev\\eventstests.exe",
+                    "reason": "ntdll.dll"
                 },
                 "call_stack_summary": "ntdll.dll|kernelbase.dll|kernel32.dll|cmd.exe|kernel32.dll|ntdll.dll"
             },

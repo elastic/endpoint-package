@@ -38,7 +38,6 @@ Endpoint.policy.applied:
 Endpoint.policy.applied.artifacts:
   dashed_name: Endpoint-policy-applied-artifacts
   description: information about protection artifacts applied.
-  enabled: false
   flat_name: Endpoint.policy.applied.artifacts
   level: custom
   name: policy.applied.artifacts

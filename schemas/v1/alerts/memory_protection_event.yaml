@@ -38,7 +38,6 @@ Endpoint.policy.applied:
 Endpoint.policy.applied.artifacts:
   dashed_name: Endpoint-policy-applied-artifacts
   description: information about protection artifacts applied.
-  enabled: false
   flat_name: Endpoint.policy.applied.artifacts
   level: custom
   name: policy.applied.artifacts
@@ -247,9 +246,7 @@ Memory_protection.thread_count:
   level: custom
   name: thread_count
   normalize: []
-  short: The number of threads that this alert applies to. If several alerts occur
-    in a short period of time, they can be combined into a single alert with thread_count
-    > 1.
+  short: The number of threads that this alert applies to.
   type: long
 Memory_protection.unique_key_v1:
   dashed_name: Memory-protection-unique-key-v1
@@ -3217,21 +3214,20 @@ Target.process.thread.Ext.original_start_address:
   type: unsigned_long
 Target.process.thread.Ext.original_start_address_allocation_offset:
   dashed_name: Target-process-thread-Ext-original-start-address-allocation-offset
-  description: When a trampoline was detected, this indicates the original content
-    for the offset of original_start_address to the allocation base.
+  description: When a trampoline was detected, this indicates the offset of original_start_address
+    from the allocation base.
   example: 0
   flat_name: Target.process.thread.Ext.original_start_address_allocation_offset
   level: custom
   name: thread.Ext.original_start_address_allocation_offset
   normalize: []
   original_fieldset: process
-  short: When a trampoline was detected, this indicates the original content for the
-    offset of original_start_address to the allocation base.
+  short: The offset of original_start_address from the allocation base.
   type: unsigned_long
 Target.process.thread.Ext.original_start_address_bytes:
   dashed_name: Target-process-thread-Ext-original-start-address-bytes
-  description: When a trampoline was detected, this holds the original content of
-    the hex-encoded bytes at the original thread start address.
+  description: When a trampoline was detected, this holds the hex-encoded bytes at
+    the original thread start address.
   example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
   flat_name: Target.process.thread.Ext.original_start_address_bytes
   ignore_above: 1024
@@ -3239,13 +3235,12 @@ Target.process.thread.Ext.original_start_address_bytes:
   name: thread.Ext.original_start_address_bytes
   normalize: []
   original_fieldset: process
-  short: When a trampoline was detected, this holds the original content of the hex-encoded
-    bytes at the original thread start address.
+  short: The hex-encoded bytes at the original_start_address.
   type: keyword
 Target.process.thread.Ext.original_start_address_bytes_disasm:
   dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm
-  description: When a trampoline was detected, this indicates the original content
-    for the disassembled code pointed by the thread start address.
+  description: When a trampoline was detected, this holds the disassembled code at
+    the original thread start address.
   example: mov rax, 0x4141414141414141\njmp rax
   flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm
   ignore_above: 1024
@@ -3253,13 +3248,13 @@ Target.process.thread.Ext.original_start_address_bytes_disasm:
   name: thread.Ext.original_start_address_bytes_disasm
   normalize: []
   original_fieldset: process
-  short: When a trampoline was detected, this indicates the original content for the
-    disassembled code pointed by the thread start address.
+  short: The disassembled code at the original_start_address.
   type: keyword
 Target.process.thread.Ext.original_start_address_bytes_disasm_hash:
   dashed_name: Target-process-thread-Ext-original-start-address-bytes-disasm-hash
-  description: When a trampoline was detected, this indicates the hash of original
-    content for the disassembled code pointed by the thread start address.
+  description: When a trampoline was detected, this holds the bytes at the original
+    thread start address, with immediate values capped to 0x100, disassembled into
+    human-readable assembly code, then hashed.
   example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
   flat_name: Target.process.thread.Ext.original_start_address_bytes_disasm_hash
   ignore_above: 1024
@@ -3267,8 +3262,7 @@ Target.process.thread.Ext.original_start_address_bytes_disasm_hash:
   name: thread.Ext.original_start_address_bytes_disasm_hash
   normalize: []
   original_fieldset: process
-  short: When a trampoline was detected, this indicates the hash of original content
-    for the disassembled code pointed by the thread start address.
+  short: The hash of the disassembled code at the original_start_address.
   type: keyword
 Target.process.thread.Ext.original_start_address_module:
   dashed_name: Target-process-thread-Ext-original-start-address-module
@@ -3307,10 +3301,7 @@ Target.process.thread.Ext.parameter_bytes_compressed:
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
   original_fieldset: process
-  short: Up to 512KB of raw data from the thread parameter, if it is a valid pointer.
-    This is compressed with zlib. To reduce data volume, this is de-duplicated on
-    the endpoint, and may be missing from many alerts if the same data would be sent
-    multiple times.
+  short: Up to 512KB of raw data from the thread parameter.
   type: keyword
 Target.process.thread.Ext.parameter_bytes_compressed_present:
   dashed_name: Target-process-thread-Ext-parameter-bytes-compressed-present
@@ -3407,8 +3398,7 @@ Target.process.thread.Ext.start_address_bytes_disasm_hash:
   name: thread.Ext.start_address_bytes_disasm_hash
   normalize: []
   original_fieldset: process
-  short: The bytes at the thread start address, with immediate values capped to 0x100,
-    disassembled into human-readable assembly code, then hashed.
+  short: The hash of the disassembled code at the thread start_address.
   type: keyword
 Target.process.thread.Ext.start_address_module:
   dashed_name: Target-process-thread-Ext-start-address-module
@@ -8563,54 +8553,51 @@ process.thread.Ext.original_start_address:
   type: unsigned_long
 process.thread.Ext.original_start_address_allocation_offset:
   dashed_name: process-thread-Ext-original-start-address-allocation-offset
-  description: When a trampoline was detected, this indicates the original content
-    for the offset of original_start_address to the allocation base.
+  description: When a trampoline was detected, this indicates the offset of original_start_address
+    from the allocation base.
   example: 0
   flat_name: process.thread.Ext.original_start_address_allocation_offset
   level: custom
   name: thread.Ext.original_start_address_allocation_offset
   normalize: []
-  short: When a trampoline was detected, this indicates the original content for the
-    offset of original_start_address to the allocation base.
+  short: The offset of original_start_address from the allocation base.
   type: unsigned_long
 process.thread.Ext.original_start_address_bytes:
   dashed_name: process-thread-Ext-original-start-address-bytes
-  description: When a trampoline was detected, this holds the original content of
-    the hex-encoded bytes at the original thread start address.
+  description: When a trampoline was detected, this holds the hex-encoded bytes at
+    the original thread start address.
   example: 48b84141414141414141ffe000ccccccccccccccccccccccccccccccccccccccc
   flat_name: process.thread.Ext.original_start_address_bytes
   ignore_above: 1024
   level: custom
   name: thread.Ext.original_start_address_bytes
   normalize: []
-  short: When a trampoline was detected, this holds the original content of the hex-encoded
-    bytes at the original thread start address.
+  short: The hex-encoded bytes at the original_start_address.
   type: keyword
 process.thread.Ext.original_start_address_bytes_disasm:
   dashed_name: process-thread-Ext-original-start-address-bytes-disasm
-  description: When a trampoline was detected, this indicates the original content
-    for the disassembled code pointed by the thread start address.
+  description: When a trampoline was detected, this holds the disassembled code at
+    the original thread start address.
   example: mov rax, 0x4141414141414141\njmp rax
   flat_name: process.thread.Ext.original_start_address_bytes_disasm
   ignore_above: 1024
   level: custom
   name: thread.Ext.original_start_address_bytes_disasm
   normalize: []
-  short: When a trampoline was detected, this indicates the original content for the
-    disassembled code pointed by the thread start address.
+  short: The disassembled code at the original_start_address.
   type: keyword
 process.thread.Ext.original_start_address_bytes_disasm_hash:
   dashed_name: process-thread-Ext-original-start-address-bytes-disasm-hash
-  description: When a trampoline was detected, this indicates the hash of original
-    content for the disassembled code pointed by the thread start address.
+  description: When a trampoline was detected, this holds the bytes at the original
+    thread start address, with immediate values capped to 0x100, disassembled into
+    human-readable assembly code, then hashed.
   example: aacb1c801f9030f799e2f7350f053ebb760d42cbe81cd65021063c1c4d1a9c9c
   flat_name: process.thread.Ext.original_start_address_bytes_disasm_hash
   ignore_above: 1024
   level: custom
   name: thread.Ext.original_start_address_bytes_disasm_hash
   normalize: []
-  short: When a trampoline was detected, this indicates the hash of original content
-    for the disassembled code pointed by the thread start address.
+  short: The hash of the disassembled code at the original_start_address.
   type: keyword
 process.thread.Ext.original_start_address_module:
   dashed_name: process-thread-Ext-original-start-address-module
@@ -8646,10 +8633,7 @@ process.thread.Ext.parameter_bytes_compressed:
   level: custom
   name: thread.Ext.parameter_bytes_compressed
   normalize: []
-  short: Up to 512KB of raw data from the thread parameter, if it is a valid pointer.
-    This is compressed with zlib. To reduce data volume, this is de-duplicated on
-    the endpoint, and may be missing from many alerts if the same data would be sent
-    multiple times.
+  short: Up to 512KB of raw data from the thread parameter.
   type: keyword
 process.thread.Ext.parameter_bytes_compressed_present:
   dashed_name: process-thread-Ext-parameter-bytes-compressed-present
@@ -8738,8 +8722,7 @@ process.thread.Ext.start_address_bytes_disasm_hash:
   level: custom
   name: thread.Ext.start_address_bytes_disasm_hash
   normalize: []
-  short: The bytes at the thread start address, with immediate values capped to 0x100,
-    disassembled into human-readable assembly code, then hashed.
+  short: The hash of the disassembled code at the thread start_address.
   type: keyword
 process.thread.Ext.start_address_module:
   dashed_name: process-thread-Ext-start-address-module
