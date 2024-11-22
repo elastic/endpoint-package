@@ -101,6 +101,59 @@
       description: >
         User associated with the running process.
 
+    - name: Ext.memfd
+      level: custom
+      type: object
+      description: Object for memfd events.
+
+    - name: Ext.memfd.flag_hugetlb
+      level: custom
+      type: bool
+      example: "false"
+      description: The anonymous file will be created in the hugetlbfs filesystem using huge pages.
+
+    - name: Ext.memfd.flag_allow_seal
+      level: custom
+      type: bool
+      example: "false"
+      description: Allow sealing operations on this file.
+
+    - name: Ext.memfd.flags
+      level: custom
+      type: long
+      example: "2"
+      description: Flags passed to the memfd operation.
+
+    - name: Ext.memfd.name
+      level: custom
+      type: string
+      example: "anon.txt"
+      description: Filename for the created file. Appears in /proc/self/fd.
+
+    - name: Ext.memfd.flag_exec
+      level: custom
+      type: bool
+      example: "false"
+      description: Exec flag is set for file.
+
+    - name: Ext.memfd.flag_cloexec
+      level: custom
+      type: bool
+      example: "false"
+      description: Sets the the close-on-exec flag on the new file descriptor.
+
+    - name: Ext.memfd.flag_cloexec
+      level: custom
+      type: bool
+      example: "false"
+      description: Sets the the close-on-exec flag on the new file descriptor.
+
+    - name: Ext.memfd.flag_noexec_seal
+      level: custom
+      type: bool
+      example: "false"
+      description: Sets both NOEXEC and MFD_ALLOW_SEALING.
+
     - name: thread.Ext
       level: custom
       type: object

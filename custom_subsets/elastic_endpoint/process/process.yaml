@@ -158,6 +158,15 @@ fields:
           authentication_id: {}
           trusted: {}
           trusted_descendant: {}
+          memfd:
+            fields:
+              flag_hugetlb: {}
+              flag_allow_seal: {}
+              flags: {}
+              name: {}
+              flag_exec: {}
+              flag_cloexec: {}
+              flag_noexec_seal: {}
           code_signature:
             fields:
               exists: {}
