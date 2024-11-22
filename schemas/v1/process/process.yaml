@@ -1606,6 +1606,87 @@ process.Ext.effective_parent.pid:
   original_fieldset: Effective_process
   short: Process ID.
   type: long
+process.Ext.memfd:
+  dashed_name: process-Ext-memfd
+  description: Object for memfd events.
+  flat_name: process.Ext.memfd
+  level: custom
+  name: Ext.memfd
+  normalize: []
+  short: Object for memfd events.
+  type: object
+process.Ext.memfd.flag_allow_seal:
+  dashed_name: process-Ext-memfd-flag-allow-seal
+  description: Allow sealing operations on this file.
+  example: 'false'
+  flat_name: process.Ext.memfd.flag_allow_seal
+  level: custom
+  name: Ext.memfd.flag_allow_seal
+  normalize: []
+  short: Allow sealing operations on this file.
+  type: bool
+process.Ext.memfd.flag_cloexec:
+  dashed_name: process-Ext-memfd-flag-cloexec
+  description: Sets the the close-on-exec flag on the new file descriptor.
+  example: 'false'
+  flat_name: process.Ext.memfd.flag_cloexec
+  level: custom
+  name: Ext.memfd.flag_cloexec
+  normalize: []
+  short: Sets the the close-on-exec flag on the new file descriptor.
+  type: bool
+process.Ext.memfd.flag_exec:
+  dashed_name: process-Ext-memfd-flag-exec
+  description: Exec flag is set for file.
+  example: 'false'
+  flat_name: process.Ext.memfd.flag_exec
+  level: custom
+  name: Ext.memfd.flag_exec
+  normalize: []
+  short: Exec flag is set for file.
+  type: bool
+process.Ext.memfd.flag_hugetlb:
+  dashed_name: process-Ext-memfd-flag-hugetlb
+  description: The anonymous file will be created in the hugetlbfs filesystem using
+    huge pages.
+  example: 'false'
+  flat_name: process.Ext.memfd.flag_hugetlb
+  level: custom
+  name: Ext.memfd.flag_hugetlb
+  normalize: []
+  short: The anonymous file will be created in the hugetlbfs filesystem using huge
+    pages.
+  type: bool
+process.Ext.memfd.flag_noexec_seal:
+  dashed_name: process-Ext-memfd-flag-noexec-seal
+  description: Sets both NOEXEC and MFD_ALLOW_SEALING.
+  example: 'false'
+  flat_name: process.Ext.memfd.flag_noexec_seal
+  level: custom
+  name: Ext.memfd.flag_noexec_seal
+  normalize: []
+  short: Sets both NOEXEC and MFD_ALLOW_SEALING.
+  type: bool
+process.Ext.memfd.flags:
+  dashed_name: process-Ext-memfd-flags
+  description: Flags passed to the memfd operation.
+  example: '2'
+  flat_name: process.Ext.memfd.flags
+  level: custom
+  name: Ext.memfd.flags
+  normalize: []
+  short: Flags passed to the memfd operation.
+  type: long
+process.Ext.memfd.name:
+  dashed_name: process-Ext-memfd-name
+  description: Filename for the created file. Appears in /proc/self/fd.
+  example: anon.txt
+  flat_name: process.Ext.memfd.name
+  level: custom
+  name: Ext.memfd.name
+  normalize: []
+  short: Filename for the created file. Appears in /proc/self/fd.
+  type: string
 process.Ext.mitigation_policies:
   dashed_name: process-Ext-mitigation-policies
   description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy,

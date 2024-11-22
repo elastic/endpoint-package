@@ -887,6 +887,53 @@
       description: Process ID.
       example: 4242
       default_field: false
+    - name: Ext.memfd
+      level: custom
+      type: object
+      description: Object for memfd events.
+      default_field: false
+    - name: Ext.memfd.flag_allow_seal
+      level: custom
+      type: bool
+      description: Allow sealing operations on this file.
+      example: 'false'
+      default_field: false
+    - name: Ext.memfd.flag_cloexec
+      level: custom
+      type: bool
+      description: Sets the the close-on-exec flag on the new file descriptor.
+      example: 'false'
+      default_field: false
+    - name: Ext.memfd.flag_exec
+      level: custom
+      type: bool
+      description: Exec flag is set for file.
+      example: 'false'
+      default_field: false
+    - name: Ext.memfd.flag_hugetlb
+      level: custom
+      type: bool
+      description: The anonymous file will be created in the hugetlbfs filesystem using huge pages.
+      example: 'false'
+      default_field: false
+    - name: Ext.memfd.flag_noexec_seal
+      level: custom
+      type: bool
+      description: Sets both NOEXEC and MFD_ALLOW_SEALING.
+      example: 'false'
+      default_field: false
+    - name: Ext.memfd.flags
+      level: custom
+      type: long
+      description: Flags passed to the memfd operation.
+      example: '2'
+      default_field: false
+    - name: Ext.memfd.name
+      level: custom
+      type: string
+      description: Filename for the created file. Appears in /proc/self/fd.
+      example: anon.txt
+      default_field: false
     - name: Ext.mitigation_policies
       level: custom
       type: keyword
