@@ -142,12 +142,6 @@
       example: "false"
       description: Sets the the close-on-exec flag on the new file descriptor.
 
-    - name: Ext.memfd.flag_cloexec
-      level: custom
-      type: bool
-      example: "false"
-      description: Sets the the close-on-exec flag on the new file descriptor.
-
     - name: Ext.memfd.flag_noexec_seal
       level: custom
       type: bool
