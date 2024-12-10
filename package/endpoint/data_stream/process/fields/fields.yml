@@ -946,6 +946,21 @@
       ignore_above: 1024
       description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
       default_field: false
+    - name: Ext.ptrace
+      level: custom
+      type: object
+      description: Object for ptrace events.
+      default_field: false
+    - name: Ext.ptrace.child_pid
+      level: custom
+      type: long
+      description: PID of the ptrace target.
+      default_field: false
+    - name: Ext.ptrace.request
+      level: custom
+      type: long
+      description: ptrace request.
+      default_field: false
     - name: Ext.relative_file_creation_time
       level: custom
       type: double
@@ -1000,6 +1015,26 @@
       type: keyword
       ignore_above: 1024
       description: List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON.
+      default_field: false
+    - name: Ext.shmget
+      level: custom
+      type: object
+      description: Object for shmget events.
+      default_field: false
+    - name: Ext.shmget.flags
+      level: custom
+      type: long
+      description: flags passed to shmget.
+      default_field: false
+    - name: Ext.shmget.key
+      level: custom
+      type: long
+      description: Key passed to the shmget request.
+      default_field: false
+    - name: Ext.shmget.size
+      level: custom
+      type: long
+      description: Requested size.
       default_field: false
     - name: Ext.token.elevation
       level: custom

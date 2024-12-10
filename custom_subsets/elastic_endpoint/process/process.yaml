@@ -158,6 +158,15 @@ fields:
           authentication_id: {}
           trusted: {}
           trusted_descendant: {}
+          ptrace:
+            fields:
+              child_pid: {}
+              request: {}
+          shmget:
+            fields:
+              key: {}
+              size: {}
+              flags: {}
           memfd:
             fields:
               flag_hugetlb: {}

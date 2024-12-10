@@ -1,10 +1,10 @@
-# Linux memfd Creation Events
+# Linux shmget Creation Events
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "memfd_create" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.action : "shmget" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when when a memfd anonymous file is created.
+This event is generated when when a process calls shmget().
 
 | Field |
 |---|
@@ -66,13 +66,9 @@ This event is generated when when a memfd anonymous file is created.
 | process.Ext.ancestry |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
-| process.Ext.memfd.flag_hugetlb |
-| process.Ext.memfd.flag_allow_seal |
-| process.Ext.memfd.flags |
-| process.Ext.memfd.name |
-| process.Ext.memfd.flag_exec |
-| process.Ext.memfd.flag_cloexec |
-| process.Ext.memfd.flag_noexec_seal |
+| process.Ext.shmget.size |
+| process.Ext.shmget.flags |
+| process.Ext.shmget.key |
 | process.args |
 | process.args_count |
 | process.command_line |
