@@ -1,11 +1,15 @@
 overview:
-  name: Windows Network Connection Accepted
-  description: 'This event is generated when a network connection is accepted.
+  name: Windows Network Connection Attempted, Connection Accepted and Disconnect Received
+  description: 'This event is generated when a connection is attempted, a connection is accepted, or a request to terminate a network session
+    is received.
 
     '
 identification:
   filter:
-    event.action: connection_accepted
+    event.action:
+    - connection_attempted
+    - connection_accepted
+    - disconnect_received
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: windows
@@ -22,6 +26,7 @@ fields:
   - data_stream.namespace
   - data_stream.type
   - destination.address
+  - destination.bytes
   - destination.ip
   - destination.port
   - ecs.version
@@ -69,6 +74,7 @@ fields:
   - process.pid
   - process.uptime
   - source.address
+  - source.bytes
   - source.ip
   - source.port
   - user.domain
