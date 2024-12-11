@@ -64,6 +64,15 @@
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
             ],
+            "memfd": {
+                "flag_hugetlb": false,
+                "flag_allow_seal": true,
+                "flags": 2,
+                "name": "test_memfd",
+                "flag_exec": false,
+                "flag_cloexec": false,
+                "flag_noexec_seal": false
+            },
             "code_signature": [
                 {
                     "trusted": true,
