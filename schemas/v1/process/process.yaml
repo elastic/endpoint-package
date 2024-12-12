@@ -1624,7 +1624,7 @@ process.Ext.memfd.flag_allow_seal:
   name: Ext.memfd.flag_allow_seal
   normalize: []
   short: Allow sealing operations on this file.
-  type: bool
+  type: boolean
 process.Ext.memfd.flag_cloexec:
   dashed_name: process-Ext-memfd-flag-cloexec
   description: Sets the the close-on-exec flag on the new file descriptor.
@@ -1634,7 +1634,7 @@ process.Ext.memfd.flag_cloexec:
   name: Ext.memfd.flag_cloexec
   normalize: []
   short: Sets the the close-on-exec flag on the new file descriptor.
-  type: bool
+  type: boolean
 process.Ext.memfd.flag_exec:
   dashed_name: process-Ext-memfd-flag-exec
   description: Exec flag is set for file.
@@ -1644,7 +1644,7 @@ process.Ext.memfd.flag_exec:
   name: Ext.memfd.flag_exec
   normalize: []
   short: Exec flag is set for file.
-  type: bool
+  type: boolean
 process.Ext.memfd.flag_hugetlb:
   dashed_name: process-Ext-memfd-flag-hugetlb
   description: The anonymous file will be created in the hugetlbfs filesystem using
@@ -1656,7 +1656,7 @@ process.Ext.memfd.flag_hugetlb:
   normalize: []
   short: The anonymous file will be created in the hugetlbfs filesystem using huge
     pages.
-  type: bool
+  type: boolean
 process.Ext.memfd.flag_noexec_seal:
   dashed_name: process-Ext-memfd-flag-noexec-seal
   description: Sets both NOEXEC and MFD_ALLOW_SEALING.
@@ -1666,7 +1666,7 @@ process.Ext.memfd.flag_noexec_seal:
   name: Ext.memfd.flag_noexec_seal
   normalize: []
   short: Sets both NOEXEC and MFD_ALLOW_SEALING.
-  type: bool
+  type: boolean
 process.Ext.memfd.flags:
   dashed_name: process-Ext-memfd-flags
   description: Flags passed to the memfd operation.
@@ -1682,11 +1682,12 @@ process.Ext.memfd.name:
   description: Filename for the created file. Appears in /proc/self/fd.
   example: anon.txt
   flat_name: process.Ext.memfd.name
+  ignore_above: 1024
   level: custom
   name: Ext.memfd.name
   normalize: []
   short: Filename for the created file. Appears in /proc/self/fd.
-  type: string
+  type: keyword
 process.Ext.mitigation_policies:
   dashed_name: process-Ext-mitigation-policies
   description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy,

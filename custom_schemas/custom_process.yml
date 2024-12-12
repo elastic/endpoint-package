@@ -108,13 +108,13 @@
 
     - name: Ext.memfd.flag_hugetlb
       level: custom
-      type: bool
+      type: boolean
       example: "false"
       description: The anonymous file will be created in the hugetlbfs filesystem using huge pages.
 
     - name: Ext.memfd.flag_allow_seal
       level: custom
-      type: bool
+      type: boolean
       example: "false"
       description: Allow sealing operations on this file.
 
@@ -126,25 +126,25 @@
 
     - name: Ext.memfd.name
       level: custom
-      type: string
+      type: keyword
       example: "anon.txt"
       description: Filename for the created file. Appears in /proc/self/fd.
 
     - name: Ext.memfd.flag_exec
       level: custom
-      type: bool
+      type: boolean
       example: "false"
       description: Exec flag is set for file.
 
     - name: Ext.memfd.flag_cloexec
       level: custom
-      type: bool
+      type: boolean
       example: "false"
       description: Sets the the close-on-exec flag on the new file descriptor.
 
     - name: Ext.memfd.flag_noexec_seal
       level: custom
-      type: bool
+      type: boolean
       example: "false"
       description: Sets both NOEXEC and MFD_ALLOW_SEALING.
 
