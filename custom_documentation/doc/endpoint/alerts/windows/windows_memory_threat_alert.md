@@ -78,6 +78,7 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.memory_region.region_base |
 | process.Ext.memory_region.region_protection |
 | process.Ext.memory_region.region_size |
+| process.Ext.memory_region.region_start_bytes |
 | process.Ext.memory_region.region_state |
 | process.Ext.protection |
 | process.Ext.token.domain |
