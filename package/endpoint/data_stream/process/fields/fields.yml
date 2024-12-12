@@ -930,7 +930,8 @@
       default_field: false
     - name: Ext.memfd.name
       level: custom
-      type: string
+      type: keyword
+      ignore_above: 1024
       description: Filename for the created file. Appears in /proc/self/fd.
       example: anon.txt
       default_field: false

@@ -126,7 +126,7 @@
 
     - name: Ext.memfd.name
       level: custom
-      type: string
+      type: keyword
       example: "anon.txt"
       description: Filename for the created file. Appears in /proc/self/fd.
 

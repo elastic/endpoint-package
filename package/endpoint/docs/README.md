@@ -2207,7 +2207,7 @@ sent by the endpoint.
 | process.Ext.memfd.flag_hugetlb | The anonymous file will be created in the hugetlbfs filesystem using huge pages. | boolean |
 | process.Ext.memfd.flag_noexec_seal | Sets both NOEXEC and MFD_ALLOW_SEALING. | boolean |
 | process.Ext.memfd.flags | Flags passed to the memfd operation. | long |
-| process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | string |
+| process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |

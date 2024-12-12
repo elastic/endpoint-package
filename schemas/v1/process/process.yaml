@@ -1682,11 +1682,12 @@ process.Ext.memfd.name:
   description: Filename for the created file. Appears in /proc/self/fd.
   example: anon.txt
   flat_name: process.Ext.memfd.name
+  ignore_above: 1024
   level: custom
   name: Ext.memfd.name
   normalize: []
   short: Filename for the created file. Appears in /proc/self/fd.
-  type: string
+  type: keyword
 process.Ext.mitigation_policies:
   dashed_name: process-Ext-mitigation-policies
   description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy,
