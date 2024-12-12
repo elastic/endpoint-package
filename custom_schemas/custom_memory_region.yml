@@ -113,7 +113,7 @@
       description: >
         Size of the memory region.
 
-    - name: region_start_byte
+    - name: region_start_bytes
       level: custom
       type: keyword
       example: "4d5a90000300000004000000ffff0000b8000000000000004000000000000000"
