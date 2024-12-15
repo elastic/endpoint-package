@@ -32,6 +32,7 @@ sent by the endpoint.
 | Endpoint.policy.applied | information about the policy that is applied | object |
 | Endpoint.policy.applied.artifacts | information about protection artifacts applied. | object |
 | Endpoint.policy.applied.artifacts.global | information about global protection artifacts applied. | object |
+| Endpoint.policy.applied.artifacts.global.channel | global artifacts rollout channel | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |
@@ -2964,6 +2965,7 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.policy.applied | information about the policy that is applied | object |
 | Endpoint.policy.applied.artifacts | information about protection artifacts applied. | object |
 | Endpoint.policy.applied.artifacts.global | information about global protection artifacts applied. | object |
+| Endpoint.policy.applied.artifacts.global.channel | global artifacts rollout channel | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |

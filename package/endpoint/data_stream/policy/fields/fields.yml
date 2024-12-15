@@ -82,6 +82,12 @@
       type: object
       description: information about global protection artifacts applied.
       default_field: false
+    - name: policy.applied.artifacts.global.channel
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: global artifacts rollout channel
+      default_field: false
     - name: policy.applied.artifacts.global.identifiers
       level: custom
       type: nested
