@@ -1,6 +1,7 @@
 overview:
   name: Linux Network Connection Attempted, Connection Accepted, and Disconnect
-  description: 'This event is generated when a network session is accepted, attempted or terminated.
+  description: 'This event is generated when a network session is accepted, attempted
+    or terminated.
 
     '
 identification:

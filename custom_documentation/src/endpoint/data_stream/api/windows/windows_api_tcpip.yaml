@@ -1,6 +1,7 @@
 overview:
   name: Windows API
-  description: This event is generated when ETW Microsoft-Windows-TCPIP events are generated.
+  description: This event is generated when ETW Microsoft-Windows-TCPIP events are
+    generated.
 identification:
   filter:
     event.dataset: endpoint.events.api
