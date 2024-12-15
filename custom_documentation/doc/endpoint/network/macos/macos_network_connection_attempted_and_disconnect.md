@@ -18,9 +18,9 @@ This event is generated when a connection is attempted or a request to terminate
 | data_stream.type |
 | destination.address |
 | destination.bytes |
+| destination.domain |
 | destination.ip |
 | destination.port |
-| destination.domain |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
