@@ -19,6 +19,11 @@ This event is generated when results are returned for a DNS lookup request.
 | destination.address |
 | destination.ip |
 | destination.port |
+| dns.Ext.options |
+| dns.Ext.status |
+| dns.question.name |
+| dns.question.type |
+| dns.resolved_ip |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -50,9 +55,9 @@ This event is generated when results are returned for a DNS lookup request.
 | host.os.type |
 | host.os.version |
 | message |
+| network.protocol |
 | network.transport |
 | network.type |
-| network.protocol |
 | process.Ext.ancestry |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
@@ -73,9 +78,4 @@ This event is generated when results are returned for a DNS lookup request.
 | user.Ext.real.name |
 | user.id |
 | user.name |
-| dns.Ext.options |
-| dns.Ext.status |
-| dns.question.name |
-| dns.resolved_ip |
-| dns.question.type |
 

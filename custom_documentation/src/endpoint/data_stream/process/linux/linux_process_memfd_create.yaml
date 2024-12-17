@@ -1,6 +1,6 @@
 overview:
   name: Linux memfd Creation Events
-  description: 'This event is generated when when a memfd anonymous file is created.'
+  description: This event is generated when when a memfd anonymous file is created.
 identification:
   filter:
     event.action: memfd_create

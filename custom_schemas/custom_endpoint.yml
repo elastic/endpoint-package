@@ -335,6 +335,11 @@
       type: object
       description: information about global protection artifacts applied.
 
+    - name: policy.applied.artifacts.global.channel
+      level: custom
+      type: keyword
+      description: global artifacts rollout channel
+
     - name: policy.applied.artifacts.global.update_age
       level: custom
       type: unsigned_long

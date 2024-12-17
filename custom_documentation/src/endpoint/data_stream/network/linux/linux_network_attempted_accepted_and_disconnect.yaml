@@ -1,16 +1,20 @@
 overview:
-  name: Windows Network Connection Accepted
-  description: 'This event is generated when a network connection is accepted.
+  name: Linux Network Connection Attempted, Connection Accepted, and Disconnect
+  description: 'This event is generated when a network session is accepted, attempted
+    or terminated.
 
     '
 identification:
   filter:
-    event.action: connection_accepted
+    event.action:
+    - connection_attempted
+    - connection_accepted
+    - disconnect_received
     event.dataset: endpoint.events.network
     event.module: endpoint
-    host.os.type: windows
+    host.os.type: linux
   os:
-  - windows
+  - linux
   data_stream: logs-endpoint.events.network-*
 fields:
   endpoint:
@@ -22,6 +26,7 @@ fields:
   - data_stream.namespace
   - data_stream.type
   - destination.address
+  - destination.bytes
   - destination.ip
   - destination.port
   - ecs.version
@@ -36,6 +41,10 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - group.Ext.real.id
+  - group.Ext.real.name
+  - group.id
+  - group.name
   - host.architecture
   - host.hostname
   - host.id
@@ -55,22 +64,25 @@ fields:
   - network.transport
   - network.type
   - process.Ext.ancestry
-  - process.Ext.code_signature.exists
-  - process.Ext.code_signature.status
-  - process.Ext.code_signature.subject_name
-  - process.Ext.code_signature.trusted
-  - process.code_signature.exists
-  - process.code_signature.status
-  - process.code_signature.subject_name
-  - process.code_signature.trusted
+  - process.command_line
   - process.entity_id
+  - process.entry_leader.entity_id
+  - process.entry_leader.parent.entity_id
   - process.executable
+  - process.group_leader.entity_id
   - process.name
+  - process.parent.entity_id
   - process.pid
+  - process.session_leader.entity_id
+  - process.thread.capabilities.effective
+  - process.thread.capabilities.permitted
   - process.uptime
   - source.address
+  - source.bytes
   - source.ip
   - source.port
+  - user.Ext.real.id
+  - user.Ext.real.name
   - user.domain
   - user.id
   - user.name

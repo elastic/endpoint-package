@@ -1,10 +1,10 @@
-# macOS Network Disconnect Received
+# Windows Network Connection Attempted, Connection Accepted and Disconnect Received
 
-- OS: macOS
+- OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "disconnect_received" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "macos"`
+- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when a request to terminate a network connection occurs.
+This event is generated when a connection is attempted, a connection is accepted, or a request to terminate a network session is received.
 
 
 | Field |
@@ -20,7 +20,6 @@ This event is generated when a request to terminate a network connection occurs.
 | destination.bytes |
 | destination.ip |
 | destination.port |
-| destination.domain |
 | ecs.version |
 | elastic.agent.id |
 | event.action |
@@ -33,10 +32,6 @@ This event is generated when a request to terminate a network connection occurs.
 | event.outcome |
 | event.sequence |
 | event.type |
-| group.Ext.real.id |
-| group.Ext.real.name |
-| group.id |
-| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -52,27 +47,28 @@ This event is generated when a request to terminate a network connection occurs.
 | host.os.type |
 | host.os.version |
 | message |
+| network.direction |
 | network.transport |
 | network.type |
 | process.Ext.ancestry |
+| process.Ext.code_signature.exists |
+| process.Ext.code_signature.status |
+| process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.trusted |
 | process.code_signature.exists |
-| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
-| process.code_signature.team_id |
 | process.code_signature.trusted |
-| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.entity_id |
 | process.pid |
+| process.uptime |
 | source.address |
 | source.bytes |
 | source.ip |
 | source.port |
-| user.Ext.real.id |
-| user.Ext.real.name |
+| user.domain |
 | user.id |
 | user.name |
 
