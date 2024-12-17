@@ -459,6 +459,7 @@
                 "version": "2",
                 "artifacts": {
                     "global": {
+                        "channel": "stable",
                         "identifiers": [
                             {
                                 "sha256": "e57a7d5638060e9655c64ac1d02f7949b87e5f5f27f2074329608db1e06d645b",

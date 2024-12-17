@@ -53,6 +53,16 @@ Endpoint.policy.applied.artifacts.global:
   normalize: []
   short: information about global protection artifacts applied.
   type: object
+Endpoint.policy.applied.artifacts.global.channel:
+  dashed_name: Endpoint-policy-applied-artifacts-global-channel
+  description: global artifacts rollout channel
+  flat_name: Endpoint.policy.applied.artifacts.global.channel
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.artifacts.global.channel
+  normalize: []
+  short: global artifacts rollout channel
+  type: keyword
 Endpoint.policy.applied.artifacts.global.identifiers:
   dashed_name: Endpoint-policy-applied-artifacts-global-identifiers
   description: the identifiers of global artifacts applied.

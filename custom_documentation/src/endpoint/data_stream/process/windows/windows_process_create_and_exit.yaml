@@ -6,8 +6,8 @@ overview:
 identification:
   filter:
     event.action:
-        - start
-        - end
+    - start
+    - end
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: windows

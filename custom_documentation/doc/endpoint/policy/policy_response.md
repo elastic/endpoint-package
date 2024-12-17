@@ -15,6 +15,7 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.actions.name |
 | Endpoint.policy.applied.actions.status |
 | Endpoint.policy.applied.actions.status |
+| Endpoint.policy.applied.artifacts.global.channel |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.global.snapshot |

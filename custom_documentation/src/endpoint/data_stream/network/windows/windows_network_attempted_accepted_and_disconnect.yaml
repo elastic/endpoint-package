@@ -1,7 +1,7 @@
 overview:
   name: Windows Network Connection Attempted, Connection Accepted and Disconnect Received
-  description: 'This event is generated when a connection is attempted, a connection is accepted, or a request to terminate a network session
-    is received.
+  description: 'This event is generated when a connection is attempted, a connection
+    is accepted, or a request to terminate a network session is received.
 
     '
 identification:

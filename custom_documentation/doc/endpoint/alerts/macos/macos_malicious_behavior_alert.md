@@ -14,6 +14,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 | Effective_process.executable |
 | Effective_process.name |
 | Effective_process.pid |
+| Endpoint.policy.applied.artifacts.global.channel |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.global.snapshot |

@@ -74,4 +74,3 @@ fields:
   - user.id
   - user.name
   - winlog.event_data.PrivilegeList
-

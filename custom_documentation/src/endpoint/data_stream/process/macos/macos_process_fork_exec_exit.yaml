@@ -1,6 +1,7 @@
 overview:
   name: macOS Process Fork, Exec, and Exit
-  description: 'This event is generated when a process calls `fork()`, `exec()`, or exits.
+  description: 'This event is generated when a process calls `fork()`, `exec()`, or
+    exits.
 
     '
 identification:

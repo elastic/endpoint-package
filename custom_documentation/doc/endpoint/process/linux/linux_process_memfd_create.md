@@ -35,6 +35,13 @@ This event is generated when when a memfd anonymous file is created.
 | host.name |
 | host.os.type |
 | message |
+| process.Ext.memfd.flag_allow_seal |
+| process.Ext.memfd.flag_cloexec |
+| process.Ext.memfd.flag_exec |
+| process.Ext.memfd.flag_hugetlb |
+| process.Ext.memfd.flag_noexec_seal |
+| process.Ext.memfd.flags |
+| process.Ext.memfd.name |
 | process.args |
 | process.args_count |
 | process.command_line |
@@ -43,13 +50,6 @@ This event is generated when when a memfd anonymous file is created.
 | process.entry_leader.parent.pid |
 | process.entry_leader.parent.start |
 | process.executable |
-| process.Ext.memfd.flag_hugetlb |
-| process.Ext.memfd.flag_allow_seal |
-| process.Ext.memfd.flags |
-| process.Ext.memfd.name |
-| process.Ext.memfd.flag_exec |
-| process.Ext.memfd.flag_cloexec |
-| process.Ext.memfd.flag_noexec_seal |
 | process.group.id |
 | process.group.name |
 | process.group_leader.args |
