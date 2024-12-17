@@ -14,6 +14,9 @@ For in-depth, step-by-step instructions to help you get started with Elastic Def
 
 ## Compatibility
 
+> [!Note]
+> Elastic Defend **does not support** deployment within an _Elastic Agent DaemonSet in Kubernetes_.
+
 For compatibility information view our [documentation](https://www.elastic.co/guide/en/security/current/index.html).
 
 ## Logs
