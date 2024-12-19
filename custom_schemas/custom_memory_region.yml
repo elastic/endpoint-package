@@ -118,7 +118,7 @@
       type: keyword
       example: "4d5a90000300000004000000ffff0000b8000000000000004000000000000000"
       description: >
-        A few (typically 32) raw bytes at the region base address.
+        First 32 bytes at the region base address.
         
     - name: region_state
       level: custom
