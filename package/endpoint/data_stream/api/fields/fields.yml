@@ -772,7 +772,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: A few (typically 32) raw bytes at the region base address.
+      description: First 32 bytes at the region base address.
       example: 4d5a90000300000004000000ffff0000b8000000000000004000000000000000
       default_field: false
     - name: process.Ext.memory_region.region_state
@@ -2487,7 +2487,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: A few (typically 32) raw bytes at the region base address.
+      description: First 32 bytes at the region base address.
       example: 4d5a90000300000004000000ffff0000b8000000000000004000000000000000
       default_field: false
     - name: Ext.memory_region.region_state
