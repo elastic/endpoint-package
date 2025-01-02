@@ -1712,6 +1712,33 @@ process.Ext.protection:
   normalize: []
   short: OS-level protections granted to this process
   type: keyword
+process.Ext.ptrace:
+  dashed_name: process-Ext-ptrace
+  description: Object for ptrace events.
+  flat_name: process.Ext.ptrace
+  level: custom
+  name: Ext.ptrace
+  normalize: []
+  short: Object for ptrace events.
+  type: object
+process.Ext.ptrace.child_pid:
+  dashed_name: process-Ext-ptrace-child-pid
+  description: PID of the ptrace target.
+  flat_name: process.Ext.ptrace.child_pid
+  level: custom
+  name: Ext.ptrace.child_pid
+  normalize: []
+  short: PID of the ptrace target.
+  type: long
+process.Ext.ptrace.request:
+  dashed_name: process-Ext-ptrace-request
+  description: ptrace request.
+  flat_name: process.Ext.ptrace.request
+  level: custom
+  name: Ext.ptrace.request
+  normalize: []
+  short: ptrace request.
+  type: long
 process.Ext.relative_file_creation_time:
   dashed_name: process-Ext-relative-file-creation-time
   description: Number of seconds since the process's file was created. This number
@@ -1816,6 +1843,42 @@ process.Ext.session_info.user_flags:
   short: List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED
     and LOGON_WINLOGON.
   type: keyword
+process.Ext.shmget:
+  dashed_name: process-Ext-shmget
+  description: Object for shmget events.
+  flat_name: process.Ext.shmget
+  level: custom
+  name: Ext.shmget
+  normalize: []
+  short: Object for shmget events.
+  type: object
+process.Ext.shmget.flags:
+  dashed_name: process-Ext-shmget-flags
+  description: flags passed to shmget.
+  flat_name: process.Ext.shmget.flags
+  level: custom
+  name: Ext.shmget.flags
+  normalize: []
+  short: flags passed to shmget.
+  type: long
+process.Ext.shmget.key:
+  dashed_name: process-Ext-shmget-key
+  description: Key passed to the shmget request.
+  flat_name: process.Ext.shmget.key
+  level: custom
+  name: Ext.shmget.key
+  normalize: []
+  short: Key passed to the shmget request.
+  type: long
+process.Ext.shmget.size:
+  dashed_name: process-Ext-shmget-size
+  description: Requested size.
+  flat_name: process.Ext.shmget.size
+  level: custom
+  name: Ext.shmget.size
+  normalize: []
+  short: Requested size.
+  type: long
 process.Ext.token.elevation:
   dashed_name: process-Ext-token-elevation
   description: Whether the token is elevated or not

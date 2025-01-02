@@ -1,9 +1,9 @@
 overview:
-  name: Linux memfd Creation Events
-  description: This event is generated when when a memfd anonymous file is created.
+  name: Linux shmget Creation Events
+  description: 'This event is generated when when a process calls shmget().'
 identification:
   filter:
-    event.action: memfd_create
+    event.action: shmget
     event.dataset: endpoint.events.process
     event.module: endpoint
     host.os.type: linux
@@ -70,13 +70,9 @@ fields:
   - process.Ext.ancestry
   - process.Ext.trusted
   - process.Ext.trusted_descendant
-  - process.Ext.memfd.flag_hugetlb
-  - process.Ext.memfd.flag_allow_seal
-  - process.Ext.memfd.flags
-  - process.Ext.memfd.name
-  - process.Ext.memfd.flag_exec
-  - process.Ext.memfd.flag_cloexec
-  - process.Ext.memfd.flag_noexec_seal
+  - process.Ext.shmget.size
+  - process.Ext.shmget.flags
+  - process.Ext.shmget.key
   - process.args
   - process.args_count
   - process.command_line
@@ -109,6 +105,7 @@ fields:
   - process.entry_leader.user.id
   - process.entry_leader.user.name
   - process.entry_leader.working_directory
+  - process.env_vars
   - process.executable
   - process.exit_code
   - process.group.id
