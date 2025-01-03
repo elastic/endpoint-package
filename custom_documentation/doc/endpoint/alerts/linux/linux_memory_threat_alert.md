@@ -19,6 +19,8 @@ This alert is generated when a Memory Threat alert occurs.
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.user.version |
+| Endpoint.policy.applied.id |
+| Endpoint.policy.applied.name |
 | agent.build.original |
 | agent.id |
 | agent.type |

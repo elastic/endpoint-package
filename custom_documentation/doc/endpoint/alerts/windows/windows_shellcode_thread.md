@@ -19,6 +19,8 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.user.version |
+| Endpoint.policy.applied.id |
+| Endpoint.policy.applied.name |
 | Memory_protection.cross_session |
 | Memory_protection.feature |
 | Memory_protection.parent_to_child |
