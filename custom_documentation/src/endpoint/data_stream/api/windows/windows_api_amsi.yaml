@@ -1,11 +1,11 @@
 overview:
-  name: Windows Win32k API
-  description: This event is generated when keylogging-related Win32k APIs are called.
+  name: Windows AMSI API
+  description: This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
 identification:
   filter:
     event.dataset: endpoint.events.api
     event.module: endpoint
-    event.provider: Microsoft-Windows-Win32k
+    event.provider: Microsoft-Antimalware-Scan-Interface
     host.os.type: windows
   os:
   - windows
@@ -13,8 +13,6 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
-  - Target.process.name
-  - Target.process.pid
   - agent.id
   - agent.type
   - agent.version
@@ -50,35 +48,16 @@ fields:
   - message
   - process.Ext.ancestry
   - process.Ext.api.behaviors
-  - process.Ext.api.metadata.background_callcount
-  - process.Ext.api.metadata.ms_since_last_keyevent
-  - process.Ext.api.metadata.procedure_symbol
   - process.Ext.api.metadata.return_value
-  - process.Ext.api.metadata.start_address_allocation_protection
-  - process.Ext.api.metadata.start_address_module
-  - process.Ext.api.metadata.target_address_name
-  - process.Ext.api.metadata.target_address_path
-  - process.Ext.api.metadata.thread_info_flags
-  - process.Ext.api.metadata.visible_windows_count
-  - process.Ext.api.metadata.windows_count
   - process.Ext.api.name
-  - process.Ext.api.parameters.address
-  - process.Ext.api.parameters.allocation_type
-  - process.Ext.api.parameters.flags
-  - process.Ext.api.parameters.hook_module
-  - process.Ext.api.parameters.hook_type
-  - process.Ext.api.parameters.procedure
-  - process.Ext.api.parameters.protection
-  - process.Ext.api.parameters.protection_old
-  - process.Ext.api.parameters.size
-  - process.Ext.api.parameters.usage
-  - process.Ext.api.parameters.usage_page
+  - process.Ext.api.parameters.app_name
+  - process.Ext.api.parameters.buffer
+  - process.Ext.api.parameters.content_name 
   - process.Ext.api.summary
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
   - process.Ext.code_signature.subject_name
   - process.Ext.code_signature.trusted
-  - process.Ext.protection
   - process.Ext.token.integrity_level_name
   - process.code_signature.exists
   - process.code_signature.status
