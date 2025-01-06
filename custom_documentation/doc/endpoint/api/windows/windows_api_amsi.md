@@ -49,6 +49,7 @@ This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
 | process.Ext.api.parameters.app_name |
 | process.Ext.api.parameters.buffer |
 | process.Ext.api.parameters.content_name |
+| process.Ext.api.parameters.size |
 | process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
