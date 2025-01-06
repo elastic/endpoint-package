@@ -58,6 +58,7 @@ sent by the endpoint.
 | Memory_protection.self_injection | Is this alert about a process injecting into itself? | boolean |
 | Memory_protection.thread_count | The number of threads that this alert applies to. If several alerts occur in a short period of time, they can be combined into a single alert with thread_count > 1. | long |
 | Memory_protection.unique_key_v1 | A unique key created by hashing several characteristics of this alert. | keyword |
+| Memory_protection.unique_key_v2 | A unique key created by hashing several characteristics of this alert. | keyword |
 | Ransomware.child_processes.executable | Absolute path to the process executable. | keyword |
 | Ransomware.child_processes.feature | Ransomware feature which triggered the alert. | keyword |
 | Ransomware.child_processes.files | Information about each file event attributed to the ransomware. Expected to be an array. | nested |

@@ -268,6 +268,17 @@ Memory_protection.unique_key_v1:
   normalize: []
   short: A unique key created by hashing several characteristics of this alert.
   type: keyword
+Memory_protection.unique_key_v2:
+  dashed_name: Memory-protection-unique-key-v2
+  description: A unique key created by hashing several characteristics of this alert.
+  example: 00633d00b651c48e61a94589db67e00fd454a5a905409e38de4e48c183105f67
+  flat_name: Memory_protection.unique_key_v2
+  ignore_above: 1024
+  level: custom
+  name: unique_key_v2
+  normalize: []
+  short: A unique key created by hashing several characteristics of this alert.
+  type: keyword
 Target.process.Ext:
   dashed_name: Target-process-Ext
   description: Object for all custom defined fields to live in.

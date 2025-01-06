@@ -2581,6 +2581,56 @@ process.Ext.api.metadata:
   original_fieldset: api
   short: Information related to the API call.
   type: object
+process.Ext.api.metadata.amsi_filenames:
+  dashed_name: process-Ext-api-metadata-amsi-filenames
+  description: A list of filenames previously scanned by AMSI.
+  example: '[ "C:\script.ps1" ]'
+  flat_name: process.Ext.api.metadata.amsi_filenames
+  ignore_above: 1024
+  level: custom
+  name: metadata.amsi_filenames
+  normalize: []
+  original_fieldset: api
+  short: A list of filenames previously scanned by AMSI.
+  type: keyword
+process.Ext.api.metadata.amsi_logs:
+  dashed_name: process-Ext-api-metadata-amsi-logs
+  description: Information related to previous AMSI scans.
+  flat_name: process.Ext.api.metadata.amsi_logs
+  level: custom
+  name: metadata.amsi_logs
+  normalize: []
+  original_fieldset: api
+  short: Information related to previous AMSI scans.
+  type: object
+process.Ext.api.metadata.amsi_logs.entries:
+  dashed_name: process-Ext-api-metadata-amsi-logs-entries
+  description: A subset of the AMSI content buffers scanned prior to this event.
+  example: '[ "[Ref].Assembly.GetType(''System.Management.Automation.AmsiUtils'').GetField(''amsiInitFailed'',
+    ''NonPublic,Static'').SetValue($null, $true);Add-Type -TypeDefinition ''using
+    System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport("kernel32.dll")]   public
+    static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType,
+    uint flProtect);}" ]'
+  flat_name: process.Ext.api.metadata.amsi_logs.entries
+  ignore_above: 1024
+  level: custom
+  name: metadata.amsi_logs.entries
+  normalize: []
+  original_fieldset: api
+  short: A subset of the AMSI content buffers scanned prior to this event.
+  type: keyword
+process.Ext.api.metadata.amsi_logs.type:
+  dashed_name: process-Ext-api-metadata-amsi-logs-type
+  description: The AMSI content type scanned prior to this event.
+  example: PowerShell
+  flat_name: process.Ext.api.metadata.amsi_logs.type
+  ignore_above: 1024
+  level: custom
+  name: metadata.amsi_logs.type
+  normalize: []
+  original_fieldset: api
+  short: The AMSI content type scanned prior to this event.
+  type: keyword
 process.Ext.api.metadata.background_callcount:
   dashed_name: process-Ext-api-metadata-background-callcount
   description: This field indicates a number of all GetAsyncKeyState api calls, including
@@ -2818,6 +2868,18 @@ process.Ext.api.parameters.allocation_type:
   original_fieldset: api
   short: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
   type: keyword
+process.Ext.api.parameters.app_name:
+  dashed_name: process-Ext-api-parameters-app-name
+  description: The application name requesting the AMSI scan.
+  example: PowerShell
+  flat_name: process.Ext.api.parameters.app_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.app_name
+  normalize: []
+  original_fieldset: api
+  short: The application name requesting the AMSI scan.
+  type: keyword
 process.Ext.api.parameters.argument1:
   dashed_name: process-Ext-api-parameters-argument1
   description: The first argument to the procedure.
@@ -2851,6 +2913,23 @@ process.Ext.api.parameters.argument3:
   original_fieldset: api
   short: The third argument to the procedure.
   type: unsigned_long
+process.Ext.api.parameters.buffer:
+  dashed_name: process-Ext-api-parameters-buffer
+  description: The content associated with an AMSI scan.
+  example: '[Ref].Assembly.GetType(''System.Management.Automation.AmsiUtils'').GetField(''amsiInitFailed'',
+    ''NonPublic,Static'').SetValue($null, $true);Add-Type -TypeDefinition ''using
+    System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport("kernel32.dll")]   public
+    static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType,
+    uint flProtect);}''; [Kernel32]::VirtualAlloc([IntPtr]::Zero, 0x1234, 0x1000,
+    0x20);'
+  flat_name: process.Ext.api.parameters.buffer
+  ignore_above: 1024
+  level: custom
+  name: parameters.buffer
+  normalize: []
+  original_fieldset: api
+  short: The content associated with an AMSI scan.
+  type: keyword
 process.Ext.api.parameters.consumer_details:
   dashed_name: process-Ext-api-parameters-consumer-details
   description: Provides specific information about an event consumer, including its
@@ -2896,6 +2975,18 @@ process.Ext.api.parameters.consumer_type:
   normalize: []
   original_fieldset: api
   short: WMI event consumer type.
+  type: keyword
+process.Ext.api.parameters.content_name:
+  dashed_name: process-Ext-api-parameters-content-name
+  description: The content name, typically a filename, associated with an AMSI scan.
+  example: C:\script.ps1
+  flat_name: process.Ext.api.parameters.content_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.content_name
+  normalize: []
+  original_fieldset: api
+  short: The content name, typically a filename, associated with an AMSI scan.
   type: keyword
 process.Ext.api.parameters.context_flags:
   dashed_name: process-Ext-api-parameters-context-flags
@@ -5130,6 +5221,104 @@ process.thread.Ext.call_stack_contains_unbacked:
   short: Indicates whether the creating thread's stack contains frames pointing outside
     any known executable image.
   type: boolean
+process.thread.Ext.call_stack_final_hook_module:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module
+  description: The module that installed the final API hook in the call stack.
+  flat_name: process.thread.Ext.call_stack_final_hook_module
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module
+  normalize: []
+  short: The module that installed the final API hook in the call stack.
+  type: nested
+process.thread.Ext.call_stack_final_hook_module.code_signature:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature
+  description: Code signature of the call_stack_final_hook_module.
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature
+  normalize: []
+  short: Code signature of the call_stack_final_hook_module.
+  type: nested
+process.thread.Ext.call_stack_final_hook_module.code_signature.exists:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.exists
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.thread.Ext.call_stack_final_hook_module.code_signature.status:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.code_signature.subject_name:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.code_signature.trusted:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.trusted
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.thread.Ext.call_stack_final_hook_module.hash:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-hash
+  description: Hashes of the call_stack_final_hook_module.
+  flat_name: process.thread.Ext.call_stack_final_hook_module.hash
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.hash
+  normalize: []
+  short: Hashes of the call_stack_final_hook_module.
+  type: object
+process.thread.Ext.call_stack_final_hook_module.hash.sha256:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-hash-sha256
+  description: The sha256 of the call_stack_final_hook_module.
+  example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+  flat_name: process.thread.Ext.call_stack_final_hook_module.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.hash.sha256
+  normalize: []
+  short: The sha256 of the call_stack_final_hook_module.
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.path:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-path
+  description: The file path of the call_stack_final_hook_module.
+  example: C:\Program Files\Example\example.dll
+  flat_name: process.thread.Ext.call_stack_final_hook_module.path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.path
+  normalize: []
+  short: The file path of the call_stack_final_hook_module.
+  type: keyword
 process.thread.Ext.call_stack_final_user_module:
   dashed_name: process-thread-Ext-call-stack-final-user-module
   description: The final non-win32 module in the call stack.
