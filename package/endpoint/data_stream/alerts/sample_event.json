@@ -551,6 +551,13 @@
         "domain": "NT AUTHORITY",
         "name": "SYSTEM"
     },
+    "Memory_protection": {
+        "cross_session": false,
+        "feature": "shellcode_thread",
+        "parent_to_child": false,
+        "self_injection": false,
+        "unique_key_v2": "00633d00b651c48e61a94589db67e00fd454a5a905409e38de4e48c183105f67"
+    },
     "Responses": [
         {
             "@timestamp": "2023-04-13T16:15:16.0Z",
