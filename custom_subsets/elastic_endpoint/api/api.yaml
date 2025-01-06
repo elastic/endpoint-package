@@ -98,9 +98,6 @@ fields:
       executable: {}
       entity_id: {}
       command_line: {}
-      thread:
-        fields:
-          id: {}
       Ext:
         fields:
           ancestry: {}
