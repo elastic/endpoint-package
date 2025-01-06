@@ -149,6 +149,18 @@ fields:
                   protection_provenance: {}
                   symbol_info: {}
               call_stack_contains_unbacked: {}
+              call_stack_final_hook_module:
+                fields:
+                  path: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                  hash:
+                    fields:
+                      sha256: {}
               call_stack_final_user_module:
                 fields:
                   name: {}

@@ -279,6 +279,20 @@
                         "symbol_info": "c:\\windows\\system32\\ntdll.dll!RtlUserThreadStart+0x21"
                     }
                 ],
+                "call_stack_final_hook_module": {
+                    "code_signature": [
+                        {
+                            "exists": true,
+                            "status": "trusted",
+                            "subject_name": "Microsoft Corporation",
+                            "trusted": true
+                        }
+                    ],
+                    "hash": {
+                        "sha256": "e5bfc1a2967fa513177a0327770927d9a2efa5a4f33ac18f716bae7c3f857994"
+                    },
+                    "path": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\131.0.2903.112\\msedge_elf.dll"
+                },
                 "call_stack_final_user_module": {
                     "code_signature": [
                         {
