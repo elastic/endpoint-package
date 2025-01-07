@@ -26,6 +26,7 @@ fields:
   - Endpoint.policy.applied.artifacts.user.version
   - Endpoint.policy.applied.id
   - Endpoint.policy.applied.name
+  - Endpoint.policy.applied.version
   - agent.build.original
   - agent.id
   - agent.type
