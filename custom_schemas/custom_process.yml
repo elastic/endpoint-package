@@ -101,6 +101,41 @@
       description: >
         User associated with the running process.
 
+    - name: Ext.shmget
+      level: custom
+      type: object
+      description: Object for shmget events.
+
+    - name: Ext.shmget.size
+      level: custom
+      type: long
+      description: Requested size.
+
+    - name: Ext.shmget.flags
+      level: custom
+      type: long
+      description: flags passed to shmget.
+
+    - name: Ext.shmget.key
+      level: custom
+      type: long
+      description: Key passed to the shmget request.
+
+    - name: Ext.ptrace
+      level: custom
+      type: object
+      description: Object for ptrace events.
+
+    - name: Ext.ptrace.child_pid
+      level: custom
+      type: long
+      description: PID of the ptrace target.
+
+    - name: Ext.ptrace.request
+      level: custom
+      type: long
+      description: ptrace request.
+
     - name: Ext.memfd
       level: custom
       type: object

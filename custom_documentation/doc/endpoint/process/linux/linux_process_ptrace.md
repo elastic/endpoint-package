@@ -1,10 +1,10 @@
-# Linux memfd Creation Events
+# Linux ptrace_attach Creation Events
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.process-*`
-- KQL: `event.action : "memfd_create" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.action : "ptrace" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when when a memfd anonymous file is created.
+This event is generated when when a process calls ptrace_attach on another process.
 
 | Field |
 |---|
@@ -66,13 +66,8 @@ This event is generated when when a memfd anonymous file is created.
 | process.Ext.ancestry |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
-| process.Ext.memfd.flag_hugetlb |
-| process.Ext.memfd.flag_allow_seal |
-| process.Ext.memfd.flags |
-| process.Ext.memfd.name |
-| process.Ext.memfd.flag_exec |
-| process.Ext.memfd.flag_cloexec |
-| process.Ext.memfd.flag_noexec_seal |
+| process.Ext.ptrace.child_pid |
+| process.Ext.ptrace.request |
 | process.args |
 | process.args_count |
 | process.command_line |
@@ -105,6 +100,7 @@ This event is generated when when a memfd anonymous file is created.
 | process.entry_leader.user.id |
 | process.entry_leader.user.name |
 | process.entry_leader.working_directory |
+| process.env_vars |
 | process.executable |
 | process.exit_code |
 | process.group.id |
