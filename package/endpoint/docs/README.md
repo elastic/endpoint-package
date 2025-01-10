@@ -2914,6 +2914,14 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.memory.endpoint.private | The memory private to the endpoint | object |
 | Endpoint.metrics.memory.endpoint.private.latest | The memory usage by the endpoint for the last sample interval | long |
 | Endpoint.metrics.memory.endpoint.private.mean | Average memory usage by the endpoint since its start | long |
+| Endpoint.metrics.top_process_trees.values.event_count | Event count of a noisy process | unsigned_long |
+| Endpoint.metrics.top_process_trees.values.last_seen | The thread name | keyword |
+| Endpoint.metrics.top_process_trees.values.sample.command_line | Command line of a noisy process | keyword |
+| Endpoint.metrics.top_process_trees.values.sample.entity_id | Entity id of a noisy process | keyword |
+| Endpoint.metrics.top_process_trees.values.sample.executable | The thread name | keyword |
+| Endpoint.metrics.top_process_trees.values.sample.parent_command_line | Command line of a noisy process's parent | keyword |
+| Endpoint.metrics.top_process_trees.window_end | End time of the noisy process tracking window | keyword |
+| Endpoint.metrics.top_process_trees.window_start | start time of the noisy process tracking window | keyword |
 | Endpoint.metrics.uptime | Number of seconds since boot | object |
 | Endpoint.metrics.uptime.endpoint | Number of seconds since the endpoint was started | long |
 | Endpoint.metrics.uptime.system | Number of seconds since the system was started | long |

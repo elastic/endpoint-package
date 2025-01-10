@@ -1153,6 +1153,94 @@ Endpoint.metrics.threads.name:
   normalize: []
   short: The thread name
   type: keyword
+Endpoint.metrics.top_process_trees.values.event_count:
+  dashed_name: Endpoint-metrics-top-process-trees-values-event-count
+  description: Event count of a noisy process
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.event_count
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.event_count
+  normalize: []
+  short: Event count of a noisy process
+  type: unsigned_long
+Endpoint.metrics.top_process_trees.values.last_seen:
+  dashed_name: Endpoint-metrics-top-process-trees-values-last-seen
+  description: The thread name
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.last_seen
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.last_seen
+  normalize: []
+  short: The thread name
+  type: keyword
+Endpoint.metrics.top_process_trees.values.sample.command_line:
+  dashed_name: Endpoint-metrics-top-process-trees-values-sample-command-line
+  description: Command line of a noisy process
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.sample.command_line
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.sample.command_line
+  normalize: []
+  short: Command line of a noisy process
+  type: keyword
+Endpoint.metrics.top_process_trees.values.sample.entity_id:
+  dashed_name: Endpoint-metrics-top-process-trees-values-sample-entity-id
+  description: Entity id of a noisy process
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.sample.entity_id
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.sample.entity_id
+  normalize: []
+  short: Entity id of a noisy process
+  type: keyword
+Endpoint.metrics.top_process_trees.values.sample.executable:
+  dashed_name: Endpoint-metrics-top-process-trees-values-sample-executable
+  description: The thread name
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.sample.executable
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.sample.executable
+  normalize: []
+  short: The thread name
+  type: keyword
+Endpoint.metrics.top_process_trees.values.sample.parent_command_line:
+  dashed_name: Endpoint-metrics-top-process-trees-values-sample-parent-command-line
+  description: Command line of a noisy process's parent
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.values.sample.parent_command_line
+  index: false
+  level: custom
+  name: metrics.top_process_trees.values.sample.parent_command_line
+  normalize: []
+  short: Command line of a noisy process's parent
+  type: keyword
+Endpoint.metrics.top_process_trees.window_end:
+  dashed_name: Endpoint-metrics-top-process-trees-window-end
+  description: End time of the noisy process tracking window
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.window_end
+  index: false
+  level: custom
+  name: metrics.top_process_trees.window_end
+  normalize: []
+  short: End time of the noisy process tracking window
+  type: keyword
+Endpoint.metrics.top_process_trees.window_start:
+  dashed_name: Endpoint-metrics-top-process-trees-window-start
+  description: start time of the noisy process tracking window
+  doc_values: false
+  flat_name: Endpoint.metrics.top_process_trees.window_start
+  index: false
+  level: custom
+  name: metrics.top_process_trees.window_start
+  normalize: []
+  short: start time of the noisy process tracking window
+  type: keyword
 Endpoint.metrics.uptime:
   dashed_name: Endpoint-metrics-uptime
   description: Number of seconds since boot

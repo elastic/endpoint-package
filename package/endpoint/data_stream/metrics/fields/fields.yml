@@ -674,6 +674,62 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.top_process_trees.values.event_count
+      level: custom
+      type: unsigned_long
+      description: Event count of a noisy process
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.values.last_seen
+      level: custom
+      type: keyword
+      description: The thread name
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.values.sample.command_line
+      level: custom
+      type: keyword
+      description: Command line of a noisy process
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.values.sample.entity_id
+      level: custom
+      type: keyword
+      description: Entity id of a noisy process
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.values.sample.executable
+      level: custom
+      type: keyword
+      description: The thread name
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.values.sample.parent_command_line
+      level: custom
+      type: keyword
+      description: Command line of a noisy process's parent
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.window_end
+      level: custom
+      type: keyword
+      description: End time of the noisy process tracking window
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.top_process_trees.window_start
+      level: custom
+      type: keyword
+      description: start time of the noisy process tracking window
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.uptime
       level: custom
       type: object

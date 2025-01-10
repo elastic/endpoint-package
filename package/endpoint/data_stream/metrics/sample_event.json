@@ -1038,6 +1038,42 @@
                     "name": "RansomwareLuaVerifiedThread"
                 }
             ],
+            "top_process_trees": {
+                "values": [
+                    {
+                        "event_count": 2134,
+                        "last_seen": "2025-01-10T16:06:07.0Z",
+                        "sample": {
+                            "command_line": "/opt/miniconda3/envs/Endpoint/bin/python /opt/miniconda3/envs/Endpoint/bin/pytest -s -v --show-capture=no -k test_metadata_metrics_content",
+                            "entity_id": "aUpkJ+0WdY3z9kAihH2Ung",
+                            "executable": "python3.10",
+                            "parent_command_line": "-bash"
+                        }
+                    },
+                    {
+                        "event_count": 1553,
+                        "last_seen": "2025-01-10T16:06:44.0Z",
+                        "sample": {
+                            "command_line": "/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/jdk/bin/java -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -Djava.security.manager=allow -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Dlog4j2.formatMsgNoLookups=true -Djava.locale.providers=SPI,COMPAT --add-opens=java.base/java.io=org.elasticsearch.preallocate --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core -XX:ReplayDataFile=logs/replay_pid%p.log -Djava.library.path=/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/lib/platform/linux-x64:/home/brian/.gvm/pkgsets/go1.22.6/global/overlay/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib -Djna.library.path=/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/lib/platform/linux-x64:/home/brian/.gvm/pkgsets/go1.22.6/global/overlay/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib -Des.distribution.type=tar -XX:+UnlockDiagnosticVMOptions -XX:G1NumCollectionsKeepPinned=10000000 -XX:+UseG1GC -Djava.io.tmpdir=/tmp/elasticsearch-9883953182527949389 --add-modules=jdk.incubator.vector -XX:+HeapDumpOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -XX:HeapDumpPath=data -XX:ErrorFile=logs/hs_err_pid%p.log -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m -Xms7976m -Xmx7976m -XX:MaxDirectMemorySize=4181721088 -XX:G1HeapRegionSize=4m -XX:InitiatingHeapOccupancyPercent=30 -XX:G1ReservePercent=15 --module-path /tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/lib --add-modules=jdk.net --add-modules=ALL-MODULE-PATH -m org.elasticsearch.server/org.elasticsearch.bootstrap.Elasticsearch",
+                            "entity_id": "TMuGhH1w8vrnWnpcUDztmA",
+                            "executable": "java",
+                            "parent_command_line": "/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/jdk/bin/java -Xms4m -Xmx64m -XX:+UseSerialGC -Dcli.name=server -Dcli.script=/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/bin/elasticsearch -Dcli.libs=lib/tools/server-cli -Des.path.home=/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2 -Des.path.conf=/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/config -Des.distribution.type=tar -cp /tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/lib/*:/tmp/eaf_elasticsearch-8.15.2-linux-x86_64/elasticsearch-8.15.2/lib/cli-launcher/* org.elasticsearch.launcher.CliToolLauncher"
+                        }
+                    },
+                    {
+                        "event_count": 325,
+                        "last_seen": "2025-01-10T16:08:42.33Z",
+                        "sample": {
+                            "command_line": "sudo /opt/Elastic/Endpoint/elastic-endpoint inspect",
+                            "entity_id": "Cz3GHYH8QZCD7lW5sDMvBw",
+                            "executable": "sudo",
+                            "parent_command_line": "/opt/miniconda3/envs/Endpoint/bin/python /opt/miniconda3/envs/Endpoint/bin/pytest -s -v --show-capture=no -k test_metadata_metrics_content"
+                        }
+                    }
+                ],
+                "window_end": "2025-01-10T16:08:45.0833418Z",
+                "window_start": "2025-01-10T04:08:45.0833418Z"
+            },
             "uptime": {
                 "endpoint": 21930,
                 "system": 21992

@@ -1042,6 +1042,54 @@
       index: false
       description: The thread name
 
+    - name: metrics.top_process_trees.values.event_count
+      level: custom
+      type: unsigned_long
+      index: false
+      description: Event count of a noisy process
+
+    - name: metrics.top_process_trees.values.last_seen
+      level: custom
+      type: keyword
+      index: false
+      description: The thread name
+
+    - name: metrics.top_process_trees.values.sample.command_line
+      level: custom
+      type: keyword
+      index: false
+      description: Command line of a noisy process
+
+    - name: metrics.top_process_trees.values.sample.entity_id
+      level: custom
+      type: keyword
+      index: false
+      description: Entity id of a noisy process
+
+    - name: metrics.top_process_trees.values.sample.executable
+      level: custom
+      type: keyword
+      index: false
+      description: The thread name
+
+    - name: metrics.top_process_trees.values.sample.parent_command_line
+      level: custom
+      type: keyword
+      index: false
+      description: Command line of a noisy process's parent
+
+    - name: metrics.top_process_trees.window_end
+      level: custom
+      type: keyword
+      index: false
+      description: End time of the noisy process tracking window
+
+    - name: metrics.top_process_trees.window_start
+      level: custom
+      type: keyword
+      index: false
+      description: start time of the noisy process tracking window
+
     - name: configuration
       level: custom
       type: object
