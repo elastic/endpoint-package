@@ -23,6 +23,10 @@ This alert is generated when a Malicious Behavior alert occurs.
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.user.version |
+| Endpoint.policy.applied.endpoint_policy_version |
+| Endpoint.policy.applied.id |
+| Endpoint.policy.applied.name |
+| Endpoint.policy.applied.version |
 | Events.*<br /><br />Events is a list containing embedded copies of all events that triggered the Malicious Behavior alert. All fields that can exist in any event document can appear in this list. |
 | Events._label |
 | Events._state |
