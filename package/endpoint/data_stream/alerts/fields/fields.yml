@@ -1161,13 +1161,6 @@
       description: Whether bytes_compressed is present in this event.
       example: false
       default_field: false
-    - name: process.Ext.memory_region.hash.sha256
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The sha256 of the memory region.
-      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
-      default_field: false
     - name: process.Ext.memory_region.malware_signature.all_names
       level: custom
       type: keyword
@@ -1216,46 +1209,6 @@
       ignore_above: 1024
       description: The name of the first yara rule matched.
       default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary
-      level: custom
-      type: nested
-      description: Additional matching details if available.
-      enabled: false
-      default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary.matches
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The second matching details.
-      enabled: false
-      default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash
-      level: custom
-      type: nested
-      description: hash of second file matching signature.
-      enabled: false
-      default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: sha256 hash of second file matching signature.
-      enabled: false
-      default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary.signature.id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The id of the second yara rule matched.
-      enabled: false
-      default_field: false
-    - name: process.Ext.memory_region.malware_signature.secondary.signature.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the second yara rule matched.
-      enabled: false
-      default_field: false
     - name: process.Ext.memory_region.malware_signature.version
       level: custom
       type: keyword
@@ -1268,127 +1221,6 @@
       ignore_above: 1024
       description: If the memory corresponds to a file mapping, this is the file's path.
       example: C:\Windows\System32\mshtml.dll
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.dotnet
-      level: custom
-      type: boolean
-      description: Whether this file is a .NET PE
-      example: 'true'
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections
-      level: custom
-      type: object
-      description: The file's relevant sections, if it is a PE
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.sections.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The section's name
-      example: .reloc
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams
-      level: custom
-      type: object
-      description: The file's streams, if it is a PE
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.Ext.streams.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The stream's name
-      example: .reloc
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.company
       level: extended
@@ -1411,37 +1243,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: process.Ext.memory_region.mapped_pe.go_import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the Go language imports in a PE file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
-      example: 10bddcb4cee42080f76c88d9ff964491
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.go_imports
-      level: extended
-      type: flattened
-      description: List of imported Go language element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.go_imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.go_imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.go_stripped
-      level: extended
-      type: boolean
-      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
-      default_field: false
     - name: process.Ext.memory_region.mapped_pe.imphash
       level: extended
       type: keyword
@@ -1451,47 +1252,12 @@
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
       default_field: false
-    - name: process.Ext.memory_region.mapped_pe.import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        This is a synonym for imphash.'
-      example: d41d8cd98f00b204e9800998ecf8427e
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.imports
-      level: extended
-      type: flattened
-      description: List of imported element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
     - name: process.Ext.memory_region.mapped_pe.original_file_name
       level: extended
       type: keyword
       ignore_above: 1024
       description: Internal name of the file, provided at compile-time.
       example: MSPAINT.EXE
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.pehash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the PE header and data from one or more PE sections. An pehash can be used to cluster files by transforming structural information about a file into a hash value.
-
-        Learn more at https://www.usenix.org/legacy/events/leet09/tech/full_papers/wicherski/wicherski_html/index.html.'
-      example: 73ff189b63cd6be375a7ff25179a38d347651975
       default_field: false
     - name: process.Ext.memory_region.mapped_pe.product
       level: extended
@@ -1500,169 +1266,11 @@
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
       default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections
-      level: extended
-      type: nested
-      description: 'An array containing an object for each section of the PE file.
-
-        The keys that should be present in these objects are defined by sub-fields underneath `pe.sections.*`.'
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections.entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the section.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections.name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: PE Section List name.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections.physical_size
-      level: extended
-      type: long
-      format: bytes
-      description: PE Section List physical size.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections.var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the section.
-      default_field: false
-    - name: process.Ext.memory_region.mapped_pe.sections.virtual_size
-      level: extended
-      type: long
-      format: string
-      description: PE Section List virtual size. This is always the same as `physical_size`.
-      default_field: false
     - name: process.Ext.memory_region.mapped_pe_detected
       level: custom
       type: boolean
       description: Whether the file at mapped_path is an executable.
       example: false
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.dotnet
-      level: custom
-      type: boolean
-      description: Whether this file is a .NET PE
-      example: 'true'
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections
-      level: custom
-      type: object
-      description: The file's relevant sections, if it is a PE
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.sections.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The section's name
-      example: .reloc
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams
-      level: custom
-      type: object
-      description: The file's streams, if it is a PE
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.Ext.streams.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The stream's name
-      example: .reloc
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
       default_field: false
     - name: process.Ext.memory_region.memory_pe.company
       level: extended
@@ -1685,37 +1293,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: process.Ext.memory_region.memory_pe.go_import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the Go language imports in a PE file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
-      example: 10bddcb4cee42080f76c88d9ff964491
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.go_imports
-      level: extended
-      type: flattened
-      description: List of imported Go language element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.go_imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.go_imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.go_stripped
-      level: extended
-      type: boolean
-      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
-      default_field: false
     - name: process.Ext.memory_region.memory_pe.imphash
       level: extended
       type: keyword
@@ -1725,32 +1302,6 @@
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
       default_field: false
-    - name: process.Ext.memory_region.memory_pe.import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        This is a synonym for imphash.'
-      example: d41d8cd98f00b204e9800998ecf8427e
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.imports
-      level: extended
-      type: flattened
-      description: List of imported element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
     - name: process.Ext.memory_region.memory_pe.original_file_name
       level: extended
       type: keyword
@@ -1758,58 +1309,12 @@
       description: Internal name of the file, provided at compile-time.
       example: MSPAINT.EXE
       default_field: false
-    - name: process.Ext.memory_region.memory_pe.pehash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the PE header and data from one or more PE sections. An pehash can be used to cluster files by transforming structural information about a file into a hash value.
-
-        Learn more at https://www.usenix.org/legacy/events/leet09/tech/full_papers/wicherski/wicherski_html/index.html.'
-      example: 73ff189b63cd6be375a7ff25179a38d347651975
-      default_field: false
     - name: process.Ext.memory_region.memory_pe.product
       level: extended
       type: keyword
       ignore_above: 1024
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections
-      level: extended
-      type: nested
-      description: 'An array containing an object for each section of the PE file.
-
-        The keys that should be present in these objects are defined by sub-fields underneath `pe.sections.*`.'
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections.entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the section.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections.name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: PE Section List name.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections.physical_size
-      level: extended
-      type: long
-      format: bytes
-      description: PE Section List physical size.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections.var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the section.
-      default_field: false
-    - name: process.Ext.memory_region.memory_pe.sections.virtual_size
-      level: extended
-      type: long
-      format: string
-      description: PE Section List virtual size. This is always the same as `physical_size`.
       default_field: false
     - name: process.Ext.memory_region.memory_pe_detected
       level: custom
@@ -1835,13 +1340,6 @@
       type: unsigned_long
       description: Size of the memory region.
       example: 4096
-      default_field: false
-    - name: process.Ext.memory_region.region_start_bytes
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: First 32 bytes at the region base address.
-      example: 4d5a90000300000004000000ffff0000b8000000000000004000000000000000
       default_field: false
     - name: process.Ext.memory_region.region_state
       level: custom
@@ -2908,11 +2406,6 @@
       type: nested
       description: The final non-win32 module in the call stack.
       default_field: false
-    - name: process.thread.Ext.call_stack_final_user_module.allocation_private_bytes
-      level: custom
-      type: unsigned_long
-      description: The number of bytes in this memory region that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
-      default_field: false
     - name: process.thread.Ext.call_stack_final_user_module.code_signature
       level: custom
       type: nested
@@ -2981,34 +2474,6 @@
       ignore_above: 1024
       description: The file path of the call_stack_final_user_module.
       example: C:\Program Files\Example\example.dll
-      default_field: false
-    - name: process.thread.Ext.call_stack_final_user_module.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      example: RWX
-      default_field: false
-    - name: process.thread.Ext.call_stack_final_user_module.protection_provenance
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the memory region that caused the last modification of the protection of this page. "Unbacked" may indicate shellcode.
-      example: third_party_hook.dll
-      default_field: false
-    - name: process.thread.Ext.call_stack_final_user_module.protection_provenance_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The path of the module that caused the last modification the protection of this page.
-      example: C:\Program Files\Hook Inc\third_party_hook.dll
-      default_field: false
-    - name: process.thread.Ext.call_stack_final_user_module.reason
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
-      example: ntdll.dll|kernelbase.dll
       default_field: false
     - name: process.thread.Ext.call_stack_summary
       level: custom
@@ -5074,478 +4539,12 @@
       description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - The acting process details may have been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded API was called"
       example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]'
       default_field: false
-    - name: Ext.api.metadata
-      level: custom
-      type: object
-      description: Information related to the API call.
-      default_field: false
-    - name: Ext.api.metadata.amsi_filenames
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: A list of filenames previously scanned by AMSI.
-      example: '[ "C:\script.ps1" ]'
-      default_field: false
-    - name: Ext.api.metadata.amsi_logs
-      level: custom
-      type: object
-      description: Information related to previous AMSI scans.
-      default_field: false
-    - name: Ext.api.metadata.amsi_logs.entries
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: A subset of the AMSI content buffers scanned prior to this event.
-      example: '[ "[Ref].Assembly.GetType(''System.Management.Automation.AmsiUtils'').GetField(''amsiInitFailed'', ''NonPublic,Static'').SetValue($null, $true);Add-Type -TypeDefinition ''using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport("kernel32.dll")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}" ]'
-      default_field: false
-    - name: Ext.api.metadata.amsi_logs.type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The AMSI content type scanned prior to this event.
-      example: PowerShell
-      default_field: false
-    - name: Ext.api.metadata.background_callcount
-      level: custom
-      type: unsigned_long
-      description: This field indicates a number of all GetAsyncKeyState api calls, including unsuccessful calls, between the last successful GetAsyncKeyState call.
-      example: 6021
-      default_field: false
-    - name: Ext.api.metadata.client_is_local
-      level: custom
-      type: boolean
-      description: Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely.
-      example: 'true'
-      default_field: false
-    - name: Ext.api.metadata.client_machine
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Client process's machine name (provided by the client and potentially untrustworthy).
-      example: DESKTOP-EXAMPLE
-      default_field: false
-    - name: Ext.api.metadata.client_machine_fqdn
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Client process's machine name FQDN (provided by the client and potentially untrustworthy).
-      example: DESKTOP-EXAMPLE.elastic.co
-      default_field: false
-    - name: Ext.api.metadata.client_process_id
-      level: custom
-      type: unsigned_long
-      description: Client process id
-      example: 3600
-      default_field: false
-    - name: Ext.api.metadata.ms_since_last_keyevent
-      level: custom
-      type: unsigned_long
-      description: This field indicates the elapsed time in milliseconds since the last GetAsyncKeyState event.
-      example: 94
-      default_field: false
-    - name: Ext.api.metadata.procedure_symbol
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Summary of the hook procedure.
-      example: taskbar.dll
-      default_field: false
-    - name: Ext.api.metadata.return_value
-      level: custom
-      type: unsigned_long
-      description: Return value of RegisterRawInputDevices API call.
-      example: 1
-      default_field: false
-    - name: Ext.api.metadata.security_descriptor
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The security descriptor of the device.
-      example: O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)
-      default_field: false
-    - name: Ext.api.metadata.start_address_allocation_protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Memory protection attributes associated with the starting address of a thread.
-      example: RCX
-      default_field: false
-    - name: Ext.api.metadata.start_address_module
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Name of the module associated with the starting address of a thread.
-      example: C:\Windows\System32\DellTPad\ApMsgFwd.exe
-      default_field: false
-    - name: Ext.api.metadata.target_address_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the memory region targeted by the API call.
-      example: Unbacked
-      default_field: false
-    - name: Ext.api.metadata.target_address_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The path of the memory region targeted by the API call.
-      example: C:\programdata\example.dll
-      default_field: false
-    - name: Ext.api.metadata.thread_info_flags
-      level: custom
-      type: unsigned_long
-      description: Thread info flags.
-      example: 16
-      default_field: false
-    - name: Ext.api.metadata.visible_windows_count
-      level: custom
-      type: unsigned_long
-      description: Number of visible windows owned by the caller thread.
-      example: 0
-      default_field: false
-    - name: Ext.api.metadata.windows_count
-      level: custom
-      type: unsigned_long
-      description: Number of windows owned by the caller thread.
-      example: 2
-      default_field: false
     - name: Ext.api.name
       level: custom
       type: keyword
       ignore_above: 1024
       description: The name of the API, usually the name of the function or system call.
       example: VirtualAlloc
-      default_field: false
-    - name: Ext.api.parameters
-      level: custom
-      type: object
-      description: Parameter values passed to the API call.
-      default_field: false
-    - name: Ext.api.parameters.address
-      level: custom
-      type: unsigned_long
-      description: The target memory address.
-      example: 2431737462784
-      default_field: false
-    - name: Ext.api.parameters.allocation_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State`
-      example: COMMIT|RESERVE
-      default_field: false
-    - name: Ext.api.parameters.app_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The application name requesting the AMSI scan.
-      example: PowerShell
-      default_field: false
-    - name: Ext.api.parameters.argument1
-      level: custom
-      type: unsigned_long
-      description: The first argument to the procedure.
-      example: 1
-      default_field: false
-    - name: Ext.api.parameters.argument2
-      level: custom
-      type: unsigned_long
-      description: The second argument to the procedure.
-      example: 2
-      default_field: false
-    - name: Ext.api.parameters.argument3
-      level: custom
-      type: unsigned_long
-      description: The third argument to the procedure.
-      example: 3
-      default_field: false
-    - name: Ext.api.parameters.buffer
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The content associated with an AMSI scan.
-      example: '[Ref].Assembly.GetType(''System.Management.Automation.AmsiUtils'').GetField(''amsiInitFailed'', ''NonPublic,Static'').SetValue($null, $true);Add-Type -TypeDefinition ''using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport("kernel32.dll")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}''; [Kernel32]::VirtualAlloc([IntPtr]::Zero, 0x1234, 0x1000, 0x20);'
-      default_field: false
-    - name: Ext.api.parameters.consumer_details
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Provides specific information about an event consumer, including its configuration, such as the command it executes, associated SID, and the consumer's name.
-      default_field: false
-    - name: Ext.api.parameters.consumer_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Consumer Name. Consumers specify what should happen when the conditions in the Event Filter are triggered.
-      example: ExampleConsumer
-      default_field: false
-    - name: Ext.api.parameters.consumer_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: "An example list of consumer type.\n  \"ActiveScriptEventConsumer\" - Executes a predefined script in an arbitrary scripting language when an event is delivered to it.\n  \"CommandLineEventConsumer\" - Launches an arbitrary process in the local system context when an event is delivered to it.\n  \"LogFileEventConsumer\" - Writes customized strings to a text log file when events are delivered to it.\n  \"NTEventLogEventConsumer\" - Logs a specific message to the Windows event log when an event is delivered to it.\n  \"SMTPEventConsumer\" - Sends an email message using SMTP each time an event is delivered to it."
-      example: CommandLineEventConsumer
-      default_field: false
-    - name: Ext.api.parameters.content_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The content name, typically a filename, associated with an AMSI scan.
-      example: C:\script.ps1
-      default_field: false
-    - name: Ext.api.parameters.context_flags
-      level: custom
-      type: unsigned_long
-      description: The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags`
-      example: 1048607
-      default_field: false
-    - name: Ext.api.parameters.desired_access
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
-      default_field: false
-    - name: Ext.api.parameters.desired_access_numeric
-      level: custom
-      type: long
-      description: This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`.
-      default_field: false
-    - name: Ext.api.parameters.device
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the device object.
-      example: \Device\NPCAP
-      default_field: false
-    - name: Ext.api.parameters.driver
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the driver object.
-      example: \Driver\npcap
-      default_field: false
-    - name: Ext.api.parameters.eax
-      level: custom
-      type: unsigned_long
-      description: The x86 EAX general purpose register. Return value in __cdecl, __stdcall, __thiscall and __fastcall.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.ebp
-      level: custom
-      type: unsigned_long
-      description: The x86 EBP frame pointer register.
-      example: 15006644
-      default_field: false
-    - name: Ext.api.parameters.ebx
-      level: custom
-      type: unsigned_long
-      description: The x86 EBX general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.ecx
-      level: custom
-      type: unsigned_long
-      description: The x86 ECX general purpose register. First argument in __fastcall and __thiscall.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.edi
-      level: custom
-      type: unsigned_long
-      description: The x86 EDI general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.edx
-      level: custom
-      type: unsigned_long
-      description: The x86 EDX general purpose register. Second argument in a __fastcall.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.eip
-      level: custom
-      type: unsigned_long
-      description: The x86 EIP instruction pointer register.
-      example: 1472790528
-      default_field: false
-    - name: Ext.api.parameters.esi
-      level: custom
-      type: unsigned_long
-      description: The x86 ESI general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.esp
-      level: custom
-      type: unsigned_long
-      description: The x86 ESP stack pointer register.
-      example: 15007744
-      default_field: false
-    - name: Ext.api.parameters.event_filter_details
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Provide an overview of the query that define when an event should be triggered.
-      default_field: false
-    - name: Ext.api.parameters.event_filter_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer.
-      example: ExampleFilter
-      default_field: false
-    - name: Ext.api.parameters.flags
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Mode flag that specifies how to interpret the information provided by UsagePage and Usage. Third member RAWINPUTDEVICE structure.
-      example: INPUTSINK
-      default_field: false
-    - name: Ext.api.parameters.handle_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: This parameter indicates whether the detected access was attempt against a process or a thread.
-      example: process
-      default_field: false
-    - name: Ext.api.parameters.hook_module
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: DLL containing the hook procedure.
-      example: c:\windows\system32\taskbar.dll
-      default_field: false
-    - name: Ext.api.parameters.hook_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Type of hook procedure to be installed.
-      example: WH_KEYBOARD_LL
-      default_field: false
-    - name: Ext.api.parameters.io_control_code
-      level: custom
-      type: unsigned_long
-      description: The I/O control code for the requested device operation.
-      example: 27365
-      default_field: false
-    - name: Ext.api.parameters.namespace
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: WMI namespace to which the connection is made.
-      example: root\Microsoft\Windows\DeviceGuard
-      default_field: false
-    - name: Ext.api.parameters.operation
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Specifies the connection or request to WMI
-      example: Win32_Process::Create
-      default_field: false
-    - name: Ext.api.parameters.procedure
-      level: custom
-      type: unsigned_long
-      description: The memory address of the procedure or function.
-      example: 2431737462784
-      default_field: false
-    - name: Ext.api.parameters.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      example: RWX|GUARD
-      default_field: false
-    - name: Ext.api.parameters.protection_old
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      example: RCX
-      default_field: false
-    - name: Ext.api.parameters.r8
-      level: custom
-      type: unsigned_long
-      description: The x64 R8 general purpose register. Third argument in a __fastcall.
-      example: 3
-      default_field: false
-    - name: Ext.api.parameters.r9
-      level: custom
-      type: unsigned_long
-      description: The x64 R9 general purpose register. Fourth argument in a __fastcall.
-      example: 4
-      default_field: false
-    - name: Ext.api.parameters.rax
-      level: custom
-      type: unsigned_long
-      description: The x64 RAX general purpose register. Return value in a __fastcall.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.rbp
-      level: custom
-      type: unsigned_long
-      description: The x64 RBP general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.rbx
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The x64 RBX general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.rcx
-      level: custom
-      type: unsigned_long
-      description: The x64 RCX general purpose register. First argument in a __fastcall.
-      example: 1
-      default_field: false
-    - name: Ext.api.parameters.rdi
-      level: custom
-      type: unsigned_long
-      description: The x64 RDI general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.rdx
-      level: custom
-      type: unsigned_long
-      description: The x64 RDX general purpose register. Second argument in a __fastcall.
-      example: 2
-      default_field: false
-    - name: Ext.api.parameters.rip
-      level: custom
-      type: unsigned_long
-      description: The x64 RIP instruction pointer register.
-      example: 140706153693184
-      default_field: false
-    - name: Ext.api.parameters.rsi
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The x64 RSI general purpose register.
-      example: 0
-      default_field: false
-    - name: Ext.api.parameters.rsp
-      level: custom
-      type: unsigned_long
-      description: The x64 RSP stack pointer register.
-      example: 2431737462784
-      default_field: false
-    - name: Ext.api.parameters.size
-      level: custom
-      type: unsigned_long
-      description: The size.
-      example: 4096
-      default_field: false
-    - name: Ext.api.parameters.usage
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: This parameter indicates the specific device (Usage) within the Usage Page. Second member RAWINPUTDEVICE structure.
-      example: KEYBOARD
-      default_field: false
-    - name: Ext.api.parameters.usage_page
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: This parameter indicates the top-level collection (Usage Page) of the device. First member RAWINPUTDEVICE structure.
-      example: GENERIC
       default_field: false
     - name: Ext.api.summary
       level: custom
@@ -5921,13 +4920,6 @@
       description: Whether bytes_compressed is present in this event.
       example: false
       default_field: false
-    - name: Ext.memory_region.hash.sha256
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The sha256 of the memory region.
-      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
-      default_field: false
     - name: Ext.memory_region.malware_signature.all_names
       level: custom
       type: keyword
@@ -5976,46 +4968,6 @@
       ignore_above: 1024
       description: The name of the first yara rule matched.
       default_field: false
-    - name: Ext.memory_region.malware_signature.secondary
-      level: custom
-      type: nested
-      description: Additional matching details if available.
-      enabled: false
-      default_field: false
-    - name: Ext.memory_region.malware_signature.secondary.matches
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The second matching details.
-      enabled: false
-      default_field: false
-    - name: Ext.memory_region.malware_signature.secondary.signature.hash
-      level: custom
-      type: nested
-      description: hash of second file matching signature.
-      enabled: false
-      default_field: false
-    - name: Ext.memory_region.malware_signature.secondary.signature.hash.sha256
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: sha256 hash of second file matching signature.
-      enabled: false
-      default_field: false
-    - name: Ext.memory_region.malware_signature.secondary.signature.id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The id of the second yara rule matched.
-      enabled: false
-      default_field: false
-    - name: Ext.memory_region.malware_signature.secondary.signature.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the second yara rule matched.
-      enabled: false
-      default_field: false
     - name: Ext.memory_region.malware_signature.version
       level: custom
       type: keyword
@@ -6028,127 +4980,6 @@
       ignore_above: 1024
       description: If the memory corresponds to a file mapping, this is the file's path.
       example: C:\Windows\System32\mshtml.dll
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.dotnet
-      level: custom
-      type: boolean
-      description: Whether this file is a .NET PE
-      example: 'true'
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections
-      level: custom
-      type: object
-      description: The file's relevant sections, if it is a PE
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.sections.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The section's name
-      example: .reloc
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams
-      level: custom
-      type: object
-      description: The file's streams, if it is a PE
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.Ext.streams.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The stream's name
-      example: .reloc
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
       default_field: false
     - name: Ext.memory_region.mapped_pe.company
       level: extended
@@ -6171,37 +5002,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: Ext.memory_region.mapped_pe.go_import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the Go language imports in a PE file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
-      example: 10bddcb4cee42080f76c88d9ff964491
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.go_imports
-      level: extended
-      type: flattened
-      description: List of imported Go language element names and types.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.go_imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.go_imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.go_stripped
-      level: extended
-      type: boolean
-      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
-      default_field: false
     - name: Ext.memory_region.mapped_pe.imphash
       level: extended
       type: keyword
@@ -6211,47 +5011,12 @@
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
       default_field: false
-    - name: Ext.memory_region.mapped_pe.import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        This is a synonym for imphash.'
-      example: d41d8cd98f00b204e9800998ecf8427e
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.imports
-      level: extended
-      type: flattened
-      description: List of imported element names and types.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
     - name: Ext.memory_region.mapped_pe.original_file_name
       level: extended
       type: keyword
       ignore_above: 1024
       description: Internal name of the file, provided at compile-time.
       example: MSPAINT.EXE
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.pehash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the PE header and data from one or more PE sections. An pehash can be used to cluster files by transforming structural information about a file into a hash value.
-
-        Learn more at https://www.usenix.org/legacy/events/leet09/tech/full_papers/wicherski/wicherski_html/index.html.'
-      example: 73ff189b63cd6be375a7ff25179a38d347651975
       default_field: false
     - name: Ext.memory_region.mapped_pe.product
       level: extended
@@ -6260,169 +5025,11 @@
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
       default_field: false
-    - name: Ext.memory_region.mapped_pe.sections
-      level: extended
-      type: nested
-      description: 'An array containing an object for each section of the PE file.
-
-        The keys that should be present in these objects are defined by sub-fields underneath `pe.sections.*`.'
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.sections.entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the section.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.sections.name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: PE Section List name.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.sections.physical_size
-      level: extended
-      type: long
-      format: bytes
-      description: PE Section List physical size.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.sections.var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the section.
-      default_field: false
-    - name: Ext.memory_region.mapped_pe.sections.virtual_size
-      level: extended
-      type: long
-      format: string
-      description: PE Section List virtual size. This is always the same as `physical_size`.
-      default_field: false
     - name: Ext.memory_region.mapped_pe_detected
       level: custom
       type: boolean
       description: Whether the file at mapped_path is an executable.
       example: false
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.dotnet
-      level: custom
-      type: boolean
-      description: Whether this file is a .NET PE
-      example: 'true'
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections
-      level: custom
-      type: object
-      description: The file's relevant sections, if it is a PE
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.sections.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The section's name
-      example: .reloc
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams
-      level: custom
-      type: object
-      description: The file's streams, if it is a PE
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.md5
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: MD5 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.sha1
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA1 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.sha256
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA256 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.sha384
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA384 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.sha512
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SHA512 hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.ssdeep
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: SSDEEP hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.hash.tlsh
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: TLSH hash.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.Ext.streams.name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The stream's name
-      example: .reloc
-      default_field: false
-    - name: Ext.memory_region.memory_pe.architecture
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: CPU architecture target for the file.
-      example: x64
       default_field: false
     - name: Ext.memory_region.memory_pe.company
       level: extended
@@ -6445,37 +5052,6 @@
       description: Internal version of the file, provided at compile-time.
       example: 6.3.9600.17415
       default_field: false
-    - name: Ext.memory_region.memory_pe.go_import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the Go language imports in a PE file excluding standard library imports. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        The algorithm used to calculate the Go symbol hash and a reference implementation are available [here](https://github.com/elastic/toutoumomoma).'
-      example: 10bddcb4cee42080f76c88d9ff964491
-      default_field: false
-    - name: Ext.memory_region.memory_pe.go_imports
-      level: extended
-      type: flattened
-      description: List of imported Go language element names and types.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.go_imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.go_imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of Go imports.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.go_stripped
-      level: extended
-      type: boolean
-      description: Set to true if the file is a Go executable that has had its symbols stripped or obfuscated and false if an unobfuscated Go executable.
-      default_field: false
     - name: Ext.memory_region.memory_pe.imphash
       level: extended
       type: keyword
@@ -6485,32 +5061,6 @@
         Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html.'
       example: 0c6803c4e922103c4dca5963aad36ddf
       default_field: false
-    - name: Ext.memory_region.memory_pe.import_hash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the imports in a PE file. An import hash can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values.
-
-        This is a synonym for imphash.'
-      example: d41d8cd98f00b204e9800998ecf8427e
-      default_field: false
-    - name: Ext.memory_region.memory_pe.imports
-      level: extended
-      type: flattened
-      description: List of imported element names and types.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.imports_names_entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.imports_names_var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the list of imported element names and types.
-      default_field: false
     - name: Ext.memory_region.memory_pe.original_file_name
       level: extended
       type: keyword
@@ -6518,58 +5068,12 @@
       description: Internal name of the file, provided at compile-time.
       example: MSPAINT.EXE
       default_field: false
-    - name: Ext.memory_region.memory_pe.pehash
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: 'A hash of the PE header and data from one or more PE sections. An pehash can be used to cluster files by transforming structural information about a file into a hash value.
-
-        Learn more at https://www.usenix.org/legacy/events/leet09/tech/full_papers/wicherski/wicherski_html/index.html.'
-      example: 73ff189b63cd6be375a7ff25179a38d347651975
-      default_field: false
     - name: Ext.memory_region.memory_pe.product
       level: extended
       type: keyword
       ignore_above: 1024
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections
-      level: extended
-      type: nested
-      description: 'An array containing an object for each section of the PE file.
-
-        The keys that should be present in these objects are defined by sub-fields underneath `pe.sections.*`.'
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections.entropy
-      level: extended
-      type: long
-      format: number
-      description: Shannon entropy calculation from the section.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections.name
-      level: extended
-      type: keyword
-      ignore_above: 1024
-      description: PE Section List name.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections.physical_size
-      level: extended
-      type: long
-      format: bytes
-      description: PE Section List physical size.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections.var_entropy
-      level: extended
-      type: long
-      format: number
-      description: Variance for Shannon entropy calculation from the section.
-      default_field: false
-    - name: Ext.memory_region.memory_pe.sections.virtual_size
-      level: extended
-      type: long
-      format: string
-      description: PE Section List virtual size. This is always the same as `physical_size`.
       default_field: false
     - name: Ext.memory_region.memory_pe_detected
       level: custom
@@ -6595,13 +5099,6 @@
       type: unsigned_long
       description: Size of the memory region.
       example: 4096
-      default_field: false
-    - name: Ext.memory_region.region_start_bytes
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: First 32 bytes at the region base address.
-      example: 4d5a90000300000004000000ffff0000b8000000000000004000000000000000
       default_field: false
     - name: Ext.memory_region.region_state
       level: custom
@@ -8717,23 +7214,6 @@
       description: Fields describing a stack frame.  call_stack is expected to be an array where each array element represents a stack frame.
       enabled: false
       default_field: false
-    - name: thread.Ext.call_stack.allocation_private_bytes
-      level: custom
-      type: unsigned_long
-      description: The number of bytes in this memory allocation/image that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
-      default_field: false
-    - name: thread.Ext.call_stack.callsite_leading_bytes
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Hex opcode bytes preceding the callsite
-      default_field: false
-    - name: thread.Ext.call_stack.callsite_trailing_bytes
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Hex opcode bytes after the callsite (where control will return to)
-      default_field: false
     - name: thread.Ext.call_stack.instruction_pointer
       level: custom
       type: keyword
@@ -8773,18 +7253,6 @@
       ignore_above: 1024
       description: The path to the DLL/module containing `instruction_pointer`.
       default_field: false
-    - name: thread.Ext.call_stack.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Protection of the page containing this instruction.  This is `R-X' by default if omitted.
-      default_field: false
-    - name: thread.Ext.call_stack.protection_provenance
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the memory region that last modified the protection of this page.  "Unbacked" can indicate shellcode.
-      default_field: false
     - name: thread.Ext.call_stack.rva
       level: custom
       type: keyword
@@ -8796,11 +7264,6 @@
       type: keyword
       ignore_above: 1024
       description: The nearest symbol for `instruction_pointer`.
-      default_field: false
-    - name: thread.Ext.call_stack_contains_unbacked
-      level: custom
-      type: boolean
-      description: Indicates whether the creating thread's stack contains frames pointing outside any known executable image.
       default_field: false
     - name: thread.Ext.call_stack_final_hook_module
       level: custom
@@ -8865,11 +7328,6 @@
       level: custom
       type: nested
       description: The final non-win32 module in the call stack.
-      default_field: false
-    - name: thread.Ext.call_stack_final_user_module.allocation_private_bytes
-      level: custom
-      type: unsigned_long
-      description: The number of bytes in this memory region that are both +X and non-shareable. Non-zero values can indicate code hooking, patching, or hollowing.
       default_field: false
     - name: thread.Ext.call_stack_final_user_module.code_signature
       level: custom
@@ -8939,34 +7397,6 @@
       ignore_above: 1024
       description: The file path of the call_stack_final_user_module.
       example: C:\Program Files\Example\example.dll
-      default_field: false
-    - name: thread.Ext.call_stack_final_user_module.protection
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The memory protection for the acting region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-      example: RWX
-      default_field: false
-    - name: thread.Ext.call_stack_final_user_module.protection_provenance
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The name of the memory region that caused the last modification of the protection of this page. "Unbacked" may indicate shellcode.
-      example: third_party_hook.dll
-      default_field: false
-    - name: thread.Ext.call_stack_final_user_module.protection_provenance_path
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The path of the module that caused the last modification the protection of this page.
-      example: C:\Program Files\Hook Inc\third_party_hook.dll
-      default_field: false
-    - name: thread.Ext.call_stack_final_user_module.reason
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The unexpected call_stack_summary that led to an "Undetermined" protection_provenance.
-      example: ntdll.dll|kernelbase.dll
       default_field: false
     - name: thread.Ext.call_stack_summary
       level: custom
