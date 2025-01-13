@@ -2440,6 +2440,9 @@ sent by the endpoint.
 | process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
+| process.Ext.ptrace | Object for ptrace events. | object |
+| process.Ext.ptrace.child_pid | PID of the ptrace target. | long |
+| process.Ext.ptrace.request | ptrace request. | long |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.session | Session information for the current process | keyword |
@@ -2450,6 +2453,10 @@ sent by the endpoint.
 | process.Ext.session_info.relative_logon_time | Process creation time, relative to logon time, in seconds. | double |
 | process.Ext.session_info.relative_password_age | Process creation time, relative to the last time the password was changed, in seconds. | double |
 | process.Ext.session_info.user_flags | List of user flags associated with this logon session. Examples include LOGON_NTLMV2_ENABLED and LOGON_WINLOGON. | keyword |
+| process.Ext.shmget | Object for shmget events. | object |
+| process.Ext.shmget.flags | flags passed to shmget. | long |
+| process.Ext.shmget.key | Key passed to the shmget request. | long |
+| process.Ext.shmget.size | Requested size. | long |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.elevation_level | What level of elevation the token has | keyword |
 | process.Ext.token.elevation_type | What level of elevation the token has | keyword |

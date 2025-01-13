@@ -9,6 +9,7 @@ This event is generated when WMI Activity-related APIs are called.
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.protection |
 | Target.process.name |
 | Target.process.pid |
 | agent.id |

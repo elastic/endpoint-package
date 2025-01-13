@@ -9,6 +9,7 @@ This event is generated when a process attempts to access priviledged credential
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.protection |
 | Target.process.name |
 | Target.process.pid |
 | agent.id |

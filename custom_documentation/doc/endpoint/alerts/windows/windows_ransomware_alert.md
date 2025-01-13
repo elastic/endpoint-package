@@ -19,6 +19,10 @@ This alert is generated when a Ransomware alert occurs.
 | Endpoint.policy.applied.artifacts.user.identifiers.name |
 | Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
 | Endpoint.policy.applied.artifacts.user.version |
+| Endpoint.policy.applied.endpoint_policy_version |
+| Endpoint.policy.applied.id |
+| Endpoint.policy.applied.name |
+| Endpoint.policy.applied.version |
 | Ransomware.child_processes.executable |
 | Ransomware.child_processes.files.data |
 | Ransomware.child_processes.files.entropy |

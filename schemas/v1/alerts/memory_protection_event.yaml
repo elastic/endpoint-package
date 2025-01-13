@@ -169,6 +169,16 @@ Endpoint.policy.applied.artifacts.user.version:
   normalize: []
   short: the version of user artifacts applied.
   type: keyword
+Endpoint.policy.applied.endpoint_policy_version:
+  dashed_name: Endpoint-policy-applied-endpoint-policy-version
+  description: the version of this applied policy
+  flat_name: Endpoint.policy.applied.endpoint_policy_version
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.endpoint_policy_version
+  normalize: []
+  short: the version of this applied policy
+  type: keyword
 Endpoint.policy.applied.id:
   dashed_name: Endpoint-policy-applied-id
   description: the id of the applied policy

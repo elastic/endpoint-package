@@ -1,32 +1,27 @@
-# Linux Malware Alert
+# Linux shmget Creation Events
 
 - OS: Linux
-- Data Stream: `logs-endpoint.alerts-*`
-- KQL: `event.code : "malicious_file" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "linux"`
+- Data Stream: `logs-endpoint.events.process-*`
+- KQL: `event.action : "shmget" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This alert is generated when a Malware alert occurs.
-
+This event is generated when when a process calls shmget().
 
 | Field |
 |---|
 | @timestamp |
-| Endpoint.policy.applied.artifacts.global.channel |
-| Endpoint.policy.applied.artifacts.global.identifiers.name |
-| Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
-| Endpoint.policy.applied.artifacts.global.snapshot |
-| Endpoint.policy.applied.artifacts.global.update_age |
-| Endpoint.policy.applied.artifacts.global.version |
-| Endpoint.policy.applied.artifacts.user.identifiers.name |
-| Endpoint.policy.applied.artifacts.user.identifiers.sha256 |
-| Endpoint.policy.applied.artifacts.user.version |
-| Endpoint.policy.applied.endpoint_policy_version |
-| Endpoint.policy.applied.id |
-| Endpoint.policy.applied.name |
-| Endpoint.policy.applied.version |
-| agent.build.original |
 | agent.id |
 | agent.type |
 | agent.version |
+| cloud.account.id |
+| cloud.instance.name |
+| cloud.project.id |
+| cloud.provider |
+| cloud.region |
+| container.id |
+| container.image.hash.all |
+| container.image.name |
+| container.image.tag |
+| container.name |
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
@@ -34,49 +29,18 @@ This alert is generated when a Malware alert occurs.
 | elastic.agent.id |
 | event.action |
 | event.category |
-| event.code |
 | event.created |
 | event.dataset |
 | event.id |
 | event.kind |
 | event.module |
 | event.outcome |
-| event.risk_score |
 | event.sequence |
-| event.severity |
 | event.type |
-| file.Ext.malware_classification.identifier |
-| file.Ext.malware_classification.score |
-| file.Ext.malware_classification.threshold |
-| file.Ext.malware_classification.version |
-| file.Ext.malware_signature.all_names |
-| file.Ext.malware_signature.identifier |
-| file.Ext.malware_signature.primary.matches |
-| file.Ext.malware_signature.primary.signature.hash.sha256 |
-| file.Ext.malware_signature.primary.signature.id |
-| file.Ext.malware_signature.primary.signature.name |
-| file.Ext.malware_signature.secondary.matches |
-| file.Ext.malware_signature.secondary.signature.hash.sha256 |
-| file.Ext.malware_signature.secondary.signature.id |
-| file.Ext.malware_signature.secondary.signature.name |
-| file.Ext.malware_signature.version |
-| file.Ext.quarantine_message |
-| file.Ext.quarantine_path |
-| file.Ext.quarantine_result |
-| file.Ext.temp_file_path |
-| file.accessed |
-| file.created |
-| file.directory |
-| file.extension |
-| file.hash.md5 |
-| file.hash.sha1 |
-| file.hash.sha256 |
-| file.inode |
-| file.mtime |
-| file.name |
-| file.owner |
-| file.path |
-| file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -92,11 +56,23 @@ This alert is generated when a Malware alert occurs.
 | host.os.type |
 | host.os.version |
 | message |
+| orchestrator.cluster.id |
+| orchestrator.cluster.name |
+| orchestrator.namespace |
+| orchestrator.resource.ip |
+| orchestrator.resource.name |
+| orchestrator.resource.parent.type |
+| orchestrator.resource.type |
 | process.Ext.ancestry |
-| process.Ext.user |
+| process.Ext.trusted |
+| process.Ext.trusted_descendant |
+| process.Ext.shmget.size |
+| process.Ext.shmget.flags |
+| process.Ext.shmget.key |
 | process.args |
 | process.args_count |
 | process.command_line |
+| process.end |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |
@@ -125,7 +101,9 @@ This alert is generated when a Malware alert occurs.
 | process.entry_leader.user.id |
 | process.entry_leader.user.name |
 | process.entry_leader.working_directory |
+| process.env_vars |
 | process.executable |
+| process.exit_code |
 | process.group.id |
 | process.group.name |
 | process.group_leader.args |
@@ -155,7 +133,6 @@ This alert is generated when a Malware alert occurs.
 | process.hash.sha256 |
 | process.interactive |
 | process.name |
-| process.parent.Ext.user |
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
@@ -163,14 +140,9 @@ This alert is generated when a Malware alert occurs.
 | process.parent.executable |
 | process.parent.group.id |
 | process.parent.group.name |
-| process.parent.hash.md5 |
-| process.parent.hash.sha1 |
-| process.parent.hash.sha256 |
 | process.parent.interactive |
 | process.parent.name |
-| process.parent.pgid |
 | process.parent.pid |
-| process.parent.ppid |
 | process.parent.real_group.id |
 | process.parent.real_group.name |
 | process.parent.real_user.id |
@@ -180,12 +152,13 @@ This alert is generated when a Malware alert occurs.
 | process.parent.supplemental_groups.name |
 | process.parent.tty.char_device.major |
 | process.parent.tty.char_device.minor |
-| process.parent.uptime |
 | process.parent.user.id |
 | process.parent.user.name |
 | process.parent.working_directory |
-| process.pgid |
 | process.pid |
+| process.previous.args |
+| process.previous.args_count |
+| process.previous.executable |
 | process.real_group.id |
 | process.real_group.name |
 | process.real_user.id |
@@ -215,14 +188,11 @@ This alert is generated when a Malware alert occurs.
 | process.start |
 | process.supplemental_groups.id |
 | process.supplemental_groups.name |
-| process.tty.char_device.major |
-| process.tty.char_device.minor |
-| process.uptime |
 | process.user.id |
 | process.user.name |
 | process.working_directory |
-| rule.id |
-| rule.name |
-| rule.ruleset |
+| user.Ext.real.id |
+| user.Ext.real.name |
+| user.id |
 | user.name |
 
