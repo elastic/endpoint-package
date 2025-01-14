@@ -67,6 +67,7 @@ This event is generated when a process generates text output.
 | process.args |
 | process.args_count |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |
@@ -132,6 +133,7 @@ This event is generated when a process generates text output.
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
+| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.group.id |

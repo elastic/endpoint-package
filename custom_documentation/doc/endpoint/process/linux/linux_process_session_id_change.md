@@ -68,6 +68,7 @@ This event is generated when a process's session id changes.
 | process.args |
 | process.args_count |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |

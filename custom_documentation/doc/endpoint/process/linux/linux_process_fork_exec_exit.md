@@ -70,6 +70,7 @@ This event is generated when a process calls `fork()`, `exec()`, exits, or an ag
 | process.args |
 | process.args_count |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.end |
 | process.entity_id |
 | process.entry_leader.args |
@@ -134,6 +135,7 @@ This event is generated when a process calls `fork()`, `exec()`, exits, or an ag
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
+| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.group.id |

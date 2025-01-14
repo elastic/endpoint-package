@@ -85,6 +85,7 @@ This event is generated when a process is created or exits.
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.executable |
 | process.exit_code |
@@ -105,6 +106,7 @@ This event is generated when a process is created or exits.
 | process.parent.code_signature.subject_name |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
+| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.name |

@@ -136,6 +136,7 @@ This event is generated when when a process calls shmget().
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
+| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.group.id |

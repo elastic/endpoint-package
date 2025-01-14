@@ -58,6 +58,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.env_vars |
 | process.executable |
