@@ -1,17 +1,14 @@
-# Windows API
+# Windows AMSI API
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.api-*`
-- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Microsoft-Windows-WMI-Activity" and host.os.type : "windows"`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Microsoft-Antimalware-Scan-Interface" and host.os.type : "windows"`
 
-This event is generated when WMI Activity-related APIs are called.
+This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
 
 | Field |
 |---|
 | @timestamp |
-| Target.process.Ext.protection |
-| Target.process.name |
-| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -47,24 +44,17 @@ This event is generated when WMI Activity-related APIs are called.
 | message |
 | process.Ext.ancestry |
 | process.Ext.api.behaviors |
-| process.Ext.api.metadata.client_is_local |
-| process.Ext.api.metadata.client_machine |
-| process.Ext.api.metadata.client_machine_fqdn |
-| process.Ext.api.metadata.client_process_id |
+| process.Ext.api.metadata.return_value |
 | process.Ext.api.name |
-| process.Ext.api.parameters.consumer_details |
-| process.Ext.api.parameters.consumer_name |
-| process.Ext.api.parameters.consumer_type |
-| process.Ext.api.parameters.event_filter_details |
-| process.Ext.api.parameters.event_filter_name |
-| process.Ext.api.parameters.namespace |
-| process.Ext.api.parameters.operation |
+| process.Ext.api.parameters.app_name |
+| process.Ext.api.parameters.buffer |
+| process.Ext.api.parameters.content_name |
+| process.Ext.api.parameters.size |
 | process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
-| process.Ext.protection |
 | process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |

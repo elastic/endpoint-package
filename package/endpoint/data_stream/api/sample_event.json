@@ -143,7 +143,16 @@
                     "client_machine": "DESKTOP-EXAMPLE",
                     "client_machine_fqdn": "DESKTOP-EXAMPLE",
                     "client_process_id": 3600,
-                    "client_is_local": true
+                    "client_is_local": true,
+                    "amsi_filenames": [
+                        "C:\\script.ps1"
+                    ],
+                    "amsi_logs": {
+                        "entries": [
+                            "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);"
+                        ],
+                        "type": "PowerShell"
+                    }
                 },
                 "name": "OpenProcess",
                 "parameters": {
@@ -196,7 +205,10 @@
                     "consumer_type": "CommandLineEventConsumer",
                     "consumer_details": "CommandLineEventConsumer{Name = \"ExampleConsumer\";};",
                     "namespace": "root\\Microsoft\\Windows\\DeviceGuard",
-                    "operation": "Win32_Process::Create"
+                    "operation": "Win32_Process::Create",
+                    "app_name": "PowerShell",
+                    "content_name": "C:\\script.ps1",
+                    "buffer": "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);"
                 },
                 "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },

@@ -38,3 +38,9 @@
       level: custom
       type: keyword
       description: A unique key created by hashing several characteristics of this alert.
+
+    - name: unique_key_v2
+      level: custom
+      type: keyword
+      example: "00633d00b651c48e61a94589db67e00fd454a5a905409e38de4e48c183105f67"
+      description: A unique key created by hashing several characteristics of this alert.

@@ -1,12 +1,11 @@
 overview:
-  name: Windows API
-  description: This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls
-    events are generated.
+  name: Windows AMSI API
+  description: This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
 identification:
   filter:
     event.dataset: endpoint.events.api
     event.module: endpoint
-    event.provider: Microsoft-Windows-Kernel-Audit-API-Calls
+    event.provider: Microsoft-Antimalware-Scan-Interface
     host.os.type: windows
   os:
   - windows
@@ -47,14 +46,19 @@ fields:
   - host.os.type
   - host.os.version
   - message
+  - process.Ext.ancestry
   - process.Ext.api.behaviors
+  - process.Ext.api.metadata.return_value
   - process.Ext.api.name
+  - process.Ext.api.parameters.app_name
+  - process.Ext.api.parameters.buffer
+  - process.Ext.api.parameters.content_name
+  - process.Ext.api.parameters.size
   - process.Ext.api.summary
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
   - process.Ext.code_signature.subject_name
   - process.Ext.code_signature.trusted
-  - process.Ext.protection
   - process.Ext.token.integrity_level_name
   - process.code_signature.exists
   - process.code_signature.status

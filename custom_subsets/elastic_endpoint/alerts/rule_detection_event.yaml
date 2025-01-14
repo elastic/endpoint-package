@@ -15,6 +15,69 @@ fields:
       "@timestamp": {}
       "message": {}
       "Events": {}
+  process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      command_line: {}
+      Ext:
+        fields:
+          ancestry: {}
+          api:
+            fields:
+              name: {}
+              summary: {}
+              behaviors: {}
+          created_suspended: {}
+          token:
+            fields:
+              integrity_level_name: {}
+          protection: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+      code_signature:
+        fields:
+          exists: {}
+          status: {}
+          subject_name: {}
+          trusted: {}
+      thread:
+        fields:
+          id: {}
+          Ext:
+            fields:
+              call_stack_final_hook_module:
+                fields:
+                  path: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                  hash:
+                    fields:
+                      sha256: {}
+              call_stack_final_user_module:
+                fields:
+                  name: {}
+                  path: {}
+                  code_signature:
+                    fields:
+                      exists: {}
+                      status: {}
+                      subject_name: {}
+                      trusted: {}
+                  hash:
+                    fields:
+                      sha256: {}
+              call_stack_summary: {}
   threat:
     fields:
       enrichments:

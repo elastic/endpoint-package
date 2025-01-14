@@ -527,5 +527,54 @@
       description: >
         The security descriptor of the device.
       type: keyword
-      example: "O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)"    
-    
+      example: "O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)"
+
+    - name: parameters.app_name
+      level: custom
+      description: >
+        The application name requesting the AMSI scan.
+      type: keyword
+      example: "PowerShell"
+
+    - name: parameters.content_name
+      level: custom
+      description: >
+        The content name, typically a filename, associated with an AMSI scan.
+      type: keyword
+      example: "C:\\script.ps1"
+
+    - name: parameters.buffer
+      level: custom
+      description: >
+        The content associated with an AMSI scan.
+      type: keyword
+      ignore_above: 1024
+      example: "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport(\"kernel32.dll\")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}'; [Kernel32]::VirtualAlloc([IntPtr]::Zero, 0x1234, 0x1000, 0x20);"
+
+    - name: metadata.amsi_filenames
+      level: custom
+      type: keyword
+      description: >
+        A list of filenames previously scanned by AMSI.
+      example: "[ \"C:\\script.ps1\" ]"
+
+    - name: metadata.amsi_logs
+      level: custom
+      type: object
+      description: >
+        Information related to previous AMSI scans.
+
+    - name: metadata.amsi_logs.type
+      level: custom
+      description: >
+        The AMSI content type scanned prior to this event.
+      type: keyword
+      example: "PowerShell"
+
+    - name: metadata.amsi_logs.entries
+      level: custom
+      description: >
+        A subset of the AMSI content buffers scanned prior to this event.
+      type: keyword
+      ignore_above: 1024
+      example: "[ \"[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport(\"kernel32.dll\")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}\" ]"

@@ -169,16 +169,6 @@ Endpoint.policy.applied.artifacts.user.version:
   normalize: []
   short: the version of user artifacts applied.
   type: keyword
-Endpoint.policy.applied.endpoint_policy_version:
-  dashed_name: Endpoint-policy-applied-endpoint-policy-version
-  description: the version of this applied policy
-  flat_name: Endpoint.policy.applied.endpoint_policy_version
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.endpoint_policy_version
-  normalize: []
-  short: the version of this applied policy
-  type: keyword
 Endpoint.policy.applied.id:
   dashed_name: Endpoint-policy-applied-id
   description: the id of the applied policy
@@ -275,6 +265,17 @@ Memory_protection.unique_key_v1:
   ignore_above: 1024
   level: custom
   name: unique_key_v1
+  normalize: []
+  short: A unique key created by hashing several characteristics of this alert.
+  type: keyword
+Memory_protection.unique_key_v2:
+  dashed_name: Memory-protection-unique-key-v2
+  description: A unique key created by hashing several characteristics of this alert.
+  example: 00633d00b651c48e61a94589db67e00fd454a5a905409e38de4e48c183105f67
+  flat_name: Memory_protection.unique_key_v2
+  ignore_above: 1024
+  level: custom
+  name: unique_key_v2
   normalize: []
   short: A unique key created by hashing several characteristics of this alert.
   type: keyword

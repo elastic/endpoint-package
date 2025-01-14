@@ -184,6 +184,13 @@
       ignore_above: 1024
       description: A unique key created by hashing several characteristics of this alert.
       default_field: false
+    - name: unique_key_v2
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: A unique key created by hashing several characteristics of this alert.
+      example: 00633d00b651c48e61a94589db67e00fd454a5a905409e38de4e48c183105f67
+      default_field: false
 - name: Ransomware
   title: Ransomware
   group: 2
@@ -4525,6 +4532,27 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.api.behaviors
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - The acting process details may have been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded API was called"
+      example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]'
+      default_field: false
+    - name: Ext.api.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the API, usually the name of the function or system call.
+      example: VirtualAlloc
+      default_field: false
+    - name: Ext.api.summary
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The summary of the API call and its parameters.
+      example: VirtualAllocEx( file.exe, NULL, 0x42000, COMMIT|RESERVE, RWX )
+      default_field: false
     - name: Ext.architecture
       level: custom
       type: keyword
@@ -4579,6 +4607,12 @@
       description: 'Boolean to capture if the digital signature is verified against the binary content.
 
         Leave unpopulated if a certificate was unchecked.'
+      example: 'true'
+      default_field: false
+    - name: Ext.created_suspended
+      level: custom
+      type: boolean
+      description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
       default_field: false
     - name: Ext.dll.Ext
@@ -7230,6 +7264,65 @@
       type: keyword
       ignore_above: 1024
       description: The nearest symbol for `instruction_pointer`.
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module
+      level: custom
+      type: nested
+      description: The module that installed the final API hook in the call stack.
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature
+      level: custom
+      type: nested
+      description: Code signature of the call_stack_final_hook_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.exists
+      level: custom
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.subject_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.trusted
+      level: custom
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.hash
+      level: custom
+      type: object
+      description: Hashes of the call_stack_final_hook_module.
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The sha256 of the call_stack_final_hook_module.
+      example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+      default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The file path of the call_stack_final_hook_module.
+      example: C:\Program Files\Example\example.dll
       default_field: false
     - name: thread.Ext.call_stack_final_user_module
       level: custom

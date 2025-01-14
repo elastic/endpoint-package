@@ -424,6 +424,576 @@ message:
   normalize: []
   short: Log message optimized for viewing in a log viewer.
   type: match_only_text
+process.Ext:
+  dashed_name: process-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+process.Ext.ancestry:
+  dashed_name: process-Ext-ancestry
+  description: An array of entity_ids indicating the ancestors for this event
+  flat_name: process.Ext.ancestry
+  ignore_above: 1024
+  level: custom
+  name: Ext.ancestry
+  normalize: []
+  short: An array of entity_ids indicating the ancestors for this event
+  type: keyword
+process.Ext.api.behaviors:
+  dashed_name: process-Ext-api-behaviors
+  description: "A list of observed behaviors.\n  \"cross-process\" - the observed\
+    \ activity was between two processes\n  \"parent-child\" - the observed activity\
+    \ was between a parent process and its child\n  \"native_api\" - a call was made\
+    \ directly to the Native API rather than the Win32 API\n  \"direct_syscall\" -\
+    \ a syscall instruction originated outside of the Native API layer\n  \"proxy_call\"\
+    \ - the call stack may indicate of a proxied API call to mask the true source\n\
+    \  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive\
+    \ API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive\
+    \ API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n\
+    \  \"image_indirect_call\" - an entry in the callstack was preceded by a call\
+    \ to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded\
+    \ an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n\
+    \  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"\
+    truncated_stack\" - call stack is unexpected truncated due to malicious tampering\
+    \ or system load\n  \"allocate_shellcode\" - a region of non-image executable\
+    \ memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE\
+    \ protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE\
+    \ protection of executable memory is unexpectedly fluctuating\n  \"hook_api\"\
+    \ - a change to the memory protection of a small executable image memory region\
+    \ was made\n  \"hollow_image\" - a change to the memory protection of a large\
+    \ executable image memory region was made\n  \"hook_unbacked\" - a change to the\
+    \ memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\"\
+    \ - a change to the memory protection of a large executable non-image memory was\
+    \ made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n\
+    \  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n\
+    \  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly\
+    \ transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was\
+    \ set\n  \"rapid_background_polling\" - a suspicious process which does rapid\
+    \ input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\"\
+    \ - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState\
+    \ API were observed\n  \"pid_spoofing\" - The acting process details may have\
+    \ been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded\
+    \ API was called"
+  example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes",
+    "native_api", "shellcode" ]'
+  flat_name: process.Ext.api.behaviors
+  ignore_above: 1024
+  level: custom
+  name: behaviors
+  normalize: []
+  original_fieldset: api
+  short: A list of observed behaviors.
+  type: keyword
+process.Ext.api.name:
+  dashed_name: process-Ext-api-name
+  description: The name of the API, usually the name of the function or system call.
+  example: VirtualAlloc
+  flat_name: process.Ext.api.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  original_fieldset: api
+  short: The name of the API, usually the name of the function or system call.
+  type: keyword
+process.Ext.api.summary:
+  dashed_name: process-Ext-api-summary
+  description: The summary of the API call and its parameters.
+  example: VirtualAllocEx( file.exe, NULL, 0x42000, COMMIT|RESERVE, RWX )
+  flat_name: process.Ext.api.summary
+  ignore_above: 1024
+  level: custom
+  name: summary
+  normalize: []
+  original_fieldset: api
+  short: The summary of the API call and its parameters.
+  type: keyword
+process.Ext.code_signature:
+  dashed_name: process-Ext-code-signature
+  description: Nested version of ECS code_signature fieldset.
+  flat_name: process.Ext.code_signature
+  level: custom
+  name: Ext.code_signature
+  normalize: []
+  short: Nested version of ECS code_signature fieldset.
+  type: nested
+process.Ext.code_signature.exists:
+  dashed_name: process-Ext-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.Ext.code_signature.exists
+  level: custom
+  name: Ext.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.Ext.code_signature.status:
+  dashed_name: process-Ext-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.Ext.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.Ext.code_signature.subject_name:
+  dashed_name: process-Ext-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.Ext.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.Ext.code_signature.trusted:
+  dashed_name: process-Ext-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.Ext.code_signature.trusted
+  level: custom
+  name: Ext.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.Ext.created_suspended:
+  dashed_name: process-Ext-created-suspended
+  description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the
+    Win32 CreateProcess API. Not valid for direct syscalls.
+  example: 'true'
+  flat_name: process.Ext.created_suspended
+  level: custom
+  name: Ext.created_suspended
+  normalize: []
+  short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
+    CreateProcess API.
+  type: boolean
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
+process.Ext.token.integrity_level_name:
+  dashed_name: process-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: process.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
+process.code_signature.exists:
+  dashed_name: process-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.code_signature.exists
+  level: core
+  name: exists
+  normalize: []
+  original_fieldset: code_signature
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.code_signature.status:
+  dashed_name: process-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.code_signature.status
+  ignore_above: 1024
+  level: extended
+  name: status
+  normalize: []
+  original_fieldset: code_signature
+  short: Additional information about the certificate status.
+  type: keyword
+process.code_signature.subject_name:
+  dashed_name: process-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.code_signature.subject_name
+  ignore_above: 1024
+  level: core
+  name: subject_name
+  normalize: []
+  original_fieldset: code_signature
+  short: Subject name of the code signer
+  type: keyword
+process.code_signature.trusted:
+  dashed_name: process-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.code_signature.trusted
+  level: extended
+  name: trusted
+  normalize: []
+  original_fieldset: code_signature
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.command_line:
+  dashed_name: process-command-line
+  description: 'Full command line that started the process, including the absolute
+    path to the executable, and all arguments.
+
+    Some arguments may be filtered to protect sensitive information.'
+  example: /usr/bin/ssh -l user 10.0.0.16
+  flat_name: process.command_line
+  level: extended
+  multi_fields:
+  - flat_name: process.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.command_line.text
+    name: text
+    norms: false
+    type: text
+  name: command_line
+  normalize: []
+  short: Full command line that started the process.
+  type: wildcard
+process.entity_id:
+  dashed_name: process-entity-id
+  description: 'Unique identifier for the process.
+
+    The implementation of this is specified by the data source, but some examples
+    of what could be used here are a process-generated UUID, Sysmon Process GUIDs,
+    or a hash of some uniquely identifying components of a process.
+
+    Constructing a globally unique identifier is a common practice to mitigate PID
+    reuse as well as to identify a specific process over time, across multiple monitored
+    hosts.'
+  example: c2c455d9f99375d
+  flat_name: process.entity_id
+  ignore_above: 1024
+  level: extended
+  name: entity_id
+  normalize: []
+  short: Unique identifier for the process.
+  type: keyword
+process.executable:
+  dashed_name: process-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: process.executable
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: process.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  short: Absolute path to the process executable.
+  type: keyword
+process.name:
+  dashed_name: process-name
+  description: 'Process name.
+
+    Sometimes called program name or similar.'
+  example: ssh
+  flat_name: process.name
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: process.name.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.name.text
+    name: text
+    norms: false
+    type: text
+  name: name
+  normalize: []
+  short: Process name.
+  type: keyword
+process.pid:
+  dashed_name: process-pid
+  description: Process id.
+  example: 4242
+  flat_name: process.pid
+  format: string
+  level: core
+  name: pid
+  normalize: []
+  short: Process id.
+  type: long
+process.thread.Ext:
+  dashed_name: process-thread-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: process.thread.Ext
+  level: custom
+  name: thread.Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+process.thread.Ext.call_stack_final_hook_module:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module
+  description: The module that installed the final API hook in the call stack.
+  flat_name: process.thread.Ext.call_stack_final_hook_module
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module
+  normalize: []
+  short: The module that installed the final API hook in the call stack.
+  type: nested
+process.thread.Ext.call_stack_final_hook_module.code_signature:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature
+  description: Code signature of the call_stack_final_hook_module.
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature
+  normalize: []
+  short: Code signature of the call_stack_final_hook_module.
+  type: nested
+process.thread.Ext.call_stack_final_hook_module.code_signature.exists:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.exists
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.thread.Ext.call_stack_final_hook_module.code_signature.status:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.code_signature.subject_name:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.code_signature.trusted:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.trusted
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.thread.Ext.call_stack_final_hook_module.hash:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-hash
+  description: Hashes of the call_stack_final_hook_module.
+  flat_name: process.thread.Ext.call_stack_final_hook_module.hash
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.hash
+  normalize: []
+  short: Hashes of the call_stack_final_hook_module.
+  type: object
+process.thread.Ext.call_stack_final_hook_module.hash.sha256:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-hash-sha256
+  description: The sha256 of the call_stack_final_hook_module.
+  example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+  flat_name: process.thread.Ext.call_stack_final_hook_module.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.hash.sha256
+  normalize: []
+  short: The sha256 of the call_stack_final_hook_module.
+  type: keyword
+process.thread.Ext.call_stack_final_hook_module.path:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-path
+  description: The file path of the call_stack_final_hook_module.
+  example: C:\Program Files\Example\example.dll
+  flat_name: process.thread.Ext.call_stack_final_hook_module.path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.path
+  normalize: []
+  short: The file path of the call_stack_final_hook_module.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module:
+  dashed_name: process-thread-Ext-call-stack-final-user-module
+  description: The final non-win32 module in the call stack.
+  flat_name: process.thread.Ext.call_stack_final_user_module
+  level: custom
+  name: thread.Ext.call_stack_final_user_module
+  normalize: []
+  short: The final non-win32 module in the call stack.
+  type: nested
+process.thread.Ext.call_stack_final_user_module.code_signature:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature
+  description: Code signature of the call_stack_final_user_module.
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature
+  normalize: []
+  short: Code signature of the call_stack_final_user_module.
+  type: nested
+process.thread.Ext.call_stack_final_user_module.code_signature.exists:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.exists
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+process.thread.Ext.call_stack_final_user_module.code_signature.status:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.status
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.code_signature.subject_name:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.code_signature.trusted:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+process.thread.Ext.call_stack_final_user_module.hash:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-hash
+  description: Hashes of the call_stack_final_user_module.
+  flat_name: process.thread.Ext.call_stack_final_user_module.hash
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash
+  normalize: []
+  short: Hashes of the call_stack_final_user_module.
+  type: object
+process.thread.Ext.call_stack_final_user_module.hash.sha256:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-hash-sha256
+  description: The sha256 of the call_stack_final_user_module.
+  example: d25ff1e6c6460a7f9de39198d182058c1712726008d187e1953b83abe977e4a0
+  flat_name: process.thread.Ext.call_stack_final_user_module.hash.sha256
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.hash.sha256
+  normalize: []
+  short: The sha256 of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.name:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-name
+  description: The file name of the call_stack_final_user_module.
+  example: example.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.name
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.name
+  normalize: []
+  short: The file name of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.path:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-path
+  description: The file path of the call_stack_final_user_module.
+  example: C:\Program Files\Example\example.dll
+  flat_name: process.thread.Ext.call_stack_final_user_module.path
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.path
+  normalize: []
+  short: The file path of the call_stack_final_user_module.
+  type: keyword
+process.thread.Ext.call_stack_summary:
+  dashed_name: process-thread-Ext-call-stack-summary
+  description: Concatentation of the non-repeated modules in the call stack.
+  example: ntdll.dll|example.exe|kernel32.dll|ntdll.dll
+  flat_name: process.thread.Ext.call_stack_summary
+  ignore_above: 1024
+  level: custom
+  name: thread.Ext.call_stack_summary
+  normalize: []
+  short: Concatentation of the non-repeated modules in the call stack.
+  type: keyword
+process.thread.id:
+  dashed_name: process-thread-id
+  description: Thread ID.
+  example: 4242
+  flat_name: process.thread.id
+  format: string
+  level: extended
+  name: thread.id
+  normalize: []
+  short: Thread ID.
+  type: long
 source.geo.city_name:
   dashed_name: source-geo-city-name
   description: City name.
