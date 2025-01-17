@@ -87,7 +87,7 @@ def handle_or(kibana_version_condition: str):
     conditions = kibana_version_condition.split("||")
     result = ""
     for cond in conditions:
-        candidate = find_oldest_supported_version(cond)
+        candidate = find_oldest_supported_version(cond.strip())
         if result == "" or candidate < result:
             result = candidate
 
