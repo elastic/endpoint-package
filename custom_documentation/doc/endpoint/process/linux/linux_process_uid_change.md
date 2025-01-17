@@ -6,7 +6,6 @@
 
 This event is generated when the user id changes for a process.
 
-
 | Field |
 |---|
 | @timestamp |
