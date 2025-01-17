@@ -1,8 +1,6 @@
 overview:
   name: Linux Process User ID Change
-  description: 'This event is generated when the user id changes for a process.
-
-    '
+  description: 'This event is generated when the user id changes for a process.'
 identification:
   filter:
     event.action: uid_change
@@ -75,6 +73,7 @@ fields:
   - process.args
   - process.args_count
   - process.command_line
+  - process.Ext.command_line_truncated
   - process.end
   - process.entity_id
   - process.entry_leader.args
@@ -138,6 +137,7 @@ fields:
   - process.parent.args
   - process.parent.args_count
   - process.parent.command_line
+  - process.parent.Ext.command_line_truncated
   - process.parent.entity_id
   - process.parent.executable
   - process.parent.group.id

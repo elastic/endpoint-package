@@ -67,6 +67,7 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.env_vars |
 | process.executable |

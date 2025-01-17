@@ -69,6 +69,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
 | process.command_line |
+| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.executable |
 | process.hash.md5 |
@@ -86,6 +87,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.code_signature.subject_name |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
+| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.name |
