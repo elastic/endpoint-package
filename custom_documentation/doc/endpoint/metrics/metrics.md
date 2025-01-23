@@ -111,6 +111,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.dns_events.week_ms |
 | Endpoint.metrics.system_impact.file_events.week_idle_ms |
 | Endpoint.metrics.system_impact.file_events.week_ms |
+| Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms |
+| Endpoint.metrics.system_impact.kernel_api_events.week_ms |
 | Endpoint.metrics.system_impact.library_load_events.week_idle_ms |
 | Endpoint.metrics.system_impact.library_load_events.week_ms |
 | Endpoint.metrics.system_impact.malware.week_idle_ms |
