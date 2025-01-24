@@ -28,6 +28,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Memory_protection.parent_to_child |
 | Memory_protection.self_injection |
 | Memory_protection.unique_key_v1 |
+| Memory_protection.unique_key_v2 |
 | Responses.@timestamp |
 | Responses.action.action |
 | Responses.action.file.attributes |
