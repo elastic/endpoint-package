@@ -341,6 +341,49 @@
         `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization.
 
         This field is an array. This will allow proper categorization of some events that fall in multiple event types.'
+- name: file
+  title: File
+  group: 2
+  description: 'A file is defined as a set of information that has been created on, or has existed on a filesystem.
+
+    File objects can be associated with host events, network events, and/or file events (e.g., those produced by File Integrity Monitoring [FIM] products or services). File fields provide details about the affected file associated with the event or metric.'
+  type: group
+  default_field: true
+  fields:
+    - name: code_signature.signing_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The identifier used to sign the process.
+
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: code_signature.team_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'The team identifier used to sign the process.
+
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
+      example: EQHXZ8M8AV
+      default_field: false
+    - name: path
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+          default_field: false
+        - name: text
+          type: text
+          norms: false
+          default_field: false
+      description: Full path to the file, including the file name. It should include the drive letter, when appropriate.
+      example: /home/alice/example.png
 - name: group
   title: Group
   group: 2

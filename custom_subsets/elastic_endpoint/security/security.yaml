@@ -149,3 +149,12 @@ fields:
       event_data:
         fields:
           PrivilegeList: {}
+
+  file:
+    fields:
+      path: {}
+      code_signature:
+        fields:
+          signing_id: {}
+          team_id: {}
+      
