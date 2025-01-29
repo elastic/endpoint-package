@@ -10,14 +10,6 @@ This is an internal state management document that includes metrics on Endpoint'
 | Field |
 |---|
 | @timestamp |
-| Endpoint.metrics.top_process_trees.values.last_seen |
-| Endpoint.metrics.top_process_trees.values.event_count |
-| Endpoint.metrics.top_process_trees.values.sample.command_line |
-| Endpoint.metrics.top_process_trees.values.sample.entity_id |
-| Endpoint.metrics.top_process_trees.values.sample.executable |
-| Endpoint.metrics.top_process_trees.values.sample.parent_command_line |
-| Endpoint.metrics.top_process_trees.window_end |
-| Endpoint.metrics.top_process_trees.window_start |
 | Endpoint.metrics.cloud_services.reputation_lookups.behavior.rtt |
 | Endpoint.metrics.cloud_services.reputation_lookups.behavior.timeout_count |
 | Endpoint.metrics.cloud_services.reputation_lookups.malware_score.rtt |
@@ -158,6 +150,14 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.wmi_events.week_ms |
 | Endpoint.metrics.threads.cpu.mean |
 | Endpoint.metrics.threads.name |
+| Endpoint.metrics.top_process_trees.values.last_seen |
+| Endpoint.metrics.top_process_trees.values.event_count |
+| Endpoint.metrics.top_process_trees.values.sample.command_line |
+| Endpoint.metrics.top_process_trees.values.sample.entity_id |
+| Endpoint.metrics.top_process_trees.values.sample.executable |
+| Endpoint.metrics.top_process_trees.values.sample.parent_command_line |
+| Endpoint.metrics.top_process_trees.window_end |
+| Endpoint.metrics.top_process_trees.window_start |
 | Endpoint.metrics.uptime.endpoint |
 | Endpoint.metrics.uptime.system |
 | agent.build.original |
