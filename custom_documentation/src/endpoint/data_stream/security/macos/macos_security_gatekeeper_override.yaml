@@ -35,6 +35,9 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.code_signature.signing_id
+  - file.code_signature.team_id
+  - file.path
   - host.architecture
   - host.hostname
   - host.id
@@ -73,6 +76,3 @@ fields:
   - user.effective.name
   - user.id
   - user.name
-  - file.path
-  - file.code_signature.signing_id
-  - file.code_signature.team_id

@@ -30,6 +30,9 @@ This event is generated when a user grants a gatekeeper exception
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.code_signature.signing_id |
+| file.code_signature.team_id |
+| file.path |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -68,7 +71,4 @@ This event is generated when a user grants a gatekeeper exception
 | user.effective.name |
 | user.id |
 | user.name |
-| file.path |
-| file.code_signature.signing_id |
-| file.code_signature.team_id |
 
