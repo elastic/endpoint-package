@@ -11,6 +11,13 @@
         "type": "endpoint",
         "version": "8.3.0-SNAPSHOT"
     },
+    "file" : {
+        "path" : "/User/admin/Downloads/application",
+        "code_signature" : {
+            "signing_id": "com.developer.identifier",
+            "team_id": "XYZABC"
+        }
+    },
     "process": {
         "Ext": {
             "ancestry": [
