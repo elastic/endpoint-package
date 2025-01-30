@@ -945,6 +945,58 @@ event.type:
   - array
   short: Event type. The third categorization field in the hierarchy.
   type: keyword
+file.code_signature.signing_id:
+  dashed_name: file-code-signature-signing-id
+  description: 'The identifier used to sign the process.
+
+    This is used to identify the application manufactured by a software vendor. The
+    field is relevant to Apple *OS only.'
+  example: com.apple.xpc.proxy
+  flat_name: file.code_signature.signing_id
+  ignore_above: 1024
+  level: extended
+  name: signing_id
+  normalize: []
+  original_fieldset: code_signature
+  short: The identifier used to sign the process.
+  type: keyword
+file.code_signature.team_id:
+  dashed_name: file-code-signature-team-id
+  description: 'The team identifier used to sign the process.
+
+    This is used to identify the team or vendor of a software product. The field is
+    relevant to Apple *OS only.'
+  example: EQHXZ8M8AV
+  flat_name: file.code_signature.team_id
+  ignore_above: 1024
+  level: extended
+  name: team_id
+  normalize: []
+  original_fieldset: code_signature
+  short: The team identifier used to sign the process.
+  type: keyword
+file.path:
+  dashed_name: file-path
+  description: Full path to the file, including the file name. It should include the
+    drive letter, when appropriate.
+  example: /home/alice/example.png
+  flat_name: file.path
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: file.path.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: file.path.text
+    name: text
+    norms: false
+    type: text
+  name: path
+  normalize: []
+  short: Full path to the file, including the file name.
+  type: keyword
 group.Ext:
   dashed_name: group-Ext
   description: Object for all custom defined fields to live in.
