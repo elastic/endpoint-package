@@ -1,8 +1,50 @@
-- version: "8.18.0-next"
+- version: "8.18.0"
   changes:
-    - description: TBD
+    - description: update version constraint to be upgradable to 9.0, bump pre
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/577
+    - description: Add Ext.command_line_truncated
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/576
+    - description: '[8.18] API - AmsiScanBuffer events and new final_hook_module  fields'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/572
+    - description: documentation update, policy name in alert
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/571
+    - description: Add linux dns events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/574
+    - description: Update schema and docs for `ptrace`, `shmget` events, fix docs for memfd events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/565
+    - description: Add Target.process.Ext.protection to API event custom docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/573
+    - description: Update README.md
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/566
+    - description: Include policy name in alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/570
+    - description: '[8.18] Add new memory region field (region_start_bytes)'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/567
+    - description: global artifacts rollout channel
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/569
+    - description: Memfd field types fix
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/568
+    - description: Aggregate network events for macOS, Linux, and Windows
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/555
+    - description: Add `memfd_create` fields to process datastream
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/564
+    - description: prepare 8.18 dev cycle
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/563
 - version: "8.17.0"
   changes:
     - description: prep 8.17
