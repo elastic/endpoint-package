@@ -1,3 +1,9 @@
+- version: "8.19.0-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/99999
+    - description: Add Ext.command_line_truncated
 - version: "8.18.0"
   changes:
     - description: update version constraint to be upgradable to 9.0, bump pre
