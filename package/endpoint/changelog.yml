@@ -1,8 +1,11 @@
-- version: "9.0.0-next"
+- version: "9.0.0"
   changes:
-    - description: TBD
+    - description: '[macOS] Security events'
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/9999
+      link: https://github.com/elastic/endpoint-package/pull/582
+    - description: add fleet unenrolled audit fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/579
 - version: "8.18.0"
   changes:
     - description: update version constraint to be upgradable to 9.0, bump pre

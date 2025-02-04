@@ -20,7 +20,7 @@ def main():
     # This only gets triggered when the branch is either main or 7.\d or 8.\d
     # So, dry_run is true for non main branch
     branch = os.getenv("BUILDKITE_BRANCH")
-    dry_run = not (branch == "main" or branch == "8.x" or re.match(r"^[78]\.\d+$", branch))
+    dry_run = not (branch == "main" or branch == "8.x" or re.match(r"^[7-9]\.\d+$", branch))
     pipeline = {}
     steps = [
         {
