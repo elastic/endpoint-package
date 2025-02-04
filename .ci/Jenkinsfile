@@ -101,7 +101,7 @@ pipeline {
       when {
         anyOf {
           branch 'main';
-          branch pattern: '[78]\\.\\d+',
+          branch pattern: '[7-9]\\.\\d+',
                  comparator: 'REGEXP'
         }
       }
