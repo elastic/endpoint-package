@@ -1,3 +1,8 @@
+- version: "9.1.0-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/99999
 - version: "9.0.0"
   changes:
     - description: '[macOS] Security events'
