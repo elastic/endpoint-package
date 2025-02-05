@@ -53,12 +53,15 @@ This event is generated when a user logs on to the computer with screensharing.
 | process.Ext.code_signature.trusted |
 | process.Ext.session_info.logon_type |
 | process.code_signature.exists |
+| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.entity_id |
 | process.executable |
 | process.name |
+| process.pid |
 | user.domain |
 | user.effective.domain |
 | user.effective.email |
