@@ -227,6 +227,7 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
 | Target.process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
 | Target.process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
+| Target.process.Ext.memory_region.region_start_bytes | First 64 bytes at the region base address. | keyword |
 | Target.process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | Target.process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
@@ -726,6 +727,7 @@ sent by the endpoint.
 | process.Ext.memory_region.region_base | Base address of the memory region. | unsigned_long |
 | process.Ext.memory_region.region_protection | Memory protection of the memory region. Example values include "RWX" and "R-X". | keyword |
 | process.Ext.memory_region.region_size | Size of the memory region. | unsigned_long |
+| process.Ext.memory_region.region_start_bytes | First 64 bytes at the region base address. | keyword |
 | process.Ext.memory_region.region_state | State of the memory region. Example values include "RESERVE", "COMMIT", and "FREE". | keyword |
 | process.Ext.memory_region.strings | Array of strings found within the memory region. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
