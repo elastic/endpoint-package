@@ -717,6 +717,7 @@ fields:
               region_base: {}
               region_protection: {}
               region_size: {}
+              region_start_bytes: {}
               region_state: {}
               strings: {}
       parent:
