@@ -1183,6 +1183,18 @@ Target.process.Ext.memory_region.region_size:
   original_fieldset: memory_region
   short: Size of the memory region.
   type: unsigned_long
+Target.process.Ext.memory_region.region_start_bytes:
+  dashed_name: Target-process-Ext-memory-region-region-start-bytes
+  description: First 64 bytes at the region base address.
+  example: 4d5a90000300000004000000ffff0000b80000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000
+  flat_name: Target.process.Ext.memory_region.region_start_bytes
+  ignore_above: 1024
+  level: custom
+  name: region_start_bytes
+  normalize: []
+  original_fieldset: memory_region
+  short: First 64 bytes at the region base address.
+  type: keyword
 Target.process.Ext.memory_region.region_state:
   dashed_name: Target-process-Ext-memory-region-region-state
   description: State of the memory region. Example values include "RESERVE", "COMMIT",
@@ -6552,6 +6564,18 @@ process.Ext.memory_region.region_size:
   original_fieldset: memory_region
   short: Size of the memory region.
   type: unsigned_long
+process.Ext.memory_region.region_start_bytes:
+  dashed_name: process-Ext-memory-region-region-start-bytes
+  description: First 64 bytes at the region base address.
+  example: 4d5a90000300000004000000ffff0000b80000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000
+  flat_name: process.Ext.memory_region.region_start_bytes
+  ignore_above: 1024
+  level: custom
+  name: region_start_bytes
+  normalize: []
+  original_fieldset: memory_region
+  short: First 64 bytes at the region base address.
+  type: keyword
 process.Ext.memory_region.region_state:
   dashed_name: process-Ext-memory-region-region-state
   description: State of the memory region. Example values include "RESERVE", "COMMIT",
