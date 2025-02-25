@@ -1341,6 +1341,13 @@
       description: Size of the memory region.
       example: 4096
       default_field: false
+    - name: process.Ext.memory_region.region_start_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: First 64 bytes at the region base address.
+      example: 4d5a90000300000004000000ffff0000b80000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000
+      default_field: false
     - name: process.Ext.memory_region.region_state
       level: custom
       type: keyword
@@ -5099,6 +5106,13 @@
       type: unsigned_long
       description: Size of the memory region.
       example: 4096
+      default_field: false
+    - name: Ext.memory_region.region_start_bytes
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: First 64 bytes at the region base address.
+      example: 4d5a90000300000004000000ffff0000b80000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000
       default_field: false
     - name: Ext.memory_region.region_state
       level: custom
