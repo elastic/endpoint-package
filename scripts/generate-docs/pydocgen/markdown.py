@@ -13,9 +13,10 @@ def generate_package_markdown(package: Package):
     Returns:
         markdown string
     """
-    markdown = f"# {package.name}\n\n"
+    markdown = f"[Back to index](README.md)\n\n"
+    markdown += f"# {package.name}\n\n"
     for field in package.fields:
-        markdown += f"### {field.name}\n\n"
+        markdown += f"### `{field.name}`\n\n"
         markdown += f"#### Description\n"
         markdown += f"{field.description}\n"
         markdown += f"#### Example\n\n"

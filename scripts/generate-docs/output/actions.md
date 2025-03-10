@@ -1,6 +1,8 @@
+[Back to index](README.md)
+
 # actions
 
-### @timestamp
+### `@timestamp`
 
 #### Description
 Date/time when the event originated.
@@ -14,7 +16,7 @@ Required field for all events.
 ```
 <hr>
 
-### action_id
+### `action_id`
 
 #### Description
 The action id
@@ -26,7 +28,7 @@ Needs example
 ```
 <hr>
 
-### agents
+### `agents`
 
 #### Description
 Alias field that maps to {agent: {id}}
@@ -38,7 +40,7 @@ Needs example
 ```
 <hr>
 
-### data.alert_id
+### `data.alert_id`
 
 #### Description
 List of alert ids that triggered the action
@@ -50,7 +52,7 @@ Needs example
 ```
 <hr>
 
-### data.command
+### `data.command`
 
 #### Description
 The action that is requested
@@ -62,7 +64,7 @@ Needs example
 ```
 <hr>
 
-### data.comment
+### `data.comment`
 
 #### Description
 A comment that describes the action that is requested
@@ -74,7 +76,7 @@ Needs example
 ```
 <hr>
 
-### expiration
+### `expiration`
 
 #### Description
 Request expiration timestamp
@@ -86,7 +88,7 @@ Needs example
 ```
 <hr>
 
-### input_type
+### `input_type`
 
 #### Description
 The input type of the action, distinguishes endpoint actions as `endpoint`
@@ -98,7 +100,7 @@ Needs example
 ```
 <hr>
 
-### type
+### `type`
 
 #### Description
 Distinguishes the type of input. Usually set to `INPUT_ACTION`
@@ -110,7 +112,7 @@ Needs example
 ```
 <hr>
 
-### user_id
+### `user_id`
 
 #### Description
 The user id
@@ -122,7 +124,7 @@ Needs example
 ```
 <hr>
 
-### EndpointActions
+### `EndpointActions`
 
 #### Description
 Fields to describe the endpoint  action requests and responses.
@@ -134,7 +136,7 @@ Needs example
 ```
 <hr>
 
-### agent
+### `agent`
 
 #### Description
 The agent fields contain the data about the software entity, if any, that collects, detects, or observes events on a host, or takes measurements on a host.
@@ -147,7 +149,7 @@ Needs example
 ```
 <hr>
 
-### data_stream
+### `data_stream`
 
 #### Description
 Fields describing the new indexing strategy <type>-<dataset>-<namespace>
@@ -159,7 +161,7 @@ Needs example
 ```
 <hr>
 
-### ecs
+### `ecs`
 
 #### Description
 Meta-information specific to ECS.
@@ -171,7 +173,7 @@ Needs example
 ```
 <hr>
 
-### error
+### `error`
 
 #### Description
 These fields can represent errors of any kind.
@@ -184,7 +186,7 @@ Needs example
 ```
 <hr>
 
-### event
+### `event`
 
 #### Description
 The event fields are used for context information about the log or metric event itself.
@@ -197,7 +199,7 @@ Needs example
 ```
 <hr>
 
-### rule
+### `rule`
 
 #### Description
 Rule fields are used to capture the specifics of any observer or agent rules that generate alerts or other notable events.
@@ -210,7 +212,7 @@ Needs example
 ```
 <hr>
 
-### user
+### `user`
 
 #### Description
 The user fields describe information about the user that is relevant to the event.

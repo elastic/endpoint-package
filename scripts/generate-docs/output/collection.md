@@ -1,6 +1,8 @@
+[Back to index](README.md)
+
 # collection
 
-### @timestamp
+### `@timestamp`
 
 #### Description
 Date/time when the event originated.
@@ -14,7 +16,7 @@ Required field for all events.
 ```
 <hr>
 
-### data_stream
+### `data_stream`
 
 #### Description
 Fields describing the new indexing strategy <type>-<dataset>-<namespace>
@@ -26,7 +28,7 @@ Needs example
 ```
 <hr>
 
-### ecs
+### `ecs`
 
 #### Description
 Meta-information specific to ECS.
@@ -38,7 +40,7 @@ Needs example
 ```
 <hr>
 
-### event
+### `event`
 
 #### Description
 The event fields are used for context information about the log or metric event itself.

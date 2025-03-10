@@ -1,6 +1,8 @@
+[Back to index](README.md)
+
 # action_responses
 
-### @timestamp
+### `@timestamp`
 
 #### Description
 Date/time when the event originated.
@@ -14,7 +16,7 @@ Required field for all events.
 ```
 <hr>
 
-### action_id
+### `action_id`
 
 #### Description
 The action id
@@ -26,7 +28,7 @@ Needs example
 ```
 <hr>
 
-### agent_id
+### `agent_id`
 
 #### Description
 Alias field that maps to {agent: {id}}
@@ -38,7 +40,7 @@ Needs example
 ```
 <hr>
 
-### completed_at
+### `completed_at`
 
 #### Description
 Request completion timestamp when the response is done executing. Usually matches with @timestamp.
@@ -50,7 +52,7 @@ Needs example
 ```
 <hr>
 
-### data.alert_id
+### `data.alert_id`
 
 #### Description
 List of alert ids that triggered the action
@@ -62,7 +64,7 @@ Needs example
 ```
 <hr>
 
-### data.command
+### `data.command`
 
 #### Description
 The action that is requested
@@ -74,7 +76,7 @@ Needs example
 ```
 <hr>
 
-### data.comment
+### `data.comment`
 
 #### Description
 A comment that describes the action that is requested
@@ -86,7 +88,7 @@ Needs example
 ```
 <hr>
 
-### started_at
+### `started_at`
 
 #### Description
 Timestamp of start of request
@@ -98,7 +100,7 @@ Needs example
 ```
 <hr>
 
-### status
+### `status`
 
 #### Description
 The status of the request that distinguishes if the request is queued, running or completed.
@@ -110,7 +112,7 @@ Needs example
 ```
 <hr>
 
-### EndpointActions
+### `EndpointActions`
 
 #### Description
 Fields to describe the endpoint  action requests and responses.
@@ -122,7 +124,7 @@ Needs example
 ```
 <hr>
 
-### agent
+### `agent`
 
 #### Description
 The agent fields contain the data about the software entity, if any, that collects, detects, or observes events on a host, or takes measurements on a host.
@@ -135,7 +137,7 @@ Needs example
 ```
 <hr>
 
-### data_stream
+### `data_stream`
 
 #### Description
 Fields describing the new indexing strategy <type>-<dataset>-<namespace>
@@ -147,7 +149,7 @@ Needs example
 ```
 <hr>
 
-### ecs
+### `ecs`
 
 #### Description
 Meta-information specific to ECS.
@@ -159,7 +161,7 @@ Needs example
 ```
 <hr>
 
-### error
+### `error`
 
 #### Description
 These fields can represent errors of any kind.
@@ -172,7 +174,7 @@ Needs example
 ```
 <hr>
 
-### event
+### `event`
 
 #### Description
 The event fields are used for context information about the log or metric event itself.
