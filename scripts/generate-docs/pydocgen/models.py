@@ -1,14 +1,15 @@
-import argparse
 import json
 import pathlib
 import yaml
 from pydantic import BaseModel
 from typing import List, Optional, Any, Dict
 
+
 class MultiField(BaseModel):
     """
     fields can have a number of multi_fields
     """
+
     name: str
     type: str
     norms: Optional[bool] = None
@@ -18,8 +19,9 @@ class MultiField(BaseModel):
 
     class Config:
         """
-         this config setting ensures that the model will raise an error if any extra fields are present
+        this config setting ensures that the model will raise an error if any extra fields are present
         """
+
         extra = "forbid"
 
 
@@ -27,6 +29,7 @@ class Field(BaseModel):
     """
     Field field as defined in fields.yml
     """
+
     name: str
     title: Optional[str] = None
     default_field: Optional[bool] = None
@@ -49,8 +52,9 @@ class Field(BaseModel):
 
     class Config:
         """
-         this config setting ensures that the model will raise an error if any extra fields are present
+        this config setting ensures that the model will raise an error if any extra fields are present
         """
+
         extra = "forbid"
 
 
@@ -58,6 +62,7 @@ class Package(BaseModel):
     """
     A package consists of a name, a list of fields and an optional sample event
     """
+
     name: str
     fields: List[Field]
     sample_event: Optional[Dict[Any, Any]] = None
@@ -73,6 +78,11 @@ class Package(BaseModel):
         Args:
             package_dir: directory holding the package data
         """
+        if not package_dir.exists():
+            raise ValueError(f"package directory {package_dir} does not exist")
+        if not package_dir.is_dir():
+            raise ValueError(f"package directory {package_dir} is not a directory")
+
         #
         # read fields from fields.yml and create Field objects
         #
@@ -93,10 +103,12 @@ class Package(BaseModel):
         #
         return cls(name=package_dir.name, fields=fields, sample_event=sample_event)
 
+
 class PackageList(BaseModel):
     """
     PackageList is a list of packages
     """
+
     packages: List[Package] = []
 
     @classmethod
@@ -108,41 +120,7 @@ class PackageList(BaseModel):
             packages_dir: top level directory holding the packages
         """
         package_paths = list(packages_dir.glob("*"))
-        packages = [Package.from_package_dir(package_path) for package_path in package_paths]
+        packages = [
+            Package.from_package_dir(package_path) for package_path in package_paths
+        ]
         return cls(packages=packages)
-
-
-def resolve_packages_dir() -> pathlib.Path:
-    """
-    resolve_packages_dir returns the directory where the packages are stored relative to this file
-    """
-    this_file = pathlib.Path(__file__).resolve()
-    root_dir = this_file.parents[2]
-    return root_dir / "package" / "endpoint" / "data_stream"
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Dump packages as JSON")
-    parser.add_argument(
-        "--packages-dir",
-        default=resolve_packages_dir(),
-        type=pathlib.Path,
-        help="directory holding the packages",
-    )
-    parser.add_argument(
-        "--output",
-        default=pathlib.Path("packages.json"),
-        type=pathlib.Path,
-        help="output file",
-    )
-    args = parser.parse_args()
-
-    #
-    # Create the PackageList object and dump it to a file
-    #
-    package_list = PackageList.from_packages_dir(args.packages_dir)
-    with open(args.output, "w") as f:
-        #
-        # Dump to json with indentation and exclude None values
-        #
-        f.write(package_list.model_dump_json(indent=4, exclude_none=True))
