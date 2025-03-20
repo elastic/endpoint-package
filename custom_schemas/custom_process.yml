@@ -604,6 +604,13 @@
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: "true"
 
+    - name: Ext.initial_desktop_name
+      level: custom
+      type: keyword
+      short: Initial desktop name for the process.
+      description: Initial desktop name supplied to CreateProcess for the process.
+      example: WinSta0\Default
+
     - name: Ext.mitigation_policies
       level: custom
       type: keyword

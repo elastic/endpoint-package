@@ -9,6 +9,7 @@ This event is generated when keylogging-related Win32k APIs are called.
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.initial_desktop_name |
 | Target.process.Ext.protection |
 | Target.process.name |
 | Target.process.pid |

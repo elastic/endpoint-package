@@ -10,6 +10,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 |---|
 | @timestamp |
 | Target.process.Ext.created_suspended |
+| Target.process.Ext.initial_desktop_name |
 | Target.process.Ext.protection |
 | Target.process.Ext.token.integrity_level_name |
 | Target.process.entity_id |

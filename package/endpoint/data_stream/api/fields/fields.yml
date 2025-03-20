@@ -41,6 +41,13 @@
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
       default_field: false
+    - name: process.Ext.initial_desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess for the process.
+      example: WinSta0\Default
+      default_field: false
     - name: process.Ext.memory_region.allocation_base
       level: custom
       type: unsigned_long
@@ -1802,6 +1809,13 @@
       type: boolean
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
+      default_field: false
+    - name: Ext.initial_desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess for the process.
+      example: WinSta0\Default
       default_field: false
     - name: Ext.memory_region.allocation_base
       level: custom

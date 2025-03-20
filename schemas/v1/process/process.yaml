@@ -1606,6 +1606,17 @@ process.Ext.effective_parent.pid:
   original_fieldset: Effective_process
   short: Process ID.
   type: long
+process.Ext.initial_desktop_name:
+  dashed_name: process-Ext-initial-desktop-name
+  description: Initial desktop name supplied to CreateProcess for the process.
+  example: WinSta0\Default
+  flat_name: process.Ext.initial_desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.initial_desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.memfd:
   dashed_name: process-Ext-memfd
   description: Object for memfd events.
