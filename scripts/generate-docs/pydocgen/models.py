@@ -1,8 +1,8 @@
 import json
 import pathlib
 import yaml
-from pydantic import BaseModel
-from typing import List, Optional, Any, Dict
+from pydantic import BaseModel, RootModel
+from typing import List, Optional, Any, Dict, Iterator
 
 
 class MultiField(BaseModel):
@@ -104,12 +104,23 @@ class Package(BaseModel):
         return cls(name=package_dir.name, fields=fields, sample_event=sample_event)
 
 
-class PackageList(BaseModel):
+class PackageList(RootModel):
     """
     PackageList is a list of packages
     """
+    root: List[Package] = []
 
-    packages: List[Package] = []
+    def __iter__(self) -> Iterator[Package]:
+        return iter(self.root)
+
+    def __getitem__(self, index) -> List[Package]:
+        return self.root[index]
+
+    def __len__(self) -> int:
+        return len(self.root)
+
+    def append(self, package: Package) -> None:
+        self.root.append(package)
 
     @classmethod
     def from_packages_dir(cls, packages_dir: pathlib.Path):
@@ -123,4 +134,4 @@ class PackageList(BaseModel):
         packages = [
             Package.from_package_dir(package_path) for package_path in package_paths
         ]
-        return cls(packages=packages)
+        return cls(root=packages)
