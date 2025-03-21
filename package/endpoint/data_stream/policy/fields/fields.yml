@@ -239,6 +239,23 @@
       ignore_above: 1024
       description: the overall status of event collection, this is correlated to the status of concerned actions  but not a simple sum of the actions
       default_field: false
+    - name: policy.applied.response.configurations.firewall_anti_tamper
+      level: custom
+      type: object
+      description: overall firewall_anti_tamper configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for firewall_anti_tamper
+      default_field: false
+    - name: policy.applied.response.configurations.firewall_anti_tamper.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of firewall_anti_tamper, this is correlated to the status of concerned actions but not a simple sum of the actions
+      default_field: false
     - name: policy.applied.response.configurations.host_isolation.concerned_actions
       level: custom
       type: keyword
