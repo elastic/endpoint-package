@@ -69,6 +69,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.args_count |
 | process.parent.entity_id |
 | process.parent.pid |
+| process.parent.command_line |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

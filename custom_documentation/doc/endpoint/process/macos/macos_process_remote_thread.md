@@ -82,6 +82,7 @@ This event is generated when a remote thread is created.
 | process.parent.executable |
 | process.parent.name |
 | process.parent.pid |
+| process.parent.command_line |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |
