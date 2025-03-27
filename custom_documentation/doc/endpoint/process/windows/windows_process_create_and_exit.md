@@ -62,7 +62,7 @@ This event is generated when a process is created or exits.
 | process.Ext.effective_parent.executable |
 | process.Ext.effective_parent.name |
 | process.Ext.effective_parent.pid |
-| process.Ext.initial_desktop_name |
+| process.Ext.desktop_name |
 | process.Ext.mitigation_policies |
 | process.Ext.protection |
 | process.Ext.relative_file_creation_time |

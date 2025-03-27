@@ -4825,7 +4825,7 @@
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
       default_field: false
-    - name: Ext.initial_desktop_name
+    - name: Ext.desktop_name
       level: custom
       type: keyword
       ignore_above: 1024

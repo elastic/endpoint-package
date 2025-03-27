@@ -887,7 +887,7 @@
       description: Process ID.
       example: 4242
       default_field: false
-    - name: Ext.initial_desktop_name
+    - name: Ext.desktop_name
       level: custom
       type: keyword
       ignore_above: 1024
