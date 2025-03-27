@@ -8,6 +8,8 @@ import tempfile
 
 from .markdown import generate_custom_documentation_markdown
 
+from .models.custom_documentation import DocumentationOverrideMap
+
 from typing import Literal
 
 

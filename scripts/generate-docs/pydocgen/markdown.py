@@ -1,106 +1,36 @@
 import logging
 import pathlib
-from .models import Package, PackageList, CustomDocumentationList, Filter
-from .database import getDatabase, PackageField
+from .models import CustomDocumentationList, Filter
+from .database import getDatabase, PackageField, OverrideRelationship
 
-from sqlmodel import SQLModel, Field, create_engine, Session, select, Relationship
-from sqlalchemy import Engine, Column, JSON
+from sqlmodel import (
+    Session,
+    select,
+    or_,
+    and_,
+    case,
+)
 
 from typing import List
 
-# def ensure_valid_output_directory(output_directory: pathlib.Path):
-#     """
-#     Ensure that the output directory is valid
-#     """
-#     if not output_directory.exists():
-#         output_directory.mkdir(parents=True)
-#     if not output_directory.is_dir():
-#         raise FileExistsError(f"output_directory {output_directory} is not a directory")
 
-# def generate_package_markdown(package: Package):
-#     """
-#     Generate markdown for a package
-
-#     Args:
-#         package: the package to generate markdown for
-
-#     Returns:
-#         markdown string
-#     """
-#     markdown = f"[Back to index](README.md)\n\n"
-#     for field in package.fields:
-#         markdown += f"## `{field.name}`\n\n"
-#         markdown += f"### Description\n"
-#         markdown += f"{field.description}\n"
-#         if field.fields:
-#             markdown += f"### Sub-fields\n"
-#             markdown += "| Field | Description | Example |\n"
-#             markdown += "| --- | --- | --- |\n"
-#             for sub_field in field.fields:
-#                 markdown += f"| `{sub_field.name}` | {sub_field.description} | {sub_field.example} |\n"
-#         markdown += f"### Example\n\n"
-#         markdown += f"```json\n"
-#         if not field.example:
-#             markdown += "Needs example\n"
-#         else:
-#             markdown += json.dumps(field.example, indent=4)
-#         markdown += "\n```\n<hr>\n\n"
-#     return markdown
-
-# def generate_readme_markdown(package_list: PackageList, output_directory: pathlib.Path):
-#     """
-#     Generates the top level readme markdown file
-#     """
-#     ensure_valid_output_directory(output_directory)
-#     readme_path = output_directory / "README.md"
-
-#     #
-#     # This file will list each package, its top level fields, and a link to the package's markdown file
-#     # if the package has a sample event, it will be included in a details tag
-#     #
-#     with readme_path.open("w") as f:
-#         for package in package_list.packages:
-#             f.write(f"# {package.name}\n")
-#             if package.sample_event:
-#                 f.write("### Sample Event\n")
-#                 f.write("<details>\n")
-#                 f.write("<summary>\nClick to expand\n</summary>\n\n")
-#                 f.write("```json\n")
-#                 f.write(json.dumps(package.sample_event, indent=4))
-#                 f.write("\n```\n")
-#                 f.write("</details>\n\n")
-#             f.write(f"### [Fields]({package.name}.md)\n")
-#             for field in package.fields:
-#                 f.write(f"- [{field.name}]({package.name}.md#{field.name})\n")
-
-# def generate_package_list_markdown(package_list: PackageList, output_directory: pathlib.Path) -> None:
-#     """
-#     Generate markdown files for a list of packages
-#     """
-#     ensure_valid_output_directory(output_directory)
-
-#     #
-#     # Create a top level Readme.md file
-#     #
-#     generate_readme_markdown(package_list, output_directory)
-
-#     #
-#     # Walk the list of packages and create a markdown file for each
-#     #
-#     for package in package_list.packages:
-#         path = output_directory / f"{package.name}.md"
-#         with path.open("w") as f:
-#             f.write(generate_package_markdown(package))
-
-#     return f"Generated {len(package_list.packages)} packages to {output_directory}"
-
-
-def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pathlib.Path):
+def generate_custom_documentation_markdown(
+    db_path: pathlib.Path, output_dir: pathlib.Path
+):
     """
     Generate markdown files for custom documentation
     """
 
-    def get_output_filename(src_path: pathlib.Path) -> pathlib.Path:
+    def get_output_filepath(src_path: pathlib.Path) -> pathlib.Path:
+        """
+        get_output_filepath determines the output filename for a given source path
+
+        Args:
+            src_path: yaml file path
+
+        Returns:
+            output filepath
+        """
         parts = src_path.parts
         index = parts.index("data_stream")
         output_filename = output_dir
@@ -109,6 +39,16 @@ def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pa
         return output_filename / parts[-1].replace(".yaml", ".md")
 
     def get_formatted_os_name(os: str) -> str:
+        """
+        get_formatted_os_name os names in the defintions are always lowercase, this function will
+        return the correct case for the os name
+
+        Args:
+            os: os name
+
+        Returns:
+            _description_
+        """
         if os == "windows":
             return "Windows"
         if os == "linux":
@@ -118,9 +58,28 @@ def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pa
         return os
 
     def get_formatted_os_string(os_list: List[str]) -> str:
+        """
+        get_formatted_os_string some documents have multiple os's, this function will format them
+        correctly for the markdown output
+
+        Args:
+            os_list: list of os names
+
+        Returns:
+            formatted os string
+        """
         return ", ".join(get_formatted_os_name(os) for os in os_list)
 
     def get_kql_query_string(filter: Filter) -> str:
+        """
+        get_kql_query_string generates a KQL query string from a Filter object
+
+        Args:
+            filter: Filter object from the custom documentation
+
+        Returns:
+            KQL query string
+        """
         queries = []
         for field, metadata in Filter.model_fields.items():
             field_name = metadata.alias if metadata.alias else field
@@ -133,15 +92,27 @@ def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pa
                         field_value = f"{field_value[0]}"
                     else:
                         field_value = '" or "'.join(field_value)
-                queries.append(f"{field_name} : \"{field_value}\"")
+                queries.append(f'{field_name} : "{field_value}"')
         return " and ".join(queries)
 
+    #
+    # Function Begin
+    #
+
+    # Create or get the populated database
     engine = getDatabase(db_path)
+
+    # Get the custom documentation
     custom_docs = CustomDocumentationList.from_files()
+
+    # Generate markdown for each custom document
     with Session(engine) as session:
         for custom_doc in custom_docs:
-            output_filename = get_output_filename(custom_doc.filepath)
+            # Get the output filename and create the parent directories
+            output_filename = get_output_filepath(custom_doc.filepath)
             output_filename.parent.mkdir(parents=True, exist_ok=True)
+
+            # Write the markdown file
             with output_filename.open("w") as f:
                 f.write(f"# {custom_doc.overview.name}\n\n")
 
@@ -152,7 +123,9 @@ def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pa
                 f.write("<table>\n")
                 f.write("<tr>\n")
                 f.write("<td><strong>OS</strong></td>\n")
-                f.write(f"<td>{get_formatted_os_string(custom_doc.identification.os)}</td>\n")
+                f.write(
+                    f"<td>{get_formatted_os_string(custom_doc.identification.os)}</td>\n"
+                )
                 f.write("</tr>\n")
                 f.write("<tr>\n")
                 f.write(f"<td><strong>Data Stream</strong></td>\n")
@@ -160,20 +133,93 @@ def generate_custom_documentation_markdown(db_path: pathlib.Path, output_dir: pa
                 f.write("</tr>\n")
                 f.write("<tr>\n")
                 f.write(f"<td><strong>KQL Query</strong></td>\n")
-                f.write(f"<td><code>{get_kql_query_string(custom_doc.identification.filter)}</code></td>\n")
+                f.write(
+                    f"<td><code>{get_kql_query_string(custom_doc.identification.filter)}</code></td>\n"
+                )
                 f.write("</tr>\n")
                 f.write("</table>\n\n")
 
                 f.write(f"## Fields\n\n")
                 f.write("<table>\n")
-                #f.write("<tr><th>Field</th><th>Description</th></tr>\n")
+                f.write("<tr><th>Name</th><th>Description</th><th>Example</th></tr>\n")
                 for field in custom_doc.fields.endpoint:
-                    package_field = session.exec(select(PackageField).where(PackageField.name == field)).first()
+                    description = "No Description Found"
+                    example = ""
+                    event_name = custom_doc.filepath.stem
 
-                    description = None
-                    if package_field:
-                        description = package_field.description.replace("\n", "  ").replace("\r", "  ")
-                    f.write(f"<tr><td><code>{field}<code></td><td>{description if description else 'No description found'}</td></tr>\n")
+                    #
+                    # This query will look for an override for the field in the following order:
+                    # 1. Event name
+                    # 2. OS
+                    # 3. Default
+                    #
+                    # If no override is found, the package field description will be used
+                    #
+                    override = session.exec(
+                        select(OverrideRelationship)
+                        .where(
+                            and_(
+                                # field must match
+                                OverrideRelationship.name == field,
+                                # one of the following must match
+                                or_(
+                                    (OverrideRelationship.event == event_name),
+                                    (
+                                        OverrideRelationship.os
+                                        == custom_doc.identification.os[0]
+                                    ),
+                                    (OverrideRelationship.default == True),
+                                ),
+                            )
+                        )
+                        .order_by(
+                            # The order of precedence is event, os, default, so we order by that
+                            case(
+                                (OverrideRelationship.event == event_name, 1),
+                                (
+                                    OverrideRelationship.os
+                                    == custom_doc.identification.os[0],
+                                    2,
+                                ),
+                                (OverrideRelationship.default == True, 3),
+                                else_=4,
+                            )
+                        )
+                    ).first()
+
+                    if override:
+                        description = override.override.description
+                        if override.override.example:
+                            example = override.override.example
+                        logging.debug(
+                            f"Found override for field {field} in {event_name}"
+                        )
+                    else:
+                        #
+                        # If no override is found, use the package field description
+                        #
+                        package_field = session.exec(
+                            select(PackageField).where(PackageField.name == field)
+                        ).first()
+                        if package_field:
+                            #
+                            # The package field description may contain newlines, so we replace them with spaces
+                            #
+                            description = package_field.description.replace(
+                                "\n", "  "
+                            ).replace("\r", "  ")
+                            if package_field.example:
+                                example = package_field.example
+
+                    f.write("<tr>\n")
+                    f.write(f"<td><code>{field}</code></td>\n")
+                    f.write(f"<td>{description}</td>\n")
+                    if example:
+                        f.write(f"<td><code>{example}</code></td>\n")
+                    else:
+                        f.write("<td></td>\n")
+                    f.write("</tr>\n")
+
                 f.write("</table>\n")
 
             logging.debug(f"wrote markdown to {output_filename}")
