@@ -23,7 +23,9 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -35,9 +37,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -63,9 +61,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -77,9 +73,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -91,9 +85,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -105,9 +97,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -119,9 +109,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.exists`
+### `dll.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -133,9 +121,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.status`
+### `dll.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -147,9 +133,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.subject_name`
+### `dll.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -161,9 +145,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.trusted`
+### `dll.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -175,9 +157,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.hash.sha256`
+### `dll.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -188,9 +168,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `dll.path`
+### `dll.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -202,9 +180,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -216,9 +192,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -230,9 +204,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -244,9 +216,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +228,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -272,9 +240,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -314,9 +276,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -328,9 +288,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.provider`
+### `event.provider`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -342,9 +300,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -355,9 +311,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -368,9 +322,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -382,9 +334,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -395,9 +345,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -408,9 +356,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -421,9 +367,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -435,9 +379,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -448,9 +390,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -462,9 +402,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -476,9 +414,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -490,9 +426,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -504,9 +438,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +450,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -546,9 +474,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -560,9 +486,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -574,9 +498,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.behaviors`
+### `process.Ext.api.behaviors`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -588,9 +510,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.name`
+### `process.Ext.api.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -602,9 +522,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.device`
+### `process.Ext.api.parameters.device`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -616,9 +534,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.io_control_code`
+### `process.Ext.api.parameters.io_control_code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -630,9 +546,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.summary`
+### `process.Ext.api.summary`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -644,9 +558,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -658,9 +570,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -672,9 +582,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -686,9 +594,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -700,9 +606,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -713,9 +617,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -727,9 +629,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -741,9 +641,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -755,9 +653,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -769,9 +665,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -783,9 +677,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -797,9 +689,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -811,9 +701,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -825,9 +713,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -839,9 +725,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -853,9 +737,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -867,9 +749,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `process.thread.id`
+### `process.thread.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -881,9 +761,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -894,9 +772,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -908,9 +784,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -921,6 +795,4 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 <br>
 
 </div>
-
-<hr>
 

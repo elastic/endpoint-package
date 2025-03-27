@@ -24,7 +24,9 @@ This event is generated when a DLL or driver is loaded.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -106,9 +98,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -120,9 +110,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.exists`
+### `dll.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -134,9 +122,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.status`
+### `dll.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -148,9 +134,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.subject_name`
+### `dll.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -162,9 +146,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.code_signature.trusted`
+### `dll.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -176,9 +158,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.defense_evasions`
+### `dll.Ext.defense_evasions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -189,9 +169,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.load_index`
+### `dll.Ext.load_index`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -202,9 +180,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.relative_file_creation_time`
+### `dll.Ext.relative_file_creation_time`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -215,9 +191,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.relative_file_name_modify_time`
+### `dll.Ext.relative_file_name_modify_time`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -228,9 +202,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.Ext.size`
+### `dll.Ext.size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -241,9 +213,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.code_signature.exists`
+### `dll.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -255,9 +225,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.code_signature.status`
+### `dll.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -269,9 +237,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.code_signature.subject_name`
+### `dll.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -283,9 +249,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.code_signature.trusted`
+### `dll.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -297,9 +261,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.hash.md5`
+### `dll.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -310,9 +272,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.hash.sha1`
+### `dll.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -323,9 +283,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.hash.sha256`
+### `dll.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -336,9 +294,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.name`
+### `dll.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -350,9 +306,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.path`
+### `dll.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -364,9 +318,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.pe.file_version`
+### `dll.pe.file_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -378,9 +330,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.pe.imphash`
+### `dll.pe.imphash`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -392,9 +342,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `dll.pe.original_file_name`
+### `dll.pe.original_file_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -406,9 +354,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -420,9 +366,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -434,9 +378,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -448,9 +390,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -462,9 +402,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -476,9 +414,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -490,9 +426,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -504,9 +438,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +450,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -546,9 +474,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -559,9 +485,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -572,9 +496,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -586,9 +508,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -599,9 +519,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -612,9 +530,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -625,9 +541,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -639,9 +553,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -652,9 +564,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -666,9 +576,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -680,9 +588,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -694,9 +600,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -708,9 +612,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -722,9 +624,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -736,9 +636,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -750,9 +648,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -764,9 +660,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -778,9 +672,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -791,9 +683,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -805,9 +695,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -819,9 +707,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -833,9 +719,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -847,9 +731,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -860,9 +742,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -874,9 +754,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -888,9 +766,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -902,9 +778,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -916,9 +790,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -930,9 +802,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -944,9 +814,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -958,9 +826,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -972,9 +838,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `process.uptime`
+### `process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -986,9 +850,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -999,9 +861,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1013,9 +873,7 @@ This event is generated when a DLL or driver is loaded.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1026,6 +884,4 @@ This event is generated when a DLL or driver is loaded.
 <br>
 
 </div>
-
-<hr>
 

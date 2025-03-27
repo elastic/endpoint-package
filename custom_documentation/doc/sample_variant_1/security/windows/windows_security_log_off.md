@@ -24,7 +24,9 @@ This event is generated when a user logs off of the computer.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.authentication_id`
+### `Target.process.Ext.authentication_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -63,9 +61,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -77,9 +73,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -91,9 +85,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -105,9 +97,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -119,9 +109,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -133,9 +121,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -147,9 +133,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -161,9 +145,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -175,9 +157,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -189,9 +169,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.code`
+### `event.code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -203,9 +181,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -217,9 +193,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -231,9 +205,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -245,9 +217,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -259,9 +229,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -273,9 +241,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -287,9 +253,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +275,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -327,9 +287,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -340,9 +298,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -353,9 +309,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -366,9 +320,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -380,9 +332,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -393,9 +343,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -407,9 +355,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -421,9 +367,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -435,9 +379,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -449,9 +391,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -463,9 +403,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -477,9 +415,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -491,9 +427,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -505,9 +439,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -519,9 +451,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -546,9 +474,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -560,9 +486,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -574,9 +498,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -588,9 +510,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.logon_type`
+### `process.Ext.session_info.logon_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -601,9 +521,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -615,9 +533,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -629,9 +545,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -643,9 +557,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -657,9 +569,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -671,9 +581,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -685,9 +593,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -698,9 +604,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.domain`
+### `user.effective.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -711,9 +615,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.email`
+### `user.effective.email`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -724,9 +626,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.full_name`
+### `user.effective.full_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -738,9 +638,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.hash`
+### `user.effective.hash`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -751,9 +649,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.id`
+### `user.effective.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -765,9 +661,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.effective.name`
+### `user.effective.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -779,9 +673,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -793,9 +685,7 @@ This event is generated when a user logs off of the computer.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -806,6 +696,4 @@ This event is generated when a user logs off of the computer.
 <br>
 
 </div>
-
-<hr>
 

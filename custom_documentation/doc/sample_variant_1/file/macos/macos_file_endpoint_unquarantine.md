@@ -24,7 +24,9 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -106,9 +98,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -120,9 +110,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -134,9 +122,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -148,9 +134,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.Ext.correlation.id`
+### `event.Ext.correlation.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -161,9 +145,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -175,9 +157,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -189,9 +169,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -203,9 +181,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -217,9 +193,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -231,9 +205,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -245,9 +217,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -259,9 +229,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -273,9 +241,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -299,9 +263,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.Ext.original.path`
+### `file.Ext.original.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -312,9 +274,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.hash.md5`
+### `file.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -325,9 +285,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.hash.sha1`
+### `file.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -338,9 +296,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.hash.sha256`
+### `file.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -351,9 +307,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.name`
+### `file.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -365,9 +319,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `file.path`
+### `file.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -379,9 +331,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -393,9 +343,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -406,9 +354,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -419,9 +365,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -432,9 +376,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -446,9 +388,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -459,9 +399,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -473,9 +411,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -487,9 +423,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -501,9 +435,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -515,9 +447,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -529,9 +459,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -543,9 +471,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -557,9 +483,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -570,6 +494,4 @@ This event is generated when Endpoint restores a file from the malware quarantin
 <br>
 
 </div>
-
-<hr>
 

@@ -24,7 +24,9 @@ This event is generated when a network session is accepted, attempted or termina
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -106,9 +98,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -120,9 +110,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `destination.address`
+### `destination.address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -133,9 +121,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `destination.bytes`
+### `destination.bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -147,9 +133,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `destination.ip`
+### `destination.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -160,9 +144,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `destination.port`
+### `destination.port`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -173,9 +155,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -187,9 +167,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -201,9 +179,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -215,9 +191,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -229,9 +203,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -243,9 +215,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -257,9 +227,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -271,9 +239,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -285,9 +251,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -299,9 +263,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +275,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +286,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -339,9 +297,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.id`
+### `group.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -352,9 +308,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.name`
+### `group.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -365,9 +319,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `group.id`
+### `group.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -378,9 +330,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `group.name`
+### `group.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -391,9 +341,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -405,9 +353,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -418,9 +364,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -431,9 +375,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -444,9 +386,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -458,9 +398,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -471,9 +409,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -485,9 +421,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -499,9 +433,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -513,9 +445,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -527,9 +457,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -541,9 +469,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -555,9 +481,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -569,9 +493,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -583,9 +505,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -597,9 +517,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `network.direction`
+### `network.direction`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -611,9 +529,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `network.transport`
+### `network.transport`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -625,9 +541,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `network.type`
+### `network.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -639,9 +553,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -652,9 +564,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -666,9 +576,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -680,9 +588,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.entry_leader.entity_id`
+### `process.entry_leader.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -694,9 +600,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.entry_leader.parent.entity_id`
+### `process.entry_leader.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -708,9 +612,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -722,9 +624,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.group_leader.entity_id`
+### `process.group_leader.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -736,9 +636,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -750,9 +648,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -764,9 +660,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -778,9 +672,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.session_leader.entity_id`
+### `process.session_leader.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -792,9 +684,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.thread.capabilities.effective`
+### `process.thread.capabilities.effective`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -806,9 +696,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.thread.capabilities.permitted`
+### `process.thread.capabilities.permitted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -820,9 +708,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `process.uptime`
+### `process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -834,9 +720,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `source.address`
+### `source.address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -847,9 +731,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `source.bytes`
+### `source.bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -861,9 +743,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `source.ip`
+### `source.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -874,9 +754,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `source.port`
+### `source.port`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -887,9 +765,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.id`
+### `user.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -900,9 +776,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.name`
+### `user.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -913,9 +787,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -926,9 +798,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -940,9 +810,7 @@ This event is generated when a network session is accepted, attempted or termina
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -953,6 +821,4 @@ This event is generated when a network session is accepted, attempted or termina
 <br>
 
 </div>
-
-<hr>
 

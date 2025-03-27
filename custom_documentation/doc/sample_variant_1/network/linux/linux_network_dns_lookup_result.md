@@ -23,7 +23,9 @@ This event is generated when results are returned for a DNS lookup request.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -35,9 +37,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -63,9 +61,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -77,9 +73,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -91,9 +85,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -105,9 +97,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -119,9 +109,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `destination.address`
+### `destination.address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -132,9 +120,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `destination.ip`
+### `destination.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -145,9 +131,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `destination.port`
+### `destination.port`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -158,9 +142,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `dns.question.name`
+### `dns.question.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -172,9 +154,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `dns.question.type`
+### `dns.question.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -186,9 +166,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `dns.resolved_ip`
+### `dns.resolved_ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -200,9 +178,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -214,9 +190,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -228,9 +202,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -242,9 +214,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -256,9 +226,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -270,9 +238,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -284,9 +250,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -298,9 +262,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -312,9 +274,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +286,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -340,9 +298,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -353,9 +309,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -366,9 +320,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.id`
+### `group.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -379,9 +331,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.name`
+### `group.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -392,9 +342,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `group.id`
+### `group.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -405,9 +353,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `group.name`
+### `group.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -418,9 +364,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -431,9 +375,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -444,9 +386,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -458,9 +398,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -472,9 +410,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `network.protocol`
+### `network.protocol`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -486,9 +422,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `network.transport`
+### `network.transport`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -500,9 +434,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -513,9 +445,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -527,9 +457,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -541,9 +469,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -555,9 +481,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -569,9 +493,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -583,9 +505,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -597,9 +517,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.thread.capabilities.effective`
+### `process.thread.capabilities.effective`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -611,9 +529,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `process.thread.capabilities.permitted`
+### `process.thread.capabilities.permitted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -625,9 +541,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `source.address`
+### `source.address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -638,9 +552,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `source.ip`
+### `source.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -651,9 +563,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `source.port`
+### `source.port`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -664,9 +574,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.id`
+### `user.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -677,9 +585,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.name`
+### `user.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -690,9 +596,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -704,9 +608,7 @@ This event is generated when results are returned for a DNS lookup request.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -717,6 +619,4 @@ This event is generated when results are returned for a DNS lookup request.
 <br>
 
 </div>
-
-<hr>
 

@@ -24,7 +24,9 @@ This event is generated for a process that was already running before Endpoint's
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -106,9 +98,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -120,9 +110,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -134,9 +122,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -148,9 +134,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -162,9 +146,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -176,9 +158,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -190,9 +170,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -204,9 +182,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -218,9 +194,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -232,9 +206,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -246,9 +218,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -260,9 +230,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -273,9 +241,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +275,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +286,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -339,9 +297,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -353,9 +309,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -366,9 +320,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -380,9 +332,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -394,9 +344,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -408,9 +356,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -422,9 +368,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -436,9 +380,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -450,9 +392,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -464,9 +404,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -478,9 +416,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -492,9 +428,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -505,9 +439,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.authentication_id`
+### `process.Ext.authentication_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +450,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -546,9 +474,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -560,9 +486,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -574,9 +498,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.mitigation_policies`
+### `process.Ext.mitigation_policies`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -587,9 +509,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -600,9 +520,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.relative_file_creation_time`
+### `process.Ext.relative_file_creation_time`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -613,9 +531,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.authentication_package`
+### `process.Ext.session_info.authentication_package`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -626,9 +542,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.client_address`
+### `process.Ext.session_info.client_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -639,9 +553,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.id`
+### `process.Ext.session_info.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -652,9 +564,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.logon_type`
+### `process.Ext.session_info.logon_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -665,9 +575,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.relative_logon_time`
+### `process.Ext.session_info.relative_logon_time`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -678,9 +586,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.relative_password_age`
+### `process.Ext.session_info.relative_password_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -691,9 +597,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.session_info.user_flags`
+### `process.Ext.session_info.user_flags`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -704,9 +608,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation_level`
+### `process.Ext.token.elevation_level`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -718,9 +620,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -732,9 +632,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.security_attributes`
+### `process.Ext.token.security_attributes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -746,9 +644,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.args`
+### `process.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -760,9 +656,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.args_count`
+### `process.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -774,9 +668,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -788,9 +680,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -802,9 +692,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -816,9 +704,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -830,9 +716,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -844,9 +728,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.Ext.command_line_truncated`
+### `process.Ext.command_line_truncated`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -857,9 +739,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -871,9 +751,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -885,9 +763,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.hash.md5`
+### `process.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -898,9 +774,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.hash.sha1`
+### `process.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -911,9 +785,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.hash.sha256`
+### `process.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -924,9 +796,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -938,9 +808,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.exists`
+### `process.parent.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -952,9 +820,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.status`
+### `process.parent.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -966,9 +832,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.subject_name`
+### `process.parent.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -980,9 +844,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.trusted`
+### `process.parent.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -994,9 +856,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.args`
+### `process.parent.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1008,9 +868,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.args_count`
+### `process.parent.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1022,9 +880,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.exists`
+### `process.parent.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1036,9 +892,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.status`
+### `process.parent.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1050,9 +904,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.subject_name`
+### `process.parent.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1064,9 +916,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.trusted`
+### `process.parent.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1078,9 +928,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.command_line`
+### `process.parent.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1092,9 +940,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.command_line_truncated`
+### `process.parent.Ext.command_line_truncated`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1105,9 +951,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1119,9 +963,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1133,9 +975,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.name`
+### `process.parent.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1147,9 +987,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.parent.pid`
+### `process.parent.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1161,9 +999,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.pe.imphash`
+### `process.pe.imphash`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1175,9 +1011,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.pe.original_file_name`
+### `process.pe.original_file_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1189,9 +1023,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1203,9 +1035,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `process.working_directory`
+### `process.working_directory`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1217,9 +1047,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1230,9 +1058,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1244,9 +1070,7 @@ This event is generated for a process that was already running before Endpoint's
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1257,6 +1081,4 @@ This event is generated for a process that was already running before Endpoint's
 <br>
 
 </div>
-
-<hr>
 

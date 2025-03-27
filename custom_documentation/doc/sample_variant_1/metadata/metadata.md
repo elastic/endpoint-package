@@ -24,7 +24,9 @@ This is a relatively small state management document that includes details about
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.capabilities`
+### `Endpoint.capabilities`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.configuration.isolation`
+### `Endpoint.configuration.isolation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.status`
+### `Endpoint.policy.applied.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -114,9 +104,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -127,9 +115,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.state.isolation`
+### `Endpoint.state.isolation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -140,9 +126,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.state.tamper_protection`
+### `Endpoint.state.tamper_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -153,9 +137,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `Endpoint.status`
+### `Endpoint.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -166,9 +148,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -180,9 +160,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -194,9 +172,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -208,9 +184,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -222,9 +196,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -236,9 +208,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -250,9 +220,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -264,9 +232,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -278,9 +244,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -292,9 +256,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -306,9 +268,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -320,9 +280,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -334,9 +292,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -348,9 +304,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -362,9 +316,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -376,9 +328,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -390,9 +340,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -403,9 +351,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -416,9 +362,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -430,9 +374,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -443,9 +385,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -456,9 +396,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -469,9 +407,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -483,9 +419,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -496,9 +430,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -510,9 +442,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -524,9 +454,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -538,9 +466,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -552,9 +478,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -566,9 +490,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -580,9 +502,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -594,9 +514,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -608,9 +526,7 @@ This is a relatively small state management document that includes details about
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -621,6 +537,4 @@ This is a relatively small state management document that includes details about
 <br>
 
 </div>
-
-<hr>
 

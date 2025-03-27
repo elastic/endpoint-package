@@ -23,7 +23,9 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -35,9 +37,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.created_suspended`
+### `Target.process.Ext.created_suspended`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.protection`
+### `Target.process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.integrity_level_name`
+### `Target.process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -76,9 +72,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.entity_id`
+### `Target.process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -90,9 +84,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.executable`
+### `Target.process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -104,9 +96,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.name`
+### `Target.process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -118,9 +108,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `Target.process.pid`
+### `Target.process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -132,9 +120,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -146,9 +132,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -160,9 +144,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -174,9 +156,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -188,9 +168,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -202,9 +180,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -216,9 +192,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -230,9 +204,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -244,9 +216,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +228,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -272,9 +240,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -314,9 +276,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -328,9 +288,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -342,9 +300,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.provider`
+### `event.provider`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -356,9 +312,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -369,9 +323,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -382,9 +334,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -396,9 +346,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -409,9 +357,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -422,9 +368,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -435,9 +379,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -449,9 +391,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -462,9 +402,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -476,9 +414,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -490,9 +426,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -504,9 +438,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +450,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -546,9 +474,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -560,9 +486,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -574,9 +498,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -588,9 +510,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.behaviors`
+### `process.Ext.api.behaviors`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -602,9 +522,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.target_address_name`
+### `process.Ext.api.metadata.target_address_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -616,9 +534,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.target_address_path`
+### `process.Ext.api.metadata.target_address_path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -630,9 +546,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.name`
+### `process.Ext.api.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -644,9 +558,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.address`
+### `process.Ext.api.parameters.address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -658,9 +570,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.allocation_type`
+### `process.Ext.api.parameters.allocation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -672,9 +582,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.argument1`
+### `process.Ext.api.parameters.argument1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -686,9 +594,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.argument2`
+### `process.Ext.api.parameters.argument2`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -700,9 +606,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.argument3`
+### `process.Ext.api.parameters.argument3`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -714,9 +618,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.context_flags`
+### `process.Ext.api.parameters.context_flags`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -728,9 +630,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.desired_access`
+### `process.Ext.api.parameters.desired_access`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -741,9 +641,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.desired_access_numeric`
+### `process.Ext.api.parameters.desired_access_numeric`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -754,9 +652,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.device`
+### `process.Ext.api.parameters.device`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -768,9 +664,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.driver`
+### `process.Ext.api.parameters.driver`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -782,9 +676,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.eax`
+### `process.Ext.api.parameters.eax`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -796,9 +688,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.ebp`
+### `process.Ext.api.parameters.ebp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -810,9 +700,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.ebx`
+### `process.Ext.api.parameters.ebx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -824,9 +712,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.ecx`
+### `process.Ext.api.parameters.ecx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -838,9 +724,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.edi`
+### `process.Ext.api.parameters.edi`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -852,9 +736,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.edx`
+### `process.Ext.api.parameters.edx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -866,9 +748,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.eip`
+### `process.Ext.api.parameters.eip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -880,9 +760,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.esi`
+### `process.Ext.api.parameters.esi`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -894,9 +772,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.esp`
+### `process.Ext.api.parameters.esp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -908,9 +784,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.handle_type`
+### `process.Ext.api.parameters.handle_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -922,9 +796,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.procedure`
+### `process.Ext.api.parameters.procedure`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -936,9 +808,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.protection`
+### `process.Ext.api.parameters.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -950,9 +820,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.protection_old`
+### `process.Ext.api.parameters.protection_old`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -964,9 +832,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.r8`
+### `process.Ext.api.parameters.r8`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -978,9 +844,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.r9`
+### `process.Ext.api.parameters.r9`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -992,9 +856,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rax`
+### `process.Ext.api.parameters.rax`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1006,9 +868,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rbp`
+### `process.Ext.api.parameters.rbp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1020,9 +880,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rbx`
+### `process.Ext.api.parameters.rbx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1034,9 +892,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rcx`
+### `process.Ext.api.parameters.rcx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1048,9 +904,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rdi`
+### `process.Ext.api.parameters.rdi`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1062,9 +916,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rdx`
+### `process.Ext.api.parameters.rdx`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1076,9 +928,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rip`
+### `process.Ext.api.parameters.rip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1090,9 +940,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rsi`
+### `process.Ext.api.parameters.rsi`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1104,9 +952,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.rsp`
+### `process.Ext.api.parameters.rsp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1118,9 +964,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.size`
+### `process.Ext.api.parameters.size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1132,9 +976,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.summary`
+### `process.Ext.api.summary`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1146,9 +988,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1160,9 +1000,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1174,9 +1012,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1188,9 +1024,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1202,9 +1036,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1215,9 +1047,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1229,9 +1059,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1243,9 +1071,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1257,9 +1083,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1271,9 +1095,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1285,9 +1107,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1299,9 +1119,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1313,9 +1131,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1327,9 +1143,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1341,9 +1155,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1355,9 +1167,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1369,9 +1179,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `process.thread.id`
+### `process.thread.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1383,9 +1191,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1396,9 +1202,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1410,9 +1214,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1423,6 +1225,4 @@ This event is generated when ETW Threat-Intelligence events are generated.
 <br>
 
 </div>
-
-<hr>
 

@@ -24,7 +24,9 @@ This alert is generated when a Memory Threat alert occurs.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.channel`
+### `Endpoint.policy.applied.artifacts.global.channel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.name`
+### `Endpoint.policy.applied.artifacts.global.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.snapshot`
+### `Endpoint.policy.applied.artifacts.global.snapshot`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.update_age`
+### `Endpoint.policy.applied.artifacts.global.update_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.version`
+### `Endpoint.policy.applied.artifacts.global.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -114,9 +104,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.name`
+### `Endpoint.policy.applied.artifacts.user.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -127,9 +115,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -140,9 +126,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.version`
+### `Endpoint.policy.applied.artifacts.user.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -153,9 +137,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -166,9 +148,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -179,9 +159,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -192,9 +170,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -205,9 +181,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -219,9 +193,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -233,9 +205,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -247,9 +217,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -261,9 +229,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -275,9 +241,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -289,9 +253,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -303,9 +265,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -317,9 +277,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -331,9 +289,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -345,9 +301,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.code`
+### `event.code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -359,9 +313,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -373,9 +325,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -387,9 +337,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -401,9 +349,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -415,9 +361,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -429,9 +373,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -443,9 +385,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.risk_score`
+### `event.risk_score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -456,9 +396,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -469,9 +407,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.severity`
+### `event.severity`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -483,9 +419,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -496,9 +430,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -510,9 +442,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -523,9 +453,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -536,9 +464,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -549,9 +475,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -563,9 +487,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -576,9 +498,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -590,9 +510,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -604,9 +522,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -618,9 +534,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -632,9 +546,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -646,9 +558,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -660,9 +570,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -674,9 +582,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -688,9 +594,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -702,9 +606,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -715,9 +617,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.architecture`
+### `process.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -729,9 +629,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -743,9 +641,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -757,9 +653,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -771,9 +665,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -785,9 +677,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.allocation_base`
+### `process.Ext.memory_region.allocation_base`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -799,9 +689,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.allocation_protection`
+### `process.Ext.memory_region.allocation_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -813,9 +701,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.allocation_size`
+### `process.Ext.memory_region.allocation_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -827,9 +713,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.allocation_type`
+### `process.Ext.memory_region.allocation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -841,9 +725,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.bytes_address`
+### `process.Ext.memory_region.bytes_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -855,9 +737,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.bytes_allocation_offset`
+### `process.Ext.memory_region.bytes_allocation_offset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -869,9 +749,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.bytes_compressed`
+### `process.Ext.memory_region.bytes_compressed`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -883,9 +761,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.bytes_compressed_present`
+### `process.Ext.memory_region.bytes_compressed_present`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -897,9 +773,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.all_names`
+### `process.Ext.memory_region.malware_signature.all_names`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -911,9 +785,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.identifier`
+### `process.Ext.memory_region.malware_signature.identifier`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -924,9 +796,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.primary.matches`
+### `process.Ext.memory_region.malware_signature.primary.matches`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -937,9 +807,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.primary.signature.hash.sha256`
+### `process.Ext.memory_region.malware_signature.primary.signature.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -950,9 +818,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.primary.signature.id`
+### `process.Ext.memory_region.malware_signature.primary.signature.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -963,9 +829,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.primary.signature.name`
+### `process.Ext.memory_region.malware_signature.primary.signature.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -976,9 +840,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.malware_signature.version`
+### `process.Ext.memory_region.malware_signature.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -989,9 +851,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.region_base`
+### `process.Ext.memory_region.region_base`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1003,9 +863,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.region_protection`
+### `process.Ext.memory_region.region_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1017,9 +875,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.region_size`
+### `process.Ext.memory_region.region_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1031,9 +887,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.region_start_bytes`
+### `process.Ext.memory_region.region_start_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1045,9 +899,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.memory_region.region_state`
+### `process.Ext.memory_region.region_state`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1059,9 +911,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1072,9 +922,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.domain`
+### `process.Ext.token.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1085,9 +933,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation`
+### `process.Ext.token.elevation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1098,9 +944,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation_type`
+### `process.Ext.token.elevation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1112,9 +956,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1126,9 +968,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.sid`
+### `process.Ext.token.sid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1139,9 +979,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.user`
+### `process.Ext.token.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1152,9 +990,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.user`
+### `process.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1165,9 +1001,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args`
+### `process.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1179,9 +1013,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args_count`
+### `process.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1193,9 +1025,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1207,9 +1037,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1221,9 +1049,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1235,9 +1061,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1249,9 +1073,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1263,9 +1085,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1277,9 +1097,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1291,9 +1109,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.md5`
+### `process.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1304,9 +1120,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha1`
+### `process.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1317,9 +1131,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha256`
+### `process.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1330,9 +1142,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1344,9 +1154,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.architecture`
+### `process.parent.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1358,9 +1166,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.exists`
+### `process.parent.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1372,9 +1178,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.status`
+### `process.parent.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1386,9 +1190,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.subject_name`
+### `process.parent.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1400,9 +1202,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.trusted`
+### `process.parent.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1414,9 +1214,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.protection`
+### `process.parent.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1427,9 +1225,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.user`
+### `process.parent.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1440,9 +1236,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args`
+### `process.parent.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1454,9 +1248,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args_count`
+### `process.parent.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1468,9 +1260,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.exists`
+### `process.parent.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1482,9 +1272,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.status`
+### `process.parent.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1496,9 +1284,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.subject_name`
+### `process.parent.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1510,9 +1296,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.trusted`
+### `process.parent.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1524,9 +1308,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.command_line`
+### `process.parent.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1538,9 +1320,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1552,9 +1332,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1566,9 +1344,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.md5`
+### `process.parent.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1579,9 +1355,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha1`
+### `process.parent.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1592,9 +1366,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha256`
+### `process.parent.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1605,9 +1377,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.name`
+### `process.parent.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1619,9 +1389,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.pid`
+### `process.parent.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1633,9 +1401,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.ppid`
+### `process.parent.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1647,9 +1413,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.start`
+### `process.parent.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1661,9 +1425,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.uptime`
+### `process.parent.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1675,9 +1437,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1689,9 +1449,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.ppid`
+### `process.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1703,9 +1461,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.start`
+### `process.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1717,9 +1473,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.uptime`
+### `process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1731,9 +1485,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.id`
+### `rule.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1745,9 +1497,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.name`
+### `rule.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1759,9 +1509,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.ruleset`
+### `rule.ruleset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1773,9 +1521,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1786,9 +1532,7 @@ This alert is generated when a Memory Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1799,6 +1543,4 @@ This alert is generated when a Memory Threat alert occurs.
 <br>
 
 </div>
-
-<hr>
 

@@ -23,7 +23,9 @@ This event is generated when WMI Activity-related APIs are called.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -35,9 +37,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.protection`
+### `Target.process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -48,9 +48,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `Target.process.name`
+### `Target.process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `Target.process.pid`
+### `Target.process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -76,9 +72,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -90,9 +84,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -104,9 +96,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -118,9 +108,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -132,9 +120,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -146,9 +132,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -160,9 +144,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -174,9 +156,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -188,9 +168,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -202,9 +180,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -216,9 +192,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -230,9 +204,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -244,9 +216,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +228,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -272,9 +240,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.provider`
+### `event.provider`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +275,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +286,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -340,9 +298,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -353,9 +309,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -366,9 +320,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -379,9 +331,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -393,9 +343,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -406,9 +354,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -420,9 +366,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -434,9 +378,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -448,9 +390,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -462,9 +402,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -476,9 +414,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -490,9 +426,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -504,9 +438,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +450,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +462,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -545,9 +473,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.behaviors`
+### `process.Ext.api.behaviors`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -559,9 +485,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.client_is_local`
+### `process.Ext.api.metadata.client_is_local`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -573,9 +497,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.client_machine`
+### `process.Ext.api.metadata.client_machine`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -587,9 +509,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.client_machine_fqdn`
+### `process.Ext.api.metadata.client_machine_fqdn`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -601,9 +521,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.metadata.client_process_id`
+### `process.Ext.api.metadata.client_process_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -615,9 +533,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.name`
+### `process.Ext.api.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -629,9 +545,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.consumer_details`
+### `process.Ext.api.parameters.consumer_details`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -642,9 +556,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.consumer_name`
+### `process.Ext.api.parameters.consumer_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -656,9 +568,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.consumer_type`
+### `process.Ext.api.parameters.consumer_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -670,9 +580,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.event_filter_details`
+### `process.Ext.api.parameters.event_filter_details`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -683,9 +591,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.event_filter_name`
+### `process.Ext.api.parameters.event_filter_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -697,9 +603,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.namespace`
+### `process.Ext.api.parameters.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -711,9 +615,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.parameters.operation`
+### `process.Ext.api.parameters.operation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -725,9 +627,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.api.summary`
+### `process.Ext.api.summary`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -739,9 +639,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -753,9 +651,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -767,9 +663,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -781,9 +675,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -795,9 +687,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -808,9 +698,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -822,9 +710,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -836,9 +722,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -850,9 +734,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -864,9 +746,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -878,9 +758,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -892,9 +770,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -906,9 +782,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -920,9 +794,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -934,9 +806,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -948,9 +818,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -962,9 +830,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `process.thread.id`
+### `process.thread.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -976,9 +842,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -989,9 +853,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1003,9 +865,7 @@ This event is generated when WMI Activity-related APIs are called.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1016,6 +876,4 @@ This event is generated when WMI Activity-related APIs are called.
 <br>
 
 </div>
-
-<hr>
 

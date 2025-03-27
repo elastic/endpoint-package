@@ -24,7 +24,9 @@ This is a state management document that is generated every time Endpoint refres
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.configuration.isolation`
+### `Endpoint.configuration.isolation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.actions.message`
+### `Endpoint.policy.applied.actions.message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.actions.name`
+### `Endpoint.policy.applied.actions.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.actions.status`
+### `Endpoint.policy.applied.actions.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.actions.status`
+### `Endpoint.policy.applied.actions.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.channel`
+### `Endpoint.policy.applied.artifacts.global.channel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -115,9 +105,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.name`
+### `Endpoint.policy.applied.artifacts.global.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -128,9 +116,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -141,9 +127,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.snapshot`
+### `Endpoint.policy.applied.artifacts.global.snapshot`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -154,9 +138,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.update_age`
+### `Endpoint.policy.applied.artifacts.global.update_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -167,9 +149,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.version`
+### `Endpoint.policy.applied.artifacts.global.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -180,9 +160,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.name`
+### `Endpoint.policy.applied.artifacts.user.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -193,9 +171,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -206,9 +182,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.version`
+### `Endpoint.policy.applied.artifacts.user.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -219,9 +193,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -232,9 +204,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -245,9 +215,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +226,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.antivirus_registration.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -271,9 +237,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.antivirus_registration.status`
+### `Endpoint.policy.applied.response.configurations.antivirus_registration.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -284,9 +248,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.attack_surface_reduction.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.attack_surface_reduction.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -297,9 +259,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.attack_surface_reduction.status`
+### `Endpoint.policy.applied.response.configurations.attack_surface_reduction.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -310,9 +270,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -323,9 +281,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.behavior_protection.status`
+### `Endpoint.policy.applied.response.configurations.behavior_protection.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -336,9 +292,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.events.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.events.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -349,9 +303,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.events.status`
+### `Endpoint.policy.applied.response.configurations.events.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -362,9 +314,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -375,9 +325,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.host_isolation.status`
+### `Endpoint.policy.applied.response.configurations.host_isolation.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -388,9 +336,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.logging.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.logging.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -401,9 +347,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.logging.status`
+### `Endpoint.policy.applied.response.configurations.logging.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -414,9 +358,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.malware.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.malware.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -427,9 +369,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.malware.status`
+### `Endpoint.policy.applied.response.configurations.malware.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -440,9 +380,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.memory_protection.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -453,9 +391,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.memory_protection.status`
+### `Endpoint.policy.applied.response.configurations.memory_protection.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -466,9 +402,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.ransomware.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.ransomware.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -479,9 +413,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.ransomware.status`
+### `Endpoint.policy.applied.response.configurations.ransomware.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -492,9 +424,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.response_actions.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.response_actions.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -505,9 +435,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.response_actions.status`
+### `Endpoint.policy.applied.response.configurations.response_actions.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -518,9 +446,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.streaming.concerned_actions`
+### `Endpoint.policy.applied.response.configurations.streaming.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -531,9 +457,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.configurations.streaming.status`
+### `Endpoint.policy.applied.response.configurations.streaming.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -544,9 +468,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions`
+### `Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -557,9 +479,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.behavior_protection.status`
+### `Endpoint.policy.applied.response.diagnostic.behavior_protection.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -570,9 +490,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.malware.concerned_actions`
+### `Endpoint.policy.applied.response.diagnostic.malware.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -583,9 +501,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.malware.status`
+### `Endpoint.policy.applied.response.diagnostic.malware.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -596,9 +512,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions`
+### `Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -609,9 +523,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.memory_protection.status`
+### `Endpoint.policy.applied.response.diagnostic.memory_protection.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -622,9 +534,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.ransomware.concerned_actions`
+### `Endpoint.policy.applied.response.diagnostic.ransomware.concerned_actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -635,9 +545,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.response.diagnostic.ransomware.status`
+### `Endpoint.policy.applied.response.diagnostic.ransomware.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -648,9 +556,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.status`
+### `Endpoint.policy.applied.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -661,9 +567,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -674,9 +578,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.state.isolation`
+### `Endpoint.state.isolation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -687,9 +589,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `Endpoint.state.tamper_protection`
+### `Endpoint.state.tamper_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -700,9 +600,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -714,9 +612,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -728,9 +624,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -742,9 +636,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -756,9 +648,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -770,9 +660,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -784,9 +672,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -798,9 +684,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -812,9 +696,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -826,9 +708,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -840,9 +720,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -854,9 +732,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -868,9 +744,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -882,9 +756,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -896,9 +768,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -910,9 +780,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -924,9 +792,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -937,9 +803,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -950,9 +814,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -964,9 +826,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -977,9 +837,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -990,9 +848,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1003,9 +859,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1017,9 +871,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1030,9 +882,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1044,9 +894,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1058,9 +906,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1072,9 +918,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1086,9 +930,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1100,9 +942,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1114,9 +954,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1128,9 +966,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1142,9 +978,7 @@ This is a state management document that is generated every time Endpoint refres
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1155,6 +989,4 @@ This is a state management document that is generated every time Endpoint refres
 <br>
 
 </div>
-
-<hr>
 

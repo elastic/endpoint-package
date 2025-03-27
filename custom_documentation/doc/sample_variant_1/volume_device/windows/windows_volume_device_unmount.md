@@ -24,7 +24,9 @@ This event is generated when a device is unmounted.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -106,9 +98,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -120,9 +110,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -134,9 +122,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -148,9 +134,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -162,9 +146,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -176,9 +158,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -190,9 +170,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -204,9 +182,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -218,9 +194,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -232,9 +206,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -246,9 +218,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -260,9 +230,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -273,9 +241,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -286,9 +252,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +264,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +275,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +286,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -339,9 +297,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -353,9 +309,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -366,9 +320,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -380,9 +332,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -394,9 +344,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -408,9 +356,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -422,9 +368,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -436,9 +380,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -450,9 +392,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -464,9 +404,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -478,9 +416,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -492,9 +428,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -505,9 +439,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -519,9 +451,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -533,9 +463,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -547,9 +475,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -560,9 +486,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -574,9 +498,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -588,9 +510,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.bus_type`
+### `volume.bus_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -601,9 +521,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.device_type`
+### `volume.device_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -614,9 +532,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.dos_name`
+### `volume.dos_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -627,9 +543,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.file_system_type`
+### `volume.file_system_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -640,9 +554,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.nt_name`
+### `volume.nt_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -653,9 +565,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.product_name`
+### `volume.product_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -666,9 +576,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.serial_number`
+### `volume.serial_number`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -679,9 +587,7 @@ This event is generated when a device is unmounted.
 
 </div>
 
-<hr>
-
-#### `volume.vendor_name`
+### `volume.vendor_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -691,6 +597,4 @@ This event is generated when a device is unmounted.
 <br>
 
 </div>
-
-<hr>
 

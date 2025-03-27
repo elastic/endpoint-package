@@ -24,7 +24,9 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.channel`
+### `Endpoint.policy.applied.artifacts.global.channel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.name`
+### `Endpoint.policy.applied.artifacts.global.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.snapshot`
+### `Endpoint.policy.applied.artifacts.global.snapshot`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.update_age`
+### `Endpoint.policy.applied.artifacts.global.update_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.version`
+### `Endpoint.policy.applied.artifacts.global.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -114,9 +104,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.name`
+### `Endpoint.policy.applied.artifacts.user.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -127,9 +115,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -140,9 +126,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.version`
+### `Endpoint.policy.applied.artifacts.user.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -153,9 +137,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -166,9 +148,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -179,9 +159,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -192,9 +170,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -205,9 +181,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.cross_session`
+### `Memory_protection.cross_session`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -218,9 +192,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.feature`
+### `Memory_protection.feature`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -232,9 +204,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.parent_to_child`
+### `Memory_protection.parent_to_child`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -245,9 +215,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.self_injection`
+### `Memory_protection.self_injection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +226,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.unique_key_v1`
+### `Memory_protection.unique_key_v1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -271,9 +237,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Memory_protection.unique_key_v2`
+### `Memory_protection.unique_key_v2`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -285,9 +249,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.@timestamp`
+### `Responses.@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -298,9 +260,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.action`
+### `Responses.action.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -311,9 +271,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.attributes`
+### `Responses.action.file.attributes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -324,9 +282,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.path`
+### `Responses.action.file.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -337,9 +293,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.reason`
+### `Responses.action.file.reason`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -350,9 +304,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.actions`
+### `Responses.action.key.actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -363,9 +315,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.path`
+### `Responses.action.key.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -376,9 +326,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.values.actions`
+### `Responses.action.key.values.actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -389,9 +337,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.values.name`
+### `Responses.action.key.values.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -402,9 +348,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.source.attributes`
+### `Responses.action.source.attributes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -415,9 +359,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.source.path`
+### `Responses.action.source.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -428,9 +370,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.message`
+### `Responses.message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -441,9 +381,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.result`
+### `Responses.result`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -454,9 +392,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.architecture`
+### `Target.process.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -468,9 +404,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.code_signature.exists`
+### `Target.process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -482,9 +416,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.code_signature.exists`
+### `Target.process.Ext.dll.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -496,9 +428,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.code_signature.status`
+### `Target.process.Ext.dll.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -510,9 +440,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.code_signature.subject_name`
+### `Target.process.Ext.dll.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -524,9 +452,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.code_signature.trusted`
+### `Target.process.Ext.dll.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -538,9 +464,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.mapped_address`
+### `Target.process.Ext.dll.Ext.mapped_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -551,9 +475,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.Ext.mapped_size`
+### `Target.process.Ext.dll.Ext.mapped_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -564,9 +486,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.code_signature.exists`
+### `Target.process.Ext.dll.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -578,9 +498,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.code_signature.status`
+### `Target.process.Ext.dll.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -592,9 +510,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.code_signature.subject_name`
+### `Target.process.Ext.dll.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -606,9 +522,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.code_signature.trusted`
+### `Target.process.Ext.dll.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -620,9 +534,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.hash.md5`
+### `Target.process.Ext.dll.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -633,9 +545,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.hash.sha1`
+### `Target.process.Ext.dll.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -646,9 +556,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.hash.sha256`
+### `Target.process.Ext.dll.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -659,9 +567,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.name`
+### `Target.process.Ext.dll.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -673,9 +579,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.dll.path`
+### `Target.process.Ext.dll.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -687,9 +591,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.allocation_base`
+### `Target.process.Ext.memory_region.allocation_base`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -701,9 +603,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.allocation_protection`
+### `Target.process.Ext.memory_region.allocation_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -715,9 +615,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.allocation_size`
+### `Target.process.Ext.memory_region.allocation_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -729,9 +627,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.allocation_type`
+### `Target.process.Ext.memory_region.allocation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -743,9 +639,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.bytes_address`
+### `Target.process.Ext.memory_region.bytes_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -757,9 +651,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.bytes_allocation_offset`
+### `Target.process.Ext.memory_region.bytes_allocation_offset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -771,9 +663,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.mapped_path`
+### `Target.process.Ext.memory_region.mapped_path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -785,9 +675,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.memory_pe_detected`
+### `Target.process.Ext.memory_region.memory_pe_detected`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -799,9 +687,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.region_base`
+### `Target.process.Ext.memory_region.region_base`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -813,9 +699,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.region_protection`
+### `Target.process.Ext.memory_region.region_protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -827,9 +711,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.region_size`
+### `Target.process.Ext.memory_region.region_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -841,9 +723,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.region_state`
+### `Target.process.Ext.memory_region.region_state`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -855,9 +735,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.memory_region.strings`
+### `Target.process.Ext.memory_region.strings`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -868,9 +746,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.protection`
+### `Target.process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -881,9 +757,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.domain`
+### `Target.process.Ext.token.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -894,9 +768,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.elevation`
+### `Target.process.Ext.token.elevation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -907,9 +779,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.elevation_type`
+### `Target.process.Ext.token.elevation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -921,9 +791,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.integrity_level_name`
+### `Target.process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -935,9 +803,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.sid`
+### `Target.process.Ext.token.sid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -948,9 +814,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.token.user`
+### `Target.process.Ext.token.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -961,9 +825,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.Ext.user`
+### `Target.process.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -974,9 +836,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.args`
+### `Target.process.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -988,9 +848,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.args_count`
+### `Target.process.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1002,9 +860,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.code_signature.exists`
+### `Target.process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1016,9 +872,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.command_line`
+### `Target.process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1030,9 +884,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.entity_id`
+### `Target.process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1044,9 +896,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.executable`
+### `Target.process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1058,9 +908,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.hash.md5`
+### `Target.process.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1071,9 +919,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.hash.sha1`
+### `Target.process.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1084,9 +930,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.hash.sha256`
+### `Target.process.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1097,9 +941,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.name`
+### `Target.process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1111,9 +953,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.architecture`
+### `Target.process.parent.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1125,9 +965,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.code_signature.exists`
+### `Target.process.parent.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1139,9 +977,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.code_signature.status`
+### `Target.process.parent.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1153,9 +989,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.code_signature.subject_name`
+### `Target.process.parent.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1167,9 +1001,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.code_signature.trusted`
+### `Target.process.parent.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1181,9 +1013,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.protection`
+### `Target.process.parent.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1194,9 +1024,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.Ext.user`
+### `Target.process.parent.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1207,9 +1035,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.args`
+### `Target.process.parent.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1221,9 +1047,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.args_count`
+### `Target.process.parent.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1235,9 +1059,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.code_signature.exists`
+### `Target.process.parent.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1249,9 +1071,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.code_signature.status`
+### `Target.process.parent.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1263,9 +1083,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.code_signature.subject_name`
+### `Target.process.parent.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1277,9 +1095,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.code_signature.trusted`
+### `Target.process.parent.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1291,9 +1107,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.command_line`
+### `Target.process.parent.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1305,9 +1119,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.entity_id`
+### `Target.process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1319,9 +1131,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.executable`
+### `Target.process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1333,9 +1143,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.hash.md5`
+### `Target.process.parent.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1346,9 +1154,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.hash.sha1`
+### `Target.process.parent.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1359,9 +1165,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.hash.sha256`
+### `Target.process.parent.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1372,9 +1176,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.name`
+### `Target.process.parent.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1386,9 +1188,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.pid`
+### `Target.process.parent.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1400,9 +1200,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.ppid`
+### `Target.process.parent.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1414,9 +1212,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.start`
+### `Target.process.parent.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1428,9 +1224,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.parent.uptime`
+### `Target.process.parent.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1442,9 +1236,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.pid`
+### `Target.process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1456,9 +1248,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.ppid`
+### `Target.process.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1470,9 +1260,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.start`
+### `Target.process.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1484,9 +1272,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.instruction_pointer`
+### `Target.process.thread.Ext.call_stack.instruction_pointer`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1497,9 +1283,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.memory_section.memory_address`
+### `Target.process.thread.Ext.call_stack.memory_section.memory_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1510,9 +1294,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.memory_section.memory_size`
+### `Target.process.thread.Ext.call_stack.memory_section.memory_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1523,9 +1305,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.memory_section.protection`
+### `Target.process.thread.Ext.call_stack.memory_section.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1536,9 +1316,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.module_name`
+### `Target.process.thread.Ext.call_stack.module_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1549,9 +1327,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.module_path`
+### `Target.process.thread.Ext.call_stack.module_path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1562,9 +1338,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack.symbol_info`
+### `Target.process.thread.Ext.call_stack.symbol_info`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1575,9 +1349,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.call_stack_summary`
+### `Target.process.thread.Ext.call_stack_summary`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1589,9 +1361,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address`
+### `Target.process.thread.Ext.original_start_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1603,9 +1373,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address_allocation_offset`
+### `Target.process.thread.Ext.original_start_address_allocation_offset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1617,9 +1385,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address_bytes`
+### `Target.process.thread.Ext.original_start_address_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1631,9 +1397,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address_bytes_disasm`
+### `Target.process.thread.Ext.original_start_address_bytes_disasm`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1645,9 +1409,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address_bytes_disasm_hash`
+### `Target.process.thread.Ext.original_start_address_bytes_disasm_hash`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1659,9 +1421,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.original_start_address_module`
+### `Target.process.thread.Ext.original_start_address_module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1673,9 +1433,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address`
+### `Target.process.thread.Ext.start_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1687,9 +1445,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address_allocation_offset`
+### `Target.process.thread.Ext.start_address_allocation_offset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1701,9 +1457,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address_bytes`
+### `Target.process.thread.Ext.start_address_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1715,9 +1469,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address_bytes_disasm`
+### `Target.process.thread.Ext.start_address_bytes_disasm`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1729,9 +1481,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address_bytes_disasm_hash`
+### `Target.process.thread.Ext.start_address_bytes_disasm_hash`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1743,9 +1493,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.Ext.start_address_module`
+### `Target.process.thread.Ext.start_address_module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1757,9 +1505,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.thread.id`
+### `Target.process.thread.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1771,9 +1517,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `Target.process.uptime`
+### `Target.process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1785,9 +1529,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1799,9 +1541,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1813,9 +1553,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1827,9 +1565,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1841,9 +1577,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1855,9 +1589,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1869,9 +1601,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1883,9 +1613,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1897,9 +1625,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1911,9 +1637,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1925,9 +1649,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1939,9 +1661,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.code`
+### `event.code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1953,9 +1673,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1967,9 +1685,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1981,9 +1697,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1995,9 +1709,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2009,9 +1721,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2023,9 +1733,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2037,9 +1745,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.risk_score`
+### `event.risk_score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2050,9 +1756,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2063,9 +1767,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.severity`
+### `event.severity`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2077,9 +1779,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2090,9 +1790,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2104,9 +1802,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2117,9 +1813,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2130,9 +1824,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2143,9 +1835,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2157,9 +1847,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2170,9 +1858,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2184,9 +1870,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2198,9 +1882,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2212,9 +1894,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2226,9 +1906,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2240,9 +1918,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2254,9 +1930,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2268,9 +1942,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2282,9 +1954,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2296,9 +1966,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2309,9 +1977,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.architecture`
+### `process.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2323,9 +1989,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2337,9 +2001,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.exists`
+### `process.Ext.dll.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2351,9 +2013,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.status`
+### `process.Ext.dll.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2365,9 +2025,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.subject_name`
+### `process.Ext.dll.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2379,9 +2037,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.trusted`
+### `process.Ext.dll.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2393,9 +2049,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.mapped_address`
+### `process.Ext.dll.Ext.mapped_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2406,9 +2060,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.mapped_size`
+### `process.Ext.dll.Ext.mapped_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2419,9 +2071,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.exists`
+### `process.Ext.dll.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2433,9 +2083,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.status`
+### `process.Ext.dll.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2447,9 +2095,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.subject_name`
+### `process.Ext.dll.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2461,9 +2107,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.trusted`
+### `process.Ext.dll.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2475,9 +2119,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.md5`
+### `process.Ext.dll.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2488,9 +2130,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.sha1`
+### `process.Ext.dll.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2501,9 +2141,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.sha256`
+### `process.Ext.dll.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2514,9 +2152,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.name`
+### `process.Ext.dll.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2528,9 +2164,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.path`
+### `process.Ext.dll.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2542,9 +2176,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2555,9 +2187,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.domain`
+### `process.Ext.token.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2568,9 +2198,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation`
+### `process.Ext.token.elevation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2581,9 +2209,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation_type`
+### `process.Ext.token.elevation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2595,9 +2221,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2609,9 +2233,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.sid`
+### `process.Ext.token.sid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2622,9 +2244,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.user`
+### `process.Ext.token.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2635,9 +2255,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.user`
+### `process.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2648,9 +2266,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args`
+### `process.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2662,9 +2278,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args_count`
+### `process.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2676,9 +2290,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2690,9 +2302,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2704,9 +2314,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2718,9 +2326,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2732,9 +2338,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.md5`
+### `process.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2745,9 +2349,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha1`
+### `process.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2758,9 +2360,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha256`
+### `process.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2771,9 +2371,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2785,9 +2383,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.architecture`
+### `process.parent.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2799,9 +2395,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.exists`
+### `process.parent.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2813,9 +2407,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.status`
+### `process.parent.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2827,9 +2419,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.subject_name`
+### `process.parent.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2841,9 +2431,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.trusted`
+### `process.parent.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2855,9 +2443,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.protection`
+### `process.parent.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2868,9 +2454,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.user`
+### `process.parent.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2881,9 +2465,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args`
+### `process.parent.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2895,9 +2477,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args_count`
+### `process.parent.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2909,9 +2489,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.exists`
+### `process.parent.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2923,9 +2501,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.status`
+### `process.parent.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2937,9 +2513,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.subject_name`
+### `process.parent.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2951,9 +2525,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.trusted`
+### `process.parent.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2965,9 +2537,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.command_line`
+### `process.parent.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2979,9 +2549,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2993,9 +2561,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3007,9 +2573,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.md5`
+### `process.parent.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3020,9 +2584,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha1`
+### `process.parent.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3033,9 +2595,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha256`
+### `process.parent.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3046,9 +2606,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.name`
+### `process.parent.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3060,9 +2618,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.pid`
+### `process.parent.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3074,9 +2630,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.ppid`
+### `process.parent.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3088,9 +2642,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.start`
+### `process.parent.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3102,9 +2654,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.uptime`
+### `process.parent.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3116,9 +2666,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3130,9 +2678,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.ppid`
+### `process.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3144,9 +2690,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.start`
+### `process.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3158,9 +2702,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.instruction_pointer`
+### `process.thread.Ext.call_stack.instruction_pointer`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3171,9 +2713,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.memory_section.memory_address`
+### `process.thread.Ext.call_stack.memory_section.memory_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3184,9 +2724,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.memory_section.memory_size`
+### `process.thread.Ext.call_stack.memory_section.memory_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3197,9 +2735,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.memory_section.protection`
+### `process.thread.Ext.call_stack.memory_section.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3210,9 +2746,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.module_name`
+### `process.thread.Ext.call_stack.module_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3223,9 +2757,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.module_path`
+### `process.thread.Ext.call_stack.module_path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3236,9 +2768,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack.symbol_info`
+### `process.thread.Ext.call_stack.symbol_info`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3249,9 +2779,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack_final_user_module.name`
+### `process.thread.Ext.call_stack_final_user_module.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3263,9 +2791,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.call_stack_summary`
+### `process.thread.Ext.call_stack_summary`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3277,9 +2803,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.start_address`
+### `process.thread.Ext.start_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3291,9 +2815,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.Ext.start_address_module`
+### `process.thread.Ext.start_address_module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3305,9 +2827,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.thread.id`
+### `process.thread.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3319,9 +2839,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.uptime`
+### `process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3333,9 +2851,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.ruleset`
+### `rule.ruleset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3347,9 +2863,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3360,9 +2874,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -3373,6 +2885,4 @@ This alert is generated when a Shellcode Threat alert occurs.
 <br>
 
 </div>
-
-<hr>
 

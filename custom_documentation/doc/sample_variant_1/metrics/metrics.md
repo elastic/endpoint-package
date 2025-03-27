@@ -24,7 +24,9 @@ This is an internal state management document that includes metrics on Endpoint'
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.behavior.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.behavior.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.behavior.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.behavior.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.malware_score.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.malware_score.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.malware_score.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.malware_score.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.memory_signature.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -114,9 +104,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.ransomware.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.ransomware.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -127,9 +115,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.ransomware.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.ransomware.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -140,9 +126,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -153,9 +137,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.reputation_rule.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -166,9 +148,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.shell_code.rtt`
+### `Endpoint.metrics.cloud_services.reputation_lookups.shell_code.rtt`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -179,9 +159,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cloud_services.reputation_lookups.shell_code.timeout_count`
+### `Endpoint.metrics.cloud_services.reputation_lookups.shell_code.timeout_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -192,9 +170,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cpu.endpoint.histogram.counts`
+### `Endpoint.metrics.cpu.endpoint.histogram.counts`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -205,9 +181,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cpu.endpoint.histogram.values`
+### `Endpoint.metrics.cpu.endpoint.histogram.values`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -218,9 +192,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cpu.endpoint.latest`
+### `Endpoint.metrics.cpu.endpoint.latest`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -231,9 +203,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.cpu.endpoint.mean`
+### `Endpoint.metrics.cpu.endpoint.mean`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -244,9 +214,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.device`
+### `Endpoint.metrics.disks.device`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -257,9 +225,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.endpoint_drive`
+### `Endpoint.metrics.disks.endpoint_drive`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -270,9 +236,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.free`
+### `Endpoint.metrics.disks.free`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -283,9 +247,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.fstype`
+### `Endpoint.metrics.disks.fstype`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -296,9 +258,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.mount`
+### `Endpoint.metrics.disks.mount`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -309,9 +269,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.disks.total`
+### `Endpoint.metrics.disks.total`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -322,9 +280,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.alerts.sent_bytes`
+### `Endpoint.metrics.documents_volume.alerts.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -335,9 +291,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.alerts.sent_count`
+### `Endpoint.metrics.documents_volume.alerts.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -348,9 +302,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.alerts.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.alerts.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -361,9 +313,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.alerts.suppressed_count`
+### `Endpoint.metrics.documents_volume.alerts.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -374,9 +324,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.api_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -387,9 +335,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sent_count`
+### `Endpoint.metrics.documents_volume.api_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -400,9 +346,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sources.sent_bytes`
+### `Endpoint.metrics.documents_volume.api_events.sources.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -413,9 +357,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sources.sent_count`
+### `Endpoint.metrics.documents_volume.api_events.sources.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -426,9 +368,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sources.source`
+### `Endpoint.metrics.documents_volume.api_events.sources.source`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -439,9 +379,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.api_events.sources.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -452,9 +390,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.sources.suppressed_count`
+### `Endpoint.metrics.documents_volume.api_events.sources.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -465,9 +401,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.api_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -478,9 +412,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.api_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.api_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -491,9 +423,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.device_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.device_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -504,9 +434,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.device_events.sent_count`
+### `Endpoint.metrics.documents_volume.device_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -517,9 +445,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.device_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.device_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -530,9 +456,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.device_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.device_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -543,9 +467,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes`
+### `Endpoint.metrics.documents_volume.diagnostic_alerts.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -556,9 +478,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count`
+### `Endpoint.metrics.documents_volume.diagnostic_alerts.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -569,9 +489,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -582,9 +500,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_count`
+### `Endpoint.metrics.documents_volume.diagnostic_alerts.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -595,9 +511,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.dns_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.dns_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -608,9 +522,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.dns_events.sent_count`
+### `Endpoint.metrics.documents_volume.dns_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -621,9 +533,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.dns_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.dns_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -634,9 +544,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.dns_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.dns_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -647,9 +555,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.file_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.file_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -660,9 +566,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.file_events.sent_count`
+### `Endpoint.metrics.documents_volume.file_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -673,9 +577,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.file_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.file_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -686,9 +588,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.file_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.file_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -699,9 +599,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.library_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.library_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -712,9 +610,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.library_events.sent_count`
+### `Endpoint.metrics.documents_volume.library_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -725,9 +621,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.library_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.library_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -738,9 +632,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.library_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.library_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -751,9 +643,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.network_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.network_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -764,9 +654,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.network_events.sent_count`
+### `Endpoint.metrics.documents_volume.network_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -777,9 +665,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.network_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.network_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -790,9 +676,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.network_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.network_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -803,9 +687,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.overall.sent_bytes`
+### `Endpoint.metrics.documents_volume.overall.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -816,9 +698,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.overall.sent_count`
+### `Endpoint.metrics.documents_volume.overall.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -829,9 +709,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.overall.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.overall.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -842,9 +720,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.overall.suppressed_count`
+### `Endpoint.metrics.documents_volume.overall.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -855,9 +731,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.process_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.process_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -868,9 +742,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.process_events.sent_count`
+### `Endpoint.metrics.documents_volume.process_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -881,9 +753,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.process_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.process_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -894,9 +764,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.process_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.process_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -907,9 +775,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.registry_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.registry_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -920,9 +786,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.registry_events.sent_count`
+### `Endpoint.metrics.documents_volume.registry_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -933,9 +797,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.registry_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.registry_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -946,9 +808,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.registry_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.registry_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -959,9 +819,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.security_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.security_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -972,9 +830,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.security_events.sent_count`
+### `Endpoint.metrics.documents_volume.security_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -985,9 +841,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.security_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.security_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -998,9 +852,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.security_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.security_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1011,9 +863,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.volume_device_events.sent_bytes`
+### `Endpoint.metrics.documents_volume.volume_device_events.sent_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1024,9 +874,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.volume_device_events.sent_count`
+### `Endpoint.metrics.documents_volume.volume_device_events.sent_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1037,9 +885,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.volume_device_events.suppressed_bytes`
+### `Endpoint.metrics.documents_volume.volume_device_events.suppressed_bytes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1050,9 +896,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.documents_volume.volume_device_events.suppressed_count`
+### `Endpoint.metrics.documents_volume.volume_device_events.suppressed_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1063,9 +907,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.event_filter.active_global_count`
+### `Endpoint.metrics.event_filter.active_global_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1076,9 +918,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.event_filter.active_user_count`
+### `Endpoint.metrics.event_filter.active_user_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1089,9 +929,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent`
+### `Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1102,9 +940,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.malicious_behavior_rules.id`
+### `Endpoint.metrics.malicious_behavior_rules.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1115,9 +951,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.memory.endpoint.private.latest`
+### `Endpoint.metrics.memory.endpoint.private.latest`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1128,9 +962,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.memory.endpoint.private.mean`
+### `Endpoint.metrics.memory.endpoint.private.mean`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1141,9 +973,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.amsi_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.amsi_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1154,9 +984,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.amsi_events.week_ms`
+### `Endpoint.metrics.system_impact.amsi_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1167,9 +995,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1180,9 +1006,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.attack_surface_events.week_ms`
+### `Endpoint.metrics.system_impact.attack_surface_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1193,9 +1017,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.authentication_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.authentication_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1206,9 +1028,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.authentication_events.week_ms`
+### `Endpoint.metrics.system_impact.authentication_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1219,9 +1039,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.behavior_protection.week_idle_ms`
+### `Endpoint.metrics.system_impact.behavior_protection.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1232,9 +1050,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.behavior_protection.week_ms`
+### `Endpoint.metrics.system_impact.behavior_protection.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1245,9 +1061,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.cred_access_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.cred_access_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1258,9 +1072,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.cred_access_events.week_ms`
+### `Endpoint.metrics.system_impact.cred_access_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1271,9 +1083,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms`
+### `Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1284,9 +1094,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms`
+### `Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1297,9 +1105,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.dns_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.dns_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1310,9 +1116,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.dns_events.week_ms`
+### `Endpoint.metrics.system_impact.dns_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1323,9 +1127,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.file_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.file_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1336,9 +1138,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.file_events.week_ms`
+### `Endpoint.metrics.system_impact.file_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1349,9 +1149,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1362,9 +1160,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.kernel_api_events.week_ms`
+### `Endpoint.metrics.system_impact.kernel_api_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1375,9 +1171,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.library_load_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.library_load_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1388,9 +1182,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.library_load_events.week_ms`
+### `Endpoint.metrics.system_impact.library_load_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1401,9 +1193,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.malware.week_idle_ms`
+### `Endpoint.metrics.system_impact.malware.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1414,9 +1204,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.malware.week_ms`
+### `Endpoint.metrics.system_impact.malware.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1427,9 +1215,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.memory_scan.week_idle_ms`
+### `Endpoint.metrics.system_impact.memory_scan.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1440,9 +1226,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.memory_scan.week_ms`
+### `Endpoint.metrics.system_impact.memory_scan.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1453,9 +1237,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.network_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.network_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1466,9 +1248,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.network_events.week_ms`
+### `Endpoint.metrics.system_impact.network_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1479,9 +1259,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.overall.week_idle_ms`
+### `Endpoint.metrics.system_impact.overall.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1492,9 +1270,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.overall.week_ms`
+### `Endpoint.metrics.system_impact.overall.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1505,9 +1281,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.exists`
+### `Endpoint.metrics.system_impact.process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1519,9 +1293,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.signing_id`
+### `Endpoint.metrics.system_impact.process.code_signature.signing_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1533,9 +1305,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.status`
+### `Endpoint.metrics.system_impact.process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1547,9 +1317,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.subject_name`
+### `Endpoint.metrics.system_impact.process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1561,9 +1329,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.team_id`
+### `Endpoint.metrics.system_impact.process.code_signature.team_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1575,9 +1341,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.code_signature.trusted`
+### `Endpoint.metrics.system_impact.process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1589,9 +1353,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process.executable`
+### `Endpoint.metrics.system_impact.process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1602,9 +1364,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.process_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1615,9 +1375,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process_events.week_ms`
+### `Endpoint.metrics.system_impact.process_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1628,9 +1386,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process_injection.week_idle_ms`
+### `Endpoint.metrics.system_impact.process_injection.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1641,9 +1397,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.process_injection.week_ms`
+### `Endpoint.metrics.system_impact.process_injection.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1654,9 +1408,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.ransomware.week_idle_ms`
+### `Endpoint.metrics.system_impact.ransomware.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1667,9 +1419,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.ransomware.week_ms`
+### `Endpoint.metrics.system_impact.ransomware.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1680,9 +1430,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.registry_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.registry_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1693,9 +1441,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.registry_events.week_ms`
+### `Endpoint.metrics.system_impact.registry_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1706,9 +1452,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.tcpip_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.tcpip_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1719,9 +1463,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.tcpip_events.week_ms`
+### `Endpoint.metrics.system_impact.tcpip_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1732,9 +1474,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.threat_intelligence_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1745,9 +1485,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.threat_intelligence_events.week_ms`
+### `Endpoint.metrics.system_impact.threat_intelligence_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1758,9 +1496,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.volume_device_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.volume_device_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1771,9 +1507,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.volume_device_events.week_ms`
+### `Endpoint.metrics.system_impact.volume_device_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1784,9 +1518,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.win32k_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.win32k_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1797,9 +1529,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.win32k_events.week_ms`
+### `Endpoint.metrics.system_impact.win32k_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1810,9 +1540,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.wmi_events.week_idle_ms`
+### `Endpoint.metrics.system_impact.wmi_events.week_idle_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1823,9 +1551,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.system_impact.wmi_events.week_ms`
+### `Endpoint.metrics.system_impact.wmi_events.week_ms`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1836,9 +1562,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.threads.cpu.mean`
+### `Endpoint.metrics.threads.cpu.mean`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1849,9 +1573,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.threads.name`
+### `Endpoint.metrics.threads.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1862,9 +1584,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.event_count`
+### `Endpoint.metrics.top_process_trees.values.event_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1875,9 +1595,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.last_seen`
+### `Endpoint.metrics.top_process_trees.values.last_seen`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1888,9 +1606,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.sample.command_line`
+### `Endpoint.metrics.top_process_trees.values.sample.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1901,9 +1617,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.sample.entity_id`
+### `Endpoint.metrics.top_process_trees.values.sample.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1914,9 +1628,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.sample.executable`
+### `Endpoint.metrics.top_process_trees.values.sample.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1927,9 +1639,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.values.sample.parent_command_line`
+### `Endpoint.metrics.top_process_trees.values.sample.parent_command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1940,9 +1650,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.window_end`
+### `Endpoint.metrics.top_process_trees.window_end`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1953,9 +1661,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.top_process_trees.window_start`
+### `Endpoint.metrics.top_process_trees.window_start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1966,9 +1672,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.uptime.endpoint`
+### `Endpoint.metrics.uptime.endpoint`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1979,9 +1683,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `Endpoint.metrics.uptime.system`
+### `Endpoint.metrics.uptime.system`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1992,9 +1694,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2006,9 +1706,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2020,9 +1718,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2034,9 +1730,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2048,9 +1742,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2062,9 +1754,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2076,9 +1766,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2090,9 +1778,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2104,9 +1790,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2118,9 +1802,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2132,9 +1814,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2146,9 +1826,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2160,9 +1838,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2174,9 +1850,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2188,9 +1862,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2202,9 +1874,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2216,9 +1886,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2229,9 +1897,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2242,9 +1908,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2256,9 +1920,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2269,9 +1931,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2282,9 +1942,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2295,9 +1953,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2309,9 +1965,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2322,9 +1976,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2336,9 +1988,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2350,9 +2000,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2364,9 +2012,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2378,9 +2024,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2392,9 +2036,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2406,9 +2048,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2420,9 +2060,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2434,9 +2072,7 @@ This is an internal state management document that includes metrics on Endpoint'
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2447,6 +2083,4 @@ This is an internal state management document that includes metrics on Endpoint'
 <br>
 
 </div>
-
-<hr>
 

@@ -24,7 +24,9 @@ This alert is generated when a Ransomware alert occurs.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.channel`
+### `Endpoint.policy.applied.artifacts.global.channel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -49,9 +49,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.name`
+### `Endpoint.policy.applied.artifacts.global.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -62,9 +60,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -75,9 +71,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.snapshot`
+### `Endpoint.policy.applied.artifacts.global.snapshot`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -88,9 +82,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.update_age`
+### `Endpoint.policy.applied.artifacts.global.update_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -101,9 +93,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.version`
+### `Endpoint.policy.applied.artifacts.global.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -114,9 +104,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.name`
+### `Endpoint.policy.applied.artifacts.user.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -127,9 +115,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -140,9 +126,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.version`
+### `Endpoint.policy.applied.artifacts.user.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -153,9 +137,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -166,9 +148,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -179,9 +159,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -192,9 +170,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -205,9 +181,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.executable`
+### `Ransomware.child_processes.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -219,9 +193,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.data`
+### `Ransomware.child_processes.files.data`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -232,9 +204,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.entropy`
+### `Ransomware.child_processes.files.entropy`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -245,9 +215,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.extension`
+### `Ransomware.child_processes.files.extension`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -258,9 +226,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.metrics`
+### `Ransomware.child_processes.files.metrics`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -271,9 +237,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.operation`
+### `Ransomware.child_processes.files.operation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -284,9 +248,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.path`
+### `Ransomware.child_processes.files.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -297,9 +259,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.files.score`
+### `Ransomware.child_processes.files.score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -310,9 +270,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.pid`
+### `Ransomware.child_processes.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -324,9 +282,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.child_processes.score`
+### `Ransomware.child_processes.score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -337,9 +293,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.feature`
+### `Ransomware.feature`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -350,9 +304,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.data`
+### `Ransomware.files.data`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -363,9 +315,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.entropy`
+### `Ransomware.files.entropy`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -376,9 +326,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.extension`
+### `Ransomware.files.extension`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -389,9 +337,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.metrics`
+### `Ransomware.files.metrics`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -402,9 +348,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.operation`
+### `Ransomware.files.operation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -415,9 +359,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.path`
+### `Ransomware.files.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -428,9 +370,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.files.score`
+### `Ransomware.files.score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -441,9 +381,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.score`
+### `Ransomware.score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -454,9 +392,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Ransomware.version`
+### `Ransomware.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -467,9 +403,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.@timestamp`
+### `Responses.@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -480,9 +414,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.action`
+### `Responses.action.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -493,9 +425,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.attributes`
+### `Responses.action.file.attributes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -506,9 +436,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.path`
+### `Responses.action.file.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -519,9 +447,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.file.reason`
+### `Responses.action.file.reason`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -532,9 +458,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.actions`
+### `Responses.action.key.actions`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -545,9 +469,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.key.path`
+### `Responses.action.key.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -558,9 +480,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.source.attributes`
+### `Responses.action.source.attributes`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -571,9 +491,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.source.path`
+### `Responses.action.source.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -584,9 +502,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.message`
+### `Responses.message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -597,9 +513,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.result`
+### `Responses.result`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -610,9 +524,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -624,9 +536,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -638,9 +548,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -652,9 +560,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -666,9 +572,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -680,9 +584,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -694,9 +596,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -708,9 +608,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -722,9 +620,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -736,9 +632,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -750,9 +644,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -764,9 +656,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.code`
+### `event.code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -778,9 +668,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -792,9 +680,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -806,9 +692,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -820,9 +704,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -834,9 +716,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -848,9 +728,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -862,9 +740,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.risk_score`
+### `event.risk_score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -875,9 +751,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -888,9 +762,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.severity`
+### `event.severity`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -902,9 +774,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -915,9 +785,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -929,9 +797,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -942,9 +808,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -955,9 +819,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -968,9 +830,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -982,9 +842,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -995,9 +853,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1009,9 +865,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1023,9 +877,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1037,9 +889,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1051,9 +901,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1065,9 +913,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1079,9 +925,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1093,9 +937,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1107,9 +949,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1121,9 +961,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.ancestry`
+### `process.Ext.ancestry`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1134,9 +972,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.architecture`
+### `process.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1148,9 +984,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.exists`
+### `process.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1162,9 +996,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.status`
+### `process.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1176,9 +1008,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.subject_name`
+### `process.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1190,9 +1020,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.code_signature.trusted`
+### `process.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1204,9 +1032,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.exists`
+### `process.Ext.dll.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1218,9 +1044,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.status`
+### `process.Ext.dll.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1232,9 +1056,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.subject_name`
+### `process.Ext.dll.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1246,9 +1068,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.code_signature.trusted`
+### `process.Ext.dll.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1260,9 +1080,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.mapped_address`
+### `process.Ext.dll.Ext.mapped_address`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1273,9 +1091,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.Ext.mapped_size`
+### `process.Ext.dll.Ext.mapped_size`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1286,9 +1102,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.exists`
+### `process.Ext.dll.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1300,9 +1114,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.status`
+### `process.Ext.dll.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1314,9 +1126,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.subject_name`
+### `process.Ext.dll.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1328,9 +1138,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.code_signature.trusted`
+### `process.Ext.dll.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1342,9 +1150,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.md5`
+### `process.Ext.dll.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1355,9 +1161,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.sha1`
+### `process.Ext.dll.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1368,9 +1172,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.hash.sha256`
+### `process.Ext.dll.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1381,9 +1183,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.name`
+### `process.Ext.dll.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1395,9 +1195,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.dll.path`
+### `process.Ext.dll.path`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1409,9 +1207,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.protection`
+### `process.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1422,9 +1218,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.domain`
+### `process.Ext.token.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1435,9 +1229,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation`
+### `process.Ext.token.elevation`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1448,9 +1240,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.elevation_type`
+### `process.Ext.token.elevation_type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1462,9 +1252,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.integrity_level_name`
+### `process.Ext.token.integrity_level_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1476,9 +1264,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.sid`
+### `process.Ext.token.sid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1489,9 +1275,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.token.user`
+### `process.Ext.token.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1502,9 +1286,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.Ext.user`
+### `process.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1515,9 +1297,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args`
+### `process.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1529,9 +1309,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.args_count`
+### `process.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1543,9 +1321,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.exists`
+### `process.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1557,9 +1333,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.status`
+### `process.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1571,9 +1345,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.subject_name`
+### `process.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1585,9 +1357,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.code_signature.trusted`
+### `process.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1599,9 +1369,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.command_line`
+### `process.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1613,9 +1381,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.entity_id`
+### `process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1627,9 +1393,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.executable`
+### `process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1641,9 +1405,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.md5`
+### `process.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1654,9 +1416,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha1`
+### `process.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1667,9 +1427,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.hash.sha256`
+### `process.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1680,9 +1438,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.name`
+### `process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1694,9 +1450,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.architecture`
+### `process.parent.Ext.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1708,9 +1462,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.exists`
+### `process.parent.Ext.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1722,9 +1474,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.status`
+### `process.parent.Ext.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1736,9 +1486,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.subject_name`
+### `process.parent.Ext.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1750,9 +1498,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.code_signature.trusted`
+### `process.parent.Ext.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1764,9 +1510,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.protection`
+### `process.parent.Ext.protection`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1777,9 +1521,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.Ext.user`
+### `process.parent.Ext.user`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1790,9 +1532,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args`
+### `process.parent.args`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1804,9 +1544,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.args_count`
+### `process.parent.args_count`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1818,9 +1556,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.exists`
+### `process.parent.code_signature.exists`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1832,9 +1568,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.status`
+### `process.parent.code_signature.status`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1846,9 +1580,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.subject_name`
+### `process.parent.code_signature.subject_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1860,9 +1592,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.code_signature.trusted`
+### `process.parent.code_signature.trusted`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1874,9 +1604,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.command_line`
+### `process.parent.command_line`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1888,9 +1616,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.entity_id`
+### `process.parent.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1902,9 +1628,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.executable`
+### `process.parent.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1916,9 +1640,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.md5`
+### `process.parent.hash.md5`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1929,9 +1651,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha1`
+### `process.parent.hash.sha1`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1942,9 +1662,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.hash.sha256`
+### `process.parent.hash.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1955,9 +1673,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.name`
+### `process.parent.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1969,9 +1685,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.pid`
+### `process.parent.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1983,9 +1697,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.ppid`
+### `process.parent.ppid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1997,9 +1709,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.start`
+### `process.parent.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2011,9 +1721,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.parent.uptime`
+### `process.parent.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2025,9 +1733,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pe.company`
+### `process.pe.company`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2039,9 +1745,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pe.description`
+### `process.pe.description`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2053,9 +1757,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pe.file_version`
+### `process.pe.file_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2067,9 +1769,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pe.original_file_name`
+### `process.pe.original_file_name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2081,9 +1781,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pe.product`
+### `process.pe.product`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2095,9 +1793,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.pid`
+### `process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2109,9 +1805,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.start`
+### `process.start`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2123,9 +1817,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.uptime`
+### `process.uptime`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2137,9 +1829,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.ruleset`
+### `rule.ruleset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2151,9 +1841,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.domain`
+### `user.domain`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2164,9 +1852,7 @@ This alert is generated when a Ransomware alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -2177,6 +1863,4 @@ This alert is generated when a Ransomware alert occurs.
 <br>
 
 </div>
-
-<hr>
 

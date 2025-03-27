@@ -24,7 +24,9 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 ## Fields
 
-#### `@timestamp`
+<br>
+
+### `@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -36,9 +38,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Effective_process.entity_id`
+### `Effective_process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -50,9 +50,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Effective_process.executable`
+### `Effective_process.executable`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -64,9 +62,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Effective_process.name`
+### `Effective_process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -78,9 +74,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Effective_process.pid`
+### `Effective_process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -92,9 +86,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.channel`
+### `Endpoint.policy.applied.artifacts.global.channel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -105,9 +97,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.name`
+### `Endpoint.policy.applied.artifacts.global.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -118,9 +108,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.global.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -131,9 +119,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.snapshot`
+### `Endpoint.policy.applied.artifacts.global.snapshot`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -144,9 +130,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.update_age`
+### `Endpoint.policy.applied.artifacts.global.update_age`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -157,9 +141,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.global.version`
+### `Endpoint.policy.applied.artifacts.global.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -170,9 +152,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.name`
+### `Endpoint.policy.applied.artifacts.user.identifiers.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -183,9 +163,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
+### `Endpoint.policy.applied.artifacts.user.identifiers.sha256`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -196,9 +174,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.artifacts.user.version`
+### `Endpoint.policy.applied.artifacts.user.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -209,9 +185,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.endpoint_policy_version`
+### `Endpoint.policy.applied.endpoint_policy_version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -222,9 +196,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.id`
+### `Endpoint.policy.applied.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -235,9 +207,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.name`
+### `Endpoint.policy.applied.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -248,9 +218,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Endpoint.policy.applied.version`
+### `Endpoint.policy.applied.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -261,9 +229,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Events.*`
+### `Events.*`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -274,9 +240,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Events._label`
+### `Events._label`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -287,9 +251,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Events._state`
+### `Events._state`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -300,9 +262,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.@timestamp`
+### `Responses.@timestamp`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -313,9 +273,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.action`
+### `Responses.action.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -326,9 +284,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.field`
+### `Responses.action.field`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -339,9 +295,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.state`
+### `Responses.action.state`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -352,9 +306,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.action.tree`
+### `Responses.action.tree`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -365,9 +317,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.message`
+### `Responses.message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -378,9 +328,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.process.entity_id`
+### `Responses.process.entity_id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -391,9 +339,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.process.name`
+### `Responses.process.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -404,9 +350,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.process.pid`
+### `Responses.process.pid`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -417,9 +361,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `Responses.result`
+### `Responses.result`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -430,9 +372,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.build.original`
+### `agent.build.original`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -444,9 +384,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.id`
+### `agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -458,9 +396,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.type`
+### `agent.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -472,9 +408,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `agent.version`
+### `agent.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -486,9 +420,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.dataset`
+### `data_stream.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -500,9 +432,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.namespace`
+### `data_stream.namespace`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -514,9 +444,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `data_stream.type`
+### `data_stream.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -528,9 +456,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `ecs.version`
+### `ecs.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -542,9 +468,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `elastic.agent.id`
+### `elastic.agent.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -556,9 +480,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.action`
+### `event.action`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -570,9 +492,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.category`
+### `event.category`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -584,9 +504,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.code`
+### `event.code`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -598,9 +516,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.created`
+### `event.created`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -612,9 +528,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.dataset`
+### `event.dataset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -626,9 +540,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.id`
+### `event.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -640,9 +552,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.kind`
+### `event.kind`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -654,9 +564,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.module`
+### `event.module`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -668,9 +576,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.outcome`
+### `event.outcome`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -682,9 +588,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.risk_score`
+### `event.risk_score`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -695,9 +599,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.sequence`
+### `event.sequence`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -708,9 +610,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.severity`
+### `event.severity`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -722,9 +622,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `event.type`
+### `event.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -735,9 +633,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `file.*`
+### `file.*`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -748,9 +644,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.id`
+### `group.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -761,9 +655,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `group.Ext.real.name`
+### `group.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -774,9 +666,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `group.id`
+### `group.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -787,9 +677,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `group.name`
+### `group.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -800,9 +688,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.architecture`
+### `host.architecture`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -814,9 +700,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.hostname`
+### `host.hostname`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -827,9 +711,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.id`
+### `host.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -840,9 +722,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.ip`
+### `host.ip`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -853,9 +733,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.mac`
+### `host.mac`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -867,9 +745,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.name`
+### `host.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -880,9 +756,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.Ext.variant`
+### `host.os.Ext.variant`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -894,9 +768,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.family`
+### `host.os.family`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -908,9 +780,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.full`
+### `host.os.full`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -922,9 +792,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.kernel`
+### `host.os.kernel`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -936,9 +804,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.name`
+### `host.os.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -950,9 +816,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.platform`
+### `host.os.platform`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -964,9 +828,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.type`
+### `host.os.type`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -978,9 +840,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `host.os.version`
+### `host.os.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -992,9 +852,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `message`
+### `message`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1006,9 +864,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `process.*`
+### `process.*`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1019,9 +875,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.description`
+### `rule.description`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1033,9 +887,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.id`
+### `rule.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1047,9 +899,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.name`
+### `rule.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1061,9 +911,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.reference`
+### `rule.reference`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1075,9 +923,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.ruleset`
+### `rule.ruleset`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1089,9 +935,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `rule.version`
+### `rule.version`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1103,9 +947,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.framework`
+### `threat.framework`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1117,9 +959,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.tactic.id`
+### `threat.tactic.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1131,9 +971,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.tactic.name`
+### `threat.tactic.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1145,9 +983,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.tactic.reference`
+### `threat.tactic.reference`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1159,9 +995,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.technique.id`
+### `threat.technique.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1173,9 +1007,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.technique.name`
+### `threat.technique.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1187,9 +1019,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.technique.reference`
+### `threat.technique.reference`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1201,9 +1031,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `threat.technique.subtechnique`
+### `threat.technique.subtechnique`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1214,9 +1042,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.id`
+### `user.Ext.real.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1227,9 +1053,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.Ext.real.name`
+### `user.Ext.real.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1240,9 +1064,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.id`
+### `user.id`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1254,9 +1076,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 
 </div>
 
-<hr>
-
-#### `user.name`
+### `user.name`
 
 <div style='margin-left: 20px;'>
 <table>
@@ -1267,6 +1087,4 @@ This alert is generated when a Malicious Behavior alert occurs.
 <br>
 
 </div>
-
-<hr>
 
