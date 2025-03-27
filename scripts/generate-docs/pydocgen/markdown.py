@@ -140,8 +140,8 @@ def generate_custom_documentation_markdown(
                 f.write("</table>\n\n")
 
                 f.write(f"## Fields\n\n")
-                f.write("<table>\n")
-                f.write("<tr><th>Name</th><th>Description</th><th>Example</th></tr>\n")
+                # f.write("<table>\n")
+                # f.write("<tr><th>Name</th><th>Description</th><th>Example</th></tr>\n")
                 for field in custom_doc.fields.endpoint:
                     description = "No Description Found"
                     example = ""
@@ -211,15 +211,23 @@ def generate_custom_documentation_markdown(
                             if package_field.example:
                                 example = package_field.example
 
-                    f.write("<tr>\n")
-                    f.write(f"<td><code>{field}</code></td>\n")
-                    f.write(f"<td>{description}</td>\n")
+                    f.write(f"#### `{field}`\n\n")
+                    f.write("<div style='margin-left: 20px;'>\n")
+                    f.write("<table>\n")
+                    f.write(f"<tr><td>Description</td><td>{description}</td></tr>\n")
                     if example:
-                        f.write(f"<td><code>{example}</code></td>\n")
-                    else:
-                        f.write("<td></td>\n")
-                    f.write("</tr>\n")
+                        f.write(f"<tr><td>Example</td><td><code>{example}</code></td></tr>\n")
+                    f.write("</table>\n\n<br>\n\n")
+                    f.write("</div>\n\n")
+                #     f.write("<tr>\n")
+                #     f.write(f"<td><code>{field}</code></td>\n")
+                #     f.write(f"<td>{description}</td>\n")
+                #     if example:
+                #         f.write(f"<td><code>{example}</code></td>\n")
+                #     else:
+                #         f.write("<td></td>\n")
+                #     f.write("</tr>\n")
 
-                f.write("</table>\n")
+                # f.write("</table>\n")
 
             logging.debug(f"wrote markdown to {output_filename}")
