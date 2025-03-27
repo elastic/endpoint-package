@@ -82,7 +82,7 @@
                 }
             ],
             "created_suspended": true,
-            "initial_desktop_name": "WinSta0\\Default",
+            "desktop_name": "WinSta0\\Default",
             "mitigation_policies": [
                 "Microsoft only, Opt-in to restrict to Microsoft, Windows Store and WHQL",
                 "CET dynamic APIs can only be called out of proc",
