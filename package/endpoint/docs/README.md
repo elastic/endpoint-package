@@ -658,6 +658,7 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
+| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess for the process. | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -687,7 +688,6 @@ sent by the endpoint.
 | process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
-| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess for the process. | keyword |
 | process.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | process.Ext.malware_classification.score | The score produced by the classification model. | double |
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
@@ -2195,6 +2195,7 @@ sent by the endpoint.
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
+| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess for the process. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
@@ -2212,7 +2213,6 @@ sent by the endpoint.
 | process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
 | process.Ext.effective_parent.name | Process name for the effective process. | keyword |
 | process.Ext.effective_parent.pid | Process ID. | long |
-| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess for the process. | keyword |
 | process.Ext.memfd | Object for memfd events. | object |
 | process.Ext.memfd.flag_allow_seal | Allow sealing operations on this file. | boolean |
 | process.Ext.memfd.flag_cloexec | Sets the the close-on-exec flag on the new file descriptor. | boolean |
