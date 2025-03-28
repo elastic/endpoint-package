@@ -44,7 +44,7 @@ This is a relatively small state management document that includes details about
 | host.ip |
 | host.mac |
 | host.name |
-| host.os.Ext.variant <br> **Description**: The product name of the host os<br>**Possible Values**<ul><li>windows: The product name from the registry</li><li>linux: the distribution name (ubuntu, red hat, etc)</li><li>macos: this value is always "macOS"</li>
+| host.os.Ext.variant |
 | host.os.family |
 | host.os.full |
 | host.os.kernel |
