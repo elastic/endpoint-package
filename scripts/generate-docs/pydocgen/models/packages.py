@@ -8,6 +8,11 @@ from typing import List, Optional, Any, Dict, Iterator
 from ..paths import PACKAGES_DIR
 
 
+#
+# See any of the files at package/endpoint/data_stream/*/fields/fields.yaml for examples
+# of the data these models parse
+#
+
 class MultiField(BaseModel):
     """
     fields can have a number of multi_fields

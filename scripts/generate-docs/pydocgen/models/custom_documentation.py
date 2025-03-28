@@ -6,6 +6,10 @@ from typing import List, Optional, Iterator, Dict
 
 from ..paths import CUSTOM_DOCUMENTATION_DIR, DOCUMENTATION_OVERRIDE_PATH
 
+#
+# See any of the files at custom_documentation/src/endpoint/data_stream/*/*.yaml for examples 
+# of the data these models parse
+#
 class Overview(BaseModel):
     """
     Overview of the package

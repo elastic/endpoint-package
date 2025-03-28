@@ -9,6 +9,7 @@ from .models.packages import Package, PackageList
 
 from typing import Optional
 
+
 #
 # These models represent the database tables for mapped fields
 #
@@ -36,6 +37,7 @@ class PackageField(SQLModel, table=True):
     Returns:
         _description_
     """
+
     __tablename__ = "package_fields"
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
@@ -57,7 +59,7 @@ class PackageField(SQLModel, table=True):
 class OverrideField(SQLModel, table=True):
     __tablename__ = "overrides"
     id: Optional[int] = Field(default=None, primary_key=True)
-    description: str
+    description: Optional[str] = None
     example: Optional[str] = None
     type: Optional[str] = None
 
@@ -87,9 +89,7 @@ def populate_overrides(session: Session):
                 session.flush()
 
                 related_record = OverrideRelationship(
-                    name=name,
-                    os=os,
-                    override_id=record.id
+                    name=name, os=os, override_id=record.id
                 )
                 session.add(related_record)
 
@@ -105,9 +105,7 @@ def populate_overrides(session: Session):
                 session.flush()
 
                 related_record = OverrideRelationship(
-                    name=name,
-                    event=event,
-                    override_id=record.id
+                    name=name, event=event, override_id=record.id
                 )
                 session.add(related_record)
 
@@ -121,13 +119,12 @@ def populate_overrides(session: Session):
             session.flush()
 
             related_record = OverrideRelationship(
-                name=name,
-                default=True,
-                override_id=record.id
+                name=name, default=True, override_id=record.id
             )
             session.add(related_record)
 
     session.commit()
+
 
 def populate_packages_fields(session: Session):
     """
@@ -136,6 +133,7 @@ def populate_packages_fields(session: Session):
     Args:
         session: database session
     """
+
     def add_to_db(field: PackageField, session: Session):
         existing_field = session.exec(
             select(PackageField).where(PackageField.name == field.name)
@@ -184,6 +182,11 @@ def populate_packages_fields(session: Session):
 def getDatabase(db_path: pathlib.Path) -> Engine:
     """
     getDatabase creates a database if it does not exist, otherwise it uses the existing database
+
+    This stores the documentation in package/endpoint/data_stream in a lightweight SQLite database.  We will
+    use this when generating markdown documentation for the fields defined in the custom_documentation.
+
+    overrides are also added to the database here.
 
     Args:
         db_path: path to the database

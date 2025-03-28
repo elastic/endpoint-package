@@ -78,6 +78,13 @@ def main():
         help="Set logging verbosity level",
     )
 
+    parser.add_argument(
+        "--csv",
+        type=pathlib.Path,
+        default=None,
+        help="Path to CSV file for missing documentation fields (optional)",
+    )
+
     args = parser.parse_args()
 
     configure_logging(args.log_level, args.verbose)
@@ -88,21 +95,6 @@ def main():
 
     generate_custom_documentation_markdown(args.database, args.output_dir)
     logging.info(f"Generated markdown documentation to {args.output_dir}")
-
-# #
-# # Validate the output directory
-# #
-# if args.output.exists():
-#     raise FileExistsError(
-#         f"output directory {args.output} already exists, please remove it or specify a different directory"
-#     )
-# args.output.mkdir(parents=True)
-
-#
-# Create the PackageList object and dump it to a file
-#
-# package_list = PackageList.from_packages_dir(args.packages_dir)
-
 
 if __name__ == "__main__":
     try:

@@ -1,3 +1,4 @@
+import csv
 import logging
 import pathlib
 from .models import CustomDocumentationList, Filter
@@ -14,8 +15,59 @@ from sqlmodel import (
 from typing import List
 
 
+class MetadataCsvWriter:
+    """
+    This class will write a CSV file that contains fields
+    that are missing either a description or an example. This
+    can be imported into a spreadsheet to track missing documentation
+    """
+
+    def __init__(self, csv_path: pathlib.Path):
+
+        self.csv_path = csv_path
+        self.fields = [
+            "Field Name",
+            "Event Name",
+            "Has Description",
+            "Has Example",
+        ]
+        self.rows = []
+
+    def add_row(
+        self, field_name: str, event_name: str, has_description: bool, has_example: bool
+    ):
+        """
+        add_row adds a row to the CSV output
+
+        Args:
+            name: field name
+            file: source file path
+            has_description: boolean indicating if the field has a description
+            has_example: boolean indicating if the field has an example
+        """
+        self.rows.append(
+            {
+                "Field Name": field_name,
+                "Event Name": event_name,
+                "Has Description": has_description,
+                "Has Example": has_example,
+            }
+        )
+
+    def write_csv(self):
+        """
+        write_csv writes the collected rows to a CSV file
+        """
+        logging.debug(f"Generating CSV output at {self.csv_path}")
+        with self.csv_path.open("w", newline="") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fields)
+            writer.writeheader()
+            for row in self.rows:
+                writer.writerow(row)
+
+
 def generate_custom_documentation_markdown(
-    db_path: pathlib.Path, output_dir: pathlib.Path
+    db_path: pathlib.Path, output_dir: pathlib.Path, csv_path: pathlib.Path = None
 ):
     """
     Generate markdown files for custom documentation
@@ -105,6 +157,10 @@ def generate_custom_documentation_markdown(
     # Get the custom documentation
     custom_docs = CustomDocumentationList.from_files()
 
+    csv_writer = None
+    if csv_path:
+        csv_writer = MetadataCsvWriter()
+
     # Generate markdown for each custom document
     with Session(engine) as session:
         for custom_doc in custom_docs:
@@ -140,12 +196,26 @@ def generate_custom_documentation_markdown(
                 f.write("</table>\n\n")
 
                 f.write(f"## Fields\n\n")
-                # f.write("<table>\n")
-                # f.write("<tr><th>Name</th><th>Description</th><th>Example</th></tr>\n")
                 for field in custom_doc.fields.endpoint:
-                    description = "No Description Found"
-                    example = ""
+                    description = None
+                    example = None
                     event_name = custom_doc.filepath.stem
+
+                    #
+                    # Look for the description and example from mapped values (packages directory)
+                    #
+                    package_field = session.exec(
+                        select(PackageField).where(PackageField.name == field)
+                    ).first()
+                    if package_field:
+                        #
+                        # The package field description may contain newlines, so we replace them with spaces
+                        #
+                        description = package_field.description.replace(
+                            "\n", "  "
+                        ).replace("\r", "  ")
+                        if package_field.example:
+                            example = package_field.example
 
                     #
                     # This query will look for an override for the field in the following order:
@@ -155,7 +225,7 @@ def generate_custom_documentation_markdown(
                     #
                     # If no override is found, the package field description will be used
                     #
-                    override = session.exec(
+                    override_meta = session.exec(
                         select(OverrideRelationship)
                         .where(
                             and_(
@@ -187,47 +257,44 @@ def generate_custom_documentation_markdown(
                         )
                     ).first()
 
-                    if override:
-                        description = override.override.description
-                        if override.override.example:
-                            example = override.override.example
-                        logging.debug(
-                            f"Found override for field {field} in {event_name}"
+                    if override_meta:
+                        override = override_meta.override
+                        if override.description:
+                            description = override.description
+                            logging.debug(
+                                f"Found description override for field {field} in {event_name}"
+                            )
+                        if override.example:
+                            example = override.example
+                            logging.debug(
+                                f"Found example override for field {field} in {event_name}"
+                            )
+
+                    if csv_writer and (not description or not example):
+                        csv_writer.add_row(
+                            field_name=field,
+                            event_name=event_name,
+                            has_description=bool(description),
+                            has_example=bool(example),
                         )
-                    else:
-                        #
-                        # If no override is found, use the package field description
-                        #
-                        package_field = session.exec(
-                            select(PackageField).where(PackageField.name == field)
-                        ).first()
-                        if package_field:
-                            #
-                            # The package field description may contain newlines, so we replace them with spaces
-                            #
-                            description = package_field.description.replace(
-                                "\n", "  "
-                            ).replace("\r", "  ")
-                            if package_field.example:
-                                example = package_field.example
+
+                    description = (
+                        description if description else "No description available"
+                    )
+                    example = example if example else None
 
                     f.write(f"#### `{field}`\n\n")
                     f.write("<div style='margin-left: 20px;'>\n")
                     f.write("<table>\n")
                     f.write(f"<tr><td>Description</td><td>{description}</td></tr>\n")
                     if example:
-                        f.write(f"<tr><td>Example</td><td><code>{example}</code></td></tr>\n")
+                        f.write(
+                            f"<tr><td>Example</td><td><code>{example}</code></td></tr>\n"
+                        )
                     f.write("</table>\n\n<br>\n\n")
                     f.write("</div>\n\n")
-                #     f.write("<tr>\n")
-                #     f.write(f"<td><code>{field}</code></td>\n")
-                #     f.write(f"<td>{description}</td>\n")
-                #     if example:
-                #         f.write(f"<td><code>{example}</code></td>\n")
-                #     else:
-                #         f.write("<td></td>\n")
-                #     f.write("</tr>\n")
-
-                # f.write("</table>\n")
 
             logging.debug(f"wrote markdown to {output_filename}")
+
+        if csv_writer:
+            csv_writer.write_csv()

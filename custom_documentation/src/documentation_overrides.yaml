@@ -16,3 +16,7 @@
       linux_malicious_behavior_alert:
         description: The channel of the artifact for linux malicious behavior alert.
         example: stable
+- name: agent.type
+  overrides:
+    default:
+      example: endpoint
