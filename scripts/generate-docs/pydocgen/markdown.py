@@ -275,30 +275,23 @@ def generate_custom_documentation_markdown(
                             has_example=bool(meta["ecs"]["example"]),
                         )
 
-                    f.write(f"### `{field}`\n\n")
-                    if not any ([
-                        meta["ecs"]["description"],
-                        meta["ecs"]["example"],
-                        meta["endpoint"]["description"],
-                        meta["endpoint"]["example"],
-                    ]):
-                        f.write("<ul>No description or example found</ul>\n\n")
-                        continue
-
-                    f.write("<ul>\n\n")
+                    f.write(f"#### `{field}`\n\n")
+                    f.write("<table>\n")
                     if meta["ecs"]["description"]:
-                        f.write("#### Description\n\n")
-                        f.write(f"<ul>{meta['ecs']['description']}</ul>\n\n")
-                    if meta["ecs"]["example"]:
-                        f.write("#### Example\n\n")
-                        f.write(f"<ul><code>{meta['ecs']['example']}</code></ul>\n\n")
+                        f.write(f"<tr><td><strong>Description</strong></td><td>{meta['ecs']['description']}</td></tr>\n")
                     if meta["endpoint"]["description"]:
-                        f.write("#### Endpoint Description\n\n")
-                        f.write(f"<ul>{meta['endpoint']['description']}</ul>\n\n")
+                        f.write(
+                            f"<tr><td><strong>Endpoint Description</strong></td><td>{meta['endpoint']['description']}</td></tr>\n"
+                        )
                     if meta["endpoint"]["example"]:
-                        f.write("#### Endpoint Example\n\n")
-                        f.write(f"<ul><code>{meta['endpoint']['example']}</code></ul>\n\n")
-                    f.write("</ul>\n\n")
+                        f.write(
+                            f"<tr><td><strong>ECS Example</strong></td><td><code>{meta['endpoint']['example']}</code></td></tr>\n"
+                        )
+                    elif meta["ecs"]["example"]:
+                        f.write(
+                            f"<tr><td><strong>Endpoint Example</strong></td><td><code>{meta['ecs']['example']}</code></td></tr>\n"
+                        )
+                    f.write("</table>\n\n")
 
             logging.debug(f"wrote markdown to {output_filename}")
 
