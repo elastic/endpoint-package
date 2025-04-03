@@ -197,8 +197,16 @@ def generate_custom_documentation_markdown(
 
                 f.write(f"## Fields\n\n")
                 for field in custom_doc.fields.endpoint:
-                    description = None
-                    example = None
+                    meta = {
+                        "ecs": {
+                            "description": None,
+                            "example": None,
+                        },
+                        "endpoint": {
+                            "description": None,
+                            "example": None,
+                        },
+                    }
                     event_name = custom_doc.filepath.stem
 
                     #
@@ -211,11 +219,9 @@ def generate_custom_documentation_markdown(
                         #
                         # The package field description may contain newlines, so we replace them with spaces
                         #
-                        description = package_field.description.replace(
-                            "\n", "  "
-                        ).replace("\r", "  ")
-                        if package_field.example:
-                            example = package_field.example
+                        meta["ecs"]["description"] = package_field.description.replace(
+                            "\n", "  ").replace("\r", "  ")
+                        meta["ecs"]["example"] = package_field.example
 
                     #
                     # This query will look for an override for the field in the following order:
@@ -258,41 +264,38 @@ def generate_custom_documentation_markdown(
                     ).first()
 
                     if override_meta:
-                        override = override_meta.override
-                        if override.description:
-                            description = override.description
-                            logging.debug(
-                                f"Found description override for field {field} in {event_name}"
-                            )
-                        if override.example:
-                            example = override.example
-                            logging.debug(
-                                f"Found example override for field {field} in {event_name}"
-                            )
+                        meta["endpoint"]["description"] = override_meta.override.description
+                        meta["endpoint"]["example"] = override_meta.override.example
 
-                    if csv_writer and (not description or not example):
+                    if csv_writer and (not meta["ecs"]["description"] or not meta["ecs"]["example"]):
                         csv_writer.add_row(
                             field_name=field,
                             event_name=event_name,
-                            has_description=bool(description),
-                            has_example=bool(example),
+                            has_description=bool(meta["ecs"]["description"]),
+                            has_example=bool(meta["ecs"]["example"]),
                         )
 
-                    description = (
-                        description if description else "No description available"
-                    )
-                    example = example if example else None
-
-                    f.write(f"#### `{field}`\n\n")
-                    f.write("<div style='margin-left: 20px;'>\n")
+                    f.write(f"<details>\n")
+                    f.write(f"<summary><strong><code>{field}</code></strong></summary>\n\n")
+                    f.write(f"<p>\n")
                     f.write("<table>\n")
-                    f.write(f"<tr><td>Description</td><td>{description}</td></tr>\n")
-                    if example:
+                    if meta["ecs"]["description"]:
+                        f.write(f"<tr><td><strong>Description</strong></td><td>{meta['ecs']['description']}</td></tr>\n")
+                    if meta["endpoint"]["description"]:
                         f.write(
-                            f"<tr><td>Example</td><td><code>{example}</code></td></tr>\n"
+                            f"<tr><td>Endpoint use</td><td>{meta['endpoint']['description']}</td></tr>\n"
                         )
-                    f.write("</table>\n\n<br>\n\n")
-                    f.write("</div>\n\n")
+                    if meta["endpoint"]["example"]:
+                        f.write(
+                            f"<tr><td>Example</td><td><code>{meta['endpoint']['example']}</code></td></tr>\n"
+                        )
+                    elif meta["ecs"]["example"]:
+                        f.write(
+                            f"<tr><td>Example</td><td><code>{meta['ecs']['example']}</code></td></tr>\n"
+                        )
+                    f.write("</table>\n\n")
+                    f.write(f"</p>\n")
+                    f.write(f"</details>\n\n")
 
             logging.debug(f"wrote markdown to {output_filename}")
 

@@ -79,6 +79,12 @@ def main():
     )
 
     parser.add_argument(
+        "--overrides",
+        type=pathlib.Path,
+        default=pathlib.Path.cwd().resolve() / "custom_documentation" / "src" / "documentation_overrides.yaml",
+    )
+
+    parser.add_argument(
         "--csv",
         type=pathlib.Path,
         default=None,

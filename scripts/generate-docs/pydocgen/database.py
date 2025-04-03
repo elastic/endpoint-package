@@ -76,6 +76,7 @@ class OverrideRelationship(SQLModel, table=True):
 
 
 def populate_overrides(session: Session):
+    print("Populating overrides")
     dom = DocumentationOverrideMap.from_yaml()
     for name, mapping in dom.items():
         if mapping.os:

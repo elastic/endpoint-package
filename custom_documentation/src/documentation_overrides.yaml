@@ -1,22 +1,20 @@
 - name: Endpoint.policy.applied.artifacts.global.channel
-  overrides:
-    default:
-      description: The channel of the artifact.
-      example: default example
-      type: keyword
-    os:
-      linux:
-        description: The channel of the linux artifact.
-        example: stable
-      windows:
-        description: The channel of the windows artifact.
-      macos:
-        description: The channel of the macos artifact.
-    event:
-      linux_malicious_behavior_alert:
-        description: The channel of the artifact for linux malicious behavior alert.
-        example: stable
+  default:
+    description: The channel of the artifact.
+    example: default example
+    type: keyword
+  os:
+    linux:
+      description: The channel of the linux artifact.
+      example: stable
+    windows:
+      description: The channel of the windows artifact.
+    macos:
+      description: The channel of the macos artifact.
+  event:
+    linux_malicious_behavior_alert:
+      description: The channel of the artifact for linux malicious behavior alert.
+      example: stable
 - name: agent.type
-  overrides:
-    default:
-      example: endpoint
+  default:
+    example: endpoint
