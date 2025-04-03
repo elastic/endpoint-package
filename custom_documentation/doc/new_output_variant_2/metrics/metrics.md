@@ -45,7 +45,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -53,7 +53,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -61,7 +61,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -69,7 +69,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -77,7 +77,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -85,7 +85,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -93,7 +93,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -101,7 +101,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -109,7 +109,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -117,7 +117,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -125,7 +125,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -133,7 +133,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -141,7 +141,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -149,7 +149,7 @@ Date/time when the event originated.  This is the date/time extracted from the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -409,7 +409,7 @@ Number of suppressed API Event documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -417,7 +417,7 @@ Number of suppressed API Event documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -425,7 +425,7 @@ Number of suppressed API Event documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -433,7 +433,7 @@ Number of suppressed API Event documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -873,7 +873,7 @@ Number of suppressed documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -881,7 +881,7 @@ Number of suppressed documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -889,7 +889,7 @@ Number of suppressed documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -897,7 +897,7 @@ Number of suppressed documents
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -977,7 +977,7 @@ Average memory usage by the endpoint since its start
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -985,7 +985,7 @@ Average memory usage by the endpoint since its start
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -993,7 +993,7 @@ Average memory usage by the endpoint since its start
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1001,7 +1001,7 @@ Average memory usage by the endpoint since its start
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1033,7 +1033,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1041,7 +1041,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1049,7 +1049,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1057,7 +1057,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1065,7 +1065,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1073,7 +1073,7 @@ The total milliseconds spent on authentication events for the process over the l
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1129,7 +1129,7 @@ The total milliseconds spent on file events for the process over the last week
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1137,7 +1137,7 @@ The total milliseconds spent on file events for the process over the last week
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1193,7 +1193,7 @@ The total milliseconds spent on malware scanning due to the process over the las
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1201,7 +1201,7 @@ The total milliseconds spent on malware scanning due to the process over the las
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1389,7 +1389,7 @@ The total milliseconds spent on process events for the process over the last wee
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1397,7 +1397,7 @@ The total milliseconds spent on process events for the process over the last wee
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1405,7 +1405,7 @@ The total milliseconds spent on process events for the process over the last wee
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1413,7 +1413,7 @@ The total milliseconds spent on process events for the process over the last wee
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1445,7 +1445,7 @@ The total milliseconds spent on registry events for the process over the last we
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1453,7 +1453,7 @@ The total milliseconds spent on registry events for the process over the last we
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1485,7 +1485,7 @@ The total milliseconds spent on ETW Threat-Intelligence events for the process o
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1493,7 +1493,7 @@ The total milliseconds spent on ETW Threat-Intelligence events for the process o
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1525,7 +1525,7 @@ The total milliseconds spent on ETW Win32k events (currently, only keylogging ev
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1533,7 +1533,7 @@ The total milliseconds spent on ETW Win32k events (currently, only keylogging ev
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1565,7 +1565,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1573,7 +1573,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1581,7 +1581,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1589,7 +1589,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1597,7 +1597,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1605,7 +1605,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1613,7 +1613,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1621,7 +1621,7 @@ The thread name
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

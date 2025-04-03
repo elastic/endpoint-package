@@ -473,7 +473,7 @@ the overall status of ransomware, this is correlated to the status of concerned 
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -481,7 +481,7 @@ the overall status of ransomware, this is correlated to the status of concerned 
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -645,7 +645,7 @@ Current network isolation state of the host
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

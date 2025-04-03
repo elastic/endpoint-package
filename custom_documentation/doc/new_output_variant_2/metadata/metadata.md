@@ -141,7 +141,7 @@ Current network isolation state of the host
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

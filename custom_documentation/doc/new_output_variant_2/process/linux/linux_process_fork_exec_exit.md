@@ -925,7 +925,7 @@ Full command line that started the process, including the absolute path to the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1881,7 +1881,7 @@ Full command line that started the process, including the absolute path to the e
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

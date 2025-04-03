@@ -205,7 +205,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -213,7 +213,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -221,7 +221,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -457,7 +457,7 @@ Response action result code
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -605,7 +605,7 @@ Port of the destination.
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -841,7 +841,7 @@ This is one of four ECS Categorization Fields, and indicates the third level in 
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1105,7 +1105,7 @@ In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc  T
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1113,7 +1113,7 @@ In the OSI Model this would be the Network Layer. ipv4, ipv6, ipsec, pim, etc  T
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

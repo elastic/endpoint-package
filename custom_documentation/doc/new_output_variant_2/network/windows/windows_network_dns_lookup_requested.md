@@ -605,7 +605,7 @@ For log events the message field contains the log message, optimized for viewing
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>

@@ -269,7 +269,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -277,7 +277,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -285,7 +285,7 @@ the version of this applied policy
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -757,7 +757,7 @@ This is one of four ECS Categorization Fields, and indicates the third level in 
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1037,7 +1037,7 @@ For log events the message field contains the log message, optimized for viewing
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
@@ -1253,7 +1253,7 @@ The reference url of technique used by this threat. You can use a MITRE ATT&CK®
 
 <ul>
 
-</ul>
+No description or example available
 </details>
 
 <details>
