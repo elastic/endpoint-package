@@ -1,3 +1,4 @@
+import json
 import logging
 import pathlib
 import yaml
@@ -7,7 +8,7 @@ from typing import List, Optional, Iterator, Dict
 from ..paths import CUSTOM_DOCUMENTATION_DIR, DOCUMENTATION_OVERRIDE_PATH
 
 #
-# See any of the files at custom_documentation/src/endpoint/data_stream/*/*.yaml for examples 
+# See any of the files at custom_documentation/src/endpoint/data_stream/*/*.yaml for examples
 # of the data these models parse
 #
 class Overview(BaseModel):
@@ -175,6 +176,7 @@ class DocumentationOverrideMap(BaseModel):
         cls, yaml_path: pathlib.Path = DOCUMENTATION_OVERRIDE_PATH
     ) -> "DocumentationOverrideMap":
         logging.debug(f"Reading documentation overrides from {yaml_path}")
+        print(f"Reading documentation overrides from {yaml_path}")
         if not yaml_path.exists():
             raise FileNotFoundError(f"Documentation override file {yaml_path} does not exist")
         doc_overrides = cls()

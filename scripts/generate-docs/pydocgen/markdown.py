@@ -159,7 +159,7 @@ def generate_custom_documentation_markdown(
 
     csv_writer = None
     if csv_path:
-        csv_writer = MetadataCsvWriter()
+        csv_writer = MetadataCsvWriter(csv_path)
 
     # Generate markdown for each custom document
     with Session(engine) as session:

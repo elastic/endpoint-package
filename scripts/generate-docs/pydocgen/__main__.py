@@ -99,7 +99,7 @@ def main():
         logging.info(f"Removing existing database {args.database} since --no-cache was specified")
         args.database.unlink()
 
-    generate_custom_documentation_markdown(args.database, args.output_dir)
+    generate_custom_documentation_markdown(args.database, args.output_dir, args.csv)
     logging.info(f"Generated markdown documentation to {args.output_dir}")
 
 if __name__ == "__main__":
