@@ -275,21 +275,37 @@ def generate_custom_documentation_markdown(
                             has_example=bool(meta["ecs"]["example"]),
                         )
 
-
+                    if "._" in field or ".*" in field:
+                        logging.info(
+                            f"Skipping field {field} because it is a wildcard or special field"
+                        )
+                        continue
 
                     f.write(f"### `{field}`\n\n")
+
+                    if not any([
+                        meta["ecs"]["description"],
+                        meta["endpoint"]["description"],
+                        meta["endpoint"]["example"],
+                        meta["ecs"]["example"],
+                    ]):
+                        f.write("No description or example found\n\n")
+                        f.write("<br>\n\n")
+                        continue
+
                     if meta["ecs"]["description"]:
-                        f.write("**Description**\n\n")
+                        f.write("**ECS Description**\n\n")
                         f.write(f">{meta['ecs']['description']}\n\n")
                     if meta["endpoint"]["description"]:
-                        f.write("**Endpoint Description**\n\n")
+                        f.write("**Extended Description**\n\n")
                         f.write(f"> {meta['endpoint']['description']}\n\n")
-                    if meta["endpoint"]["example"]:
-                        f.write("(**Example**\n\n")
-                        f.write(f">{meta['endpoint']['example']}\n\n")
-                    elif meta["ecs"]["example"]:
-                        f.write("**Example**\n\n")
+                    if meta["ecs"]["example"]:
+                        f.write("**ECS Example**\n\n")
                         f.write(f">{meta['ecs']['example']}\n\n")
+                    if meta["endpoint"]["example"]:
+                        f.write("**Endpoint Example**\n\n")
+                        f.write(f">{meta['endpoint']['example']}\n\n")
+                    f.write("<br>\n\n")
 
                     # f.write("<table>\n")
                     # if meta["ecs"]["description"]:
