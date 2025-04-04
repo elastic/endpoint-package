@@ -307,23 +307,6 @@ def generate_custom_documentation_markdown(
                         f.write(f">{meta['ecs']['example']}\n\n")
                     f.write("<br>\n\n")
 
-                    # f.write("<table>\n")
-                    # if meta["ecs"]["description"]:
-                    #     f.write(f"<tr><td><strong>Description</strong></td><td>{meta['ecs']['description']}</td></tr>\n")
-                    # if meta["endpoint"]["description"]:
-                    #     f.write(
-                    #         f"<tr><td><strong>Endpoint Description</strong></td><td>{meta['endpoint']['description']}</td></tr>\n"
-                    #     )
-                    # if meta["endpoint"]["example"]:
-                    #     f.write(
-                    #         f"<tr><td><strong>ECS Example</strong></td><td><code>{meta['endpoint']['example']}</code></td></tr>\n"
-                    #     )
-                    # elif meta["ecs"]["example"]:
-                    #     f.write(
-                    #         f"<tr><td><strong>Endpoint Example</strong></td><td><code>{meta['ecs']['example']}</code></td></tr>\n"
-                    #     )
-                    # f.write("</table>\n\n")
-
             logging.debug(f"wrote markdown to {output_filename}")
 
         if csv_writer:
