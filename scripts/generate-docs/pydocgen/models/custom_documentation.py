@@ -175,9 +175,11 @@ class DocumentationOverrideMap(BaseModel):
         cls, yaml_path: pathlib.Path = DOCUMENTATION_OVERRIDE_PATH
     ) -> "DocumentationOverrideMap":
         logging.debug(f"Reading documentation overrides from {yaml_path}")
+        if not yaml_path.exists():
+            raise FileNotFoundError(f"Documentation override file {yaml_path} does not exist")
         doc_overrides = cls()
         with yaml_path.open("r") as f:
             data = yaml.safe_load(f)
             for item in data:
-                doc_overrides.append(item["name"], OverrideMapping(**item["overrides"]))
+                doc_overrides.append(item["name"], OverrideMapping(**item))
         return doc_overrides
