@@ -510,6 +510,18 @@ process.Ext.api.parameters:
   original_fieldset: api
   short: Parameter values passed to the API call.
   type: object
+process.Ext.api.parameters.app_name:
+  dashed_name: process-Ext-api-parameters-app-name
+  description: The application name requesting the AMSI scan.
+  example: PowerShell
+  flat_name: process.Ext.api.parameters.app_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.app_name
+  normalize: []
+  original_fieldset: api
+  short: The application name requesting the AMSI scan.
+  type: keyword
 process.Ext.api.parameters.content_name:
   dashed_name: process-Ext-api-parameters-content-name
   description: The content name, typically a filename, associated with an AMSI scan.
