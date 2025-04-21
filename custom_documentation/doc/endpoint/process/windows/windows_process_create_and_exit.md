@@ -78,6 +78,7 @@ This event is generated when a process is created or exits.
 | process.Ext.token.security_attributes |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
+| process.Ext.windows.zone_identifier |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |

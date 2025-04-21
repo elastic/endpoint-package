@@ -62,6 +62,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.token.elevation_level |
 | process.Ext.token.integrity_level_name |
 | process.Ext.token.security_attributes |
+| process.Ext.windows.zone_identifier |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
