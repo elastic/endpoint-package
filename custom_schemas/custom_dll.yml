@@ -208,6 +208,7 @@
     - name: Ext.windows.zone_identifier
       level: custom
       type: keyword
+      example: 3
       description: >
         Windows zone identifier for a DLL's executable file
 
