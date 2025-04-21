@@ -1957,6 +1957,26 @@ process.Ext.trusted_descendant:
   normalize: []
   short: Whether or not the process is a descendent of a trusted application
   type: boolean
+process.Ext.windows:
+  dashed_name: process-Ext-windows
+  description: Platform-specific Windows fields
+  flat_name: process.Ext.windows
+  level: custom
+  name: Ext.windows
+  normalize: []
+  short: Platform-specific Windows fields
+  type: object
+process.Ext.windows.zone_identifier:
+  dashed_name: process-Ext-windows-zone-identifier
+  description: Windows zone identifier for a process's executable file
+  example: 3
+  flat_name: process.Ext.windows.zone_identifier
+  ignore_above: 1024
+  level: custom
+  name: Ext.windows.zone_identifier
+  normalize: []
+  short: Windows zone identifier for a process's executable file
+  type: keyword
 process.args:
   dashed_name: process-args
   description: 'Array of process arguments, starting with the absolute path to the
