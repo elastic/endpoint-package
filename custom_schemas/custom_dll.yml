@@ -200,6 +200,17 @@
         NTFS
         UDF
 
+    - name: Ext.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+
+    - name: Ext.windows.zone_identifier
+      level: custom
+      type: keyword
+      description: >
+        Windows zone identifier for a DLL's executable file
+
     - name: code_signature.exists
       level: core
       type: boolean
