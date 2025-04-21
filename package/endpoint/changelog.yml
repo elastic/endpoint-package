@@ -3,6 +3,11 @@
     - description: TBD
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/99999
+- version: "9.0.1"
+  changes:
+    - description: 'Change the size of region_start_bytes + add the field to the alert data stream'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/591
 - version: "9.0.0"
   changes:
     - description: '[macOS] Security events'
@@ -11,6 +16,11 @@
     - description: add fleet unenrolled audit fields
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/579
+- version: "8.18.1"
+  changes:
+    - description: 'Change the size of region_start_bytes + add the field to the alert data stream'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/591
 - version: "8.18.0"
   changes:
     - description: update version constraint to be upgradable to 9.0, bump pre
