@@ -228,6 +228,9 @@ fields:
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
           size: {}
+          windows:
+           fields:
+             zone_identifier: {}
   Effective_process:
     fields:
       pid: {}

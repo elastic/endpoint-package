@@ -230,6 +230,9 @@ fields:
              vendor_id: {}
              volume_device_type: {}
              file_system_type: {}
+          windows:
+            fields:
+             zone_identifier: {}
       parent:
         fields:
           args: {}
