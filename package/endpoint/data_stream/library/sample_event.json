@@ -63,7 +63,10 @@
             "load_index": 1,
             "relative_file_creation_time": 48628704.4029488,
             "relative_file_name_modify_time": 48628704.4029488,
-            "size": 65536
+            "size": 65536,
+            "windows": {
+              "zone_identifier": 3
+            }
         },
         "path": "C:\\Windows\\System32\\msxml3.dll",
         "code_signature": {
