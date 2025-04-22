@@ -1779,6 +1779,8 @@ sent by the endpoint.
 | dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.size | Size of DLL | unsigned_long |
+| dll.Ext.windows | Platform-specific Windows fields | object |
+| dll.Ext.windows.zone_identifier | Windows zone identifier for a DLL's executable file | keyword |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2245,6 +2247,8 @@ sent by the endpoint.
 | process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
+| process.Ext.windows | Platform-specific Windows fields | object |
+| process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
