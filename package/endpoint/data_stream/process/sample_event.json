@@ -119,6 +119,9 @@
                     "LOGON_NTLMV2_ENABLED",
                     "LOGON_WINLOGON"
                 ]
+            },
+            "windows": {
+                "zone_identifier": 3
             }
         },
         "parent": {

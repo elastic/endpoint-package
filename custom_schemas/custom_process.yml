@@ -783,6 +783,18 @@
       description: >
         Whether or not the process is a descendent of a trusted application
 
+    - name: Ext.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+
+    - name: Ext.windows.zone_identifier
+      level: custom
+      type: keyword
+      example: 3
+      description: >
+        Windows zone identifier for a process's executable file
+
     - name: code_signature.exists
       level: core
       type: boolean

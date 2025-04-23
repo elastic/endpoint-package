@@ -494,6 +494,26 @@ dll.Ext.size:
   normalize: []
   short: Size of DLL
   type: unsigned_long
+dll.Ext.windows:
+  dashed_name: dll-Ext-windows
+  description: Platform-specific Windows fields
+  flat_name: dll.Ext.windows
+  level: custom
+  name: Ext.windows
+  normalize: []
+  short: Platform-specific Windows fields
+  type: object
+dll.Ext.windows.zone_identifier:
+  dashed_name: dll-Ext-windows-zone-identifier
+  description: Windows zone identifier for a DLL's executable file
+  example: 3
+  flat_name: dll.Ext.windows.zone_identifier
+  ignore_above: 1024
+  level: custom
+  name: Ext.windows.zone_identifier
+  normalize: []
+  short: Windows zone identifier for a DLL's executable file
+  type: keyword
 dll.code_signature.exists:
   dashed_name: dll-code-signature-exists
   description: Boolean to capture if a signature is present.
