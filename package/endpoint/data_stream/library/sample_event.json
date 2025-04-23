@@ -81,6 +81,8 @@
             "original_file_name": "MSXML3.dll"
         },
         "name": "msxml3.dll",
+        "origin_referrer_url": "http://example.com/article1.html",
+        "origin_url": "http://example.com/files/example.dll",
         "hash": {
             "sha1": "02488fb2dbf679a3282338178b451da635b79b54",
             "sha256": "a9698adcf789d9e30f37dd5e6c9be0441bc37662ba7402e85071ccec2135d36c",

@@ -204,6 +204,8 @@ fields:
           imphash: {}
           original_file_name: {}
           product: {}
+      origin_referrer_url: {}
+      origin_url: {}
       Ext:
         fields:
           code_signature:

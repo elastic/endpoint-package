@@ -151,6 +151,8 @@ fields:
       title: {}
       uptime: {}
       working_directory: {}
+      origin_referrer_url: {}
+      origin_url: {}
       Ext:
         fields:
           ancestry: {}

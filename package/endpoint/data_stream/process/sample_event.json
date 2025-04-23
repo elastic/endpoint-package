@@ -169,6 +169,8 @@
             "original_file_name": "svchost.exe"
         },
         "name": "svchost.exe",
+        "origin_referrer_url": "http://example.com/article1.html",
+        "origin_url": "http://example.com/files/example.exe",
         "args_count": 3,
         "command_line": "C:\\Windows\\System32\\svchost.exe -k WerSvcGroup",
         "hash": {

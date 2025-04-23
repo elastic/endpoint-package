@@ -94,6 +94,8 @@ This event is generated when a process is created or exits.
 | process.hash.sha1 |
 | process.hash.sha256 |
 | process.name |
+| process.origin_referrer_url |
+| process.origin_url |
 | process.parent.Ext.code_signature.exists |
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |
