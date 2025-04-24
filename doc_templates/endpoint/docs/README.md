@@ -1,3 +1,8 @@
+
+⚠️ **Critical issue notice:** Creation of a new Defend integration policy instance in versions v8.16.x, v8.17.x, v8.18.0, and v9.0.0 can result in the loss of exceptions and actions tied to prebuilt rules. [Please review the known issue and workarounds.](https://ela.st/releasenotes)
+
+---
+
 # Elastic Defend Integration
 
 Elastic Defend provides organizations with prevention, detection, and response capabilities with deep visibility for EPP, EDR, SIEM, and Security Analytics use cases across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
