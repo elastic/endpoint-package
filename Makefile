@@ -85,7 +85,7 @@ $(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)
 # how to generate the schema files
 schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
 	mkdir -p schemas/v1/$(dir $*)
-	. $(VENV_DIR)/bin/activate; cd $(EVENT_SCHEMA_GEN) && python main.py \
+	. $(VENV_DIR)/Scripts/activate.bat; cd $(EVENT_SCHEMA_GEN) && python main.py \
 		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(dir $*) \
 		--ecs_git_ref $(ECS_GIT_REF) \
 		$(REAL_ECS_DIR) \
@@ -95,7 +95,7 @@ schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
 
 # primary package build step. Runs the ECS generator to create the subsets from the schemas, etc into out/{stream-name}/*
 out/%/generated/beats/fields.ecs.yml: $(SUBSET_DIR)/%/*.yaml $(CUST_SCHEMAS)
-	. $(VENV_DIR)/bin/activate; cd $(REAL_ECS_DIR) && python scripts/generator.py \
+	. $(VENV_DIR)/Scripts/activate.bat; cd $(REAL_ECS_DIR) && python scripts/generator.py \
 		--out $(ROOT_DIR)/out/$* \
 		--include $(ROOT_DIR)/$(SCHEMA_DIR) \
 		--ref $(ECS_GIT_REF) \
@@ -126,7 +126,7 @@ $(VENV_DIR): $(VENV_DIR)/touchfile
 
 $(VENV_DIR)/touchfile: scripts/requirements.txt
 	test -d $(VENV_DIR) || python3 -m venv $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate; pip install -r $<
+	. $(VENV_DIR)/Scripts/activate.bat; pip install -r $<
 	touch $@
 
 check-docker:
