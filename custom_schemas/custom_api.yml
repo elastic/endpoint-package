@@ -529,6 +529,13 @@
       type: keyword
       example: "O:BAG:SYD:P(A;;FA;;;SY)(A;;FA;;;BA)S:AI(ML;;NW;;;LW)"
 
+    - name: parameters.test_name
+      level: custom
+      description: >
+        The test name requesting the AMSI scan.
+      type: keyword
+      example: "PowerShell"
+
     - name: parameters.app_name
       level: custom
       description: >
