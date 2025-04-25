@@ -1793,6 +1793,8 @@ sent by the endpoint.
 | dll.hash.sha256 | SHA256 hash. | keyword |
 | dll.hash.sha512 | SHA512 hash. | keyword |
 | dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| dll.origin_referrer_url | The URL of the webpage that linked to the dll file. | keyword |
+| dll.origin_url | The URL where the dll file is hosted. | keyword |
 | dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -2344,6 +2346,8 @@ sent by the endpoint.
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.origin_referrer_url | The URL of the webpage that linked to the process's executable file. | keyword |
+| process.origin_url | The URL where the process's executable file is hosted. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |

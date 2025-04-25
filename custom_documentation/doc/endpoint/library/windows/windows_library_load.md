@@ -34,6 +34,8 @@ This event is generated when a DLL or driver is loaded.
 | dll.hash.sha1 |
 | dll.hash.sha256 |
 | dll.name |
+| dll.origin_referrer_url |
+| dll.origin_url |
 | dll.path |
 | dll.pe.file_version |
 | dll.pe.imphash |
