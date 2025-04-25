@@ -32,7 +32,6 @@ fields:
               behaviors: {}
               parameters:
                 fields:
-                  test_name: {}
                   app_name: {}
                   content_name: {}
           created_suspended: {}
