@@ -85,7 +85,7 @@ $(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)
 # how to generate the schema files
 schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
 	mkdir -p schemas/v1/$(dir $*)
-	. $(VENV_DIR)/bin/activate.bat; cd $(EVENT_SCHEMA_GEN) && python main.py \
+	. $(VENV_DIR)/bin/activate; cd $(EVENT_SCHEMA_GEN) && python main.py \
 		--out-schema-dir $(ROOT_DIR)/schemas/v1/$(dir $*) \
 		--ecs_git_ref $(ECS_GIT_REF) \
 		$(REAL_ECS_DIR) \
