@@ -1,9 +1,11 @@
-- version: "8.18.1-next"
+- version: "8.18.1"
   changes:
-    - description: TBD
+    - description: Add memory_region.region_start_bytes to alerts
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
-    - description: Add Ext.command_line_truncated
+      link: https://github.com/elastic/endpoint-package/pull/591
+    - description: Add readme notice for prebuilt rules upgrade
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/612
 - version: "8.18.0"
   changes:
     - description: update version constraint to be upgradable to 9.0, bump pre
