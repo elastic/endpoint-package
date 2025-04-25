@@ -4553,6 +4553,25 @@
       description: The name of the API, usually the name of the function or system call.
       example: VirtualAlloc
       default_field: false
+    - name: Ext.api.parameters
+      level: custom
+      type: object
+      description: Parameter values passed to the API call.
+      default_field: false
+    - name: Ext.api.parameters.app_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The application name requesting the AMSI scan.
+      example: PowerShell
+      default_field: false
+    - name: Ext.api.parameters.content_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The content name, typically a filename, associated with an AMSI scan.
+      example: C:\script.ps1
+      default_field: false
     - name: Ext.api.summary
       level: custom
       type: keyword
