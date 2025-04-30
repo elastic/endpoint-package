@@ -17,7 +17,7 @@ make elastic-package
 
 echo "--- Retrieving stack version"
 # Use STACK_VERSION if defined, else use the output of .buildkite/scripts/find_oldest_supported_version.py
-_STACK_VERSION=${STACK_VERSION:-$(python3 .buildkite/scripts/find_oldest_supported_version.py)}
+_STACK_VERSION=${STACK_VERSION:-8.17.0}
 echo "Using stack version $_STACK_VERSION"
 
 echo "--- Prepare stack"
