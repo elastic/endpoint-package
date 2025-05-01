@@ -1,8 +1,11 @@
-- version: "9.0.1-next"
+- version: "9.0.1"
   changes:
-    - description: TBD
+    - description: Add memory_region.region_start_bytes to alerts
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/591
+    - description: Add readme notice for prebuilt rules upgrade
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/612
 - version: "9.0.0"
   changes:
     - description: '[macOS] Security events'
