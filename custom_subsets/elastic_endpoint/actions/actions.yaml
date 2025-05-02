@@ -23,6 +23,9 @@ fields:
   agent:
     fields:
       id: {}
+  space:
+    fields:
+      originSpaceId: {}
   rule:
     fields:
       id: {}

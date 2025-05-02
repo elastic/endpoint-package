@@ -319,6 +319,11 @@
       description: The name of the rule or signature generating the event.
       example: BLOCK_DNS_over_TLS
       default_field: false
+- name: originSpaceId
+  level: custom
+  type: keyword
+  ignore_above: 1024
+  description: The space ID that the action was initiated from
 - name: user
   title: User
   group: 2

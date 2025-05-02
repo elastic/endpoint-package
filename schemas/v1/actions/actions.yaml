@@ -791,6 +791,17 @@ input_type:
   path: EndpointActions.input_type
   short: input_type
   type: alias
+originSpaceId:
+  dashed_name: originSpaceId
+  description: The space ID that the action was initiated from
+  flat_name: originSpaceId
+  ignore_above: 1024
+  level: custom
+  name: originSpaceId
+  normalize: []
+  short: originating space ID
+  title: Origin Space ID
+  type: keyword
 rule.id:
   dashed_name: rule-id
   description: A rule ID that is unique within the scope of an agent, observer, or
