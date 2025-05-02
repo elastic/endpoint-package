@@ -127,6 +127,24 @@
 
         Example: For Beats this would be beat.id.'
       example: 8a4f500d
+    - name: policy.agentPolicyId
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The agent's policy ID at the time the action was initiated.
+      default_field: false
+    - name: policy.elasticAgentId
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The agent ID of elastic agent explicitly, even if agent.id refers to an external agent.
+      default_field: false
+    - name: policy.integrationPolicyId
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The agent's integration policy ID at the time the action was initiated.
+      default_field: false
 - name: data_stream
   title: data_stream
   group: 2
@@ -319,6 +337,11 @@
       description: The name of the rule or signature generating the event.
       example: BLOCK_DNS_over_TLS
       default_field: false
+- name: originSpaceId
+  level: custom
+  type: keyword
+  ignore_above: 1024
+  description: The space ID that the action was initiated from
 - name: user
   title: User
   group: 2

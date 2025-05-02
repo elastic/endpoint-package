@@ -1,0 +1,32 @@
+- name: agent
+  title: Agent
+  type: group
+  group: 2
+  level: custom
+  short: agent
+  description: >
+    The agent fields contain the data about the software entity, if any, that collects, detects, or observes events on a host, or takes measurements on a host.
+
+    Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.
+  fields:
+    - name: policy.elasticAgentId
+      title: Elastic Agent ID
+      type: keyword
+      level: custom
+      short: elastic agent ID
+      description: >
+        The agent ID of elastic agent explicitly, even if agent.id refers to an external agent.
+    - name: policy.integrationPolicyId
+      title: Integration Policy ID
+      type: keyword
+      level: custom
+      short: integration policy
+      description: >
+        The agent's integration policy ID at the time the action was initiated.
+    - name: policy.agentPolicyId
+      title: Agent Policy ID
+      type: keyword
+      level: custom
+      short: agent policy
+      description: >
+        The agent's policy ID at the time the action was initiated.

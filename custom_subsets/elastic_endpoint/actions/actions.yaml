@@ -23,6 +23,14 @@ fields:
   agent:
     fields:
       id: {}
+      policy:
+        fields:
+          elasticAgentId: {}
+          integrationPolicyId: {}
+          agentPolicyId: {}
+  space:
+    fields:
+      originSpaceId: {}
   rule:
     fields:
       id: {}
