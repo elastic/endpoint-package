@@ -119,6 +119,40 @@ agent.id:
   normalize: []
   short: Unique identifier of this agent.
   type: keyword
+agent.policy.agentPolicyId:
+  dashed_name: agent-policy-agentPolicyId
+  description: The agent's policy ID at the time the action was initiated.
+  flat_name: agent.policy.agentPolicyId
+  ignore_above: 1024
+  level: custom
+  name: policy.agentPolicyId
+  normalize: []
+  short: agent policy
+  title: Agent Policy ID
+  type: keyword
+agent.policy.elasticAgentId:
+  dashed_name: agent-policy-elasticAgentId
+  description: The agent ID of elastic agent explicitly, even if agent.id refers to
+    an external agent.
+  flat_name: agent.policy.elasticAgentId
+  ignore_above: 1024
+  level: custom
+  name: policy.elasticAgentId
+  normalize: []
+  short: elastic agent ID
+  title: Elastic Agent ID
+  type: keyword
+agent.policy.integrationPolicyId:
+  dashed_name: agent-policy-integrationPolicyId
+  description: The agent's integration policy ID at the time the action was initiated.
+  flat_name: agent.policy.integrationPolicyId
+  ignore_above: 1024
+  level: custom
+  name: policy.integrationPolicyId
+  normalize: []
+  short: integration policy
+  title: Integration Policy ID
+  type: keyword
 agents:
   dashed_name: agents
   description: 'Alias field that maps to {agent: {id}}'
