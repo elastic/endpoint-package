@@ -1,3 +1,8 @@
+- version: "8.17.1"
+  changes:
+    - description: Add readme notice for prebuilt rules upgrade
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/612
 - version: "8.17.0"
   changes:
     - description: prep 8.17
