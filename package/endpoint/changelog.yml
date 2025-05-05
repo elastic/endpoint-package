@@ -1,3 +1,8 @@
+- version: "9.0.2"
+  changes:
+    - description: AMSI API changes for behavior rule alerts - process.Ext.api.parameters.content_name
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/602
 - version: "9.0.1"
   changes:
     - description: Add memory_region.region_start_bytes to alerts
