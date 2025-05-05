@@ -1,3 +1,8 @@
+- version: "8.16.1"
+  changes:
+    - description: Add readme notice for prebuilt rules upgrade
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/612
 - version: "8.16.0"
   changes:
     - description: WMI event fields and add missing custom documentation fields
