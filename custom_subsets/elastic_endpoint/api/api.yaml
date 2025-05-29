@@ -38,6 +38,7 @@ fields:
       hash: {}
       id: {}
       ingested: {}
+      provider: {}
       outcome: {}
       start: {}
       type: {}
