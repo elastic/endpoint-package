@@ -30,6 +30,10 @@ fields:
               name: {}
               summary: {}
               behaviors: {}
+              parameters:
+                fields:
+                  app_name: {}
+                  content_name: {}
           created_suspended: {}
           token:
             fields:

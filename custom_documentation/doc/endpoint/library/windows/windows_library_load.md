@@ -25,6 +25,7 @@ This event is generated when a DLL or driver is loaded.
 | dll.Ext.relative_file_creation_time |
 | dll.Ext.relative_file_name_modify_time |
 | dll.Ext.size |
+| dll.Ext.windows.zone_identifier |
 | dll.code_signature.exists |
 | dll.code_signature.status |
 | dll.code_signature.subject_name |
@@ -33,6 +34,8 @@ This event is generated when a DLL or driver is loaded.
 | dll.hash.sha1 |
 | dll.hash.sha256 |
 | dll.name |
+| dll.origin_referrer_url |
+| dll.origin_url |
 | dll.path |
 | dll.pe.file_version |
 | dll.pe.imphash |

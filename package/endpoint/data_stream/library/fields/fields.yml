@@ -345,6 +345,18 @@
       type: unsigned_long
       description: Size of DLL
       default_field: false
+    - name: Ext.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+      default_field: false
+    - name: Ext.windows.zone_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Windows zone identifier for a DLL's executable file
+      example: 3
+      default_field: false
     - name: code_signature.exists
       level: core
       type: boolean
@@ -433,6 +445,20 @@
 
         This generally maps to the name of the file on disk.'
       example: kernel32.dll
+      default_field: false
+    - name: origin_referrer_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: The URL of the webpage that linked to the dll file.
+      example: http://example.com/article1.html
+      default_field: false
+    - name: origin_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: The URL where the dll file is hosted.
+      example: http://example.com/files/example.dll
       default_field: false
     - name: path
       level: extended

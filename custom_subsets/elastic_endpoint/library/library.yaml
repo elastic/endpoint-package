@@ -204,6 +204,8 @@ fields:
           imphash: {}
           original_file_name: {}
           product: {}
+      origin_referrer_url: {}
+      origin_url: {}
       Ext:
         fields:
           code_signature:
@@ -228,6 +230,9 @@ fields:
           relative_file_creation_time: {}
           relative_file_name_modify_time: {}
           size: {}
+          windows:
+           fields:
+             zone_identifier: {}
   Effective_process:
     fields:
       pid: {}

@@ -78,6 +78,7 @@ This event is generated when a process is created or exits.
 | process.Ext.token.security_attributes |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
+| process.Ext.windows.zone_identifier |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
@@ -93,6 +94,8 @@ This event is generated when a process is created or exits.
 | process.hash.sha1 |
 | process.hash.sha256 |
 | process.name |
+| process.origin_referrer_url |
+| process.origin_url |
 | process.parent.Ext.code_signature.exists |
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |

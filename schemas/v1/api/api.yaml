@@ -2056,6 +2056,21 @@ event.outcome:
   normalize: []
   short: The outcome of the event. The lowest level categorization field in the hierarchy.
   type: keyword
+event.provider:
+  dashed_name: event-provider
+  description: 'Source of the event.
+
+    Event transports such as Syslog or the Windows Event Log typically mention the
+    source of an event. It can be the name of the software that generated the event
+    (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+  example: kernel
+  flat_name: event.provider
+  ignore_above: 1024
+  level: extended
+  name: provider
+  normalize: []
+  short: Source of the event.
+  type: keyword
 event.start:
   dashed_name: event-start
   description: '`event.start` contains the date when the event started or when the

@@ -1,0 +1,17 @@
+- name: space
+  root: true
+  title: Space
+  group: 2
+  short: Space-related fields
+  description: >
+    Fields to enable space-tracking in action documents
+  type: group
+  fields:
+    - name: originSpaceId
+      title: Origin Space ID
+      type: keyword
+      level: custom
+      short: originating space ID
+      description: >
+        The space ID that the action was initiated from
+

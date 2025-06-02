@@ -12,8 +12,23 @@
     "agent": {
         "id": [
             "c8cad7f3-9e62-43d0-94ed-8c51670fae62"
+        ],
+        "policy": [
+            {
+                "agentId": "ff1a47b4-71ed-4cbf-ad7f-55203358850d",
+                "elasticAgentId": "1e2f91a1-1946-460d-b885-af983d964ea3",
+                "integrationPolicyId": "645fe9a9-2afd-4b4b-a2d7-38ee21e0f19d",
+                "agentPolicyId": "e9734d0c-1816-4d68-8d9a-84418a850927"
+            },
+            {
+                "agentId": "a756f3f4-c974-4d44-84f5-ba02a954cd55",
+                "elasticAgentId": "20ceb5f6-4e15-4db5-9494-f47f589de33f",
+                "integrationPolicyId": "1f297497-14d4-4bf5-9d26-7c5e629e1d62",
+                "agentPolicyId": "100a3ee3-5304-4fc9-b495-e0022178a2f3"
+            }
         ]
     },
+    "originSpaceId": "b88dae77-9037-459b-be31-efefa6788362",
     "@timestamp": "2022-04-04T20:44:07.805Z",
     "event": {
         "agent_id_status": "auth_metadata_missing",

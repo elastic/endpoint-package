@@ -648,6 +648,9 @@ sent by the endpoint.
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.api.behaviors | A list of observed behaviors.   "cross-process" - the observed activity was between two processes   "parent-child" - the observed activity was between a parent process and its child   "native_api" - a call was made directly to the Native API rather than the Win32 API   "direct_syscall" - a syscall instruction originated outside of the Native API layer   "proxy_call" - the call stack may indicate of a proxied API call to mask the true source   "sensitive_api" - executable non-image memory is unexpectedly calling a sensitive API   "shellcode" - suspicious executable non-image memory is calling a sensitive API   "image_hooked" - an entry in the callstack appears to have been hooked   "image_indirect_call" - an entry in the callstack was preceded by a call to a dynamically resolved function   "image_rop" - no call instruction preceded an entry in the call stack   "image_rwx" - an entry in the callstack is writable   "unbacked_rwx" - an entry in the callstack is non-image and writable   "truncated_stack" - call stack is unexpected truncated due to malicious tampering or system load   "allocate_shellcode" - a region of non-image executable memory allocated more executable memory   "execute_fluctuation" - the PAGE_EXECUTE protection is unexpectedly fluctuating   "write_fluctuation" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating   "hook_api" - a change to the memory protection of a small executable image memory region was made   "hollow_image" - a change to the memory protection of a large executable image memory region was made   "hook_unbacked" - a change to the memory protection of a small executable non-image memory was made   "hollow_unbacked" - a change to the memory protection of a large executable non-image memory was made   "guarded_code" - executable memory was unexpectedly marked as PAGE_GUARD   "hidden_code" - executable memory was unexpectedly marked as PAGE_NOACCESS   "execute_shellcode" - a region of non-image executable memory was unexpectedly transferred control   "hardware_breakpoint_set" - a hardware breakpoint was set   "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed   "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed   "pid_spoofing" - The acting process details may have been spoofed to hide the true origin   "legacy_api" - a deprecated or superseded API was called | keyword |
 | process.Ext.api.name | The name of the API, usually the name of the function or system call. | keyword |
+| process.Ext.api.parameters | Parameter values passed to the API call. | object |
+| process.Ext.api.parameters.app_name | The application name requesting the AMSI scan. | keyword |
+| process.Ext.api.parameters.content_name | The content name, typically a filename, associated with an AMSI scan. | keyword |
 | process.Ext.api.summary | The summary of the API call and its parameters. | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
@@ -1779,6 +1782,8 @@ sent by the endpoint.
 | dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.size | Size of DLL | unsigned_long |
+| dll.Ext.windows | Platform-specific Windows fields | object |
+| dll.Ext.windows.zone_identifier | Windows zone identifier for a DLL's executable file | keyword |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1791,6 +1796,8 @@ sent by the endpoint.
 | dll.hash.sha256 | SHA256 hash. | keyword |
 | dll.hash.sha512 | SHA512 hash. | keyword |
 | dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| dll.origin_referrer_url | The URL of the webpage that linked to the dll file. | keyword |
+| dll.origin_url | The URL where the dll file is hosted. | keyword |
 | dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -2245,6 +2252,8 @@ sent by the endpoint.
 | process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
+| process.Ext.windows | Platform-specific Windows fields | object |
+| process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -2340,6 +2349,8 @@ sent by the endpoint.
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.origin_referrer_url | The URL of the webpage that linked to the process's executable file. | keyword |
+| process.origin_url | The URL where the process's executable file is hosted. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
