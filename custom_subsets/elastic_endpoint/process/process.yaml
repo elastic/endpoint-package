@@ -187,6 +187,7 @@ fields:
               valid: {}
           created_suspended: {}
           defense_evasions: {}
+          desktop_name: {}
           mitigation_policies: {}
           dll:
             fields:
