@@ -25,3 +25,321 @@
       description: >
         An array of sensitive privileges, assigned to the new logon.
       example: SeTcbPrivilege, SeSecurityPrivilege
+
+    - name: event_data.Status
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.SubStatus
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TargetServerName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TargetInfo
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.WorkstationName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TransmittedServices
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.LogonGuid
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TargetLogonGuid
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.LmPackageName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.RestrictedAdminMode
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.VirtualAccount
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TargetLinkedLogonId
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.KeyLength
+      level: custom
+      type : unsigned_long
+      description: >
+      example:
+
+    - name: event_data.ServiceName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ServiceFileName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ServiceType
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ServiceStartType
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ServiceAccount
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TaskName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TaskContent
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.TaskContentNew
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.EnabledPrivilegeList
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.DisabledPrivilegeList
+      level: custom
+      type : keyword
+      description: >
+      example:    
+
+    - name: event_data.SamAccountName
+      level: custom
+      type : keyword
+      description: >
+      example: "TestUser"
+
+    - name: event_data.DisplayName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.UserPrincipalName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.HomeDirectory
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.HomePath
+      level: custom
+      type : keyword
+      description: >
+      example: 
+      
+    - name: event_data.ScriptPath
+      level: custom
+      type : keyword
+      description: >
+      example: 
+
+    - name: event_data.ProfilePath
+      level: custom
+      type : keyword
+      description: >
+      example:
+ 
+    - name: event_data.UserWorkstations
+      level: custom
+      type : keyword
+      description: >
+      example: 
+      
+    - name: event_data.PasswordLastSet
+      level: custom
+      type : keyword
+      description: >
+      example: "<never>"
+    
+    - name: event_data.AccountExpires
+      level: custom
+      type : keyword
+      description: >
+      example: "<never>"
+    
+    - name: event_data.PrimaryGroupId
+      level: custom
+      type : keyword
+      description: >
+      example: "513"
+      
+    - name: event_data.AllowedToDelegateTo
+      level: custom
+      type : keyword
+      description: >
+      example:
+    
+    - name: event_data.OldUacValue
+      level: custom
+      type : keyword
+      description: >
+      example: "0x0"
+    
+    - name: event_data.NewUacValue
+      level: custom
+      type : keyword
+      description: >
+      example: "0x15"
+    
+    - name: event_data.UserAccountControl
+      level: custom
+      type : keyword
+      description: >
+      example:
+    
+    - name: event_data.UserParameters
+      level: custom
+      type : keyword
+      description: >
+      example:
+ 
+    - name: event_data.SidHistory
+      level: custom
+      type : keyword
+      description: >
+      example:    
+    
+    - name: event_data.LogonHours
+      level: custom
+      type : keyword
+      description: >
+      example:
+    
+    - name: event_data.LogonHours
+      level: custom
+      type : keyword
+      description: >
+      example: "All"
+
+    - name: event_data.Flags
+      level: custom
+      type : unsigned_long
+      description: >
+      example:
+
+    - name: event_data.CountOfCredentialsReturned
+      level: custom
+      type : unsigned_long
+      description: >
+      example:
+
+    - name: event_data.SchemaFriendlyName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.Schema
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.Resource
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.Identity
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.PackageSid
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ShareName
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.ShareLocalPath
+      level: custom
+      type : keyword
+      description: >
+      example:
+
+    - name: event_data.RelativeTargetName
+      level: custom
+      type : keyword
+      description: >
+      example:
+      
+    - name: event_data.AccessReason
+      level: custom
+      type : keyword
+      description: >
+      example:
