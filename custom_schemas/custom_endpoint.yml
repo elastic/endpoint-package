@@ -340,6 +340,11 @@
       type: keyword
       description: global artifacts rollout channel
 
+    - name: policy.applied.artifacts.global.manifest_type
+      level: custom
+      type: keyword
+      description: global artifacts rollout manifest type
+
     - name: policy.applied.artifacts.global.update_age
       level: custom
       type: unsigned_long

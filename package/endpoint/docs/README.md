@@ -39,6 +39,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |
+| Endpoint.policy.applied.artifacts.global.manifest_type | global artifacts rollout manifest type | keyword |
 | Endpoint.policy.applied.artifacts.global.snapshot | the snapshot date of applied global artifacts or 'latest' | keyword |
 | Endpoint.policy.applied.artifacts.global.update_age | number of days since global artifacts were made up-to-date | unsigned_long |
 | Endpoint.policy.applied.artifacts.global.version | the version of global artifacts applied. | keyword |
@@ -3000,6 +3001,7 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |
+| Endpoint.policy.applied.artifacts.global.manifest_type | global artifacts rollout manifest type | keyword |
 | Endpoint.policy.applied.artifacts.global.snapshot | the snapshot date of applied global artifacts or 'latest' | keyword |
 | Endpoint.policy.applied.artifacts.global.update_age | number of days since global artifacts were made up-to-date | unsigned_long |
 | Endpoint.policy.applied.artifacts.global.version | the version of global artifacts applied. | keyword |
