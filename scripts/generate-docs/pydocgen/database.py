@@ -1,13 +1,15 @@
 import pathlib
 import logging
 
-from sqlmodel import SQLModel, Field, create_engine, Session, select, Relationship
+from sqlmodel import SQLModel, Field, create_engine, Session, select, Relationship, and_
 from sqlalchemy import Engine, Column, JSON
 
 from .models.custom_documentation import DocumentationOverrideMap
 from .models.packages import Package, PackageList
 
-from typing import Optional
+from typing import Optional, Literal, TypeAlias
+
+OsNameList: TypeAlias = list[Literal["windows", "linux", "macos"]]
 
 
 #
@@ -43,6 +45,7 @@ class PackageField(SQLModel, table=True):
     name: str
     description: str
     example: Optional[str] = None
+    type: Optional[str] = None
     package_reference_id: Optional[int] = Field(foreign_key="package_references.id")
     package_reference: Optional[PackageReference] = Relationship()
 
@@ -163,6 +166,7 @@ def populate_packages_fields(session: Session):
                             description=sub_field.description,
                             package_reference_id=package_ref.id,
                             example=sub_field.example,
+                            type=sub_field.type,
                         ),
                         session,
                     )
@@ -173,10 +177,130 @@ def populate_packages_fields(session: Session):
                         description=field.description,
                         package_reference_id=package_ref.id,
                         example=field.example,
+                        type=field.type,
                     ),
                     session,
                 )
     session.commit()
+
+
+class OverrideQueryResult:
+    """
+    Represents the result of querying for field overrides, prioritized by event, OS, and default.
+
+    This class retrieves and stores a prioritized list of field overrides for a given field name,
+    event name, and OS name from the database. The priority order is: event-specific override (highest),
+    then OS-specific override, and finally the default override (lowest).
+
+    Properties such as `description`, `example`, and `type` return the value from the highest-priority
+    override that provides a non-empty value, or None if none are found.
+
+    Args:
+        session: SQLModel session used to query the database.
+        field_name: Name of the field to retrieve overrides for.
+        event_name: Name of the event to prioritize event-specific overrides.
+        os_name: Name of the OS to prioritize OS-specific overrides.
+    """
+
+    def __init__(
+        self, session: Session, field_name: str, event_name: str, os_names: OsNameList
+    ):
+        """
+        Initialize OverrideQueryResult.
+
+        Args:
+            session: SQLModel session.
+            field_name: Name of the field.
+            event_name: Name of the event.
+            os_name: Name of the OS.
+        """
+        self.overrides: list[OverrideField] = []
+
+        overrides = session.exec(
+            select(OverrideRelationship).where(OverrideRelationship.name == field_name)
+        ).all()
+
+        #
+        # These functions resolve the overrides for event, os, and default respectively.
+        #
+        def event_override() -> OverrideField | None:
+            """
+            Returns the event override if it exists, otherwise None.
+            """
+            return next((o.override for o in overrides if o.event == event_name), None)
+
+        def os_override() -> OverrideField | None:
+            """
+            Returns the OS Override if it exists.  There can be multiple os overrides, so the relevant
+            ones for this document are saved in markdown table format.
+            """
+            description = None
+            example = None
+            type = None
+            for o in overrides:
+                if o.os:
+                    if o.os in os_names:
+                        if o.override.description:
+                            if not description:
+                                description = f"|OS|Description|\n|---|---|\n"
+                            description += f"|{o.os}|{o.override.description}|\n"
+                        if o.override.example:
+                            if not example:
+                                example = f"|OS|Example|\n|---|---|\n"
+                            example += f"|{o.os}|{o.override.example}|\n"
+                        if o.override.type:
+                            if not type:
+                                type = f"|OS|Type|\n|---|---|\n"
+                            type += f"|{o.os}|{o.override.type}|\n"
+
+            return (
+                OverrideField(
+                    description=description,
+                    example=example,
+                    type=type,
+                )
+                if any([description, example, type])
+                else None
+            )
+
+        def default_override() -> OverrideField | None:
+            """
+            Returns the default override if it exists, otherwise None.
+            """
+            return next((o.override for o in overrides if o.default), None)
+
+        # We save the overrides in order of priority, so that we can return the highest-priority override
+        self.overrides = [event_override(), os_override(), default_override()]
+
+    @property
+    def description(self) -> str | None:
+        """
+        Returns the description from the highest-priority override that provides a non-empty value, or None.
+        """
+        for override in self.overrides:
+            if override and override.description:
+                return override.description
+        return None
+
+    @property
+    def example(self) -> str | None:
+        """
+        Returns the example from the highest-priority override that provides a non-empty value, or None.
+        """
+        for override in self.overrides:
+            if override and override.example:
+                return override.example
+        return None
+
+    @property
+    def type(self) -> str | None:
+        """
+        Returns the type from the highest-priority override that provides a non-empty value, or None.
+        """
+        for override in self.overrides:
+            if override and override.type:
+                return override.type
+        return None
 
 
 def getDatabase(db_path: pathlib.Path) -> Engine:

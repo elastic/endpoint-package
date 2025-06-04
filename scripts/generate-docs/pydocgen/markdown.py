@@ -1,18 +1,184 @@
 import csv
+import hashlib
 import logging
+import os
 import pathlib
+from typing import List, TextIO
+
+from sqlmodel import Session, select
+
+from .database import OsNameList, OverrideQueryResult, PackageField, getDatabase
 from .models import CustomDocumentationList, Filter
-from .database import getDatabase, PackageField, OverrideRelationship
 
-from sqlmodel import (
-    Session,
-    select,
-    or_,
-    and_,
-    case,
-)
 
-from typing import List
+def quote_markdown_string(s: str) -> str:
+    """
+    quote_markdown_string prepends each line of a string with a '>' character
+    Args:
+        s: string to quote
+
+    Returns:
+        quoted string
+    """
+    return "\n".join(f"> {line}" for line in s.splitlines())
+
+
+def generate_random_sha256() -> str:
+    """
+    generate_random_sha256 generates a random SHA256 hash for use in example fields
+
+    Returns:
+        random SHA256 hash
+    """
+    return hashlib.sha256(os.urandom(32)).hexdigest()
+
+
+class FieldMetadata:
+    """
+    FieldMetadata contains all the information necessary to generate markdown for a field
+    it queries the package field database for ECS metadata and the overrides database
+    for endpoint-specific metadata. It also generates a random SHA256 hash if the field is a
+    SHA256 hash and no example is provided.f
+    """
+
+    def __init__(
+        self, field: str, session: Session, event_name: str, os_names: OsNameList
+    ) -> None:
+        """
+        __init__ queries the database for ECS metadata and endpoint-specific metadata.  Also
+        generates a random SHA256 hash if the field is a SHA256 hash and no example is provided.
+
+        Args:
+            field: field name
+            session: active sqlmodel session for querying the database
+            event_name: name of the event
+            os_name: os name (e.g., "windows", "linux", "macos")
+        """
+        self.field = field
+        self.event_name = event_name
+        self.os_names = os_names
+
+        self.endpoint_description: str | None = None
+        self.endpoint_example: str | None = None
+        self.endpoint_type: str | None = None
+        self.ecs_description: str | None = None
+        self.ecs_example: str | None = None
+        self.ecs_type: str | None = None
+
+        self._populate_ecs_metadata(session)
+        self._populate_endpoint_metadata(session)
+
+        if not self.ecs_example and self.field.endswith(".sha256"):
+            # If the field is a SHA256 hash, generate a random example if none is provided
+            self.ecs_example = generate_random_sha256()
+
+    def _populate_ecs_metadata(self, session: Session) -> None:
+        """
+        _populate_ecs_metadata populates the ECS metadata for a field
+        based on the package field database
+
+        Args:
+            session: SQLAlchemy session
+        """
+        package_field: PackageField = session.exec(
+            select(PackageField).where(PackageField.name == self.field)
+        ).first()
+        if package_field:
+            #
+            # The package field description may contain newlines, so we replace them with spaces
+            #
+            self.ecs_description = package_field.description
+            self.ecs_example = package_field.example
+            self.ecs_type = package_field.type
+
+    def _populate_endpoint_metadata(self, session: Session) -> None:
+        """
+        _populate_endpoint_metadata populates the endpoint metadata for a field
+        based on the overrides database
+
+        Args:
+            session: SQLAlchemy session
+            field: field name
+            event_name: event name
+            os_name: OS name
+        """
+        result = OverrideQueryResult(
+            session, self.field, self.event_name, self.os_names
+        )
+        if result.description:
+            self.endpoint_description = result.description
+        if result.example:
+            self.endpoint_example = result.example
+        if result.type:
+            self.endpoint_type = result.type
+
+    def has_data(self) -> bool:
+        """
+        has_data checks if the metadata has any data populated
+
+        Returns:
+            True if any metadata is populated, False otherwise
+        """
+        return any(
+            [
+                self.ecs_description,
+                self.ecs_example,
+                self.ecs_type,
+                self.endpoint_description,
+                self.endpoint_example,
+                self.endpoint_type,
+            ]
+        )
+
+    def missing_data(self) -> bool:
+        """
+        missing_data checks if the metadata is missing any data
+
+        Returns:
+            True if any metadata is missing, False otherwise
+        """
+        return not all(
+            [
+                self.ecs_description,
+                self.ecs_example,
+                self.ecs_type,
+                self.endpoint_description,
+                self.endpoint_example,
+                self.endpoint_type,
+            ]
+        )
+
+    def write_markdown(self, f: TextIO) -> None:
+        """
+        write_markdown writes the field metadata to a markdown file
+        Args:
+            f: file object to write to
+        """
+        f.write(f"### `{self.field}`\n\n")
+        if not self.has_data():
+            f.write("No description or example found\n\n")
+            f.write("<br>\n\n")
+            return
+
+        if self.ecs_description:
+            f.write("**ECS Description**\n\n")
+            f.write(f"{quote_markdown_string(self.ecs_description)}\n\n")
+        if self.endpoint_description:
+            f.write("**Extended Description**\n\n")
+            f.write(f"{quote_markdown_string(self.endpoint_description)}\n\n")
+        if self.endpoint_example:
+            f.write("**Example**\n\n")
+            f.write(f"{quote_markdown_string(self.endpoint_example)}\n\n")
+        elif self.ecs_example:
+            f.write("**Example**\n\n")
+            f.write(f"{quote_markdown_string(self.ecs_example)}\n\n")
+        if self.endpoint_type:
+            f.write("**Type**\n\n")
+            f.write(f"{quote_markdown_string(self.endpoint_type)}\n\n")
+        elif self.ecs_type:
+            f.write("**Type**\n\n")
+            f.write(f"{quote_markdown_string(self.ecs_type)}\n\n")
+        f.write("<br>\n\n")
 
 
 class MetadataCsvWriter:
@@ -22,35 +188,44 @@ class MetadataCsvWriter:
     can be imported into a spreadsheet to track missing documentation
     """
 
+    FIELD_NAME = "Field Name"
+    FIELD_EVENT_NAME = "Event Name"
+    FIELD_HAS_ECS_DESCRIPTION = "Has ECS Description"
+    FIELD_HAS_ECS_EXAMPLE = "Has ECS Example"
+    FIELD_HAS_ECS_TYPE = "Has ECS Type"
+    FIELD_HAS_ENDPOINT_DESCRIPTION = "Has Endpoint Description"
+    FIELD_HAS_ENDPOINT_EXAMPLE = "Has Endpoint Example"
+
     def __init__(self, csv_path: pathlib.Path):
 
         self.csv_path = csv_path
         self.fields = [
-            "Field Name",
-            "Event Name",
-            "Has Description",
-            "Has Example",
+            self.FIELD_NAME,
+            self.FIELD_EVENT_NAME,
+            self.FIELD_HAS_ECS_DESCRIPTION,
+            self.FIELD_HAS_ECS_EXAMPLE,
+            self.FIELD_HAS_ECS_TYPE,
+            self.FIELD_HAS_ENDPOINT_DESCRIPTION,
+            self.FIELD_HAS_ENDPOINT_EXAMPLE,
         ]
         self.rows = []
 
-    def add_row(
-        self, field_name: str, event_name: str, has_description: bool, has_example: bool
-    ):
+    def add_row(self, field: FieldMetadata):
         """
         add_row adds a row to the CSV output
 
         Args:
-            name: field name
-            file: source file path
-            has_description: boolean indicating if the field has a description
-            has_example: boolean indicating if the field has an example
+            field: FieldMetadata object containing the field information
         """
         self.rows.append(
             {
-                "Field Name": field_name,
-                "Event Name": event_name,
-                "Has Description": has_description,
-                "Has Example": has_example,
+                self.FIELD_NAME: field.field,
+                self.FIELD_EVENT_NAME: field.event_name,
+                self.FIELD_HAS_ECS_DESCRIPTION: bool(field.ecs_description),
+                self.FIELD_HAS_ECS_EXAMPLE: bool(field.ecs_example),
+                self.FIELD_HAS_ECS_TYPE: bool(field.ecs_type),
+                self.FIELD_HAS_ENDPOINT_DESCRIPTION: bool(field.endpoint_description),
+                self.FIELD_HAS_ENDPOINT_EXAMPLE: bool(field.endpoint_example),
             }
         )
 
@@ -67,7 +242,9 @@ class MetadataCsvWriter:
 
 
 def generate_custom_documentation_markdown(
-    db_path: pathlib.Path, output_dir: pathlib.Path, csv_path: pathlib.Path = None
+    db_path: pathlib.Path,
+    output_dir: pathlib.Path,
+    csv_path: pathlib.Path | None = None,
 ):
     """
     Generate markdown files for custom documentation
@@ -75,7 +252,8 @@ def generate_custom_documentation_markdown(
 
     def get_output_filepath(src_path: pathlib.Path) -> pathlib.Path:
         """
-        get_output_filepath determines the output filename for a given source path
+        get_output_filepath determines the output filename for writing markdown, based
+        on the source path of the package
 
         Args:
             src_path: yaml file path
@@ -101,13 +279,17 @@ def generate_custom_documentation_markdown(
         Returns:
             _description_
         """
-        if os == "windows":
-            return "Windows"
-        if os == "linux":
-            return "Linux"
-        if os == "macos":
-            return "macOS"
-        return os
+        match os:
+            case "windows":
+                return "Windows"
+            case "linux":
+                return "Linux"
+            case "macos":
+                return "macOS"
+            case _:
+                raise ValueError(
+                    f"Unknown OS name: {os}. Please add it to the get_formatted_os_name function."
+                )
 
     def get_formatted_os_string(os_list: List[str]) -> str:
         """
@@ -157,13 +339,14 @@ def generate_custom_documentation_markdown(
     # Get the custom documentation
     custom_docs = CustomDocumentationList.from_files()
 
-    csv_writer = None
+    csv_writer: MetadataCsvWriter | None = None
     if csv_path:
         csv_writer = MetadataCsvWriter(csv_path)
 
     # Generate markdown for each custom document
     with Session(engine) as session:
         for custom_doc in custom_docs:
+
             # Get the output filename and create the parent directories
             output_filename = get_output_filepath(custom_doc.filepath)
             output_filename.parent.mkdir(parents=True, exist_ok=True)
@@ -194,120 +377,44 @@ def generate_custom_documentation_markdown(
                 )
                 f.write("</tr>\n")
                 f.write("</table>\n\n")
-
                 f.write(f"## Fields\n\n")
+
+                #
+                # Write markdown for the individual Fields
+                #
                 for field in custom_doc.fields.endpoint:
-                    meta = {
-                        "ecs": {
-                            "description": None,
-                            "example": None,
-                        },
-                        "endpoint": {
-                            "description": None,
-                            "example": None,
-                        },
-                    }
-                    event_name = custom_doc.filepath.stem
+                    field_metadata = FieldMetadata(
+                        field=field,
+                        session=session,
+                        event_name=custom_doc.filepath.stem,
+                        os_names=custom_doc.identification.os,
+                    )
 
-                    #
-                    # Look for the description and example from mapped values (packages directory)
-                    #
-                    package_field = session.exec(
-                        select(PackageField).where(PackageField.name == field)
-                    ).first()
-                    if package_field:
-                        #
-                        # The package field description may contain newlines, so we replace them with spaces
-                        #
-                        meta["ecs"]["description"] = package_field.description.replace(
-                            "\n", "  ").replace("\r", "  ")
-                        meta["ecs"]["example"] = package_field.example
+                    if csv_writer:
+                        if not all(
+                            [field_metadata.ecs_description, field_metadata.ecs_example]
+                        ):
+                            csv_writer.add_row(field_metadata)
 
-                    #
-                    # This query will look for an override for the field in the following order:
-                    # 1. Event name
-                    # 2. OS
-                    # 3. Default
-                    #
-                    # If no override is found, the package field description will be used
-                    #
-                    override_meta = session.exec(
-                        select(OverrideRelationship)
-                        .where(
-                            and_(
-                                # field must match
-                                OverrideRelationship.name == field,
-                                # one of the following must match
-                                or_(
-                                    (OverrideRelationship.event == event_name),
-                                    (
-                                        OverrideRelationship.os
-                                        == custom_doc.identification.os[0]
-                                    ),
-                                    (OverrideRelationship.default == True),
-                                ),
+                    # Check if the field we are writing is a wildcard or special field
+                    # If it is, we skip it unless it has a specific description or example
+                    # Wildcard fields are those that end with "._" or ".*"
+                    if any(["._" in field, ".*" in field]):
+                        if (
+                            custom_doc.fields.details
+                            and field in custom_doc.fields.details
+                        ):
+                            field_metadata.ecs_description = custom_doc.fields.details[
+                                field
+                            ].description
+                        else:
+                            logging.info(
+                                f"Skipping field {field} because it is a wildcard or special field that does not have a specific description or example"
                             )
-                        )
-                        .order_by(
-                            # The order of precedence is event, os, default, so we order by that
-                            case(
-                                (OverrideRelationship.event == event_name, 1),
-                                (
-                                    OverrideRelationship.os
-                                    == custom_doc.identification.os[0],
-                                    2,
-                                ),
-                                (OverrideRelationship.default == True, 3),
-                                else_=4,
-                            )
-                        )
-                    ).first()
-
-                    if override_meta:
-                        meta["endpoint"]["description"] = override_meta.override.description
-                        meta["endpoint"]["example"] = override_meta.override.example
-
-                    if csv_writer and (not meta["ecs"]["description"] or not meta["ecs"]["example"]):
-                        csv_writer.add_row(
-                            field_name=field,
-                            event_name=event_name,
-                            has_description=bool(meta["ecs"]["description"]),
-                            has_example=bool(meta["ecs"]["example"]),
-                        )
-
-                    if "._" in field or ".*" in field:
-                        logging.info(
-                            f"Skipping field {field} because it is a wildcard or special field"
-                        )
-                        continue
-
-                    f.write(f"### `{field}`\n\n")
-
-                    if not any([
-                        meta["ecs"]["description"],
-                        meta["endpoint"]["description"],
-                        meta["endpoint"]["example"],
-                        meta["ecs"]["example"],
-                    ]):
-                        f.write("No description or example found\n\n")
-                        f.write("<br>\n\n")
-                        continue
-
-                    if meta["ecs"]["description"]:
-                        f.write("**ECS Description**\n\n")
-                        f.write(f">{meta['ecs']['description']}\n\n")
-                    if meta["endpoint"]["description"]:
-                        f.write("**Extended Description**\n\n")
-                        f.write(f"> {meta['endpoint']['description']}\n\n")
-                    if meta["endpoint"]["example"]:
-                        f.write("**Example**\n\n")
-                        f.write(f">{meta['endpoint']['example']}\n\n")
-                    elif meta["ecs"]["example"]:
-                        f.write("**Example**\n\n")
-                        f.write(f">{meta['ecs']['example']}\n\n")
-                    f.write("<br>\n\n")
-
+                            continue
+                    field_metadata.write_markdown(f)
             logging.debug(f"wrote markdown to {output_filename}")
 
-        if csv_writer:
-            csv_writer.write_csv()
+    # If we have a CSV writer, write the CSV file
+    if csv_writer:
+        csv_writer.write_csv()

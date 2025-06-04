@@ -50,12 +50,19 @@ class Identification(BaseModel):
     data_stream: str
 
 
+class Detail(BaseModel):
+    """
+    Details for the package
+    """
+    description: Optional[str] = None
+
+
 class Fields(BaseModel):
     """
     Fields for the package
     """
     endpoint: List[str]
-
+    details: Optional[Dict[str, Detail]] = None
 
 class CustomDocumentation(BaseModel):
     """
