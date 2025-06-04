@@ -1,6 +1,7 @@
 overview:
   name: Linux ptrace_attach Creation Events
-  description: 'This event is generated when when a process calls ptrace_attach on another process.'
+  description: This event is generated when when a process calls ptrace_attach on
+    another process.
 identification:
   filter:
     event.action: ptrace
@@ -68,14 +69,14 @@ fields:
   - orchestrator.resource.parent.type
   - orchestrator.resource.type
   - process.Ext.ancestry
-  - process.Ext.trusted
-  - process.Ext.trusted_descendant
+  - process.Ext.command_line_truncated
   - process.Ext.ptrace.child_pid
   - process.Ext.ptrace.request
+  - process.Ext.trusted
+  - process.Ext.trusted_descendant
   - process.args
   - process.args_count
   - process.command_line
-  - process.Ext.command_line_truncated
   - process.end
   - process.entity_id
   - process.entry_leader.args
@@ -137,10 +138,10 @@ fields:
   - process.hash.sha256
   - process.interactive
   - process.name
+  - process.parent.Ext.command_line_truncated
   - process.parent.args
   - process.parent.args_count
   - process.parent.command_line
-  - process.parent.Ext.command_line_truncated
   - process.parent.entity_id
   - process.parent.executable
   - process.parent.group.id
