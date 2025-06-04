@@ -782,7 +782,7 @@
       type: keyword
       ignore_above: 1024
       description: Initial desktop name supplied to CreateProcess for the process.
-      example: WinSta0\Default
+      example: WinSta0\CustomDesktop
       default_field: false
     - name: Ext.device.bus_type
       level: custom

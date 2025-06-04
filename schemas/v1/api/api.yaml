@@ -43,7 +43,7 @@ Target.process.Ext.created_suspended:
 Target.process.Ext.desktop_name:
   dashed_name: Target-process-Ext-desktop-name
   description: Initial desktop name supplied to CreateProcess for the process.
-  example: WinSta0\Default
+  example: WinSta0\CustomDesktop
   flat_name: Target.process.Ext.desktop_name
   ignore_above: 1024
   level: custom
@@ -3574,7 +3574,7 @@ process.Ext.created_suspended:
 process.Ext.desktop_name:
   dashed_name: process-Ext-desktop-name
   description: Initial desktop name supplied to CreateProcess for the process.
-  example: WinSta0\Default
+  example: WinSta0\CustomDesktop
   flat_name: process.Ext.desktop_name
   ignore_above: 1024
   level: custom

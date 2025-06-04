@@ -46,7 +46,7 @@
       type: keyword
       ignore_above: 1024
       description: Initial desktop name supplied to CreateProcess for the process.
-      example: WinSta0\Default
+      example: WinSta0\CustomDesktop
       default_field: false
     - name: process.Ext.memory_region.allocation_base
       level: custom
@@ -1823,7 +1823,7 @@
       type: keyword
       ignore_above: 1024
       description: Initial desktop name supplied to CreateProcess for the process.
-      example: WinSta0\Default
+      example: WinSta0\CustomDesktop
       default_field: false
     - name: Ext.memory_region.allocation_base
       level: custom
