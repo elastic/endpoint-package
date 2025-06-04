@@ -3,9 +3,11 @@ import logging
 import pathlib
 import yaml
 from pydantic import BaseModel, Field, field_validator
-from typing import List, Optional, Iterator, Dict
+from typing import List, Optional, Iterator, Dict, TypeAlias, Literal
 
 from ..paths import CUSTOM_DOCUMENTATION_DIR, DOCUMENTATION_OVERRIDE_PATH
+
+OsNameList: TypeAlias = list[Literal["windows", "linux", "macos"]]
 
 #
 # See any of the files at custom_documentation/src/endpoint/data_stream/*/*.yaml for examples
@@ -46,7 +48,7 @@ class Identification(BaseModel):
     Identification of the package
     """
     filter: Filter
-    os: List[str]
+    os: OsNameList
     data_stream: str
 
 

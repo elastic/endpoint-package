@@ -4,21 +4,19 @@ import logging
 from sqlmodel import SQLModel, Field, create_engine, Session, select, Relationship, and_
 from sqlalchemy import Engine, Column, JSON
 
-from .models.custom_documentation import DocumentationOverrideMap
+from .models.custom_documentation import DocumentationOverrideMap, OsNameList
 from .models.packages import Package, PackageList
 
 from typing import Optional, Literal, TypeAlias
 
-OsNameList: TypeAlias = list[Literal["windows", "linux", "macos"]]
 
 
 #
 # These models represent the database tables for mapped fields
 #
 class PackageReference(SQLModel, table=True):
-    __tablename__ = "package_references"
-    id: Optional[int] = Field(default=None, primary_key=True)
-    package_data: Optional[str] = Field(default=None, sa_column=Column(JSON))
+    id: int = Field(default=None, primary_key=True)
+    package_data: str = Field(default="{}", sa_column=Column(JSON))
 
 
 class PackageField(SQLModel, table=True):
@@ -39,14 +37,12 @@ class PackageField(SQLModel, table=True):
     Returns:
         _description_
     """
-
-    __tablename__ = "package_fields"
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
-    description: str
+    description: Optional[str] = None
     example: Optional[str] = None
     type: Optional[str] = None
-    package_reference_id: Optional[int] = Field(foreign_key="package_references.id")
+    package_reference_id: Optional[int] = Field(foreign_key="packagereference.id")
     package_reference: Optional[PackageReference] = Relationship()
 
     @property
@@ -60,21 +56,19 @@ class PackageField(SQLModel, table=True):
 # These models reprensent the database tables for overrides
 #
 class OverrideField(SQLModel, table=True):
-    __tablename__ = "overrides"
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int = Field(default=None, primary_key=True)
     description: Optional[str] = None
     example: Optional[str] = None
     type: Optional[str] = None
 
 
 class OverrideRelationship(SQLModel, table=True):
-    __tablename__ = "override_relationships"
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int = Field(default=None, primary_key=True)
     name: str
     event: Optional[str] = None
     os: Optional[str] = None
     default: bool = False
-    override_id: int = Field(foreign_key="overrides.id")
+    override_id: int = Field(foreign_key="overridefield.id")
     override: OverrideField = Relationship(sa_relationship_kwargs={"lazy": "joined"})
 
 
@@ -214,7 +208,7 @@ class OverrideQueryResult:
             event_name: Name of the event.
             os_name: Name of the OS.
         """
-        self.overrides: list[OverrideField] = []
+        self.overrides: list[OverrideField | None] = []
 
         overrides = session.exec(
             select(OverrideRelationship).where(OverrideRelationship.name == field_name)

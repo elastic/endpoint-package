@@ -7,7 +7,8 @@ from typing import List, TextIO
 
 from sqlmodel import Session, select
 
-from .database import OsNameList, OverrideQueryResult, PackageField, getDatabase
+from .models.custom_documentation import OsNameList
+from .database import OverrideQueryResult, PackageField, getDatabase
 from .models import CustomDocumentationList, Filter
 
 
@@ -80,7 +81,7 @@ class FieldMetadata:
         Args:
             session: SQLAlchemy session
         """
-        package_field: PackageField = session.exec(
+        package_field: PackageField | None = session.exec(
             select(PackageField).where(PackageField.name == self.field)
         ).first()
         if package_field:
@@ -291,7 +292,7 @@ def generate_custom_documentation_markdown(
                     f"Unknown OS name: {os}. Please add it to the get_formatted_os_name function."
                 )
 
-    def get_formatted_os_string(os_list: List[str]) -> str:
+    def get_formatted_os_string(os_list: OsNameList) -> str:
         """
         get_formatted_os_string some documents have multiple os's, this function will format them
         correctly for the markdown output
