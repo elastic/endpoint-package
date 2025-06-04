@@ -50,6 +50,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
 | process.Ext.command_line_truncated |
+| process.Ext.desktop_name |
 | process.Ext.mitigation_policies |
 | process.Ext.protection |
 | process.Ext.relative_file_creation_time |

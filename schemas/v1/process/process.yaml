@@ -1414,6 +1414,17 @@ process.Ext.defense_evasions:
   normalize: []
   short: List of defense evasions found in this process.
   type: keyword
+process.Ext.desktop_name:
+  dashed_name: process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess for the process.
+  example: WinSta0\Default
+  flat_name: process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.device.bus_type:
   dashed_name: process-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
