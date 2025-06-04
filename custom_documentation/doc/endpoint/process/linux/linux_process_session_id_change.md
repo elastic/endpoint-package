@@ -65,10 +65,10 @@ This event is generated when a process's session id changes.
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
+| process.Ext.command_line_truncated |
 | process.args |
 | process.args_count |
 | process.command_line |
-| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |

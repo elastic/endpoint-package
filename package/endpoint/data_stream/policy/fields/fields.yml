@@ -105,6 +105,12 @@
       ignore_above: 1024
       description: the sha256 of global artifacts applied.
       default_field: false
+    - name: policy.applied.artifacts.global.manifest_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: global artifacts rollout manifest type
+      default_field: false
     - name: policy.applied.artifacts.global.snapshot
       level: custom
       type: keyword
