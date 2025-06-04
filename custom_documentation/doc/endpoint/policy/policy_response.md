@@ -18,6 +18,7 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.artifacts.global.channel |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.manifest_type |
 | Endpoint.policy.applied.artifacts.global.snapshot |
 | Endpoint.policy.applied.artifacts.global.update_age |
 | Endpoint.policy.applied.artifacts.global.version |

@@ -96,8 +96,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.memory.endpoint.private.latest |
 | Endpoint.metrics.memory.endpoint.private.mean |
 | Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.drops |
-| Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.size |
 | Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.last_drop_time_utc |
+| Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.size |
 | Endpoint.metrics.queue_metrics.user.async_kernel_event_queue.drops |
 | Endpoint.metrics.queue_metrics.user.async_kernel_event_queue.size |
 | Endpoint.metrics.system_impact.amsi_events.week_idle_ms |

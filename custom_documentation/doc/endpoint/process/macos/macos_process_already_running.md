@@ -48,6 +48,7 @@ This event is generated for a process that was already running before Endpoint's
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.command_line_truncated |
 | process.Ext.effective_parent.pid |
 | process.args |
 | process.args_count |
@@ -58,7 +59,6 @@ This event is generated for a process that was already running before Endpoint's
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
-| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.env_vars |
 | process.executable |
@@ -67,9 +67,9 @@ This event is generated for a process that was already running before Endpoint's
 | process.hash.sha256 |
 | process.name |
 | process.parent.args_count |
+| process.parent.command_line |
 | process.parent.entity_id |
 | process.parent.pid |
-| process.parent.command_line |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

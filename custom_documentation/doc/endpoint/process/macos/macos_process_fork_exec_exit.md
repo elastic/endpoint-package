@@ -52,6 +52,7 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.command_line_truncated |
 | process.Ext.effective_parent.entity_id |
 | process.Ext.effective_parent.executable |
 | process.Ext.effective_parent.name |
@@ -67,7 +68,6 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
-| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.env_vars |
 | process.executable |
@@ -83,11 +83,11 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.parent.code_signature.subject_name |
 | process.parent.code_signature.team_id |
 | process.parent.code_signature.trusted |
+| process.parent.command_line |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.name |
 | process.parent.pid |
-| process.parent.command_line |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

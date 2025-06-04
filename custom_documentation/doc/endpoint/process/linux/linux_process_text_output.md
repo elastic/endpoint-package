@@ -64,10 +64,10 @@ This event is generated when a process generates text output.
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
+| process.Ext.command_line_truncated |
 | process.args |
 | process.args_count |
 | process.command_line |
-| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.entry_leader.args |
 | process.entry_leader.args_count |
@@ -130,10 +130,10 @@ This event is generated when a process generates text output.
 | process.io.total_bytes_skipped |
 | process.io.type |
 | process.name |
+| process.parent.Ext.command_line_truncated |
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
-| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.group.id |
