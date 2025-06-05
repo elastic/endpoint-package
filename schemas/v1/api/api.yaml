@@ -42,7 +42,8 @@ Target.process.Ext.created_suspended:
   type: boolean
 Target.process.Ext.desktop_name:
   dashed_name: Target-process-Ext-desktop-name
-  description: Initial desktop name supplied to CreateProcess for the process.
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
   example: WinSta0\CustomDesktop
   flat_name: Target.process.Ext.desktop_name
   ignore_above: 1024
@@ -3573,7 +3574,8 @@ process.Ext.created_suspended:
   type: boolean
 process.Ext.desktop_name:
   dashed_name: process-Ext-desktop-name
-  description: Initial desktop name supplied to CreateProcess for the process.
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
   example: WinSta0\CustomDesktop
   flat_name: process.Ext.desktop_name
   ignore_above: 1024
