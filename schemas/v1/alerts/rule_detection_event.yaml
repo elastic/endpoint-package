@@ -616,6 +616,18 @@ process.Ext.created_suspended:
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
     CreateProcess API.
   type: boolean
+process.Ext.desktop_name:
+  dashed_name: process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
+  example: WinSta0\CustomDesktop
+  flat_name: process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
