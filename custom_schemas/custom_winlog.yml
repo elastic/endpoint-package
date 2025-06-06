@@ -24,258 +24,298 @@
       type : keyword
       description: >
         An array of sensitive privileges, assigned to the new logon.
-      example: SeTcbPrivilege, SeSecurityPrivilege
+      example: "[\"SeTcbPrivilege\", \"SeSecurityPrivilege\"]"
 
     - name: event_data.Status
       level: custom
       type : keyword
       description: >
-      example:
+        The reason why logon failed. 
+      example: "0xC000006D"
 
     - name: event_data.SubStatus
       level: custom
       type : keyword
       description: >
-      example:
+        Additional information about logon failure.
+      example: "0xC000006A"
 
     - name: event_data.TargetServerName
       level: custom
       type : keyword
       description: >
-      example:
+        The name of the server on which the new process was run. 
+        Has “localhost” value if the process was run locally.
+      example: "localhost"
 
     - name: event_data.TargetInfo
       level: custom
       type : keyword
       description: >
-      example:
+        Additional information about the event target.
+      example: "localhost"
 
     - name: event_data.WorkstationName
       level: custom
       type : keyword
-      description: >
-      example:
+      description: > 
+        Machine name from which a logon attempt was performed.
+      example: "TestServer"
 
     - name: event_data.TransmittedServices
       level: custom
       type : keyword
       description: >
-      example:
+        The list of transmitted services.
 
     - name: event_data.LogonGuid
       level: custom
       type : keyword
       description: >
-      example:
+        Globally Unique Identifier.
 
     - name: event_data.TargetLogonGuid
       level: custom
       type : keyword
       description: >
-      example:
+        A globally unique identifier (GUID) associated with 
+        the logon session related to the event.
 
     - name: event_data.LmPackageName
       level: custom
       type : keyword
       description: >
-      example:
+        The name of the LAN Manager subpackage 
+        (NTLM-family protocol name) that was used during logon.
 
     - name: event_data.RestrictedAdminMode
       level: custom
       type : keyword
       description: >
-      example:
+        Only populated for RemoteInteractive logon type sessions. 
+        This value is a Yes/No flag indicating if the credentials provided
+        were passed using Restricted Admin mode.
 
     - name: event_data.VirtualAccount
       level: custom
       type : keyword
       description: >
-      example:
+        A "Yes" or "No" flag, which indicates if the account
+        is a virtual account.
+      example: "No"
 
     - name: event_data.TargetLinkedLogonId
       level: custom
       type : keyword
       description: >
-      example:
+        Information that helps to link related events together by
+        their logon attempt IDs.
 
     - name: event_data.KeyLength
       level: custom
       type : unsigned_long
       description: >
-      example:
+        The length of the NTLM Session Security key. 
 
     - name: event_data.ServiceName
       level: custom
       type : keyword
       description: >
-      example:
+        The name of the installed service.
+      example: "TestServiceName"
 
     - name: event_data.ServiceFileName
       level: custom
       type : keyword
       description: >
-      example:
+        Path to the file that the Service Control Manager
+        will execute to start the service.
+      example: "C:\\TestService.exe"
 
     - name: event_data.ServiceType
       level: custom
       type : keyword
       description: >
-      example:
+        Indicates the type of service that was registered 
+        with the Service Control Manager.
+      example: "Win32 Own Process"
 
     - name: event_data.ServiceStartType
       level: custom
       type : keyword
       description: >
-      example:
+        Contains information about how a particular service should be started.
+      example: "Automatic"
 
     - name: event_data.ServiceAccount
       level: custom
       type : keyword
       description: >
-      example:
+        The security context that the service will run as when started.
+      example: "LocalSystem"
 
     - name: event_data.TaskName
       level: custom
       type : keyword
       description: >
-      example:
+        New scheduled task name.
+      example: "\\TestScheduledTaskEvent"
 
     - name: event_data.TaskContent
       level: custom
       type : keyword
       description: >
-      example:
+        The XML content of the new task.
 
     - name: event_data.TaskContentNew
       level: custom
       type : keyword
       description: >
-      example:
+        The new XML for the updated task.
 
     - name: event_data.EnabledPrivilegeList
       level: custom
       type : keyword
       description: >
-      example:
+        The list of enabled user rights.
+      example: "[\"SeAssignPrimaryTokenPrivilege\", \"SeIncreaseQuotaPrivilege\"]"
 
     - name: event_data.DisabledPrivilegeList
       level: custom
       type : keyword
       description: >
-      example:    
+        The list of disabled user rights.
+      example: "[\"SeAssignPrimaryTokenPrivilege\", \"SeIncreaseQuotaPrivilege\"]"
 
     - name: event_data.SamAccountName
       level: custom
       type : keyword
       description: >
+        Logon name for account used to support clients and servers from 
+        previous versions of Windows (pre-Windows 2000 logon name).
       example: "TestUser"
 
     - name: event_data.DisplayName
       level: custom
       type : keyword
       description: >
-      example:
+        A name displayed in the address book for a particular account.
 
     - name: event_data.UserPrincipalName
       level: custom
       type : keyword
       description: >
-      example:
+        Internet-style login name for the account, 
+        based on the Internet standard RFC 822.
 
     - name: event_data.HomeDirectory
       level: custom
       type : keyword
       description: >
-      example:
+        User's home directory.
 
     - name: event_data.HomePath
       level: custom
       type : keyword
       description: >
-      example: 
+        User's home path.
       
     - name: event_data.ScriptPath
       level: custom
       type : keyword
       description: >
-      example: 
+        The path of the account’s logon script.
 
     - name: event_data.ProfilePath
       level: custom
       type : keyword
       description: >
-      example:
+        Specifies a path to the account's profile. 
+        This value can be a null string, a local absolute path, or a UNC path.
  
     - name: event_data.UserWorkstations
       level: custom
       type : keyword
       description: >
-      example: 
+        Contains the list of NetBIOS or DNS names of the computers
+        from which the user can logon.
       
     - name: event_data.PasswordLastSet
       level: custom
       type : keyword
       description: >
+        Last time the account’s password was modified. 
+        For manually created user account, using Active Directory Users
+        and Computers snap-in, this field typically has value "<never>"
       example: "<never>"
     
     - name: event_data.AccountExpires
       level: custom
       type : keyword
       description: >
+        The date when the account expires. 
+        For manually created local and domain user accounts
+        this field typically has value "<never>".
       example: "<never>"
     
     - name: event_data.PrimaryGroupId
       level: custom
       type : keyword
       description: >
+        Relative Identifier (RID) of the user's object primary group.
       example: "513"
       
     - name: event_data.AllowedToDelegateTo
       level: custom
       type : keyword
       description: >
-      example:
+        The list of Service Principal Name (SPN) to which this account
+        can present delegated credentials.
     
     - name: event_data.OldUacValue
       level: custom
       type : keyword
       description: >
+        Flags that control password, lockout, disable/enable, script,
+        and other behavior for the user account. 
+        This parameter contains the previous UAC value.
       example: "0x0"
     
     - name: event_data.NewUacValue
       level: custom
       type : keyword
       description: >
+        Flags that control password, lockout, disable/enable, script,
+        and other behavior for the user account.
       example: "0x15"
     
     - name: event_data.UserAccountControl
       level: custom
       type : keyword
       description: >
-      example:
+        Shows the list of changes in userAccountControl attribute.
+      example: "[\"AccountDisabled\"]"
     
     - name: event_data.UserParameters
       level: custom
       type : keyword
       description: >
-      example:
+        If you change any setting using Active Directory Users and 
+        Computers management console in the Dial-in tab of 
+        user’s account properties, then you will see this field.
  
     - name: event_data.SidHistory
       level: custom
       type : keyword
       description: >
-      example:    
-    
+        Previous SIDs used for the object if the object was moved
+        from another domain.
+        
     - name: event_data.LogonHours
       level: custom
       type : keyword
       description: >
-      example:
-    
-    - name: event_data.LogonHours
-      level: custom
-      type : keyword
-      description: >
+        Hours that the account is allowed to logon to the domain.
       example: "All"
 
     - name: event_data.Flags
@@ -288,31 +328,34 @@
       level: custom
       type : unsigned_long
       description: >
-      example:
+        Credential returned count.
+      example: 0
 
     - name: event_data.SchemaFriendlyName
       level: custom
       type : keyword
       description: >
-      example:
+        A human-readable name associated with the schema GUID.
+      example: "Windows Domain Password Credential"
 
     - name: event_data.Schema
       level: custom
       type : keyword
       description: >
-      example:
+        The schema GUID used to determine the type of VAULT credential.
+      example: "3e0e35be-1b77-43e7-b873aed901b6275b"
 
     - name: event_data.Resource
       level: custom
       type : keyword
-      description: >
-      example:
+      description: >  
+      example: "Domain:target=TestTarget"
 
     - name: event_data.Identity
       level: custom
       type : keyword
       description: >
-      example:
+      example: "TestUser"
 
     - name: event_data.PackageSid
       level: custom
@@ -324,22 +367,24 @@
       level: custom
       type : keyword
       description: >
-      example:
+        The name of accessed network share.
+      example: "\\\\*\\TestShare"
 
     - name: event_data.ShareLocalPath
       level: custom
       type : keyword
       description: >
-      example:
+        The full system (NTFS) path for accessed share.
+      example: "C:\\TestFolder"
 
     - name: event_data.RelativeTargetName
       level: custom
       type : keyword
       description: >
-      example:
+        Relative name of the accessed target file or folder.
       
     - name: event_data.AccessReason
       level: custom
       type : keyword
       description: >
-      example:
+        The list of access check results.
