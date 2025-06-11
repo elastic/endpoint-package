@@ -322,7 +322,7 @@
       level: custom
       type : unsigned_long
       description: >
-      example:
+        Flags.
 
     - name: event_data.CountOfCredentialsReturned
       level: custom
@@ -348,20 +348,22 @@
     - name: event_data.Resource
       level: custom
       type : keyword
-      description: >  
+      description: 
+        Resource Information.
       example: "Domain:target=TestTarget"
 
     - name: event_data.Identity
       level: custom
       type : keyword
       description: >
+        Identity information.
       example: "TestUser"
 
     - name: event_data.PackageSid
       level: custom
       type : keyword
       description: >
-      example:
+        Security Identifier (SID) of the application package.
 
     - name: event_data.ShareName
       level: custom
