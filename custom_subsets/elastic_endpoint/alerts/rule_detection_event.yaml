@@ -35,6 +35,7 @@ fields:
                   app_name: {}
                   content_name: {}
           created_suspended: {}
+          desktop_name: {}
           token:
             fields:
               integrity_level_name: {}
