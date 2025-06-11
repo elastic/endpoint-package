@@ -45,7 +45,7 @@
       type : keyword
       description: >
         The name of the server on which the new process was run. 
-        Has “localhost” value if the process was run locally.
+        Has "localhost" value if the process was run locally.
       example: "localhost"
 
     - name: event_data.TargetInfo
@@ -224,7 +224,7 @@
       level: custom
       type : keyword
       description: >
-        The path of the account’s logon script.
+        The path of the account's logon script.
 
     - name: event_data.ProfilePath
       level: custom
@@ -244,7 +244,7 @@
       level: custom
       type : keyword
       description: >
-        Last time the account’s password was modified. 
+        Last time the account's password was modified. 
         For manually created user account, using Active Directory Users
         and Computers snap-in, this field typically has value "<never>"
       example: "<never>"
@@ -302,7 +302,7 @@
       description: >
         If you change any setting using Active Directory Users and 
         Computers management console in the Dial-in tab of 
-        user’s account properties, then you will see this field.
+        user's account properties, then you will see this field.
  
     - name: event_data.SidHistory
       level: custom
