@@ -171,6 +171,24 @@
         but not a simple sum of the actions
       short: the overall status of memory_protection
 
+    - name: policy.applied.response.configurations.firewall_anti_tamper
+      level: custom
+      type: object
+      description: overall firewall_anti_tamper configuration and status of the applied policy
+
+    - name: policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for firewall_anti_tamper
+
+    - name: policy.applied.response.configurations.firewall_anti_tamper.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of firewall_anti_tamper, this is correlated to the status of concerned actions
+        but not a simple sum of the actions
+      short: the overall status of firewall_anti_tamper
+
     - name: policy.applied.response.configurations.streaming
       level: custom
       type: object
