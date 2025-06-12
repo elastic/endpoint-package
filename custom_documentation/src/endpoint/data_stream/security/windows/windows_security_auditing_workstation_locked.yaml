@@ -1,0 +1,45 @@
+overview:
+  name: The workstation was locked.
+  description: 'This event is generated when the workstation was locked.'
+identification:
+  filter:
+    event.action: workstation_locked
+    event.dataset: endpoint.events.security
+    event.module: endpoint
+    event.provider: Microsoft-Windows-Security-Auditing
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.security-*
+fields:
+  endpoint:
+  - '@timestamp'
+  - Target.process.Ext.authentication_id
+  - agent.id
+  - agent.type
+  - agent.version
+  - data_stream.dataset
+  - data_stream.namespace
+  - data_stream.type
+  - ecs.version
+  - elastic.agent.id
+  - event.action
+  - event.category
+  - event.code
+  - event.created
+  - event.dataset
+  - event.id
+  - event.kind
+  - event.module
+  - event.outcome
+  - event.provider
+  - event.sequence
+  - event.type
+  - host.id
+  - host.name
+  - host.os.type
+  - message
+  - process.Ext.session_info.id
+  - user.effective.domain
+  - user.effective.id
+  - user.effective.name

@@ -2048,14 +2048,601 @@ winlog.event_data:
   short: The event-specific data. This is a non-exhaustive list of parameters that
     are used in Windows events.
   type: object
+winlog.event_data.AccessReason:
+  dashed_name: winlog-event-data-AccessReason
+  description: The list of access check results.
+  flat_name: winlog.event_data.AccessReason
+  ignore_above: 1024
+  level: custom
+  name: event_data.AccessReason
+  normalize: []
+  short: The list of access check results.
+  type: keyword
+winlog.event_data.AccountExpires:
+  dashed_name: winlog-event-data-AccountExpires
+  description: The date when the account expires.  For manually created local and
+    domain user accounts this field typically has value "<never>".
+  example: <never>
+  flat_name: winlog.event_data.AccountExpires
+  ignore_above: 1024
+  level: custom
+  name: event_data.AccountExpires
+  normalize: []
+  short: The date when the account expires.  For manually created local and domain
+    user accounts this field typically has value "<never>".
+  type: keyword
+winlog.event_data.AllowedToDelegateTo:
+  dashed_name: winlog-event-data-AllowedToDelegateTo
+  description: The list of Service Principal Name (SPN) to which this account can
+    present delegated credentials.
+  flat_name: winlog.event_data.AllowedToDelegateTo
+  ignore_above: 1024
+  level: custom
+  name: event_data.AllowedToDelegateTo
+  normalize: []
+  short: The list of Service Principal Name (SPN) to which this account can present
+    delegated credentials.
+  type: keyword
+winlog.event_data.CountOfCredentialsReturned:
+  dashed_name: winlog-event-data-CountOfCredentialsReturned
+  description: Credential returned count.
+  example: 0
+  flat_name: winlog.event_data.CountOfCredentialsReturned
+  level: custom
+  name: event_data.CountOfCredentialsReturned
+  normalize: []
+  short: Credential returned count.
+  type: unsigned_long
+winlog.event_data.DisabledPrivilegeList:
+  dashed_name: winlog-event-data-DisabledPrivilegeList
+  description: The list of disabled user rights.
+  example: '["SeAssignPrimaryTokenPrivilege", "SeIncreaseQuotaPrivilege"]'
+  flat_name: winlog.event_data.DisabledPrivilegeList
+  ignore_above: 1024
+  level: custom
+  name: event_data.DisabledPrivilegeList
+  normalize: []
+  short: The list of disabled user rights.
+  type: keyword
+winlog.event_data.DisplayName:
+  dashed_name: winlog-event-data-DisplayName
+  description: A name displayed in the address book for a particular account.
+  flat_name: winlog.event_data.DisplayName
+  ignore_above: 1024
+  level: custom
+  name: event_data.DisplayName
+  normalize: []
+  short: A name displayed in the address book for a particular account.
+  type: keyword
+winlog.event_data.EnabledPrivilegeList:
+  dashed_name: winlog-event-data-EnabledPrivilegeList
+  description: The list of enabled user rights.
+  example: '["SeAssignPrimaryTokenPrivilege", "SeIncreaseQuotaPrivilege"]'
+  flat_name: winlog.event_data.EnabledPrivilegeList
+  ignore_above: 1024
+  level: custom
+  name: event_data.EnabledPrivilegeList
+  normalize: []
+  short: The list of enabled user rights.
+  type: keyword
+winlog.event_data.Flags:
+  dashed_name: winlog-event-data-Flags
+  description: Flags.
+  flat_name: winlog.event_data.Flags
+  level: custom
+  name: event_data.Flags
+  normalize: []
+  short: Flags.
+  type: unsigned_long
+winlog.event_data.HomeDirectory:
+  dashed_name: winlog-event-data-HomeDirectory
+  description: User's home directory.
+  flat_name: winlog.event_data.HomeDirectory
+  ignore_above: 1024
+  level: custom
+  name: event_data.HomeDirectory
+  normalize: []
+  short: User's home directory.
+  type: keyword
+winlog.event_data.HomePath:
+  dashed_name: winlog-event-data-HomePath
+  description: User's home path.
+  flat_name: winlog.event_data.HomePath
+  ignore_above: 1024
+  level: custom
+  name: event_data.HomePath
+  normalize: []
+  short: User's home path.
+  type: keyword
+winlog.event_data.Identity:
+  dashed_name: winlog-event-data-Identity
+  description: Identity information.
+  example: TestUser
+  flat_name: winlog.event_data.Identity
+  ignore_above: 1024
+  level: custom
+  name: event_data.Identity
+  normalize: []
+  short: Identity information.
+  type: keyword
+winlog.event_data.KeyLength:
+  dashed_name: winlog-event-data-KeyLength
+  description: The length of the NTLM Session Security key.
+  flat_name: winlog.event_data.KeyLength
+  level: custom
+  name: event_data.KeyLength
+  normalize: []
+  short: The length of the NTLM Session Security key.
+  type: unsigned_long
+winlog.event_data.LmPackageName:
+  dashed_name: winlog-event-data-LmPackageName
+  description: The name of the LAN Manager subpackage  (NTLM-family protocol name)
+    that was used during logon.
+  flat_name: winlog.event_data.LmPackageName
+  ignore_above: 1024
+  level: custom
+  name: event_data.LmPackageName
+  normalize: []
+  short: The name of the LAN Manager subpackage  (NTLM-family protocol name) that
+    was used during logon.
+  type: keyword
+winlog.event_data.LogonGuid:
+  dashed_name: winlog-event-data-LogonGuid
+  description: Globally Unique Identifier.
+  flat_name: winlog.event_data.LogonGuid
+  ignore_above: 1024
+  level: custom
+  name: event_data.LogonGuid
+  normalize: []
+  short: Globally Unique Identifier.
+  type: keyword
+winlog.event_data.LogonHours:
+  dashed_name: winlog-event-data-LogonHours
+  description: Hours that the account is allowed to logon to the domain.
+  example: All
+  flat_name: winlog.event_data.LogonHours
+  ignore_above: 1024
+  level: custom
+  name: event_data.LogonHours
+  normalize: []
+  short: Hours that the account is allowed to logon to the domain.
+  type: keyword
+winlog.event_data.NewUacValue:
+  dashed_name: winlog-event-data-NewUacValue
+  description: Flags that control password, lockout, disable/enable, script, and other
+    behavior for the user account.
+  example: '0x15'
+  flat_name: winlog.event_data.NewUacValue
+  ignore_above: 1024
+  level: custom
+  name: event_data.NewUacValue
+  normalize: []
+  short: Flags that control password, lockout, disable/enable, script, and other behavior
+    for the user account.
+  type: keyword
+winlog.event_data.OldUacValue:
+  dashed_name: winlog-event-data-OldUacValue
+  description: Flags that control password, lockout, disable/enable, script, and other
+    behavior for the user account.  This parameter contains the previous UAC value.
+  example: '0x0'
+  flat_name: winlog.event_data.OldUacValue
+  ignore_above: 1024
+  level: custom
+  name: event_data.OldUacValue
+  normalize: []
+  short: Flags that control password, lockout, disable/enable, script, and other behavior
+    for the user account.  This parameter contains the previous UAC value.
+  type: keyword
+winlog.event_data.PackageSid:
+  dashed_name: winlog-event-data-PackageSid
+  description: Security Identifier (SID) of the application package.
+  flat_name: winlog.event_data.PackageSid
+  ignore_above: 1024
+  level: custom
+  name: event_data.PackageSid
+  normalize: []
+  short: Security Identifier (SID) of the application package.
+  type: keyword
+winlog.event_data.PasswordLastSet:
+  dashed_name: winlog-event-data-PasswordLastSet
+  description: Last time the account's password was modified.  For manually created
+    user account, using Active Directory Users and Computers snap-in, this field typically
+    has value "<never>"
+  example: <never>
+  flat_name: winlog.event_data.PasswordLastSet
+  ignore_above: 1024
+  level: custom
+  name: event_data.PasswordLastSet
+  normalize: []
+  short: Last time the account's password was modified.  For manually created user
+    account, using Active Directory Users and Computers snap-in, this field typically
+    has value "<never>"
+  type: keyword
+winlog.event_data.PrimaryGroupId:
+  dashed_name: winlog-event-data-PrimaryGroupId
+  description: Relative Identifier (RID) of the user's object primary group.
+  example: '513'
+  flat_name: winlog.event_data.PrimaryGroupId
+  ignore_above: 1024
+  level: custom
+  name: event_data.PrimaryGroupId
+  normalize: []
+  short: Relative Identifier (RID) of the user's object primary group.
+  type: keyword
 winlog.event_data.PrivilegeList:
   dashed_name: winlog-event-data-PrivilegeList
   description: An array of sensitive privileges, assigned to the new logon.
-  example: SeTcbPrivilege, SeSecurityPrivilege
+  example: '["SeTcbPrivilege", "SeSecurityPrivilege"]'
   flat_name: winlog.event_data.PrivilegeList
   ignore_above: 1024
   level: custom
   name: event_data.PrivilegeList
   normalize: []
   short: An array of sensitive privileges, assigned to the new logon.
+  type: keyword
+winlog.event_data.ProfilePath:
+  dashed_name: winlog-event-data-ProfilePath
+  description: Specifies a path to the account's profile.  This value can be a null
+    string, a local absolute path, or a UNC path.
+  flat_name: winlog.event_data.ProfilePath
+  ignore_above: 1024
+  level: custom
+  name: event_data.ProfilePath
+  normalize: []
+  short: Specifies a path to the account's profile.  This value can be a null string,
+    a local absolute path, or a UNC path.
+  type: keyword
+winlog.event_data.RelativeTargetName:
+  dashed_name: winlog-event-data-RelativeTargetName
+  description: Relative name of the accessed target file or folder.
+  flat_name: winlog.event_data.RelativeTargetName
+  ignore_above: 1024
+  level: custom
+  name: event_data.RelativeTargetName
+  normalize: []
+  short: Relative name of the accessed target file or folder.
+  type: keyword
+winlog.event_data.Resource:
+  dashed_name: winlog-event-data-Resource
+  description: Resource Information.
+  example: Domain:target=TestTarget
+  flat_name: winlog.event_data.Resource
+  ignore_above: 1024
+  level: custom
+  name: event_data.Resource
+  normalize: []
+  short: Resource Information.
+  type: keyword
+winlog.event_data.RestrictedAdminMode:
+  dashed_name: winlog-event-data-RestrictedAdminMode
+  description: Only populated for RemoteInteractive logon type sessions.  This value
+    is a Yes/No flag indicating if the credentials provided were passed using Restricted
+    Admin mode.
+  flat_name: winlog.event_data.RestrictedAdminMode
+  ignore_above: 1024
+  level: custom
+  name: event_data.RestrictedAdminMode
+  normalize: []
+  short: Only populated for RemoteInteractive logon type sessions.  This value is
+    a Yes/No flag indicating if the credentials provided were passed using Restricted
+    Admin mode.
+  type: keyword
+winlog.event_data.SamAccountName:
+  dashed_name: winlog-event-data-SamAccountName
+  description: Logon name for account used to support clients and servers from  previous
+    versions of Windows (pre-Windows 2000 logon name).
+  example: TestUser
+  flat_name: winlog.event_data.SamAccountName
+  ignore_above: 1024
+  level: custom
+  name: event_data.SamAccountName
+  normalize: []
+  short: Logon name for account used to support clients and servers from  previous
+    versions of Windows (pre-Windows 2000 logon name).
+  type: keyword
+winlog.event_data.Schema:
+  dashed_name: winlog-event-data-Schema
+  description: The schema GUID used to determine the type of VAULT credential.
+  example: 3e0e35be-1b77-43e7-b873aed901b6275b
+  flat_name: winlog.event_data.Schema
+  ignore_above: 1024
+  level: custom
+  name: event_data.Schema
+  normalize: []
+  short: The schema GUID used to determine the type of VAULT credential.
+  type: keyword
+winlog.event_data.SchemaFriendlyName:
+  dashed_name: winlog-event-data-SchemaFriendlyName
+  description: A human-readable name associated with the schema GUID.
+  example: Windows Domain Password Credential
+  flat_name: winlog.event_data.SchemaFriendlyName
+  ignore_above: 1024
+  level: custom
+  name: event_data.SchemaFriendlyName
+  normalize: []
+  short: A human-readable name associated with the schema GUID.
+  type: keyword
+winlog.event_data.ScriptPath:
+  dashed_name: winlog-event-data-ScriptPath
+  description: The path of the account's logon script.
+  flat_name: winlog.event_data.ScriptPath
+  ignore_above: 1024
+  level: custom
+  name: event_data.ScriptPath
+  normalize: []
+  short: The path of the account's logon script.
+  type: keyword
+winlog.event_data.ServiceAccount:
+  dashed_name: winlog-event-data-ServiceAccount
+  description: The security context that the service will run as when started.
+  example: LocalSystem
+  flat_name: winlog.event_data.ServiceAccount
+  ignore_above: 1024
+  level: custom
+  name: event_data.ServiceAccount
+  normalize: []
+  short: The security context that the service will run as when started.
+  type: keyword
+winlog.event_data.ServiceFileName:
+  dashed_name: winlog-event-data-ServiceFileName
+  description: Path to the file that the Service Control Manager will execute to start
+    the service.
+  example: C:\TestService.exe
+  flat_name: winlog.event_data.ServiceFileName
+  ignore_above: 1024
+  level: custom
+  name: event_data.ServiceFileName
+  normalize: []
+  short: Path to the file that the Service Control Manager will execute to start the
+    service.
+  type: keyword
+winlog.event_data.ServiceName:
+  dashed_name: winlog-event-data-ServiceName
+  description: The name of the installed service.
+  example: TestServiceName
+  flat_name: winlog.event_data.ServiceName
+  ignore_above: 1024
+  level: custom
+  name: event_data.ServiceName
+  normalize: []
+  short: The name of the installed service.
+  type: keyword
+winlog.event_data.ServiceStartType:
+  dashed_name: winlog-event-data-ServiceStartType
+  description: Contains information about how a particular service should be started.
+  example: Automatic
+  flat_name: winlog.event_data.ServiceStartType
+  ignore_above: 1024
+  level: custom
+  name: event_data.ServiceStartType
+  normalize: []
+  short: Contains information about how a particular service should be started.
+  type: keyword
+winlog.event_data.ServiceType:
+  dashed_name: winlog-event-data-ServiceType
+  description: Indicates the type of service that was registered  with the Service
+    Control Manager.
+  example: Win32 Own Process
+  flat_name: winlog.event_data.ServiceType
+  ignore_above: 1024
+  level: custom
+  name: event_data.ServiceType
+  normalize: []
+  short: Indicates the type of service that was registered  with the Service Control
+    Manager.
+  type: keyword
+winlog.event_data.ShareLocalPath:
+  dashed_name: winlog-event-data-ShareLocalPath
+  description: The full system (NTFS) path for accessed share.
+  example: C:\TestFolder
+  flat_name: winlog.event_data.ShareLocalPath
+  ignore_above: 1024
+  level: custom
+  name: event_data.ShareLocalPath
+  normalize: []
+  short: The full system (NTFS) path for accessed share.
+  type: keyword
+winlog.event_data.ShareName:
+  dashed_name: winlog-event-data-ShareName
+  description: The name of accessed network share.
+  example: \\*\TestShare
+  flat_name: winlog.event_data.ShareName
+  ignore_above: 1024
+  level: custom
+  name: event_data.ShareName
+  normalize: []
+  short: The name of accessed network share.
+  type: keyword
+winlog.event_data.SidHistory:
+  dashed_name: winlog-event-data-SidHistory
+  description: Previous SIDs used for the object if the object was moved from another
+    domain.
+  flat_name: winlog.event_data.SidHistory
+  ignore_above: 1024
+  level: custom
+  name: event_data.SidHistory
+  normalize: []
+  short: Previous SIDs used for the object if the object was moved from another domain.
+  type: keyword
+winlog.event_data.Status:
+  dashed_name: winlog-event-data-Status
+  description: The reason why logon failed.
+  example: '0xC000006D'
+  flat_name: winlog.event_data.Status
+  ignore_above: 1024
+  level: custom
+  name: event_data.Status
+  normalize: []
+  short: The reason why logon failed.
+  type: keyword
+winlog.event_data.SubStatus:
+  dashed_name: winlog-event-data-SubStatus
+  description: Additional information about logon failure.
+  example: '0xC000006A'
+  flat_name: winlog.event_data.SubStatus
+  ignore_above: 1024
+  level: custom
+  name: event_data.SubStatus
+  normalize: []
+  short: Additional information about logon failure.
+  type: keyword
+winlog.event_data.TargetInfo:
+  dashed_name: winlog-event-data-TargetInfo
+  description: Additional information about the event target.
+  example: localhost
+  flat_name: winlog.event_data.TargetInfo
+  ignore_above: 1024
+  level: custom
+  name: event_data.TargetInfo
+  normalize: []
+  short: Additional information about the event target.
+  type: keyword
+winlog.event_data.TargetLinkedLogonId:
+  dashed_name: winlog-event-data-TargetLinkedLogonId
+  description: Information that helps to link related events together by their logon
+    attempt IDs.
+  flat_name: winlog.event_data.TargetLinkedLogonId
+  ignore_above: 1024
+  level: custom
+  name: event_data.TargetLinkedLogonId
+  normalize: []
+  short: Information that helps to link related events together by their logon attempt
+    IDs.
+  type: keyword
+winlog.event_data.TargetLogonGuid:
+  dashed_name: winlog-event-data-TargetLogonGuid
+  description: A globally unique identifier (GUID) associated with  the logon session
+    related to the event.
+  flat_name: winlog.event_data.TargetLogonGuid
+  ignore_above: 1024
+  level: custom
+  name: event_data.TargetLogonGuid
+  normalize: []
+  short: A globally unique identifier (GUID) associated with  the logon session related
+    to the event.
+  type: keyword
+winlog.event_data.TargetServerName:
+  dashed_name: winlog-event-data-TargetServerName
+  description: The name of the server on which the new process was run.  Has "localhost"
+    value if the process was run locally.
+  example: localhost
+  flat_name: winlog.event_data.TargetServerName
+  ignore_above: 1024
+  level: custom
+  name: event_data.TargetServerName
+  normalize: []
+  short: The name of the server on which the new process was run.  Has "localhost"
+    value if the process was run locally.
+  type: keyword
+winlog.event_data.TaskContent:
+  dashed_name: winlog-event-data-TaskContent
+  description: The XML content of the new task.
+  flat_name: winlog.event_data.TaskContent
+  ignore_above: 1024
+  level: custom
+  name: event_data.TaskContent
+  normalize: []
+  short: The XML content of the new task.
+  type: keyword
+winlog.event_data.TaskContentNew:
+  dashed_name: winlog-event-data-TaskContentNew
+  description: The new XML for the updated task.
+  flat_name: winlog.event_data.TaskContentNew
+  ignore_above: 1024
+  level: custom
+  name: event_data.TaskContentNew
+  normalize: []
+  short: The new XML for the updated task.
+  type: keyword
+winlog.event_data.TaskName:
+  dashed_name: winlog-event-data-TaskName
+  description: New scheduled task name.
+  example: \TestScheduledTaskEvent
+  flat_name: winlog.event_data.TaskName
+  ignore_above: 1024
+  level: custom
+  name: event_data.TaskName
+  normalize: []
+  short: New scheduled task name.
+  type: keyword
+winlog.event_data.TransmittedServices:
+  dashed_name: winlog-event-data-TransmittedServices
+  description: The list of transmitted services.
+  flat_name: winlog.event_data.TransmittedServices
+  ignore_above: 1024
+  level: custom
+  name: event_data.TransmittedServices
+  normalize: []
+  short: The list of transmitted services.
+  type: keyword
+winlog.event_data.UserAccountControl:
+  dashed_name: winlog-event-data-UserAccountControl
+  description: Shows the list of changes in userAccountControl attribute.
+  example: '["AccountDisabled"]'
+  flat_name: winlog.event_data.UserAccountControl
+  ignore_above: 1024
+  level: custom
+  name: event_data.UserAccountControl
+  normalize: []
+  short: Shows the list of changes in userAccountControl attribute.
+  type: keyword
+winlog.event_data.UserParameters:
+  dashed_name: winlog-event-data-UserParameters
+  description: If you change any setting using Active Directory Users and  Computers
+    management console in the Dial-in tab of  user's account properties, then you
+    will see this field.
+  flat_name: winlog.event_data.UserParameters
+  ignore_above: 1024
+  level: custom
+  name: event_data.UserParameters
+  normalize: []
+  short: If you change any setting using Active Directory Users and  Computers management
+    console in the Dial-in tab of  user's account properties, then you will see this
+    field.
+  type: keyword
+winlog.event_data.UserPrincipalName:
+  dashed_name: winlog-event-data-UserPrincipalName
+  description: Internet-style login name for the account,  based on the Internet standard
+    RFC 822.
+  flat_name: winlog.event_data.UserPrincipalName
+  ignore_above: 1024
+  level: custom
+  name: event_data.UserPrincipalName
+  normalize: []
+  short: Internet-style login name for the account,  based on the Internet standard
+    RFC 822.
+  type: keyword
+winlog.event_data.UserWorkstations:
+  dashed_name: winlog-event-data-UserWorkstations
+  description: Contains the list of NetBIOS or DNS names of the computers from which
+    the user can logon.
+  flat_name: winlog.event_data.UserWorkstations
+  ignore_above: 1024
+  level: custom
+  name: event_data.UserWorkstations
+  normalize: []
+  short: Contains the list of NetBIOS or DNS names of the computers from which the
+    user can logon.
+  type: keyword
+winlog.event_data.VirtualAccount:
+  dashed_name: winlog-event-data-VirtualAccount
+  description: A "Yes" or "No" flag, which indicates if the account is a virtual account.
+  example: 'No'
+  flat_name: winlog.event_data.VirtualAccount
+  ignore_above: 1024
+  level: custom
+  name: event_data.VirtualAccount
+  normalize: []
+  short: A "Yes" or "No" flag, which indicates if the account is a virtual account.
+  type: keyword
+winlog.event_data.WorkstationName:
+  dashed_name: winlog-event-data-WorkstationName
+  description: Machine name from which a logon attempt was performed.
+  example: TestServer
+  flat_name: winlog.event_data.WorkstationName
+  ignore_above: 1024
+  level: custom
+  name: event_data.WorkstationName
+  normalize: []
+  short: Machine name from which a logon attempt was performed.
   type: keyword
