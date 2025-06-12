@@ -130,13 +130,13 @@
             "TargetServerName": "localhost",
             "TargetInfo": "localhost",
             "WorkstationName": "TestServer",
-            "TransmittedServices": "\u003ctest_data\u003e",
-            "LogonGuid": "\u003ctest_data\u003e",
-            "TargetLogonGuid": "\u003ctest_data\u003e",
-            "LmPackageName": "\u003ctest_data\u003e",
-            "RestrictedAdminMode": "\u003ctest_data\u003e",
+            "TransmittedServices": "test_data",
+            "LogonGuid": "test_data",
+            "TargetLogonGuid": "test_data",
+            "LmPackageName": "test_data",
+            "RestrictedAdminMode": "test_data",
             "VirtualAccount": "No",
-            "TargetLinkedLogonId": "\u003ctest_data\u003e",
+            "TargetLinkedLogonId": "test_data",
             "KeyLength": 0,
             "ServiceName": "TestServiceName",
             "ServiceFileName": "C:\\TestService.exe",
@@ -144,8 +144,8 @@
             "ServiceStartType": "Automatic",
             "ServiceAccount": "LocalSystem",
             "TaskName": "\\TestScheduledTaskEvent",
-            "TaskContent": "\u003ctest_data\u003e",
-            "TaskContentNew": "\u003ctest_data\u003e",
+            "TaskContent": "test_data",
+            "TaskContentNew": "test_data",
             "EnabledPrivilegeList": [
                 "SeAssignPrimaryTokenPrivilege",
                 "SeIncreaseQuotaPrivilege"
@@ -155,24 +155,27 @@
                 "SeIncreaseQuotaPrivilege"
             ],
             "SamAccountName": "TestUser",
-            "DisplayName": "\u003ctest_data\u003e",
-            "UserPrincipalName": "\u003ctest_data\u003e",
-            "HomeDirectory": "\u003ctest_data\u003e",
-            "HomePath": "\u003ctest_data\u003e",
-            "ScriptPath": "\u003ctest_data\u003e",
-            "ProfilePath": "\u003ctest_data\u003e",
-            "UserWorkstations": "\u003ctest_data\u003e",
-            "PasswordLastSet": "\u003cnever\u003e",
-            "AccountExpires": "\u003cnever\u003e",
+            "DisplayName": "test_data",
+            "UserPrincipalName": "test_data",
+            "HomeDirectory": "test_data",
+            "HomePath": "test_data",
+            "ScriptPath": "test_data",
+            "ProfilePath": "test_data",
+            "UserWorkstations":  [
+                "test_data",
+                "test_data"
+            ], 
+            "PasswordLastSet": "test_data",
+            "AccountExpires": "test_data",
             "PrimaryGroupId": "513",
-            "AllowedToDelegateTo": "\u003ctest_data\u003e",
+            "AllowedToDelegateTo": "test_data",
             "OldUacValue": "0x0",
             "NewUacValue": "0x15",
             "UserAccountControl": [
                 "AccountDisabled"
             ],
-            "UserParameters": "\u003ctest_data\u003e",
-            "SidHistory": "\u003ctest_data\u003e",
+            "UserParameters": "test_data",
+            "SidHistory": "test_data",
             "LogonHours": "SidHistory",
             "Flags": 0,
             "CountOfCredentialsReturned": 0,
@@ -180,11 +183,14 @@
             "Schema": "3e0e35be-1b77-43e7-b873aed901b6275b",
             "Resource": "Domain:target=TestTarget",
             "Identity": "TestUser",
-            "PackageSid": "\u003ctest_data\u003e",
+            "PackageSid": "test_data",
             "ShareName": "\\\\*\\TestShare",
             "ShareLocalPath": "C:\\TestFolder",
-            "RelativeTargetName": "\u003ctest_data\u003e",
-            "AccessReason": "\u003ctest_data\u003e"
+            "RelativeTargetName": "test_data",
+            "AccessReason": [
+                "test_data",
+                "test_data"
+            ]
         }
     }
 }
