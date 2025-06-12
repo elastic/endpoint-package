@@ -1,0 +1,93 @@
+# macOS TCC modify
+
+- OS: macOS
+- Data Stream: `logs-endpoint.events.security-*`
+- KQL: `event.action : "tcc_modify" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "macos"`
+
+This event is generated when a Transparency, Consent, and Control (TCC) permission is modified on a macOS system.
+
+
+| Field |
+|---|
+| @timestamp |
+| Effective_process.code_signature.exists |
+| Effective_process.code_signature.signing_id |
+| Effective_process.code_signature.status |
+| Effective_process.code_signature.subject_name |
+| Effective_process.code_signature.team_id |
+| Effective_process.code_signature.trusted |
+| Effective_process.code_signature.valid |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
+| Target.process.Ext.authentication_id |
+| Tcc.identity |
+| Tcc.reason |
+| Tcc.right |
+| Tcc.service |
+| Tcc.update_type |
+| agent.id |
+| agent.type |
+| agent.version |
+| data_stream.dataset |
+| data_stream.namespace |
+| data_stream.type |
+| ecs.version |
+| elastic.agent.id |
+| event.action |
+| event.category |
+| event.code |
+| event.created |
+| event.dataset |
+| event.id |
+| event.kind |
+| event.module |
+| event.outcome |
+| event.sequence |
+| event.type |
+| file.code_signature.signing_id |
+| file.code_signature.team_id |
+| file.path |
+| host.architecture |
+| host.hostname |
+| host.id |
+| host.ip |
+| host.mac |
+| host.name |
+| host.os.Ext.variant |
+| host.os.family |
+| host.os.full |
+| host.os.kernel |
+| host.os.name |
+| host.os.platform |
+| host.os.type |
+| host.os.version |
+| message |
+| process.Ext.ancestry |
+| process.Ext.authentication_id |
+| process.Ext.code_signature.exists |
+| process.Ext.code_signature.status |
+| process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.trusted |
+| process.Ext.session_info.logon_type |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
+| process.entity_id |
+| process.executable |
+| process.name |
+| process.pid |
+| user.domain |
+| user.effective.domain |
+| user.effective.email |
+| user.effective.full_name |
+| user.effective.hash |
+| user.effective.id |
+| user.effective.name |
+| user.id |
+| user.name |
+

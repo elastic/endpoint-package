@@ -1,0 +1,35 @@
+---
+- name: Tcc
+  title: Tcc
+  group: 2
+  short: These fields contain information about macOS TCC (Transparency, Consent, and Control) events.
+  description: >
+    These fields contain information about macOS TCC permission events, which control
+    application access to protected user data and features.
+  type: group
+  fields:
+    - name: service
+      level: custom
+      type: keyword
+      description: >
+        The TCC service for which permissions are being modified.
+    - name: identity
+      level: custom
+      type: keyword
+      description: >
+        The identity of the application that is the subject of the permission.
+    - name: update_type
+      level: custom
+      type: keyword
+      description: >
+        The type of TCC modification event (Grant/Revoke etc).
+    - name: right
+      level: custom
+      type: keyword
+      description: >
+        The resulting TCC permission of the operation/modification.
+    - name: reason
+      level: custom
+      type: keyword
+      description: >
+        The reason the TCC permissions were updated.

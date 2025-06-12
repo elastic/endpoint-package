@@ -156,3 +156,25 @@ fields:
           signing_id: {}
           team_id: {}
       path: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      code_signature:
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
+  Tcc:
+    fields:
+      service: {}
+      identity: {}
+      update_type: {}
+      right: {}
+      reason: {}

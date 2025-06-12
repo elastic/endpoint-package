@@ -17,6 +17,140 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Effective_process.code_signature.exists:
+  dashed_name: Effective-process-code-signature-exists
+  description: Boolean to capture if a signature is present.
+  example: 'true'
+  flat_name: Effective_process.code_signature.exists
+  level: core
+  name: code_signature.exists
+  normalize: []
+  short: Boolean to capture if a signature is present.
+  type: boolean
+Effective_process.code_signature.signing_id:
+  dashed_name: Effective-process-code-signature-signing-id
+  description: '''The identifier used to sign the binary.
+
+    This is used to identify the application manufactured by a software vendor. The
+    field is relevant to Apple *OS only.'''
+  example: com.apple.xpc.proxy
+  flat_name: Effective_process.code_signature.signing_id
+  ignore_above: 1024
+  level: extended
+  name: code_signature.signing_id
+  normalize: []
+  short: The identifier used to sign the binary.
+  type: keyword
+Effective_process.code_signature.status:
+  dashed_name: Effective-process-code-signature-status
+  description: 'Additional information about the certificate status.
+
+    This is useful for logging cryptographic errors with the certificate validity
+    or trust status. Leave unpopulated if the validity or trust of the certificate
+    was unchecked.'
+  example: ERROR_UNTRUSTED_ROOT
+  flat_name: Effective_process.code_signature.status
+  ignore_above: 1024
+  level: extended
+  name: code_signature.status
+  normalize: []
+  short: Additional information about the certificate status.
+  type: keyword
+Effective_process.code_signature.subject_name:
+  dashed_name: Effective-process-code-signature-subject-name
+  description: Subject name of the code signer
+  example: Microsoft Corporation
+  flat_name: Effective_process.code_signature.subject_name
+  ignore_above: 1024
+  level: extended
+  name: code_signature.subject_name
+  normalize: []
+  short: Subject name of the code signer
+  type: keyword
+Effective_process.code_signature.team_id:
+  dashed_name: Effective-process-code-signature-team-id
+  description: '''The team identifier used to sign the binary.
+
+    This is used to identify the team or vendor of a software product. The field is
+    relevant to Apple *OS only.'''
+  example: EQHXZ8M8AV
+  flat_name: Effective_process.code_signature.team_id
+  ignore_above: 1024
+  level: extended
+  name: code_signature.team_id
+  normalize: []
+  short: The team identifier used to sign the binary.
+  type: keyword
+Effective_process.code_signature.trusted:
+  dashed_name: Effective-process-code-signature-trusted
+  description: 'Stores the trust status of the certificate chain.
+
+    Validating the trust of the certificate chain may be complicated, and this field
+    should only be populated by tools that actively check the status.'
+  example: 'true'
+  flat_name: Effective_process.code_signature.trusted
+  level: extended
+  name: code_signature.trusted
+  normalize: []
+  short: Stores the trust status of the certificate chain.
+  type: boolean
+Effective_process.code_signature.valid:
+  dashed_name: Effective-process-code-signature-valid
+  description: 'Boolean to capture if the digital signature is verified against the
+    binary content.
+
+    Leave unpopulated if a certificate was unchecked.'
+  example: 'true'
+  flat_name: Effective_process.code_signature.valid
+  level: extended
+  name: code_signature.valid
+  normalize: []
+  short: Boolean to capture if the digital signature is verified against the binary
+    content.
+  type: boolean
+Effective_process.entity_id:
+  dashed_name: Effective-process-entity-id
+  description: Unique identifier for the effective process.
+  example: c2c455d9f99375d
+  flat_name: Effective_process.entity_id
+  ignore_above: 1024
+  level: custom
+  name: entity_id
+  normalize: []
+  short: Unique identifier for the effective process.
+  type: keyword
+Effective_process.executable:
+  dashed_name: Effective-process-executable
+  description: Executable name for the effective process.
+  example: C:\Windows\System32\wbem\WMIC.exe
+  flat_name: Effective_process.executable
+  ignore_above: 1024
+  level: custom
+  name: executable
+  normalize: []
+  short: Executable name for the effective process.
+  type: keyword
+Effective_process.name:
+  dashed_name: Effective-process-name
+  description: Process name for the effective process.
+  example: WMIC.exe
+  flat_name: Effective_process.name
+  ignore_above: 1024
+  level: custom
+  name: name
+  normalize: []
+  short: Process name for the effective process.
+  type: keyword
+Effective_process.pid:
+  dashed_name: Effective-process-pid
+  description: Process ID.
+  example: 4242
+  flat_name: Effective_process.pid
+  level: custom
+  name: pid
+  normalize: []
+  short: Process ID.
+  type: long
 Target.process.Ext:
   dashed_name: Target-process-Ext
   description: Object for all custom defined fields to live in.
@@ -37,6 +171,56 @@ Target.process.Ext.authentication_id:
   normalize: []
   original_fieldset: process
   short: Process authentication ID
+  type: keyword
+Tcc.identity:
+  dashed_name: Tcc-identity
+  description: The identity of the application that is the subject of the permission.
+  flat_name: Tcc.identity
+  ignore_above: 1024
+  level: custom
+  name: identity
+  normalize: []
+  short: The identity of the application that is the subject of the permission.
+  type: keyword
+Tcc.reason:
+  dashed_name: Tcc-reason
+  description: The reason the TCC permissions were updated.
+  flat_name: Tcc.reason
+  ignore_above: 1024
+  level: custom
+  name: reason
+  normalize: []
+  short: The reason the TCC permissions were updated.
+  type: keyword
+Tcc.right:
+  dashed_name: Tcc-right
+  description: The resulting TCC permission of the operation/modification.
+  flat_name: Tcc.right
+  ignore_above: 1024
+  level: custom
+  name: right
+  normalize: []
+  short: The resulting TCC permission of the operation/modification.
+  type: keyword
+Tcc.service:
+  dashed_name: Tcc-service
+  description: The TCC service for which permissions are being modified.
+  flat_name: Tcc.service
+  ignore_above: 1024
+  level: custom
+  name: service
+  normalize: []
+  short: The TCC service for which permissions are being modified.
+  type: keyword
+Tcc.update_type:
+  dashed_name: Tcc-update-type
+  description: The type of TCC modification event (Grant/Revoke etc).
+  flat_name: Tcc.update_type
+  ignore_above: 1024
+  level: custom
+  name: update_type
+  normalize: []
+  short: The type of TCC modification event (Grant/Revoke etc).
   type: keyword
 agent.id:
   dashed_name: agent-id
