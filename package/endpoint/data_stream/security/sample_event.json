@@ -161,10 +161,10 @@
             "HomePath": "test_data",
             "ScriptPath": "test_data",
             "ProfilePath": "test_data",
-            "UserWorkstations":  [
+            "UserWorkstations": [
                 "test_data",
                 "test_data"
-            ], 
+            ],
             "PasswordLastSet": "test_data",
             "AccountExpires": "test_data",
             "PrimaryGroupId": "513",
