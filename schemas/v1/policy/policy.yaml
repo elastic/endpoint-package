@@ -397,34 +397,34 @@ Endpoint.policy.applied.response.configurations.events.status:
   type: keyword
 Endpoint.policy.applied.response.configurations.firewall_anti_tamper:
   dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper
-  description: overall firewall_anti_tamper configuration and status of the applied
+  description: overall firewall anti-tamper configuration and status of the applied
     policy
   flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper
   level: custom
   name: policy.applied.response.configurations.firewall_anti_tamper
   normalize: []
-  short: overall firewall_anti_tamper configuration and status of the applied policy
+  short: overall firewall anti-tamper configuration and status of the applied policy
   type: object
 Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper-concerned-actions
-  description: all actions that were taken for firewall_anti_tamper
+  description: all actions that were taken for firewall anti-tamper
   flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
   ignore_above: 1024
   level: custom
   name: policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
   normalize: []
-  short: all actions that were taken for firewall_anti_tamper
+  short: all actions that were taken for firewall anti-tamper
   type: keyword
 Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status:
   dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper-status
-  description: the overall status of firewall_anti_tamper, this is correlated to the
+  description: the overall status of firewall anti-tamper, this is correlated to the
     status of concerned actions but not a simple sum of the actions
   flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status
   ignore_above: 1024
   level: custom
   name: policy.applied.response.configurations.firewall_anti_tamper.status
   normalize: []
-  short: the overall status of firewall_anti_tamper
+  short: the overall status of firewall anti-tamper
   type: keyword
 Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-configurations-host-isolation-concerned-actions
