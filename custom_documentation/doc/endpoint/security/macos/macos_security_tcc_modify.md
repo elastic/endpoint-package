@@ -16,7 +16,6 @@ This event is generated when a Transparency, Consent, and Control (TCC) permissi
 | Effective_process.code_signature.subject_name |
 | Effective_process.code_signature.team_id |
 | Effective_process.code_signature.trusted |
-| Effective_process.code_signature.valid |
 | Effective_process.entity_id |
 | Effective_process.executable |
 | Effective_process.name |

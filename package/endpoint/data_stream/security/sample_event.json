@@ -6,8 +6,7 @@
             "status": "trusted",
             "subject_name": "Apple Terminal",
             "team_id": "APPLE123ABC",
-            "trusted": true,
-            "valid": true
+            "trusted": true
         },
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
         "executable": "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",

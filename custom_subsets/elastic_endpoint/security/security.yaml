@@ -170,7 +170,6 @@ fields:
           subject_name: {}
           team_id: {}
           trusted: {}
-          valid: {}
   Tcc:
     fields:
       service: {}

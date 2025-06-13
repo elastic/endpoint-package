@@ -94,20 +94,6 @@ Effective_process.code_signature.trusted:
   normalize: []
   short: Stores the trust status of the certificate chain.
   type: boolean
-Effective_process.code_signature.valid:
-  dashed_name: Effective-process-code-signature-valid
-  description: 'Boolean to capture if the digital signature is verified against the
-    binary content.
-
-    Leave unpopulated if a certificate was unchecked.'
-  example: 'true'
-  flat_name: Effective_process.code_signature.valid
-  level: extended
-  name: code_signature.valid
-  normalize: []
-  short: Boolean to capture if the digital signature is verified against the binary
-    content.
-  type: boolean
 Effective_process.entity_id:
   dashed_name: Effective-process-entity-id
   description: Unique identifier for the effective process.

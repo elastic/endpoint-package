@@ -2680,7 +2680,6 @@ sent by the endpoint.
 | Effective_process.code_signature.subject_name | Subject name of the code signer | keyword |
 | Effective_process.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
 | Effective_process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
-| Effective_process.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | Effective_process.entity_id | Unique identifier for the effective process. | keyword |
 | Effective_process.executable | Executable name for the effective process. | keyword |
 | Effective_process.name | Process name for the effective process. | keyword |

@@ -82,14 +82,6 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
       example: 'true'
       default_field: false
-    - name: code_signature.valid
-      level: extended
-      type: boolean
-      description: 'Boolean to capture if the digital signature is verified against the binary content.
-
-        Leave unpopulated if a certificate was unchecked.'
-      example: 'true'
-      default_field: false
     - name: entity_id
       level: custom
       type: keyword
