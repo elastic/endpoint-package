@@ -36,8 +36,6 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.behavior_protection.status |
 | Endpoint.policy.applied.response.configurations.events.concerned_actions |
 | Endpoint.policy.applied.response.configurations.events.status |
-| Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions |
-| Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status |
 | Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions |
 | Endpoint.policy.applied.response.configurations.host_isolation.status |
 | Endpoint.policy.applied.response.configurations.logging.concerned_actions |
@@ -54,6 +52,8 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.streaming.status |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.status |
+| Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions |
+| Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.status |
 | Endpoint.policy.applied.response.diagnostic.malware.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.malware.status |
 | Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions |

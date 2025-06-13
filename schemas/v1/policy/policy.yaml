@@ -395,37 +395,6 @@ Endpoint.policy.applied.response.configurations.events.status:
   normalize: []
   short: the overall status of event collection
   type: keyword
-Endpoint.policy.applied.response.configurations.firewall_anti_tamper:
-  dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper
-  description: overall firewall anti-tamper configuration and status of the applied
-    policy
-  flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper
-  level: custom
-  name: policy.applied.response.configurations.firewall_anti_tamper
-  normalize: []
-  short: overall firewall anti-tamper configuration and status of the applied policy
-  type: object
-Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions:
-  dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper-concerned-actions
-  description: all actions that were taken for firewall anti-tamper
-  flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
-  normalize: []
-  short: all actions that were taken for firewall anti-tamper
-  type: keyword
-Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status:
-  dashed_name: Endpoint-policy-applied-response-configurations-firewall-anti-tamper-status
-  description: the overall status of firewall anti-tamper, this is correlated to the
-    status of concerned actions but not a simple sum of the actions
-  flat_name: Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status
-  ignore_above: 1024
-  level: custom
-  name: policy.applied.response.configurations.firewall_anti_tamper.status
-  normalize: []
-  short: the overall status of firewall anti-tamper
-  type: keyword
 Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-configurations-host-isolation-concerned-actions
   description: all actions that were taken for host isolation
@@ -645,6 +614,40 @@ Endpoint.policy.applied.response.diagnostic.credential_protection.status:
   name: policy.applied.response.diagnostic.credential_protection.status
   normalize: []
   short: overall status of diagnostic behavior protection
+  type: keyword
+Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper:
+  dashed_name: Endpoint-policy-applied-response-diagnostic-firewall-anti-tamper
+  description: overall firewall anti-tamper configuration and status of the applied
+    policy
+  flat_name: Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper
+  level: custom
+  name: policy.applied.response.diagnostic.firewall_anti_tamper
+  normalize: []
+  short: overall firewall anti-tamper configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-diagnostic-firewall-anti-tamper-concerned-actions
+  description: all actions that were taken for the diagnostic configuration of firewall
+    anti-tamper
+  flat_name: Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions
+  normalize: []
+  short: all actions that were taken for the diagnostic configuration of firewall
+    anti-tamper
+  type: keyword
+Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.status:
+  dashed_name: Endpoint-policy-applied-response-diagnostic-firewall-anti-tamper-status
+  description: the overall status of the diagnostic configuration of firewall anti-tamper,
+    this is correlated to the status of concerned actions but not a simple sum of
+    the actions
+  flat_name: Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.diagnostic.firewall_anti_tamper.status
+  normalize: []
+  short: the overall status of diagnostic firewall anti-tamper
   type: keyword
 Endpoint.policy.applied.response.diagnostic.malware.concerned_actions:
   dashed_name: Endpoint-policy-applied-response-diagnostic-malware-concerned-actions
