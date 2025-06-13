@@ -1,10 +1,31 @@
 {
+    "Effective_process": {
+        "code_signature": {
+            "exists": true,
+            "signing_id": "com.apple.terminal",
+            "status": "trusted",
+            "subject_name": "Apple Terminal",
+            "team_id": "APPLE123ABC",
+            "trusted": true
+        },
+        "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
+        "executable": "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",
+        "name": "Terminal",
+        "pid": 5678
+    },
     "Target": {
         "process": {
             "Ext": {
                 "authentication_id": "0x3e7"
             }
         }
+    },
+    "Tcc": {
+        "identity": "com.apple.terminal",
+        "reason": "UserGranted",
+        "right": "allow",
+        "service": "kTCCServiceCamera",
+        "update_type": "Grant"
     },
     "agent": {
         "id": "4c9c9cb3-f80f-44d8-9c89-6168243b7f21",
