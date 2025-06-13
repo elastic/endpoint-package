@@ -243,6 +243,16 @@
                                 "configure_diagnostic_rollback"
                             ],
                             "status": "success"
+                        },
+                        "firewall_anti_tamper": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_diagnostic_firewall_anti_tamper"
+                            ],
+                            "status": "success"
                         }
                     }
                 },
