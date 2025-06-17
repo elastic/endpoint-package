@@ -38,6 +38,142 @@ Target.process.Ext.authentication_id:
   original_fieldset: process
   short: Process authentication ID
   type: keyword
+Target.process.Ext.protection:
+  dashed_name: Target-process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: Target.process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  original_fieldset: process
+  short: OS-level protections granted to this process
+  type: keyword
+Target.process.Ext.session_info.authentication_package:
+  dashed_name: Target-process-Ext-session-info-authentication-package
+  description: Name of authentication package used to log on, such as NTLM, Kerberos,
+    or CloudAP
+  flat_name: Target.process.Ext.session_info.authentication_package
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.authentication_package
+  normalize: []
+  original_fieldset: process
+  short: Name of authentication package used to log on, such as NTLM, Kerberos, or
+    CloudAP
+  type: keyword
+Target.process.Ext.session_info.failure_reason:
+  dashed_name: Target-process-Ext-session-info-failure-reason
+  description: Reason for logon failure.
+  flat_name: Target.process.Ext.session_info.failure_reason
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.failure_reason
+  normalize: []
+  original_fieldset: process
+  short: Reason for logon failure.
+  type: keyword
+Target.process.Ext.session_info.id:
+  dashed_name: Target-process-Ext-session-info-id
+  description: Session ID
+  flat_name: Target.process.Ext.session_info.id
+  level: custom
+  name: Ext.session_info.id
+  normalize: []
+  original_fieldset: process
+  short: Session ID
+  type: unsigned_long
+Target.process.Ext.session_info.logon_process_name:
+  dashed_name: Target-process-Ext-session-info-logon-process-name
+  description: The name of the trusted logon process that was used for the logon attempt.
+  flat_name: Target.process.Ext.session_info.logon_process_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.logon_process_name
+  normalize: []
+  original_fieldset: process
+  short: The name of the trusted logon process that was used for the logon attempt.
+  type: keyword
+Target.process.Ext.session_info.logon_type:
+  dashed_name: Target-process-Ext-session-info-logon-type
+  description: Session logon type.  Examples include Interactive, Network, and Service.
+  flat_name: Target.process.Ext.session_info.logon_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.logon_type
+  normalize: []
+  original_fieldset: process
+  short: Session logon type.  Examples include Interactive, Network, and Service.
+  type: keyword
+Target.process.Ext.token.elevation:
+  dashed_name: Target-process-Ext-token-elevation
+  description: Whether the token is elevated or not
+  flat_name: Target.process.Ext.token.elevation
+  level: custom
+  name: elevation
+  normalize: []
+  original_fieldset: token
+  short: Whether the token is elevated or not
+  type: boolean
+Target.process.Ext.token.impersonation_level:
+  dashed_name: Target-process-Ext-token-impersonation-level
+  description: Impersonation level. Only valid for impersonation tokens.
+  flat_name: Target.process.Ext.token.impersonation_level
+  ignore_above: 1024
+  level: custom
+  name: impersonation_level
+  normalize: []
+  original_fieldset: token
+  short: Impersonation level. Only valid for impersonation tokens.
+  type: keyword
+Target.process.Ext.token.integrity_level_name:
+  dashed_name: Target-process-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: Target.process.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
+Target.process.parent.executable:
+  dashed_name: Target-process-parent-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: Target.process.parent.executable
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: Target.process.parent.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: Target.process.parent.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  original_fieldset: process
+  short: Absolute path to the process executable.
+  type: keyword
+Target.process.parent.pid:
+  dashed_name: Target-process-parent-pid
+  description: Process id.
+  example: 4242
+  flat_name: Target.process.parent.pid
+  format: string
+  level: core
+  name: pid
+  normalize: []
+  original_fieldset: process
+  short: Process id.
+  type: long
 agent.id:
   dashed_name: agent-id
   description: 'Unique identifier of this agent (if one exists).
@@ -1358,6 +1494,102 @@ process.Ext.ancestry:
   normalize: []
   short: An array of entity_ids indicating the ancestors for this event
   type: keyword
+process.Ext.api.metadata:
+  dashed_name: process-Ext-api-metadata
+  description: Information related to the API call.
+  flat_name: process.Ext.api.metadata
+  level: custom
+  name: metadata
+  normalize: []
+  original_fieldset: api
+  short: Information related to the API call.
+  type: object
+process.Ext.api.metadata.client_is_local:
+  dashed_name: process-Ext-api-metadata-client-is-local
+  description: Indicates whether a method was called locally or remotely. It will
+    be true if called locally, and false if called remotely.
+  example: 'true'
+  flat_name: process.Ext.api.metadata.client_is_local
+  level: custom
+  name: metadata.client_is_local
+  normalize: []
+  original_fieldset: api
+  short: Indicates whether a method was called locally or from a remote host.
+  type: boolean
+process.Ext.api.metadata.client_machine_fqdn:
+  dashed_name: process-Ext-api-metadata-client-machine-fqdn
+  description: Client process's machine name FQDN (provided by the client and potentially
+    untrustworthy).
+  example: DESKTOP-EXAMPLE.elastic.co
+  flat_name: process.Ext.api.metadata.client_machine_fqdn
+  ignore_above: 1024
+  level: custom
+  name: metadata.client_machine_fqdn
+  normalize: []
+  original_fieldset: api
+  short: Client process's machine name FQDN (provided by the client and potentially
+    untrustworthy).
+  type: keyword
+process.Ext.api.metadata.return_value:
+  dashed_name: process-Ext-api-metadata-return-value
+  description: Return value of RegisterRawInputDevices API call.
+  example: 1
+  flat_name: process.Ext.api.metadata.return_value
+  level: custom
+  name: metadata.return_value
+  normalize: []
+  original_fieldset: api
+  short: Return value of RegisterRawInputDevices API call.
+  type: unsigned_long
+process.Ext.api.parameters:
+  dashed_name: process-Ext-api-parameters
+  description: Parameter values passed to the API call.
+  flat_name: process.Ext.api.parameters
+  level: custom
+  name: parameters
+  normalize: []
+  original_fieldset: api
+  short: Parameter values passed to the API call.
+  type: object
+process.Ext.api.parameters.desired_access:
+  dashed_name: process-Ext-api-parameters-desired-access
+  description: This parameter indicates the string value of the `DesiredAccess` field  to
+    `OpenProcess` or `OpenThread`.
+  flat_name: process.Ext.api.parameters.desired_access
+  ignore_above: 1024
+  level: custom
+  name: parameters.desired_access
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the string value of the `DesiredAccess` field  to
+    `OpenProcess` or `OpenThread`.
+  type: keyword
+process.Ext.api.parameters.desired_access_numeric:
+  dashed_name: process-Ext-api-parameters-desired-access-numeric
+  description: This parameter indicates the numeric value of the `DesiredAccess` field
+    passed to `OpenProcess` or `OpenThread`.
+  flat_name: process.Ext.api.parameters.desired_access_numeric
+  level: custom
+  name: parameters.desired_access_numeric
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates the numeric value of the `DesiredAccess` field passed
+    to `OpenProcess` or `OpenThread`.
+  type: long
+process.Ext.api.parameters.handle_type:
+  dashed_name: process-Ext-api-parameters-handle-type
+  description: This parameter indicates whether the detected access was attempt against
+    a process or a thread.
+  example: process
+  flat_name: process.Ext.api.parameters.handle_type
+  ignore_above: 1024
+  level: custom
+  name: parameters.handle_type
+  normalize: []
+  original_fieldset: api
+  short: This parameter indicates whether the detected access was attempt against
+    a process or a thread.
+  type: keyword
 process.Ext.authentication_id:
   dashed_name: process-Ext-authentication-id
   description: Process authentication ID
@@ -1440,6 +1672,102 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.Ext.protection:
+  dashed_name: process-Ext-protection
+  description: Indicates the protection level of this process.  Uses the same syntax
+    as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light,
+    and PsProtectedSignerWindows-Light.
+  flat_name: process.Ext.protection
+  ignore_above: 1024
+  level: custom
+  name: Ext.protection
+  normalize: []
+  short: OS-level protections granted to this process
+  type: keyword
+process.Ext.session_info.authentication_package:
+  dashed_name: process-Ext-session-info-authentication-package
+  description: Name of authentication package used to log on, such as NTLM, Kerberos,
+    or CloudAP
+  flat_name: process.Ext.session_info.authentication_package
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.authentication_package
+  normalize: []
+  short: Name of authentication package used to log on, such as NTLM, Kerberos, or
+    CloudAP
+  type: keyword
+process.Ext.session_info.failure_reason:
+  dashed_name: process-Ext-session-info-failure-reason
+  description: Reason for logon failure.
+  flat_name: process.Ext.session_info.failure_reason
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.failure_reason
+  normalize: []
+  short: Reason for logon failure.
+  type: keyword
+process.Ext.session_info.id:
+  dashed_name: process-Ext-session-info-id
+  description: Session ID
+  flat_name: process.Ext.session_info.id
+  level: custom
+  name: Ext.session_info.id
+  normalize: []
+  short: Session ID
+  type: unsigned_long
+process.Ext.session_info.logon_process_name:
+  dashed_name: process-Ext-session-info-logon-process-name
+  description: The name of the trusted logon process that was used for the logon attempt.
+  flat_name: process.Ext.session_info.logon_process_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.logon_process_name
+  normalize: []
+  short: The name of the trusted logon process that was used for the logon attempt.
+  type: keyword
+process.Ext.session_info.logon_type:
+  dashed_name: process-Ext-session-info-logon-type
+  description: Session logon type.  Examples include Interactive, Network, and Service.
+  flat_name: process.Ext.session_info.logon_type
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.logon_type
+  normalize: []
+  short: Session logon type.  Examples include Interactive, Network, and Service.
+  type: keyword
+process.Ext.token.elevation:
+  dashed_name: process-Ext-token-elevation
+  description: Whether the token is elevated or not
+  flat_name: process.Ext.token.elevation
+  level: custom
+  name: elevation
+  normalize: []
+  original_fieldset: token
+  short: Whether the token is elevated or not
+  type: boolean
+process.Ext.token.impersonation_level:
+  dashed_name: process-Ext-token-impersonation-level
+  description: Impersonation level. Only valid for impersonation tokens.
+  flat_name: process.Ext.token.impersonation_level
+  ignore_above: 1024
+  level: custom
+  name: impersonation_level
+  normalize: []
+  original_fieldset: token
+  short: Impersonation level. Only valid for impersonation tokens.
+  type: keyword
+process.Ext.token.integrity_level_name:
+  dashed_name: process-Ext-token-integrity-level-name
+  description: Human readable integrity level.
+  example: one of "system", "high", "medium", "low", "untrusted"
+  flat_name: process.Ext.token.integrity_level_name
+  ignore_above: 1024
+  level: custom
+  name: integrity_level_name
+  normalize: []
+  original_fieldset: token
+  short: Human readable integrity level.
+  type: keyword
 process.code_signature.exists:
   dashed_name: process-code-signature-exists
   description: Boolean to capture if a signature is present.
@@ -1601,6 +1929,40 @@ process.name:
   normalize: []
   short: Process name.
   type: keyword
+process.parent.executable:
+  dashed_name: process-parent-executable
+  description: Absolute path to the process executable.
+  example: /usr/bin/ssh
+  flat_name: process.parent.executable
+  ignore_above: 1024
+  level: extended
+  multi_fields:
+  - flat_name: process.parent.executable.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.parent.executable.text
+    name: text
+    norms: false
+    type: text
+  name: executable
+  normalize: []
+  original_fieldset: process
+  short: Absolute path to the process executable.
+  type: keyword
+process.parent.pid:
+  dashed_name: process-parent-pid
+  description: Process id.
+  example: 4242
+  flat_name: process.parent.pid
+  format: string
+  level: core
+  name: pid
+  normalize: []
+  original_fieldset: process
+  short: Process id.
+  type: long
 process.pid:
   dashed_name: process-pid
   description: Process id.
@@ -1763,6 +2125,25 @@ source.geo.timezone:
   original_fieldset: geo
   short: Time zone.
   type: keyword
+source.ip:
+  dashed_name: source-ip
+  description: IP address of the source (IPv4 or IPv6).
+  flat_name: source.ip
+  level: core
+  name: ip
+  normalize: []
+  short: IP address of the source.
+  type: ip
+source.port:
+  dashed_name: source-port
+  description: Port of the source.
+  flat_name: source.port
+  format: string
+  level: core
+  name: port
+  normalize: []
+  short: Port of the source.
+  type: long
 user.Ext:
   dashed_name: user-Ext
   description: Object for all custom defined fields to live in.

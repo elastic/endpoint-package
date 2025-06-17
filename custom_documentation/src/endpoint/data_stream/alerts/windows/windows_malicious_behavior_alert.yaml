@@ -103,6 +103,8 @@ fields:
   - rule.reference
   - rule.ruleset
   - rule.version
+  - source.ip
+  - source.port
   - threat.framework
   - threat.tactic.id
   - threat.tactic.name
@@ -115,8 +117,13 @@ fields:
   - threat.technique.subtechnique.name
   - threat.technique.subtechnique.reference
   - user.domain
+  - user.effective.domain
+  - user.effective.id
+  - user.effective.name
   - user.id
   - user.name
+  - user.target.domain
+  - user.target.name 
   details:
     Events.*:
       description: 'Events is a list containing embedded copies of all events that

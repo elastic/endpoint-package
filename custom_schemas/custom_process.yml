@@ -682,6 +682,18 @@
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
 
+    - name: Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      description: >
+        Reason for logon failure.
+
+    - name: Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      description: >
+        The name of the trusted logon process that was used for the logon attempt.
+
     - name: Ext.session_info.logon_type
       level: custom
       type: keyword
