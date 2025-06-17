@@ -18,8 +18,36 @@
             "team_id": "XYZABC"
         }
     },
+    "user": {
+        "target": {
+            "name": "testUser",
+            "domain": "DESKTOP-1TK590J"
+        }
+    },
     "process": {
         "Ext": {
+            "api": {
+                "metadata": {
+                   "client_is_local": true,
+                   "client_machine_fqdn": "DESKTOP-GS56V66",
+                   "return_value": 0
+                },
+                "parameters": {
+                   "desired_access": [
+                      "READ_CONTROL",
+                      "SYNCHRONIZE",
+                      "ReadData(orListDirectory)",
+                      "WriteData(orAddFile)",
+                      "AppendData(orAddSubdirectoryorCreatePipeInstance)",
+                      "ReadEA",
+                      "WriteEA",
+                      "ReadAttributes",
+                      "WriteAttributes"
+                    ],
+                   "desired_access_numeric": 1180063,
+                   "handle_type": "File"
+                }
+            },
             "ancestry": [
                 "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTQ3Mi0xMzI5MzU0OTExMC4xNzIwMjY5MDA="
             ],
@@ -31,7 +59,20 @@
                     "exists": true,
                     "status": "trusted"
                 }
-            ]
+            ],
+            "protection" : "PsProtectedSignerAntimalware-Light",
+            "session_info": {
+                "authentication_package": "Negotiate",
+                "failure_reason": "Unknown user name or bad password",
+                "id": 0,
+                "logon_process_name": "Advapi",
+                "logon_type": "Network"
+            },
+            "token": {
+                "elevation": false,
+                "impersonation_level": "Impersonation",
+                "integrity_level_name": "medium"
+            }
         },
         "code_signature": {
             "trusted": true,
@@ -41,7 +82,11 @@
         },
         "name": "C:\\Windows\\System32\\services.exe",
         "entity_id": "NGM5YzljYjMtZjgwZi00NGQ4LTljODktNjE2ODI0M2I3ZjIxLTYwMC0xMzI5MzU0OTExMC40NjgyMjI3MDA=",
-        "executable": "C:\\Windows\\System32\\services.exe"
+        "executable": "C:\\Windows\\System32\\services.exe",
+        "parent": {
+            "executable": "C:\\Windows\\System32\\test.exe",
+            "pid": 351
+        }
     },
     "message": "Endpoint security event",
     "@timestamp": "2022-04-04T18:53:08.6510289Z",
@@ -98,6 +143,10 @@
         ],
         "dataset": "endpoint.events.security",
         "outcome": "success"
+    },
+    "source": {
+        "ip": "fe80::8ff:be62:afa2:6258",
+        "port": 53663
     },
     "user": {
         "domain": "DESKTOP-1TK590J",
