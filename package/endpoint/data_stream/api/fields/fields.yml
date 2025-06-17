@@ -1642,6 +1642,12 @@
       description: Type of hook procedure to be installed.
       example: WH_KEYBOARD_LL
       default_field: false
+    - name: Ext.api.parameters.is_remote
+      level: custom
+      type: boolean
+      description: This parameter indicates whether a pipe is open for remote or local access
+      example: 'true'
+      default_field: false
     - name: Ext.api.parameters.io_control_code
       level: custom
       type: unsigned_long
@@ -1655,12 +1661,33 @@
       description: WMI namespace to which the connection is made.
       example: root\Microsoft\Windows\DeviceGuard
       default_field: false
+    - name: Ext.api.parameters.open_mode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This field indicates how the streaming mode (byte/message) of the pipe
+      example: message
+      default_field: false
     - name: Ext.api.parameters.operation
       level: custom
       type: keyword
       ignore_above: 1024
       description: Specifies the connection or request to WMI
       example: Win32_Process::Create
+      default_field: false
+    - name: Ext.api.parameters.pipe_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This path of the pipe
+      example: \Device\NamedPipe\MyTestNamedPipe
+      default_field: false
+    - name: Ext.api.parameters.pipe_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This type of the pipe (named pipe/mailslot)
+      example: mailslot
       default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
@@ -1749,6 +1776,13 @@
       type: unsigned_long
       description: The x64 RSP stack pointer register.
       example: 2431737462784
+      default_field: false
+    - name: Ext.api.parameters.read_mode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This field indicates how the read mode (byte/message) of the pipe
+      example: message
       default_field: false
     - name: Ext.api.parameters.size
       level: custom
