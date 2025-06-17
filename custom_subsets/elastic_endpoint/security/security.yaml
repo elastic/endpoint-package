@@ -170,7 +170,7 @@ fields:
     fields:
       process:
         fields:
-          parant:
+          parent:
             fields:
               executable: {}
               pid: {}
