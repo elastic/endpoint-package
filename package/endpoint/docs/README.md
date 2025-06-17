@@ -2766,7 +2766,9 @@ sent by the endpoint.
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
+| process.Ext.session_info.failure_reason | Reason for logon failure. | keyword |
 | process.Ext.session_info.id | Session ID | unsigned_long |
+| process.Ext.session_info.logon_process_name | The name of the trusted logon process that was used for the logon attempt. | keyword |
 | process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
 | process.Ext.token.elevation | Whether the token is elevated or not | boolean |
 | process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |

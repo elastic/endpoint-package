@@ -1674,6 +1674,16 @@ process.Ext.session_info.authentication_package:
   short: Name of authentication package used to log on, such as NTLM, Kerberos, or
     CloudAP
   type: keyword
+process.Ext.session_info.failure_reason:
+  dashed_name: process-Ext-session-info-failure-reason
+  description: Reason for logon failure.
+  flat_name: process.Ext.session_info.failure_reason
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.failure_reason
+  normalize: []
+  short: Reason for logon failure.
+  type: keyword
 process.Ext.session_info.id:
   dashed_name: process-Ext-session-info-id
   description: Session ID
@@ -1683,6 +1693,16 @@ process.Ext.session_info.id:
   normalize: []
   short: Session ID
   type: unsigned_long
+process.Ext.session_info.logon_process_name:
+  dashed_name: process-Ext-session-info-logon-process-name
+  description: The name of the trusted logon process that was used for the logon attempt.
+  flat_name: process.Ext.session_info.logon_process_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.session_info.logon_process_name
+  normalize: []
+  short: The name of the trusted logon process that was used for the logon attempt.
+  type: keyword
 process.Ext.session_info.logon_type:
   dashed_name: process-Ext-session-info-logon-type
   description: Session logon type.  Examples include Interactive, Network, and Service.
