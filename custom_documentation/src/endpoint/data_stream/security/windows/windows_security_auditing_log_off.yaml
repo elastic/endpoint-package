@@ -1,9 +1,9 @@
 overview:
-  name: A network share object was added.
-  description: 'This event is generated when a network share object was added'
+  name: Windows User Log Off
+  description: 'This event is generated when a user logs off from the computer.'
 identification:
   filter:
-    event.action: network-share-object-added
+    event.action: log_off
     event.dataset: endpoint.events.security
     event.module: endpoint
     event.provider: Microsoft-Windows-Security-Auditing
@@ -14,6 +14,7 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - Target.process.Ext.authentication_id
   - agent.id
   - agent.type
   - agent.version
@@ -39,8 +40,11 @@ fields:
   - host.os.type
   - message
   - process.Ext.authentication_id
-  - user.domain
-  - user.id
-  - user.name
-  - winlog.event_data.ShareLocalPath
-  - winlog.event_data.ShareName
+  - process.Ext.code_signature.exists
+  - process.Ext.code_signature.status
+  - process.Ext.session_info.logon_type
+  - process.code_signature.exists
+  - process.code_signature.status
+  - user.effective.domain
+  - user.effective.id
+  - user.effective.name
