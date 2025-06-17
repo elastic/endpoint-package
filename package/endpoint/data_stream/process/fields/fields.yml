@@ -777,6 +777,13 @@
       ignore_above: 1024
       description: List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
       default_field: false
+    - name: Ext.desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
+      default_field: false
     - name: Ext.device.bus_type
       level: custom
       type: keyword

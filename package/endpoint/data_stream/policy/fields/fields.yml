@@ -105,6 +105,12 @@
       ignore_above: 1024
       description: the sha256 of global artifacts applied.
       default_field: false
+    - name: policy.applied.artifacts.global.manifest_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: global artifacts rollout manifest type
+      default_field: false
     - name: policy.applied.artifacts.global.snapshot
       level: custom
       type: keyword
@@ -360,6 +366,23 @@
       type: keyword
       ignore_above: 1024
       description: the overall status of the diagnostic configuration of credential protection, this is correlated to  the status of concerned actions but not a simple sum of the actions
+      default_field: false
+    - name: policy.applied.response.diagnostic.firewall_anti_tamper
+      level: custom
+      type: object
+      description: overall firewall anti-tamper configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the diagnostic configuration of firewall anti-tamper
+      default_field: false
+    - name: policy.applied.response.diagnostic.firewall_anti_tamper.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of the diagnostic configuration of firewall anti-tamper, this is correlated to the status of concerned actions but not a simple sum of the actions
       default_field: false
     - name: policy.applied.response.diagnostic.malware.concerned_actions
       level: custom

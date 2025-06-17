@@ -49,6 +49,8 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.command_line_truncated |
+| process.Ext.desktop_name |
 | process.Ext.mitigation_policies |
 | process.Ext.protection |
 | process.Ext.relative_file_creation_time |
@@ -70,7 +72,6 @@ This event is generated for a process that was already running before Endpoint's
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
 | process.command_line |
-| process.Ext.command_line_truncated |
 | process.entity_id |
 | process.executable |
 | process.hash.md5 |
@@ -83,6 +84,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |
 | process.parent.Ext.code_signature.trusted |
+| process.parent.Ext.command_line_truncated |
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.code_signature.exists |
@@ -90,7 +92,6 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.code_signature.subject_name |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
-| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.name |

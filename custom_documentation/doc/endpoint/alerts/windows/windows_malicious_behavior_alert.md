@@ -13,6 +13,7 @@ This alert occurs when a Malicious Behavior alert occurs.
 | Endpoint.policy.applied.artifacts.global.channel |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.manifest_type |
 | Endpoint.policy.applied.artifacts.global.snapshot |
 | Endpoint.policy.applied.artifacts.global.update_age |
 | Endpoint.policy.applied.artifacts.global.version |
@@ -97,6 +98,8 @@ This alert occurs when a Malicious Behavior alert occurs.
 | rule.reference |
 | rule.ruleset |
 | rule.version |
+| source.ip |
+| source.port |
 | threat.framework |
 | threat.tactic.id |
 | threat.tactic.name |
@@ -109,7 +112,11 @@ This alert occurs when a Malicious Behavior alert occurs.
 | threat.technique.subtechnique.name |
 | threat.technique.subtechnique.reference |
 | user.domain |
+| user.effective.domain |
+| user.effective.id |
+| user.effective.name |
 | user.id |
 | user.name |
-| winlog.*<br /><br />winlog contains the information about the Windows Event Log. |
-
+| user.target.domain |
+| user.target.name |
+| winlog.*<br /><br />winlog contains information about the Windows Event Log. |

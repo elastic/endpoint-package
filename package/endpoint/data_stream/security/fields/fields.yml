@@ -41,6 +41,81 @@
       ignore_above: 1024
       description: Process authentication ID
       default_field: false
+    - name: process.Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
+    - name: process.Ext.session_info.authentication_package
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+      default_field: false
+    - name: process.Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Reason for logon failure.
+      default_field: false
+    - name: process.Ext.session_info.id
+      level: custom
+      type: unsigned_long
+      description: Session ID
+      default_field: false
+    - name: process.Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the trusted logon process that was used for the logon attempt.
+      default_field: false
+    - name: process.Ext.session_info.logon_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session logon type.  Examples include Interactive, Network, and Service.
+      default_field: false
+    - name: process.Ext.token.elevation
+      level: custom
+      type: boolean
+      description: Whether the token is elevated or not
+      default_field: false
+    - name: process.Ext.token.impersonation_level
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Impersonation level. Only valid for impersonation tokens.
+      default_field: false
+    - name: process.Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
+      default_field: false
+    - name: process.parent.executable
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: Absolute path to the process executable.
+      example: /usr/bin/ssh
+      default_field: false
+    - name: process.parent.pid
+      level: core
+      type: long
+      format: string
+      description: Process id.
+      example: 4242
+      default_field: false
 - name: agent
   title: Agent
   group: 2
@@ -597,6 +672,53 @@
       ignore_above: 1024
       description: An array of entity_ids indicating the ancestors for this event
       default_field: false
+    - name: Ext.api.metadata
+      level: custom
+      type: object
+      description: Information related to the API call.
+      default_field: false
+    - name: Ext.api.metadata.client_is_local
+      level: custom
+      type: boolean
+      description: Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely.
+      example: 'true'
+      default_field: false
+    - name: Ext.api.metadata.client_machine_fqdn
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Client process's machine name FQDN (provided by the client and potentially untrustworthy).
+      example: DESKTOP-EXAMPLE.elastic.co
+      default_field: false
+    - name: Ext.api.metadata.return_value
+      level: custom
+      type: unsigned_long
+      description: Return value of RegisterRawInputDevices API call.
+      example: 1
+      default_field: false
+    - name: Ext.api.parameters
+      level: custom
+      type: object
+      description: Parameter values passed to the API call.
+      default_field: false
+    - name: Ext.api.parameters.desired_access
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`.
+      default_field: false
+    - name: Ext.api.parameters.desired_access_numeric
+      level: custom
+      type: long
+      description: This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`.
+      default_field: false
+    - name: Ext.api.parameters.handle_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: This parameter indicates whether the detected access was attempt against a process or a thread.
+      example: process
+      default_field: false
     - name: Ext.authentication_id
       level: custom
       type: keyword
@@ -645,6 +767,59 @@
 
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
+      default_field: false
+    - name: Ext.protection
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+      default_field: false
+    - name: Ext.session_info.authentication_package
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
+      default_field: false
+    - name: Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Reason for logon failure.
+      default_field: false
+    - name: Ext.session_info.id
+      level: custom
+      type: unsigned_long
+      description: Session ID
+      default_field: false
+    - name: Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the trusted logon process that was used for the logon attempt.
+      default_field: false
+    - name: Ext.session_info.logon_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Session logon type.  Examples include Interactive, Network, and Service.
+      default_field: false
+    - name: Ext.token.elevation
+      level: custom
+      type: boolean
+      description: Whether the token is elevated or not
+      default_field: false
+    - name: Ext.token.impersonation_level
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Impersonation level. Only valid for impersonation tokens.
+      default_field: false
+    - name: Ext.token.integrity_level_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Human readable integrity level.
+      example: one of "system", "high", "medium", "low", "untrusted"
       default_field: false
     - name: code_signature.exists
       level: core
@@ -747,6 +922,28 @@
 
         Sometimes called program name or similar.'
       example: ssh
+    - name: parent.executable
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: Absolute path to the process executable.
+      example: /usr/bin/ssh
+      default_field: false
+    - name: parent.pid
+      level: core
+      type: long
+      format: string
+      description: Process id.
+      example: 4242
+      default_field: false
     - name: pid
       level: core
       type: long
@@ -842,6 +1039,15 @@
       description: The time zone of the location, such as IANA time zone name.
       example: America/Argentina/Buenos_Aires
       default_field: false
+    - name: ip
+      level: core
+      type: ip
+      description: IP address of the source (IPv4 or IPv6).
+    - name: port
+      level: core
+      type: long
+      format: string
+      description: Port of the source.
 - name: user
   title: User
   group: 2
