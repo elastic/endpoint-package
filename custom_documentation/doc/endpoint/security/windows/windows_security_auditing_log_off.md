@@ -1,14 +1,15 @@
-# A user's local group membership was enumerated.
+# Windows User Log Off
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "user-member-enumerated" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and event.provider : "Microsoft-Windows-Security-Auditing" and host.os.type : "windows"`
+- KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and event.provider : "Microsoft-Windows-Security-Auditing" and host.os.type : "windows"`
 
-This event is generated when a user's local group membership was enumerated.
+This event is generated when a user logs off from the computer.
 
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.authentication_id |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -36,14 +37,10 @@ This event is generated when a user's local group membership was enumerated.
 | process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
+| process.Ext.session_info.logon_type |
 | process.code_signature.exists |
 | process.code_signature.status |
-| process.executable |
-| process.pid |
-| user.domain |
 | user.effective.domain |
 | user.effective.id |
 | user.effective.name |
-| user.id |
-| user.name |
 
