@@ -27,11 +27,6 @@
       description: 'The group fields are meant to represent groups that are
         relevant to the event.'
 
-    - name: target
-      level: custom
-      type: object
-      description: xxx.
-
     - name: Ext
       level: custom
       type: object
