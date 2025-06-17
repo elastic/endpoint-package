@@ -111,4 +111,5 @@ This alert occurs when a Malicious Behavior alert occurs.
 | user.domain |
 | user.id |
 | user.name |
+| winlog.*<br /><br />winlog contains the information about the Windows Event Log. |
 
