@@ -28,24 +28,24 @@
         "Ext": {
             "api": {
                 "metadata": {
-                   "client_is_local": true,
-                   "client_machine_fqdn": "DESKTOP-GS56V66",
-                   "return_value": 0
+                    "client_is_local": true,
+                    "client_machine_fqdn": "DESKTOP-GS56V66",
+                    "return_value": 0
                 },
                 "parameters": {
-                   "desired_access": [
-                      "READ_CONTROL",
-                      "SYNCHRONIZE",
-                      "ReadData(orListDirectory)",
-                      "WriteData(orAddFile)",
-                      "AppendData(orAddSubdirectoryorCreatePipeInstance)",
-                      "ReadEA",
-                      "WriteEA",
-                      "ReadAttributes",
-                      "WriteAttributes"
+                    "desired_access": [
+                        "READ_CONTROL",
+                        "SYNCHRONIZE",
+                        "ReadData(orListDirectory)",
+                        "WriteData(orAddFile)",
+                        "AppendData(orAddSubdirectoryorCreatePipeInstance)",
+                        "ReadEA",
+                        "WriteEA",
+                        "ReadAttributes",
+                        "WriteAttributes"
                     ],
-                   "desired_access_numeric": 1180063,
-                   "handle_type": "File"
+                    "desired_access_numeric": 1180063,
+                    "handle_type": "File"
                 }
             },
             "ancestry": [
@@ -60,7 +60,7 @@
                     "status": "trusted"
                 }
             ],
-            "protection" : "PsProtectedSignerAntimalware-Light",
+            "protection": "PsProtectedSignerAntimalware-Light",
             "session_info": {
                 "authentication_package": "Negotiate",
                 "failure_reason": "Unknown user name or bad password",
