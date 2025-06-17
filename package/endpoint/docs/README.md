@@ -2750,78 +2750,13 @@ sent by the endpoint.
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.api.metadata | Information related to the API call. | object |
-| process.Ext.api.metadata.amsi_filenames | A list of filenames previously scanned by AMSI. | keyword |
-| process.Ext.api.metadata.amsi_logs | Information related to previous AMSI scans. | object |
-| process.Ext.api.metadata.amsi_logs.entries | A subset of the AMSI content buffers scanned prior to this event. | keyword |
-| process.Ext.api.metadata.amsi_logs.type | The AMSI content type scanned prior to this event. | keyword |
-| process.Ext.api.metadata.background_callcount | This field indicates a number of all GetAsyncKeyState api calls, including unsuccessful calls, between the last successful GetAsyncKeyState call. | unsigned_long |
 | process.Ext.api.metadata.client_is_local | Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely. | boolean |
-| process.Ext.api.metadata.client_machine | Client process's machine name (provided by the client and potentially untrustworthy). | keyword |
 | process.Ext.api.metadata.client_machine_fqdn | Client process's machine name FQDN (provided by the client and potentially untrustworthy). | keyword |
-| process.Ext.api.metadata.client_process_id | Client process id | unsigned_long |
-| process.Ext.api.metadata.ms_since_last_keyevent | This field indicates the elapsed time in milliseconds since the last GetAsyncKeyState event. | unsigned_long |
-| process.Ext.api.metadata.procedure_symbol | Summary of the hook procedure. | keyword |
 | process.Ext.api.metadata.return_value | Return value of RegisterRawInputDevices API call. | unsigned_long |
-| process.Ext.api.metadata.security_descriptor | The security descriptor of the device. | keyword |
-| process.Ext.api.metadata.start_address_allocation_protection | Memory protection attributes associated with the starting address of a thread. | keyword |
-| process.Ext.api.metadata.start_address_module | Name of the module associated with the starting address of a thread. | keyword |
-| process.Ext.api.metadata.target_address_name | The name of the memory region targeted by the API call. | keyword |
-| process.Ext.api.metadata.target_address_path | The path of the memory region targeted by the API call. | keyword |
-| process.Ext.api.metadata.thread_info_flags | Thread info flags. | unsigned_long |
-| process.Ext.api.metadata.visible_windows_count | Number of visible windows owned by the caller thread. | unsigned_long |
-| process.Ext.api.metadata.windows_count | Number of windows owned by the caller thread. | unsigned_long |
 | process.Ext.api.parameters | Parameter values passed to the API call. | object |
-| process.Ext.api.parameters.address | The target memory address. | unsigned_long |
-| process.Ext.api.parameters.allocation_type | The type of memory allocation. Corresponds to `MEMORY_BASIC_INFORMATION.State` | keyword |
-| process.Ext.api.parameters.app_name | The application name requesting the AMSI scan. | keyword |
-| process.Ext.api.parameters.argument1 | The first argument to the procedure. | unsigned_long |
-| process.Ext.api.parameters.argument2 | The second argument to the procedure. | unsigned_long |
-| process.Ext.api.parameters.argument3 | The third argument to the procedure. | unsigned_long |
-| process.Ext.api.parameters.buffer | The content associated with an AMSI scan. | keyword |
-| process.Ext.api.parameters.consumer_details | Provides specific information about an event consumer, including its configuration, such as the command it executes, associated SID, and the consumer's name. | keyword |
-| process.Ext.api.parameters.consumer_name | Consumer Name. Consumers specify what should happen when the conditions in the Event Filter are triggered. | keyword |
-| process.Ext.api.parameters.consumer_type | An example list of consumer type.   "ActiveScriptEventConsumer" - Executes a predefined script in an arbitrary scripting language when an event is delivered to it.   "CommandLineEventConsumer" - Launches an arbitrary process in the local system context when an event is delivered to it.   "LogFileEventConsumer" - Writes customized strings to a text log file when events are delivered to it.   "NTEventLogEventConsumer" - Logs a specific message to the Windows event log when an event is delivered to it.   "SMTPEventConsumer" - Sends an email message using SMTP each time an event is delivered to it. | keyword |
-| process.Ext.api.parameters.content_name | The content name, typically a filename, associated with an AMSI scan. | keyword |
-| process.Ext.api.parameters.context_flags | The bitmask of CPU registers operated on by this call. Corresponds to `CONTEXT.ContextFlags` | unsigned_long |
 | process.Ext.api.parameters.desired_access | This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`. | keyword |
 | process.Ext.api.parameters.desired_access_numeric | This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`. | long |
-| process.Ext.api.parameters.device | The name of the device object. | keyword |
-| process.Ext.api.parameters.driver | The name of the driver object. | keyword |
-| process.Ext.api.parameters.eax | The x86 EAX general purpose register. Return value in __cdecl, __stdcall, __thiscall and __fastcall. | unsigned_long |
-| process.Ext.api.parameters.ebp | The x86 EBP frame pointer register. | unsigned_long |
-| process.Ext.api.parameters.ebx | The x86 EBX general purpose register. | unsigned_long |
-| process.Ext.api.parameters.ecx | The x86 ECX general purpose register. First argument in __fastcall and __thiscall. | unsigned_long |
-| process.Ext.api.parameters.edi | The x86 EDI general purpose register. | unsigned_long |
-| process.Ext.api.parameters.edx | The x86 EDX general purpose register. Second argument in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.eip | The x86 EIP instruction pointer register. | unsigned_long |
-| process.Ext.api.parameters.esi | The x86 ESI general purpose register. | unsigned_long |
-| process.Ext.api.parameters.esp | The x86 ESP stack pointer register. | unsigned_long |
-| process.Ext.api.parameters.event_filter_details | Provide an overview of the query that define when an event should be triggered. | keyword |
-| process.Ext.api.parameters.event_filter_name | Event filter name. An event filter is a WMI class that defines which events WMI delivers to a consumer. | keyword |
-| process.Ext.api.parameters.flags | Mode flag that specifies how to interpret the information provided by UsagePage and Usage. Third member RAWINPUTDEVICE structure. | keyword |
 | process.Ext.api.parameters.handle_type | This parameter indicates whether the detected access was attempt against a process or a thread. | keyword |
-| process.Ext.api.parameters.hook_module | DLL containing the hook procedure. | keyword |
-| process.Ext.api.parameters.hook_type | Type of hook procedure to be installed. | keyword |
-| process.Ext.api.parameters.io_control_code | The I/O control code for the requested device operation. | unsigned_long |
-| process.Ext.api.parameters.namespace | WMI namespace to which the connection is made. | keyword |
-| process.Ext.api.parameters.operation | Specifies the connection or request to WMI | keyword |
-| process.Ext.api.parameters.procedure | The memory address of the procedure or function. | unsigned_long |
-| process.Ext.api.parameters.protection | The memory protection for the region of pages. Corresponds to `MEMORY_BASIC_INFORMATION.Protect` | keyword |
-| process.Ext.api.parameters.protection_old | The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect` | keyword |
-| process.Ext.api.parameters.r8 | The x64 R8 general purpose register. Third argument in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.r9 | The x64 R9 general purpose register. Fourth argument in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.rax | The x64 RAX general purpose register. Return value in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.rbp | The x64 RBP general purpose register. | unsigned_long |
-| process.Ext.api.parameters.rbx | The x64 RBX general purpose register. | keyword |
-| process.Ext.api.parameters.rcx | The x64 RCX general purpose register. First argument in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.rdi | The x64 RDI general purpose register. | unsigned_long |
-| process.Ext.api.parameters.rdx | The x64 RDX general purpose register. Second argument in a __fastcall. | unsigned_long |
-| process.Ext.api.parameters.rip | The x64 RIP instruction pointer register. | unsigned_long |
-| process.Ext.api.parameters.rsi | The x64 RSI general purpose register. | keyword |
-| process.Ext.api.parameters.rsp | The x64 RSP stack pointer register. | unsigned_long |
-| process.Ext.api.parameters.size | The size. | unsigned_long |
-| process.Ext.api.parameters.usage | This parameter indicates the specific device (Usage) within the Usage Page. Second member RAWINPUTDEVICE structure. | keyword |
-| process.Ext.api.parameters.usage_page | This parameter indicates the top-level collection (Usage Page) of the device. First member RAWINPUTDEVICE structure. | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
