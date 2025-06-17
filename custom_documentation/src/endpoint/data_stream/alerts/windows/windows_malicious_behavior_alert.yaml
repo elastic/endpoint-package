@@ -116,6 +116,7 @@ fields:
   - user.domain
   - user.id
   - user.name
+  - winlog.*
   details:
     Events.*:
       description: 'Events is a list containing embedded copies of all events that
@@ -139,3 +140,5 @@ fields:
       description: 'registry contains the registry data from the primary event in
         Events. It can contain any fields that any other events includes within the
         registry fieldset. '
+    winlog.*:
+      description: 'winlog contains the information about the Windows Event Log.'
