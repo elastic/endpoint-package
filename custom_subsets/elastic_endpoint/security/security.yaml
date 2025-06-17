@@ -170,18 +170,6 @@ fields:
               pid: {}
           Ext:
             fields:
-              api:
-                fields:
-                  metadata:
-                    fields:
-                      client_is_local: {}
-                      client_machine_fqdn: {}
-                      return_value: {}
-                  parameters:
-                    fields:
-                      desired_access: {}
-                      desired_access_numeric: {}
-                      handle_type: {}
               authentication_id: {}
               protection: {}
               session_info:
