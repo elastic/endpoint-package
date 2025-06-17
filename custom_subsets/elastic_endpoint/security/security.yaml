@@ -138,9 +138,15 @@ fields:
           api:
             fields:
               metadata:
-                fields: "*"
+                fields:
+                  client_is_local: {}
+                  client_machine_fqdn: {}
+                  return_value: {}
               parameters:
-                fields: "*"
+                fields:
+                  desired_access: {}
+                  desired_access_numeric: {}
+                  handle_type: {}
           authentication_id: {}
           code_signature:
             fields:
