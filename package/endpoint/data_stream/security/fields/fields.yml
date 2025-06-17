@@ -53,10 +53,22 @@
       ignore_above: 1024
       description: Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP
       default_field: false
+    - name: process.Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Reason for logon failure.
+      default_field: false
     - name: process.Ext.session_info.id
       level: custom
       type: unsigned_long
       description: Session ID
+      default_field: false
+    - name: process.Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the trusted logon process that was used for the logon attempt.
       default_field: false
     - name: process.Ext.session_info.logon_type
       level: custom
