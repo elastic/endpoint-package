@@ -130,6 +130,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.network_events.week_ms |
 | Endpoint.metrics.system_impact.overall.week_idle_ms |
 | Endpoint.metrics.system_impact.overall.week_ms |
+| Endpoint.metrics.system_impact.pipe_events.week_idle_ms |
+| Endpoint.metrics.system_impact.pipe_events.week_ms |
 | Endpoint.metrics.system_impact.process.code_signature.exists |
 | Endpoint.metrics.system_impact.process.code_signature.signing_id |
 | Endpoint.metrics.system_impact.process.code_signature.status |
