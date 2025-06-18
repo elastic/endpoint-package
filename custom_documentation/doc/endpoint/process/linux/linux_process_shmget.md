@@ -64,11 +64,11 @@ This event is generated when when a process calls shmget().
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
-| process.Ext.trusted |
-| process.Ext.trusted_descendant |
-| process.Ext.shmget.size |
 | process.Ext.shmget.flags |
 | process.Ext.shmget.key |
+| process.Ext.shmget.size |
+| process.Ext.trusted |
+| process.Ext.trusted_descendant |
 | process.args |
 | process.args_count |
 | process.command_line |
@@ -133,10 +133,10 @@ This event is generated when when a process calls shmget().
 | process.hash.sha256 |
 | process.interactive |
 | process.name |
+| process.parent.Ext.command_line_truncated |
 | process.parent.args |
 | process.parent.args_count |
 | process.parent.command_line |
-| process.parent.Ext.command_line_truncated |
 | process.parent.entity_id |
 | process.parent.executable |
 | process.parent.group.id |

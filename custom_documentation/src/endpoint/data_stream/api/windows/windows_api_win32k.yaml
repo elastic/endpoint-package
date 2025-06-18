@@ -13,6 +13,7 @@ identification:
 fields:
   endpoint:
   - '@timestamp'
+  - Target.process.Ext.desktop_name
   - Target.process.Ext.protection
   - Target.process.name
   - Target.process.pid

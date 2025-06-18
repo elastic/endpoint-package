@@ -243,6 +243,16 @@
                                 "configure_diagnostic_rollback"
                             ],
                             "status": "success"
+                        },
+                        "firewall_anti_tamper": {
+                            "concerned_actions": [
+                                "load_config",
+                                "workflow",
+                                "download_global_artifacts",
+                                "download_user_artifacts",
+                                "configure_diagnostic_firewall_anti_tamper"
+                            ],
+                            "status": "success"
                         }
                     }
                 },
@@ -526,6 +536,7 @@
                                 "name": "production-rules-windows-v1"
                             }
                         ],
+                        "manifest_type": "stable",
                         "update_age": 0,
                         "snapshot": "2023-09-26",
                         "version": "1.0.261"

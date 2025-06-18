@@ -92,6 +92,16 @@ Endpoint.policy.applied.artifacts.global.identifiers.sha256:
   normalize: []
   short: the sha256 of global artifacts applied.
   type: keyword
+Endpoint.policy.applied.artifacts.global.manifest_type:
+  dashed_name: Endpoint-policy-applied-artifacts-global-manifest-type
+  description: global artifacts rollout manifest type
+  flat_name: Endpoint.policy.applied.artifacts.global.manifest_type
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.artifacts.global.manifest_type
+  normalize: []
+  short: global artifacts rollout manifest type
+  type: keyword
 Endpoint.policy.applied.artifacts.global.snapshot:
   dashed_name: Endpoint-policy-applied-artifacts-global-snapshot
   description: the snapshot date of applied global artifacts or 'latest'

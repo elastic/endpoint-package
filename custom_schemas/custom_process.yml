@@ -620,6 +620,13 @@
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: "true"
 
+    - name: Ext.desktop_name
+      level: custom
+      type: keyword
+      short: Initial desktop name for the process.
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
+
     - name: Ext.mitigation_policies
       level: custom
       type: keyword
@@ -674,6 +681,18 @@
       description: >
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+
+    - name: Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      description: >
+        Reason for logon failure.
+
+    - name: Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      description: >
+        The name of the trusted logon process that was used for the logon attempt.
 
     - name: Ext.session_info.logon_type
       level: custom
