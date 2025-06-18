@@ -202,49 +202,26 @@ fields:
           TargetServerName: {}
           TargetInfo: {}
           WorkstationName: {}
-          TransmittedServices: {}
           LogonGuid: {}
           TargetLogonGuid: {}
           LmPackageName: {}
-          RestrictedAdminMode: {}
-          VirtualAccount: {}
           TargetLinkedLogonId: {}
-          KeyLength: {}
           ServiceName: {}
           ServiceFileName: {}
           ServiceType: {}
           ServiceStartType: {}
-          ServiceAccount: {}
           TaskName: {}
           TaskContent: {}
           TaskContentNew: {}
           EnabledPrivilegeList: {}
-          DisabledPrivilegeList: {}
           SamAccountName: {}
           DisplayName: {}
           UserPrincipalName: {}
-          HomeDirectory: {}
-          HomePath: {}
-          ScriptPath: {}
-          ProfilePath: {}
-          UserWorkstations: {}
-          PasswordLastSet: {}
-          AccountExpires: {}
           PrimaryGroupId: {}
-          AllowedToDelegateTo: {}
-          OldUacValue: {}
-          NewUacValue: {}
-          UserAccountControl: {}
-          UserParameters: {}
-          SidHistory: {}
-          LogonHours: {}
-          Flags: {}
           CountOfCredentialsReturned: {}
           SchemaFriendlyName: {}
-          Schema: {}
           Resource: {}
           Identity: {}
-          PackageSid: {}
           ShareName: {}
           ShareLocalPath: {}
           RelativeTargetName: {}
