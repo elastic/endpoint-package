@@ -300,9 +300,9 @@
       level: custom
       type : keyword
       description: >
-        If you change any setting using Active Directory Users and 
+        User parameters contain any custom settings applied by using Active Directory Users and 
         Computers management console in the Dial-in tab of 
-        user's account properties, then you will see this field.
+        user's account properties.
  
     - name: event_data.SidHistory
       level: custom
