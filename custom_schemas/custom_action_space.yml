@@ -14,4 +14,11 @@
       short: originating space ID
       description: >
         The space ID that the action was initiated from
+    - name: tags
+      title: Tags
+      type: keyword
+      level: custom
+      short: internal categorization
+      description: >
+        Internal category flags for space awareness and future flags
 
