@@ -2827,42 +2827,24 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 | winlog.event_data | The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events. | object |
 | winlog.event_data.AccessReason | The list of access check results. | keyword |
-| winlog.event_data.AccountExpires | The date when the account expires.  For manually created local and domain user accounts this field typically has value "<never>". | keyword |
-| winlog.event_data.AllowedToDelegateTo | The list of Service Principal Name (SPN) to which this account can present delegated credentials. | keyword |
 | winlog.event_data.CountOfCredentialsReturned | Credential returned count. | unsigned_long |
-| winlog.event_data.DisabledPrivilegeList | The list of disabled user rights. | keyword |
 | winlog.event_data.DisplayName | A name displayed in the address book for a particular account. | keyword |
 | winlog.event_data.EnabledPrivilegeList | The list of enabled user rights. | keyword |
-| winlog.event_data.Flags | Flags. | unsigned_long |
-| winlog.event_data.HomeDirectory | User's home directory. | keyword |
-| winlog.event_data.HomePath | User's home path. | keyword |
 | winlog.event_data.Identity | Identity information. | keyword |
-| winlog.event_data.KeyLength | The length of the NTLM Session Security key. | unsigned_long |
 | winlog.event_data.LmPackageName | The name of the LAN Manager subpackage  (NTLM-family protocol name) that was used during logon. | keyword |
 | winlog.event_data.LogonGuid | Globally Unique Identifier. | keyword |
-| winlog.event_data.LogonHours | Hours that the account is allowed to logon to the domain. | keyword |
-| winlog.event_data.NewUacValue | Flags that control password, lockout, disable/enable, script, and other behavior for the user account. | keyword |
-| winlog.event_data.OldUacValue | Flags that control password, lockout, disable/enable, script, and other behavior for the user account.  This parameter contains the previous UAC value. | keyword |
-| winlog.event_data.PackageSid | Security Identifier (SID) of the application package. | keyword |
-| winlog.event_data.PasswordLastSet | Last time the account's password was modified.  For manually created user account, using Active Directory Users and Computers snap-in, this field typically has value "<never>" | keyword |
 | winlog.event_data.PrimaryGroupId | Relative Identifier (RID) of the user's object primary group. | keyword |
 | winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
-| winlog.event_data.ProfilePath | Specifies a path to the account's profile.  This value can be a null string, a local absolute path, or a UNC path. | keyword |
 | winlog.event_data.RelativeTargetName | Relative name of the accessed target file or folder. | keyword |
 | winlog.event_data.Resource | Resource Information. | keyword |
-| winlog.event_data.RestrictedAdminMode | Only populated for RemoteInteractive logon type sessions.  This value is a Yes/No flag indicating if the credentials provided were passed using Restricted Admin mode. | keyword |
 | winlog.event_data.SamAccountName | Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name). | keyword |
-| winlog.event_data.Schema | The schema GUID used to determine the type of VAULT credential. | keyword |
 | winlog.event_data.SchemaFriendlyName | A human-readable name associated with the schema GUID. | keyword |
-| winlog.event_data.ScriptPath | The path of the account's logon script. | keyword |
-| winlog.event_data.ServiceAccount | The security context that the service will run as when started. | keyword |
 | winlog.event_data.ServiceFileName | Path to the file that the Service Control Manager will execute to start the service. | keyword |
 | winlog.event_data.ServiceName | The name of the installed service. | keyword |
 | winlog.event_data.ServiceStartType | Contains information about how a particular service should be started. | keyword |
 | winlog.event_data.ServiceType | Indicates the type of service that was registered  with the Service Control Manager. | keyword |
 | winlog.event_data.ShareLocalPath | The full system (NTFS) path for accessed share. | keyword |
 | winlog.event_data.ShareName | The name of accessed network share. | keyword |
-| winlog.event_data.SidHistory | Previous SIDs used for the object if the object was moved from another domain. | keyword |
 | winlog.event_data.Status | The reason why logon failed. | keyword |
 | winlog.event_data.SubStatus | Additional information about logon failure. | keyword |
 | winlog.event_data.TargetInfo | Additional information about the event target. | keyword |
@@ -2872,12 +2854,7 @@ sent by the endpoint.
 | winlog.event_data.TaskContent | The XML content of the new task. | keyword |
 | winlog.event_data.TaskContentNew | The new XML for the updated task. | keyword |
 | winlog.event_data.TaskName | New scheduled task name. | keyword |
-| winlog.event_data.TransmittedServices | The list of transmitted services. | keyword |
-| winlog.event_data.UserAccountControl | Shows the list of changes in userAccountControl attribute. | keyword |
-| winlog.event_data.UserParameters | User parameters contain any custom settings applied by using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties. | keyword |
 | winlog.event_data.UserPrincipalName | Internet-style login name for the account,  based on the Internet standard RFC 822. | keyword |
-| winlog.event_data.UserWorkstations | Contains the list of NetBIOS or DNS names of the computers from which the user can logon. | keyword |
-| winlog.event_data.VirtualAccount | A "Yes" or "No" flag, which indicates if the account is a virtual account. | keyword |
 | winlog.event_data.WorkstationName | Machine name from which a logon attempt was performed. | keyword |
 
 
