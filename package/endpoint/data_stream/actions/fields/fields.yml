@@ -342,6 +342,12 @@
   type: keyword
   ignore_above: 1024
   description: The space ID that the action was initiated from
+- name: tags
+  level: custom
+  type: keyword
+  ignore_above: 1024
+  description: Internal category flags for space awareness and future flags
+  default_field: true
 - name: user
   title: User
   group: 2
