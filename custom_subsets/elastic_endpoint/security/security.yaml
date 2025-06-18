@@ -197,6 +197,35 @@ fields:
       event_data:
         fields:
           PrivilegeList: {}
+          Status: {}
+          SubStatus: {}
+          TargetServerName: {}
+          TargetInfo: {}
+          WorkstationName: {}
+          LogonGuid: {}
+          TargetLogonGuid: {}
+          LmPackageName: {}
+          TargetLinkedLogonId: {}
+          ServiceName: {}
+          ServiceFileName: {}
+          ServiceType: {}
+          ServiceStartType: {}
+          TaskName: {}
+          TaskContent: {}
+          TaskContentNew: {}
+          EnabledPrivilegeList: {}
+          SamAccountName: {}
+          DisplayName: {}
+          UserPrincipalName: {}
+          PrimaryGroupId: {}
+          CountOfCredentialsReturned: {}
+          SchemaFriendlyName: {}
+          Resource: {}
+          Identity: {}
+          ShareName: {}
+          ShareLocalPath: {}
+          RelativeTargetName: {}
+          AccessReason: {}
   file:
     fields:
       code_signature:

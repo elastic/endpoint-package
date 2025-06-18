@@ -2826,7 +2826,36 @@ sent by the endpoint.
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 | winlog.event_data | The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events. | object |
+| winlog.event_data.AccessReason | The list of access check results. | keyword |
+| winlog.event_data.CountOfCredentialsReturned | Credential returned count. | unsigned_long |
+| winlog.event_data.DisplayName | A name displayed in the address book for a particular account. | keyword |
+| winlog.event_data.EnabledPrivilegeList | The list of enabled user rights. | keyword |
+| winlog.event_data.Identity | Identity information. | keyword |
+| winlog.event_data.LmPackageName | The name of the LAN Manager subpackage  (NTLM-family protocol name) that was used during logon. | keyword |
+| winlog.event_data.LogonGuid | Globally Unique Identifier. | keyword |
+| winlog.event_data.PrimaryGroupId | Relative Identifier (RID) of the user's object primary group. | keyword |
 | winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
+| winlog.event_data.RelativeTargetName | Relative name of the accessed target file or folder. | keyword |
+| winlog.event_data.Resource | Resource Information. | keyword |
+| winlog.event_data.SamAccountName | Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name). | keyword |
+| winlog.event_data.SchemaFriendlyName | A human-readable name associated with the schema GUID. | keyword |
+| winlog.event_data.ServiceFileName | Path to the file that the Service Control Manager will execute to start the service. | keyword |
+| winlog.event_data.ServiceName | The name of the installed service. | keyword |
+| winlog.event_data.ServiceStartType | Contains information about how a particular service should be started. | keyword |
+| winlog.event_data.ServiceType | Indicates the type of service that was registered  with the Service Control Manager. | keyword |
+| winlog.event_data.ShareLocalPath | The full system (NTFS) path for accessed share. | keyword |
+| winlog.event_data.ShareName | The name of accessed network share. | keyword |
+| winlog.event_data.Status | The reason why logon failed. | keyword |
+| winlog.event_data.SubStatus | Additional information about logon failure. | keyword |
+| winlog.event_data.TargetInfo | Additional information about the event target. | keyword |
+| winlog.event_data.TargetLinkedLogonId | Information that helps to link related events together by their logon attempt IDs. | keyword |
+| winlog.event_data.TargetLogonGuid | A globally unique identifier (GUID) associated with  the logon session related to the event. | keyword |
+| winlog.event_data.TargetServerName | The name of the server on which the new process was run.  Has "localhost" value if the process was run locally. | keyword |
+| winlog.event_data.TaskContent | The XML content of the new task. | keyword |
+| winlog.event_data.TaskContentNew | The new XML for the updated task. | keyword |
+| winlog.event_data.TaskName | New scheduled task name. | keyword |
+| winlog.event_data.UserPrincipalName | Internet-style login name for the account,  based on the Internet standard RFC 822. | keyword |
+| winlog.event_data.WorkstationName | Machine name from which a logon attempt was performed. | keyword |
 
 
 ## Metrics

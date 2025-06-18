@@ -173,6 +173,41 @@
                 "SeSystemEnvironmentPrivilege",
                 "SeImpersonatePrivilege",
                 "SeDelegateSessionUserImpersonatePrivilege"
+            ],
+            "Status": "0xC000006D",
+            "SubStatus": "0xC000006A",
+            "TargetServerName": "localhost",
+            "TargetInfo": "localhost",
+            "WorkstationName": "TestServer",
+            "LogonGuid": "test_data",
+            "TargetLogonGuid": "test_data",
+            "LmPackageName": "test_data",
+            "TargetLinkedLogonId": "test_data",
+            "ServiceName": "TestServiceName",
+            "ServiceFileName": "C:\\TestService.exe",
+            "ServiceType": "Win32 Own Process",
+            "ServiceStartType": "Automatic",
+            "TaskName": "\\TestScheduledTaskEvent",
+            "TaskContent": "test_data",
+            "TaskContentNew": "test_data",
+            "EnabledPrivilegeList": [
+                "SeAssignPrimaryTokenPrivilege",
+                "SeIncreaseQuotaPrivilege"
+            ],
+            "SamAccountName": "TestUser",
+            "DisplayName": "test_data",
+            "UserPrincipalName": "test_data",
+            "PrimaryGroupId": "513",
+            "CountOfCredentialsReturned": 0,
+            "SchemaFriendlyName": "Windows Domain Password Credential",
+            "Resource": "Domain:target=TestTarget",
+            "Identity": "TestUser",
+            "ShareName": "\\\\*\\TestShare",
+            "ShareLocalPath": "C:\\TestFolder",
+            "RelativeTargetName": "test_data",
+            "AccessReason": [
+                "test_data",
+                "test_data"
             ]
         }
     }
