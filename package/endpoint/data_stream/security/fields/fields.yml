@@ -1539,7 +1539,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: If you change any setting using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties, then you will see this field.
+      description: User parameters contain any custom settings applied by using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties.
       default_field: false
     - name: event_data.UserPrincipalName
       level: custom

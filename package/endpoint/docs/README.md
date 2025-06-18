@@ -2874,7 +2874,7 @@ sent by the endpoint.
 | winlog.event_data.TaskName | New scheduled task name. | keyword |
 | winlog.event_data.TransmittedServices | The list of transmitted services. | keyword |
 | winlog.event_data.UserAccountControl | Shows the list of changes in userAccountControl attribute. | keyword |
-| winlog.event_data.UserParameters | If you change any setting using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties, then you will see this field. | keyword |
+| winlog.event_data.UserParameters | User parameters contain any custom settings applied by using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties. | keyword |
 | winlog.event_data.UserPrincipalName | Internet-style login name for the account,  based on the Internet standard RFC 822. | keyword |
 | winlog.event_data.UserWorkstations | Contains the list of NetBIOS or DNS names of the computers from which the user can logon. | keyword |
 | winlog.event_data.VirtualAccount | A "Yes" or "No" flag, which indicates if the account is a virtual account. | keyword |
