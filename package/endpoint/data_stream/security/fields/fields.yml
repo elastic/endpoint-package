@@ -1228,31 +1228,11 @@
       ignore_above: 1024
       description: The list of access check results.
       default_field: false
-    - name: event_data.AccountExpires
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The date when the account expires.  For manually created local and domain user accounts this field typically has value "<never>".
-      example: <never>
-      default_field: false
-    - name: event_data.AllowedToDelegateTo
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The list of Service Principal Name (SPN) to which this account can present delegated credentials.
-      default_field: false
     - name: event_data.CountOfCredentialsReturned
       level: custom
       type: unsigned_long
       description: Credential returned count.
       example: 0
-      default_field: false
-    - name: event_data.DisabledPrivilegeList
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The list of disabled user rights.
-      example: '["SeAssignPrimaryTokenPrivilege", "SeIncreaseQuotaPrivilege"]'
       default_field: false
     - name: event_data.DisplayName
       level: custom
@@ -1267,34 +1247,12 @@
       description: The list of enabled user rights.
       example: '["SeAssignPrimaryTokenPrivilege", "SeIncreaseQuotaPrivilege"]'
       default_field: false
-    - name: event_data.Flags
-      level: custom
-      type: unsigned_long
-      description: Flags.
-      default_field: false
-    - name: event_data.HomeDirectory
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: User's home directory.
-      default_field: false
-    - name: event_data.HomePath
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: User's home path.
-      default_field: false
     - name: event_data.Identity
       level: custom
       type: keyword
       ignore_above: 1024
       description: Identity information.
       example: TestUser
-      default_field: false
-    - name: event_data.KeyLength
-      level: custom
-      type: unsigned_long
-      description: The length of the NTLM Session Security key.
       default_field: false
     - name: event_data.LmPackageName
       level: custom
@@ -1307,40 +1265,6 @@
       type: keyword
       ignore_above: 1024
       description: Globally Unique Identifier.
-      default_field: false
-    - name: event_data.LogonHours
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Hours that the account is allowed to logon to the domain.
-      example: All
-      default_field: false
-    - name: event_data.NewUacValue
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Flags that control password, lockout, disable/enable, script, and other behavior for the user account.
-      example: '0x15'
-      default_field: false
-    - name: event_data.OldUacValue
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Flags that control password, lockout, disable/enable, script, and other behavior for the user account.  This parameter contains the previous UAC value.
-      example: '0x0'
-      default_field: false
-    - name: event_data.PackageSid
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Security Identifier (SID) of the application package.
-      default_field: false
-    - name: event_data.PasswordLastSet
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Last time the account's password was modified.  For manually created user account, using Active Directory Users and Computers snap-in, this field typically has value "<never>"
-      example: <never>
       default_field: false
     - name: event_data.PrimaryGroupId
       level: custom
@@ -1356,12 +1280,6 @@
       description: An array of sensitive privileges, assigned to the new logon.
       example: '["SeTcbPrivilege", "SeSecurityPrivilege"]'
       default_field: false
-    - name: event_data.ProfilePath
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Specifies a path to the account's profile.  This value can be a null string, a local absolute path, or a UNC path.
-      default_field: false
     - name: event_data.RelativeTargetName
       level: custom
       type: keyword
@@ -1375,12 +1293,6 @@
       description: Resource Information.
       example: Domain:target=TestTarget
       default_field: false
-    - name: event_data.RestrictedAdminMode
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Only populated for RemoteInteractive logon type sessions.  This value is a Yes/No flag indicating if the credentials provided were passed using Restricted Admin mode.
-      default_field: false
     - name: event_data.SamAccountName
       level: custom
       type: keyword
@@ -1388,32 +1300,12 @@
       description: Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name).
       example: TestUser
       default_field: false
-    - name: event_data.Schema
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The schema GUID used to determine the type of VAULT credential.
-      example: 3e0e35be-1b77-43e7-b873aed901b6275b
-      default_field: false
     - name: event_data.SchemaFriendlyName
       level: custom
       type: keyword
       ignore_above: 1024
       description: A human-readable name associated with the schema GUID.
       example: Windows Domain Password Credential
-      default_field: false
-    - name: event_data.ScriptPath
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The path of the account's logon script.
-      default_field: false
-    - name: event_data.ServiceAccount
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The security context that the service will run as when started.
-      example: LocalSystem
       default_field: false
     - name: event_data.ServiceFileName
       level: custom
@@ -1456,12 +1348,6 @@
       ignore_above: 1024
       description: The name of accessed network share.
       example: \\*\TestShare
-      default_field: false
-    - name: event_data.SidHistory
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Previous SIDs used for the object if the object was moved from another domain.
       default_field: false
     - name: event_data.Status
       level: custom
@@ -1522,43 +1408,11 @@
       description: New scheduled task name.
       example: \TestScheduledTaskEvent
       default_field: false
-    - name: event_data.TransmittedServices
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: The list of transmitted services.
-      default_field: false
-    - name: event_data.UserAccountControl
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Shows the list of changes in userAccountControl attribute.
-      example: '["AccountDisabled"]'
-      default_field: false
-    - name: event_data.UserParameters
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: User parameters contain any custom settings applied by using Active Directory Users and  Computers management console in the Dial-in tab of  user's account properties.
-      default_field: false
     - name: event_data.UserPrincipalName
       level: custom
       type: keyword
       ignore_above: 1024
       description: Internet-style login name for the account,  based on the Internet standard RFC 822.
-      default_field: false
-    - name: event_data.UserWorkstations
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Contains the list of NetBIOS or DNS names of the computers from which the user can logon.
-      default_field: false
-    - name: event_data.VirtualAccount
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: A "Yes" or "No" flag, which indicates if the account is a virtual account.
-      example: 'No'
       default_field: false
     - name: event_data.WorkstationName
       level: custom
