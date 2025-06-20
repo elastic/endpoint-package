@@ -1,6 +1,6 @@
 overview:
   name: The workstation was locked.
-  description: 'This event is generated when the workstation was locked.'
+  description: This event is generated when the workstation was locked.
 identification:
   filter:
     event.action: workstation_locked

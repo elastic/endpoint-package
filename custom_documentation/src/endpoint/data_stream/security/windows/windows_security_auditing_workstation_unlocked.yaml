@@ -1,6 +1,6 @@
 overview:
   name: The workstation was unlocked.
-  description: 'This event is generated when the workstation was unlocked.'
+  description: This event is generated when the workstation was unlocked.
 identification:
   filter:
     event.action: workstation_unlocked

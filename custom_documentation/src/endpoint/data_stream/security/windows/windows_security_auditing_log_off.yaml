@@ -1,6 +1,6 @@
 overview:
   name: Windows User Log Off
-  description: 'This event is generated when a user logs off from the computer.'
+  description: This event is generated when a user logs off from the computer.
 identification:
   filter:
     event.action: log_off
