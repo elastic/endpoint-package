@@ -52,6 +52,7 @@ This event is generated when a process is created or exits.
 | process.Ext.command_line_truncated |
 | process.Ext.created_suspended |
 | process.Ext.defense_evasions |
+| process.Ext.desktop_name |
 | process.Ext.device.bus_type |
 | process.Ext.device.dos_name |
 | process.Ext.device.file_system_type |
@@ -63,7 +64,6 @@ This event is generated when a process is created or exits.
 | process.Ext.effective_parent.executable |
 | process.Ext.effective_parent.name |
 | process.Ext.effective_parent.pid |
-| process.Ext.desktop_name |
 | process.Ext.mitigation_policies |
 | process.Ext.protection |
 | process.Ext.relative_file_creation_time |
