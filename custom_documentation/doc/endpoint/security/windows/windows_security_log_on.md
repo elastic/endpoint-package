@@ -6,7 +6,6 @@
 
 This event is generated when a user logs on to the computer.
 
-
 | Field |
 |---|
 | @timestamp |
@@ -28,6 +27,7 @@ This event is generated when a user logs on to the computer.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
 | host.architecture |
@@ -45,20 +45,31 @@ This event is generated when a user logs on to the computer.
 | host.os.type |
 | host.os.version |
 | message |
+| process.code_signature.exists |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.trusted |
+| process.command_line |
+| process.entity_id |
+| process.executable |
 | process.Ext.ancestry |
 | process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
+| process.Ext.session_info.authentication_package |
+| process.Ext.session_info.failure_reason |
+| process.Ext.session_info.logon_process_name |
 | process.Ext.session_info.logon_type |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
-| process.entity_id |
-| process.executable |
+| process.Ext.token.elevation |
+| process.Ext.token.impersonation_level |
+| process.Ext.token.integrity_level_name |
 | process.name |
+| process.parent.executable |
+| process.pid |
+| source.ip |
 | user.domain |
 | user.effective.domain |
 | user.effective.email |
@@ -68,5 +79,20 @@ This event is generated when a user logs on to the computer.
 | user.effective.name |
 | user.id |
 | user.name |
+| user.target.domain |
+| user.target.name |
+| winlog.event_data.KeyLength |
+| winlog.event_data.LmPackageName |
+| winlog.event_data.LoginGuid |
 | winlog.event_data.PrivilegeList |
+| winlog.event_data.RestrictedAdminMode |
+| winlog.event_data.Status |
+| winlog.event_data.SubStatus |
+| winlog.event_data.TargetInfo |
+| winlog.event_data.TargetLinkedLogonId |
+| winlog.event_data.TargetLogonGuid |
+| winlog.event_data.TargetServerName |
+| winlog.event_data.TransmittedServices |
+| winlog.event_data.VirtualAccount |
+| winlog.event_data.WorkstationName |
 
