@@ -21,6 +21,94 @@
     If multiple messages exist, they can be combined into one message.'
   example: Hello World
   default_field: true
+- name: Effective_process
+  title: Effective_process
+  group: 2
+  description: 'These fields contain information about an effective process.
+
+    The effective process is the process that requested the a specific action, without directly performing it.
+
+    Processes can have effective parents that differ from their regular parents. For example, on Windows, "wmic process call create notepad" will ask WmiPrvSE.exe to launch notepad.exe. WmiPrvSE will be notepad''s parent, but the wmic will be the effective parent.
+
+    Events can have effective processes that differ from their regular processes. For example, on Windows, "reg add \\localhost\HKLM\Software\Foo /v Data /t REG_SZ /d 123"  will result in a registry event from the Remote Registry service (svchost.exe). In this case, the effective process will be reg.exe.'
+  type: group
+  default_field: true
+  fields:
+    - name: code_signature.exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: 'true'
+      default_field: false
+    - name: code_signature.signing_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: '''The identifier used to sign the binary.
+
+        This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.'''
+      example: com.apple.xpc.proxy
+      default_field: false
+    - name: code_signature.status
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked.'
+      example: ERROR_UNTRUSTED_ROOT
+      default_field: false
+    - name: code_signature.subject_name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+      default_field: false
+    - name: code_signature.team_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: '''The team identifier used to sign the binary.
+
+        This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'''
+      example: EQHXZ8M8AV
+      default_field: false
+    - name: code_signature.trusted
+      level: extended
+      type: boolean
+      description: 'Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status.'
+      example: 'true'
+      default_field: false
+    - name: entity_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the effective process.
+      example: c2c455d9f99375d
+      default_field: false
+    - name: executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Executable name for the effective process.
+      example: C:\Windows\System32\wbem\WMIC.exe
+      default_field: false
+    - name: name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process name for the effective process.
+      example: WMIC.exe
+      default_field: false
+    - name: pid
+      level: custom
+      type: long
+      description: Process ID.
+      example: 4242
+      default_field: false
 - name: Target
   title: Target
   group: 2
@@ -115,6 +203,43 @@
       format: string
       description: Process id.
       example: 4242
+      default_field: false
+- name: Tcc
+  title: Tcc
+  group: 2
+  description: These fields contain information about macOS TCC permission events, which control application access to protected user data and features.
+  type: group
+  default_field: true
+  fields:
+    - name: identity
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The identity of the application that is the subject of the permission.
+      default_field: false
+    - name: reason
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The reason the TCC permissions were updated.
+      default_field: false
+    - name: right
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The resulting TCC permission of the operation/modification.
+      default_field: false
+    - name: service
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The TCC service for which permissions are being modified.
+      default_field: false
+    - name: update_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The type of TCC modification event (Grant/Revoke etc).
       default_field: false
 - name: agent
   title: Agent
