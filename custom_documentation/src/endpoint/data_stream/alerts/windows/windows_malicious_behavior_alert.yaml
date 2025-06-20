@@ -123,7 +123,7 @@ fields:
   - user.id
   - user.name
   - user.target.domain
-  - user.target.name 
+  - user.target.name
   - winlog.*
   details:
     Events.*:
@@ -149,4 +149,4 @@ fields:
         Events. It can contain any fields that any other events includes within the
         registry fieldset. '
     winlog.*:
-      description: 'winlog contains information about the Windows Event Log.'
+      description: winlog contains information about the Windows Event Log.
