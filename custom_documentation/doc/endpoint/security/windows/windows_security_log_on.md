@@ -70,6 +70,7 @@ This event is generated when a user logs on to the computer.
 | process.parent.executable |
 | process.pid |
 | source.ip |
+| source.port |
 | user.domain |
 | user.effective.domain |
 | user.effective.email |
