@@ -55,13 +55,19 @@ fields:
   - process.Ext.code_signature.status
   - process.Ext.code_signature.subject_name
   - process.Ext.code_signature.trusted
+  - process.Ext.protection
   - process.Ext.session_info.logon_type
+  - process.Ext.token.integrity_level_name
   - process.code_signature.exists
   - process.code_signature.status
   - process.code_signature.subject_name
   - process.code_signature.trusted
+  - process.command_line
   - process.entity_id
   - process.executable
+  - process.name
+  - process.parent.executable
+  - process.pid
   - user.domain
   - user.effective.domain
   - user.effective.email
