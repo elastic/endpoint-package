@@ -1,15 +1,25 @@
 #!/bin/env python3
 import argparse
+import json
 import requests
 import sys
-import yaml
+import time
 import unittest
+import yaml
 
+MAX_ATTEMPTS = 20
 VERSION_URL = "https://artifacts-api.elastic.co/v1/versions?x-elastic-no-kpi=true"
 
 
 def fetch_version():
-    return requests.get(VERSION_URL).json()
+    for _ in range(MAX_ATTEMPTS):
+        try:
+            return requests.get(VERSION_URL).json()
+        except json.decoder.JSONDecodeError:
+            time.sleep(1)
+            continue
+    raise RuntimeError(f"Failed to version API after {MAX_ATTEMPTS} attempts")
+
 
 
 def find_oldest_supported_version(kibana_version_condition: str) -> str:
