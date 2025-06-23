@@ -1,15 +1,31 @@
-# Windows User Log Off
+# macOS TCC modify
 
-- OS: Windows
+- OS: macOS
 - Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "tcc_modify" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a user logs off of the computer.
+This event is generated when a Transparency, Consent, and Control (TCC) permission is modified on a macOS system.
+
 
 | Field |
 |---|
 | @timestamp |
+| Effective_process.code_signature.exists |
+| Effective_process.code_signature.signing_id |
+| Effective_process.code_signature.status |
+| Effective_process.code_signature.subject_name |
+| Effective_process.code_signature.team_id |
+| Effective_process.code_signature.trusted |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 | Target.process.Ext.authentication_id |
+| Tcc.identity |
+| Tcc.reason |
+| Tcc.right |
+| Tcc.service |
+| Tcc.update_type |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -27,9 +43,11 @@ This event is generated when a user logs off of the computer.
 | event.kind |
 | event.module |
 | event.outcome |
-| event.provider |
 | event.sequence |
 | event.type |
+| file.code_signature.signing_id |
+| file.code_signature.team_id |
+| file.path |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -51,18 +69,16 @@ This event is generated when a user logs off of the computer.
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
-| process.Ext.protection |
 | process.Ext.session_info.logon_type |
-| process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
+| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.team_id |
 | process.code_signature.trusted |
-| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.executable |
 | process.pid |
 | user.domain |
 | user.effective.domain |

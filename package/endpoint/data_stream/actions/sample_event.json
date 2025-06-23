@@ -29,6 +29,11 @@
         ]
     },
     "originSpaceId": "b88dae77-9037-459b-be31-efefa6788362",
+    "tags": [
+        "foo",
+        "bar",
+        "oldspace"
+    ],
     "@timestamp": "2022-04-04T20:44:07.805Z",
     "event": {
         "agent_id_status": "auth_metadata_missing",

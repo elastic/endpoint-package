@@ -13,8 +13,10 @@ fields:
   # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
   source:
     fields:
+      ip: {}
       geo:
         fields: "*"
+      port: {}
   destination:
     fields:
       geo:
@@ -110,6 +112,10 @@ fields:
               name: {}
   process:
     fields:
+      parent:
+        fields:
+          executable: {}
+          pid: {}
       pid: {}
       name: {}
       executable: {}
@@ -129,6 +135,18 @@ fields:
       Ext:
         fields:
           ancestry: {}
+          api:
+            fields:
+              metadata:
+                fields:
+                  client_is_local: {}
+                  client_machine_fqdn: {}
+                  return_value: {}
+              parameters:
+                fields:
+                  desired_access: {}
+                  desired_access_numeric: {}
+                  handle_type: {}
           authentication_id: {}
           code_signature:
             fields:
@@ -137,18 +155,77 @@ fields:
               subject_name: {}
               trusted: {}
               valid: {}
+          protection: {}
+          session_info:
+            fields:
+              failure_reason: {}
+              logon_process_name: {}
+              logon_type: {}
+              id: {}
+              authentication_package: {}
+          token:
+            fields:
+              elevation: {}
+              impersonation_level: {}
+              integrity_level_name: {}
   Target:
     fields:
       process:
         fields:
+          parent:
+            fields:
+              executable: {}
+              pid: {}
           Ext:
             fields:
               authentication_id: {}
+              protection: {}
+              session_info:
+                fields:
+                  failure_reason: {}
+                  logon_process_name: {}
+                  logon_type: {}
+                  id: {}
+                  authentication_package: {}
+              token:
+                fields:
+                  elevation: {}
+                  impersonation_level: {}
+                  integrity_level_name: {}
   winlog:
     fields:
       event_data:
         fields:
           PrivilegeList: {}
+          Status: {}
+          SubStatus: {}
+          TargetServerName: {}
+          TargetInfo: {}
+          WorkstationName: {}
+          LogonGuid: {}
+          TargetLogonGuid: {}
+          LmPackageName: {}
+          TargetLinkedLogonId: {}
+          ServiceName: {}
+          ServiceFileName: {}
+          ServiceType: {}
+          ServiceStartType: {}
+          TaskName: {}
+          TaskContent: {}
+          TaskContentNew: {}
+          EnabledPrivilegeList: {}
+          SamAccountName: {}
+          DisplayName: {}
+          UserPrincipalName: {}
+          PrimaryGroupId: {}
+          CountOfCredentialsReturned: {}
+          SchemaFriendlyName: {}
+          Resource: {}
+          Identity: {}
+          ShareName: {}
+          ShareLocalPath: {}
+          RelativeTargetName: {}
+          AccessReason: {}
   file:
     fields:
       code_signature:
@@ -156,3 +233,24 @@ fields:
           signing_id: {}
           team_id: {}
       path: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      code_signature:
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+  Tcc:
+    fields:
+      service: {}
+      identity: {}
+      update_type: {}
+      right: {}
+      reason: {}

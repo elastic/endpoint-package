@@ -2,7 +2,7 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and event.provider : "Microsoft-Windows-Security-Auditing" and host.os.type : "windows"`
 
 This event is generated when a user logs on to the computer.
 
@@ -30,29 +30,10 @@ This event is generated when a user logs on to the computer.
 | event.provider |
 | event.sequence |
 | event.type |
-| host.architecture |
-| host.hostname |
 | host.id |
-| host.ip |
-| host.mac |
 | host.name |
-| host.os.Ext.variant |
-| host.os.family |
-| host.os.full |
-| host.os.kernel |
-| host.os.name |
-| host.os.platform |
 | host.os.type |
-| host.os.version |
 | message |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
-| process.command_line |
-| process.entity_id |
-| process.executable |
-| process.Ext.ancestry |
 | process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
@@ -66,16 +47,19 @@ This event is generated when a user logs on to the computer.
 | process.Ext.token.elevation |
 | process.Ext.token.impersonation_level |
 | process.Ext.token.integrity_level_name |
+| process.code_signature.exists |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.trusted |
+| process.command_line |
+| process.entity_id |
+| process.executable |
 | process.name |
 | process.parent.executable |
 | process.pid |
 | source.ip |
-| source.port |
 | user.domain |
 | user.effective.domain |
-| user.effective.email |
-| user.effective.full_name |
-| user.effective.hash |
 | user.effective.id |
 | user.effective.name |
 | user.id |

@@ -859,6 +859,17 @@ rule.name:
   normalize: []
   short: Rule name
   type: keyword
+tags:
+  dashed_name: tags
+  description: Internal category flags for space awareness and future flags
+  flat_name: tags
+  ignore_above: 1024
+  level: custom
+  name: tags
+  normalize: []
+  short: internal categorization
+  title: Tags
+  type: keyword
 type:
   dashed_name: type
   description: Distinguishes the type of input. Usually set to `INPUT_ACTION`

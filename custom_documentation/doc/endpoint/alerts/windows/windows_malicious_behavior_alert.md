@@ -98,6 +98,8 @@ This alert occurs when a Malicious Behavior alert occurs.
 | rule.reference |
 | rule.ruleset |
 | rule.version |
+| source.ip |
+| source.port |
 | threat.framework |
 | threat.tactic.id |
 | threat.tactic.name |
@@ -110,6 +112,12 @@ This alert occurs when a Malicious Behavior alert occurs.
 | threat.technique.subtechnique.name |
 | threat.technique.subtechnique.reference |
 | user.domain |
+| user.effective.domain |
+| user.effective.id |
+| user.effective.name |
 | user.id |
 | user.name |
+| user.target.domain |
+| user.target.name |
+| winlog.*<br /><br />winlog contains information about the Windows Event Log. |
 
