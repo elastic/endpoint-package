@@ -18,7 +18,7 @@ def fetch_version():
         except json.decoder.JSONDecodeError:
             time.sleep(1)
             continue
-    raise RuntimeError(f"Failed to version API after {MAX_ATTEMPTS} attempts")
+    raise RuntimeError(f"Failed to retrieve version API after {MAX_ATTEMPTS} attempts")
 
 
 
