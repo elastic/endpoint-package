@@ -41,6 +41,13 @@
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
       default_field: false
+    - name: process.Ext.desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
+      default_field: false
     - name: process.Ext.memory_region.allocation_base
       level: custom
       type: unsigned_long
@@ -1068,6 +1075,14 @@
 
         Further note that not all events will have an associated outcome. For example, this field is generally not populated for metric events, events with `event.type:info`, or any events for which an outcome does not make logical sense.'
       example: success
+    - name: provider
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Source of the event.
+
+        Event transports such as Syslog or the Windows Event Log typically mention the source of an event. It can be the name of the software that generated the event (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+      example: kernel
     - name: start
       level: extended
       type: date
@@ -1802,6 +1817,13 @@
       type: boolean
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: 'true'
+      default_field: false
+    - name: Ext.desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
       default_field: false
     - name: Ext.memory_region.allocation_base
       level: custom

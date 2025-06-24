@@ -18,7 +18,6 @@ conditions:
     version: "^8.19.0 || ^9.0.0"
   # See https://github.com/Masterminds/semver#caret-range-comparisons-major for more details on `^` and supported versioning
 
-  # >= <the version> && < 8.0.0
   elastic:
     capabilities: ["security"]
     subscription: basic

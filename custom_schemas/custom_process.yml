@@ -55,6 +55,22 @@
       description: Parent process' pid.
       example: 4241
 
+    - name: origin_referrer_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: >
+        The URL of the webpage that linked to the process's executable file.
+      example: http://example.com/article1.html
+      
+    - name: origin_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: >
+        The URL where the process's executable file is hosted.
+      example: http://example.com/files/example.exe
+
     - name: parent.thread
       level: custom
       type: object
@@ -604,6 +620,13 @@
       description: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls.
       example: "true"
 
+    - name: Ext.desktop_name
+      level: custom
+      type: keyword
+      short: Initial desktop name for the process.
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
+
     - name: Ext.mitigation_policies
       level: custom
       type: keyword
@@ -658,6 +681,18 @@
       description: >
         Indicates the protection level of this process.  Uses the same syntax as Process Explorer.
         Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light.
+
+    - name: Ext.session_info.failure_reason
+      level: custom
+      type: keyword
+      description: >
+        Reason for logon failure.
+
+    - name: Ext.session_info.logon_process_name
+      level: custom
+      type: keyword
+      description: >
+        The name of the trusted logon process that was used for the logon attempt.
 
     - name: Ext.session_info.logon_type
       level: custom
@@ -782,6 +817,18 @@
       short: Whether or not the process is a descendent of a trusted application
       description: >
         Whether or not the process is a descendent of a trusted application
+
+    - name: Ext.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+
+    - name: Ext.windows.zone_identifier
+      level: custom
+      type: keyword
+      example: 3
+      description: >
+        Windows zone identifier for a process's executable file
 
     - name: code_signature.exists
       level: core

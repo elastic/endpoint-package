@@ -500,6 +500,40 @@ process.Ext.api.name:
   original_fieldset: api
   short: The name of the API, usually the name of the function or system call.
   type: keyword
+process.Ext.api.parameters:
+  dashed_name: process-Ext-api-parameters
+  description: Parameter values passed to the API call.
+  flat_name: process.Ext.api.parameters
+  level: custom
+  name: parameters
+  normalize: []
+  original_fieldset: api
+  short: Parameter values passed to the API call.
+  type: object
+process.Ext.api.parameters.app_name:
+  dashed_name: process-Ext-api-parameters-app-name
+  description: The application name requesting the AMSI scan.
+  example: PowerShell
+  flat_name: process.Ext.api.parameters.app_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.app_name
+  normalize: []
+  original_fieldset: api
+  short: The application name requesting the AMSI scan.
+  type: keyword
+process.Ext.api.parameters.content_name:
+  dashed_name: process-Ext-api-parameters-content-name
+  description: The content name, typically a filename, associated with an AMSI scan.
+  example: C:\script.ps1
+  flat_name: process.Ext.api.parameters.content_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.content_name
+  normalize: []
+  original_fieldset: api
+  short: The content name, typically a filename, associated with an AMSI scan.
+  type: keyword
 process.Ext.api.summary:
   dashed_name: process-Ext-api-summary
   description: The summary of the API call and its parameters.
@@ -582,6 +616,18 @@ process.Ext.created_suspended:
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
     CreateProcess API.
   type: boolean
+process.Ext.desktop_name:
+  dashed_name: process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
+  example: WinSta0\CustomDesktop
+  flat_name: process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax

@@ -102,6 +102,11 @@ fields:
   - Endpoint.metrics.malicious_behavior_rules.id
   - Endpoint.metrics.memory.endpoint.private.latest
   - Endpoint.metrics.memory.endpoint.private.mean
+  - Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.drops
+  - Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.last_drop_time_utc
+  - Endpoint.metrics.queue_metrics.kernel.send_to_user_queue.size
+  - Endpoint.metrics.queue_metrics.user.async_kernel_event_queue.drops
+  - Endpoint.metrics.queue_metrics.user.async_kernel_event_queue.size
   - Endpoint.metrics.system_impact.amsi_events.week_idle_ms
   - Endpoint.metrics.system_impact.amsi_events.week_ms
   - Endpoint.metrics.system_impact.attack_surface_events.week_idle_ms
@@ -118,6 +123,10 @@ fields:
   - Endpoint.metrics.system_impact.dns_events.week_ms
   - Endpoint.metrics.system_impact.file_events.week_idle_ms
   - Endpoint.metrics.system_impact.file_events.week_ms
+  - Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms
+  - Endpoint.metrics.system_impact.kernel_api_events.week_ms
+  - Endpoint.metrics.system_impact.ldap_client_events.week_idle_ms
+  - Endpoint.metrics.system_impact.ldap_client_events.week_ms
   - Endpoint.metrics.system_impact.library_load_events.week_idle_ms
   - Endpoint.metrics.system_impact.library_load_events.week_ms
   - Endpoint.metrics.system_impact.malware.week_idle_ms
@@ -128,6 +137,8 @@ fields:
   - Endpoint.metrics.system_impact.network_events.week_ms
   - Endpoint.metrics.system_impact.overall.week_idle_ms
   - Endpoint.metrics.system_impact.overall.week_ms
+  - Endpoint.metrics.system_impact.pipe_events.week_idle_ms
+  - Endpoint.metrics.system_impact.pipe_events.week_ms
   - Endpoint.metrics.system_impact.process.code_signature.exists
   - Endpoint.metrics.system_impact.process.code_signature.signing_id
   - Endpoint.metrics.system_impact.process.code_signature.status
@@ -151,10 +162,22 @@ fields:
   - Endpoint.metrics.system_impact.volume_device_events.week_ms
   - Endpoint.metrics.system_impact.win32k_events.week_idle_ms
   - Endpoint.metrics.system_impact.win32k_events.week_ms
+  - Endpoint.metrics.system_impact.winhttp_events.week_idle_ms
+  - Endpoint.metrics.system_impact.winhttp_events.week_ms
+  - Endpoint.metrics.system_impact.wininet_events.week_idle_ms
+  - Endpoint.metrics.system_impact.wininet_events.week_ms
   - Endpoint.metrics.system_impact.wmi_events.week_idle_ms
   - Endpoint.metrics.system_impact.wmi_events.week_ms
   - Endpoint.metrics.threads.cpu.mean
   - Endpoint.metrics.threads.name
+  - Endpoint.metrics.top_process_trees.values.event_count
+  - Endpoint.metrics.top_process_trees.values.last_seen
+  - Endpoint.metrics.top_process_trees.values.sample.command_line
+  - Endpoint.metrics.top_process_trees.values.sample.entity_id
+  - Endpoint.metrics.top_process_trees.values.sample.executable
+  - Endpoint.metrics.top_process_trees.values.sample.parent_command_line
+  - Endpoint.metrics.top_process_trees.window_end
+  - Endpoint.metrics.top_process_trees.window_start
   - Endpoint.metrics.uptime.endpoint
   - Endpoint.metrics.uptime.system
   - agent.build.original

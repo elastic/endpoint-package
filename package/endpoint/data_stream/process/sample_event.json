@@ -82,6 +82,7 @@
                 }
             ],
             "created_suspended": true,
+            "desktop_name": "WinSta0\\CustomDesktop",
             "mitigation_policies": [
                 "Microsoft only, Opt-in to restrict to Microsoft, Windows Store and WHQL",
                 "CET dynamic APIs can only be called out of proc",
@@ -119,6 +120,9 @@
                     "LOGON_NTLMV2_ENABLED",
                     "LOGON_WINLOGON"
                 ]
+            },
+            "windows": {
+                "zone_identifier": 3
             }
         },
         "parent": {
@@ -166,6 +170,8 @@
             "original_file_name": "svchost.exe"
         },
         "name": "svchost.exe",
+        "origin_referrer_url": "http://example.com/article1.html",
+        "origin_url": "http://example.com/files/example.exe",
         "args_count": 3,
         "command_line": "C:\\Windows\\System32\\svchost.exe -k WerSvcGroup",
         "hash": {

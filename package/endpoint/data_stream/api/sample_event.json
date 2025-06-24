@@ -4,6 +4,7 @@
         "process": {
             "Ext": {
                 "created_suspended": true,
+                "desktop_name": "WinSta0\\CustomDesktop",
                 "protection": "PsProtectedSignerWinTcb",
                 "memory_region": {
                     "allocation_base": 1649160290304,

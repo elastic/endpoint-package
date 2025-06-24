@@ -1414,6 +1414,18 @@ process.Ext.defense_evasions:
   normalize: []
   short: List of defense evasions found in this process.
   type: keyword
+process.Ext.desktop_name:
+  dashed_name: process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
+  example: WinSta0\CustomDesktop
+  flat_name: process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.device.bus_type:
   dashed_name: process-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
@@ -1957,6 +1969,26 @@ process.Ext.trusted_descendant:
   normalize: []
   short: Whether or not the process is a descendent of a trusted application
   type: boolean
+process.Ext.windows:
+  dashed_name: process-Ext-windows
+  description: Platform-specific Windows fields
+  flat_name: process.Ext.windows
+  level: custom
+  name: Ext.windows
+  normalize: []
+  short: Platform-specific Windows fields
+  type: object
+process.Ext.windows.zone_identifier:
+  dashed_name: process-Ext-windows-zone-identifier
+  description: Windows zone identifier for a process's executable file
+  example: 3
+  flat_name: process.Ext.windows.zone_identifier
+  ignore_above: 1024
+  level: custom
+  name: Ext.windows.zone_identifier
+  normalize: []
+  short: Windows zone identifier for a process's executable file
+  type: keyword
 process.args:
   dashed_name: process-args
   description: 'Array of process arguments, starting with the absolute path to the
@@ -2258,6 +2290,28 @@ process.name:
   name: name
   normalize: []
   short: Process name.
+  type: keyword
+process.origin_referrer_url:
+  dashed_name: process-origin-referrer-url
+  description: The URL of the webpage that linked to the process's executable file.
+  example: http://example.com/article1.html
+  flat_name: process.origin_referrer_url
+  ignore_above: 8192
+  level: extended
+  name: origin_referrer_url
+  normalize: []
+  short: The URL of the webpage that linked to the process's executable file.
+  type: keyword
+process.origin_url:
+  dashed_name: process-origin-url
+  description: The URL where the process's executable file is hosted.
+  example: http://example.com/files/example.exe
+  flat_name: process.origin_url
+  ignore_above: 8192
+  level: extended
+  name: origin_url
+  normalize: []
+  short: The URL where the process's executable file is hosted.
   type: keyword
 process.parent.Ext:
   dashed_name: process-parent-Ext

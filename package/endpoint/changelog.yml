@@ -1,9 +1,49 @@
-- version: "8.19.0-next"
+- version: "8.19.0"
   changes:
-    - description: TBD
+    - description: Add TCC modify event on macOS
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
-    - description: Add Ext.command_line_truncated
+      link: https://github.com/elastic/endpoint-package/pull/638
+    - description: add mapping for united.agent.namespaces
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/641
+    - description: Add tags to action request documents
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/642
+    - description: Add Winlog fields for the ETW security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/633
+    - description: Add new fields for security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/640
+    - description: Add new policy fields for diagnostic firewall_anti_tamper plugin
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/637
+    - description: Add fields for additional desktop_name process event field
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/634
+    - description: global artifacts manifest_type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/632
+    - description: Add event.provider to API events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/631
+    - description: Actions log spaces
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/622
+    - description: Add `origin_url` and `origin_referrer_url` field to Process/DLL events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/610
+    - description: change 2023 to 2025
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/611
+    - description: Add `zone_identifier` field to Process/DLL events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/608
+- version: "8.18.1"
+  changes:
+    - description: 'Change the size of region_start_bytes + add the field to the alert data stream'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/591
 - version: "8.18.0"
   changes:
     - description: update version constraint to be upgradable to 9.0, bump pre

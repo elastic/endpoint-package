@@ -40,6 +40,19 @@ Target.process.Ext.created_suspended:
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
     CreateProcess API.
   type: boolean
+Target.process.Ext.desktop_name:
+  dashed_name: Target-process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
+  example: WinSta0\CustomDesktop
+  flat_name: Target.process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  original_fieldset: process
+  short: Initial desktop name for the process.
+  type: keyword
 Target.process.Ext.memory_region.allocation_base:
   dashed_name: Target-process-Ext-memory-region-allocation-base
   description: Base address of the memory allocation containing the memory region.
@@ -2056,6 +2069,21 @@ event.outcome:
   normalize: []
   short: The outcome of the event. The lowest level categorization field in the hierarchy.
   type: keyword
+event.provider:
+  dashed_name: event-provider
+  description: 'Source of the event.
+
+    Event transports such as Syslog or the Windows Event Log typically mention the
+    source of an event. It can be the name of the software that generated the event
+    (e.g. Sysmon, httpd), or of a subsystem of the operating system (kernel, Microsoft-Windows-Security-Auditing).'
+  example: kernel
+  flat_name: event.provider
+  ignore_above: 1024
+  level: extended
+  name: provider
+  normalize: []
+  short: Source of the event.
+  type: keyword
 event.start:
   dashed_name: event-start
   description: '`event.start` contains the date when the event started or when the
@@ -3544,6 +3572,18 @@ process.Ext.created_suspended:
   short: A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32
     CreateProcess API.
   type: boolean
+process.Ext.desktop_name:
+  dashed_name: process-Ext-desktop-name
+  description: Initial desktop name supplied to CreateProcess system API call to create
+    the process.
+  example: WinSta0\CustomDesktop
+  flat_name: process.Ext.desktop_name
+  ignore_above: 1024
+  level: custom
+  name: Ext.desktop_name
+  normalize: []
+  short: Initial desktop name for the process.
+  type: keyword
 process.Ext.memory_region.allocation_base:
   dashed_name: process-Ext-memory-region-allocation-base
   description: Base address of the memory allocation containing the memory region.

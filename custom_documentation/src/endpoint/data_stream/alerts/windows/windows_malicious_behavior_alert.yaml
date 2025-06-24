@@ -18,6 +18,7 @@ fields:
   - Endpoint.policy.applied.artifacts.global.channel
   - Endpoint.policy.applied.artifacts.global.identifiers.name
   - Endpoint.policy.applied.artifacts.global.identifiers.sha256
+  - Endpoint.policy.applied.artifacts.global.manifest_type
   - Endpoint.policy.applied.artifacts.global.snapshot
   - Endpoint.policy.applied.artifacts.global.update_age
   - Endpoint.policy.applied.artifacts.global.version
@@ -102,6 +103,8 @@ fields:
   - rule.reference
   - rule.ruleset
   - rule.version
+  - source.ip
+  - source.port
   - threat.framework
   - threat.tactic.id
   - threat.tactic.name
@@ -109,12 +112,19 @@ fields:
   - threat.technique.id
   - threat.technique.name
   - threat.technique.reference
+  - threat.technique.subtechnique
   - threat.technique.subtechnique.id
   - threat.technique.subtechnique.name
   - threat.technique.subtechnique.reference
   - user.domain
+  - user.effective.domain
+  - user.effective.id
+  - user.effective.name
   - user.id
   - user.name
+  - user.target.domain
+  - user.target.name
+  - winlog.*
   details:
     Events.*:
       description: 'Events is a list containing embedded copies of all events that
@@ -138,3 +148,5 @@ fields:
       description: 'registry contains the registry data from the primary event in
         Events. It can contain any fields that any other events includes within the
         registry fieldset. '
+    winlog.*:
+      description: winlog contains information about the Windows Event Log.

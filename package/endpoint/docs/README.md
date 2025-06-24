@@ -39,6 +39,7 @@ sent by the endpoint.
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |
+| Endpoint.policy.applied.artifacts.global.manifest_type | global artifacts rollout manifest type | keyword |
 | Endpoint.policy.applied.artifacts.global.snapshot | the snapshot date of applied global artifacts or 'latest' | keyword |
 | Endpoint.policy.applied.artifacts.global.update_age | number of days since global artifacts were made up-to-date | unsigned_long |
 | Endpoint.policy.applied.artifacts.global.version | the version of global artifacts applied. | keyword |
@@ -648,6 +649,9 @@ sent by the endpoint.
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
 | process.Ext.api.behaviors | A list of observed behaviors.   "cross-process" - the observed activity was between two processes   "parent-child" - the observed activity was between a parent process and its child   "native_api" - a call was made directly to the Native API rather than the Win32 API   "direct_syscall" - a syscall instruction originated outside of the Native API layer   "proxy_call" - the call stack may indicate of a proxied API call to mask the true source   "sensitive_api" - executable non-image memory is unexpectedly calling a sensitive API   "shellcode" - suspicious executable non-image memory is calling a sensitive API   "image_hooked" - an entry in the callstack appears to have been hooked   "image_indirect_call" - an entry in the callstack was preceded by a call to a dynamically resolved function   "image_rop" - no call instruction preceded an entry in the call stack   "image_rwx" - an entry in the callstack is writable   "unbacked_rwx" - an entry in the callstack is non-image and writable   "truncated_stack" - call stack is unexpected truncated due to malicious tampering or system load   "allocate_shellcode" - a region of non-image executable memory allocated more executable memory   "execute_fluctuation" - the PAGE_EXECUTE protection is unexpectedly fluctuating   "write_fluctuation" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating   "hook_api" - a change to the memory protection of a small executable image memory region was made   "hollow_image" - a change to the memory protection of a large executable image memory region was made   "hook_unbacked" - a change to the memory protection of a small executable non-image memory was made   "hollow_unbacked" - a change to the memory protection of a large executable non-image memory was made   "guarded_code" - executable memory was unexpectedly marked as PAGE_GUARD   "hidden_code" - executable memory was unexpectedly marked as PAGE_NOACCESS   "execute_shellcode" - a region of non-image executable memory was unexpectedly transferred control   "hardware_breakpoint_set" - a hardware breakpoint was set   "rapid_background_polling" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed   "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed   "pid_spoofing" - The acting process details may have been spoofed to hide the true origin   "legacy_api" - a deprecated or superseded API was called | keyword |
 | process.Ext.api.name | The name of the API, usually the name of the function or system call. | keyword |
+| process.Ext.api.parameters | Parameter values passed to the API call. | object |
+| process.Ext.api.parameters.app_name | The application name requesting the AMSI scan. | keyword |
+| process.Ext.api.parameters.content_name | The content name, typically a filename, associated with an AMSI scan. | keyword |
 | process.Ext.api.summary | The summary of the API call and its parameters. | keyword |
 | process.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
@@ -658,6 +662,7 @@ sent by the endpoint.
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
+| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess system API call to create the process. | keyword |
 | process.Ext.dll.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.dll.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.dll.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -1779,6 +1784,8 @@ sent by the endpoint.
 | dll.Ext.relative_file_creation_time | Number of seconds since the DLL's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.relative_file_name_modify_time | Number of seconds since the DLL's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
 | dll.Ext.size | Size of DLL | unsigned_long |
+| dll.Ext.windows | Platform-specific Windows fields | object |
+| dll.Ext.windows.zone_identifier | Windows zone identifier for a DLL's executable file | keyword |
 | dll.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | dll.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | dll.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -1791,6 +1798,8 @@ sent by the endpoint.
 | dll.hash.sha256 | SHA256 hash. | keyword |
 | dll.hash.sha512 | SHA512 hash. | keyword |
 | dll.name | Name of the library. This generally maps to the name of the file on disk. | keyword |
+| dll.origin_referrer_url | The URL of the webpage that linked to the dll file. | keyword |
+| dll.origin_url | The URL where the dll file is hosted. | keyword |
 | dll.path | Full file path of the library. | keyword |
 | dll.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | dll.pe.description | Internal description of the file, provided at compile-time. | keyword |
@@ -2194,6 +2203,7 @@ sent by the endpoint.
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.created_suspended | A heuristic indicating if the CREATE_SUSPENDED flag was passed to the Win32 CreateProcess API. Not valid for direct syscalls. | boolean |
 | process.Ext.defense_evasions | List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping. | keyword |
+| process.Ext.desktop_name | Initial desktop name supplied to CreateProcess system API call to create the process. | keyword |
 | process.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | process.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | process.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
@@ -2245,6 +2255,8 @@ sent by the endpoint.
 | process.Ext.token.security_attributes | Array of security attributes of the token, retrieved via the  TokenSecurityAttributes class. | keyword |
 | process.Ext.trusted | Whether or not the process is a trusted application | boolean |
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
+| process.Ext.windows | Platform-specific Windows fields | object |
+| process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -2340,6 +2352,8 @@ sent by the endpoint.
 | process.io.total_bytes_captured | The total number of bytes captured in this event. | long |
 | process.io.total_bytes_skipped | The total number of bytes that were not captured due to implementation restrictions such as buffer size limits. Implementors should strive to ensure this value is always zero | long |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.origin_referrer_url | The URL of the webpage that linked to the process's executable file. | keyword |
+| process.origin_url | The URL where the process's executable file is hosted. | keyword |
 | process.parent.Ext | Object for all custom defined fields to live in. | object |
 | process.parent.Ext.architecture | Process architecture.  It can differ from host architecture. | keyword |
 | process.parent.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
@@ -2660,8 +2674,34 @@ sent by the endpoint.
 | Field | Description | Type |
 |---|---|---|
 | @timestamp | Date/time when the event originated. This is the date/time extracted from the event, typically representing when the event was generated by the source. If the event source has no original timestamp, this value is typically populated by the first time the event was received by the pipeline. Required field for all events. | date |
+| Effective_process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
+| Effective_process.code_signature.signing_id | 'The identifier used to sign the binary. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only.' | keyword |
+| Effective_process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
+| Effective_process.code_signature.subject_name | Subject name of the code signer | keyword |
+| Effective_process.code_signature.team_id | 'The team identifier used to sign the binary. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.' | keyword |
+| Effective_process.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
+| Effective_process.entity_id | Unique identifier for the effective process. | keyword |
+| Effective_process.executable | Executable name for the effective process. | keyword |
+| Effective_process.name | Process name for the effective process. | keyword |
+| Effective_process.pid | Process ID. | long |
 | Target.process.Ext | Object for all custom defined fields to live in. | object |
 | Target.process.Ext.authentication_id | Process authentication ID | keyword |
+| Target.process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
+| Target.process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
+| Target.process.Ext.session_info.failure_reason | Reason for logon failure. | keyword |
+| Target.process.Ext.session_info.id | Session ID | unsigned_long |
+| Target.process.Ext.session_info.logon_process_name | The name of the trusted logon process that was used for the logon attempt. | keyword |
+| Target.process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
+| Target.process.Ext.token.elevation | Whether the token is elevated or not | boolean |
+| Target.process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
+| Target.process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
+| Target.process.parent.executable | Absolute path to the process executable. | keyword |
+| Target.process.parent.pid | Process id. | long |
+| Tcc.identity | The identity of the application that is the subject of the permission. | keyword |
+| Tcc.reason | The reason the TCC permissions were updated. | keyword |
+| Tcc.right | The resulting TCC permission of the operation/modification. | keyword |
+| Tcc.service | The TCC service for which permissions are being modified. | keyword |
+| Tcc.update_type | The type of TCC modification event (Grant/Revoke etc). | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
 | agent.version | Version of the agent. | keyword |
@@ -2695,6 +2735,9 @@ sent by the endpoint.
 | event.sequence | Sequence number of the event. The sequence number is a value published by some event sources, to make the exact ordering of events unambiguous, regardless of the timestamp precision. | long |
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
+| file.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
+| file.code_signature.team_id | The team identifier used to sign the process. This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only. | keyword |
+| file.path | Full path to the file, including the file name. It should include the drive letter, when appropriate. | keyword |
 | group.Ext | Object for all custom defined fields to live in. | object |
 | group.Ext.real | Group info prior to any setgid operations. | object |
 | group.Ext.real.id | Unique identifier for the group on the system/platform. | keyword |
@@ -2723,6 +2766,14 @@ sent by the endpoint.
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 | process.Ext | Object for all custom defined fields to live in. | object |
 | process.Ext.ancestry | An array of entity_ids indicating the ancestors for this event | keyword |
+| process.Ext.api.metadata | Information related to the API call. | object |
+| process.Ext.api.metadata.client_is_local | Indicates whether a method was called locally or remotely. It will be true if called locally, and false if called remotely. | boolean |
+| process.Ext.api.metadata.client_machine_fqdn | Client process's machine name FQDN (provided by the client and potentially untrustworthy). | keyword |
+| process.Ext.api.metadata.return_value | Return value of RegisterRawInputDevices API call. | unsigned_long |
+| process.Ext.api.parameters | Parameter values passed to the API call. | object |
+| process.Ext.api.parameters.desired_access | This parameter indicates the string value of the `DesiredAccess` field  to `OpenProcess` or `OpenThread`. | keyword |
+| process.Ext.api.parameters.desired_access_numeric | This parameter indicates the numeric value of the `DesiredAccess` field passed to `OpenProcess` or `OpenThread`. | long |
+| process.Ext.api.parameters.handle_type | This parameter indicates whether the detected access was attempt against a process or a thread. | keyword |
 | process.Ext.authentication_id | Process authentication ID | keyword |
 | process.Ext.code_signature | Nested version of ECS code_signature fieldset. | nested |
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -2730,6 +2781,15 @@ sent by the endpoint.
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
+| process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
+| process.Ext.session_info.failure_reason | Reason for logon failure. | keyword |
+| process.Ext.session_info.id | Session ID | unsigned_long |
+| process.Ext.session_info.logon_process_name | The name of the trusted logon process that was used for the logon attempt. | keyword |
+| process.Ext.session_info.logon_type | Session logon type.  Examples include Interactive, Network, and Service. | keyword |
+| process.Ext.token.elevation | Whether the token is elevated or not | boolean |
+| process.Ext.token.impersonation_level | Impersonation level. Only valid for impersonation tokens. | keyword |
+| process.Ext.token.integrity_level_name | Human readable integrity level. | keyword |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2740,6 +2800,8 @@ sent by the endpoint.
 | process.entity_id | Unique identifier for the process. The implementation of this is specified by the data source, but some examples of what could be used here are a process-generated UUID, Sysmon Process GUIDs, or a hash of some uniquely identifying components of a process. Constructing a globally unique identifier is a common practice to mitigate PID reuse as well as to identify a specific process over time, across multiple monitored hosts. | keyword |
 | process.executable | Absolute path to the process executable. | keyword |
 | process.name | Process name. Sometimes called program name or similar. | keyword |
+| process.parent.executable | Absolute path to the process executable. | keyword |
+| process.parent.pid | Process id. | long |
 | process.pid | Process id. | long |
 | process.thread.id | Thread ID. | long |
 | source.geo.city_name | City name. | keyword |
@@ -2753,6 +2815,8 @@ sent by the endpoint.
 | source.geo.region_iso_code | Region ISO code. | keyword |
 | source.geo.region_name | Region name. | keyword |
 | source.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
+| source.ip | IP address of the source (IPv4 or IPv6). | ip |
+| source.port | Port of the source. | long |
 | user.Ext | Object for all custom defined fields to live in. | object |
 | user.Ext.real | User info prior to any setuid operations. | object |
 | user.Ext.real.id | One or multiple unique identifiers of the user. | keyword |
@@ -2777,7 +2841,36 @@ sent by the endpoint.
 | user.id | Unique identifier of the user. | keyword |
 | user.name | Short name or login of the user. | keyword |
 | winlog.event_data | The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events. | object |
+| winlog.event_data.AccessReason | The list of access check results. | keyword |
+| winlog.event_data.CountOfCredentialsReturned | Credential returned count. | unsigned_long |
+| winlog.event_data.DisplayName | A name displayed in the address book for a particular account. | keyword |
+| winlog.event_data.EnabledPrivilegeList | The list of enabled user rights. | keyword |
+| winlog.event_data.Identity | Identity information. | keyword |
+| winlog.event_data.LmPackageName | The name of the LAN Manager subpackage  (NTLM-family protocol name) that was used during logon. | keyword |
+| winlog.event_data.LogonGuid | Globally Unique Identifier. | keyword |
+| winlog.event_data.PrimaryGroupId | Relative Identifier (RID) of the user's object primary group. | keyword |
 | winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
+| winlog.event_data.RelativeTargetName | Relative name of the accessed target file or folder. | keyword |
+| winlog.event_data.Resource | Resource Information. | keyword |
+| winlog.event_data.SamAccountName | Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name). | keyword |
+| winlog.event_data.SchemaFriendlyName | A human-readable name associated with the schema GUID. | keyword |
+| winlog.event_data.ServiceFileName | Path to the file that the Service Control Manager will execute to start the service. | keyword |
+| winlog.event_data.ServiceName | The name of the installed service. | keyword |
+| winlog.event_data.ServiceStartType | Contains information about how a particular service should be started. | keyword |
+| winlog.event_data.ServiceType | Indicates the type of service that was registered  with the Service Control Manager. | keyword |
+| winlog.event_data.ShareLocalPath | The full system (NTFS) path for accessed share. | keyword |
+| winlog.event_data.ShareName | The name of accessed network share. | keyword |
+| winlog.event_data.Status | The reason why logon failed. | keyword |
+| winlog.event_data.SubStatus | Additional information about logon failure. | keyword |
+| winlog.event_data.TargetInfo | Additional information about the event target. | keyword |
+| winlog.event_data.TargetLinkedLogonId | Information that helps to link related events together by their logon attempt IDs. | keyword |
+| winlog.event_data.TargetLogonGuid | A globally unique identifier (GUID) associated with  the logon session related to the event. | keyword |
+| winlog.event_data.TargetServerName | The name of the server on which the new process was run.  Has "localhost" value if the process was run locally. | keyword |
+| winlog.event_data.TaskContent | The XML content of the new task. | keyword |
+| winlog.event_data.TaskContentNew | The new XML for the updated task. | keyword |
+| winlog.event_data.TaskName | New scheduled task name. | keyword |
+| winlog.event_data.UserPrincipalName | Internet-style login name for the account,  based on the Internet standard RFC 822. | keyword |
+| winlog.event_data.WorkstationName | Machine name from which a logon attempt was performed. | keyword |
 
 
 ## Metrics
@@ -2986,6 +3079,7 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.policy.applied.artifacts.global.identifiers | the identifiers of global artifacts applied. | nested |
 | Endpoint.policy.applied.artifacts.global.identifiers.name | the name of global artifact applied. | keyword |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 | the sha256 of global artifacts applied. | keyword |
+| Endpoint.policy.applied.artifacts.global.manifest_type | global artifacts rollout manifest type | keyword |
 | Endpoint.policy.applied.artifacts.global.snapshot | the snapshot date of applied global artifacts or 'latest' | keyword |
 | Endpoint.policy.applied.artifacts.global.update_age | number of days since global artifacts were made up-to-date | unsigned_long |
 | Endpoint.policy.applied.artifacts.global.version | the version of global artifacts applied. | keyword |

@@ -18,6 +18,7 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.artifacts.global.channel |
 | Endpoint.policy.applied.artifacts.global.identifiers.name |
 | Endpoint.policy.applied.artifacts.global.identifiers.sha256 |
+| Endpoint.policy.applied.artifacts.global.manifest_type |
 | Endpoint.policy.applied.artifacts.global.snapshot |
 | Endpoint.policy.applied.artifacts.global.update_age |
 | Endpoint.policy.applied.artifacts.global.version |
@@ -51,6 +52,8 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.streaming.status |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.status |
+| Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions |
+| Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.status |
 | Endpoint.policy.applied.response.diagnostic.malware.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.malware.status |
 | Endpoint.policy.applied.response.diagnostic.memory_protection.concerned_actions |

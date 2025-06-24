@@ -1,6 +1,7 @@
 overview:
   name: Windows AMSI API
-  description: This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
+  description: This event is generated when Antimalware Scan Interface (AMSI) APIs
+    are called.
 identification:
   filter:
     event.dataset: endpoint.events.api

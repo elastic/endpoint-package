@@ -151,6 +151,8 @@ fields:
       title: {}
       uptime: {}
       working_directory: {}
+      origin_referrer_url: {}
+      origin_url: {}
       Ext:
         fields:
           ancestry: {}
@@ -185,6 +187,7 @@ fields:
               valid: {}
           created_suspended: {}
           defense_evasions: {}
+          desktop_name: {}
           mitigation_policies: {}
           dll:
             fields:
@@ -230,6 +233,9 @@ fields:
              vendor_id: {}
              volume_device_type: {}
              file_system_type: {}
+          windows:
+            fields:
+             zone_identifier: {}
       parent:
         fields:
           args: {}

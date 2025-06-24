@@ -6,7 +6,6 @@
 
 This event is generated when a user logs off of the computer.
 
-
 | Field |
 |---|
 | @timestamp |
@@ -28,6 +27,7 @@ This event is generated when a user logs off of the computer.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
 | host.architecture |
@@ -46,17 +46,24 @@ This event is generated when a user logs off of the computer.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
 | process.Ext.session_info.logon_type |
+| process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.executable |
+| process.name |
+| process.parent.executable |
+| process.pid |
 | user.domain |
 | user.effective.domain |
 | user.effective.email |

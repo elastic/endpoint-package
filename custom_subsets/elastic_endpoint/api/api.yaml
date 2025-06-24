@@ -38,6 +38,7 @@ fields:
       hash: {}
       id: {}
       ingested: {}
+      provider: {}
       outcome: {}
       start: {}
       type: {}
@@ -85,6 +86,7 @@ fields:
           Ext:
             fields:
               created_suspended: {}
+              desktop_name: {}
               memory_region:
                 fields: "*"
               protection: {}
@@ -111,6 +113,7 @@ fields:
               parameters:
                 fields: "*"
           created_suspended: {}
+          desktop_name: {}
           memory_region:
             fields: "*"
           token:

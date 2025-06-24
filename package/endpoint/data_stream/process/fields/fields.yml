@@ -777,6 +777,13 @@
       ignore_above: 1024
       description: List of defense evasions found in this process. These defense evasions can make it harder to inspect a process and/or cause abnormal OS behavior. Examples tools that can cause defense evasions include Process Doppelganging and Process Herpaderping.
       default_field: false
+    - name: Ext.desktop_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Initial desktop name supplied to CreateProcess system API call to create the process.
+      example: WinSta0\CustomDesktop
+      default_field: false
     - name: Ext.device.bus_type
       level: custom
       type: keyword
@@ -1079,6 +1086,18 @@
       level: custom
       type: boolean
       description: Whether or not the process is a descendent of a trusted application
+      default_field: false
+    - name: Ext.windows
+      level: custom
+      type: object
+      description: Platform-specific Windows fields
+      default_field: false
+    - name: Ext.windows.zone_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Windows zone identifier for a process's executable file
+      example: 3
       default_field: false
     - name: args
       level: extended
@@ -1879,6 +1898,20 @@
 
         Sometimes called program name or similar.'
       example: ssh
+    - name: origin_referrer_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: The URL of the webpage that linked to the process's executable file.
+      example: http://example.com/article1.html
+      default_field: false
+    - name: origin_url
+      level: extended
+      type: keyword
+      ignore_above: 8192
+      description: The URL where the process's executable file is hosted.
+      example: http://example.com/files/example.exe
+      default_field: false
     - name: parent.Ext
       level: custom
       type: object
