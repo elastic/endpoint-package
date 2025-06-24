@@ -1,8 +1,49 @@
-- version: "9.1.0-next"
+- version: "9.1.0"
   changes:
-    - description: TBD
+    - description: Add TCC modify event on macOS
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/638
+    - description: add mapping for united.agent.namespaces
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/641
+    - description: Add tags to action request documents
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/642
+    - description: Add Winlog fields for the ETW security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/633
+    - description: Add new fields for security events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/640
+    - description: Add new policy fields for diagnostic firewall_anti_tamper plugin
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/637
+    - description: Add fields for additional desktop_name process event field
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/634
+    - description: global artifacts manifest_type
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/632
+    - description: Add event.provider to API events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/631
+    - description: Actions log spaces
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/622
+    - description: Add `origin_url` and `origin_referrer_url` field to Process/DLL events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/610
+    - description: change 2023 to 2025
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/611
+    - description: Add `zone_identifier` field to Process/DLL events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/608
+- version: "9.0.2"
+  changes:
+    - description: AMSI API changes for behavior rule alerts - process.Ext.api.parameters.content_name
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/602
 - version: "9.0.1"
   changes:
     - description: 'Change the size of region_start_bytes + add the field to the alert data stream'
