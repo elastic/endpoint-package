@@ -458,7 +458,7 @@
       level: custom
       type: keyword
       description: >
-        DLL containing the hook procedure. 
+        DLL containing the hook procedure.
       example: "c:\\windows\\system32\\taskbar.dll"
 
     - name: parameters.event_filter_name
@@ -512,7 +512,7 @@
       level: custom
       type: keyword
       description: >
-         Specifies the connection or request to WMI
+         Specifies the type of operation (connection, request, creation) of the API
       example: Win32_Process::Create
 
     - name: parameters.io_control_code
@@ -578,3 +578,39 @@
       type: keyword
       ignore_above: 1024
       example: "[ \"[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport(\"kernel32.dll\")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}\" ]"
+
+    - name: parameters.is_remote
+      level: custom
+      type: boolean
+      description: >
+        Indicates whether a named pipe was created accessible remotely
+      example: 'true'
+
+    - name: parameters.pipe_type
+      level: custom
+      type: keyword
+      description: >
+        Specifies the type of pipe that the event was generated on
+      example: "NamedPipe"
+
+    - name: parameters.pipe_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: >
+        Indicates the system pipe path
+      example: "\\Device\\NamedPipe\\TestNamedPipe"
+
+    - name: parameters.pipe_mode
+      level: custom
+      type: keyword
+      description: >
+        Indicates the mode (byte, message) the named pipe was opened on.
+      example: "Message"
+
+    - name: parameters.read_mode
+      level: custom
+      type: keyword
+      description: >
+        Indicates the read mode (byte, message) the named pipe was created with.
+      example: "Byte"

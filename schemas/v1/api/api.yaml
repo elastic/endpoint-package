@@ -3268,6 +3268,17 @@ process.Ext.api.parameters.io_control_code:
   original_fieldset: api
   short: The I/O control code for the requested device operation.
   type: unsigned_long
+process.Ext.api.parameters.is_remote:
+  dashed_name: process-Ext-api-parameters-is-remote
+  description: Indicates whether a named pipe was created accessible remotely
+  example: 'true'
+  flat_name: process.Ext.api.parameters.is_remote
+  level: custom
+  name: parameters.is_remote
+  normalize: []
+  original_fieldset: api
+  short: Indicates whether a named pipe was created accessible remotely
+  type: boolean
 process.Ext.api.parameters.namespace:
   dashed_name: process-Ext-api-parameters-namespace
   description: WMI namespace to which the connection is made.
@@ -3282,7 +3293,8 @@ process.Ext.api.parameters.namespace:
   type: keyword
 process.Ext.api.parameters.operation:
   dashed_name: process-Ext-api-parameters-operation
-  description: Specifies the connection or request to WMI
+  description: Specifies the type of operation (connection, request, creation) of
+    the API
   example: Win32_Process::Create
   flat_name: process.Ext.api.parameters.operation
   ignore_above: 1024
@@ -3290,7 +3302,43 @@ process.Ext.api.parameters.operation:
   name: parameters.operation
   normalize: []
   original_fieldset: api
-  short: Specifies the connection or request to WMI
+  short: Specifies the type of operation (connection, request, creation) of the API
+  type: keyword
+process.Ext.api.parameters.pipe_mode:
+  dashed_name: process-Ext-api-parameters-pipe-mode
+  description: Indicates the mode (byte, message) the named pipe was opened on.
+  example: Message
+  flat_name: process.Ext.api.parameters.pipe_mode
+  ignore_above: 1024
+  level: custom
+  name: parameters.pipe_mode
+  normalize: []
+  original_fieldset: api
+  short: Indicates the mode (byte, message) the named pipe was opened on.
+  type: keyword
+process.Ext.api.parameters.pipe_path:
+  dashed_name: process-Ext-api-parameters-pipe-path
+  description: Indicates the system pipe path
+  example: \Device\NamedPipe\TestNamedPipe
+  flat_name: process.Ext.api.parameters.pipe_path
+  ignore_above: 1024
+  level: custom
+  name: parameters.pipe_path
+  normalize: []
+  original_fieldset: api
+  short: Indicates the system pipe path
+  type: keyword
+process.Ext.api.parameters.pipe_type:
+  dashed_name: process-Ext-api-parameters-pipe-type
+  description: Specifies the type of pipe that the event was generated on
+  example: NamedPipe
+  flat_name: process.Ext.api.parameters.pipe_type
+  ignore_above: 1024
+  level: custom
+  name: parameters.pipe_type
+  normalize: []
+  original_fieldset: api
+  short: Specifies the type of pipe that the event was generated on
   type: keyword
 process.Ext.api.parameters.procedure:
   dashed_name: process-Ext-api-parameters-procedure
@@ -3417,6 +3465,19 @@ process.Ext.api.parameters.rdx:
   original_fieldset: api
   short: The x64 RDX general purpose register. Second argument in a __fastcall.
   type: unsigned_long
+process.Ext.api.parameters.read_mode:
+  dashed_name: process-Ext-api-parameters-read-mode
+  description: Indicates the read mode (byte, message) the named pipe was created
+    with.
+  example: Byte
+  flat_name: process.Ext.api.parameters.read_mode
+  ignore_above: 1024
+  level: custom
+  name: parameters.read_mode
+  normalize: []
+  original_fieldset: api
+  short: Indicates the read mode (byte, message) the named pipe was created with.
+  type: keyword
 process.Ext.api.parameters.rip:
   dashed_name: process-Ext-api-parameters-rip
   description: The x64 RIP instruction pointer register.

@@ -1648,6 +1648,12 @@
       description: The I/O control code for the requested device operation.
       example: 27365
       default_field: false
+    - name: Ext.api.parameters.is_remote
+      level: custom
+      type: boolean
+      description: Indicates whether a named pipe was created accessible remotely
+      example: 'true'
+      default_field: false
     - name: Ext.api.parameters.namespace
       level: custom
       type: keyword
@@ -1659,8 +1665,29 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Specifies the connection or request to WMI
+      description: Specifies the type of operation (connection, request, creation) of the API
       example: Win32_Process::Create
+      default_field: false
+    - name: Ext.api.parameters.pipe_mode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the mode (byte, message) the named pipe was opened on.
+      example: Message
+      default_field: false
+    - name: Ext.api.parameters.pipe_path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the system pipe path
+      example: \Device\NamedPipe\TestNamedPipe
+      default_field: false
+    - name: Ext.api.parameters.pipe_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Specifies the type of pipe that the event was generated on
+      example: NamedPipe
       default_field: false
     - name: Ext.api.parameters.procedure
       level: custom
@@ -1730,6 +1757,13 @@
       type: unsigned_long
       description: The x64 RDX general purpose register. Second argument in a __fastcall.
       example: 2
+      default_field: false
+    - name: Ext.api.parameters.read_mode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Indicates the read mode (byte, message) the named pipe was created with.
+      example: Byte
       default_field: false
     - name: Ext.api.parameters.rip
       level: custom
