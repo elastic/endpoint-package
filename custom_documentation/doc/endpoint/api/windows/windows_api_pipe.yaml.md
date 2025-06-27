@@ -33,12 +33,14 @@ This event is generated when a pipe (Named Pipe/Mailslot) creation API is called
 | message |
 | process.Ext.api.name |
 | process.Ext.api.parameters.desired_access_numeric |
+| process.Ext.api.parameters.desired_access |
 | process.Ext.api.parameters.is_remote |
 | process.Ext.api.parameters.operation |
 | process.Ext.api.parameters.pipe_mode |
 | process.Ext.api.parameters.pipe_path |
 | process.Ext.api.parameters.pipe_type |
 | process.Ext.api.parameters.read_mode |
+| process.Ext.token.integrity_level_name |
 | process.entity_id |
 | process.executable |
 | process.name |
