@@ -54,6 +54,7 @@ This alert occurs when a Malicious Behavior alert occurs.
 | data_stream.dataset |
 | data_stream.namespace |
 | data_stream.type |
+| destination.domain |
 | destination.ip |
 | destination.port |
 | dll.*<br /><br />dll contains dll data from the primary event in Events. It can contain any fields that any other events includes within the dll fieldset. |
