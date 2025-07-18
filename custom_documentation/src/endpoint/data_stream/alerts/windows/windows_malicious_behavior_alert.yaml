@@ -59,6 +59,7 @@ fields:
   - data_stream.dataset
   - data_stream.namespace
   - data_stream.type
+  - destination.domain
   - destination.ip
   - destination.port
   - dll.*
