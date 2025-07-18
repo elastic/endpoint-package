@@ -83,6 +83,11 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.documents_volume.registry_events.suppressed_count |
 | Endpoint.metrics.documents_volume.security_events.sent_bytes |
 | Endpoint.metrics.documents_volume.security_events.sent_count |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_bytes |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_count |
+| Endpoint.metrics.documents_volume.security_events.sources.source |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_bytes |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_count |
 | Endpoint.metrics.documents_volume.security_events.suppressed_bytes |
 | Endpoint.metrics.documents_volume.security_events.suppressed_count |
 | Endpoint.metrics.documents_volume.volume_device_events.sent_bytes |
