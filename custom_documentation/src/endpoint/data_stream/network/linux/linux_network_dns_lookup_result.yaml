@@ -4,7 +4,9 @@ overview:
     request.
 identification:
   filter:
-    event.action: lookup_result
+    event.action:
+    - lookup_result
+    - lookup_requested
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: linux

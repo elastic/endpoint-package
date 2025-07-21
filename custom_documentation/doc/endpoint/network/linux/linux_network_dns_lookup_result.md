@@ -2,7 +2,7 @@
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : "lookup_result" and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.action : ("lookup_result" or "lookup_requested") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "linux"`
 
 This event is generated when results are returned for a DNS lookup request.
 
