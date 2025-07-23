@@ -82,6 +82,11 @@ fields:
   - Endpoint.metrics.documents_volume.overall.suppressed_count
   - Endpoint.metrics.documents_volume.process_events.sent_bytes
   - Endpoint.metrics.documents_volume.process_events.sent_count
+  - Endpoint.metrics.documents_volume.process_events.sources.sent_bytes
+  - Endpoint.metrics.documents_volume.process_events.sources.sent_count
+  - Endpoint.metrics.documents_volume.process_events.sources.source
+  - Endpoint.metrics.documents_volume.process_events.sources.suppressed_bytes
+  - Endpoint.metrics.documents_volume.process_events.sources.suppressed_count
   - Endpoint.metrics.documents_volume.process_events.suppressed_bytes
   - Endpoint.metrics.documents_volume.process_events.suppressed_count
   - Endpoint.metrics.documents_volume.registry_events.sent_bytes
