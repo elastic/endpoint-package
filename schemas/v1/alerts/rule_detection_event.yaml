@@ -268,6 +268,20 @@ Responses.result:
   normalize: []
   short: Response action result code
   type: long
+destination.domain:
+  dashed_name: destination-domain
+  description: 'The domain name of the destination system.
+
+    This value may be a host name, a fully qualified domain name, or another host
+    naming format. The value may derive from the original event or be added from enrichment.'
+  example: foo.example.com
+  flat_name: destination.domain
+  ignore_above: 1024
+  level: core
+  name: domain
+  normalize: []
+  short: The domain name of the destination.
+  type: keyword
 destination.geo.city_name:
   dashed_name: destination-geo-city-name
   description: City name.
