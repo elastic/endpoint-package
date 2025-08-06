@@ -8,6 +8,7 @@ fields:
         fields: "*"
   destination:
     fields:
+      domain: {}
       geo:
         fields: "*"
   base:
