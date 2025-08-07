@@ -1,8 +1,8 @@
-- version: "9.1.1-next"
+- version: "9.1.1"
   changes:
-    - description: TBD
+    - description: add destination.domain as part of alerts
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/650
 - version: "9.1.0"
   changes:
     - description: Add TCC modify event on macOS
