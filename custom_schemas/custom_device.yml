@@ -1,0 +1,56 @@
+---
+- name: device
+  title: Device
+  group: 2
+  short: Fields describing devices.
+  description: >
+    A device is defined as a hardware component that is used to store or process data.
+  type: group
+  fields:
+    - name: id
+      level: custom
+      type: keyword
+      short: ID of the device.
+      description: >
+        The unique identifier of a device. The identifier must not change across application sessions but stay fixed for an instance of a (mobile) device.
+
+    - name: product_id
+      level: custom
+      type: keyword
+      short: ProductID of the device.
+      description: >
+        ProductID of the device. It is provided by the vendor of the device if any.
+
+    - name: manufacturer
+      level: custom
+      type: keyword
+      short: Manufacturer of the device.
+      description: >
+        Manufacturer of the device. It is provided by the vendor.
+
+    - name: serial_number
+      level: custom
+      type: keyword
+      short: Serial Number of the device.
+      description: >
+        Serial Number of the device. It is provided by the vendor of the device if any.
+
+    - name: bus_type
+      level: custom
+      type: keyword
+      short: Bus type of the device.
+      description: >
+        Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+
+    - name: device_type
+      level: custom
+      type: keyword
+      short: Device type.
+      description: >
+        Device type.
+
+    - name: model
+      level: custom
+      type: object
+      description: >
+        Model information of the device.

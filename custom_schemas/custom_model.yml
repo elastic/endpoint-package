@@ -1,0 +1,15 @@
+---
+- name: model
+  title: Model
+  group: 2
+  type: group
+  short: Model name and id.
+  description: >
+    The machine readable identifier of the device model and the the
+    human readable marketing name of the device model.
+
+  reusable:
+    order: 1
+    top_level: false
+    expected:
+      - device.model
