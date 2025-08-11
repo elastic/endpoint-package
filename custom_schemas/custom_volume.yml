@@ -53,5 +53,5 @@
       level: custom
       type: boolean
       example: "true"
-      description:: >
+      description: >
         Boolean representing whether or not the volume is removable.

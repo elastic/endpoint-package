@@ -54,3 +54,15 @@
       type: object
       description: >
         Model information of the device.
+
+    - name: model.id
+      level: custom
+      type: keyword
+      short: The model ID
+      description: The machine readable identifier of the device model
+
+    - name: model.name
+      level: custom
+      type: keyword
+      short: The model name
+      description: The human readable identifier of the device model
