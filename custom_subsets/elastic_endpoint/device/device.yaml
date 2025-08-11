@@ -1,0 +1,189 @@
+---
+name: device
+fields:
+  base:
+    fields:
+      "@timestamp": {}
+      message: {}
+  data_stream:
+    fields: "*"
+  ecs:
+    fields:
+      version: {}
+  # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
+  source:
+    fields:
+      geo:
+        fields: "*"
+  destination:
+    fields:
+      geo:
+        fields: "*"
+  host:
+    fields:
+      architecture: {}
+      domain: {}
+      hostname: {}
+      id: {}
+      ip: {}
+      mac: {}
+      name: {}
+      type: {}
+      uptime: {}
+      os:
+        fields:
+          family: {}
+          full: {}
+          kernel: {}
+          platform: {}
+          version: {}
+          name: {}
+          type: {}
+          Ext:
+            fields:
+              variant: {}
+  event:
+    fields:
+      action: {}
+      category: {}
+      created: {}
+      code: {}
+      dataset: {}
+      hash: {}
+      id: {}
+      ingested: {}
+      kind: {}
+      module: {}
+      outcome: {}
+      provider: {}
+      sequence: {}
+      severity: {}
+      type: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
+  group:
+    fields:
+      domain: {}
+      id: {}
+      name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  user:
+    fields:
+      domain: {}
+      email: {}
+      full_name: {}
+      hash: {}
+      id: {}
+      name: {}
+      group:
+        fields:
+          domain: {}
+          id: {}
+          name: {}
+          Ext:
+            fields:
+              real:
+                fields:
+                  id: {}
+                  name: {}
+      Ext:
+        fields:
+          real:
+            fields:
+              id: {}
+              name: {}
+  process:
+    fields:
+      args_count: {}
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+      ppid: {}
+      parent:
+        fields:
+          pid: {}
+          entity_id: {}
+          group_leader:
+            fields:
+              entity_id: {}
+      entry_leader:
+        fields:
+          entity_id: {}
+          parent:
+           fields:
+            entity_id: {}
+      session_leader:
+        fields:
+          entity_id: {}
+      group_leader:
+        fields:
+          entity_id: {}
+      code_signature:
+        fields:
+          exists: {}
+          signing_id: {}
+          status: {}
+          subject_name: {}
+          team_id: {}
+          trusted: {}
+          valid: {}
+      thread:
+        fields:
+          id: {}
+          Ext:
+            fields:
+              call_stack:
+                enabled: true
+                fields:
+                  allocation_private_bytes: {}
+                  callsite_leading_bytes: {}
+                  callsite_trailing_bytes: {}
+                  protection: {}
+                  symbol_info: {}
+              call_stack_summary: {}
+              hardware_breakpoint_set: {}
+      Ext:
+        fields:
+          ancestry: {}
+          code_signature:
+            fields:
+              exists: {}
+              status: {}
+              subject_name: {}
+              trusted: {}
+              valid: {}
+  Effective_process:
+    fields:
+      pid: {}
+      name: {}
+      executable: {}
+      entity_id: {}
+  device:
+    fields:
+      id: {}
+      product_id: {}
+      manufacturer: {}
+      serial_number: {}
+      bus_type: {}
+      device_type: {}
+      model:
+        fields:
+          name: {}
+          id: {}
+  volume:
+    fields:
+      file_system_type: {}
+      device_name: {}
+      mount_name: {}
+      size: {}
+      writeable: {}
+      removable: {}
