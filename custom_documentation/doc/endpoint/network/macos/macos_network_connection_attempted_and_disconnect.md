@@ -52,6 +52,7 @@ This event is generated when a connection is attempted or a request to terminate
 | host.os.type |
 | host.os.version |
 | message |
+| network.direction |
 | network.transport |
 | network.type |
 | process.Ext.ancestry |
