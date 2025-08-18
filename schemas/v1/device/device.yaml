@@ -382,6 +382,27 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+elastic.agent:
+  dashed_name: elastic-agent
+  description: The agent fields contain data about the Elastic Agent. The Elastic
+    Agent is the management agent that manages other agents or process on the host.
+  flat_name: elastic.agent
+  level: custom
+  name: agent
+  normalize: []
+  short: The agent fields contain data about the Elastic Agent.
+  type: object
+elastic.agent.id:
+  dashed_name: elastic-agent-id
+  description: Unique identifier of this elastic agent (if one exists).
+  example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
+  flat_name: elastic.agent.id
+  ignore_above: 1024
+  level: custom
+  name: agent.id
+  normalize: []
+  short: Unique identifier of this elastic agent (if one exists).
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.

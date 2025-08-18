@@ -42,6 +42,11 @@ fields:
           Ext:
             fields:
               variant: {}
+  elastic:
+    fields:
+      agent:
+        fields:
+          id: {}
   event:
     fields:
       action: {}
