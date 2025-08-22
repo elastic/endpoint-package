@@ -270,26 +270,6 @@ destination.geo.timezone:
   original_fieldset: geo
   short: Time zone.
   type: keyword
-device.bus_type:
-  dashed_name: device-bus-type
-  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-  flat_name: device.bus_type
-  ignore_above: 1024
-  level: custom
-  name: bus_type
-  normalize: []
-  short: Bus type of the device.
-  type: keyword
-device.device_type:
-  dashed_name: device-device-type
-  description: Device type.
-  flat_name: device.device_type
-  ignore_above: 1024
-  level: custom
-  name: device_type
-  normalize: []
-  short: Device type.
-  type: keyword
 device.id:
   dashed_name: device-id
   description: The unique identifier of a device. The identifier must not change across
@@ -322,13 +302,14 @@ device.model:
   normalize: []
   short: Model information of the device.
   type: object
-device.model.id:
-  dashed_name: device-model-id
+device.model.identifier:
+  dashed_name: device-model-identifier
   description: The machine readable identifier of the device model
-  flat_name: device.model.id
+  example: SM-G920F
+  flat_name: device.model.identifier
   ignore_above: 1024
   level: custom
-  name: model.id
+  name: model.identifier
   normalize: []
   short: The model ID
   type: keyword
@@ -2288,6 +2269,16 @@ user.name:
   normalize: []
   short: Short name or login of the user.
   type: keyword
+volume.bus_type:
+  dashed_name: volume-bus-type
+  description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+  flat_name: volume.bus_type
+  ignore_above: 1024
+  level: custom
+  name: bus_type
+  normalize: []
+  short: Bus type of the device.
+  type: keyword
 volume.device_name:
   dashed_name: volume-device-name
   description: The name of the device associated with the volume.
@@ -2298,6 +2289,16 @@ volume.device_name:
   name: device_name
   normalize: []
   short: Name of the device.
+  type: keyword
+volume.device_type:
+  dashed_name: volume-device-type
+  description: Device type.
+  flat_name: volume.device_type
+  ignore_above: 1024
+  level: custom
+  name: device_type
+  normalize: []
+  short: Device type.
   type: keyword
 volume.file_system_type:
   dashed_name: volume-file-system-type

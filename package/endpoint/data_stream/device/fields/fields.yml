@@ -208,18 +208,6 @@
   type: group
   default_field: true
   fields:
-    - name: bus_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-      default_field: false
-    - name: device_type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Device type.
-      default_field: false
     - name: id
       level: custom
       type: keyword
@@ -239,11 +227,12 @@
       type: object
       description: Model information of the device.
       default_field: false
-    - name: model.id
+    - name: model.identifier
       level: custom
       type: keyword
       ignore_above: 1024
       description: The machine readable identifier of the device model
+      example: SM-G920F
       default_field: false
     - name: model.name
       level: custom
@@ -1155,12 +1144,24 @@
   type: group
   default_field: true
   fields:
+    - name: bus_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+      default_field: false
     - name: device_name
       level: custom
       type: keyword
       ignore_above: 1024
       description: The name of the device associated with the volume.
       example: /dev/sda1
+      default_field: false
+    - name: device_type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Device type.
       default_field: false
     - name: file_system_type
       level: custom

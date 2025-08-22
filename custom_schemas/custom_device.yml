@@ -35,27 +35,13 @@
       description: >
         Serial Number of the device. It is provided by the vendor of the device if any.
 
-    - name: bus_type
-      level: custom
-      type: keyword
-      short: Bus type of the device.
-      description: >
-        Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
-
-    - name: device_type
-      level: custom
-      type: keyword
-      short: Device type.
-      description: >
-        Device type.
-
     - name: model
       level: custom
       type: object
       description: >
         Model information of the device.
 
-    - name: model.id
+    - name: model.identifier
       level: custom
       type: keyword
       short: The model ID
