@@ -126,7 +126,7 @@ $(VENV_DIR): $(VENV_DIR)/touchfile
 
 $(VENV_DIR)/touchfile: scripts/requirements.txt
 	test -d $(VENV_DIR) || python3 -m venv $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate; pip install -r $<
+	. $(VENV_DIR)/bin/activate; pip install -U pip && pip install -r $<
 	touch $@
 
 check-docker:

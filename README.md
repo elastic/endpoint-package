@@ -14,7 +14,7 @@ To update the endpoint package clone this repo and make changes as needed
 This section includes a list of tools that should be installed before making changes to the Endpoint's mapping.
 The individual sections below will give more details about how each tool is used and setup.
 
-- Install go 1.14 from here: <https://golang.org/dl/>
+- Install go 1.20 from here: <https://golang.org/dl/>
 
 - Install [Python 3.6+](https://www.python.org/)
 
