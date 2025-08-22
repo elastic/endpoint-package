@@ -1,5 +1,5 @@
 {
-    "@timestamp": "2025-08-07T14:18:18.5170305Z",
+    "@timestamp": "2025-08-22T14:29:05.431571Z",
     "agent": {
         "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
         "type": "endpoint",
@@ -11,10 +11,11 @@
         "type": "logs"
     },
     "device": {
-        "bus_type": "Ata",
-        "device_type": "Disk",
+        "id": "USBSTOR\\DISK\u0026VEN_PNY\u0026PROD_USB_2.0_FD\u0026REV_1100\\0416KK00000066840018\u00260",
         "manufacturer": "PNY",
-        "product_id": "USB 2.0 FD",
+        "model": {
+            "identifier": "USB 2.0 FD"
+        },
         "serial_number": "0416KK00000066840018"
     },
     "ecs": {
@@ -32,13 +33,13 @@
         "category": [
             "volume_device"
         ],
-        "created": "2025-08-07T14:18:18.5170305Z",
+        "created": "2025-08-22T14:29:05.431571Z",
         "dataset": "endpoint.events.device",
-        "id": "O7GiVy1ttXYro8RW++++++CE",
+        "id": "O8VyXLXkzFJWQkLY++++++CW",
         "kind": "event",
         "module": "endpoint",
         "outcome": "success",
-        "sequence": 1146,
+        "sequence": 1310,
         "type": [
             "start"
         ]
@@ -58,7 +59,7 @@
             "subject_name": "Microsoft Windows Publisher",
             "trusted": true
         },
-        "entity_id": "mwYzDqLbc3JOAKLY9QvCHA",
+        "entity_id": "NpDDArSBsD24cK4r7saPmw",
         "executable": "C:\\Windows\\System32\\svchost.exe",
         "Ext": {
             "code_signature": [
@@ -71,7 +72,7 @@
             ]
         },
         "name": "svchost.exe",
-        "pid": 3884
+        "pid": 3272
     },
     "user": {
         "domain": "NT AUTHORITY",
@@ -79,10 +80,12 @@
         "name": "SYSTEM"
     },
     "volume": {
-        "device_name": "\\Device\\HarddiskVolume6",
+        "bus_type": "Atapi",
+        "device_name": "\\Device\\HarddiskVolume35",
+        "device_type": "Disk",
         "file_system_type": "RAW",
-        "mount_name": "G:",
-        "size": 1028096,
-        "writeable": false
+        "mount_name": "F:",
+        "size": 16356593664,
+        "writeable": true
     }
 }
