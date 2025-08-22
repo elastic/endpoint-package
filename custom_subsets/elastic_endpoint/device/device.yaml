@@ -178,17 +178,17 @@ fields:
       product_id: {}
       manufacturer: {}
       serial_number: {}
-      bus_type: {}
-      device_type: {}
       model:
         fields:
           name: {}
-          id: {}
+          identifier: {}
   volume:
     fields:
       file_system_type: {}
       device_name: {}
       mount_name: {}
+      bus_type: {}
+      device_type: {}
       size: {}
       writeable: {}
       removable: {}
