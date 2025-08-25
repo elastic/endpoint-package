@@ -86,6 +86,6 @@
         "file_system_type": "RAW",
         "mount_name": "F:",
         "size": 16356593664,
-        "writeable": true
+        "writable": true
     }
 }
