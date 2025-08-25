@@ -190,5 +190,5 @@ fields:
       bus_type: {}
       device_type: {}
       size: {}
-      writeable: {}
+      writable: {}
       removable: {}
