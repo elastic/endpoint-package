@@ -1,0 +1,91 @@
+{
+    "@timestamp": "2025-08-22T14:29:05.431571Z",
+    "agent": {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "type": "endpoint",
+        "version": "9.2.0-SNAPSHOT"
+    },
+    "data_stream": {
+        "dataset": "endpoint.events.device",
+        "namespace": "default",
+        "type": "logs"
+    },
+    "device": {
+        "id": "USBSTOR\\DISK\u0026VEN_PNY\u0026PROD_USB_2.0_FD\u0026REV_1100\\0416KK00000066840018\u00260",
+        "manufacturer": "PNY",
+        "model": {
+            "identifier": "USB 2.0 FD"
+        },
+        "serial_number": "0416KK00000066840018"
+    },
+    "ecs": {
+        "version": "8.10.0"
+    },
+    "elastic": {
+        "agent": {
+            "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+        }
+    },
+    "event": {
+        "action": [
+            "mount"
+        ],
+        "category": [
+            "volume_device"
+        ],
+        "created": "2025-08-22T14:29:05.431571Z",
+        "dataset": "endpoint.events.device",
+        "id": "O8VyXLXkzFJWQkLY++++++CW",
+        "kind": "event",
+        "module": "endpoint",
+        "outcome": "success",
+        "sequence": 1310,
+        "type": [
+            "start"
+        ]
+    },
+    "host": {
+        "id": "dabadaba-0000-0000-0000-000000000000",
+        "name": "desktop-1tk590j",
+        "os": {
+            "type": "windows"
+        }
+    },
+    "message": "Endpoint volume device event",
+    "process": {
+        "code_signature": {
+            "exists": true,
+            "status": "trusted",
+            "subject_name": "Microsoft Windows Publisher",
+            "trusted": true
+        },
+        "entity_id": "NpDDArSBsD24cK4r7saPmw",
+        "executable": "C:\\Windows\\System32\\svchost.exe",
+        "Ext": {
+            "code_signature": [
+                {
+                    "exists": true,
+                    "status": "trusted",
+                    "subject_name": "Microsoft Windows Publisher",
+                    "trusted": true
+                }
+            ]
+        },
+        "name": "svchost.exe",
+        "pid": 3272
+    },
+    "user": {
+        "domain": "NT AUTHORITY",
+        "id": "S-1-5-18",
+        "name": "SYSTEM"
+    },
+    "volume": {
+        "bus_type": "Atapi",
+        "device_name": "\\Device\\HarddiskVolume35",
+        "device_type": "Disk",
+        "file_system_type": "RAW",
+        "mount_name": "F:",
+        "size": 16356593664,
+        "writable": true
+    }
+}

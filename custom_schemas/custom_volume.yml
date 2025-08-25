@@ -1,0 +1,71 @@
+---
+- name: volume
+  title: Volume
+  group: 2
+  short: Fields describing volumes.
+  description: >
+    A volume is defined as a storage device or partition that is used to store data.
+  type: group
+  fields:
+    - name: file_system_type
+      level: custom
+      type: keyword
+      short: Volume device file system type.
+      description: >
+        Volume device file system type.
+
+        Following are examples of the most frequently seen volume device file system types:
+        NTFS
+        UDF
+      example: NTFS
+
+    - name: device_name
+      level: custom
+      type: keyword
+      short: Name of the device.
+      description: >
+            The name of the device associated with the volume.
+      example: /dev/sda1
+
+    - name: mount_name
+      level: custom
+      type: keyword
+      short: Mount name of the device.
+      description: >
+        Mount name of the device.
+        Mount name is in the format of driver letters such as C:, D:, or /root, /.
+
+    - name: bus_type
+      level: custom
+      type: keyword
+      short: Bus type of the device.
+      description: >
+        Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
+
+    - name: device_type
+      level: custom
+      type: keyword
+      short: Device type.
+      description: >
+        Device type.
+
+    - name: size
+      level: custom
+      type: long
+      short: Size of the volume.
+      description: Volume size in bytes.
+      example: 50000000000
+
+    - name: writable
+      level: custom
+      type: boolean
+      example: "false"
+      description: >
+        Boolean representing whether or not the volume is writable.
+
+    - name: removable
+      level: custom
+      type: boolean
+      example: "true"
+      description: >
+        Boolean representing whether or not the volume is removable.
