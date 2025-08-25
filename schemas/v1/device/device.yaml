@@ -2345,13 +2345,13 @@ volume.size:
   normalize: []
   short: Size of the volume.
   type: long
-volume.writeable:
-  dashed_name: volume-writeable
+volume.writable:
+  dashed_name: volume-writable
   description: Boolean representing whether or not the volume is writable.
   example: 'false'
-  flat_name: volume.writeable
+  flat_name: volume.writable
   level: custom
-  name: writeable
+  name: writable
   normalize: []
   short: Boolean representing whether or not the volume is writable.
   type: boolean
