@@ -1190,7 +1190,7 @@
       description: Volume size in bytes.
       example: 50000000000
       default_field: false
-    - name: writeable
+    - name: writable
       level: custom
       type: boolean
       description: Boolean representing whether or not the volume is writable.
