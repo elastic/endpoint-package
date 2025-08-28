@@ -152,6 +152,16 @@
       type: long
       description: ptrace request.
 
+    - name: Ext.ptrace.addr
+      level: custom
+      type: long
+      description: ptrace address.
+
+    - name: Ext.ptrace.data
+      level: custom
+      type: long
+      description: ptrace data.
+
     - name: Ext.memfd
       level: custom
       type: object

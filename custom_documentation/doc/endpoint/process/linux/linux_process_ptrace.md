@@ -67,6 +67,8 @@ This event is generated when when a process calls ptrace_attach on another proce
 | process.Ext.command_line_truncated |
 | process.Ext.ptrace.child_pid |
 | process.Ext.ptrace.request |
+| process.Ext.ptrace.addr |
+| process.Ext.ptrace.data |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |
