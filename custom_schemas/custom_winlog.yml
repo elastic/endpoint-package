@@ -96,6 +96,12 @@
         This value is a Yes/No flag indicating if the credentials provided
         were passed using Restricted Admin mode.
 
+    - name: event_data.RemoteCredentialGuard
+      level: custom
+      type : keyword
+      description: >
+          
+
     - name: event_data.VirtualAccount
       level: custom
       type : keyword
