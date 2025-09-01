@@ -124,6 +124,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.diagnostic_behavior_protection.week_ms |
 | Endpoint.metrics.system_impact.dns_events.week_idle_ms |
 | Endpoint.metrics.system_impact.dns_events.week_ms |
+| Endpoint.metrics.system_impact.event_tracing_events.week_idle_ms |
+| Endpoint.metrics.system_impact.event_tracing_events.week_ms |
 | Endpoint.metrics.system_impact.file_events.week_idle_ms |
 | Endpoint.metrics.system_impact.file_events.week_ms |
 | Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms |
