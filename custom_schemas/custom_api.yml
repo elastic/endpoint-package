@@ -579,7 +579,7 @@
       ignore_above: 1024
       example: "[ \"[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport(\"kernel32.dll\")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}\" ]"
 
-    - name: process.Ext.api.parameters.scope_of_search
+    - name: parameters.scope_of_search
       level: custom
       description: >
         Specifies the range of a search.
