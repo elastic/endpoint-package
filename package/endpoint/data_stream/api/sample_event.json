@@ -209,7 +209,14 @@
                     "operation": "Win32_Process::Create",
                     "app_name": "PowerShell",
                     "content_name": "C:\\script.ps1",
-                    "buffer": "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);"
+                    "buffer": "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);",
+                    "scope_of_search": "SubTree",
+                    "search_filter": "(&(objectClass=group))",
+                    "distinguished_name": "dc=test,dc=local",
+                    "attribute_list": [
+                        "samaccountname",
+                        "lastlogondate"
+                    ]
                 },
                 "summary": "VirtualAllocEx( charmap.exe, NULL, 0x10, COMMIT|RESERVE, R-X )"
             },
