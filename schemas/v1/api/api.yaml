@@ -2941,6 +2941,19 @@ process.Ext.api.parameters.argument3:
   original_fieldset: api
   short: The third argument to the procedure.
   type: unsigned_long
+process.Ext.api.parameters.attribute_list:
+  dashed_name: process-Ext-api-parameters-attribute-list
+  description: A String which indicate which attributes to return for each matching
+    entry.
+  example: '[ "samaccountname", "lastlogondate" ]'
+  flat_name: process.Ext.api.parameters.attribute_list
+  ignore_above: 1024
+  level: custom
+  name: parameters.attribute_list
+  normalize: []
+  original_fieldset: api
+  short: A String which indicate which attributes to return for each matching entry.
+  type: keyword
 process.Ext.api.parameters.buffer:
   dashed_name: process-Ext-api-parameters-buffer
   description: The content associated with an AMSI scan.
@@ -3064,6 +3077,20 @@ process.Ext.api.parameters.device:
   normalize: []
   original_fieldset: api
   short: The name of the device object.
+  type: keyword
+process.Ext.api.parameters.distinguished_name:
+  dashed_name: process-Ext-api-parameters-distinguished-name
+  description: A sequence of relative distinguished names (RDN) connected by commas.  This
+    string specifies the starting point for a search within the directory.
+  example: dc=test,dc=local
+  flat_name: process.Ext.api.parameters.distinguished_name
+  ignore_above: 1024
+  level: custom
+  name: parameters.distinguished_name
+  normalize: []
+  original_fieldset: api
+  short: A sequence of relative distinguished names (RDN) connected by commas.  This
+    string specifies the starting point for a search within the directory.
   type: keyword
 process.Ext.api.parameters.driver:
   dashed_name: process-Ext-api-parameters-driver
@@ -3451,6 +3478,30 @@ process.Ext.api.parameters.rsp:
   original_fieldset: api
   short: The x64 RSP stack pointer register.
   type: unsigned_long
+process.Ext.api.parameters.scope_of_search:
+  dashed_name: process-Ext-api-parameters-scope-of-search
+  description: Specifies the range of a search.
+  example: SubTree
+  flat_name: process.Ext.api.parameters.scope_of_search
+  ignore_above: 1024
+  level: custom
+  name: parameters.scope_of_search
+  normalize: []
+  original_fieldset: api
+  short: Specifies the range of a search.
+  type: keyword
+process.Ext.api.parameters.search_filter:
+  dashed_name: process-Ext-api-parameters-search-filter
+  description: Search filters enable users (Ldap Client) to define search criteria.
+  example: (&(objectClass=group))
+  flat_name: process.Ext.api.parameters.search_filter
+  ignore_above: 1024
+  level: custom
+  name: parameters.search_filter
+  normalize: []
+  original_fieldset: api
+  short: Search filters enable users (Ldap Client) to define search criteria.
+  type: keyword
 process.Ext.api.parameters.size:
   dashed_name: process-Ext-api-parameters-size
   description: The size.

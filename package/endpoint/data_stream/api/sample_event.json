@@ -211,7 +211,7 @@
                     "content_name": "C:\\script.ps1",
                     "buffer": "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);",
                     "scope_of_search": "SubTree",
-                    "search_filter": "(&(objectClass=group))",
+                    "search_filter": "(\u0026(objectClass=group))",
                     "distinguished_name": "dc=test,dc=local",
                     "attribute_list": [
                         "samaccountname",
