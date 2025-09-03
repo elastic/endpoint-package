@@ -18,8 +18,8 @@ The mapping between each directory/data stream and the Kibana feature name are:
 | alerts | `logs-endpoint.alerts-*` | Malware / Ransomware / Memory Threat / Malicious Behavior | | 
 | api | `logs-endpoint.events.api-*` | API events | |
 | file | `logs-endpoint.events.file-*` | File Events | |
-| library | `logs-endpoint.events.library-* | DLL and Driver Load events | |
-| metadata | `metrics-endpoint.metadata-* | | This is for internal state management documents |
+| library | `logs-endpoint.events.library-*` | DLL and Driver Load events | |
+| metadata | `metrics-endpoint.metadata-*` | | This is for internal state management documents |
 | metrics | `metrics-endpoint.metrics-*` | | This is for internal state management documents |
 | network | `logs-endpoint.events.network-*` | DNS and Network events | Both DNS and Network events share a single datastream |
 | policy | `metrics-endpoint.policy-*` | | This is for internal state management documents |
