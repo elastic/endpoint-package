@@ -46,6 +46,12 @@
             "protection": "PsProtectedSignerWinSystem",
             "user": "SYSTEM",
             "architecture": "x86_64",
+            "effective_parent": {
+                "name": "Cursor",
+                "pid": 36299,
+                "entity_id": "RtfG94+XaXx+ABnC6Ssx4w",
+                "executable": "/Volumes/Cursor Installer/Cursor.app/Contents/MacOS/Cursor"
+            },
             "token": {
                 "elevation": true,
                 "integrity_level_name": "system",
