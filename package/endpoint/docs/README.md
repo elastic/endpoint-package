@@ -693,6 +693,10 @@ sent by the endpoint.
 | process.Ext.dll.pe.imphash | A hash of the imports in a PE file. An imphash -- or import hash -- can be used to fingerprint binaries even after recompilation or other code-level transformations have occurred, which would change more traditional hash values. Learn more at https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html. | keyword |
 | process.Ext.dll.pe.original_file_name | Internal name of the file, provided at compile-time. | keyword |
 | process.Ext.dll.pe.product | Internal product name of the file, provided at compile-time. | keyword |
+| process.Ext.effective_parent.entity_id | Unique identifier for the effective process. | keyword |
+| process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
+| process.Ext.effective_parent.name | Process name for the effective process. | keyword |
+| process.Ext.effective_parent.pid | Process ID. | long |
 | process.Ext.malware_classification.identifier | The model's unique identifier. | keyword |
 | process.Ext.malware_classification.score | The score produced by the classification model. | double |
 | process.Ext.malware_classification.threshold | The score threshold for the model.  Files that score above this threshold are considered malicious. | double |
