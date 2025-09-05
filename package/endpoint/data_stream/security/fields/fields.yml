@@ -1411,6 +1411,12 @@
       ignore_above: 1024
       description: Relative name of the accessed target file or folder.
       default_field: false
+    - name: event_data.RemoteCredentialGuard
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Only populated for RemoteInteractive logon type sessions.
+      default_field: false
     - name: event_data.Resource
       level: custom
       type: keyword

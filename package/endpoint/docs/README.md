@@ -2852,6 +2852,7 @@ sent by the endpoint.
 | winlog.event_data.PrimaryGroupId | Relative Identifier (RID) of the user's object primary group. | keyword |
 | winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
 | winlog.event_data.RelativeTargetName | Relative name of the accessed target file or folder. | keyword |
+| winlog.event_data.RemoteCredentialGuard | Only populated for RemoteInteractive logon type sessions. | keyword |
 | winlog.event_data.Resource | Resource Information. | keyword |
 | winlog.event_data.SamAccountName | Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name). | keyword |
 | winlog.event_data.SchemaFriendlyName | A human-readable name associated with the schema GUID. | keyword |
