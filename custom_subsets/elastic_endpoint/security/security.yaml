@@ -205,7 +205,7 @@ fields:
           LogonGuid: {}
           TargetLogonGuid: {}
           LmPackageName: {}
-	  RemoteCredentialGuard: {}
+          RemoteCredentialGuard: {}
           TargetLinkedLogonId: {}
           ServiceName: {}
           ServiceFileName: {}

@@ -100,7 +100,7 @@
       level: custom
       type : keyword
       description: >
-          
+        Only populated for RemoteInteractive logon type sessions.
 
     - name: event_data.VirtualAccount
       level: custom
