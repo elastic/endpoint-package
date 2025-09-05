@@ -6,7 +6,6 @@ identification:
     event.action: log_on
     event.dataset: endpoint.events.security
     event.module: endpoint
-    event.provider : "Microsoft-Windows-Security-Auditing"
     host.os.type: windows
   os:
   - windows
