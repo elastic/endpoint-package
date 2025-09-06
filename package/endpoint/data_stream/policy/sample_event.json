@@ -97,6 +97,15 @@
                             ],
                             "status": "success"
                         },
+                        "device_control": {
+                            "concerned_actions": [
+                                "configure_device_control",
+                                "load_config",
+                                "workflow",
+                                "download_user_artifacts"
+                            ],
+                            "status": "success"
+                        },
                         "events": {
                             "concerned_actions": [
                                 "agent_connectivity",

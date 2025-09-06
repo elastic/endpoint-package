@@ -365,6 +365,27 @@ Endpoint.policy.applied.response.configurations.behavior_protection.status:
   normalize: []
   short: overall status of behavior_protection
   type: keyword
+Endpoint.policy.applied.response.configurations.device_control.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-configurations-device-control-concerned-actions
+  description: all actions that were taken for the configuration of device control
+  flat_name: Endpoint.policy.applied.response.configurations.device_control.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.device_control.concerned_actions
+  normalize: []
+  short: actions that were taken for device control
+  type: keyword
+Endpoint.policy.applied.response.configurations.device_control.status:
+  dashed_name: Endpoint-policy-applied-response-configurations-device-control-status
+  description: the overall status of device control, this is correlated to the status
+    of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.response.configurations.device_control.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.device_control.status
+  normalize: []
+  short: overall status of device_control
+  type: keyword
 Endpoint.policy.applied.response.configurations.events:
   dashed_name: Endpoint-policy-applied-response-configurations-events
   description: overall event collection configuration and status of the applied policy
@@ -557,6 +578,15 @@ Endpoint.policy.applied.response.configurations.streaming.status:
   normalize: []
   short: overall status of data streaming
   type: keyword
+Endpoint.policy.applied.response.conifigurations.device_control:
+  dashed_name: Endpoint-policy-applied-response-conifigurations-device-control
+  description: overall device control configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.response.conifigurations.device_control
+  level: custom
+  name: policy.applied.response.conifigurations.device_control
+  normalize: []
+  short: overall device control configuration and status of the applied policy
+  type: object
 Endpoint.policy.applied.response.diagnostic:
   dashed_name: Endpoint-policy-applied-response-diagnostic
   description: the diagnostic configurations of the applied policy
