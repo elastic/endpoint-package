@@ -437,12 +437,6 @@
       type: keyword
       description: the sha256 of user artifacts applied.
 
-    - name: policy.applied.artifacts.user.identifiers.sha256
-      level: custom
-      type: keyword
-      description: the sha256 of user artifacts applied.
-
-
     - name: metrics
       level: custom
       type: object
