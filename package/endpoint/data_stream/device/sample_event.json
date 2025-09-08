@@ -1,5 +1,5 @@
 {
-    "@timestamp": "2025-08-22T14:29:05.431571Z",
+    "@timestamp": "2025-09-06T03:27:44.161624Z",
     "agent": {
         "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
         "type": "endpoint",
@@ -11,12 +11,16 @@
         "type": "logs"
     },
     "device": {
-        "id": "USBSTOR\\DISK\u0026VEN_PNY\u0026PROD_USB_2.0_FD\u0026REV_1100\\0416KK00000066840018\u00260",
-        "manufacturer": "PNY",
-        "model": {
-            "identifier": "USB 2.0 FD"
+        "product": {
+            "id": "007A",
+            "name": "USB 2.0 FD"
         },
-        "serial_number": "0416KK00000066840018"
+        "serial_number": "0416KK00000066840018",
+        "type": "Disk File System",
+        "vendor": {
+            "id": "154B",
+            "name": "PNY"
+        }
     },
     "ecs": {
         "version": "8.10.0"
@@ -33,13 +37,13 @@
         "category": [
             "volume_device"
         ],
-        "created": "2025-08-22T14:29:05.431571Z",
+        "created": "2025-09-06T03:27:44.161624Z",
         "dataset": "endpoint.events.device",
-        "id": "O8VyXLXkzFJWQkLY++++++CW",
+        "id": "O9idrQtnOUKXkyY5++++++CJ",
         "kind": "event",
         "module": "endpoint",
         "outcome": "success",
-        "sequence": 1310,
+        "sequence": 1315,
         "type": [
             "start"
         ]
@@ -53,14 +57,6 @@
     },
     "message": "Endpoint volume device event",
     "process": {
-        "code_signature": {
-            "exists": true,
-            "status": "trusted",
-            "subject_name": "Microsoft Windows Publisher",
-            "trusted": true
-        },
-        "entity_id": "NpDDArSBsD24cK4r7saPmw",
-        "executable": "C:\\Windows\\System32\\svchost.exe",
         "Ext": {
             "code_signature": [
                 {
@@ -71,8 +67,16 @@
                 }
             ]
         },
+        "code_signature": {
+            "exists": true,
+            "status": "trusted",
+            "subject_name": "Microsoft Windows Publisher",
+            "trusted": true
+        },
+        "entity_id": "JEturEmnLivQweHZ5yISyw",
+        "executable": "C:\\Windows\\System32\\svchost.exe",
         "name": "svchost.exe",
-        "pid": 3272
+        "pid": 10088
     },
     "user": {
         "domain": "NT AUTHORITY",
@@ -80,12 +84,12 @@
         "name": "SYSTEM"
     },
     "volume": {
-        "bus_type": "Atapi",
-        "device_name": "\\Device\\HarddiskVolume35",
-        "device_type": "Disk",
-        "file_system_type": "RAW",
-        "mount_name": "F:",
-        "size": 16356593664,
-        "writable": true
+        "bus_type": "Usb",
+        "device_name": "\\Device\\HarddiskVolume6",
+        "file_system_type": "FAT",
+        "mount_name": "G:",
+        "removable": true,
+        "size": 1028096,
+        "writeable": false
     }
 }
