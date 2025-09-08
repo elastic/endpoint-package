@@ -228,6 +228,23 @@
       ignore_above: 1024
       description: the overall status of behavior_protection, this is correlated to the status of concerned actions  but not a simple sum of the actions
       default_field: false
+    - name: policy.applied.response.configurations.device_control
+      level: custom
+      type: object
+      description: overall device control configuration and status of the applied policy
+      default_field: false
+    - name: policy.applied.response.configurations.device_control.concerned_actions
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: all actions that were taken for the configuration of device control
+      default_field: false
+    - name: policy.applied.response.configurations.device_control.status
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: the overall status of device control, this is correlated to the status of concerned actions  but not a simple sum of the actions
+      default_field: false
     - name: policy.applied.response.configurations.events
       level: custom
       type: object
