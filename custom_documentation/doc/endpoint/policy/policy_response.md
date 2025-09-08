@@ -50,6 +50,8 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.response_actions.status |
 | Endpoint.policy.applied.response.configurations.streaming.concerned_actions |
 | Endpoint.policy.applied.response.configurations.streaming.status |
+| Endpoint.policy.applied.response.configurations.device_control.concerned_actions |
+| Endpoint.policy.applied.response.configurations.device_control.status |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.status |
 | Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions |
