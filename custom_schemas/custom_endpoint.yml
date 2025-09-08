@@ -241,7 +241,7 @@
         concerned actions but not a simple sum of the actions
       short: overall status of attack surface reduction
 
-    - name: policy.applied.response.conifigurations.device_control
+    - name: policy.applied.response.configurations.device_control
       level: custom
       type: object
       description: overall device control configuration and status of the applied policy
