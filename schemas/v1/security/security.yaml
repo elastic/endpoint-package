@@ -2705,6 +2705,16 @@ winlog.event_data.RelativeTargetName:
   normalize: []
   short: Relative name of the accessed target file or folder.
   type: keyword
+winlog.event_data.RemoteCredentialGuard:
+  dashed_name: winlog-event-data-RemoteCredentialGuard
+  description: Only populated for RemoteInteractive logon type sessions.
+  flat_name: winlog.event_data.RemoteCredentialGuard
+  ignore_above: 1024
+  level: custom
+  name: event_data.RemoteCredentialGuard
+  normalize: []
+  short: Only populated for RemoteInteractive logon type sessions.
+  type: keyword
 winlog.event_data.Resource:
   dashed_name: winlog-event-data-Resource
   description: Resource Information.

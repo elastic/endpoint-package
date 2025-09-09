@@ -86,6 +86,7 @@ This event is generated when a user logs on to the computer.
 | winlog.event_data.LmPackageName |
 | winlog.event_data.LoginGuid |
 | winlog.event_data.PrivilegeList |
+| winlog.event_data.RemoteCredentialGuard |
 | winlog.event_data.RestrictedAdminMode |
 | winlog.event_data.Status |
 | winlog.event_data.SubStatus |
