@@ -4036,6 +4036,13 @@
       description: The stream's name
       example: .reloc
       default_field: false
+    - name: pe.architecture
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: CPU architecture target for the file.
+      example: x64
+      default_field: false
     - name: pe.company
       level: extended
       type: keyword

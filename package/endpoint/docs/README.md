@@ -576,6 +576,7 @@ sent by the endpoint.
 | file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
 | file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
 | file.pe.Ext.streams.name | The stream's name | keyword |
+| file.pe.architecture | CPU architecture target for the file. | keyword |
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
