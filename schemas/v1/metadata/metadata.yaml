@@ -116,6 +116,24 @@ Endpoint.state.isolation:
   normalize: []
   short: Current network isolation state of the host
   type: boolean
+Endpoint.state.orphaned:
+  dashed_name: Endpoint-state-orphaned
+  description: Current orphaned state of Endpoint
+  flat_name: Endpoint.state.orphaned
+  level: custom
+  name: state.orphaned
+  normalize: []
+  short: Current orphaned state of Endpoint
+  type: boolean
+Endpoint.state.tamper_protection:
+  dashed_name: Endpoint-state-tamper-protection
+  description: Current network tamper protection state of Endpoint
+  flat_name: Endpoint.state.tamper_protection
+  level: custom
+  name: state.tamper_protection
+  normalize: []
+  short: Current network tamper protection state of Endpoint
+  type: boolean
 Endpoint.status:
   dashed_name: Endpoint-status
   description: The current status of the endpoint e.g. enrolled, unenrolled.
