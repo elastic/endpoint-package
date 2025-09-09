@@ -2897,7 +2897,7 @@ sent by the endpoint.
 | Endpoint.state | Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration) | object |
 | Endpoint.state.isolation | Current network isolation state of the host | boolean |
 | Endpoint.state.orphaned | Current orphaned state of Endpoint | boolean |
-| Endpoint.state.tamper_protection | Current network tamper protection state of Endpoint | boolean |
+| Endpoint.state.tamper_protection | Current tamper protection state of Endpoint | boolean |
 | Endpoint.status | The current status of the endpoint e.g. enrolled, unenrolled. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. | keyword |
@@ -3099,7 +3099,7 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.state | Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration) | object |
 | Endpoint.state.isolation | Current network isolation state of the host | boolean |
 | Endpoint.state.orphaned | Current orphaned state of Endpoint | boolean |
-| Endpoint.state.tamper_protection | Current network tamper protection state of Endpoint | boolean |
+| Endpoint.state.tamper_protection | Current tamper protection state of Endpoint | boolean |
 | agent.build.original | Extended build information for the agent. This field is intended to contain any build information that a data source may provide, no specific formatting is required. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |
