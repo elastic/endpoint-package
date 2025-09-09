@@ -70,6 +70,14 @@
                                                 "isolation": {
                                                     "type": "boolean",
                                                     "null_value": false
+                                                },
+                                                "orphaned": {
+                                                    "type": "boolean",
+                                                    "null_value": false
+                                                },
+                                                "tamper_protection": {
+                                                    "type": "boolean",
+                                                    "null_value": false
                                                 }
                                             }
                                         },
