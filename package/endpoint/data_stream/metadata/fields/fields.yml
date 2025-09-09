@@ -81,7 +81,7 @@
     - name: state.tamper_protection
       level: custom
       type: boolean
-      description: Current network tamper protection state of Endpoint
+      description: Current tamper protection state of Endpoint
       default_field: false
     - name: status
       level: custom

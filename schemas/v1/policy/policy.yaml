@@ -820,12 +820,12 @@ Endpoint.state.orphaned:
   type: boolean
 Endpoint.state.tamper_protection:
   dashed_name: Endpoint-state-tamper-protection
-  description: Current network tamper protection state of Endpoint
+  description: Current tamper protection state of Endpoint
   flat_name: Endpoint.state.tamper_protection
   level: custom
   name: state.tamper_protection
   normalize: []
-  short: Current network tamper protection state of Endpoint
+  short: Current tamper protection state of Endpoint
   type: boolean
 agent.build.original:
   dashed_name: agent-build-original
