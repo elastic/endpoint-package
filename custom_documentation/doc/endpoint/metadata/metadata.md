@@ -18,6 +18,7 @@ This is a relatively small state management document that includes details about
 | Endpoint.policy.applied.status |
 | Endpoint.policy.applied.version |
 | Endpoint.state.isolation |
+| Endpoint.state.orphaned |
 | Endpoint.state.tamper_protection |
 | Endpoint.status |
 | agent.build.original |
