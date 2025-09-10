@@ -37,6 +37,7 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.Ext.entropy
   - file.Ext.header_bytes
   - file.extension
   - file.hash.sha256
