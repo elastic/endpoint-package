@@ -32,6 +32,7 @@ This event is generated when a file is modified.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.extension |
 | file.hash.sha256 |
