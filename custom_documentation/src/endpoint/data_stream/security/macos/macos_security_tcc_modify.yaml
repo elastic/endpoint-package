@@ -1,6 +1,7 @@
 overview:
   name: macOS TCC modify
-  description: 'This event is generated when a Transparency, Consent, and Control (TCC) permission is modified on a macOS system.
+  description: 'This event is generated when a Transparency, Consent, and Control
+    (TCC) permission is modified on a macOS system.
 
     '
 identification:

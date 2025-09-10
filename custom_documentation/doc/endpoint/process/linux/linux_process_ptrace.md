@@ -65,10 +65,10 @@ This event is generated when when a process calls ptrace_attach on another proce
 | orchestrator.resource.type |
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
-| process.Ext.ptrace.child_pid |
-| process.Ext.ptrace.request |
 | process.Ext.ptrace.addr |
+| process.Ext.ptrace.child_pid |
 | process.Ext.ptrace.data |
+| process.Ext.ptrace.request |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |

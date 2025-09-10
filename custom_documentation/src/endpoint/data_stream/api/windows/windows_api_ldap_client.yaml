@@ -46,7 +46,7 @@ fields:
   - host.os.type
   - host.os.version
   - message
-  - process.Ext.ancestry 
+  - process.Ext.ancestry
   - process.Ext.api.name
   - process.Ext.api.parameters.attribute_list
   - process.Ext.api.parameters.distinguished_name
