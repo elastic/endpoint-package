@@ -178,10 +178,19 @@ fields:
       product_id: {}
       manufacturer: {}
       serial_number: {}
+      type: {}
       model:
         fields:
           name: {}
           identifier: {}
+      product:
+        fields:
+          name: {}
+          id: {}
+      vendor:
+        fields:
+          name: {}
+          id: {}
   volume:
     fields:
       file_system_type: {}
