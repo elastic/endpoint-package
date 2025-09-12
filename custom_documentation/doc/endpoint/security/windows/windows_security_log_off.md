@@ -2,7 +2,7 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "log_off" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and event.provider : "Microsoft-Windows-Security-Auditing" and host.os.type : "windows"`
 
 This event is generated when a user logs off of the computer.
 
