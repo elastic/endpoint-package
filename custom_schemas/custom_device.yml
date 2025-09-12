@@ -35,6 +35,48 @@
       description: >
         Serial Number of the device. It is provided by the vendor of the device if any.
 
+    - name: product
+      level: custom
+      type: object
+      description: >
+        Product information of the device.
+
+    - name: product.name
+      level: custom
+      type: keyword
+      short: The product name
+      description: The human readable identifier of the device product name
+
+    - name: product.id
+      level: custom
+      type: keyword
+      short: The product id
+      description: A machine readable product id
+
+    - name: vendor
+      level: custom
+      type: object
+      description: >
+        Vendor information of the device.
+
+    - name: vendor.name
+      level: custom
+      type: keyword
+      short: The vendor name
+      description: The human readable identifier of the device vendor name
+
+    - name: vendor.id
+      level: custom
+      type: keyword
+      short: The vendor id
+      description: A machine readable vendor id
+
+    - name: type
+      level: custom
+      type: keyword
+      short: The type of device
+      description: A string that represents the device type
+
     - name: model
       level: custom
       type: object

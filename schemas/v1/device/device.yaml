@@ -324,6 +324,35 @@ device.model.name:
   normalize: []
   short: The model name
   type: keyword
+device.product:
+  dashed_name: device-product
+  description: Product information of the device.
+  flat_name: device.product
+  level: custom
+  name: product
+  normalize: []
+  short: Product information of the device.
+  type: object
+device.product.id:
+  dashed_name: device-product-id
+  description: A machine readable product id
+  flat_name: device.product.id
+  ignore_above: 1024
+  level: custom
+  name: product.id
+  normalize: []
+  short: The product id
+  type: keyword
+device.product.name:
+  dashed_name: device-product-name
+  description: The human readable identifier of the device product name
+  flat_name: device.product.name
+  ignore_above: 1024
+  level: custom
+  name: product.name
+  normalize: []
+  short: The product name
+  type: keyword
 device.product_id:
   dashed_name: device-product-id
   description: ProductID of the device. It is provided by the vendor of the device
@@ -345,6 +374,45 @@ device.serial_number:
   name: serial_number
   normalize: []
   short: Serial Number of the device.
+  type: keyword
+device.type:
+  dashed_name: device-type
+  description: A string that represents the device type
+  flat_name: device.type
+  ignore_above: 1024
+  level: custom
+  name: type
+  normalize: []
+  short: The type of device
+  type: keyword
+device.vendor:
+  dashed_name: device-vendor
+  description: Vendor information of the device.
+  flat_name: device.vendor
+  level: custom
+  name: vendor
+  normalize: []
+  short: Vendor information of the device.
+  type: object
+device.vendor.id:
+  dashed_name: device-vendor-id
+  description: A machine readable vendor id
+  flat_name: device.vendor.id
+  ignore_above: 1024
+  level: custom
+  name: vendor.id
+  normalize: []
+  short: The vendor id
+  type: keyword
+device.vendor.name:
+  dashed_name: device-vendor-name
+  description: The human readable identifier of the device vendor name
+  flat_name: device.vendor.name
+  ignore_above: 1024
+  level: custom
+  name: vendor.name
+  normalize: []
+  short: The vendor name
   type: keyword
 ecs.version:
   dashed_name: ecs-version
