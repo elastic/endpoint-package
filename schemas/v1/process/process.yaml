@@ -1733,6 +1733,15 @@ process.Ext.ptrace:
   normalize: []
   short: Object for ptrace events.
   type: object
+process.Ext.ptrace.addr:
+  dashed_name: process-Ext-ptrace-addr
+  description: ptrace address.
+  flat_name: process.Ext.ptrace.addr
+  level: custom
+  name: Ext.ptrace.addr
+  normalize: []
+  short: ptrace address.
+  type: long
 process.Ext.ptrace.child_pid:
   dashed_name: process-Ext-ptrace-child-pid
   description: PID of the ptrace target.
@@ -1741,6 +1750,15 @@ process.Ext.ptrace.child_pid:
   name: Ext.ptrace.child_pid
   normalize: []
   short: PID of the ptrace target.
+  type: long
+process.Ext.ptrace.data:
+  dashed_name: process-Ext-ptrace-data
+  description: ptrace data.
+  flat_name: process.Ext.ptrace.data
+  level: custom
+  name: Ext.ptrace.data
+  normalize: []
+  short: ptrace data.
   type: long
 process.Ext.ptrace.request:
   dashed_name: process-Ext-ptrace-request

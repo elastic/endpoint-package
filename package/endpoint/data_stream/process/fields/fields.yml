@@ -959,10 +959,20 @@
       type: object
       description: Object for ptrace events.
       default_field: false
+    - name: Ext.ptrace.addr
+      level: custom
+      type: long
+      description: ptrace address.
+      default_field: false
     - name: Ext.ptrace.child_pid
       level: custom
       type: long
       description: PID of the ptrace target.
+      default_field: false
+    - name: Ext.ptrace.data
+      level: custom
+      type: long
+      description: ptrace data.
       default_field: false
     - name: Ext.ptrace.request
       level: custom

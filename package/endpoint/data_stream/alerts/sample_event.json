@@ -370,6 +370,7 @@
             "file_version": "0.0.0.0",
             "description": " ",
             "original_file_name": "5t5mpwxc.dll",
+            "architecture": "x64",
             "Ext": {
                 "dotnet": true,
                 "streams": [

@@ -42,6 +42,8 @@ fields:
       state:
         fields:
           isolation: {}
+          orphaned: {}
+          tamper_protection: {}
       capabilities: {}
   elastic:
     fields:

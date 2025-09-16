@@ -1,19 +1,14 @@
-# macOS File Modification
+# Windows API
 
-- OS: macOS
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "modification" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "macos"`
+- OS: Windows
+- Data Stream: `logs-endpoint.events.api-*`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Microsoft-Windows-LDAP-Client" and host.os.type : "windows"`
 
-This event is generated when a file is modified.
-
+This event is generated when LDAP-Client related APIs are called.
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -22,7 +17,6 @@ This event is generated when a file is modified.
 | data_stream.type |
 | ecs.version |
 | elastic.agent.id |
-| event.action |
 | event.category |
 | event.created |
 | event.dataset |
@@ -30,20 +24,9 @@ This event is generated when a file is modified.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.extension |
-| file.hash.sha256 |
-| file.inode |
-| file.name |
-| file.path |
-| file.size |
-| group.Ext.real.id |
-| group.Ext.real.name |
-| group.id |
-| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -60,20 +43,29 @@ This event is generated when a file is modified.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.Ext.api.name |
+| process.Ext.api.parameters.attribute_list |
+| process.Ext.api.parameters.distinguished_name |
+| process.Ext.api.parameters.scope_of_search |
+| process.Ext.api.parameters.search_filter |
+| process.Ext.code_signature.exists |
+| process.Ext.code_signature.status |
+| process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.trusted |
+| process.Ext.protection |
+| process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
-| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
-| process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
+| process.parent.executable |
 | process.pid |
-| user.Ext.real.id |
-| user.Ext.real.name |
+| process.thread.id |
+| user.domain |
 | user.id |
 | user.name |
 

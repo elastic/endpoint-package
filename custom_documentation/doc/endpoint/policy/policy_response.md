@@ -34,6 +34,8 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.attack_surface_reduction.status |
 | Endpoint.policy.applied.response.configurations.behavior_protection.concerned_actions |
 | Endpoint.policy.applied.response.configurations.behavior_protection.status |
+| Endpoint.policy.applied.response.configurations.device_control.concerned_actions |
+| Endpoint.policy.applied.response.configurations.device_control.status |
 | Endpoint.policy.applied.response.configurations.events.concerned_actions |
 | Endpoint.policy.applied.response.configurations.events.status |
 | Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions |
@@ -50,8 +52,6 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.response.configurations.response_actions.status |
 | Endpoint.policy.applied.response.configurations.streaming.concerned_actions |
 | Endpoint.policy.applied.response.configurations.streaming.status |
-| Endpoint.policy.applied.response.configurations.device_control.concerned_actions |
-| Endpoint.policy.applied.response.configurations.device_control.status |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.concerned_actions |
 | Endpoint.policy.applied.response.diagnostic.behavior_protection.status |
 | Endpoint.policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions |
@@ -65,6 +65,7 @@ This is a state management document that is generated every time Endpoint refres
 | Endpoint.policy.applied.status |
 | Endpoint.policy.applied.version |
 | Endpoint.state.isolation |
+| Endpoint.state.orphaned |
 | Endpoint.state.tamper_protection |
 | agent.build.original |
 | agent.id |

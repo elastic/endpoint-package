@@ -164,6 +164,8 @@ fields:
             fields:
               child_pid: {}
               request: {}
+              addr: {}
+              data: {}
           shmget:
             fields:
               key: {}
