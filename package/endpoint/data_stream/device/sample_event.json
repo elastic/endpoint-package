@@ -90,6 +90,6 @@
         "mount_name": "G:",
         "removable": true,
         "size": 1028096,
-        "writeable": false
+        "writable": false
     }
 }
