@@ -241,6 +241,25 @@
         concerned actions but not a simple sum of the actions
       short: overall status of attack surface reduction
 
+    - name: policy.applied.response.configurations.device_control
+      level: custom
+      type: object
+      description: overall device control configuration and status of the applied policy
+
+    - name: policy.applied.response.configurations.device_control.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of device control, this is correlated to the status of concerned actions 
+        but not a simple sum of the actions
+      short: overall status of device_control
+
+    - name: policy.applied.response.configurations.device_control.concerned_actions
+      level: custom
+      type: keyword
+      short: actions that were taken for device control
+      description: all actions that were taken for the configuration of device control
+
     - name: policy.applied.response.diagnostic
       level: custom
       type: object
@@ -1090,6 +1109,16 @@
       level: custom
       type: boolean
       description: Current network isolation state of the host
+
+    - name: state.orphaned
+      level: custom
+      type: boolean
+      description: Current orphaned state of Endpoint
+
+    - name: state.tamper_protection
+      level: custom
+      type: boolean
+      description: Current tamper protection state of Endpoint
 
     - name: capabilities
       level: custom

@@ -73,6 +73,16 @@
       type: boolean
       description: Current network isolation state of the host
       default_field: false
+    - name: state.orphaned
+      level: custom
+      type: boolean
+      description: Current orphaned state of Endpoint
+      default_field: false
+    - name: state.tamper_protection
+      level: custom
+      type: boolean
+      description: Current tamper protection state of Endpoint
+      default_field: false
     - name: status
       level: custom
       type: keyword

@@ -578,3 +578,32 @@
       type: keyword
       ignore_above: 1024
       example: "[ \"[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Kernel32 {   [DllImport(\"kernel32.dll\")]   public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);}\" ]"
+
+    - name: parameters.scope_of_search
+      level: custom
+      description: >
+        Specifies the range of a search.
+      type: keyword
+      example: "SubTree"
+
+    - name: parameters.search_filter
+      level: custom
+      description: >
+        Search filters enable users (Ldap Client) to define search criteria.
+      type: keyword
+      example: "(&(objectClass=group))"
+
+    - name: parameters.distinguished_name
+      level: custom
+      description: >
+        A sequence of relative distinguished names (RDN) connected by commas. 
+        This string specifies the starting point for a search within the directory.
+      type: keyword
+      example: "dc=test,dc=local"
+
+    - name: parameters.attribute_list
+      level: custom
+      description: >
+        A String which indicate which attributes to return for each matching entry.
+      type: keyword
+      example: "[ \"samaccountname\", \"lastlogondate\" ]"

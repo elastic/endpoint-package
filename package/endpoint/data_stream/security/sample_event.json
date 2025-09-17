@@ -203,6 +203,7 @@
             "LogonGuid": "test_data",
             "TargetLogonGuid": "test_data",
             "LmPackageName": "test_data",
+            "RemoteCredentialGuard": "test_data",
             "TargetLinkedLogonId": "test_data",
             "ServiceName": "TestServiceName",
             "ServiceFileName": "C:\\TestService.exe",

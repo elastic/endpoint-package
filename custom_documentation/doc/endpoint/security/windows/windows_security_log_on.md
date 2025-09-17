@@ -2,7 +2,7 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.security-*`
-- KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "log_on" and event.dataset : "endpoint.events.security" and event.module : "endpoint" and event.provider : "Microsoft-Windows-Security-Auditing" and host.os.type : "windows"`
 
 This event is generated when a user logs on to the computer.
 
@@ -45,13 +45,6 @@ This event is generated when a user logs on to the computer.
 | host.os.type |
 | host.os.version |
 | message |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.trusted |
-| process.command_line |
-| process.entity_id |
-| process.executable |
 | process.Ext.ancestry |
 | process.Ext.authentication_id |
 | process.Ext.code_signature.exists |
@@ -66,6 +59,13 @@ This event is generated when a user logs on to the computer.
 | process.Ext.token.elevation |
 | process.Ext.token.impersonation_level |
 | process.Ext.token.integrity_level_name |
+| process.code_signature.exists |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.trusted |
+| process.command_line |
+| process.entity_id |
+| process.executable |
 | process.name |
 | process.parent.executable |
 | process.pid |
@@ -86,6 +86,7 @@ This event is generated when a user logs on to the computer.
 | winlog.event_data.LmPackageName |
 | winlog.event_data.LoginGuid |
 | winlog.event_data.PrivilegeList |
+| winlog.event_data.RemoteCredentialGuard |
 | winlog.event_data.RestrictedAdminMode |
 | winlog.event_data.Status |
 | winlog.event_data.SubStatus |

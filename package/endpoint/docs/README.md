@@ -576,6 +576,7 @@ sent by the endpoint.
 | file.pe.Ext.streams.hash.md5 | MD5 hash. | keyword |
 | file.pe.Ext.streams.hash.sha256 | SHA256 hash. | keyword |
 | file.pe.Ext.streams.name | The stream's name | keyword |
+| file.pe.architecture | CPU architecture target for the file. | keyword |
 | file.pe.company | Internal company name of the file, provided at compile-time. | keyword |
 | file.pe.description | Internal description of the file, provided at compile-time. | keyword |
 | file.pe.file_version | Internal version of the file, provided at compile-time. | keyword |
@@ -2233,7 +2234,9 @@ sent by the endpoint.
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
+| process.Ext.ptrace.addr | ptrace address. | long |
 | process.Ext.ptrace.child_pid | PID of the ptrace target. | long |
+| process.Ext.ptrace.data | ptrace data. | long |
 | process.Ext.ptrace.request | ptrace request. | long |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
@@ -2852,6 +2855,7 @@ sent by the endpoint.
 | winlog.event_data.PrimaryGroupId | Relative Identifier (RID) of the user's object primary group. | keyword |
 | winlog.event_data.PrivilegeList | An array of sensitive privileges, assigned to the new logon. | keyword |
 | winlog.event_data.RelativeTargetName | Relative name of the accessed target file or folder. | keyword |
+| winlog.event_data.RemoteCredentialGuard | Only populated for RemoteInteractive logon type sessions. | keyword |
 | winlog.event_data.Resource | Resource Information. | keyword |
 | winlog.event_data.SamAccountName | Logon name for account used to support clients and servers from  previous versions of Windows (pre-Windows 2000 logon name). | keyword |
 | winlog.event_data.SchemaFriendlyName | A human-readable name associated with the schema GUID. | keyword |
@@ -2896,6 +2900,8 @@ sent by the endpoint.
 | Endpoint.policy.applied.status | the status of the applied policy | keyword |
 | Endpoint.state | Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration) | object |
 | Endpoint.state.isolation | Current network isolation state of the host | boolean |
+| Endpoint.state.orphaned | Current orphaned state of Endpoint | boolean |
+| Endpoint.state.tamper_protection | Current tamper protection state of Endpoint | boolean |
 | Endpoint.status | The current status of the endpoint e.g. enrolled, unenrolled. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.name | Custom name of the agent. This is a name that can be given to an agent. This can be helpful if for example two Filebeat instances are running on the same host but a human readable separation is needed on which Filebeat instance data is coming from. | keyword |
@@ -3096,6 +3102,8 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.policy.applied.version | the version of this applied policy | keyword |
 | Endpoint.state | Represents the current state of a non-policy setting These fields reflect the current status of a field, which may differ from what it is configured to be (see Endpoint.configuration) | object |
 | Endpoint.state.isolation | Current network isolation state of the host | boolean |
+| Endpoint.state.orphaned | Current orphaned state of Endpoint | boolean |
+| Endpoint.state.tamper_protection | Current tamper protection state of Endpoint | boolean |
 | agent.build.original | Extended build information for the agent. This field is intended to contain any build information that a data source may provide, no specific formatting is required. | keyword |
 | agent.id | Unique identifier of this agent (if one exists). Example: For Beats this would be beat.id. | keyword |
 | agent.type | Type of the agent. The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine. | keyword |

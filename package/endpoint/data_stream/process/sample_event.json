@@ -73,6 +73,12 @@
                 "flag_cloexec": false,
                 "flag_noexec_seal": false
             },
+            "ptrace": {
+                "addr": 94501295312904,
+                "child_pid": 240116,
+                "data": 6042695217945480400,
+                "request": 5
+            },
             "code_signature": [
                 {
                     "trusted": true,

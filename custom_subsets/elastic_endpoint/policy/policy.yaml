@@ -30,6 +30,8 @@ fields:
       state:
         fields:
           isolation: {}
+          orphaned: {}
+          tamper_protection: {}
   event:
     fields:
       action: {}

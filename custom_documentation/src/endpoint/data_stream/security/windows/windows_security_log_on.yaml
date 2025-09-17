@@ -7,6 +7,7 @@ identification:
     event.dataset: endpoint.events.security
     event.module: endpoint
     host.os.type: windows
+    event.provider : "Microsoft-Windows-Security-Auditing"
   os:
   - windows
   data_stream: logs-endpoint.events.security-*
@@ -49,13 +50,6 @@ fields:
   - host.os.type
   - host.os.version
   - message
-  - process.code_signature.exists
-  - process.code_signature.status
-  - process.code_signature.subject_name
-  - process.code_signature.trusted
-  - process.command_line
-  - process.entity_id
-  - process.executable
   - process.Ext.ancestry
   - process.Ext.authentication_id
   - process.Ext.code_signature.exists
@@ -70,6 +64,13 @@ fields:
   - process.Ext.token.elevation
   - process.Ext.token.impersonation_level
   - process.Ext.token.integrity_level_name
+  - process.code_signature.exists
+  - process.code_signature.status
+  - process.code_signature.subject_name
+  - process.code_signature.trusted
+  - process.command_line
+  - process.entity_id
+  - process.executable
   - process.name
   - process.parent.executable
   - process.pid
@@ -90,6 +91,7 @@ fields:
   - winlog.event_data.LmPackageName
   - winlog.event_data.LoginGuid
   - winlog.event_data.PrivilegeList
+  - winlog.event_data.RemoteCredentialGuard
   - winlog.event_data.RestrictedAdminMode
   - winlog.event_data.Status
   - winlog.event_data.SubStatus

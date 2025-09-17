@@ -365,6 +365,36 @@ Endpoint.policy.applied.response.configurations.behavior_protection.status:
   normalize: []
   short: overall status of behavior_protection
   type: keyword
+Endpoint.policy.applied.response.configurations.device_control:
+  dashed_name: Endpoint-policy-applied-response-configurations-device-control
+  description: overall device control configuration and status of the applied policy
+  flat_name: Endpoint.policy.applied.response.configurations.device_control
+  level: custom
+  name: policy.applied.response.configurations.device_control
+  normalize: []
+  short: overall device control configuration and status of the applied policy
+  type: object
+Endpoint.policy.applied.response.configurations.device_control.concerned_actions:
+  dashed_name: Endpoint-policy-applied-response-configurations-device-control-concerned-actions
+  description: all actions that were taken for the configuration of device control
+  flat_name: Endpoint.policy.applied.response.configurations.device_control.concerned_actions
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.device_control.concerned_actions
+  normalize: []
+  short: actions that were taken for device control
+  type: keyword
+Endpoint.policy.applied.response.configurations.device_control.status:
+  dashed_name: Endpoint-policy-applied-response-configurations-device-control-status
+  description: the overall status of device control, this is correlated to the status
+    of concerned actions  but not a simple sum of the actions
+  flat_name: Endpoint.policy.applied.response.configurations.device_control.status
+  ignore_above: 1024
+  level: custom
+  name: policy.applied.response.configurations.device_control.status
+  normalize: []
+  short: overall status of device_control
+  type: keyword
 Endpoint.policy.applied.response.configurations.events:
   dashed_name: Endpoint-policy-applied-response-configurations-events
   description: overall event collection configuration and status of the applied policy
@@ -778,6 +808,24 @@ Endpoint.state.isolation:
   name: state.isolation
   normalize: []
   short: Current network isolation state of the host
+  type: boolean
+Endpoint.state.orphaned:
+  dashed_name: Endpoint-state-orphaned
+  description: Current orphaned state of Endpoint
+  flat_name: Endpoint.state.orphaned
+  level: custom
+  name: state.orphaned
+  normalize: []
+  short: Current orphaned state of Endpoint
+  type: boolean
+Endpoint.state.tamper_protection:
+  dashed_name: Endpoint-state-tamper-protection
+  description: Current tamper protection state of Endpoint
+  flat_name: Endpoint.state.tamper_protection
+  level: custom
+  name: state.tamper_protection
+  normalize: []
+  short: Current tamper protection state of Endpoint
   type: boolean
 agent.build.original:
   dashed_name: agent-build-original
