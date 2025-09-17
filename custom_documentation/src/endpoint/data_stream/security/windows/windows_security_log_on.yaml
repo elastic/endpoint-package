@@ -7,6 +7,7 @@ identification:
     event.dataset: endpoint.events.security
     event.module: endpoint
     host.os.type: windows
+    event.provider : "Microsoft-Windows-Security-Auditing"
   os:
   - windows
   data_stream: logs-endpoint.events.security-*
