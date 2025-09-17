@@ -1,3 +1,9 @@
+**Elastic Defend Detection and Response dashboard**
+
+Instantly investigate, triage, and respond to threats on the new, centralized Detection and Response dashboard for Elastic Defend alerts.
+
+---
+
 # Elastic Defend Integration
 
 Elastic Defend provides organizations with prevention, detection, and response capabilities with deep visibility for EPP, EDR, SIEM, and Security Analytics use cases across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
