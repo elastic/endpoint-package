@@ -98,6 +98,24 @@
         but not a simple sum of the actions
       short: the overall status of event collection
 
+    - name: policy.applied.response.configurations.firewall_anti_tamper
+      level: custom
+      type: object
+      description: overall firewall anti-tamper configuration and status of the applied policy
+
+    - name: policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
+      level: custom
+      type: keyword
+      description: all actions that were taken for the configuration of firewall anti-tamper
+
+    - name: policy.applied.response.configurations.firewall_anti_tamper.status
+      level: custom
+      type: keyword
+      description: >
+        the overall status of the configuration of firewall anti-tamper, this is correlated to
+        the status of concerned actions but not a simple sum of the actions
+      short: the overall status of firewall anti-tamper
+
     - name: policy.applied.response.configurations.logging
       level: custom
       type: object
@@ -265,24 +283,6 @@
       type: object
       enabled: false
       description: the diagnostic configurations of the applied policy
-
-    - name: policy.applied.response.diagnostic.firewall_anti_tamper
-      level: custom
-      type: object
-      description: overall firewall anti-tamper configuration and status of the applied policy
-
-    - name: policy.applied.response.diagnostic.firewall_anti_tamper.concerned_actions
-      level: custom
-      type: keyword
-      description: all actions that were taken for the diagnostic configuration of firewall anti-tamper
-
-    - name: policy.applied.response.diagnostic.firewall_anti_tamper.status
-      level: custom
-      type: keyword
-      description: >
-        the overall status of the diagnostic configuration of firewall anti-tamper, this is correlated to
-        the status of concerned actions but not a simple sum of the actions
-      short: the overall status of diagnostic firewall anti-tamper
 
     - name: policy.applied.response.diagnostic.ransomware.concerned_actions
       level: custom
