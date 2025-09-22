@@ -47,6 +47,7 @@ fields:
           signing_id: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           team_id: {}
           trusted: {}
           valid: {}
@@ -60,6 +61,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
   ecs:
@@ -644,6 +646,7 @@ fields:
           signing_id: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           team_id: {}
           trusted: {}
           valid: {}
@@ -662,6 +665,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
           protection: {}
@@ -760,6 +764,7 @@ fields:
               signing_id: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               team_id: {}
               trusted: {}
               valid: {}
@@ -774,6 +779,7 @@ fields:
                   exists: {}
                   status: {}
                   subject_name: {}
+                  thumbprint_sha256: {}
                   trusted: {}
                   valid: {}
               dll:
