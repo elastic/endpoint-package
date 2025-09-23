@@ -1676,6 +1676,7 @@ sent by the endpoint.
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
@@ -1831,6 +1832,7 @@ sent by the endpoint.
 | file.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | file.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | file.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| file.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | file.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | file.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | file.code_signature.exists | Boolean to capture if a signature is present. | boolean |
@@ -1884,6 +1886,7 @@ sent by the endpoint.
 | process.Ext.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.Ext.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
 | process.Ext.code_signature.subject_name | Subject name of the code signer | keyword |
+| process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
