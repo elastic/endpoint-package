@@ -4872,6 +4872,33 @@
       description: Internal product name of the file, provided at compile-time.
       example: "Microsoft® Windows® Operating System"
       default_field: false
+    - name: Ext.effective_parent.entity_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Unique identifier for the effective process.
+      example: c2c455d9f99375d
+      default_field: false
+    - name: Ext.effective_parent.executable
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Executable name for the effective process.
+      example: C:\Windows\System32\wbem\WMIC.exe
+      default_field: false
+    - name: Ext.effective_parent.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process name for the effective process.
+      example: WMIC.exe
+      default_field: false
+    - name: Ext.effective_parent.pid
+      level: custom
+      type: long
+      description: Process ID.
+      example: 4242
+      default_field: false
     - name: Ext.malware_classification.features
       level: custom
       type: object

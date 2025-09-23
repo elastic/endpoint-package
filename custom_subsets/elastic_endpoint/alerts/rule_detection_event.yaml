@@ -37,6 +37,12 @@ fields:
                   content_name: {}
           created_suspended: {}
           desktop_name: {}
+          effective_parent:
+            fields:
+              name: {}
+              pid: {}
+              entity_id: {}
+              executable: {}
           token:
             fields:
               integrity_level_name: {}
