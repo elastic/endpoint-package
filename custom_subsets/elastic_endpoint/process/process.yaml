@@ -185,6 +185,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
           created_suspended: {}
@@ -304,6 +305,7 @@ fields:
                   exists: {}
                   status: {}
                   subject_name: {}
+                  thumbprint_sha256: {}
                   trusted: {}
                   valid: {}
               user: {}
