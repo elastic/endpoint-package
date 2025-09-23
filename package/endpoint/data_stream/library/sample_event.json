@@ -73,7 +73,6 @@
         "code_signature": {
             "trusted": true,
             "subject_name": "Microsoft Windows",
-            "thumbprint_sha256": "c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b",
             "exists": true,
             "status": "trusted"
         },

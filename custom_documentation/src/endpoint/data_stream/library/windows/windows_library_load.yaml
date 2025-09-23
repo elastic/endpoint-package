@@ -35,7 +35,6 @@ fields:
   - dll.code_signature.exists
   - dll.code_signature.status
   - dll.code_signature.subject_name
-  - dll.code_signature.thumbprint_sha256
   - dll.code_signature.trusted
   - dll.hash.md5
   - dll.hash.sha1
