@@ -148,6 +148,7 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.system_impact.process.code_signature.signing_id |
 | Endpoint.metrics.system_impact.process.code_signature.status |
 | Endpoint.metrics.system_impact.process.code_signature.subject_name |
+| Endpoint.metrics.system_impact.process.code_signature.thumbprint_sha256 |
 | Endpoint.metrics.system_impact.process.code_signature.team_id |
 | Endpoint.metrics.system_impact.process.code_signature.trusted |
 | Endpoint.metrics.system_impact.process.executable |
