@@ -273,6 +273,15 @@
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
 
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
+
     - name: thread.Ext.call_stack_final_hook_module.code_signature.status
       level: custom
       type: keyword
@@ -389,6 +398,15 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
+
+    - name: thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
 
     - name: thread.Ext.call_stack_final_user_module.code_signature.status
       level: custom
@@ -620,6 +638,15 @@
 
         Validating the trust of the certificate chain may be complicated, and this field should only be populated
         by tools that actively check the status.
+
+    - name: Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
 
     - name: Ext.code_signature.status
       level: custom
@@ -914,6 +941,15 @@
         This is used to identify the team or vendor of a software product. The field is
         relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+
+    - name: code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
 
     - name: tty
       level: extended
