@@ -127,6 +127,7 @@ This alert is generated when a Ransomware alert occurs.
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
@@ -148,6 +149,7 @@ This alert is generated when a Ransomware alert occurs.
 | process.parent.code_signature.exists |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
+| process.parent.code_signature.thumbprint_sha256 |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
 | process.parent.entity_id |
