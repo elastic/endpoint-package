@@ -19,6 +19,7 @@ This event is generated when a DLL or driver is loaded.
 | dll.Ext.code_signature.exists |
 | dll.Ext.code_signature.status |
 | dll.Ext.code_signature.subject_name |
+| dll.Ext.code_signature.thumbprint_sha256 |
 | dll.Ext.code_signature.trusted |
 | dll.Ext.defense_evasions |
 | dll.Ext.load_index |
