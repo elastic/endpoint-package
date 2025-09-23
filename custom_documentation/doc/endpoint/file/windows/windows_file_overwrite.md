@@ -59,10 +59,12 @@ This event is generated when a file is overwritten
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |

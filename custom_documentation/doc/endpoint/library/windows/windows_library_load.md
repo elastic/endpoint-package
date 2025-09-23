@@ -19,6 +19,7 @@ This event is generated when a DLL or driver is loaded.
 | dll.Ext.code_signature.exists |
 | dll.Ext.code_signature.status |
 | dll.Ext.code_signature.subject_name |
+| dll.Ext.code_signature.thumbprint_sha256 |
 | dll.Ext.code_signature.trusted |
 | dll.Ext.defense_evasions |
 | dll.Ext.load_index |
@@ -29,6 +30,7 @@ This event is generated when a DLL or driver is loaded.
 | dll.code_signature.exists |
 | dll.code_signature.status |
 | dll.code_signature.subject_name |
+| dll.code_signature.thumbprint_sha256 |
 | dll.code_signature.trusted |
 | dll.hash.md5 |
 | dll.hash.sha1 |
@@ -71,11 +73,13 @@ This event is generated when a DLL or driver is loaded.
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
 | process.Ext.protection |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.entity_id |
 | process.executable |

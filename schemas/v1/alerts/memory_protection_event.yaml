@@ -382,6 +382,20 @@ Target.process.Ext.code_signature.subject_name:
   original_fieldset: process
   short: Subject name of the code signer
   type: keyword
+Target.process.Ext.code_signature.thumbprint_sha256:
+  dashed_name: Target-process-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: process
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 Target.process.Ext.code_signature.trusted:
   dashed_name: Target-process-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -469,6 +483,20 @@ Target.process.Ext.dll.Ext.code_signature.subject_name:
   normalize: []
   original_fieldset: dll
   short: Subject name of the code signer
+  type: keyword
+Target.process.Ext.dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: Target-process-Ext-dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.Ext.dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: dll
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 Target.process.Ext.dll.Ext.code_signature.trusted:
   dashed_name: Target-process-Ext-dll-Ext-code-signature-trusted
@@ -597,6 +625,20 @@ Target.process.Ext.dll.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+Target.process.Ext.dll.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: Target-process-Ext-dll-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.Ext.dll.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 Target.process.Ext.dll.code_signature.trusted:
   dashed_name: Target-process-Ext-dll-code-signature-trusted
@@ -1528,6 +1570,20 @@ Target.process.code_signature.team_id:
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
   type: keyword
+Target.process.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: Target-process-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
+  type: keyword
 Target.process.code_signature.trusted:
   dashed_name: Target-process-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -1776,6 +1832,20 @@ Target.process.parent.Ext.code_signature.subject_name:
   original_fieldset: process
   short: Subject name of the code signer
   type: keyword
+Target.process.parent.Ext.code_signature.thumbprint_sha256:
+  dashed_name: Target-process-parent-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.parent.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: process
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 Target.process.parent.Ext.code_signature.trusted:
   dashed_name: Target-process-parent-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -1863,6 +1933,20 @@ Target.process.parent.Ext.dll.Ext.code_signature.subject_name:
   normalize: []
   original_fieldset: dll
   short: Subject name of the code signer
+  type: keyword
+Target.process.parent.Ext.dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: Target-process-parent-Ext-dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.parent.Ext.dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: dll
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 Target.process.parent.Ext.dll.Ext.code_signature.trusted:
   dashed_name: Target-process-parent-Ext-dll-Ext-code-signature-trusted
@@ -1991,6 +2075,20 @@ Target.process.parent.Ext.dll.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+Target.process.parent.Ext.dll.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: Target-process-parent-Ext-dll-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.parent.Ext.dll.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 Target.process.parent.Ext.dll.code_signature.trusted:
   dashed_name: Target-process-parent-Ext-dll-code-signature-trusted
@@ -2464,6 +2562,20 @@ Target.process.parent.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+Target.process.parent.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: Target-process-parent-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: Target.process.parent.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 Target.process.parent.code_signature.trusted:
   dashed_name: Target-process-parent-code-signature-trusted
@@ -3983,6 +4095,19 @@ dll.Ext.code_signature.subject_name:
   normalize: []
   short: Subject name of the code signer
   type: keyword
+dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 dll.Ext.code_signature.trusted:
   dashed_name: dll-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -4105,6 +4230,20 @@ dll.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+dll.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: dll-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: dll.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 dll.code_signature.trusted:
   dashed_name: dll-code-signature-trusted
@@ -5765,6 +5904,19 @@ process.Ext.code_signature.subject_name:
   normalize: []
   short: Subject name of the code signer
   type: keyword
+process.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 process.Ext.code_signature.trusted:
   dashed_name: process-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -5850,6 +6002,20 @@ process.Ext.dll.Ext.code_signature.subject_name:
   normalize: []
   original_fieldset: dll
   short: Subject name of the code signer
+  type: keyword
+process.Ext.dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-Ext-dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.Ext.dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: dll
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 process.Ext.dll.Ext.code_signature.trusted:
   dashed_name: process-Ext-dll-Ext-code-signature-trusted
@@ -5978,6 +6144,20 @@ process.Ext.dll.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+process.Ext.dll.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-Ext-dll-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.Ext.dll.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 process.Ext.dll.code_signature.trusted:
   dashed_name: process-Ext-dll-code-signature-trusted
@@ -6903,6 +7083,20 @@ process.code_signature.team_id:
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
   type: keyword
+process.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
+  type: keyword
 process.code_signature.trusted:
   dashed_name: process-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -7146,6 +7340,20 @@ process.parent.Ext.code_signature.subject_name:
   original_fieldset: process
   short: Subject name of the code signer
   type: keyword
+process.parent.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-parent-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: process
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 process.parent.Ext.code_signature.trusted:
   dashed_name: process-parent-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -7233,6 +7441,20 @@ process.parent.Ext.dll.Ext.code_signature.subject_name:
   normalize: []
   original_fieldset: dll
   short: Subject name of the code signer
+  type: keyword
+process.parent.Ext.dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-parent-Ext-dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.Ext.dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: dll
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 process.parent.Ext.dll.Ext.code_signature.trusted:
   dashed_name: process-parent-Ext-dll-Ext-code-signature-trusted
@@ -7361,6 +7583,20 @@ process.parent.Ext.dll.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+process.parent.Ext.dll.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-parent-Ext-dll-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.Ext.dll.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 process.parent.Ext.dll.code_signature.trusted:
   dashed_name: process-parent-Ext-dll-code-signature-trusted
@@ -7834,6 +8070,20 @@ process.parent.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+process.parent.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-parent-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 process.parent.code_signature.trusted:
   dashed_name: process-parent-code-signature-trusted
