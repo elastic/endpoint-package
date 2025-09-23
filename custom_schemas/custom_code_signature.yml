@@ -1,0 +1,119 @@
+- name: code_signature
+  title: Code Signature
+  group: 2
+  description: These fields contain information about binary code signatures.
+  type: group
+  reusable:
+    top_level: false
+    expected:
+      - file
+      - process
+      - dll
+      # - driver
+  fields:
+
+    - name: exists
+      level: core
+      type: boolean
+      description: Boolean to capture if a signature is present.
+      example: "true"
+
+    - name: flags
+      level: extended
+      type: keyword
+      short: Code signing flags of the process
+      description: >
+          The flags used to sign the process.
+      example: 570522385
+      beta: This field is beta and subject to change.
+
+    - name: subject_name
+      level: core
+      type: keyword
+      description: Subject name of the code signer
+      example: Microsoft Corporation
+
+    - name: valid
+      level: extended
+      type: boolean
+      short: Boolean to capture if the digital signature is verified against the binary content.
+      example: "true"
+      description: >
+        Boolean to capture if the digital signature is verified against the binary content.
+
+        Leave unpopulated if a certificate was unchecked.
+
+    - name: trusted
+      level: extended
+      type: boolean
+      short: Stores the trust status of the certificate chain.
+      example: "true"
+      description: >
+        Stores the trust status of the certificate chain.
+
+        Validating the trust of the certificate chain may be complicated, and this field should only be populated
+        by tools that actively check the status.
+
+
+    - name: status
+      level: extended
+      type: keyword
+      short: Additional information about the certificate status.
+      description: >
+        Additional information about the certificate status.
+
+        This is useful for logging cryptographic errors with the certificate validity or trust status.
+        Leave unpopulated if the validity or trust of the certificate was unchecked.
+      example: ERROR_UNTRUSTED_ROOT
+
+    - name: team_id
+      level: extended
+      type: keyword
+      short: The team identifier used to sign the process.
+      description: >
+        The team identifier used to sign the process.
+
+        This is used to identify the team or vendor of a software product.
+        The field is relevant to Apple *OS only.
+      example: EQHXZ8M8AV
+
+    - name: signing_id
+      level: extended
+      type: keyword
+      short: The identifier used to sign the process.
+      description: >
+        The identifier used to sign the process.
+
+        This is used to identify the application manufactured by a software vendor.
+        The field is relevant to Apple *OS only.
+      example: com.apple.xpc.proxy
+
+    - name: digest_algorithm
+      level: extended
+      type: keyword
+      short: Hashing algorithm used to sign the process.
+      description: >
+        The hashing algorithm used to sign the process.
+
+        This value can distinguish signatures when a file is signed multiple times
+        by the same signer but with a different digest algorithm.
+      example: sha256
+
+    - name: timestamp
+      level: extended
+      type: date
+      short: When the signature was generated and signed.
+      description: >
+        Date and time when the code signature was generated and signed.
+      example: "2021-01-01T12:10:30Z"
+
+    - name: thumbprint_sha256
+      level: extended
+      type: keyword
+      pattern: ^[0-9a-f]{64}$
+      ignore_above: 64
+      short: SHA256 hash of the certificate.
+      description: >
+        Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      beta: This field is beta and subject to change.

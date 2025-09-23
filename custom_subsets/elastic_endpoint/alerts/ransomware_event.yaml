@@ -47,6 +47,7 @@ fields:
           signing_id: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           team_id: {}
           trusted: {}
           valid: {}
@@ -615,6 +616,7 @@ fields:
           signing_id: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           team_id: {}
           trusted: {}
           valid: {}
@@ -683,6 +685,7 @@ fields:
               signing_id: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               team_id: {}
               trusted: {}
               valid: {}
