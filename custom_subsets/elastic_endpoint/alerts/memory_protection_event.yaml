@@ -60,6 +60,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
   ecs:
@@ -662,6 +663,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
           protection: {}
@@ -774,6 +776,7 @@ fields:
                   exists: {}
                   status: {}
                   subject_name: {}
+                  thumbprint_sha256: {}
                   trusted: {}
                   valid: {}
               dll:
