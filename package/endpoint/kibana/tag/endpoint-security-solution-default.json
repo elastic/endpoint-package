@@ -1,0 +1,13 @@
+{
+    "attributes": {
+        "color": "#D36086",
+        "description": "",
+        "name": "Security Solution"
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2025-09-23T16:04:38.642Z",
+    "id": "endpoint-security-solution-default",
+    "references": [],
+    "type": "tag",
+    "typeMigrationVersion": "8.0.0"
+}
