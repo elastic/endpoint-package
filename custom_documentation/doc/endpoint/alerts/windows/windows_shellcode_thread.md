@@ -217,6 +217,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | process.parent.Ext.code_signature.exists |
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |
+| process.parent.Ext.code_signature.thumbprint_sha256 |
 | process.parent.Ext.code_signature.trusted |
 | process.parent.Ext.protection |
 | process.parent.Ext.user |
