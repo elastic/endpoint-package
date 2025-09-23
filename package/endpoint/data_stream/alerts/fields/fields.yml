@@ -574,6 +574,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: dll.Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: dll.Ext.code_signature.trusted
       level: custom
       type: boolean
@@ -694,6 +702,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: dll.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: dll.code_signature.trusted
       level: extended
@@ -980,6 +996,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: process.Ext.dll.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: process.Ext.dll.code_signature.trusted
       level: extended
@@ -1546,6 +1570,14 @@
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
       default_field: false
+    - name: process.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: process.code_signature.trusted
       level: extended
       type: boolean
@@ -1827,6 +1859,14 @@
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
       default_field: false
+    - name: process.parent.Ext.dll.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: process.parent.Ext.dll.code_signature.trusted
       level: extended
       type: boolean
@@ -2086,6 +2126,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: process.parent.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: process.parent.code_signature.trusted
       level: extended
@@ -2477,6 +2525,14 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: process.thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: process.thread.Ext.call_stack_final_user_module.code_signature.trusted
       level: custom
@@ -3193,6 +3249,14 @@
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
       default_field: false
+    - name: code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: code_signature.trusted
       level: extended
       type: boolean
@@ -3890,6 +3954,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: code_signature.trusted
       level: extended
@@ -4836,6 +4908,14 @@
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
       default_field: false
+    - name: Ext.dll.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: Ext.dll.code_signature.trusted
       level: extended
       type: boolean
@@ -5399,6 +5479,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: code_signature.trusted
       level: extended
@@ -6247,6 +6335,14 @@
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
       default_field: false
+    - name: parent.Ext.dll.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: parent.Ext.dll.code_signature.trusted
       level: extended
       type: boolean
@@ -6506,6 +6602,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: parent.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: parent.code_signature.trusted
       level: extended
@@ -7438,6 +7542,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: thread.Ext.call_stack_final_hook_module.code_signature.trusted
       level: custom
       type: boolean
@@ -7496,6 +7608,14 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
       level: custom
@@ -8072,6 +8192,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: enrichments.indicator.file.Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: enrichments.indicator.file.Ext.code_signature.trusted
       level: custom
       type: boolean
@@ -8414,6 +8542,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: enrichments.indicator.file.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: enrichments.indicator.file.code_signature.trusted
       level: extended
@@ -9527,6 +9663,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: indicator.file.Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: indicator.file.Ext.code_signature.trusted
       level: custom
       type: boolean
@@ -9869,6 +10013,14 @@
 
         This is used to identify the team or vendor of a software product. The field is relevant to Apple *OS only.'
       example: EQHXZ8M8AV
+      default_field: false
+    - name: indicator.file.code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: indicator.file.code_signature.trusted
       level: extended

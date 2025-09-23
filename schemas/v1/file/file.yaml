@@ -2324,6 +2324,20 @@ process.code_signature.team_id:
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
   type: keyword
+process.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
+  type: keyword
 process.code_signature.trusted:
   dashed_name: process-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
