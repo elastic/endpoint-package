@@ -4,7 +4,7 @@
             "chainingSystem": "HIERARCHICAL",
             "controlStyle": "oneLine",
             "ignoreParentSettingsJSON": "{\"ignoreFilters\": false,\"ignoreQuery\": false,\"ignoreTimerange\": false,\"ignoreValidations\": false}",
-            "panelsJSON": {},
+            "panelsJSON": "{}",
             "showApplySelections": false
         },
         "description": "",
