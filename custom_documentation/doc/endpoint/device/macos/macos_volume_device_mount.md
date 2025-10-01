@@ -26,6 +26,8 @@ This event is generated when a device is mounted.
 | process.code_signature.subject_name |
 | process.code_signature.exists |
 | process.code_signature.status |
+| process.code_signature.signing_id |
+| process.code_signature.team_id |
 | process.name |
 | process.pid |
 | process.entity_id |
@@ -49,6 +51,9 @@ This event is generated when a device is mounted.
 | event.type |
 | event.dataset |
 | event.outcome |
+| group.Ext.real.id |
+| group.id |
+| group.name |
 | message |
 | device.product.name |
 | device.product.id |
@@ -57,6 +62,7 @@ This event is generated when a device is mounted.
 | device.serial_number |
 | device.type |
 | user.domain |
+| user.Ext.real.id |
 | user.name |
 | user.id |
 
