@@ -460,6 +460,101 @@
       type: object
       description: Metrics fields hold the endpoint and system's performance metrics
 
+    - name: metrics.diag_documents_volume
+      level: custom
+      type: object
+      description: Statistics about diagnostic documents
+
+    - name: metrics.diag_documents_volume.dns_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.dns_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.dns_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.dns_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.overall.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.overall.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.overall.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.overall.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.process_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.process_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.process_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.process_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.process_events.sources
+      level: custom
+      type: object
+      description: An array of Process Event document statistics per source
+
+    - name: metrics.diag_documents_volume.process_events.sources.source
+      level: custom
+      type: keyword
+      description: Process Event document source name
+
+    - name: metrics.diag_documents_volume.process_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of Process Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.process_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of Process Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.process_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed Process Event documents from source
+
+    - name: metrics.diag_documents_volume.process_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed Process Event documents from source
+
     - name: metrics.documents_volume
       level: custom
       type: object
