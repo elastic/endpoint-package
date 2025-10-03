@@ -58,6 +58,102 @@
       type: half_float
       description: Average CPU load used by the endpoint
       default_field: false
+    - name: metrics.diag_documents_volume
+      level: custom
+      type: object
+      description: Statistics about diagnostic documents
+      default_field: false
+    - name: metrics.diag_documents_volume.dns_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.dns_events.sent_count
+      level: custom
+      type: long
+      description: Number of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.dns_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.diag_documents_volume.dns_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.diag_documents_volume.overall.sent_bytes
+      level: custom
+      type: long
+      description: Total size of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.overall.sent_count
+      level: custom
+      type: long
+      description: Number of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.overall.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.diag_documents_volume.overall.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sent_bytes
+      level: custom
+      type: long
+      description: Total size of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sent_count
+      level: custom
+      type: long
+      description: Number of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources
+      level: custom
+      type: object
+      description: An array of Process Event document statistics per source
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of Process Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of Process Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources.source
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Process Event document source name
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed Process Event documents from source
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed Process Event documents from source
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed documents
+      default_field: false
+    - name: metrics.diag_documents_volume.process_events.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed documents
+      default_field: false
     - name: metrics.disks
       level: custom
       type: object
