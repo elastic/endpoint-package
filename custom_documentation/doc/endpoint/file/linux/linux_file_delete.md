@@ -31,6 +31,7 @@ This event is generated when a file is deleted.
 | file.extension |
 | file.name |
 | file.path |
+| file.size |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
