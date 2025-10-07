@@ -1,8 +1,3 @@
-> ## Elastic Defend Detection and Response Dashboard
->
-> Instantly investigate, triage, and respond to threats on the new, centralized Detection and Response dashboard for Elastic Defend alerts.
-
-
 # Elastic Defend Integration
 
 Elastic Defend provides organizations with prevention, detection, and response capabilities with deep visibility for EPP, EDR, SIEM, and Security Analytics use cases across Windows, macOS, and Linux operating systems running on both traditional endpoints and public cloud environments. ​​Use Elastic Defend to:
@@ -3004,6 +2999,25 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.cpu.endpoint.histogram | This field defines an elasticsearch histogram field (https://www.elastic.co/guide/en/elasticsearch/reference/current/histogram.html#histogram) The values field includes 20 buckets (each bucket is 5%) representing the cpu usage The counts field includes 20 buckets of how many times the endpoint's cpu usage fell into each bucket | histogram |
 | Endpoint.metrics.cpu.endpoint.latest | Average CPU over the last sample interval | half_float |
 | Endpoint.metrics.cpu.endpoint.mean | Average CPU load used by the endpoint | half_float |
+| Endpoint.metrics.diag_documents_volume | Statistics about diagnostic documents | object |
+| Endpoint.metrics.diag_documents_volume.dns_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.dns_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.dns_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.dns_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.overall.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.overall.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.overall.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.overall.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sources | An array of Process Event document statistics per source | object |
+| Endpoint.metrics.diag_documents_volume.process_events.sources.sent_bytes | Total size of Process Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sources.sent_count | Number of Process Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sources.source | Process Event document source name | keyword |
+| Endpoint.metrics.diag_documents_volume.process_events.sources.suppressed_bytes | Total size of suppressed Process Event documents from source | long |
+| Endpoint.metrics.diag_documents_volume.process_events.sources.suppressed_count | Number of suppressed Process Event documents from source | long |
+| Endpoint.metrics.diag_documents_volume.process_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.process_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume | Statistics about sent documents | object |
 | Endpoint.metrics.documents_volume.alerts.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.alerts.sent_count | Number of sent documents | long |
