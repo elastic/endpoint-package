@@ -2,7 +2,7 @@ format_version: 3.0.0
 name: endpoint
 title: Elastic Defend
 description: Protect your hosts and cloud workloads with threat prevention, detection, and deep security data visibility.
-version: 9.2.0-prerelease.4
+version: 9.2.0
 categories: ["security", "edr_xdr"]
 # The package type. The options for now are [integration, input], more type might be added in the future.
 
