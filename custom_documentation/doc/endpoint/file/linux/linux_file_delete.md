@@ -28,6 +28,7 @@ This event is generated when a file is deleted.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.entropy |
 | file.extension |
 | file.name |
 | file.path |
