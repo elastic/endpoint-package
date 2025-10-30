@@ -93,12 +93,14 @@ This event is generated when ETW Threat-Intelligence events are generated.
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
 | process.Ext.protection |
 | process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
