@@ -24,6 +24,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
   ecs:
     fields:
@@ -125,12 +126,14 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
       code_signature:
         fields:
           exists: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           trusted: {}
       thread:
         fields:
