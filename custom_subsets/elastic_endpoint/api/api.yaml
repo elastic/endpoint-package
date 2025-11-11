@@ -39,6 +39,7 @@ fields:
       hash: {}
       id: {}
       ingested: {}
+      module: {}
       provider: {}
       outcome: {}
       start: {}

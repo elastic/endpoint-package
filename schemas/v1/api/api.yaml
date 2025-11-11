@@ -2039,6 +2039,21 @@ event.ingested:
   normalize: []
   short: Timestamp when an event arrived in the central data store.
   type: date
+event.module:
+  dashed_name: event-module
+  description: 'Name of the module this data is coming from.
+
+    If your monitoring agent supports the concept of modules or plugins to process
+    events of a given source (e.g. Apache logs), `event.module` should contain the
+    name of this module.'
+  example: apache
+  flat_name: event.module
+  ignore_above: 1024
+  level: core
+  name: module
+  normalize: []
+  short: Name of the module this data is coming from.
+  type: keyword
 event.outcome:
   allowed_values:
   - description: Indicates that this event describes a failed result. A common example

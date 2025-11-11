@@ -1069,6 +1069,14 @@
         In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`.'
       example: '2016-05-23T08:05:35.101Z'
       default_field: false
+    - name: module
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the module this data is coming from.
+
+        If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module.'
+      example: apache
     - name: outcome
       level: core
       type: keyword
