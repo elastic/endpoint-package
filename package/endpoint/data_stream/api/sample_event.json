@@ -109,6 +109,11 @@
             "version": "22H2 (10.0.22621.963)"
         }
     },
+    "http": {
+        "request": {
+            "method": "GET"
+        }
+    },
     "message": "Endpoint API event - hand-crafted with a superset of fields",
     "network": {
         "transport": "tcp",
@@ -304,6 +309,9 @@
             },
             "id": 11628
         }
+    },
+    "url": {
+        "full": "https://www.example.com/"
     },
     "user": {
         "domain": "DESKTOP-OCG8CR6",
