@@ -89,6 +89,8 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.parent.name |
 | process.parent.pid |
 | process.pid |
+| process.group_leader.pid |
+| process.session_leader.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |
