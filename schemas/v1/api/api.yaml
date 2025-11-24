@@ -2518,6 +2518,20 @@ host.uptime:
   normalize: []
   short: Seconds the host has been up.
   type: long
+http.request.method:
+  dashed_name: http-request-method
+  description: 'HTTP request method.
+
+    The value should retain its casing from the original event. For example, `GET`,
+    `get`, and `GeT` are all considered valid values for this field.'
+  example: POST
+  flat_name: http.request.method
+  ignore_above: 1024
+  level: extended
+  name: request.method
+  normalize: []
+  short: HTTP request method.
+  type: keyword
 message:
   dashed_name: message
   description: 'For log events the message field contains the log message, optimized
@@ -5669,6 +5683,21 @@ process.thread.id:
   normalize: []
   short: Thread ID.
   type: long
+url.full:
+  dashed_name: url-full
+  description: If full URLs are important to your use case, they should be stored
+    in `url.full`, whether this field is reconstructed or present in the event source.
+  example: https://www.elastic.co:443/search?q=elasticsearch#top
+  flat_name: url.full
+  level: extended
+  multi_fields:
+  - flat_name: url.full.text
+    name: text
+    type: match_only_text
+  name: full
+  normalize: []
+  short: Full unparsed URL.
+  type: wildcard
 user.domain:
   dashed_name: user-domain
   description: 'Name of the directory the user is a member of.

@@ -77,6 +77,14 @@ fields:
     fields:
       transport: {}
       type: {}
+  url:
+    fields:
+      full: {}
+  http:
+    fields:
+      request:
+        fields:
+          method: {}
   Target:
     fields:
       process:

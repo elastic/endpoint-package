@@ -1261,6 +1261,21 @@
       type: long
       description: Seconds the host has been up.
       example: 1325
+- name: http
+  title: HTTP
+  group: 2
+  description: Fields related to HTTP activity. Use the `url` field set to store the url of the request.
+  type: group
+  default_field: true
+  fields:
+    - name: request.method
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'HTTP request method.
+
+        The value should retain its casing from the original event. For example, `GET`, `get`, and `GeT` are all considered valid values for this field.'
+      example: POST
 - name: network
   title: Network
   group: 2
@@ -2985,6 +3000,22 @@
       format: string
       description: Thread ID.
       example: 4242
+- name: url
+  title: URL
+  group: 2
+  description: URL fields provide support for complete or partial URLs, and supports the breaking down into scheme, domain, path, and so on.
+  type: group
+  default_field: true
+  fields:
+    - name: full
+      level: extended
+      type: wildcard
+      multi_fields:
+        - name: text
+          type: match_only_text
+          default_field: false
+      description: If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source.
+      example: https://www.elastic.co:443/search?q=elasticsearch#top
 - name: user
   title: User
   group: 2
