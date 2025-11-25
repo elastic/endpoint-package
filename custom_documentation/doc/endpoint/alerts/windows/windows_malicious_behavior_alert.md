@@ -88,6 +88,7 @@ This alert occurs when a Malicious Behavior alert occurs.
 | host.os.platform |
 | host.os.type |
 | host.os.version |
+| http.request.method |
 | message |
 | network.transport |
 | network.type |
@@ -112,6 +113,7 @@ This alert occurs when a Malicious Behavior alert occurs.
 | threat.technique.subtechnique.id |
 | threat.technique.subtechnique.name |
 | threat.technique.subtechnique.reference |
+| url.full |
 | user.domain |
 | user.effective.domain |
 | user.effective.id |
