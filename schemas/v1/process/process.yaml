@@ -1803,6 +1803,26 @@ process.Ext.relative_file_name_modify_time:
   normalize: []
   short: Number of seconds since the process's name was modified
   type: double
+process.Ext.script.content:
+  dashed_name: process-Ext-script-content
+  description: Content of the script being executed
+  flat_name: process.Ext.script.content
+  ignore_above: 1024
+  level: custom
+  name: Ext.script.content
+  normalize: []
+  short: Content of the script being executed
+  type: keyword
+process.Ext.script.path:
+  dashed_name: process-Ext-script-path
+  description: Path to the script being executed
+  flat_name: process.Ext.script.path
+  ignore_above: 1024
+  level: custom
+  name: Ext.script.path
+  normalize: []
+  short: Path to the script being executed
+  type: keyword
 process.Ext.session:
   dashed_name: process-Ext-session
   description: Session information for the current process

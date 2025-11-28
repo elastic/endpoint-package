@@ -114,6 +114,10 @@
             },
             "relative_file_creation_time": 48628704.4029488,
             "relative_file_name_modify_time": 48628704.4029488,
+            "script": {
+                "path": "C:\\Scripts\\example.ps1",
+                "content": "Write-Host 'Hello, World!'"
+            },
             "session_info": {
                 "logon_type": "Interactive",
                 "client_address": "127.0.0.1",

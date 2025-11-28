@@ -57,6 +57,8 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.Ext.effective_parent.executable |
 | process.Ext.effective_parent.name |
 | process.Ext.effective_parent.pid |
+| process.Ext.script.content |
+| process.Ext.script.path |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |

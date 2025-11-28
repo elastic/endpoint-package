@@ -997,6 +997,18 @@
       type: double
       description: Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future.
       default_field: false
+    - name: Ext.script.content
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Content of the script being executed
+      default_field: false
+    - name: Ext.script.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Path to the script being executed
+      default_field: false
     - name: Ext.session
       level: custom
       type: keyword
