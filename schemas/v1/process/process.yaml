@@ -1807,12 +1807,11 @@ process.Ext.script.content:
   dashed_name: process-Ext-script-content
   description: Content of the script being executed
   flat_name: process.Ext.script.content
-  ignore_above: 1024
   level: custom
   name: Ext.script.content
   normalize: []
   short: Content of the script being executed
-  type: keyword
+  type: match_only_text
 process.Ext.script.path:
   dashed_name: process-Ext-script-path
   description: Path to the script being executed

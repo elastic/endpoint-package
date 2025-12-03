@@ -2280,7 +2280,7 @@ sent by the endpoint.
 | process.Ext.ptrace.request | ptrace request. | long |
 | process.Ext.relative_file_creation_time | Number of seconds since the process's file was created. This number may be negative if the file's timestamp is in the future. | double |
 | process.Ext.relative_file_name_modify_time | Number of seconds since the process's name was modified. This information can come from the NTFS MFT. This number may be negative if the file's timestamp is in the future. | double |
-| process.Ext.script.content | Content of the script being executed | keyword |
+| process.Ext.script.content | Content of the script being executed | match_only_text |
 | process.Ext.script.path | Path to the script being executed | keyword |
 | process.Ext.session | Session information for the current process | keyword |
 | process.Ext.session_info.authentication_package | Name of authentication package used to log on, such as NTLM, Kerberos, or CloudAP | keyword |
