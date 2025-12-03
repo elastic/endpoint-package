@@ -999,8 +999,7 @@
       default_field: false
     - name: Ext.script.content
       level: custom
-      type: keyword
-      ignore_above: 1024
+      type: match_only_text
       description: Content of the script being executed
       default_field: false
     - name: Ext.script.path
