@@ -823,6 +823,20 @@
         NTFS
         UDF
 
+    - name: Ext.script.path
+      level: custom
+      type: keyword
+      short: Path to the script being executed
+      description: >
+        Path to the script being executed
+
+    - name: Ext.script.content
+      level: custom
+      type: keyword
+      short: Content of the script being executed
+      description: >
+        Content of the script being executed
+
     - name: Ext.trusted
       level: custom
       type: boolean

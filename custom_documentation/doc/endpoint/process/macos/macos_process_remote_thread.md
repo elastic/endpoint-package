@@ -84,6 +84,8 @@ This event is generated when a remote thread is created.
 | process.parent.name |
 | process.parent.pid |
 | process.pid |
+| process.group_leader.pid |
+| process.session_leader.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |

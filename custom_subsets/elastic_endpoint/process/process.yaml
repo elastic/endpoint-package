@@ -159,6 +159,10 @@ fields:
           ancestry: {}
           architecture: {}
           authentication_id: {}
+          script:
+            fields:
+              path: {}
+              content: {}
           trusted: {}
           trusted_descendant: {}
           ptrace:
