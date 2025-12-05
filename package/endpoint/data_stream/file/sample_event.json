@@ -20,6 +20,7 @@
                 {
                     "trusted": true,
                     "subject_name": "Elasticsearch, Inc.",
+                    "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                     "exists": true,
                     "status": "trusted"
                 }
@@ -48,6 +49,7 @@
         "code_signature": {
             "trusted": true,
             "subject_name": "Elasticsearch, Inc.",
+            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
             "exists": true,
             "status": "trusted"
         },

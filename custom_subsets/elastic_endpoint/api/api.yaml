@@ -169,6 +169,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                   hash:
                     fields:
@@ -187,6 +188,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                       valid: {}
                   hash:
