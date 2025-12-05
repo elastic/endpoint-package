@@ -832,7 +832,7 @@
 
     - name: Ext.script.content
       level: custom
-      type: keyword
+      type: match_only_text
       short: Content of the script being executed
       description: >
         Content of the script being executed
