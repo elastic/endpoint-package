@@ -107,12 +107,14 @@ fields:
   - process.Ext.dll.Ext.code_signature.exists
   - process.Ext.dll.Ext.code_signature.status
   - process.Ext.dll.Ext.code_signature.subject_name
+  - process.Ext.dll.Ext.code_signature.thumbprint_sha256
   - process.Ext.dll.Ext.code_signature.trusted
   - process.Ext.dll.Ext.mapped_address
   - process.Ext.dll.Ext.mapped_size
   - process.Ext.dll.code_signature.exists
   - process.Ext.dll.code_signature.status
   - process.Ext.dll.code_signature.subject_name
+  - process.Ext.dll.code_signature.thumbprint_sha256
   - process.Ext.dll.code_signature.trusted
   - process.Ext.dll.hash.md5
   - process.Ext.dll.hash.sha1
