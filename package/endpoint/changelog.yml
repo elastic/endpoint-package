@@ -1,8 +1,3 @@
-- version: "9.3.0"
-  changes:
-    - description: Add Automatic Troubleshooting knowledge base documents for policy response failures
-      type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/705
 - version: "9.2.0"
   changes:
     - description: Add file.size for Linux
