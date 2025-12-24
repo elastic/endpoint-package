@@ -1,5 +1,5 @@
 Elastic Endpoint Package
-Copyright 2017-2025 Elasticsearch B.V.
+Copyright 2017-2026 Elasticsearch B.V.
 
 This product includes software developed at
 Elasticsearch, B.V. (https://www.elastic.co/).
