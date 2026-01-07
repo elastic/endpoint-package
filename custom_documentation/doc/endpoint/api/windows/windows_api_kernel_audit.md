@@ -9,6 +9,11 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.token.integrity_level_name |
+| Target.process.entity_id |
+| Target.process.executable |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -43,7 +48,10 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | host.os.version |
 | message |
 | process.Ext.api.behaviors |
+| process.Ext.api.metadata.return_value |
 | process.Ext.api.name |
+| process.Ext.api.parameters.desired_access |
+| process.Ext.api.parameters.desired_access_numeric |
 | process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
