@@ -15,7 +15,7 @@
     - description: Add WinHTTP/WinINet ETW fields for production
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/703
-    - description: add process group doc
+    - description: Add process group to macos documentation
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/702
     - description: map event.module for logs-endpoint.events.api
