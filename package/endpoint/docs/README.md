@@ -2901,7 +2901,7 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 | winlog.event_data | The event-specific data. This is a non-exhaustive list of parameters that are used in Windows events. | object |
 | winlog.event_data.AccessReason | The list of access check results. | keyword |
-| winlog.event_data.CountOfCredentialsReturned | Credential returned count. | unsigned_long |
+| winlog.event_data.CountOfCredentialsReturned | Credential returned count. | keyword |
 | winlog.event_data.DisplayName | A name displayed in the address book for a particular account. | keyword |
 | winlog.event_data.EnabledPrivilegeList | The list of enabled user rights. | keyword |
 | winlog.event_data.Identity | Identity information. | keyword |

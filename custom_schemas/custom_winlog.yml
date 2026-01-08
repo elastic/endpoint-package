@@ -332,10 +332,10 @@
 
     - name: event_data.CountOfCredentialsReturned
       level: custom
-      type : unsigned_long
+      type : keyword
       description: >
         Credential returned count.
-      example: 0
+      example: "0"
 
     - name: event_data.SchemaFriendlyName
       level: custom

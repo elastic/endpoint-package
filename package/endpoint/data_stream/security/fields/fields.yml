@@ -1371,9 +1371,10 @@
       default_field: false
     - name: event_data.CountOfCredentialsReturned
       level: custom
-      type: unsigned_long
+      type: keyword
+      ignore_above: 1024
       description: Credential returned count.
-      example: 0
+      example: '0'
       default_field: false
     - name: event_data.DisplayName
       level: custom

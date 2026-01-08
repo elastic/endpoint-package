@@ -2639,13 +2639,13 @@ winlog.event_data.AccessReason:
 winlog.event_data.CountOfCredentialsReturned:
   dashed_name: winlog-event-data-CountOfCredentialsReturned
   description: Credential returned count.
-  example: 0
+  example: '0'
   flat_name: winlog.event_data.CountOfCredentialsReturned
   level: custom
   name: event_data.CountOfCredentialsReturned
   normalize: []
   short: Credential returned count.
-  type: unsigned_long
+  type: keyword
 winlog.event_data.DisplayName:
   dashed_name: winlog-event-data-DisplayName
   description: A name displayed in the address book for a particular account.

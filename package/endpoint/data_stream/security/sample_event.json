@@ -222,7 +222,7 @@
             "DisplayName": "test_data",
             "UserPrincipalName": "test_data",
             "PrimaryGroupId": "513",
-            "CountOfCredentialsReturned": 0,
+            "CountOfCredentialsReturned": "0",
             "SchemaFriendlyName": "Windows Domain Password Credential",
             "Resource": "Domain:target=TestTarget",
             "Identity": "TestUser",
