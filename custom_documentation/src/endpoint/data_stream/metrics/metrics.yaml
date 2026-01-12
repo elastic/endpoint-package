@@ -137,6 +137,8 @@ fields:
   - Endpoint.metrics.system_impact.file_events.week_ms
   - Endpoint.metrics.system_impact.kernel_api_events.week_idle_ms
   - Endpoint.metrics.system_impact.kernel_api_events.week_ms
+  - Endpoint.metrics.system_impact.kernel_process_events.week_idle_ms
+  - Endpoint.metrics.system_impact.kernel_process_events.week_ms
   - Endpoint.metrics.system_impact.ldap_client_events.week_idle_ms
   - Endpoint.metrics.system_impact.ldap_client_events.week_ms
   - Endpoint.metrics.system_impact.library_load_events.week_idle_ms
