@@ -119,7 +119,7 @@
 
     - name: event_data.KeyLength
       level: custom
-      type : unsigned_long
+      type : keyword
       description: >
         The length of the NTLM Session Security key. 
 
@@ -326,7 +326,7 @@
 
     - name: event_data.Flags
       level: custom
-      type : unsigned_long
+      type : keyword
       description: >
         Flags.
 
