@@ -1,0 +1,30 @@
+---
+- name: url
+  title: URL
+  short: Fields that let you store URLs in various forms.
+  description: >
+    URL fields provide support for complete or partial URLs, and supports the
+    breaking down into scheme, domain, path, and so on.
+  type: group
+  reusable:
+    top_level: true
+    expected:
+      - at: threat.indicator
+        as: url
+      - at: threat.enrichments.indicator
+        as: url
+  fields:
+    - name: full
+      level: custom
+      type: wildcard
+      short: Full unparsed URL.
+      description: >
+        If full URLs are important to your use case, they should be stored in
+        `url.full`, whether this field is reconstructed or present in the
+        event source.
+      example: https://www.elastic.co:443/search?q=elasticsearch#top
+      multi_fields:
+        - type: match_only_text
+          name: text
+      otel:
+        - relation: match

@@ -9296,7 +9296,7 @@
         The `#` is not part of the fragment.'
       default_field: false
     - name: enrichments.indicator.url.full
-      level: extended
+      level: custom
       type: wildcard
       multi_fields:
         - name: text
@@ -10767,7 +10767,7 @@
         The `#` is not part of the fragment.'
       default_field: false
     - name: indicator.url.full
-      level: extended
+      level: custom
       type: wildcard
       multi_fields:
         - name: text

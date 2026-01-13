@@ -17,3 +17,14 @@
       type: keyword
       description: >
         HTTP version
+
+    - name: request.method
+      level: custom
+      type: keyword
+      short: HTTP request method.
+      description: >
+        HTTP request method.
+
+        The value should retain its casing from the original event.
+        For example, `GET`, `get`, and `GeT` are all considered valid values
+        for this field.

@@ -1269,7 +1269,7 @@
   default_field: true
   fields:
     - name: request.method
-      level: extended
+      level: custom
       type: keyword
       ignore_above: 1024
       description: 'HTTP request method.
@@ -3024,7 +3024,7 @@
   default_field: true
   fields:
     - name: full
-      level: extended
+      level: custom
       type: wildcard
       multi_fields:
         - name: text

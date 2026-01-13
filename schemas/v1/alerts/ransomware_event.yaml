@@ -6503,7 +6503,7 @@ threat.enrichments.indicator.url.full:
     in `url.full`, whether this field is reconstructed or present in the event source.
   example: https://www.elastic.co:443/search?q=elasticsearch#top
   flat_name: threat.enrichments.indicator.url.full
-  level: extended
+  level: custom
   multi_fields:
   - flat_name: threat.enrichments.indicator.url.full.text
     name: text
@@ -6511,6 +6511,8 @@ threat.enrichments.indicator.url.full:
   name: full
   normalize: []
   original_fieldset: url
+  otel:
+  - relation: match
   short: Full unparsed URL.
   type: wildcard
 threat.enrichments.indicator.url.original:
@@ -9180,7 +9182,7 @@ threat.indicator.url.full:
     in `url.full`, whether this field is reconstructed or present in the event source.
   example: https://www.elastic.co:443/search?q=elasticsearch#top
   flat_name: threat.indicator.url.full
-  level: extended
+  level: custom
   multi_fields:
   - flat_name: threat.indicator.url.full.text
     name: text
@@ -9188,6 +9190,8 @@ threat.indicator.url.full:
   name: full
   normalize: []
   original_fieldset: url
+  otel:
+  - relation: match
   short: Full unparsed URL.
   type: wildcard
 threat.indicator.url.original:
