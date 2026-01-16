@@ -131,7 +131,7 @@ $(VENV_DIR)/touchfile: scripts/requirements.txt
 
 check-docker:
 	docker -v || { echo "please install docker before running the package registry"; exit 1; }
-	docker-compose -v || { echo "please install docker-compose before running the package registry"; exit 1; }
+	docker compose -v || { echo "please install docker compose before running the package registry"; exit 1; }
 
 out:
 	mkdir -p $@
@@ -145,8 +145,8 @@ build-package: out
 
 # Use this target to run the package registry with your modifications to the endpoint package
 run-registry: check-docker build-package
-	docker-compose pull
-	docker-compose up
+	docker compose pull
+	docker compose up
 
 # Use this target to release the package (dev or prod) to the package storage repo
 #release: $(VENV_DIR)
