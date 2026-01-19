@@ -9,6 +9,8 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.created_suspended |
+| Target.process.Ext.protection |
 | Target.process.Ext.token.integrity_level_name |
 | Target.process.entity_id |
 | Target.process.executable |
