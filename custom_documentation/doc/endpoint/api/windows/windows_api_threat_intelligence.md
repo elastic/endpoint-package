@@ -12,7 +12,9 @@ This event is generated when ETW Threat-Intelligence events are generated.
 | Target.process.Ext.created_suspended |
 | Target.process.Ext.desktop_name |
 | Target.process.Ext.protection |
+| Target.process.Ext.token.impersonation_level |
 | Target.process.Ext.token.integrity_level_name |
+| Target.process.Ext.token.sid |
 | Target.process.entity_id |
 | Target.process.executable |
 | Target.process.name |

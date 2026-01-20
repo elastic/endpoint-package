@@ -10,6 +10,7 @@ This event is generated when a device is unmounted.
 |---|
 | volume.device_name |
 | volume.bus_type |
+| volume.size |
 | volume.removable |
 | volume.mount_name |
 | volume.file_system_type |
