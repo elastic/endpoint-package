@@ -1,3 +1,40 @@
+- version: "9.4.0-next"
+  changes:
+    - description: TBD
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/99999
+- version: "9.3.0"
+  changes:
+    - description: Add entropy and header_bytes for Linux file events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/696
+    - description: 'Add Automatic Troubleshooting knowledge base documents'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/705
+    - description: Move Thumbprint enrichment to production
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/706
+    - description: Add script fields to process events.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/704
+    - description: Add WinHTTP/WinINet ETW fields for production
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/703
+    - description: Add process group to macos documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/702
+    - description: map event.module for logs-endpoint.events.api
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/700
+    - description: Fix macOS file access documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/699
+    - description: Add Missing custom doc for thumbprint_sha256
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/698
+    - description: Add process.Ext.trusted to custom docs for already-running process events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/697
 - version: "9.2.0"
   changes:
     - description: Add file.size for Linux
