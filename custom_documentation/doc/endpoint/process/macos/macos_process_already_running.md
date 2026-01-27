@@ -70,6 +70,8 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.command_line |
 | process.parent.entity_id |
 | process.parent.pid |
+| process.group_leader.pid |
+| process.session_leader.pid |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |
