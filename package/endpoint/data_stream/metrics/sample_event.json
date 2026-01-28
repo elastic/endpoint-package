@@ -11,6 +11,12 @@
     "@timestamp": "2022-04-04T18:38:15.7178887Z",
     "Endpoint": {
         "metrics": {
+            "events_cache": {
+                "ancestors": {
+                    "hits": 504,
+                    "misses": 23578
+                }
+            },
             "system_impact": [
                 {
                     "file_events": {
