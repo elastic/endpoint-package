@@ -12,7 +12,7 @@
     "Endpoint": {
         "metrics": {
             "events_cache": {
-                "ancestors": {
+                "trusted_ancestors": {
                     "hits": 504,
                     "misses": 23578
                 }
