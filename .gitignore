@@ -9,3 +9,4 @@ vendor/
 generated/
 .DS_Store
 *.swp
+*.pyc
