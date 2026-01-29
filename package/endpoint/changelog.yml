@@ -1,8 +1,131 @@
-- version: "9.2.0-next"
+- version: "9.4.0-next"
   changes:
     - description: TBD
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/9999
+      link: https://github.com/elastic/endpoint-package/pull/99999
+- version: "9.3.0"
+  changes:
+    - description: Add entropy and header_bytes for Linux file events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/696
+    - description: 'Add Automatic Troubleshooting knowledge base documents'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/705
+    - description: Move Thumbprint enrichment to production
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/706
+    - description: Add script fields to process events.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/704
+    - description: Add WinHTTP/WinINet ETW fields for production
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/703
+    - description: Add process group to macos documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/702
+    - description: map event.module for logs-endpoint.events.api
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/700
+    - description: Fix macOS file access documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/699
+    - description: Add Missing custom doc for thumbprint_sha256
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/698
+    - description: Add process.Ext.trusted to custom docs for already-running process events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/697
+- version: "9.2.0"
+  changes:
+    - description: Add file.size for Linux
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/692
+    - description: Update macOS documentation for device events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/690
+    - description: Add device dashboard
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/687
+    - description: adds dashboard announcement notice to readme
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/688
+    - description: add defend dashboard
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/684
+    - description: Replicating ECS changes for thumbprint field to endpoint package
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/683
+    - description: Expose process.Ext.effective_parent to behavior alert
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/666
+    - description: Add firewall_anti_tamper fields to production configuration
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/682
+    - description: Added custom docs for mount/unmount windows events.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/677
+    - description: Added the new device fields.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/668
+    - description: Remove legacy security events custom documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/669
+    - description: Update docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/675
+    - description: Added documentation for malware alert architecture field
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/674
+    - description: add file.Ext.entropy to docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/673
+    - description: Added pe architecture to alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/670
+    - description: network tamper protection -> tamper protection
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/672
+    - description: custom_documentation update, policy state orphaned
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/671
+    - description: Add process.Ext.ptrace.addr and .data
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/665
+    - description: add RemoteCredentialGuard to security event
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/661
+    - description: Add metric custom documentation for event tracing events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/662
+    - description: Add LDAP (Ldap-Client ETW Provider) API Event fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/664
+    - description: Added device_control to the endpoint response schema.
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/667
+    - description: Add device schema
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/660
+    - description: Add lookup_requested to dns event.actions
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/649
+    - description: Add network.direction to docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/659
+    - description: add destination.domain as part of the alert
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/650
+    - description: Enhance process event metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/653
+    - description: Add security event metrics to custom documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/652
+- version: "9.1.1"
+  changes:
+    - description: add destination.domain as part of alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/650
 - version: "9.1.0"
   changes:
     - description: Add TCC modify event on macOS

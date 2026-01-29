@@ -38,7 +38,9 @@ This event is generated when a file is accessed.
 | file.path |
 | file.size |
 | group.Ext.real.id |
+| group.Ext.real.name |
 | group.id |
+| group.name |
 | host.architecture |
 | host.hostname |
 | host.id |
@@ -54,8 +56,18 @@ This event is generated when a file is accessed.
 | host.os.type |
 | host.os.version |
 | message |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
+| process.entity_id |
+| process.executable |
 | process.name |
+| process.parent.pid |
 | process.pid |
 | user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
+| user.name |
 

@@ -37,6 +37,12 @@ fields:
                   content_name: {}
           created_suspended: {}
           desktop_name: {}
+          effective_parent:
+            fields:
+              name: {}
+              pid: {}
+              entity_id: {}
+              executable: {}
           token:
             fields:
               integrity_level_name: {}
@@ -46,12 +52,14 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
       code_signature:
         fields:
           exists: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           trusted: {}
       thread:
         fields:
@@ -66,6 +74,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                   hash:
                     fields:
@@ -79,6 +88,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                   hash:
                     fields:
@@ -98,6 +108,7 @@ fields:
                       signing_id: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       team_id: {}
                       trusted: {}
                       valid: {}
@@ -147,6 +158,7 @@ fields:
                           exists: {}
                           status: {}
                           subject_name: {}
+                          thumbprint_sha256: {}
                           trusted: {}
                           valid: {}
                       device:
@@ -295,6 +307,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                       valid: {}
                   device:
@@ -364,6 +377,7 @@ fields:
                   signing_id: {}
                   status: {}
                   subject_name: {}
+                  thumbprint_sha256: {}
                   team_id: {}
                   trusted: {}
                   valid: {}

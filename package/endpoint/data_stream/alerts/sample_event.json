@@ -46,6 +46,12 @@
             "protection": "PsProtectedSignerWinSystem",
             "user": "SYSTEM",
             "architecture": "x86_64",
+            "effective_parent": {
+                "name": "Cursor",
+                "pid": 36299,
+                "entity_id": "RtfG94+XaXx+ABnC6Ssx4w",
+                "executable": "/Volumes/Cursor Installer/Cursor.app/Contents/MacOS/Cursor"
+            },
             "token": {
                 "elevation": true,
                 "integrity_level_name": "system",
@@ -299,6 +305,7 @@
                             "exists": true,
                             "status": "trusted",
                             "subject_name": "Microsoft Corporation",
+                            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                             "trusted": true
                         }
                     ],
@@ -313,6 +320,7 @@
                             "exists": true,
                             "status": "trusted",
                             "subject_name": "Microsoft Windows",
+                            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                             "trusted": true
                         }
                     ],

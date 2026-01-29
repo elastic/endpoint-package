@@ -9,6 +9,13 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | Field |
 |---|
 | @timestamp |
+| Target.process.Ext.created_suspended |
+| Target.process.Ext.protection |
+| Target.process.Ext.token.integrity_level_name |
+| Target.process.entity_id |
+| Target.process.executable |
+| Target.process.name |
+| Target.process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -43,17 +50,22 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | host.os.version |
 | message |
 | process.Ext.api.behaviors |
+| process.Ext.api.metadata.return_value |
 | process.Ext.api.name |
+| process.Ext.api.parameters.desired_access |
+| process.Ext.api.parameters.desired_access_numeric |
 | process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
 | process.Ext.protection |
 | process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |

@@ -110,6 +110,7 @@ fields:
           signing_id: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           team_id: {}
           trusted: {}
           valid: {}
@@ -158,6 +159,10 @@ fields:
           ancestry: {}
           architecture: {}
           authentication_id: {}
+          script:
+            fields:
+              path: {}
+              content: {}
           trusted: {}
           trusted_descendant: {}
           ptrace:
@@ -185,6 +190,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
               valid: {}
           created_suspended: {}
@@ -248,6 +254,7 @@ fields:
               signing_id: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               team_id: {}
               trusted: {}
               valid: {}
@@ -304,6 +311,7 @@ fields:
                   exists: {}
                   status: {}
                   subject_name: {}
+                  thumbprint_sha256: {}
                   trusted: {}
                   valid: {}
               user: {}

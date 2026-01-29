@@ -1362,6 +1362,19 @@ process.Ext.code_signature.subject_name:
   normalize: []
   short: Subject name of the code signer
   type: keyword
+process.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 process.Ext.code_signature.trusted:
   dashed_name: process-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -1790,6 +1803,25 @@ process.Ext.relative_file_name_modify_time:
   normalize: []
   short: Number of seconds since the process's name was modified
   type: double
+process.Ext.script.content:
+  dashed_name: process-Ext-script-content
+  description: Content of the script being executed
+  flat_name: process.Ext.script.content
+  level: custom
+  name: Ext.script.content
+  normalize: []
+  short: Content of the script being executed
+  type: match_only_text
+process.Ext.script.path:
+  dashed_name: process-Ext-script-path
+  description: Path to the script being executed
+  flat_name: process.Ext.script.path
+  ignore_above: 1024
+  level: custom
+  name: Ext.script.path
+  normalize: []
+  short: Path to the script being executed
+  type: keyword
 process.Ext.session:
   dashed_name: process-Ext-session
   description: Session information for the current process
@@ -2105,6 +2137,20 @@ process.code_signature.team_id:
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
   type: keyword
+process.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
+  type: keyword
 process.code_signature.trusted:
   dashed_name: process-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -2402,6 +2448,20 @@ process.parent.Ext.code_signature.subject_name:
   original_fieldset: process
   short: Subject name of the code signer
   type: keyword
+process.parent.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-parent-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  original_fieldset: process
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 process.parent.Ext.code_signature.trusted:
   dashed_name: process-parent-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -2577,6 +2637,20 @@ process.parent.code_signature.team_id:
   normalize: []
   original_fieldset: code_signature
   short: The team identifier used to sign the process.
+  type: keyword
+process.parent.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-parent-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.parent.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
   type: keyword
 process.parent.code_signature.trusted:
   dashed_name: process-parent-code-signature-trusted

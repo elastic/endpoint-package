@@ -45,6 +45,7 @@
                     "exists": true,
                     "status": "trusted",
                     "subject_name": "Microsoft Windows",
+                    "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                     "trusted": true
                 }
             ]
@@ -106,6 +107,11 @@
             "platform": "windows",
             "type": "windows",
             "version": "22H2 (10.0.22621.963)"
+        }
+    },
+    "http": {
+        "request": {
+            "method": "GET"
         }
     },
     "message": "Endpoint API event - hand-crafted with a superset of fields",
@@ -225,6 +231,7 @@
                     "exists": true,
                     "status": "errorBadDigest",
                     "subject_name": "Microsoft Windows",
+                    "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                     "trusted": false
                 }
             ],
@@ -247,6 +254,7 @@
             "exists": true,
             "status": "errorBadDigest",
             "subject_name": "Microsoft Windows",
+            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
             "trusted": false
         },
         "command_line": "",
@@ -284,6 +292,7 @@
                             "exists": true,
                             "status": "trusted",
                             "subject_name": "Microsoft Windows",
+                            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                             "trusted": true
                         }
                     ],
@@ -301,6 +310,9 @@
             },
             "id": 11628
         }
+    },
+    "url": {
+        "full": "https://www.example.com/"
     },
     "user": {
         "domain": "DESKTOP-OCG8CR6",

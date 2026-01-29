@@ -83,6 +83,7 @@
                 {
                     "trusted": true,
                     "subject_name": "Microsoft Windows Publisher",
+                    "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
                     "exists": true,
                     "status": "trusted"
                 }
@@ -114,6 +115,10 @@
             },
             "relative_file_creation_time": 48628704.4029488,
             "relative_file_name_modify_time": 48628704.4029488,
+            "script": {
+                "path": "C:\\Scripts\\example.ps1",
+                "content": "Write-Host 'Hello, World!'"
+            },
             "session_info": {
                 "logon_type": "Interactive",
                 "client_address": "127.0.0.1",
@@ -169,6 +174,7 @@
         "code_signature": {
             "trusted": true,
             "subject_name": "Microsoft Windows Publisher",
+            "thumbprint_sha256": "8b9731a4b83e801cda7b918f8194608e91f86b3a86ffb6bb24230b1cc28e1a54",
             "exists": true,
             "status": "trusted"
         },

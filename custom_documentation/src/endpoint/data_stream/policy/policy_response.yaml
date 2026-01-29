@@ -46,6 +46,8 @@ fields:
   - Endpoint.policy.applied.response.configurations.device_control.status
   - Endpoint.policy.applied.response.configurations.events.concerned_actions
   - Endpoint.policy.applied.response.configurations.events.status
+  - Endpoint.policy.applied.response.configurations.firewall_anti_tamper.concerned_actions
+  - Endpoint.policy.applied.response.configurations.firewall_anti_tamper.status
   - Endpoint.policy.applied.response.configurations.host_isolation.concerned_actions
   - Endpoint.policy.applied.response.configurations.host_isolation.status
   - Endpoint.policy.applied.response.configurations.logging.concerned_actions

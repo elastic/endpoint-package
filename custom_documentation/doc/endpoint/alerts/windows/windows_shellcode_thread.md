@@ -48,12 +48,14 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Target.process.Ext.dll.Ext.code_signature.exists |
 | Target.process.Ext.dll.Ext.code_signature.status |
 | Target.process.Ext.dll.Ext.code_signature.subject_name |
+| Target.process.Ext.dll.Ext.code_signature.thumbprint_sha256 |
 | Target.process.Ext.dll.Ext.code_signature.trusted |
 | Target.process.Ext.dll.Ext.mapped_address |
 | Target.process.Ext.dll.Ext.mapped_size |
 | Target.process.Ext.dll.code_signature.exists |
 | Target.process.Ext.dll.code_signature.status |
 | Target.process.Ext.dll.code_signature.subject_name |
+| Target.process.Ext.dll.code_signature.thumbprint_sha256 |
 | Target.process.Ext.dll.code_signature.trusted |
 | Target.process.Ext.dll.hash.md5 |
 | Target.process.Ext.dll.hash.sha1 |
@@ -95,6 +97,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Target.process.parent.Ext.code_signature.exists |
 | Target.process.parent.Ext.code_signature.status |
 | Target.process.parent.Ext.code_signature.subject_name |
+| Target.process.parent.Ext.code_signature.thumbprint_sha256 |
 | Target.process.parent.Ext.code_signature.trusted |
 | Target.process.parent.Ext.protection |
 | Target.process.parent.Ext.user |
@@ -103,6 +106,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Target.process.parent.code_signature.exists |
 | Target.process.parent.code_signature.status |
 | Target.process.parent.code_signature.subject_name |
+| Target.process.parent.code_signature.thumbprint_sha256 |
 | Target.process.parent.code_signature.trusted |
 | Target.process.parent.command_line |
 | Target.process.parent.entity_id |
@@ -183,12 +187,14 @@ This alert is generated when a Shellcode Threat alert occurs.
 | process.Ext.dll.Ext.code_signature.exists |
 | process.Ext.dll.Ext.code_signature.status |
 | process.Ext.dll.Ext.code_signature.subject_name |
+| process.Ext.dll.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.dll.Ext.code_signature.trusted |
 | process.Ext.dll.Ext.mapped_address |
 | process.Ext.dll.Ext.mapped_size |
 | process.Ext.dll.code_signature.exists |
 | process.Ext.dll.code_signature.status |
 | process.Ext.dll.code_signature.subject_name |
+| process.Ext.dll.code_signature.thumbprint_sha256 |
 | process.Ext.dll.code_signature.trusted |
 | process.Ext.dll.hash.md5 |
 | process.Ext.dll.hash.sha1 |
@@ -217,6 +223,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | process.parent.Ext.code_signature.exists |
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |
+| process.parent.Ext.code_signature.thumbprint_sha256 |
 | process.parent.Ext.code_signature.trusted |
 | process.parent.Ext.protection |
 | process.parent.Ext.user |
@@ -225,6 +232,7 @@ This alert is generated when a Shellcode Threat alert occurs.
 | process.parent.code_signature.exists |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
+| process.parent.code_signature.thumbprint_sha256 |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
 | process.parent.entity_id |

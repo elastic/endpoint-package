@@ -24,6 +24,7 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
   ecs:
     fields:
@@ -38,6 +39,7 @@ fields:
       hash: {}
       id: {}
       ingested: {}
+      module: {}
       provider: {}
       outcome: {}
       start: {}
@@ -75,6 +77,14 @@ fields:
     fields:
       transport: {}
       type: {}
+  url:
+    fields:
+      full: {}
+  http:
+    fields:
+      request:
+        fields:
+          method: {}
   Target:
     fields:
       process:
@@ -125,12 +135,14 @@ fields:
               exists: {}
               status: {}
               subject_name: {}
+              thumbprint_sha256: {}
               trusted: {}
       code_signature:
         fields:
           exists: {}
           status: {}
           subject_name: {}
+          thumbprint_sha256: {}
           trusted: {}
       thread:
         fields:
@@ -157,6 +169,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                   hash:
                     fields:
@@ -175,6 +188,7 @@ fields:
                       exists: {}
                       status: {}
                       subject_name: {}
+                      thumbprint_sha256: {}
                       trusted: {}
                       valid: {}
                   hash:

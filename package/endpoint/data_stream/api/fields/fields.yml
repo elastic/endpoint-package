@@ -950,6 +950,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: Ext.code_signature.trusted
       level: custom
       type: boolean
@@ -1061,6 +1069,14 @@
         In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` < `event.created` < `event.ingested`.'
       example: '2016-05-23T08:05:35.101Z'
       default_field: false
+    - name: module
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Name of the module this data is coming from.
+
+        If your monitoring agent supports the concept of modules or plugins to process events of a given source (e.g. Apache logs), `event.module` should contain the name of this module.'
+      example: apache
     - name: outcome
       level: core
       type: keyword
@@ -1245,6 +1261,21 @@
       type: long
       description: Seconds the host has been up.
       example: 1325
+- name: http
+  title: HTTP
+  group: 2
+  description: Fields related to HTTP activity. Use the `url` field set to store the url of the request.
+  type: group
+  default_field: true
+  fields:
+    - name: request.method
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'HTTP request method.
+
+        The value should retain its casing from the original event. For example, `GET`, `get`, and `GeT` are all considered valid values for this field.'
+      example: POST
 - name: network
   title: Network
   group: 2
@@ -1831,6 +1862,14 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: Ext.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: Ext.code_signature.trusted
       level: custom
@@ -2636,6 +2675,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: code_signature.thumbprint_sha256
+      level: extended
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: code_signature.trusted
       level: extended
       type: boolean
@@ -2806,6 +2853,14 @@
       description: Subject name of the code signer
       example: Microsoft Corporation
       default_field: false
+    - name: thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
+      default_field: false
     - name: thread.Ext.call_stack_final_hook_module.code_signature.trusted
       level: custom
       type: boolean
@@ -2869,6 +2924,14 @@
       ignore_above: 1024
       description: Subject name of the code signer
       example: Microsoft Corporation
+      default_field: false
+    - name: thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+      level: custom
+      type: keyword
+      ignore_above: 64
+      description: Certificate SHA256 hash that uniquely identifies the code signer.
+      example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+      pattern: ^[0-9a-f]{64}$
       default_field: false
     - name: thread.Ext.call_stack_final_user_module.code_signature.trusted
       level: custom
@@ -2953,6 +3016,22 @@
       format: string
       description: Thread ID.
       example: 4242
+- name: url
+  title: URL
+  group: 2
+  description: URL fields provide support for complete or partial URLs, and supports the breaking down into scheme, domain, path, and so on.
+  type: group
+  default_field: true
+  fields:
+    - name: full
+      level: extended
+      type: wildcard
+      multi_fields:
+        - name: text
+          type: match_only_text
+          default_field: false
+      description: If full URLs are important to your use case, they should be stored in `url.full`, whether this field is reconstructed or present in the event source.
+      example: https://www.elastic.co:443/search?q=elasticsearch#top
 - name: user
   title: User
   group: 2

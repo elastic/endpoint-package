@@ -28,10 +28,13 @@ This event is generated when a file is created.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.entropy |
+| file.Ext.header_bytes |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
 | file.path |
+| file.size |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |

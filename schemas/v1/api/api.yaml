@@ -1638,6 +1638,19 @@ dll.Ext.code_signature.subject_name:
   normalize: []
   short: Subject name of the code signer
   type: keyword
+dll.Ext.code_signature.thumbprint_sha256:
+  dashed_name: dll-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: dll.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 dll.Ext.code_signature.trusted:
   dashed_name: dll-Ext-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -2026,6 +2039,21 @@ event.ingested:
   normalize: []
   short: Timestamp when an event arrived in the central data store.
   type: date
+event.module:
+  dashed_name: event-module
+  description: 'Name of the module this data is coming from.
+
+    If your monitoring agent supports the concept of modules or plugins to process
+    events of a given source (e.g. Apache logs), `event.module` should contain the
+    name of this module.'
+  example: apache
+  flat_name: event.module
+  ignore_above: 1024
+  level: core
+  name: module
+  normalize: []
+  short: Name of the module this data is coming from.
+  type: keyword
 event.outcome:
   allowed_values:
   - description: Indicates that this event describes a failed result. A common example
@@ -2490,6 +2518,20 @@ host.uptime:
   normalize: []
   short: Seconds the host has been up.
   type: long
+http.request.method:
+  dashed_name: http-request-method
+  description: 'HTTP request method.
+
+    The value should retain its casing from the original event. For example, `GET`,
+    `get`, and `GeT` are all considered valid values for this field.'
+  example: POST
+  flat_name: http.request.method
+  ignore_above: 1024
+  level: extended
+  name: request.method
+  normalize: []
+  short: HTTP request method.
+  type: keyword
 message:
   dashed_name: message
   description: 'For log events the message field contains the log message, optimized
@@ -3597,6 +3639,19 @@ process.Ext.code_signature.subject_name:
   name: Ext.code_signature.subject_name
   normalize: []
   short: Subject name of the code signer
+  type: keyword
+process.Ext.code_signature.thumbprint_sha256:
+  dashed_name: process-Ext-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.Ext.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: Ext.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 process.Ext.code_signature.trusted:
   dashed_name: process-Ext-code-signature-trusted
@@ -5076,6 +5131,20 @@ process.code_signature.subject_name:
   original_fieldset: code_signature
   short: Subject name of the code signer
   type: keyword
+process.code_signature.thumbprint_sha256:
+  beta: This field is beta and subject to change.
+  dashed_name: process-code-signature-thumbprint-sha256
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: extended
+  name: thumbprint_sha256
+  normalize: []
+  original_fieldset: code_signature
+  pattern: ^[0-9a-f]{64}$
+  short: SHA256 hash of the certificate.
+  type: keyword
 process.code_signature.trusted:
   dashed_name: process-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -5366,6 +5435,19 @@ process.thread.Ext.call_stack_final_hook_module.code_signature.subject_name:
   normalize: []
   short: Subject name of the code signer
   type: keyword
+process.thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256:
+  dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: thread.Ext.call_stack_final_hook_module.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
+  type: keyword
 process.thread.Ext.call_stack_final_hook_module.code_signature.trusted:
   dashed_name: process-thread-Ext-call-stack-final-hook-module-code-signature-trusted
   description: 'Stores the trust status of the certificate chain.
@@ -5473,6 +5555,19 @@ process.thread.Ext.call_stack_final_user_module.code_signature.subject_name:
   name: thread.Ext.call_stack_final_user_module.code_signature.subject_name
   normalize: []
   short: Subject name of the code signer
+  type: keyword
+process.thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256:
+  dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-thumbprint-sha256
+  default_field: false
+  description: Certificate SHA256 hash that uniquely identifies the code signer.
+  example: c0f23a8eb1cba0ccaa88483b5a234c96e4bdfec719bf458024e68c2a8183476b
+  flat_name: process.thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+  ignore_above: 64
+  level: custom
+  name: thread.Ext.call_stack_final_user_module.code_signature.thumbprint_sha256
+  normalize: []
+  pattern: ^[0-9a-f]{64}$
+  short: Certificate SHA256 hash that uniquely identifies the code signer.
   type: keyword
 process.thread.Ext.call_stack_final_user_module.code_signature.trusted:
   dashed_name: process-thread-Ext-call-stack-final-user-module-code-signature-trusted
@@ -5614,6 +5709,21 @@ process.thread.id:
   normalize: []
   short: Thread ID.
   type: long
+url.full:
+  dashed_name: url-full
+  description: If full URLs are important to your use case, they should be stored
+    in `url.full`, whether this field is reconstructed or present in the event source.
+  example: https://www.elastic.co:443/search?q=elasticsearch#top
+  flat_name: url.full
+  level: extended
+  multi_fields:
+  - flat_name: url.full.text
+    name: text
+    type: match_only_text
+  name: full
+  normalize: []
+  short: Full unparsed URL.
+  type: wildcard
 user.domain:
   dashed_name: user-domain
   description: 'Name of the directory the user is a member of.

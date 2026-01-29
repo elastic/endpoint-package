@@ -48,6 +48,7 @@ This event is generated when a process is created or exits.
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
+| process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
 | process.Ext.command_line_truncated |
 | process.Ext.created_suspended |
@@ -86,6 +87,7 @@ This event is generated when a process is created or exits.
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
@@ -100,6 +102,7 @@ This event is generated when a process is created or exits.
 | process.parent.Ext.code_signature.exists |
 | process.parent.Ext.code_signature.status |
 | process.parent.Ext.code_signature.subject_name |
+| process.parent.Ext.code_signature.thumbprint_sha256 |
 | process.parent.Ext.code_signature.trusted |
 | process.parent.Ext.command_line_truncated |
 | process.parent.Ext.real.entity_id |
@@ -109,6 +112,7 @@ This event is generated when a process is created or exits.
 | process.parent.code_signature.exists |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
+| process.parent.code_signature.thumbprint_sha256 |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
 | process.parent.entity_id |
