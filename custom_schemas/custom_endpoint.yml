@@ -843,6 +843,28 @@
       enabled: false
       description: An array of performance information about each malicious behavior rule
 
+    - name: metrics.events_cache
+      level: custom
+      type: object
+      enabled: false
+      description: An object of metrics information related to the event cache
+
+    - name: metrics.events_cache.trusted_ancestors
+      level: custom
+      type: object
+      enabled: false
+      description: An object for metrics information related to the trusted ancestor feature
+
+    - name: metrics.events_cache.trusted_ancestors.hits
+      level: custom
+      type: double
+      description: Number of successful trusted ancestor lookups
+
+    - name: metrics.events_cache.trusted_ancestors.misses
+      level: custom
+      type: double
+      description: Number of failed trusted ancestor lookups
+
     - name: metrics.malicious_behavior_rules.endpoint_uptime_percent
       level: custom
       type: double

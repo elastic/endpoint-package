@@ -625,6 +625,44 @@ Endpoint.metrics.event_filter.active_user_count:
   normalize: []
   short: The number of active user event filters
   type: long
+Endpoint.metrics.events_cache:
+  dashed_name: Endpoint-metrics-events-cache
+  description: An object of metrics information related to the event cache
+  enabled: false
+  flat_name: Endpoint.metrics.events_cache
+  level: custom
+  name: metrics.events_cache
+  normalize: []
+  short: An object of metrics information related to the event cache
+  type: object
+Endpoint.metrics.events_cache.trusted_ancestors:
+  dashed_name: Endpoint-metrics-events-cache-trusted-ancestors
+  description: An object for metrics information related to the trusted ancestor feature
+  enabled: false
+  flat_name: Endpoint.metrics.events_cache.trusted_ancestors
+  level: custom
+  name: metrics.events_cache.trusted_ancestors
+  normalize: []
+  short: An object for metrics information related to the trusted ancestor feature
+  type: object
+Endpoint.metrics.events_cache.trusted_ancestors.hits:
+  dashed_name: Endpoint-metrics-events-cache-trusted-ancestors-hits
+  description: Number of successful trusted ancestor lookups
+  flat_name: Endpoint.metrics.events_cache.trusted_ancestors.hits
+  level: custom
+  name: metrics.events_cache.trusted_ancestors.hits
+  normalize: []
+  short: Number of successful trusted ancestor lookups
+  type: double
+Endpoint.metrics.events_cache.trusted_ancestors.misses:
+  dashed_name: Endpoint-metrics-events-cache-trusted-ancestors-misses
+  description: Number of failed trusted ancestor lookups
+  flat_name: Endpoint.metrics.events_cache.trusted_ancestors.misses
+  level: custom
+  name: metrics.events_cache.trusted_ancestors.misses
+  normalize: []
+  short: Number of failed trusted ancestor lookups
+  type: double
 Endpoint.metrics.malicious_behavior_rules:
   dashed_name: Endpoint-metrics-malicious-behavior-rules
   description: An array of performance information about each malicious behavior rule
