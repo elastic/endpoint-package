@@ -2641,7 +2641,6 @@ winlog.event_data.CountOfCredentialsReturned:
   description: Credential returned count.
   example: '0'
   flat_name: winlog.event_data.CountOfCredentialsReturned
-  ignore_above: 1024
   level: custom
   name: event_data.CountOfCredentialsReturned
   normalize: []
