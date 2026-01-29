@@ -863,7 +863,7 @@
     - name: metrics.events_cache.trusted_ancestors.misses
       level: custom
       type: double
-      description: Number of successful trusted ancestor lookups
+      description: Number of failed trusted ancestor lookups
 
     - name: metrics.malicious_behavior_rules.endpoint_uptime_percent
       level: custom

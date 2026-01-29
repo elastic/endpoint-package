@@ -656,12 +656,12 @@ Endpoint.metrics.events_cache.trusted_ancestors.hits:
   type: double
 Endpoint.metrics.events_cache.trusted_ancestors.misses:
   dashed_name: Endpoint-metrics-events-cache-trusted-ancestors-misses
-  description: Number of successful trusted ancestor lookups
+  description: Number of failed trusted ancestor lookups
   flat_name: Endpoint.metrics.events_cache.trusted_ancestors.misses
   level: custom
   name: metrics.events_cache.trusted_ancestors.misses
   normalize: []
-  short: Number of successful trusted ancestor lookups
+  short: Number of failed trusted ancestor lookups
   type: double
 Endpoint.metrics.malicious_behavior_rules:
   dashed_name: Endpoint-metrics-malicious-behavior-rules
