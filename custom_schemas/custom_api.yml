@@ -61,6 +61,7 @@
           "multiple_polling_processes" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed
           "pid_spoofing" - The acting process details may have been spoofed to hide the true origin
           "legacy_api" - a deprecated or superseded API was called
+          "early_bird" - the observed activity occurred in a process started suspended before its initial thread was first resumed, i.e., up to and including the first ResumeThread.
       example: "[ \"cross-process\", \"rapid_background_polling\", \"multiple_polling_processes\", \"native_api\", \"shellcode\" ]"
 
     - name: metadata
