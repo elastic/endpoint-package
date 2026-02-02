@@ -101,6 +101,8 @@ This is an internal state management document that includes metrics on Endpoint'
 | Endpoint.metrics.documents_volume.volume_device_events.suppressed_count |
 | Endpoint.metrics.event_filter.active_global_count |
 | Endpoint.metrics.event_filter.active_user_count |
+| Endpoint.metrics.events_cache.trusted_ancestors.hits |
+| Endpoint.metrics.events_cache.trusted_ancestors.misses |
 | Endpoint.metrics.malicious_behavior_rules.endpoint_uptime_percent |
 | Endpoint.metrics.malicious_behavior_rules.id |
 | Endpoint.metrics.memory.endpoint.private.latest |
