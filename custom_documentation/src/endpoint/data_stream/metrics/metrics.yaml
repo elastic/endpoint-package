@@ -33,6 +33,23 @@ fields:
   - Endpoint.metrics.cpu.endpoint.histogram.values
   - Endpoint.metrics.cpu.endpoint.latest
   - Endpoint.metrics.cpu.endpoint.mean
+  - Endpoint.metrics.diag_documents_volume.dns_events.sent_bytes
+  - Endpoint.metrics.diag_documents_volume.dns_events.sent_count
+  - Endpoint.metrics.diag_documents_volume.dns_events.suppressed_bytes
+  - Endpoint.metrics.diag_documents_volume.dns_events.suppressed_count
+  - Endpoint.metrics.diag_documents_volume.overall.sent_bytes
+  - Endpoint.metrics.diag_documents_volume.overall.sent_count
+  - Endpoint.metrics.diag_documents_volume.overall.suppressed_bytes
+  - Endpoint.metrics.diag_documents_volume.overall.suppressed_count
+  - Endpoint.metrics.diag_documents_volume.process_events.sent_bytes
+  - Endpoint.metrics.diag_documents_volume.process_events.sent_count
+  - Endpoint.metrics.diag_documents_volume.process_events.sources.sent_bytes
+  - Endpoint.metrics.diag_documents_volume.process_events.sources.sent_count
+  - Endpoint.metrics.diag_documents_volume.process_events.sources.source
+  - Endpoint.metrics.diag_documents_volume.process_events.sources.suppressed_bytes
+  - Endpoint.metrics.diag_documents_volume.process_events.sources.suppressed_count
+  - Endpoint.metrics.diag_documents_volume.process_events.suppressed_bytes
+  - Endpoint.metrics.diag_documents_volume.process_events.suppressed_count
   - Endpoint.metrics.disks.device
   - Endpoint.metrics.disks.endpoint_drive
   - Endpoint.metrics.disks.free
