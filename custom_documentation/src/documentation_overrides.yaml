@@ -1,0 +1,211 @@
+- name: Endpoint.policy.applied.artifacts.global.channel
+  default:
+    description: The channel of the artifact.
+    example: stable
+    type: keyword
+  os:
+    linux:
+      description: The channel of the linux artifact.
+    windows:
+      description: The channel of the windows artifact.
+    macos:
+      description: The channel of the macos artifact.
+  # event:
+  #   linux_malicious_behavior_alert:
+  #     description: The channel of the artifact for linux malicious behavior alert.
+  #     example: stable
+
+- name: agent.type
+  default:
+    example: endpoint
+
+- name: Endpoint.policy.applied.artifacts.global.identifiers.name
+  default:
+    example: global-configuration-v1
+
+- name: Endpoint.policy.applied.artifacts.global.snapshot
+  default:
+    example: "latest"
+
+- name: Endpoint.policy.applied.artifacts.user.identifiers.name
+  os:
+    linux:
+      example: endpoint-trustlist-linux-v1
+    windows:
+      example: endpoint-trustlist-windows-v1
+    macos:
+      example: endpoint-trustlist-macos-v1
+
+- name: Endpoint.policy.applied.artifacts.user.version
+  default:
+    example: "1.0.0"
+
+- name: agent.build.original
+  default:
+    example: "version: 9.1.0, compiled: Mon Jun 2 15:00:00 2025, branch: main, commit: 3fd26249705c5a467960870702589686ef04da43"
+
+- name: data_stream.dataset
+  default:
+    example: endpoint.alerts
+
+- name: event.action
+  default:
+    description: |-
+      Possible values for Endpoint include:
+      - elastic_endpoint_telemetry
+      - endpoint_metadata
+      - endpoint_policy_response
+      - endpoint_metrics
+      - endpoint_heartbeat
+      - malicious_file
+      - endpoint_unquarantine
+      - lookup_result
+      - lookup_requested
+      - creation
+      - deletion
+      - demand
+      - clone
+      - link
+      - exchange
+      - execution
+      - modification
+      - open
+      - query
+      - save
+      - overwrite
+      - rename
+      - extended_attributes_delete
+      - mount
+      - unknown
+      - load
+      - connection_accepted
+      - connection_attempted
+      - disconnect_received
+      - http_request
+      - udp_datagram_outgoing
+      - udp_datagram_incoming
+      - icmp_outgoing
+      - icmp_incoming
+      - already_running
+      - fork
+      - end
+      - exec
+      - gid_change
+      - start
+      - session_id_change
+      - uid_change
+      - remote_thread
+      - process_open
+      - text_output
+      - memfd_create
+      - shmget
+      - ptrace
+      - load_module
+      - log_on
+      - log_off
+      - workstation_locked
+      - workstation_unlocked
+      - ssh_log_on
+      - rdp_log_on
+      - service-installed
+      - scheduled-task-created
+      - scheduled-task-updated
+      - added-user-account
+      - group-membership-enumerated
+      - user-member-enumerated
+      - token-right-adjusted
+      - network-share-object-added
+      - network-share-object-access-checked
+      - vault-credentials-were-read
+      - gatekeeper_override
+      - mbr-overwrite
+      - files-encrypted
+      - canary-activity
+      - rule_detection
+      - rule_prevention
+      - api
+      - launch_daemon
+      - mount
+      - unmount
+
+- name: event.category
+  default:
+    type: array of keyword
+    example: '["malware", "intrusion_detection"]'
+    description: |-
+      Possible values for Endpoint include:
+        - authentication
+        - configuration
+        - driver
+        - file
+        - host
+        - iam
+        - intrusion_detection
+        - library
+        - malware
+        - network
+        - process
+        - registry
+        - session
+        - rule
+        - credential_hardening
+        - api
+        - volume_device
+        - security
+
+- name: event.dataset
+  default:
+    example: endpoint.alerts
+
+- name: event.module
+  default:
+    example: endpoint
+    description: |-
+      The module for Endpoint is always `endpoint`
+
+- name: event.risk_score
+  default:
+    example: "99"
+    description: Endpoint risk score uses a scale of 0 to 100, where 100 is the highest risk.
+
+- name: event.severity
+  default:
+    example: "73"
+    description: Endpoint severity uses a scale of 0 to 100, where 100 is the highest risk.
+
+- name: event.type
+  default:
+    example: '["info", "allowed"]'
+    type: array of keyword
+    description: |-
+      Possible values for Endpoint include:
+      - allowed
+      - change
+      - creation
+      - deletion
+      - denied
+      - end
+      - info
+      - protocol
+      - start
+      - access
+      - admin
+      - user
+      - group
+
+- name: event.kind
+  default:
+    description: |-
+      Possible values for Endpoint include:
+        - alert
+        - event
+        - metric
+        - state
+
+- name: event.outcome
+  default:
+    description: |-
+      Possible values for Endpoint include:
+        - success
+        - failure
+        - unknown
