@@ -103,6 +103,7 @@ fields:
   process:
     fields:
       args_count: {}
+      command_line: {}
       pid: {}
       name: {}
       executable: {}

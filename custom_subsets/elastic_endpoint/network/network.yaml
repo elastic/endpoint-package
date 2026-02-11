@@ -94,6 +94,7 @@ fields:
   process:
     fields:
       pid: {}
+      command_line: {}
       name: {}
       executable: {}
       entity_id: {}
