@@ -2367,6 +2367,29 @@ process.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.command_line:
+  dashed_name: process-command-line
+  description: 'Full command line that started the process, including the absolute
+    path to the executable, and all arguments.
+
+    Some arguments may be filtered to protect sensitive information.'
+  example: /usr/bin/ssh -l user 10.0.0.16
+  flat_name: process.command_line
+  level: extended
+  multi_fields:
+  - flat_name: process.command_line.caseless
+    ignore_above: 1024
+    name: caseless
+    normalizer: lowercase
+    type: keyword
+  - flat_name: process.command_line.text
+    name: text
+    norms: false
+    type: text
+  name: command_line
+  normalize: []
+  short: Full command line that started the process.
+  type: wildcard
 process.entity_id:
   dashed_name: process-entity-id
   description: 'Unique identifier for the process.

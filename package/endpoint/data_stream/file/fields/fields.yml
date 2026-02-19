@@ -1201,6 +1201,22 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: command_line
+      level: extended
+      type: wildcard
+      multi_fields:
+        - name: caseless
+          type: keyword
+          normalizer: lowercase
+          ignore_above: 1024
+        - name: text
+          type: text
+          norms: false
+      description: 'Full command line that started the process, including the absolute path to the executable, and all arguments.
+
+        Some arguments may be filtered to protect sensitive information.'
+      example: /usr/bin/ssh -l user 10.0.0.16
+      default_field: false
     - name: entity_id
       level: extended
       type: keyword
