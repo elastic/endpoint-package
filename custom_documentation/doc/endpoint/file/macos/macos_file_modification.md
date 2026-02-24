@@ -40,6 +40,8 @@ This event is generated when a file is modified.
 | file.name |
 | file.path |
 | file.size |
+| file.origin_url |
+| file.origin_referrer_url |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
