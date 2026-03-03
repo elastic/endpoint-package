@@ -1,5 +1,8 @@
 - version: "9.4.0-next"
   changes:
+    - description: Add Linux ransomware support
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/724
     - description: TBD
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/99999
