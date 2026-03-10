@@ -381,12 +381,12 @@
       default_field: false
     - name: metrics.events_cache.trusted_ancestors.hits
       level: custom
-      type: double
+      type: unsigned_long
       description: Number of successful trusted ancestor lookups
       default_field: false
     - name: metrics.events_cache.trusted_ancestors.misses
       level: custom
-      type: double
+      type: unsigned_long
       description: Number of failed trusted ancestor lookups
       default_field: false
     - name: metrics.malicious_behavior_rules
