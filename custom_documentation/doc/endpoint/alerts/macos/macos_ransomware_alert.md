@@ -1,8 +1,8 @@
-# Linux Ransomware Alert
+# Macos Ransomware Alert
 
-- OS: Linux
+- OS: macOS
 - Data Stream: `logs-endpoint.alerts-*`
-- KQL: `event.code : "ransomware" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.code : "ransomware" and event.dataset : "endpoint.alerts" and event.module : "endpoint" and host.os.type : "macos"`
 
 This alert is generated when a Ransomware alert occurs.
 

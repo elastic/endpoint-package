@@ -1,14 +1,14 @@
 overview:
-  name: Linux Ransomware Alert
+  name: Macos Ransomware Alert
   description: 'This alert is generated when a Ransomware alert occurs.'
 identification:
   filter:
     event.code: ransomware
     event.dataset: endpoint.alerts
     event.module: endpoint
-    host.os.type: linux
+    host.os.type: macos
   os:
-  - linux
+  - macos
   data_stream: logs-endpoint.alerts-*
 fields:
   endpoint:
