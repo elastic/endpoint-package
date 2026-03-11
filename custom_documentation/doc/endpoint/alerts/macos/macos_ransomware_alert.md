@@ -125,6 +125,8 @@ This alert is generated when a Ransomware alert occurs.
 | process.Ext.user |
 | process.args |
 | process.args_count |
+| process.code_signature.team_id |
+| process.code_signature.signing_id |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
