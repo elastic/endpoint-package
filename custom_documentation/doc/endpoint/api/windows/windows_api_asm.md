@@ -50,6 +50,7 @@ This event is generated when ETW AttackSurfaceMonitor events are generated.
 | host.os.version |
 | message |
 | process.Ext.api.behaviors |
+| process.Ext.api.metadata.security_descriptor |
 | process.Ext.api.name |
 | process.Ext.api.parameters.device |
 | process.Ext.api.parameters.io_control_code |
