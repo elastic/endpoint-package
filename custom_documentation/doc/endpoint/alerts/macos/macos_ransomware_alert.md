@@ -147,6 +147,8 @@ This alert is generated when a Ransomware alert occurs.
 | process.parent.Ext.user |
 | process.parent.args |
 | process.parent.args_count |
+| process.parent.code_signature.team_id |
+| process.parent.code_signature.signing_id |
 | process.parent.code_signature.exists |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
