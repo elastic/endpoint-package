@@ -869,6 +869,36 @@
       description: >
         Whether or not the process is a descendent of a trusted application
 
+    - name: Ext.genai
+      level: custom
+      type: object
+      short: GenAI tool identification fields for AI agent observability
+      description: >
+        GenAI tool identification fields. When the endpoint identifies a process
+        as a known GenAI development tool (Cursor, Claude Code, Copilot, etc.),
+        these fields are populated on the process event and propagated to
+        descendant processes. Enables detection rules to distinguish AI-agent-
+        initiated actions from human-initiated ones at OS-level chokepoints.
+        See https://github.com/elastic/endpoint-dev/issues/18345
+
+    - name: Ext.genai.tool_name
+      level: custom
+      type: keyword
+      short: Canonical name of the GenAI tool
+      description: >
+        Canonical name of the GenAI tool that originated this process or its
+        ancestor. Values include: cursor, claude_code, codex, copilot, ollama,
+        gemini_cli. Set by deterministic exact process name matching.
+
+    - name: Ext.genai.is_genai_descendant
+      level: custom
+      type: boolean
+      short: Whether this process is a descendant of a GenAI tool process
+      description: >
+        True when this process was spawned (directly or transitively) by a
+        known GenAI tool process. Follows the same propagation pattern as
+        Ext.trusted_descendant via the process cache.
+
     - name: Ext.windows
       level: custom
       type: object
