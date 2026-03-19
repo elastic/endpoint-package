@@ -2019,6 +2019,33 @@ process.Ext.trusted_descendant:
   normalize: []
   short: Whether or not the process is a descendent of a trusted application
   type: boolean
+process.Ext.genai:
+  dashed_name: process-Ext-genai
+  description: GenAI tool identification fields for AI agent observability
+  flat_name: process.Ext.genai
+  level: custom
+  name: Ext.genai
+  normalize: []
+  short: GenAI tool identification fields
+  type: object
+process.Ext.genai.tool_name:
+  dashed_name: process-Ext-genai-tool-name
+  description: Canonical name of the GenAI tool (cursor, claude_code, copilot, etc.)
+  flat_name: process.Ext.genai.tool_name
+  level: custom
+  name: Ext.genai.tool_name
+  normalize: []
+  short: GenAI tool name
+  type: keyword
+process.Ext.genai.is_genai_descendant:
+  dashed_name: process-Ext-genai-is-genai-descendant
+  description: Whether this process is a descendant of a GenAI tool process
+  flat_name: process.Ext.genai.is_genai_descendant
+  level: custom
+  name: Ext.genai.is_genai_descendant
+  normalize: []
+  short: Whether process descends from a GenAI tool
+  type: boolean
 process.Ext.windows:
   dashed_name: process-Ext-windows
   description: Platform-specific Windows fields
