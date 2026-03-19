@@ -259,8 +259,8 @@
         },
         "command_line": "",
         "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNi0xNjczMjkzMTMwLjk0NjAwMjAw",
-        "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimikatz.exe",
-        "name": "mimikatz.exe",
+        "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimidogz.exe",
+        "name": "mimidogz.exe",
         "pid": 916,
         "thread": {
             "Ext": {
