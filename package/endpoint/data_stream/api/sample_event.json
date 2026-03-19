@@ -156,7 +156,7 @@
                     ],
                     "amsi_logs": {
                         "entries": [
-                            "Powershell command detected so it doesn't trigger false positive alerts from other antivirus"
+                            "Powershell command deleted so it doesn't trigger false positive alerts from other antivirus"
                         ],
                         "type": "PowerShell"
                     }
@@ -215,7 +215,7 @@
                     "operation": "Win32_Process::Create",
                     "app_name": "PowerShell",
                     "content_name": "C:\\script.ps1",
-                    "buffer": "Powershell command detected so it doesn't trigger false positive alerts from other antivirus",
+                    "buffer": "Powershell command deleted so it doesn't trigger false positive alerts from other antivirus",
                     "scope_of_search": "SubTree",
                     "search_filter": "(\u0026(objectClass=group))",
                     "distinguished_name": "dc=test,dc=local",
