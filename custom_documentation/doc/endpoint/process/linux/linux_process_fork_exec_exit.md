@@ -66,6 +66,8 @@ This event is generated when a process calls `fork()`, `exec()`, exits, or an ag
 | orchestrator.resource.type |
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
+| process.Ext.genai.is_genai_descendant |
+| process.Ext.genai.tool_name |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |
