@@ -156,7 +156,7 @@
                     ],
                     "amsi_logs": {
                         "entries": [
-                            "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);"
+                            "Powershell command deleted so it doesn't trigger false positive alerts from other antivirus"
                         ],
                         "type": "PowerShell"
                     }
@@ -215,7 +215,7 @@
                     "operation": "Win32_Process::Create",
                     "app_name": "PowerShell",
                     "content_name": "C:\\script.ps1",
-                    "buffer": "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic,Static').SetValue($null, $true);",
+                    "buffer": "Powershell command deleted so it doesn't trigger false positive alerts from other antivirus",
                     "scope_of_search": "SubTree",
                     "search_filter": "(\u0026(objectClass=group))",
                     "distinguished_name": "dc=test,dc=local",
@@ -259,8 +259,8 @@
         },
         "command_line": "",
         "entity_id": "YWFhYWFhYWEtYWFhYS1hYWFhLWFhYWEtYWFhYWFhYWFhYWFhLTkxNi0xNjczMjkzMTMwLjk0NjAwMjAw",
-        "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimikatz.exe",
-        "name": "mimikatz.exe",
+        "executable": "c\\git\\endpoint-dev\\Tools\\Leia\\modules\\exe_malware\\mimidogz.exe",
+        "name": "mimidogz.exe",
         "pid": 916,
         "thread": {
             "Ext": {
@@ -275,8 +275,8 @@
                     },
                     {
                         "allocation_private_bytes": 8192,
-                        "callsite_leading_bytes": "c048895424204c8bc9488d0d801f0000418d500248ff15052a00000f1f4400004883c438c3cccccccccccccccccccccc4883ec2048b880bf1acaf87f0000ffd0",
-                        "callsite_trailing_bytes": "4883c420c3ec48498363e800498d4320ba2500000049c743e004000000440fb7ca4c8d05d0320000ba2b000000498943d848ff15f82a00000f1f4400004883c4",
+                        "callsite_leading_bytes": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "callsite_trailing_bytes": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
                         "protection": "RWX",
                         "protection_provenance": "eventstests.exe",
                         "symbol_info": "c:\\windows\\system32\\dabapi.dll!DabApiBufferFree+0x10"
