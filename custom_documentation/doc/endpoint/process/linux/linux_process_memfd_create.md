@@ -193,6 +193,8 @@ This event is generated when when a memfd anonymous file is created.
 | process.start |
 | process.supplemental_groups.id |
 | process.supplemental_groups.name |
+| process.thread.capabilities.effective |
+| process.thread.capabilities.permitted |
 | process.user.id |
 | process.user.name |
 | process.working_directory |
