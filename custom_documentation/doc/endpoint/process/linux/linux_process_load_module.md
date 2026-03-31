@@ -191,6 +191,8 @@ This event is generated when when a process loads a kernel module.
 | process.start |
 | process.supplemental_groups.id |
 | process.supplemental_groups.name |
+| process.thread.capabilities.effective |
+| process.thread.capabilities.permitted |
 | process.user.id |
 | process.user.name |
 | process.working_directory |
