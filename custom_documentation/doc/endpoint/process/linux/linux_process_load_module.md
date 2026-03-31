@@ -193,6 +193,8 @@ This event is generated when when a process loads a kernel module.
 | process.supplemental_groups.name |
 | process.thread.capabilities.effective |
 | process.thread.capabilities.permitted |
+| process.tty.char_device.major |
+| process.tty.char_device.minor |
 | process.user.id |
 | process.user.name |
 | process.working_directory |
