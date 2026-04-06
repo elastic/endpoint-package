@@ -25,7 +25,7 @@ For Logstash, when the output becomes unreachable the endpoint enters a backoff-
 The Kafka broker rejects messages that exceed its configured `max.message.bytes` limit. The endpoint logs the error:
 
 ```
-KafkaClient.cpp:561 KafkaClient failed to deliver record with unrecoverable error: Broker: Message size too large [10] | non-retriable
+KafkaClient failed to deliver record with unrecoverable error: Broker: Message size too large [10] | non-retriable
 ```
 
 The error originates from the broker itself, meaning the message passed the client-side size check (librdkafka default: 1,000,000 bytes) but was rejected at the broker or topic level. This typically occurs during high-volume event bursts — for example, a Microsoft Office automatic update generating over 11,000 file events in a short window, which get batched into a single oversized Kafka message.
@@ -51,14 +51,14 @@ When the Logstash output becomes unreachable, the endpoint enters a reconnection
 Characteristic log pattern during the outage:
 
 ```
-AgentContext.cpp:565 Endpoint is setting status to DEGRADED, reason: Unable to connect to output server
-LogstashClient.cpp:662 SSL handshake with Logstash server at [host]:[port] encountered an error
-BulkQueueConsumer.cpp:192 Logstash connection is down
+Endpoint is setting status to DEGRADED, reason: Unable to connect to output server
+SSL handshake with Logstash server at [host]:[port] encountered an error
+Logstash connection is down
 ```
 
 These messages repeat every 20 seconds while the output is unreachable. The CPU spike is caused by the endpoint's C++ Logstash client, not by the Beats/Agent Go-based outputs — removing the Endpoint Security integration from the policy immediately drops CPU back to normal even while Logstash remains down, confirming the issue is specific to Elastic Defend's output implementation.
 
-**Fixed in 8.13.4** (endpoint-dev PR #13065). On fixed versions, the endpoint still logs connection errors but uses a proper exponential backoff that does not spin CPU.
+**Fixed in 8.13.4**. On fixed versions, the endpoint still logs connection errors but uses a proper exponential backoff that does not spin CPU.
 
 ### Logstash output event backlog after reconnection
 
@@ -69,7 +69,7 @@ The backlog does not self-resolve faster than real-time ingestion because the en
 The endpoint implements a backoff algorithm for reconnection attempts. If the backoff interval has grown large due to repeated failures, the connection may not be reattempted immediately even after connectivity is restored. Running `elastic-endpoint test output` on the affected host manually cancels the backoff and triggers an immediate reconnection attempt. The corresponding log entry is:
 
 ```
-ServiceCommsFunctions.cpp:234 Canceling output backoff due to 'test output' command
+Canceling output backoff due to 'test output' command
 ```
 
 Unlike Beats-based integrations that automatically reconnect and drain backlogs efficiently, Elastic Defend's C++ Logstash client does not have the same resiliency or configuration options. There is no user-configurable backoff or batch size setting for Elastic Defend's Logstash output.

@@ -17,6 +17,10 @@ The "missed 3 check-ins" message means Elastic Agent is running but the Endpoint
 
 ## Common issues
 
+### Elastic Agent not running
+
+Elastic Agent crashed, has been explicitly disabled or removed. Check `systemctl status elastic-agent` to confirm Agent is running. If Agent is not running, the Endpoint will continue protecting the system according to the last known policy but cannot receive policy updates or execute response actions.
+
 ### SELinux blocking Endpoint execution (exit status 203/EXEC)
 
 On RHEL, CentOS, and other SELinux-enforcing distributions, SELinux may prevent systemd from executing the Endpoint binary if the files under `/opt/Elastic/Endpoint/` have the wrong security context (e.g. `unlabeled_t` instead of `bin_t`). The systemd journal shows `code=exited, status=203/EXEC` and the Endpoint service restarts in a loop every 15 seconds.
@@ -33,13 +37,14 @@ sudo systemctl restart ElasticEndpoint.service
 
 This sets the correct SELinux file context so systemd is permitted to execute the Endpoint binary. The fix persists across Endpoint upgrades as long as the `semanage` rule remains.
 
-### "No valid comms client available" in Endpoint logs
+### "Unable to retrieve connection info from Agent" or "Agent GRPC connection failed to establish within deadline" in Endpoint logs
 
-This message in the Endpoint state logs (`endpoint-*.log`) indicates that the Endpoint process started but cannot establish a communication channel with Elastic Agent. Common causes:
+This message in the Endpoint state logs (`logs-elastic_agent.endpoint_security-*`) indicates that the Endpoint process started but cannot establish a communication channel with Elastic Agent. Common causes:
 
 - The Agent process restarted or is not yet ready to accept connections when Endpoint initializes.
 - A firewall rule or security policy is blocking localhost connections on ports 6788/6789.
 - The Endpoint process is aborting shortly after startup due to another issue (look for `Aborting due to signal` immediately after the comms error).
+- Another system process is listening on these ports.
 
 If the comms error is followed by `Aborting due to signal`, focus on the root cause of the abort (often SELinux, a crash, or a permission issue) rather than the comms message itself.
 
@@ -64,7 +69,7 @@ If the crash is reproducible, collect the core dump and Endpoint diagnostic outp
 
 Elastic Agent and Endpoint communicate over TCP ports 6788 and 6789 on localhost. If another process is already bound to one of these ports, Endpoint cannot establish its communication channel with Agent and will miss check-ins.
 
-To check: run `ss -tlnp | grep -E '6788|6789'` on the affected host. If a non-Elastic process is listening on either port, it must be reconfigured to use a different port, or the Endpoint communication port can be changed via advanced policy settings.
+To check: run `ss -tlnp | grep -E '6788|6789'` on the affected host. If a non-Elastic process is listening on either port, it must be reconfigured to use a different port.
 
 ### Endpoint service killed by OOM killer or resource limits
 
@@ -93,10 +98,9 @@ If diagnostics are denied, collect the Elastic Agent diagnostic bundle instead (
 ## Investigation priorities
 
 1) Check `journalctl -u ElasticEndpoint.service` for startup failures, exit codes (203, 231), and crash messages
-2) Check `logs-elastic_agent.endpoint_security-*` for error messages: look for `No valid comms client available`, `Aborting due to signal`, `exit status 203`, or `exit status 231`
+2) Check `logs-elastic_agent.endpoint_security-*` for error messages: look for `Unable to retrieve connection info from Agent`, `Agent GRPC connection failed to establish within deadline`, `Aborting due to signal`, `exit status 203`, or `exit status 231`
 3) Check SELinux audit logs with `ausearch -m avc -c '(endpoint)'` for execution denials
 4) Check `.fleet-agents*` for the agent's `last_checkin` timestamp and current status to confirm the endpoint is actually missing check-ins vs. the entire agent being offline
 5) Run `ss -tlnp | grep -E '6788|6789'` on the host to check for port conflicts
 6) Check `dmesg` and `journalctl -k` for OOM killer events targeting the Endpoint process
-7) Check `metrics-endpoint.policy-*` for FAILED policy responses indicating the endpoint tried to start but could not apply its policy
-8) Verify the Endpoint binary exists and has correct permissions: `ls -la /opt/Elastic/Endpoint/elastic-endpoint` and `file /opt/Elastic/Endpoint/elastic-endpoint` (confirm it is the correct architecture — x86-64 vs ARM)
+7) Verify the Endpoint binary exists and has correct permissions: `ls -la /opt/Elastic/Endpoint/elastic-endpoint` and `file /opt/Elastic/Endpoint/elastic-endpoint` (confirm it is the correct architecture — x86-64 vs ARM)

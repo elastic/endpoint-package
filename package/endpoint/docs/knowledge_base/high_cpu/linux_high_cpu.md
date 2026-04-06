@@ -12,7 +12,7 @@ Elastic Defend's `elastic-endpoint` process consumes sustained high CPU on Linux
 
 ## Summary
 
-Elastic Defend on Linux uses eBPF and fanotify to monitor process, file, network, and DNS activity in real time. Each event is enriched, hashed, evaluated against behavioral rules, and forwarded to the configured output. The most common drivers of high CPU on Linux are monitoring scripts that spawn many short-lived child processes (each generating process events that trigger behavioral rules), output server disconnections causing retry storms, the Events plugin hashing large binaries during policy application with an empty cache, and memory scanning of large processes.
+Elastic Defend on Linux uses eBPF or tracefs to monitor process, file, network, and DNS activity in real time. Each event is enriched, hashed, evaluated against behavioral rules, and forwarded to the configured output. The most common drivers of high CPU on Linux are monitoring scripts that spawn many short-lived child processes (each generating process events that trigger behavioral rules), output server disconnections causing retry storms, the Events plugin hashing large binaries during policy application with an empty cache, and memory scanning of large processes.
 
 Use `sudo elastic-endpoint top` on the affected host to identify which processes and internal processing stages consume the most CPU. Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes remotely.
 
@@ -23,7 +23,7 @@ Use `sudo elastic-endpoint top` on the affected host to identify which processes
 
 Monitoring and automation scripts that run on a schedule (cron, systemd timers) and spawn many child processes are the most common cause of high CPU on Linux. A single monitoring script invoking `curl`, `mysql`, `ssh`, `grep`, `sed`, `awk`, and `bash` in rapid succession generates a burst of process creation events, each of which Elastic Defend must enrich and evaluate against behavioral rules.
 
-A typical pattern is hourly CPU spikes lasting 5–10 minutes, aligning with cron schedules (e.g. xx:31–xx:41 every hour). In one case, a script at `/var/cache/system-monitoring/helper/compare-inventory.sh` that used `curl` to collect data triggered the behavioral rule "Suspicious Download and Redirect by Web Server" 86,340 times in a single diagnostics window, driving endpoint service CPU above 200% (out of 800% on 8 cores).
+A typical pattern is hourly CPU spikes lasting 5–10 minutes, aligning with cron schedules (e.g. xx:31–xx:41 every hour).
 
 Adding the parent script as a Trusted Application stops monitoring of its process tree but does not prevent behavioral rules from firing if the rule matches on child process characteristics. On versions prior to 9.2, behavioral detections still fire for trusted processes. On 9.2+, behavioral detections are disabled for Trusted Applications.
 
@@ -31,29 +31,29 @@ Remediations:
 - Create an **Endpoint Alert Exception** targeting the specific rule ID and parent process:
   - `rule.id IS <rule-id>` AND `process.parent.executable IS /path/to/script`
 - Upgrade to 8.19.11+ or 9.2+ for improved handling of trusted process behavioral rules.
-- Review `linux.advanced.events` settings to disable unnecessary event types (e.g. `linux.advanced.events.dns` if DNS monitoring is not needed).
-- Use **Event Filters** to reduce event volume from known-noisy directories without creating a monitoring blind spot.
+- Review `linux.advanced.events` settings to disable unnecessary event types (e.g. `linux.advanced.events.dns` if malicious behavior rules based on DNS monitoring are not needed).
+- Use **Event Filters** to reduce event volume from known-noisy directories without creating an active protection blind spot.
 
 To verify an exception is applied, check Fleet agent logs (dataset `elastic_agent.endpoint_security`) for `"Set user exception list"` messages.
 
 ### Output server disconnection causing retry storms
 
-When the configured Logstash output server becomes unreachable (network route removed, server down, firewall change), `elastic-endpoint` enters a tight retry loop attempting to reconnect, consuming 100% CPU on one core. This was a bug in versions prior to 8.13.4.
+When the configured Logstash output server becomes unreachable (network route removed, server down, firewall change), `elastic-endpoint` enters a tight retry loop attempting to reconnect, consuming 100% CPU on one core. This was a bug fixed in 8.13.4.
 
 Log messages indicating this issue:
 - `Endpoint is setting status to DEGRADED, reason: Unable to connect to output server`
-- `SSL handshake with Logstash server at [host]:[port] encountered an error: (null)`
+- `SSL handshake with Logstash server at [host]:[port] encountered an error`
 - `Logstash connection is down`
 
-CPU returns to normal within approximately 40 seconds after connectivity is restored. The command `sudo /opt/Elastic/Endpoint/elastic-endpoint test output` can be used to verify output connectivity — on affected versions this command itself will spike CPU when the output is unreachable.
+CPU returns to normal within approximately 40 seconds after connectivity is restored. The command `sudo /opt/Elastic/Endpoint/elastic-endpoint test output` can be used to verify output connectivity.
 
-Upgrade to 8.13.4+ where the retry loop includes proper backoff. Check `logs-elastic_agent.endpoint_security-*` for the error patterns above.
+**Fixed in 8.13.4**. On fixed versions, the endpoint still logs connection errors but uses a proper exponential backoff that does not spin CPU. Check `logs-elastic_agent.endpoint_security-*` for the error patterns above.
 
 For Kafka outputs, `Message size too large` errors cause repeated delivery failures. On 8.18.3+, oversized messages are dropped gracefully instead of retried indefinitely.
 
 ### Events plugin hung hashing large binaries during policy application
 
-During policy application, Elastic Defend hashes all running processes and their executables. When the file cache (`/opt/Elastic/Endpoint/state/cache.db`) is empty — first install, cache deleted, or after upgrade — the endpoint must hash every binary from scratch. Large binaries (e.g. Oracle at `/data/app/oracle/product/*/bin/oracle`) can cause the Events plugin to hang in `ConfigurationCallback` while performing SHA1 hashing, driving CPU to 100% for extended periods.
+During policy application, Elastic Defend hashes all running processes and their executables. When the file cache (`/opt/Elastic/Endpoint/state/cache.db`) is empty — first install, cache deleted, or after upgrade — the endpoint must hash every binary from scratch. Large binaries (e.g. Oracle) can cause the hashing to drive CPU to 100% for extended periods.
 
 The endpoint will report status as CONFIGURING during this time:
 - `Endpoint is setting status to CONFIGURING, reason: Policy Application Status`

@@ -23,6 +23,14 @@ Even when working correctly, Trusted Applications still generate process events 
 
 ## Common issues
 
+### Logical misuse
+
+A Trusted Application makes an application process trusted, allowing it to do whatever it does — modify files, start other applications, etc. When you create a Trusted Application entry you are adding a filter telling Elastic Defend to fully trust a process matching the filter and all its actions. However it cannot be used the other way around, to whitelist a particular action for some process(es) — for example, to trust any app to modify a particular csv file whilst doing full monitoring for other actions made by the process(es).
+
+If the goal is to suppress a specific action or path rather than trust an entire process, use **Endpoint Alert Exceptions** instead (either based on `file.path MATCHES c:\whatever\*` or `process.executable MATCHES c:\whatever\*`).
+
+Unused or overly broad Trusted Application entries should be cleaned up regularly — each entry adds CPU overhead on every process start as the TA list is evaluated.
+
 ### Wrong condition field or value
 
 The most common misconfiguration is a Trusted Application entry whose condition field does not match the actual process data. For example, using `file.path` (which refers to a file being acted upon) instead of `process.executable` (the running process binary), or specifying a directory path like `C:\Program Files\Software\` instead of the full executable path like `C:\Program Files\Software\app.exe`.
@@ -58,7 +66,7 @@ Common scenarios where an Endpoint Alert Exception should be used instead:
 
 A Trusted Application entry is scoped to specific integration policies. If the entry is not assigned to the policy covering the affected endpoint, it has no effect. Similarly, a Trusted Application configured for the wrong OS will not apply.
 
-In the Kibana Trusted Applications UI, verify the "Assignment" column shows the correct integration policy. If using "Global" assignment, confirm the affected endpoint's policy is not explicitly excluded.
+In the Kibana Trusted Applications UI, verify the "Assignment" column shows the correct integration policy. If set to "Global", the entry applies to all policies.
 
 ### Network drive or VHD path mapping mismatch
 

@@ -7,8 +7,25 @@ date: '2026-03-09'
 
 ## Symptom
 
-Elastic Agent reports the Endpoint component as `FAILED` or `DEGRADED` with the message "Failed: endpoint service missed 3 check-ins". The Endpoint may appear unhealthy in Fleet, and endpoint events, alerts, and metadata stop being ingested. In some cases thousands of endpoints go unhealthy simultaneously.
+The Agent appears `ORPHANED` in Fleet, and Endpoint policy changes do not apply nor response actions can execute. In some cases thousands of endpoints go unhealthy simultaneously.
 
+## Summary
+
+Elastic Endpoint has lost communication with Elastic Agent, but is still protecting the system according to last known policy and sends all events and alerts to the stack.
+
+## Common issues
+
+### Elastic Agent not running
+
+Elastic Agent crashed, has been explicitly disabled or removed.
+
+### Communication between Agent and Endpoint services not working
+
+Elastic Agent reports the Endpoint component as `FAILED` or `DEGRADED` with the message "Failed: endpoint service missed 3 check-ins". For troubleshooting see next symptom below.
+
+## Symptom
+
+Elastic Agent appears `UNHEALTHY` in fleet and Elastic Defend integration indicates errors. Elastic Agent reports the Endpoint component as `FAILED` or `DEGRADED` with the message "Failed: endpoint service missed 3 check-ins". Endpoint events, alerts, and metadata stop being ingested. In some cases thousands of endpoints go unhealthy simultaneously.
 
 ## Summary
 
@@ -52,7 +69,7 @@ To fix: follow the same remediation as for exit status 231 above. Upgrade to Age
 
 On Windows systems using non-English locales (confirmed on Chinese GB2312 and Korean editions), a unicode conversion bug causes the Endpoint process to crash in a loop immediately after startup. The crash occurs during kernel communication initialization and produces hundreds of restarts per log file. Agent reports the Endpoint as FAILED because it never completes startup.
 
-The bug is tracked in elastic/security#1973 and was fixed in Endpoint 8.13.3. Check the Endpoint logs for crash stack traces mentioning `CompletionPort.cpp` or `BigChief.cpp` during the `Connecting to minifilter` phase.
+This was fixed in Endpoint 8.13.3.
 
 To fix: upgrade to 8.13.3 or later. If the system is an English-locale Windows installation, this is not the cause.
 
@@ -60,7 +77,7 @@ To fix: upgrade to 8.13.3 or later. If the system is an English-locale Windows i
 
 Elastic Agent and Endpoint communicate over TCP ports 6788 and 6789 on localhost. If another process is already bound to one of these ports, Endpoint cannot establish its communication channel with Agent and will miss check-ins.
 
-To check: run `netstat -ano | findstr "6788 6789"` on the affected host. If a non-Elastic process is listening on either port, it must be reconfigured to use a different port, or the Endpoint communication port can be changed via advanced policy settings.
+To check: run `netstat -ano | findstr "6788 6789"` on the affected host. If a non-Elastic process is listening on either port, it must be reconfigured to use a different port.
 
 ### Artifact download or verification failure causing mass unhealthiness
 

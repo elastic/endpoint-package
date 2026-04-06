@@ -12,7 +12,7 @@ Elastic Defend's `elastic-endpoint.exe` process consumes sustained high CPU on W
 
 ## Summary
 
-Elastic Defend performs real-time file hashing, digital signature verification, memory scanning, behavioral rule evaluation, and event enrichment. Each protection layer adds processing overhead, and the cumulative effect depends on the workload profile of the host. The most common drivers of high CPU on Windows are third-party security product conflicts creating mutual scanning loops, high-volume security events (logon/logoff) overwhelming the rules engine, file-intensive operations triggering repeated hashing of large binaries, and VDI/Citrix environments where the file metadata cache is empty on every session.
+Elastic Defend performs real-time file hashing, digital signature verification, memory scanning, behavioral rule evaluation, and event enrichment. Each protection layer adds processing overhead, and the cumulative effect depends on the workload profile of the host. The most common drivers of high CPU on Windows are third-party security product conflicts creating mutual scanning loops, high-volume security events (logon/logoff) overwhelming the Malicious Behavior engine, file-intensive operations triggering repeated hashing of large binaries, and VDI/Citrix environments where the file metadata cache is empty on every session.
 
 Use `elastic-endpoint top` on the affected host to identify which processes and internal processing stages (MLWR, BHVR, RULES, etc.) consume the most CPU. Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes by `overall.week_ms` remotely.
 
@@ -25,7 +25,8 @@ When another security product (Silverfort, Symantec/Broadcom, N-Able AV Defender
 
 Silverfort is a particularly acute case on Domain Controllers because its `SilverfortServer.exe` generates over 10,000 TCP connections per minute via WinDivert, each producing a network event that Elastic Defend must process. Combined with Malicious Behavior Protection requiring network event enrichment for the rules engine, this can saturate CPU and eventually cause blue screens.
 
-To confirm, check `elastic-endpoint top` for the third-party product's processes. If they dominate `overall.week_ms` in the metrics, add them as **Trusted Applications** in Elastic Defend. Also add Elastic Defend's paths to the third-party product's exclusion list.
+Add all 3rd party security applications as **Trusted Applications** in Elastic Defend to break feedback loops. Also add Elastic Defend's paths to the third-party product's exclusion list.
+To confirm the problem on Endpoint side check `elastic-endpoint top` for the third-party product's processes. If they dominate `overall.week_ms` in the metrics.
 
 For Silverfort specifically, if Trusted Applications are not sufficient due to sheer network event volume, set `windows.advanced.kernel.network` to `false` in the policy's advanced settings to stop network event generation at the kernel level. This disables host isolation capability.
 
@@ -45,9 +46,7 @@ Remediations:
 
 Elastic Defend hashes and verifies digital signatures of executables and DLLs when they are loaded. Large binaries like `msedge.dll` (195 MB) can take 10–15 seconds per hash operation. On hosts running browsers, Office applications, or developer tools that load many large DLLs, this creates sustained CPU spikes.
 
-The endpoint maintains a file metadata cache to avoid re-hashing known files. On versions prior to 8.0.1, the cache size (`FILE_OBJECT_CACHE_SIZE`) was limited to 500 entries, leading to frequent cache evictions and redundant hashing. Upgrading to 8.0.1+ significantly improves caching behavior.
-
-For immediate relief on older versions, set `windows.advanced.kernel.asyncimageload` and `windows.advanced.kernel.syncimageload` to `false` in advanced policy settings. This reduces CPU by approximately 85% for DLL load processing at the cost of reduced visibility into library load events.
+The endpoint maintains a file metadata cache to avoid re-hashing known files.
 
 Office update processes, backup software (Veeam, Commvault), and database servers (SQL Server) that perform continuous file I/O also trigger high hashing overhead. Add these as Trusted Applications if full monitoring bypass is acceptable, or use **Event Filters** to reduce event volume without creating a blind spot.
 

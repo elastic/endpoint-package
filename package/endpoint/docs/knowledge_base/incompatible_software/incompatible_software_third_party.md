@@ -1,17 +1,18 @@
 ---
 type: automatic_troubleshooting
 sub_type: incompatible_software
+os: [Windows, macOS, Linux]
 date: '2026-03-11'
 ---
 
 ## Symptom
 
-A third-party application malfunctions, crashes, or causes system instability when Elastic Defend (or the Endgame Sensor) is installed. Common manifestations include: application crashes (e.g. browsers closing unexpectedly), network policies or VPN functionality breaking, CPU spikes rendering the system unresponsive, or virtual machines hanging during policy changes. The issue resolves when the endpoint security product is uninstalled or specific protection features are disabled.
+A third-party application malfunctions, crashes, or causes system instability when Elastic Defend is installed. Common manifestations include: application crashes (e.g. browsers closing unexpectedly), network policies or VPN functionality breaking, CPU spikes rendering the system unresponsive, or virtual machines hanging during policy changes. The issue resolves when the endpoint security product is uninstalled or specific protection features are disabled.
 
 
 ## Summary
 
-Elastic Defend operates at multiple system levels — kernel-mode drivers for file system and network filtering, user-mode DLL injection for exploit protection (Endgame Sensor), and eBPF probes on Linux for host isolation and event collection. These deep integrations can conflict with other software that operates at similarly privileged levels: other security products with kernel drivers, eBPF-based networking tools, VPN clients that intercept DNS or network traffic, and applications that generate extreme volumes of system activity.
+Elastic Defend operates at multiple system levels — kernel-mode drivers for file system and network filtering on Windows, system extension and network content filtering on macOS, and eBPF probes on Linux. These deep integrations can conflict with other software that operates at similarly privileged levels: other security products with kernel drivers, eBPF-based networking tools, VPN clients that intercept DNS or network traffic, and applications that generate extreme volumes of system activity.
 
 The resolution depends on which Elastic Defend subsystem is conflicting. In many cases, targeted policy changes (disabling a specific event type or protection feature) can restore compatibility without removing protection entirely. In other cases, a Trusted Application entry or an agent upgrade resolves the conflict.
 
@@ -27,18 +28,6 @@ The root cause is that Elastic Defend installs TC (Traffic Control) eBPF probes 
 When Elastic Defend is deployed as a Kubernetes DaemonSet, host isolation is automatically disabled and the TC probes are not installed. However, DaemonSet deployment is not officially supported. For process-based installations on Kubernetes nodes, set `linux.advanced.host_isolation.allowed` to `false` in the Elastic Defend advanced policy settings. This completely disables the host isolation plugin and prevents Elastic Defend from installing any TC eBPF probes, eliminating the conflict with other eBPF-based networking tools.
 
 This conflict is not limited to AWS VPC CNI — any eBPF-based networking tool using TC probes (e.g. Cilium, Calico eBPF mode) may be affected.
-
-### Browser crashes from exploit protection DLL after Windows updates (Endgame Sensor)
-
-On systems running the Endgame Sensor, Chrome, Edge, and potentially other Chromium-based browsers crash within seconds of opening. The crash dump shows a heap corruption or access violation in `esensordbi.dll` (the Endgame exploit protection injection DLL), specifically in `HookManager_InstallExternalHook`. This issue is triggered by specific Windows security updates (e.g. KB5074109 on Windows 11 25H2) that change the set of DLLs loaded into browser processes.
-
-The root cause is a bug in the Endgame Sensor's hook manager linked list. When the maximum number of hooks (4) for a particular function in a module is reached, the error handling path frees a `HOOK_ENTRY` that is still part of the global hook list. The next traversal of the list encounters corrupted `flink`/`blink` pointers and crashes. Windows updates that add new DLLs to browser processes increase the number of hooks installed, making it more likely to hit the limit and trigger the bug.
-
-**Fixed in**: Endgame Sensor 3.65.3.
-
-**Workaround** (for older sensor versions): In the Endgame policy under Threats > Exploit, uncheck Chrome and Edge to disable exploit protection injection into those browsers. Additionally, under Settings > Event Collection > Windows Event Collection, disable beta event sources. This prevents `esensordbi.dll` from being injected into the affected processes.
-
-Disabling exploit protection for browsers reduces defense against browser exploitation. Keep browsers and the OS fully patched to minimize the window of exposure.
 
 ### Security products causing CPU spikes via high-volume network activity (Silverfort, CrowdStrike)
 
@@ -62,11 +51,11 @@ Elastic Defend's network monitoring on macOS intercepts DNS traffic to generate 
 
 To diagnose: compare DNS resolution behavior with Elastic Defend enabled vs disabled while the VPN is connected. Use `nslookup` or `dig` to test resolution of both internal (VPN-routed) and external domains.
 
-To resolve: if DNS events are not essential, disable DNS event collection in the Elastic Defend policy. If DNS events are needed, add the VPN client process as a Trusted Application to stop Endpoint from monitoring its network activity. If the conflict persists, set `mac.advanced.capture.env.dns: false` in advanced policy settings to disable DNS event capture at a lower level.
+To resolve: if DNS events are not essential, disable DNS event collection in the Elastic Defend policy. If DNS events are needed, add the VPN client process as a Trusted Application to stop Endpoint from monitoring its network activity.
 
 ### Microsoft DFSR replication issues with file monitoring
 
-On Windows Server systems running Distributed File System Replication (DFSR), Elastic Defend's file system filter driver can interfere with replication operations. Symptoms include replication backlogs, unexpected staging folder growth, or DFSR service errors in the event log. The issue is exacerbated when rollback self-healing (`windows.advanced.artifacts.global.rollback.self_healing.enabled`) is active, as Elastic Defend may detect and attempt to roll back legitimate DFSR staging operations that involve suspicious file patterns.
+On Windows Server systems running Distributed File System Replication (DFSR), Elastic Defend's file system filter driver can interfere with replication operations. Symptoms include replication backlogs, unexpected staging folder growth, or DFSR service errors in the event log. The issue is exacerbated when rollback self-healing (`windows.advanced.alerts.rollback.self_healing.enabled`) is active, as Elastic Defend may detect and attempt to roll back legitimate DFSR staging operations that involve suspicious file patterns.
 
 To mitigate: add the DFSR process (`C:\Windows\System32\DFSRs.exe`) as a Trusted Application. If rollback self-healing is causing excessive I/O on DFSR servers, consider disabling it via advanced policy settings on the affected endpoints. Monitor the DFSR staging folder size and replication backlog after changes to confirm the conflict is resolved.
 
@@ -84,7 +73,7 @@ If network visibility is required in VDI environments, test policy changes durin
 1) Identify the conflicting third-party software by correlating the onset of symptoms with software installation, updates, or configuration changes. Query `logs-endpoint.events.process-*` for recently started processes that match known conflicting software.
 2) Determine which Elastic Defend subsystem is involved — kernel network driver (`windows.advanced.kernel.network`), eBPF probes (`linux.advanced.host_isolation.allowed`), exploit protection DLL injection (Endgame policy), or file system filter driver. Each has different mitigation controls.
 3) Check `metrics-endpoint.metrics-*` for CPU usage patterns and correlate with `logs-endpoint.events.process-*` for processes generating high event volumes. Use `elastic-endpoint top` on the affected host to identify which processes and event types drive resource consumption.
-4) For browser crashes on Windows, collect crash dumps from `%HOMEPATH%\AppData\Local\Google\Chrome\User Data\Crashpad\reports` or `%LOCALAPPDATA%\CrashDumps` and check for `esensordbi.dll` in the faulting module. Verify the Endgame Sensor version and check if a fix is available.
+4) For browser crashes on Windows, collect crash dumps from `%HOMEPATH%\AppData\Local\Google\Chrome\User Data\Crashpad\reports` or `%LOCALAPPDATA%\CrashDumps`.
 5) For eBPF conflicts on Linux Kubernetes nodes, verify whether host isolation is needed. If not, set `linux.advanced.host_isolation.allowed` to `false` and confirm network policies resume correct enforcement.
 6) For CPU spikes caused by security products, use ProcMon or `elastic-endpoint top` to identify the process generating the most network events. Set `windows.advanced.kernel.network: false` as immediate mitigation, then plan an upgrade to 8.16+ where Trusted Application network event filtering is more efficient.
 7) Check `logs-elastic_agent.endpoint_security-*` for error patterns that correlate with the onset of the incompatibility, including driver initialization failures, output errors, or crash recovery messages.
