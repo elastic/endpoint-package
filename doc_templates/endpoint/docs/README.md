@@ -147,31 +147,59 @@ sent by the endpoint.
 
 ### alerts
 
+<dropdown title="Exported fields">
+
 {{fields "alerts"}}
+
+</dropdown>
 
 ### file
 
+<dropdown title="Exported fields">
+
 {{fields "file"}}
+
+</dropdown>
 
 ### library
 
+<dropdown title="Exported fields">
+
 {{fields "library"}}
+
+</dropdown>
 
 ### network
 
+<dropdown title="Exported fields">
+
 {{fields "network"}}
+
+</dropdown>
 
 ### process
 
+<dropdown title="Exported fields">
+
 {{fields "process"}}
+
+</dropdown>
 
 ### registry
 
+<dropdown title="Exported fields">
+
 {{fields "registry"}}
+
+</dropdown>
 
 ### security
 
+<dropdown title="Exported fields">
+
 {{fields "security"}}
+
+</dropdown>
 
 ## Metrics
 
@@ -180,14 +208,26 @@ sent by the endpoint.
 
 ### metadata
 
+<dropdown title="Exported fields">
+
 {{fields "metadata"}}
+
+</dropdown>
 
 ### metrics
 
 Metrics documents contain performance information about the endpoint executable and the host it is running on.
 
+<dropdown title="Exported fields">
+
 {{fields "metrics"}}
+
+</dropdown>
 
 ### policy response
 
+<dropdown title="Exported fields">
+
 {{fields "policy"}}
+
+</dropdown>
