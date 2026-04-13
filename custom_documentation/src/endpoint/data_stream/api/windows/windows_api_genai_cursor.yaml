@@ -1,0 +1,92 @@
+overview:
+  name: Windows API
+  description: This event is generated when Elastic-GenAI-Cursor ETW events are emitted
+    by CursorEtwHelper.exe to report Cursor IDE hook activity.
+identification:
+  filter:
+    event.dataset: endpoint.events.api
+    event.module: endpoint
+    event.provider: Elastic-GenAI-Cursor
+    host.os.type: windows
+  os:
+  - windows
+  data_stream: logs-endpoint.events.api-*
+fields:
+  endpoint:
+  - '@timestamp'
+  - agent.id
+  - agent.type
+  - agent.version
+  - data_stream.dataset
+  - data_stream.namespace
+  - data_stream.type
+  - ecs.version
+  - elastic.agent.id
+  - event.action
+  - event.category
+  - event.created
+  - event.dataset
+  - event.id
+  - event.kind
+  - event.module
+  - event.outcome
+  - event.provider
+  - event.sequence
+  - event.type
+  - host.architecture
+  - host.hostname
+  - host.id
+  - host.ip
+  - host.mac
+  - host.name
+  - host.os.Ext.variant
+  - host.os.family
+  - host.os.full
+  - host.os.kernel
+  - host.os.name
+  - host.os.platform
+  - host.os.type
+  - host.os.version
+  - message
+  - process.Ext.api.name
+  - process.Ext.api.metadata.genai_conversation_id
+  - process.Ext.api.metadata.genai_generation_id
+  - process.Ext.api.metadata.genai_timestamp
+  - process.Ext.api.metadata.genai_workspace_root
+  - process.Ext.api.metadata.genai_prompt_hash
+  - process.Ext.api.metadata.genai_attachment_count
+  - process.Ext.api.metadata.genai_status
+  - process.Ext.api.metadata.genai_content_hash
+  - process.Ext.api.metadata.genai_edit_count
+  - process.Ext.api.metadata.genai_model
+  - process.Ext.api.metadata.genai_composer_mode
+  - process.Ext.api.metadata.genai_session_id
+  - process.Ext.api.metadata.genai_cursor_version
+  - process.Ext.api.metadata.genai_user_email
+  - process.Ext.api.parameters.genai_command
+  - process.Ext.api.parameters.genai_cwd
+  - process.Ext.api.parameters.genai_file_path
+  - process.Ext.api.parameters.genai_tool_name
+  - process.Ext.api.parameters.genai_mcp_server
+  - process.Ext.api.parameters.genai_prompt
+  - process.Ext.api.parameters.genai_transcript_path
+  - process.Ext.code_signature.exists
+  - process.Ext.code_signature.status
+  - process.Ext.code_signature.subject_name
+  - process.Ext.code_signature.thumbprint_sha256
+  - process.Ext.code_signature.trusted
+  - process.Ext.protection
+  - process.Ext.token.integrity_level_name
+  - process.code_signature.exists
+  - process.code_signature.status
+  - process.code_signature.subject_name
+  - process.code_signature.thumbprint_sha256
+  - process.code_signature.trusted
+  - process.entity_id
+  - process.executable
+  - process.name
+  - process.parent.executable
+  - process.pid
+  - user.domain
+  - user.id
+  - user.name

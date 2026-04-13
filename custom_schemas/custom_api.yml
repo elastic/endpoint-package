@@ -607,3 +607,151 @@
         A String which indicate which attributes to return for each matching entry.
       type: keyword
       example: "[ \"samaccountname\", \"lastlogondate\" ]"
+
+    - name: metadata.genai_conversation_id
+      level: custom
+      type: keyword
+      description: >
+        Conversation identifier from a GenAI coding assistant (e.g. Cursor IDE).
+      example: "conv-abc123"
+
+    - name: metadata.genai_generation_id
+      level: custom
+      type: keyword
+      description: >
+        Generation identifier from a GenAI coding assistant request.
+      example: "gen-xyz789"
+
+    - name: metadata.genai_timestamp
+      level: custom
+      type: keyword
+      description: >
+        ISO-8601 timestamp recorded by the GenAI helper at event emission time.
+      example: "2026-04-13T12:34:56.789Z"
+
+    - name: metadata.genai_workspace_root
+      level: custom
+      type: keyword
+      description: >
+        Workspace root directory of the GenAI coding assistant session.
+      example: "C:\\Users\\dev\\my-project"
+
+    - name: metadata.genai_prompt_hash
+      level: custom
+      type: keyword
+      description: >
+        FNV-1a hash of the prompt submitted to the GenAI coding assistant.
+      example: "a1b2c3d4e5f67890"
+
+    - name: metadata.genai_attachment_count
+      level: custom
+      type: unsigned_long
+      description: >
+        Number of file attachments included in the GenAI coding assistant request.
+      example: 3
+
+    - name: metadata.genai_status
+      level: custom
+      type: keyword
+      description: >
+        Status field from the GenAI coding assistant hook event.
+      example: "completed"
+
+    - name: metadata.genai_content_hash
+      level: custom
+      type: keyword
+      description: >
+        FNV-1a hash of the content field from the GenAI coding assistant event.
+      example: "f0e1d2c3b4a59687"
+
+    - name: metadata.genai_edit_count
+      level: custom
+      type: unsigned_long
+      description: >
+        Number of file edits in the GenAI coding assistant event payload.
+      example: 2
+
+    - name: metadata.genai_model
+      level: custom
+      type: keyword
+      description: >
+        AI model name used by the GenAI coding assistant.
+      example: "claude-sonnet-4-20250514"
+
+    - name: metadata.genai_composer_mode
+      level: custom
+      type: keyword
+      description: >
+        Composer interaction mode of the GenAI coding assistant (e.g. agent, ask, edit).
+      example: "agent"
+
+    - name: metadata.genai_session_id
+      level: custom
+      type: keyword
+      description: >
+        Session identifier for the GenAI coding assistant.
+      example: "sess-abc123"
+
+    - name: metadata.genai_cursor_version
+      level: custom
+      type: keyword
+      description: >
+        Version of the Cursor IDE that generated the event.
+      example: "0.48.7"
+
+    - name: metadata.genai_user_email
+      level: custom
+      type: keyword
+      description: >
+        Email address of the user logged into the GenAI coding assistant.
+      example: "user@example.com"
+
+    - name: parameters.genai_command
+      level: custom
+      type: keyword
+      description: >
+        Shell command from a GenAI coding assistant beforeShellExecution hook.
+      example: "npm install express"
+
+    - name: parameters.genai_cwd
+      level: custom
+      type: keyword
+      description: >
+        Current working directory for a GenAI coding assistant shell execution.
+      example: "C:\\Users\\dev\\my-project"
+
+    - name: parameters.genai_file_path
+      level: custom
+      type: keyword
+      description: >
+        File path from a GenAI coding assistant file read or edit hook.
+      example: "C:\\Users\\dev\\my-project\\src\\main.ts"
+
+    - name: parameters.genai_tool_name
+      level: custom
+      type: keyword
+      description: >
+        Tool name from a GenAI coding assistant MCP execution hook.
+      example: "search_code"
+
+    - name: parameters.genai_mcp_server
+      level: custom
+      type: keyword
+      description: >
+        MCP server name from a GenAI coding assistant MCP execution hook.
+      example: "code-search-server"
+
+    - name: parameters.genai_prompt
+      level: custom
+      type: keyword
+      ignore_above: 16384
+      description: >
+        Truncated prompt text submitted to the GenAI coding assistant.
+      example: "Add error handling to the login function"
+
+    - name: parameters.genai_transcript_path
+      level: custom
+      type: keyword
+      description: >
+        Path to the agent transcript file for the GenAI coding assistant session.
+      example: "C:\\Users\\dev\\.cursor\\agent-transcripts\\abc123.jsonl"
