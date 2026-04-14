@@ -23,7 +23,7 @@ Use `elastic-endpoint top` on the affected host to identify which processes and 
 
 When another security product (Silverfort, Symantec/Broadcom, N-Able AV Defender, CrowdStrike) runs alongside Elastic Defend, each product intercepts the other's file and process activity, creating a scanning feedback loop. This commonly manifests as sustained 100% CPU with both products' processes at the top of task manager.
 
-Silverfort is a particularly acute case on Domain Controllers because its `SilverfortServer.exe` generates over 10,000 TCP connections per minute via WinDivert, each producing a network event that Elastic Defend must process. Combined with Malicious Behavior Protection requiring network event enrichment for, this can saturate CPU and eventually cause blue screens.
+Silverfort is a particularly acute case on Domain Controllers because its `SilverfortServer.exe` generates over 10,000 TCP connections per minute via WinDivert, each producing a network event that Elastic Defend must process. Combined with Malicious Behavior Protection requiring network event enrichment, this can saturate CPU and eventually cause blue screens.
 
 Add all 3rd party security applications as **Trusted Applications** in Elastic Defend to break feedback loops. Also add Elastic Defend's paths to the third-party product's exclusion list.
 To confirm the problem on Endpoint side check `elastic-endpoint top` for the third-party product's processes. If they dominate `overall.week_ms` in the metrics.
