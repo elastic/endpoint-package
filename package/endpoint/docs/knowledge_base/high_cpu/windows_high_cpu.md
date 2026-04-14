@@ -23,7 +23,7 @@ Use `elastic-endpoint top` on the affected host to identify which processes and 
 
 When another security product (Silverfort, Symantec/Broadcom, N-Able AV Defender, CrowdStrike) runs alongside Elastic Defend, each product intercepts the other's file and process activity, creating a scanning feedback loop. This commonly manifests as sustained 100% CPU with both products' processes at the top of task manager.
 
-Silverfort is a particularly acute case on Domain Controllers because its `SilverfortServer.exe` generates over 10,000 TCP connections per minute via WinDivert, each producing a network event that Elastic Defend must process. Combined with Malicious Behavior Protection requiring network event enrichment for the rules engine, this can saturate CPU and eventually cause blue screens.
+Silverfort is a particularly acute case on Domain Controllers because its `SilverfortServer.exe` generates over 10,000 TCP connections per minute via WinDivert, each producing a network event that Elastic Defend must process. Combined with Malicious Behavior Protection requiring network event enrichment for, this can saturate CPU and eventually cause blue screens.
 
 Add all 3rd party security applications as **Trusted Applications** in Elastic Defend to break feedback loops. Also add Elastic Defend's paths to the third-party product's exclusion list.
 To confirm the problem on Endpoint side check `elastic-endpoint top` for the third-party product's processes. If they dominate `overall.week_ms` in the metrics.
@@ -32,9 +32,9 @@ For Silverfort specifically, if Trusted Applications are not sufficient due to s
 
 ### High security event volume (logon/logoff events)
 
-On hosts with heavy authentication activity (print servers, file servers, Domain Controllers), Windows Security event log entries 4624 (Logon) and 4634 (Logoff) can generate tens of events per second. When Malicious Behavior Protection is enabled, Elastic Defend collects and processes Security events regardless of whether Security event collection is enabled in the policy, because the behavioral rules engine needs this data.
+On hosts with heavy authentication activity (print servers, file servers, Domain Controllers), Windows Security event log entries 4624 (Logon) and 4634 (Logoff) can generate tens of events per second. When Malicious Behavior Protection is enabled, Elastic Defend collects and processes Security events regardless of whether Security event collection is enabled in the policy, because the malicious behavior rules need this data.
 
-A host generating 60+ logon/logoff events per second will see sustained high CPU from the rules engine processing pipeline. Query `metrics-endpoint.metrics-*` and check `Endpoint.metrics.system_impact` — if `authentication_events` dominates, this is the cause.
+A host generating 60+ logon/logoff events per second will see sustained high CPU from the event or Malicious Behavior processing pipelines. Query `metrics-endpoint.metrics-*` and check `Endpoint.metrics.system_impact` — if `authentication_events` dominates, this is the cause.
 
 Remediations:
 - On 9.2.0+, use the advanced policy setting `windows.advanced.events.security.event_disabled` to exclude event IDs 4624 and 4634 specifically.

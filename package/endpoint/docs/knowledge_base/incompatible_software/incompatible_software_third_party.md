@@ -71,7 +71,7 @@ If network visibility is required in VDI environments, test policy changes durin
 ## Investigation priorities
 
 1) Identify the conflicting third-party software by correlating the onset of symptoms with software installation, updates, or configuration changes. Query `logs-endpoint.events.process-*` for recently started processes that match known conflicting software.
-2) Determine which Elastic Defend subsystem is involved — kernel network driver (`windows.advanced.kernel.network`), eBPF probes (`linux.advanced.host_isolation.allowed`), exploit protection DLL injection (Endgame policy), or file system filter driver. Each has different mitigation controls.
+2) Determine which Elastic Defend subsystem is involved — kernel network driver (`windows.advanced.kernel.network`), eBPF probes (`linux.advanced.host_isolation.allowed`), or file system filter driver. Each has different mitigation controls.
 3) Check `metrics-endpoint.metrics-*` for CPU usage patterns and correlate with `logs-endpoint.events.process-*` for processes generating high event volumes. Use `elastic-endpoint top` on the affected host to identify which processes and event types drive resource consumption.
 4) For browser crashes on Windows, collect crash dumps from `%HOMEPATH%\AppData\Local\Google\Chrome\User Data\Crashpad\reports` or `%LOCALAPPDATA%\CrashDumps`.
 5) For eBPF conflicts on Linux Kubernetes nodes, verify whether host isolation is needed. If not, set `linux.advanced.host_isolation.allowed` to `false` and confirm network policies resume correct enforcement.

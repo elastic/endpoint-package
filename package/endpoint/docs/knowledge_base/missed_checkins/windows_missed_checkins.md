@@ -38,9 +38,7 @@ The "missed 3 check-ins" message means Elastic Agent is running but the Endpoint
 
 The Endpoint process can crash due to memory corruption, driver conflicts, or product bugs. When this happens, a crash dump file (`elasticendpoint.dmp`) is written to `C:\Program Files\Elastic\Endpoint\` or `C:\Program Files\Elastic\Endpoint\cache\CrashDumps\`. After a crash, the Endpoint service attempts to restart automatically, but if the crash is persistent (e.g. corrupted binary in memory), it can crash repeatedly — up to 15-16 times in quick succession — before Agent marks it as FAILED.
 
-To investigate: check for `.dmp` files at the paths above. If a dump exists, run WinDbg with `!analyze -v` against it to identify the crash location. Check `logs-elastic_agent.endpoint_security-*` for patterns like `Aborting due to signal` or unhandled exception stack traces.
-
-If the crash is caused by memory corruption (corrupted `.text` section of the Endpoint binary, random bit flips), it may be a transient hardware issue. Run Windows Memory Diagnostic or memtest86 to check for bad DIMMs. If the crash recurs at the same code location, collect the dump and report to Elastic support.
+To investigate: check for `.dmp` files at the paths above. If a dump exists, collect it and report to Elastic support.
 
 Restarting the Endpoint service or rebooting the host typically resolves transient crashes.
 
@@ -83,7 +81,7 @@ To check: run `netstat -ano | findstr "6788 6789"` on the affected host. If a no
 
 When Endpoint receives a new policy, it must download and verify user artifact manifests (trusted apps, exception lists, blocklists) from Fleet Server. If the artifact manifest is corrupted — for example, `compression_algorithm` is set to `none` instead of `zlib` due to a known stack bug fixed in 8.7.1 — Endpoint rejects all artifacts and the policy fails to apply. Logs show `All artifacts are being rejected because endpoint-trustlist-windows-v1 is invalid` and `Failed to process artifact manifest`.
 
-At scale, simultaneous policy pushes can also overwhelm Fleet Server, producing HTTP 429 responses and causing a cascading failure where all endpoints go unhealthy at once.
+At scale, simultaneous policy pushes can also overwhelm Fleet Server, producing HTTP 429 responses and causing a cascading failure where all endpoints go unhealthy at once. This issue with resolve itself over time.
 
 To fix the artifact corruption bug: add or remove an entry in the affected artifact list (e.g. add a dummy Trusted Application for Windows, then delete it) to force a manifest rebuild. Then upgrade the stack to 8.7.1+ to prevent recurrence. For scale-related 429 failures, ensure Fleet Server has adequate resources and consider staggering policy updates.
 

@@ -12,7 +12,7 @@ Elastic Defend's `elastic-endpoint` process consumes sustained high CPU on Linux
 
 ## Summary
 
-Elastic Defend on Linux uses eBPF or tracefs to monitor process, file, network, and DNS activity in real time. Each event is enriched, hashed, evaluated against behavioral rules, and forwarded to the configured output. The most common drivers of high CPU on Linux are monitoring scripts that spawn many short-lived child processes (each generating process events that trigger behavioral rules), output server disconnections causing retry storms, the Events plugin hashing large binaries during policy application with an empty cache, and memory scanning of large processes.
+Elastic Defend on Linux uses eBPF or tracefs to monitor process, file, network, and DNS activity in real time. Each event is enriched, hashed, evaluated against behavioral rules, and forwarded to the configured output. The most common drivers of high CPU on Linux are monitoring scripts that spawn many short-lived child processes (each generating process events that trigger behavioral rules), output server disconnections causing retry storms, hashing large binaries during policy application with an empty cache, and memory scanning of large processes.
 
 Use `sudo elastic-endpoint top` on the affected host to identify which processes and internal processing stages consume the most CPU. Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes remotely.
 
@@ -25,7 +25,7 @@ Monitoring and automation scripts that run on a schedule (cron, systemd timers) 
 
 A typical pattern is hourly CPU spikes lasting 5–10 minutes, aligning with cron schedules (e.g. xx:31–xx:41 every hour).
 
-Adding the parent script as a Trusted Application stops monitoring of its process tree but does not prevent behavioral rules from firing if the rule matches on child process characteristics. On versions prior to 9.2, behavioral detections still fire for trusted processes. On 9.2+, behavioral detections are disabled for Trusted Applications.
+Adding the parent script as a Trusted Application Descendants stops monitoring of its process tree but does not prevent behavioral rules from firing if the rule matches on child process characteristics. On versions prior to 9.2, behavioral detections still fire for trusted processes. On 9.2+, behavioral detections are disabled for Trusted Applications.
 
 Remediations:
 - Create an **Endpoint Alert Exception** targeting the specific rule ID and parent process:
@@ -51,7 +51,7 @@ CPU returns to normal within approximately 40 seconds after connectivity is rest
 
 For Kafka outputs, `Message size too large` errors cause repeated delivery failures. On 8.18.3+, oversized messages are dropped gracefully instead of retried indefinitely.
 
-### Events plugin hung hashing large binaries during policy application
+### A hang when hashing large binaries during policy application
 
 During policy application, Elastic Defend hashes all running processes and their executables. When the file cache (`/opt/Elastic/Endpoint/state/cache.db`) is empty — first install, cache deleted, or after upgrade — the endpoint must hash every binary from scratch. Large binaries (e.g. Oracle) can cause the hashing to drive CPU to 100% for extended periods.
 
@@ -60,7 +60,7 @@ The endpoint will report status as CONFIGURING during this time:
 
 On first run with an empty cache, the CONFIGURING phase can take 5–30 minutes depending on the number and size of running processes. This is expected behavior. Subsequent restarts are fast because the cache persists.
 
-This behavior was improved in 8.14+ where the hashing is less likely to hang the Events plugin. On older versions, restarting the service (`sudo systemctl restart elastic-endpoint`) may temporarily resolve the hang.
+This behavior was improved in 8.14+ where the hashing is less likely to hang. On older versions, restarting the service (`sudo systemctl restart elastic-endpoint`) may temporarily resolve the hang.
 
 Do not delete `/opt/Elastic/Endpoint/state/cache.db` unless necessary, as this forces a full re-hash of all binaries on the next start.
 

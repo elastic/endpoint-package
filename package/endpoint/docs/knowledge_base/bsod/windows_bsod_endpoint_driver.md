@@ -14,7 +14,7 @@ A Windows system running Elastic Defend experiences a Blue Screen of Death (BSOD
 
 Elastic Defend uses a kernel-mode driver (`elastic_endpoint_driver.sys`) for file system filtering, network monitoring, and process/object callbacks. Most BSOD issues traced to the endpoint driver fall into a few categories: regressions introduced in specific driver versions, conflicts with other kernel-mode drivers (third-party security products), or running on unsupported OS versions.
 
-Collecting a full kernel memory dump and sharing it with Elastic Support is essential for root-cause determination. The bugcheck code alone is not sufficient — the faulting call stack identifies which code path triggered the crash.
+Collecting a full kernel memory dump and sharing it with Elastic Support is essential for root-cause determination. The bugcheck code alone is not sufficient — the faulting call stack identifies which code path triggered the crash. Just because Elastic Defend is in the calls stack does not mean it is responsible for the crash.
 
 
 ## Common issues
