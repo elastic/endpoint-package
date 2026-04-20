@@ -1,3 +1,8 @@
+- version: "8.19.2"
+  changes:
+    - description: Remove sample event strings that can trigger false positive alerts from other AV
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/730
 - version: "8.19.1"
   changes:
     - description: add destination.domain as part of alerts
