@@ -1,11 +1,29 @@
-- version: "9.4.0-next"
+- version: "9.4.0"
   changes:
+    - description: automatic troubleshooting endpoint context docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/728
+    - description: 'Docs: Update Elastic Defend integration description'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/735
+    - description: Remove sample event strings that can trigger false positive alerts from other AV
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/730
     - description: Add Linux ransomware support
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/724
-    - description: TBD
+    - description: Add default mapping for process.command_line in network and file events
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/722
+    - description: change trusted_ancestor types from double to unsigned_long
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/721
+    - description: Add hit/miss metrics fields for trusted ancestors reporting
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/720
+    - description: 'CountOfCredentialsReturned: unify data type between endpoint and winlog beat'
+      type: bugfix
+      link: https://github.com/elastic/endpoint-package/pull/715
 - version: "9.3.0"
   changes:
     - description: Add entropy and header_bytes for Linux file events
