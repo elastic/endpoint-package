@@ -16,3 +16,7 @@ Artifact snapshots are enabled (requested), but the artifacts currently in use d
 - `C:\Program Files\Elastic\Endpoint\elastic-endpoint.exe test output`
 
 Note: `latest` is a special label that means "no snapshot—use the most recent artifacts." This status can appear whenever a new snapshot is set in policy—for example, during a transition from `latest` to `YYYY-MM-DD`, or from one `YYYY-MM-DD` date to another.
+
+Old artifacts are only available for the last 18 months.
+
+The pinned date must be more recent than the release date of the Elastic Agent and Elastic Endpoint version. This can be checked by looking at compile date in agent.build.original in the Endpoint's logs-endpoint.policy-* document.
