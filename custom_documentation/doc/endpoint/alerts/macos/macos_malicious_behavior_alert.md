@@ -98,6 +98,9 @@ This alert is generated when a Malicious Behavior alert occurs.
 | threat.technique.name |
 | threat.technique.reference |
 | threat.technique.subtechnique |
+| threat.technique.subtechnique.id |
+| threat.technique.subtechnique.name |
+| threat.technique.subtechnique.reference |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |
