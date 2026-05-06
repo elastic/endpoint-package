@@ -1,8 +1,8 @@
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # we are intentionally pinning the ECS version here, when ecs releases a new version
 # we'll discuss whether we need to release a new package and bump the version here
-# 43a1a61a4a4db88e2de60da9019733610717ff7e is v8.10.0
-ECS_GIT_REF ?= 43a1a61a4a4db88e2de60da9019733610717ff7e
+# f04bb41e4fcc35befcaa94a1d9575bc61944520c adds process.ai_agent.* alpha fields.
+ECS_GIT_REF ?= f04bb41e4fcc35befcaa94a1d9575bc61944520c
 
 
 # This variable specifies to location of the package-storage repo. It is used for automatically creating a PR
