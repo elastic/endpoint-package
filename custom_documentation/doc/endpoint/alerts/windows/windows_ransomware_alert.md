@@ -42,6 +42,8 @@ This alert is generated when a Ransomware alert occurs.
 | Ransomware.files.operation |
 | Ransomware.files.path |
 | Ransomware.files.score |
+| Ransomware.files.original.extension |
+| Ransomware.files.original.path |
 | Ransomware.score |
 | Ransomware.version |
 | Responses.@timestamp |
