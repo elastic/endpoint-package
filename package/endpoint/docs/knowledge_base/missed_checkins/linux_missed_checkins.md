@@ -21,7 +21,7 @@ The "missed 3 check-ins" message means Elastic Agent is running but the Endpoint
 
 Elastic Agent crashed, has been explicitly disabled or removed. Check `systemctl status elastic-agent` to confirm Agent is running. If Agent is not running, the Endpoint will continue protecting the system according to the last known policy but cannot receive policy updates or execute response actions.
 
-If this keeps happening, consider using the `linux.advanced.agent.orphaned_remediation` advanced option.
+Ask the user to consider using the `linux.advanced.agent.orphaned_remediation` advanced option which will automatically attempt to restart the Elastic Agent service when Elastic Defend becomes orphaned.
 
 ### SELinux blocking Endpoint execution (exit status 203/EXEC)
 
