@@ -246,6 +246,294 @@ Endpoint.metrics.diag_documents_volume.process_events.suppressed_count:
   normalize: []
   short: Number of suppressed documents
   type: long
+Endpoint.metrics.diag_documents_volume.alerts.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-alerts-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.alerts.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.alerts.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.alerts.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-alerts-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.alerts.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.alerts.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.alerts.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-alerts-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.alerts.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.alerts.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.alerts.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-alerts-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.alerts.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.alerts.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.api_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-api-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.api_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.api_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.api_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-api-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.api_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.api_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.api_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-api-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.api_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.api_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.api_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-api-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.api_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.api_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-diagnostic-alerts-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.diagnostic_alerts.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-diagnostic-alerts-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.diagnostic_alerts.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-diagnostic-alerts-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.diagnostic_alerts.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-diagnostic-alerts-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.diagnostic_alerts.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.file_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-file-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.file_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.file_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.file_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-file-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.file_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.file_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.file_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-file-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.file_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.file_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.file_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-file-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.file_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.file_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.library_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-library-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.library_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.library_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.library_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-library-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.library_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.library_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.library_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-library-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.library_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.library_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.library_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-library-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.library_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.library_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.network_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-network-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.network_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.network_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.network_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-network-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.network_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.network_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.network_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-network-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.network_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.network_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.network_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-network-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.network_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.network_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.registry_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-registry-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.registry_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.registry_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.registry_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-registry-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.registry_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.registry_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.registry_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-registry-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.registry_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.registry_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.registry_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-registry-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.registry_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.registry_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.security_events.sent_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-security-events-sent-bytes
+  description: Total size of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.security_events.sent_bytes
+  level: custom
+  name: metrics.diag_documents_volume.security_events.sent_bytes
+  normalize: []
+  short: Total size of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.security_events.sent_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-security-events-sent-count
+  description: Number of documents that would be sent
+  flat_name: Endpoint.metrics.diag_documents_volume.security_events.sent_count
+  level: custom
+  name: metrics.diag_documents_volume.security_events.sent_count
+  normalize: []
+  short: Number of documents that would be sent
+  type: long
+Endpoint.metrics.diag_documents_volume.security_events.suppressed_bytes:
+  dashed_name: Endpoint-metrics-diag-documents-volume-security-events-suppressed-bytes
+  description: Total size of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.security_events.suppressed_bytes
+  level: custom
+  name: metrics.diag_documents_volume.security_events.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed documents
+  type: long
+Endpoint.metrics.diag_documents_volume.security_events.suppressed_count:
+  dashed_name: Endpoint-metrics-diag-documents-volume-security-events-suppressed-count
+  description: Number of suppressed documents
+  flat_name: Endpoint.metrics.diag_documents_volume.security_events.suppressed_count
+  level: custom
+  name: metrics.diag_documents_volume.security_events.suppressed_count
+  normalize: []
+  short: Number of suppressed documents
+  type: long
 Endpoint.metrics.disks:
   dashed_name: Endpoint-metrics-disks
   description: An array of disk information for the host

@@ -555,6 +555,166 @@
       type: long
       description: Total size of suppressed Process Event documents from source
 
+    - name: metrics.diag_documents_volume.alerts.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.alerts.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.alerts.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.alerts.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.api_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.api_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.api_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.api_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.diagnostic_alerts.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.diagnostic_alerts.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.diagnostic_alerts.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.diagnostic_alerts.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.file_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.file_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.file_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.file_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.library_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.library_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.library_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.library_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.network_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.network_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.network_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.network_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.registry_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.registry_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.registry_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.registry_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.security_events.sent_bytes
+      level: custom
+      description: Total size of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.security_events.sent_count
+      level: custom
+      description: Number of documents that would be sent
+      type: long
+
+    - name: metrics.diag_documents_volume.security_events.suppressed_bytes
+      level: custom
+      description: Total size of suppressed documents
+      type: long
+
+    - name: metrics.diag_documents_volume.security_events.suppressed_count
+      level: custom
+      description: Number of suppressed documents
+      type: long
+
     - name: metrics.documents_volume
       level: custom
       type: object
