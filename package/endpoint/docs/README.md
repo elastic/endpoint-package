@@ -3194,10 +3194,34 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.cpu.endpoint.latest | Average CPU over the last sample interval | half_float |
 | Endpoint.metrics.cpu.endpoint.mean | Average CPU load used by the endpoint | half_float |
 | Endpoint.metrics.diag_documents_volume | Statistics about diagnostic documents | object |
+| Endpoint.metrics.diag_documents_volume.alerts.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.alerts.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.alerts.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.alerts.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.api_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.api_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.diagnostic_alerts.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.dns_events.sent_bytes | Total size of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.dns_events.sent_count | Number of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.dns_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.dns_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.file_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.file_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.file_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.file_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.library_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.library_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.library_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.library_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.network_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.network_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.network_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.network_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.overall.sent_bytes | Total size of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.overall.sent_count | Number of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.overall.suppressed_bytes | Total size of suppressed documents | long |
@@ -3212,6 +3236,14 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.diag_documents_volume.process_events.sources.suppressed_count | Number of suppressed Process Event documents from source | long |
 | Endpoint.metrics.diag_documents_volume.process_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.process_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.registry_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.registry_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.registry_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.registry_events.suppressed_count | Number of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sent_bytes | Total size of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
+| Endpoint.metrics.diag_documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume | Statistics about sent documents | object |
 | Endpoint.metrics.documents_volume.alerts.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.alerts.sent_count | Number of sent documents | long |
