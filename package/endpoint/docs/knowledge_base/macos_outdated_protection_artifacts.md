@@ -7,9 +7,9 @@ os: [MacOS]
 date: '2025-08-15'
 ---
 
-## Remediation
+## Summary
 
-Protection artifacts version is out of date. Check if automatic updates are enabled for the policy under the protection updates tab.
+Elastic Defend is trying to apply a pinned global protection artifact snapshot, but the endpoint cannot download or apply the requested snapshot. This causes the `download_global_artifacts` policy action to report a warning and can make the endpoint unhealthy or degraded.
 
 ## Diagnostic match
 
@@ -24,14 +24,34 @@ Use this context when Elastic Defend on macOS reports a policy response failure 
 
 This issue is about global protection artifact snapshots. Do not treat it as a `download_user_artifacts` failure for user artifacts such as Trusted Apps, Event Filters, or Endpoint Exceptions.
 
-Artifact snapshots are enabled (requested), but the artifacts currently in use don't yet match the expected snapshot. This is typically due to propagation delays on the Global Artifacts CDN. The Endpoint should fetch the requested artifacts once they're available. For troubleshooting, run:
+When the policy response says `Global artifacts snapshot latest does not match target snapshot: YYYY-MM-DD`, `latest` is the snapshot currently applied on the endpoint and `YYYY-MM-DD` is the requested pinned target snapshot. Do not describe the policy as using `latest`; the policy is requesting the target date.
+
+## Evidence to extract
+
+Before explaining the root cause, identify these values from endpoint data:
+
+1. The target pinned snapshot date from the `download_global_artifacts` message or policy configuration.
+2. The endpoint or agent build date from `agent.build.original` in the `logs-endpoint.policy-*` or `metrics-endpoint.policy-*` document. Prefer `agent.build.original` for this comparison; do not substitute the applied artifact version date unless `agent.build.original` is unavailable.
+3. Whether the target pinned snapshot date is inside the 18-month artifact retention window.
+
+## Root cause decision
+
+Apply these checks in order and keep them distinct:
+
+1. Artifact retention window: old artifacts are only available for the last 18 months. If the pinned date is older than 18 months, retention can explain the failure. If the pinned date is within the last 18 months, explicitly state that retention is not the root cause.
+
+2. Endpoint build-date compatibility: the pinned snapshot date must be later than the Elastic Agent and Elastic Endpoint build date from `agent.build.original`. If the endpoint or agent build date is later than the pinned snapshot date, the pinned snapshot predates the binary and is incompatible for that endpoint build. This can happen even when the pinned date is inside the 18-month retention window.
+
+Example: if the pinned snapshot is `2025-08-15` and `agent.build.original` shows the endpoint was built on `2026-05-31`, then the pinned snapshot is too old for that endpoint build. The correct conclusion is build-date incompatibility, not artifact retention and not CDN propagation.
+
+Only consider CDN propagation or transient availability after both checks pass: the pinned date is within the retention window and the pinned date is later than the endpoint build date.
+
+## Remediation
+
+Check the Elastic Defend policy's Protection Updates setting. If the pinned snapshot is invalid for retention or build-date compatibility, switch Protection Updates to automatic updates (`latest`) or choose a pinned date that is both inside the retention window and later than the endpoint build date.
+
+For troubleshooting, run:
 
 - `sudo /Library/Elastic/Endpoint/elastic-endpoint test output`
 
-Note: `latest` is a special label that means "no snapshot—use the most recent artifacts." This status can appear whenever a new snapshot is set in policy—for example, during a transition from `latest` to `YYYY-MM-DD`, or from one `YYYY-MM-DD` date to another.
-
-When explaining this issue, include these validation checks and keep them distinct:
-
-1. Artifact retention window: old artifacts are only available for the last 18 months. If the pinned date is older than 18 months, retention can explain the failure. If the pinned date is within the last 18 months, do not describe retention as the root cause; continue to the endpoint build-date check.
-
-2. Endpoint build-date compatibility: the pinned date must be more recent than the release date of the Elastic Agent and Elastic Endpoint version. This can be checked by looking at compile date in agent.build.original in the Endpoint's logs-endpoint.policy-* document. A pinned date can be within the 18-month retention window and still be invalid for an Endpoint build that is newer than the pinned artifact date.
+When explaining this issue, include the target pinned date, the endpoint build date, the retention-window result, the build-date compatibility result, and the recommended policy change.
