@@ -16,6 +16,8 @@ Elastic Defend uses a kernel-mode driver (`elastic_endpoint_driver.sys`) for fil
 
 Collecting a full kernel memory dump and sharing it with Elastic Support is essential for root-cause determination. The bugcheck code alone is not sufficient — the faulting call stack identifies which code path triggered the crash. Just because Elastic Defend is in the calls stack does not mean it is responsible for the crash.
 
+Before attributing a crash to any of the patterns below, confirm the actual bugcheck code and the faulting driver for the specific host from the evidence — query `logs-elastic_agent.endpoint_security-*` for the affected host for bugcheck, crash, or `elastic_endpoint_driver.sys` references (and correlate with the memory dump when available). Do not conclude a known regression applies from the knowledge base alone; state the specific bugcheck code observed on the host.
+
 
 ## Common issues
 
@@ -29,7 +31,7 @@ This is the most frequently reported BSOD pattern and affects Windows Server env
 
 **Fixed versions**: 8.17.9, 8.18.4, 9.0.4. Hotfix builds are also available: 8.18.3+build202507101319 and 9.0.3+build202507110136.
 
-**Mitigation**: Upgrade to a fixed version. If immediate upgrade is not possible, set `advanced.kernel.network: false` in the Elastic Defend advanced policy settings to disable the kernel network driver.
+**Mitigation**: Upgrade to a fixed version. If immediate upgrade is not possible, set `advanced.kernel.network: false` in the Elastic Defend advanced policy settings to disable the kernel network driver as an immediate mitigation. Note the tradeoff: disabling the kernel network driver also disables host isolation capability (host isolation relies on the network filter), so apply this only when host isolation is not required or as a temporary measure until you can upgrade.
 
 ### ODX-enabled volume crash (8.19.8, 9.1.8, 9.2.2)
 
@@ -60,10 +62,11 @@ Upgrading Elastic Defend to a version that does not support the host's Windows v
 ## Investigation priorities
 
 1) Collect the full kernel memory dump (`C:\Windows\MEMORY.DMP` or minidumps from `C:\Windows\Minidump\`). Share the dump with Elastic.
-2) Check the Elastic Defend version at the time of crash. Query `.fleet-agents*` for the agent version and `metrics-endpoint.metadata_current_*` for the endpoint version and OS details. Cross-reference against the known affected versions listed above (8.17.8, 8.18.3, 9.0.3 for network driver; 8.19.8, 9.1.8, 9.2.2 for ODX).
-3) Determine whether the BSOD started after a specific agent or OS upgrade. Check `.fleet-agents*` for recent version changes and correlate with the crash timeline.
-4) Identify other kernel-mode security products installed on the system. Look for drivers like `klflt.sys` (Kaspersky), `mfehidk.sys` (Trellix/McAfee), `csagent.sys` (CrowdStrike), or other filter drivers in the WinDbg module list.
-5) Check the Windows version against the Elastic Defend support matrix. Query `metrics-endpoint.metadata_current_*` for `host.os.version` and `host.os.name`.
-6) Look for gaps in endpoint metadata timestamps in `metrics-endpoint.metadata_current_*` — an offline gap followed by a version change often indicates a crash-recovery-rollback sequence.
-7) Check `metrics-endpoint.policy-*` for `connect_kernel` failures, which indicate the driver failed to load or initialize properly after a crash.
-8) If the system is in a boot loop, guide the user to boot into Safe Mode, delete the driver file at `C:\Windows\System32\drivers\elastic-endpoint-driver.sys`, then boot normally and downgrade or uninstall the agent.
+2) Query `logs-elastic_agent.endpoint_security-*` for the affected host for BSOD, bugcheck, crash, or `elastic_endpoint_driver.sys` references, and identify the specific bugcheck code observed on this host (e.g. `KERNEL_MODE_HEAP_CORRUPTION`). Base the diagnosis on this host's evidence, not on the knowledge base alone.
+3) Check the Elastic Defend version at the time of crash. Query `.fleet-agents*` for the agent version and `metrics-endpoint.metadata_current_*` for the endpoint version and OS details. Cross-reference the observed bugcheck and version against the known affected versions listed above (8.17.8, 8.18.3, 9.0.3 for network driver; 8.19.8, 9.1.8, 9.2.2 for ODX).
+4) Determine whether the BSOD started after a specific agent or OS upgrade. Check `.fleet-agents*` for recent version changes and correlate with the crash timeline.
+5) Identify other kernel-mode security products installed on the system. Look for drivers like `klflt.sys` (Kaspersky), `mfehidk.sys` (Trellix/McAfee), `csagent.sys` (CrowdStrike), or other filter drivers in the WinDbg module list.
+6) Check the Windows version against the Elastic Defend support matrix. Query `metrics-endpoint.metadata_current_*` for `host.os.version` and `host.os.name`.
+7) Look for gaps in endpoint metadata timestamps in `metrics-endpoint.metadata_current_*` — an offline gap followed by a version change often indicates a crash-recovery-rollback sequence.
+8) Check `metrics-endpoint.policy-*` for `connect_kernel` failures, which indicate the driver failed to load or initialize properly after a crash.
+9) If the system is in a boot loop, guide the user to boot into Safe Mode, delete the driver file at `C:\Windows\System32\drivers\elastic-endpoint-driver.sys`, then boot normally and downgrade or uninstall the agent.

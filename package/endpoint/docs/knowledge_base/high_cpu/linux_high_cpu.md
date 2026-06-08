@@ -25,6 +25,8 @@ Monitoring and automation scripts that run on a schedule (cron, systemd timers) 
 
 A typical pattern is hourly CPU spikes lasting 5–10 minutes, aligning with cron schedules (e.g. xx:31–xx:41 every hour).
 
+When `process_events` is the dominant impact category, identify the specific offending parent process rather than describing it generically: query `logs-endpoint.events.process-*` for the affected host and inspect `process.parent.executable` on the high-volume process-start events. Name the exact parent process path and its short-lived child processes in the diagnosis, and target the remediation at that specific process. Monitoring or automation scripts are a common source, but the same applies to any high-churn parent such as cron/systemd timers, CI/build runners, container or orchestration runtimes, and supervisor or health-check processes.
+
 Adding the parent script as a Trusted Application Descendants stops monitoring of its process tree but does not prevent behavioral rules from firing if the rule matches on child process characteristics. On versions prior to 9.2, behavioral detections still fire for trusted processes. On 9.2+, behavioral detections are disabled for Trusted Applications.
 
 Remediations:
@@ -95,7 +97,7 @@ Verify the entry's field, operator, and value by querying `logs-endpoint.events.
 
 1) Run `sudo elastic-endpoint top` on the affected host to identify which processes and processing stages consume the most CPU
 2) Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes by `overall.week_ms` and the dominant event category
-3) Check if CPU spikes correlate with cron schedules or monitoring script execution intervals
+3) Check if CPU spikes correlate with cron schedules or monitoring/automation execution intervals. When `process_events` dominates, query `logs-endpoint.events.process-*` for the host and inspect `process.parent.executable` to identify and name the specific parent process and its short-lived child processes driving the churn
 4) Check `logs-elastic_agent.endpoint_security-*` for output connectivity errors (DEGRADED status, SSL handshake failures, Logstash connection down messages)
 5) Check `metrics-endpoint.metadata_current-*` for the endpoint's agent version — many CPU issues have version-specific fixes (8.13.4 for retry storms, 8.14 for hashing hangs, 9.2 for behavioral rule bypass of trusted apps)
 6) Review `linux.advanced.events` settings in the policy to determine which event types are enabled and whether unnecessary types can be disabled
