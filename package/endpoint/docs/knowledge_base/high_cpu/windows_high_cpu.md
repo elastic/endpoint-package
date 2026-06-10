@@ -87,7 +87,7 @@ To test: disable all protections and event sources except DNS, Security, and API
 ## Investigation priorities
 
 1) Run `elastic-endpoint top` on the affected host to identify which processes and processing stages consume the most CPU
-2) Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes by `overall.week_ms` and the dominant event category (authentication_events, file_events, network_events, etc.)
+2) Query `metrics-endpoint.metrics-*` for `Endpoint.metrics.system_impact` to identify the top processes by `overall.week_ms` and the dominant event category (authentication_events, file_events, network_events, etc.). Name the specific dominant source in the diagnosis rather than describing it generically — for `authentication_events`, the specific Windows Security event IDs (e.g. 4624/4634); when a process or event source dominates, query the relevant events index (e.g. `logs-endpoint.events.process-*`) and name the specific offending `process.executable`/`process.parent.executable` — and target the remediation at that source
 3) Check for third-party security products in the process list and whether they appear in `elastic-endpoint top` output
 4) Check `logs-elastic_agent.endpoint_security-*` for output connectivity errors (DEGRADED status, SSL handshake failures, Logstash/Kafka errors)
 5) Check `metrics-endpoint.metadata_current-*` for the endpoint's agent version — many CPU issues have version-specific fixes

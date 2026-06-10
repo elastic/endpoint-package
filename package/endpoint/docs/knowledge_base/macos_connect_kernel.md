@@ -9,4 +9,4 @@ date: "2025-08-15"
 ---
 
 ## Remediation
-Elastic Endpoint will attempt to load a system extension during installation. This system extension must be loaded in order to provide insight into system events such as process events, file system events, and network events. A message prompting you to approve the system extension appears during installation.
+Elastic Endpoint will attempt to load a system extension during installation. This system extension must be loaded in order to provide insight into system events such as process events, file system events, and network events. A message prompting you to approve the system extension appears during installation. Elastic Endpoint will automatically detect when the system extension is approved and attempt load it again.

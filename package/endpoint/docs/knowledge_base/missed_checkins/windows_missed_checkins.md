@@ -27,6 +27,8 @@ Elastic Agent reports the Endpoint component as `FAILED` or `DEGRADED` with the 
 
 Elastic Agent appears `UNHEALTHY` in fleet and Elastic Defend integration indicates errors. Elastic Agent reports the Endpoint component as `FAILED` or `DEGRADED` with the message "Failed: endpoint service missed 3 check-ins". Endpoint events, alerts, and metadata stop being ingested. In some cases thousands of endpoints go unhealthy simultaneously.
 
+Ask the user to consider using the `windows.advanced.agent.orphaned_remediation` advanced option which will automatically attempt to restart the Elastic Agent service when Elastic Defend becomes orphaned.
+
 ## Summary
 
 The "missed 3 check-ins" message means Elastic Agent is running but the Endpoint process is not communicating with it. Elastic Agent expects Endpoint to check in over a local connection on ports 6788/6789 at regular intervals. When three consecutive check-ins are missed, Agent marks the Endpoint component as FAILED. The underlying cause is almost always that the Endpoint process has crashed, failed to start, or is stuck in a broken install/upgrade state.

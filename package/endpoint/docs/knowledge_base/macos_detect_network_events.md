@@ -12,3 +12,5 @@ date: "2025-08-15"
 After successfully loading the ElasticEndpoint system extension, an additional message appears, asking to allow Elastic Endpoint to filter network content.
 
 Click Allow to enable content filtering for the ElasticEndpoint system extension. Without this approval, Elastic Endpoint cannot receive network events and, therefore, cannot enable network-related features such as host isolation.
+
+Elastic Endpoint will automatically detect when network content filtering is approved and attempt make use of it.
