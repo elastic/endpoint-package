@@ -39,12 +39,14 @@ This event is generated when a schedule task was updated.
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
 | process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
 | process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
+| process.Ext.protection |
 | process.entity_id |
 | process.executable |
 | process.name |

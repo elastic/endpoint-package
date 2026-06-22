@@ -39,6 +39,7 @@ This event is generated when a service was installed in the system.
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
 | process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
