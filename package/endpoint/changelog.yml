@@ -3,6 +3,9 @@
     - description: TBD
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/99999
+    - description: Split the metadata_united transform into stateful (cross-cluster) and serverless (local) variants gated by _meta.environments
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/750
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
