@@ -38,6 +38,12 @@
             "type": "kubernetes"
         }
     },
+    "Effective_process": {
+        "entity_id": "!BsbYzMR11p0y/54kQN3cIA",
+        "executable": "C:\\python\\python.exe",
+        "name": "python.exe",
+        "pid": 6948
+    },
     "process": {
         "Ext": {
             "ancestry": [
