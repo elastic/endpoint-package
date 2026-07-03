@@ -102,6 +102,10 @@ fields:
               name: {}
   process:
     fields:
+      ai_agent:
+        fields:
+          is_descendant: {}
+          name: {}
       args: {}
       args_count: {}
       code_signature:
