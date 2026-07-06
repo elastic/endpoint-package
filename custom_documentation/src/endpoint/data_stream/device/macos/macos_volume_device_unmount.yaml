@@ -1,11 +1,11 @@
 overview:
-  name: macOS Device Mount
-  description: This event is generated when a device is mounted.
+  name: Device Unmount
+  description: This event is generated when a device is unmounted.
 identification:
   filter:
     event.dataset: endpoint.events.device
     event.module: endpoint
-    event.action: mount
+    event.action: unmount
     host.os.type: macos
   os:
   - macos
@@ -22,7 +22,6 @@ fields:
   - device.image_path
   - device.product.id
   - device.product.name
-  - device.serial_number
   - device.type
   - device.vendor.id
   - device.vendor.name
@@ -45,10 +44,6 @@ fields:
   - host.name
   - host.os.type
   - message
-  - process.Ext.code_signature.exists
-  - process.Ext.code_signature.status
-  - process.Ext.code_signature.subject_name
-  - process.Ext.code_signature.trusted
   - process.code_signature.exists
   - process.code_signature.signing_id
   - process.code_signature.status
@@ -60,7 +55,6 @@ fields:
   - process.name
   - process.pid
   - user.Ext.real.id
-  - user.domain
   - user.id
   - user.name
   - volume.bus_type
