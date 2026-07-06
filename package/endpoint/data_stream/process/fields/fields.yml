@@ -1131,31 +1131,22 @@
     - name: ai_agent
       level: extended
       type: object
-      alpha: This field is alpha and subject to change.
       description: 'Fields describing an AI-agent tool associated with a process.
 
-        When a process is identified as a known AI-agent development tool, these fields
-        can be populated on the process event and propagated to descendant processes.
-        This enables analysts and detection rules to distinguish AI-agent-initiated
-        activity from human-initiated activity.'
+        When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity.'
       default_field: false
     - name: ai_agent.is_descendant
       level: extended
       type: boolean
-      alpha: This field is alpha and subject to change.
-      description: True when this process was spawned, directly or transitively, by
-        a known AI-agent tool process.
+      description: True when this process was spawned, directly or transitively, by a known AI-agent tool process.
       default_field: false
     - name: ai_agent.name
       level: extended
       type: keyword
       ignore_above: 1024
-      alpha: This field is alpha and subject to change.
-      description: 'Canonical name of the AI-agent tool associated with this process
-        or its ancestor.
+      description: 'Canonical name of the AI-agent tool associated with this process or its ancestor.
 
-        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and
-        `gemini_cli`.'
+        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
       default_field: false
     - name: args
       level: extended
