@@ -2449,6 +2449,9 @@ sent by the endpoint.
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.Ext.windows | Platform-specific Windows fields | object |
 | process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
+| process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |

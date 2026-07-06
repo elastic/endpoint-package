@@ -71,6 +71,41 @@
         The URL where the process's executable file is hosted.
       example: http://example.com/files/example.exe
 
+    - name: ai_agent
+      level: extended
+      type: object
+      alpha: This field is alpha and subject to change.
+      short: AI-agent tool identification fields.
+      description: >
+        Fields describing an AI-agent tool associated with a process.
+
+        When a process is identified as a known AI-agent development tool, these fields
+        can be populated on the process event and propagated to descendant processes.
+        This enables analysts and detection rules to distinguish AI-agent-initiated
+        activity from human-initiated activity.
+
+    - name: ai_agent.is_descendant
+      level: extended
+      type: boolean
+      alpha: This field is alpha and subject to change.
+      short: Whether this process is a descendant of an AI-agent tool process.
+      description: >
+        True when this process was spawned, directly or transitively, by
+        a known AI-agent tool process.
+
+    - name: ai_agent.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Canonical name of the AI-agent tool.
+      description: >
+        Canonical name of the AI-agent tool associated with this process
+        or its ancestor.
+
+        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and
+        `gemini_cli`.
+
     - name: parent.thread
       level: custom
       type: object

@@ -2039,6 +2039,46 @@ process.Ext.windows.zone_identifier:
   normalize: []
   short: Windows zone identifier for a process's executable file
   type: keyword
+process.ai_agent:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent
+  description: 'Fields describing an AI-agent tool associated with a process.
+
+    When a process is identified as a known AI-agent development tool, these fields
+    can be populated on the process event and propagated to descendant processes.
+    This enables analysts and detection rules to distinguish AI-agent-initiated activity
+    from human-initiated activity.'
+  flat_name: process.ai_agent
+  level: extended
+  name: ai_agent
+  normalize: []
+  short: AI-agent tool identification fields.
+  type: object
+process.ai_agent.is_descendant:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-is-descendant
+  description: True when this process was spawned, directly or transitively, by a
+    known AI-agent tool process.
+  flat_name: process.ai_agent.is_descendant
+  level: extended
+  name: ai_agent.is_descendant
+  normalize: []
+  short: Whether this process is a descendant of an AI-agent tool process.
+  type: boolean
+process.ai_agent.name:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-name
+  description: 'Canonical name of the AI-agent tool associated with this process or
+    its ancestor.
+
+    Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
+  flat_name: process.ai_agent.name
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.name
+  normalize: []
+  short: Canonical name of the AI-agent tool.
+  type: keyword
 process.args:
   dashed_name: process-args
   description: 'Array of process arguments, starting with the absolute path to the
