@@ -2,7 +2,6 @@
     "source": {
         "index": [
             "metrics-endpoint.metadata_current_default*",
-            "*:metrics-endpoint.metadata_current_default*",
             ".fleet-agents*"
         ]
     },
@@ -39,7 +38,7 @@
     "_meta": {
         "managed": true,
         "environments": [
-            "stateful"
+            "serverless"
         ]
     }
 }
