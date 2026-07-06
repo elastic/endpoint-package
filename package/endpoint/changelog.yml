@@ -1,8 +1,8 @@
 - version: "9.5.0-next"
   changes:
-    - description: TBD
+    - description: Add cross-cluster search source to the metadata_united transform for Elastic Defend remote Elasticsearch output support
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/756
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
