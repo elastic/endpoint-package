@@ -664,7 +664,16 @@
                     "suppressed_count": 0,
                     "suppressed_bytes": 0,
                     "sent_count": 259,
-                    "sent_bytes": 422247
+                    "sent_bytes": 422247,
+                    "sources": [
+                        {
+                            "source": "diagnostic_4624",
+                            "sent_count": 4,
+                            "sent_bytes": 10240,
+                            "suppressed_count": 0,
+                            "suppressed_bytes": 0
+                        }
+                    ]
                 },
                 "library_events": {
                     "suppressed_count": 0,
@@ -676,7 +685,16 @@
                     "suppressed_count": 0,
                     "suppressed_bytes": 0,
                     "sent_count": 201,
-                    "sent_bytes": 602914
+                    "sent_bytes": 602914,
+                    "sources": [
+                        {
+                            "source": "load_module",
+                            "sent_count": 2,
+                            "sent_bytes": 5000,
+                            "suppressed_count": 1,
+                            "suppressed_bytes": 2500
+                        }
+                    ]
                 },
                 "registry_events": {
                     "suppressed_count": 0,
