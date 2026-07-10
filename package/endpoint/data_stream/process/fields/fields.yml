@@ -902,6 +902,43 @@
       description: Process ID.
       example: 4242
       default_field: false
+    - name: Ext.load_module
+      level: custom
+      type: object
+      description: Object for kernel module load events.
+      default_field: false
+    - name: Ext.load_module.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the kernel module.
+      example: dummy
+      default_field: false
+    - name: Ext.load_module.src_version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Source version checksum of the kernel module.
+      default_field: false
+    - name: Ext.load_module.taint_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel.
+      example: OE
+      default_field: false
+    - name: Ext.load_module.taints
+      level: custom
+      type: long
+      description: Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel.
+      example: 4096
+      default_field: false
+    - name: Ext.load_module.version
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Version of the kernel module, if the module declares one.
+      default_field: false
     - name: Ext.memfd
       level: custom
       type: object

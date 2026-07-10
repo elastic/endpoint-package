@@ -197,6 +197,39 @@
       type: long
       description: ptrace data.
 
+    - name: Ext.load_module
+      level: custom
+      type: object
+      description: Object for kernel module load events.
+
+    - name: Ext.load_module.name
+      level: custom
+      type: keyword
+      example: "dummy"
+      description: Name of the kernel module.
+
+    - name: Ext.load_module.version
+      level: custom
+      type: keyword
+      description: Version of the kernel module, if the module declares one.
+
+    - name: Ext.load_module.src_version
+      level: custom
+      type: keyword
+      description: Source version checksum of the kernel module.
+
+    - name: Ext.load_module.taints
+      level: custom
+      type: long
+      example: "4096"
+      description: Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel.
+
+    - name: Ext.load_module.taint_flags
+      level: custom
+      type: keyword
+      example: "OE"
+      description: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel.
+
     - name: Ext.memfd
       level: custom
       type: object
