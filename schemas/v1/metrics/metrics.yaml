@@ -513,6 +513,61 @@ Endpoint.metrics.documents_volume.process_events.sent_count:
   normalize: []
   short: Number of sent documents
   type: long
+Endpoint.metrics.documents_volume.process_events.sources:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources
+  description: An array of Process Event document statistics per source
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources
+  level: custom
+  name: metrics.documents_volume.process_events.sources
+  normalize: []
+  short: An array of Process Event document statistics per source
+  type: object
+Endpoint.metrics.documents_volume.process_events.sources.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources-sent-bytes
+  description: Total size of Process Event sent documents from source
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources.sent_bytes
+  level: custom
+  name: metrics.documents_volume.process_events.sources.sent_bytes
+  normalize: []
+  short: Total size of Process Event sent documents from source
+  type: long
+Endpoint.metrics.documents_volume.process_events.sources.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources-sent-count
+  description: Number of sent Process Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources.sent_count
+  level: custom
+  name: metrics.documents_volume.process_events.sources.sent_count
+  normalize: []
+  short: Number of sent Process Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.process_events.sources.source:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources-source
+  description: Process Event document source name
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources.source
+  ignore_above: 1024
+  level: custom
+  name: metrics.documents_volume.process_events.sources.source
+  normalize: []
+  short: Process Event document source name
+  type: keyword
+Endpoint.metrics.documents_volume.process_events.sources.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources-suppressed-bytes
+  description: Total size of suppressed Process Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.process_events.sources.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed Process Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.process_events.sources.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-process-events-sources-suppressed-count
+  description: Number of suppressed Process Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.process_events.sources.suppressed_count
+  level: custom
+  name: metrics.documents_volume.process_events.sources.suppressed_count
+  normalize: []
+  short: Number of suppressed Process Event documents from source
+  type: long
 Endpoint.metrics.documents_volume.process_events.suppressed_bytes:
   dashed_name: Endpoint-metrics-documents-volume-process-events-suppressed-bytes
   description: Total size of suppressed documents
@@ -584,6 +639,61 @@ Endpoint.metrics.documents_volume.security_events.sent_count:
   name: metrics.documents_volume.security_events.sent_count
   normalize: []
   short: Number of sent documents
+  type: long
+Endpoint.metrics.documents_volume.security_events.sources:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources
+  description: An array of Security Event document statistics per source
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources
+  level: custom
+  name: metrics.documents_volume.security_events.sources
+  normalize: []
+  short: An array of Security Event document statistics per source
+  type: object
+Endpoint.metrics.documents_volume.security_events.sources.sent_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources-sent-bytes
+  description: Total size of Security Event sent documents from source
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources.sent_bytes
+  level: custom
+  name: metrics.documents_volume.security_events.sources.sent_bytes
+  normalize: []
+  short: Total size of Security Event sent documents from source
+  type: long
+Endpoint.metrics.documents_volume.security_events.sources.sent_count:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources-sent-count
+  description: Number of sent Security Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources.sent_count
+  level: custom
+  name: metrics.documents_volume.security_events.sources.sent_count
+  normalize: []
+  short: Number of sent Security Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.security_events.sources.source:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources-source
+  description: Security Event document source name
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources.source
+  ignore_above: 1024
+  level: custom
+  name: metrics.documents_volume.security_events.sources.source
+  normalize: []
+  short: Security Event document source name
+  type: keyword
+Endpoint.metrics.documents_volume.security_events.sources.suppressed_bytes:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources-suppressed-bytes
+  description: Total size of suppressed Security Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources.suppressed_bytes
+  level: custom
+  name: metrics.documents_volume.security_events.sources.suppressed_bytes
+  normalize: []
+  short: Total size of suppressed Security Event documents from source
+  type: long
+Endpoint.metrics.documents_volume.security_events.sources.suppressed_count:
+  dashed_name: Endpoint-metrics-documents-volume-security-events-sources-suppressed-count
+  description: Number of suppressed Security Event documents from source
+  flat_name: Endpoint.metrics.documents_volume.security_events.sources.suppressed_count
+  level: custom
+  name: metrics.documents_volume.security_events.sources.suppressed_count
+  normalize: []
+  short: Number of suppressed Security Event documents from source
   type: long
 Endpoint.metrics.documents_volume.security_events.suppressed_bytes:
   dashed_name: Endpoint-metrics-documents-volume-security-events-suppressed-bytes
