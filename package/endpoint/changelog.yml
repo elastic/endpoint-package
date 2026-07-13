@@ -1,5 +1,8 @@
 - version: "9.5.0-next"
   changes:
+    - description: Add kernel module name and taint fields to Linux load_module events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/761
     - description: Add cross-cluster search source to the metadata_united transform for Elastic Defend remote Elasticsearch output support
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/756

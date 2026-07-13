@@ -138,6 +138,13 @@
             },
             "windows": {
                 "zone_identifier": 3
+            },
+            "load_module": {
+                "name": "dummy",
+                "version": "1.0",
+                "src_version": "541BA167DCA57C2B4F2D95D",
+                "taints": 12288,
+                "taint_flags": "OE"
             }
         },
         "parent": {

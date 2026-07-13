@@ -2409,6 +2409,12 @@ sent by the endpoint.
 | process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
 | process.Ext.effective_parent.name | Process name for the effective process. | keyword |
 | process.Ext.effective_parent.pid | Process ID. | long |
+| process.Ext.load_module | Object for kernel module load events. | object |
+| process.Ext.load_module.name | Name of the kernel module. | keyword |
+| process.Ext.load_module.src_version | Source version checksum of the kernel module. | keyword |
+| process.Ext.load_module.taint_flags | Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel. | keyword |
+| process.Ext.load_module.taints | Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel. | long |
+| process.Ext.load_module.version | Version of the kernel module, if the module declares one. | keyword |
 | process.Ext.memfd | Object for memfd events. | object |
 | process.Ext.memfd.flag_allow_seal | Allow sealing operations on this file. | boolean |
 | process.Ext.memfd.flag_cloexec | Sets the the close-on-exec flag on the new file descriptor. | boolean |
