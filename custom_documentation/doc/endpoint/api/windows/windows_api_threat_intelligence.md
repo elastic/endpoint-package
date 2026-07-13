@@ -55,6 +55,8 @@ This event is generated when ETW Threat-Intelligence events are generated.
 | process.Ext.api.behaviors |
 | process.Ext.api.metadata.target_address_name |
 | process.Ext.api.metadata.target_address_path |
+| process.Ext.api.metadata.target_function |
+| process.Ext.api.metadata.target_section |
 | process.Ext.api.name |
 | process.Ext.api.parameters.address |
 | process.Ext.api.parameters.allocation_type |
