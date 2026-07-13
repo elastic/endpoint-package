@@ -3214,6 +3214,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.overall.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.process_events.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.process_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.process_events.sources | An array of Process Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.process_events.sources.sent_bytes | Total size of Process Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.sent_count | Number of sent Process Event documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.source | Process Event document source name | keyword |
+| Endpoint.metrics.documents_volume.process_events.sources.suppressed_bytes | Total size of suppressed Process Event documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.suppressed_count | Number of suppressed Process Event documents from source | long |
 | Endpoint.metrics.documents_volume.process_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.process_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.registry_events.sent_bytes | Total size of sent documents | long |
@@ -3222,6 +3228,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.registry_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.security_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.security_events.sources | An array of Security Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_bytes | Total size of Security Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_count | Number of sent Security Event documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.source | Security Event document source name | keyword |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_bytes | Total size of suppressed Security Event documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_count | Number of suppressed Security Event documents from source | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.event_filter.active_global_count | The number of active global event filters | long |
