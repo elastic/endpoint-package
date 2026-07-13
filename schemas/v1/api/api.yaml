@@ -2860,14 +2860,14 @@ process.Ext.api.metadata.target_section:
   original_fieldset: api
   short: Ntdll image section overlapped by the target memory range.
   type: keyword
-process.Ext.api.metadata.target_function:
-  dashed_name: process-Ext-api-metadata-target-function
+process.Ext.api.metadata.target_function_name:
+  dashed_name: process-Ext-api-metadata-target-function-name
   description: Sensitive ntdll functions overlapped by the target memory range.
   example: '[ "NtTraceEvent", "EtwEventWrite" ]'
-  flat_name: process.Ext.api.metadata.target_function
+  flat_name: process.Ext.api.metadata.target_function_name
   ignore_above: 1024
   level: custom
-  name: metadata.target_function
+  name: metadata.target_function_name
   normalize: []
   original_fieldset: api
   short: Sensitive ntdll functions overlapped by the target memory range.
