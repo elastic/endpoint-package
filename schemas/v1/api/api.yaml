@@ -2848,6 +2848,30 @@ process.Ext.api.metadata.target_address_name:
   original_fieldset: api
   short: The name of the memory region targeted by the API call.
   type: keyword
+process.Ext.api.metadata.target_section:
+  dashed_name: process-Ext-api-metadata-target-section
+  description: Ntdll image section overlapped by the target memory range.
+  example: ".text"
+  flat_name: process.Ext.api.metadata.target_section
+  ignore_above: 1024
+  level: custom
+  name: metadata.target_section
+  normalize: []
+  original_fieldset: api
+  short: Ntdll image section overlapped by the target memory range.
+  type: keyword
+process.Ext.api.metadata.target_function:
+  dashed_name: process-Ext-api-metadata-target-function
+  description: Sensitive ntdll functions overlapped by the target memory range.
+  example: '[ "NtTraceEvent", "EtwEventWrite" ]'
+  flat_name: process.Ext.api.metadata.target_function
+  ignore_above: 1024
+  level: custom
+  name: metadata.target_function
+  normalize: []
+  original_fieldset: api
+  short: Sensitive ntdll functions overlapped by the target memory range.
+  type: keyword
 process.Ext.api.metadata.target_address_path:
   dashed_name: process-Ext-api-metadata-target-address-path
   description: The path of the memory region targeted by the API call.
@@ -3396,30 +3420,6 @@ process.Ext.api.parameters.protection_old:
   normalize: []
   original_fieldset: api
   short: The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
-  type: keyword
-process.Ext.api.metadata.target_function:
-  dashed_name: process-Ext-api-metadata-target-function
-  description: Sensitive ntdll functions overlapped by the target memory range.
-  example: '[ "NtTraceEvent", "EtwEventWrite" ]'
-  flat_name: process.Ext.api.metadata.target_function
-  ignore_above: 1024
-  level: custom
-  name: metadata.target_function
-  normalize: []
-  original_fieldset: api
-  short: Sensitive ntdll functions overlapped by the target memory range.
-  type: keyword
-process.Ext.api.metadata.target_section:
-  dashed_name: process-Ext-api-metadata-target-section
-  description: Ntdll image section overlapped by the target memory range.
-  example: ".text"
-  flat_name: process.Ext.api.metadata.target_section
-  ignore_above: 1024
-  level: custom
-  name: metadata.target_section
-  normalize: []
-  original_fieldset: api
-  short: Ntdll image section overlapped by the target memory range.
   type: keyword
 process.Ext.api.parameters.r8:
   dashed_name: process-Ext-api-parameters-r8
