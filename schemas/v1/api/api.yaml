@@ -2874,7 +2874,7 @@ process.Ext.api.metadata.target_function_name:
   type: keyword
 process.Ext.api.metadata.target_section:
   dashed_name: process-Ext-api-metadata-target-section
-  description: The executable image section overlapped by the target memory range.
+  description: The in-memory PE section overlapped by the target memory range.
   example: .text
   flat_name: process.Ext.api.metadata.target_section
   ignore_above: 1024
@@ -2882,7 +2882,7 @@ process.Ext.api.metadata.target_section:
   name: metadata.target_section
   normalize: []
   original_fieldset: api
-  short: The executable image section overlapped by the target memory range.
+  short: The in-memory PE section overlapped by the target memory range.
   type: keyword
 process.Ext.api.metadata.thread_info_flags:
   dashed_name: process-Ext-api-metadata-thread-info-flags

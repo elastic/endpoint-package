@@ -233,7 +233,7 @@
       level: custom
       type: keyword
       description: >
-        The executable image section overlapped by the target memory range.
+        The in-memory PE section overlapped by the target memory range.
       example: ".text"
 
     - name: metadata.target_function_name

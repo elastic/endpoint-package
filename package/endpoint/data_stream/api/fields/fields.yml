@@ -1456,7 +1456,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: The executable image section overlapped by the target memory range.
+      description: The in-memory PE section overlapped by the target memory range.
       example: .text
       default_field: false
     - name: Ext.api.metadata.thread_info_flags
