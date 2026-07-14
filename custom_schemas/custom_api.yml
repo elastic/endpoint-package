@@ -236,7 +236,7 @@
         The executable image section overlapped by the target memory range.
       example: ".text"
 
-    - name: metadata.target_function
+    - name: metadata.target_function_name
       level: custom
       type: keyword
       description: >
