@@ -1449,14 +1449,14 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Sensitive ntdll functions overlapped by the target memory range.
+      description: Sensitive functions overlapped by the target memory range.
       example: '[ "NtTraceEvent", "EtwEventWrite" ]'
       default_field: false
     - name: Ext.api.metadata.target_section
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Ntdll image section overlapped by the target memory range.
+      description: The executable image section overlapped by the target memory range.
       example: .text
       default_field: false
     - name: Ext.api.metadata.thread_info_flags
