@@ -201,4 +201,3 @@ This event is generated when a process calls mprotect().
 | user.Ext.real.name |
 | user.id |
 | user.name |
-
