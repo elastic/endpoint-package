@@ -993,6 +993,33 @@
       ignore_above: 1024
       description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled
       default_field: false
+    - name: Ext.mprotect
+      level: custom
+      type: object
+      description: Object for mprotect events.
+      default_field: false
+    - name: Ext.mprotect.addr
+      level: custom
+      type: long
+      description: Start address passed to mprotect().
+      default_field: false
+    - name: Ext.mprotect.len
+      level: custom
+      type: long
+      description: Length in bytes passed to mprotect().
+      default_field: false
+    - name: Ext.mprotect.prot
+      level: custom
+      type: long
+      description: Raw memory protection flags passed to mprotect().
+      default_field: false
+    - name: Ext.mprotect.prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Decoded memory protection flags in fixed R, W, X order (for example RWX).
+      example: RWX
+      default_field: false
     - name: Ext.protection
       level: custom
       type: keyword

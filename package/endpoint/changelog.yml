@@ -6,6 +6,9 @@
     - description: Add cross-cluster search source to the metadata_united transform for Elastic Defend remote Elasticsearch output support
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/756
+    - description: Add Linux mprotect() syscall fields to process events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/TBD
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
