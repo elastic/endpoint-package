@@ -1,8 +1,11 @@
-- version: "9.4.1-next"
+- version: "9.4.1"
   changes:
-    - description: TBD
+    - description: Backport ai agent fields and documentation
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/99999
+      link: https://github.com/elastic/endpoint-package/pull/746
+    - description: Add mappings for process and security event sources metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/763
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
