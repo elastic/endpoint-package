@@ -255,7 +255,7 @@
       type: keyword
       example: "RWX"
       description: >
-        Decoded memory protection flags in fixed R, W, X order (for example RWX).
+        Decoded memory protection flags. Emitted values are RW and RWX, in fixed R, W, X order.
 
     - name: Ext.memfd
       level: custom

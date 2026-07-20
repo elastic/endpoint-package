@@ -2428,7 +2428,7 @@ sent by the endpoint.
 | process.Ext.mprotect.addr | Start address passed to mprotect(). | long |
 | process.Ext.mprotect.len | Length in bytes passed to mprotect(). | long |
 | process.Ext.mprotect.prot | Raw memory protection flags passed to mprotect(). | long |
-| process.Ext.mprotect.prot_flags | Decoded memory protection flags in fixed R, W, X order (for example RWX). | keyword |
+| process.Ext.mprotect.prot_flags | Decoded memory protection flags. Emitted values are RW and RWX, in fixed R, W, X order. | keyword |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
 | process.Ext.ptrace.addr | ptrace address. | long |

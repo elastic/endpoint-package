@@ -1017,7 +1017,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Decoded memory protection flags in fixed R, W, X order (for example RWX).
+      description: Decoded memory protection flags. Emitted values are RW and RWX, in fixed R, W, X order.
       example: RWX
       default_field: false
     - name: Ext.protection

@@ -1828,15 +1828,16 @@ process.Ext.mprotect.prot:
   type: long
 process.Ext.mprotect.prot_flags:
   dashed_name: process-Ext-mprotect-prot-flags
-  description: Decoded memory protection flags in fixed R, W, X order (for example
-    RWX).
+  description: Decoded memory protection flags. Emitted values are RW and RWX, in
+    fixed R, W, X order.
   example: RWX
   flat_name: process.Ext.mprotect.prot_flags
   ignore_above: 1024
   level: custom
   name: Ext.mprotect.prot_flags
   normalize: []
-  short: Decoded memory protection flags in fixed R, W, X order (for example RWX).
+  short: Decoded memory protection flags. Emitted values are RW and RWX, in fixed
+    R, W, X order.
   type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
