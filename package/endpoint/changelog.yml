@@ -1,3 +1,11 @@
+- version: "8.19.3"
+  changes:
+    - description: Backport missing custom-documentation fields
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/754
+    - description: 'CountOfCredentialsReturned: unify data type between endpoint and winlog beat'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/765
 - version: "8.19.2"
   changes:
     - description: Remove sample event strings that can trigger false positive alerts from other AV
