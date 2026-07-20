@@ -1,3 +1,11 @@
+- version: "9.3.2"
+  changes:
+    - description: kernel_process_events custom documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/755
+    - description: 'CountOfCredentialsReturned: unify data type between endpoint and winlog beat'
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/766
 - version: "9.3.1"
   changes:
     - description: Remove sample event strings that can trigger false positive alerts from other AV
