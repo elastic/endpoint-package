@@ -2409,6 +2409,12 @@ sent by the endpoint.
 | process.Ext.effective_parent.executable | Executable name for the effective process. | keyword |
 | process.Ext.effective_parent.name | Process name for the effective process. | keyword |
 | process.Ext.effective_parent.pid | Process ID. | long |
+| process.Ext.load_module | Object for kernel module load events. | object |
+| process.Ext.load_module.name | Name of the kernel module. | keyword |
+| process.Ext.load_module.src_version | Source version checksum of the kernel module. | keyword |
+| process.Ext.load_module.taint_flags | Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel. | keyword |
+| process.Ext.load_module.taints | Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel. | long |
+| process.Ext.load_module.version | Version of the kernel module, if the module declares one. | keyword |
 | process.Ext.memfd | Object for memfd events. | object |
 | process.Ext.memfd.flag_allow_seal | Allow sealing operations on this file. | boolean |
 | process.Ext.memfd.flag_cloexec | Sets the the close-on-exec flag on the new file descriptor. | boolean |
@@ -3218,6 +3224,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.overall.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.process_events.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.process_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.process_events.sources | An array of Process Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.process_events.sources.sent_bytes | Total size of Process Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.sent_count | Number of sent Process Event documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.source | Process Event document source name | keyword |
+| Endpoint.metrics.documents_volume.process_events.sources.suppressed_bytes | Total size of suppressed Process Event documents from source | long |
+| Endpoint.metrics.documents_volume.process_events.sources.suppressed_count | Number of suppressed Process Event documents from source | long |
 | Endpoint.metrics.documents_volume.process_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.process_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.registry_events.sent_bytes | Total size of sent documents | long |
@@ -3226,6 +3238,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.documents_volume.registry_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.sent_bytes | Total size of sent documents | long |
 | Endpoint.metrics.documents_volume.security_events.sent_count | Number of sent documents | long |
+| Endpoint.metrics.documents_volume.security_events.sources | An array of Security Event document statistics per source | object |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_bytes | Total size of Security Event sent documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.sent_count | Number of sent Security Event documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.source | Security Event document source name | keyword |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_bytes | Total size of suppressed Security Event documents from source | long |
+| Endpoint.metrics.documents_volume.security_events.sources.suppressed_count | Number of suppressed Security Event documents from source | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.event_filter.active_global_count | The number of active global event filters | long |

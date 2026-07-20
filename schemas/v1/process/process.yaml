@@ -1631,6 +1631,71 @@ process.Ext.effective_parent.pid:
   original_fieldset: Effective_process
   short: Process ID.
   type: long
+process.Ext.load_module:
+  dashed_name: process-Ext-load-module
+  description: Object for kernel module load events.
+  flat_name: process.Ext.load_module
+  level: custom
+  name: Ext.load_module
+  normalize: []
+  short: Object for kernel module load events.
+  type: object
+process.Ext.load_module.name:
+  dashed_name: process-Ext-load-module-name
+  description: Name of the kernel module.
+  example: dummy
+  flat_name: process.Ext.load_module.name
+  ignore_above: 1024
+  level: custom
+  name: Ext.load_module.name
+  normalize: []
+  short: Name of the kernel module.
+  type: keyword
+process.Ext.load_module.src_version:
+  dashed_name: process-Ext-load-module-src-version
+  description: Source version checksum of the kernel module.
+  flat_name: process.Ext.load_module.src_version
+  ignore_above: 1024
+  level: custom
+  name: Ext.load_module.src_version
+  normalize: []
+  short: Source version checksum of the kernel module.
+  type: keyword
+process.Ext.load_module.taint_flags:
+  dashed_name: process-Ext-load-module-taint-flags
+  description: Kernel taint letters for this module, e.g. O for out-of-tree and E
+    for unsigned. Only present when the module taints the kernel.
+  example: OE
+  flat_name: process.Ext.load_module.taint_flags
+  ignore_above: 1024
+  level: custom
+  name: Ext.load_module.taint_flags
+  normalize: []
+  short: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned.
+    Only present when the module taints the kernel.
+  type: keyword
+process.Ext.load_module.taints:
+  dashed_name: process-Ext-load-module-taints
+  description: Bitmask of the taint flags this module sets on the kernel. Zero means
+    the module does not taint the kernel.
+  example: '4096'
+  flat_name: process.Ext.load_module.taints
+  level: custom
+  name: Ext.load_module.taints
+  normalize: []
+  short: Bitmask of the taint flags this module sets on the kernel. Zero means the
+    module does not taint the kernel.
+  type: long
+process.Ext.load_module.version:
+  dashed_name: process-Ext-load-module-version
+  description: Version of the kernel module, if the module declares one.
+  flat_name: process.Ext.load_module.version
+  ignore_above: 1024
+  level: custom
+  name: Ext.load_module.version
+  normalize: []
+  short: Version of the kernel module, if the module declares one.
+  type: keyword
 process.Ext.memfd:
   dashed_name: process-Ext-memfd
   description: Object for memfd events.

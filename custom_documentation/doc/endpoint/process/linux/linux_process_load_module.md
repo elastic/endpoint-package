@@ -65,6 +65,11 @@ This event is generated when when a process loads a kernel module.
 | orchestrator.resource.type |
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
+| process.Ext.load_module.name |
+| process.Ext.load_module.src_version |
+| process.Ext.load_module.taint_flags |
+| process.Ext.load_module.taints |
+| process.Ext.load_module.version |
 | process.Ext.ptrace.addr |
 | process.Ext.ptrace.child_pid |
 | process.Ext.ptrace.data |
