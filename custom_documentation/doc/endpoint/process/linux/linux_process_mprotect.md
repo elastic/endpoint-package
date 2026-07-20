@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "mprotect" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a process calls mprotect().
+This event is generated when a process calls mprotect() with both read and write protection.
 
 | Field |
 |---|

@@ -1,6 +1,6 @@
 overview:
   name: Linux mprotect Events
-  description: This event is generated when a process calls mprotect().
+  description: This event is generated when a process calls mprotect() with both read and write protection.
 identification:
   filter:
     event.action: mprotect
