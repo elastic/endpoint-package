@@ -8,7 +8,7 @@
       link: https://github.com/elastic/endpoint-package/pull/756
     - description: Add Linux mprotect() syscall fields to process events
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/TBD
+      link: https://github.com/elastic/endpoint-package/pull/767
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
