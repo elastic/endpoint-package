@@ -1,11 +1,23 @@
-- version: "9.5.0-next"
+- version: "9.5.0"
   changes:
-    - description: Add kernel module name and taint fields to Linux load_module events
+    - description: Add mappings for process and security event sources metrics
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/762
+    - description: Add kernel module name and taint fields to load_module events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/761
-    - description: Add cross-cluster search source to the metadata_united transform for Elastic Defend remote Elasticsearch output support
+    - description: Add ai_agent fields to load_module docs and process sample event
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/760
+    - description: Add GenAI process fields from ECS
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/752
+    - description: Add cross-cluster source to metadata_united transform for remote Elasticsearch output support
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/756
+    - description: Add Effective_process fields to malware events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/751
     - description: Add Linux mprotect() syscall fields to process events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/767
