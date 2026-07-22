@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "mprotect" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated only for mprotect() calls that request RW or RWX protection, and only when advanced.events.hidden.emit_diagnostic_fields is enabled.
+This event is generated only for successful mprotect() calls that request executable protection (X, RX, WX, or RWX), and only when advanced.events.hidden.emit_diagnostic_fields is enabled.
 
 | Field |
 |---|

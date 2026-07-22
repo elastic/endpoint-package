@@ -233,29 +233,30 @@
     - name: Ext.mprotect
       level: custom
       type: object
-      description: Object for mprotect events.
+      description: Object for successful mprotect() calls that request executable memory.
 
     - name: Ext.mprotect.addr
       level: custom
       type: long
-      description: Start address passed to mprotect().
+      description: Start address passed to the successful mprotect() call.
 
     - name: Ext.mprotect.len
       level: custom
       type: long
-      description: Length in bytes passed to mprotect().
+      description: Length in bytes passed to the successful mprotect() call.
 
     - name: Ext.mprotect.prot
       level: custom
       type: long
-      description: Raw memory protection flags passed to mprotect().
+      description: Raw executable memory protection flags passed to the successful mprotect() call.
 
     - name: Ext.mprotect.prot_flags
       level: custom
       type: keyword
       example: "RWX"
       description: >
-        Decoded memory protection flags. Emitted values are RW and RWX, in fixed R, W, X order.
+        Decoded executable memory protection flags. Emitted values are X, RX, WX, and RWX,
+        in fixed R, W, X order.
 
     - name: Ext.memfd
       level: custom

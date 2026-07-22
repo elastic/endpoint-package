@@ -1,6 +1,6 @@
 overview:
   name: Linux mprotect Events
-  description: This event is generated only for mprotect() calls that request RW or RWX protection, and only when advanced.events.hidden.emit_diagnostic_fields is enabled.
+  description: This event is generated only for successful mprotect() calls that request executable protection (X, RX, WX, or RWX), and only when advanced.events.hidden.emit_diagnostic_fields is enabled.
 identification:
   filter:
     event.action: mprotect
