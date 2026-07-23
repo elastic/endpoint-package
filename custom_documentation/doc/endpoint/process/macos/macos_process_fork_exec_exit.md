@@ -61,6 +61,8 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.Ext.script.path |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
