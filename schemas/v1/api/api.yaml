@@ -2860,6 +2860,30 @@ process.Ext.api.metadata.target_address_path:
   original_fieldset: api
   short: The path of the memory region targeted by the API call.
   type: keyword
+process.Ext.api.metadata.target_function_name:
+  dashed_name: process-Ext-api-metadata-target-function-name
+  description: Sensitive functions overlapped by the target memory range.
+  example: '[ "NtTraceEvent", "EtwEventWrite" ]'
+  flat_name: process.Ext.api.metadata.target_function_name
+  ignore_above: 1024
+  level: custom
+  name: metadata.target_function_name
+  normalize: []
+  original_fieldset: api
+  short: Sensitive functions overlapped by the target memory range.
+  type: keyword
+process.Ext.api.metadata.target_section:
+  dashed_name: process-Ext-api-metadata-target-section
+  description: The in-memory PE section overlapped by the target memory range.
+  example: .text
+  flat_name: process.Ext.api.metadata.target_section
+  ignore_above: 1024
+  level: custom
+  name: metadata.target_section
+  normalize: []
+  original_fieldset: api
+  short: The in-memory PE section overlapped by the target memory range.
+  type: keyword
 process.Ext.api.metadata.thread_info_flags:
   dashed_name: process-Ext-api-metadata-thread-info-flags
   description: Thread info flags.

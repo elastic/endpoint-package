@@ -1445,6 +1445,20 @@
       description: The path of the memory region targeted by the API call.
       example: C:\programdata\example.dll
       default_field: false
+    - name: Ext.api.metadata.target_function_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Sensitive functions overlapped by the target memory range.
+      example: '[ "NtTraceEvent", "EtwEventWrite" ]'
+      default_field: false
+    - name: Ext.api.metadata.target_section
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The in-memory PE section overlapped by the target memory range.
+      example: .text
+      default_field: false
     - name: Ext.api.metadata.thread_info_flags
       level: custom
       type: unsigned_long

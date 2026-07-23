@@ -229,6 +229,20 @@
       description: >
         The previous memory protection returned by the API call. Corresponds to `MEMORY_BASIC_INFORMATION.Protect`
 
+    - name: metadata.target_section
+      level: custom
+      type: keyword
+      description: >
+        The in-memory PE section overlapped by the target memory range.
+      example: ".text"
+
+    - name: metadata.target_function_name
+      level: custom
+      type: keyword
+      description: >
+        Sensitive functions overlapped by the target memory range.
+      example: '[ "NtTraceEvent", "EtwEventWrite" ]'
+
     - name: parameters.allocation_type
       level: custom
       type: keyword
