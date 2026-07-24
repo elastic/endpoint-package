@@ -1790,6 +1790,57 @@ process.Ext.mitigation_policies:
   normalize: []
   short: Process mitigation policies.
   type: keyword
+process.Ext.mprotect:
+  dashed_name: process-Ext-mprotect
+  description: Object for successful mprotect() calls that request executable memory.
+  flat_name: process.Ext.mprotect
+  level: custom
+  name: Ext.mprotect
+  normalize: []
+  short: Object for successful mprotect() calls that request executable memory.
+  type: object
+process.Ext.mprotect.addr:
+  dashed_name: process-Ext-mprotect-addr
+  description: Start address passed to the successful mprotect() call.
+  flat_name: process.Ext.mprotect.addr
+  level: custom
+  name: Ext.mprotect.addr
+  normalize: []
+  short: Start address passed to the successful mprotect() call.
+  type: long
+process.Ext.mprotect.len:
+  dashed_name: process-Ext-mprotect-len
+  description: Length in bytes passed to the successful mprotect() call.
+  flat_name: process.Ext.mprotect.len
+  level: custom
+  name: Ext.mprotect.len
+  normalize: []
+  short: Length in bytes passed to the successful mprotect() call.
+  type: long
+process.Ext.mprotect.prot:
+  dashed_name: process-Ext-mprotect-prot
+  description: Raw executable memory protection flags passed to the successful mprotect()
+    call.
+  flat_name: process.Ext.mprotect.prot
+  level: custom
+  name: Ext.mprotect.prot
+  normalize: []
+  short: Raw executable memory protection flags passed to the successful mprotect()
+    call.
+  type: long
+process.Ext.mprotect.prot_flags:
+  dashed_name: process-Ext-mprotect-prot-flags
+  description: Decoded executable memory protection flags. Emitted values are X, RX,
+    WX, and RWX, in fixed R, W, X order.
+  example: RWX
+  flat_name: process.Ext.mprotect.prot_flags
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.prot_flags
+  normalize: []
+  short: Decoded executable memory protection flags. Emitted values are X, RX, WX,
+    and RWX, in fixed R, W, X order.
+  type: keyword
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax

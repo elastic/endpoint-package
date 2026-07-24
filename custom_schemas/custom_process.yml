@@ -230,6 +230,34 @@
       example: "OE"
       description: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel.
 
+    - name: Ext.mprotect
+      level: custom
+      type: object
+      description: Object for successful mprotect() calls that request executable memory.
+
+    - name: Ext.mprotect.addr
+      level: custom
+      type: long
+      description: Start address passed to the successful mprotect() call.
+
+    - name: Ext.mprotect.len
+      level: custom
+      type: long
+      description: Length in bytes passed to the successful mprotect() call.
+
+    - name: Ext.mprotect.prot
+      level: custom
+      type: long
+      description: Raw executable memory protection flags passed to the successful mprotect() call.
+
+    - name: Ext.mprotect.prot_flags
+      level: custom
+      type: keyword
+      example: "RWX"
+      description: >
+        Decoded executable memory protection flags. Emitted values are X, RX, WX, and RWX,
+        in fixed R, W, X order.
+
     - name: Ext.memfd
       level: custom
       type: object

@@ -182,6 +182,12 @@ fields:
               src_version: {}
               taints: {}
               taint_flags: {}
+          mprotect:
+            fields:
+              addr: {}
+              len: {}
+              prot: {}
+              prot_flags: {}
           shmget:
             fields:
               key: {}
