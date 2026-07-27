@@ -931,7 +931,7 @@
       level: custom
       type: long
       description: Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel.
-      example: 4096
+      example: '4096'
       default_field: false
     - name: Ext.load_module.version
       level: custom
