@@ -9322,6 +9322,39 @@ rule.category:
   normalize: []
   short: Rule category
   type: keyword
+rule.custom_yara_signature.entry_id:
+  dashed_name: rule-custom-yara-signature-entry-id
+  description: Identifier of the user YARA entry that defined the matched rule.
+  flat_name: rule.custom_yara_signature.entry_id
+  ignore_above: 1024
+  level: custom
+  name: entry_id
+  normalize: []
+  original_fieldset: custom_yara_signature
+  short: Identifier of the user YARA entry that defined the matched rule.
+  type: keyword
+rule.custom_yara_signature.entry_name:
+  dashed_name: rule-custom-yara-signature-entry-name
+  description: Name of the user YARA entry that defined the matched rule.
+  flat_name: rule.custom_yara_signature.entry_name
+  ignore_above: 1024
+  level: custom
+  name: entry_name
+  normalize: []
+  original_fieldset: custom_yara_signature
+  short: Name of the user YARA entry that defined the matched rule.
+  type: keyword
+rule.custom_yara_signature.rule_identifier:
+  dashed_name: rule-custom-yara-signature-rule-identifier
+  description: Identifier of the matched user-defined YARA rule.
+  flat_name: rule.custom_yara_signature.rule_identifier
+  ignore_above: 1024
+  level: custom
+  name: rule_identifier
+  normalize: []
+  original_fieldset: custom_yara_signature
+  short: Identifier of the matched user-defined YARA rule.
+  type: keyword
 rule.description:
   dashed_name: rule-description
   description: The description of the rule generating the event.

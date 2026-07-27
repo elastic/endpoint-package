@@ -8065,6 +8065,24 @@
       description: A categorization value keyword used by the entity using the rule for detection of this event.
       example: Attempted Information Leak
       default_field: false
+    - name: custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: description
       level: extended
       type: keyword

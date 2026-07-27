@@ -1207,6 +1207,9 @@ sent by the endpoint.
 | registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
+| rule.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| rule.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| rule.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | rule.description | The description of the rule generating the event. | keyword |
 | rule.id | A rule ID that is unique within the scope of an agent, observer, or other entity using the rule for detection of this event. | keyword |
 | rule.license | Name of the license under which the rule used to generate this event is made available. | keyword |
