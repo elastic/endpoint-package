@@ -1,0 +1,30 @@
+---
+- name: custom_yara_signature
+  title: Custom Yara Signature
+  group: 2
+  short: Fields identifying a user-defined (custom) YARA signature match.
+  description: >
+    These fields identify the user-defined (custom) YARA rule that produced a match during a
+    periodic user YARA process scan. They are populated only for hits from the user YARA
+    (endpoint-yararules) artifact and are absent for built-in malware or memory signature matches.
+  reusable:
+    order: 1
+    top_level: false
+    expected:
+      - rule
+  type: group
+  fields:
+    - name: entry_id
+      level: custom
+      type: keyword
+      description: Identifier of the user YARA entry that defined the matched rule.
+
+    - name: entry_name
+      level: custom
+      type: keyword
+      description: Name of the user YARA entry that defined the matched rule.
+
+    - name: rule_identifier
+      level: custom
+      type: keyword
+      description: Identifier of the matched user-defined YARA rule.

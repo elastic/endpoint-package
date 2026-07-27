@@ -113,6 +113,11 @@ fields:
       ruleset: {}
       uuid: {}
       version: {}
+      custom_yara_signature:
+        fields:
+          entry_id: {}
+          entry_name: {}
+          rule_identifier: {}
   threat:
     fields:
       enrichments:
