@@ -344,7 +344,6 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
-| Target.process.Ext.memory_region.malware_signature.secondary | Additional matching details if available. | nested |
 | Target.process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | Target.process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
@@ -870,7 +869,6 @@ sent by the endpoint.
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
-| process.Ext.memory_region.malware_signature.secondary | Additional matching details if available. | nested |
 | process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
