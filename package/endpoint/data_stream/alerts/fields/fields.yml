@@ -1265,6 +1265,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -1294,6 +1312,12 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary
+      level: custom
+      type: nested
+      enabled: false
+      description: Additional matching details if available.
       default_field: false
     - name: process.Ext.memory_region.malware_signature.version
       level: custom
@@ -5203,6 +5227,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -5232,6 +5274,12 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary
+      level: custom
+      type: nested
+      enabled: false
+      description: Additional matching details if available.
       default_field: false
     - name: Ext.memory_region.malware_signature.version
       level: custom
@@ -8064,24 +8112,6 @@
       ignore_above: 1024
       description: A categorization value keyword used by the entity using the rule for detection of this event.
       example: Attempted Information Leak
-      default_field: false
-    - name: custom_yara_signature.entry_id
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Identifier of the user YARA entry that defined the matched rule.
-      default_field: false
-    - name: custom_yara_signature.entry_name
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Name of the user YARA entry that defined the matched rule.
-      default_field: false
-    - name: custom_yara_signature.rule_identifier
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Identifier of the matched user-defined YARA rule.
       default_field: false
     - name: description
       level: extended

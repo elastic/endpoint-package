@@ -336,11 +336,15 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| Target.process.Ext.memory_region.malware_signature.secondary | Additional matching details if available. | nested |
 | Target.process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | Target.process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | Target.process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
@@ -858,11 +862,15 @@ sent by the endpoint.
 | process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.id | The id of the first yara rule matched. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.name | The name of the first yara rule matched. | keyword |
+| process.Ext.memory_region.malware_signature.secondary | Additional matching details if available. | nested |
 | process.Ext.memory_region.malware_signature.version | malware signature version | keyword |
 | process.Ext.memory_region.mapped_path | If the memory corresponds to a file mapping, this is the file's path. | keyword |
 | process.Ext.memory_region.mapped_pe.company | Internal company name of the file, provided at compile-time. | keyword |
@@ -1207,9 +1215,6 @@ sent by the endpoint.
 | registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
-| rule.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
-| rule.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
-| rule.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | rule.description | The description of the rule generating the event. | keyword |
 | rule.id | A rule ID that is unique within the scope of an agent, observer, or other entity using the rule for detection of this event. | keyword |
 | rule.license | Name of the license under which the rule used to generate this event is made available. | keyword |

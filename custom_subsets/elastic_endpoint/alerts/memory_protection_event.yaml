@@ -113,11 +113,6 @@ fields:
       ruleset: {}
       uuid: {}
       version: {}
-      custom_yara_signature:
-        fields:
-          entry_id: {}
-          entry_name: {}
-          rule_identifier: {}
   threat:
     fields:
       enrichments:
@@ -720,6 +715,12 @@ fields:
                             fields:
                               sha256: {}
                       matches: {}
+                      custom_yara_signature:
+                        fields:
+                          entry_id: {}
+                          entry_name: {}
+                          rule_identifier: {}
+                  secondary: {}
                   version: {}
               mapped_path: {}
               mapped_pe:
