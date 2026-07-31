@@ -2424,6 +2424,14 @@ sent by the endpoint.
 | process.Ext.memfd.flags | Flags passed to the memfd operation. | long |
 | process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
+| process.Ext.process_vm_access | Object for process_vm_readv()/process_vm_writev() cross-process memory access events. | object |
+| process.Ext.process_vm_access.bytes_requested | Length in bytes of the first remote iovec, i.e. the size requested for the call. | long |
+| process.Ext.process_vm_access.bytes_transferred | Raw syscall return value. Non-negative on success (bytes actually transferred, which may be less than bytes_requested on a partial transfer); negative on failure (the negated errno). | long |
+| process.Ext.process_vm_access.local_iovcnt | Number of local iovec entries passed to the call. | long |
+| process.Ext.process_vm_access.operation | Direction of the memory access. Emitted values are read and write. | keyword |
+| process.Ext.process_vm_access.remote_addr | Base address of the first remote iovec, i.e. the address accessed in the target process's memory. | long |
+| process.Ext.process_vm_access.remote_iovcnt | Number of remote iovec entries passed to the call. | long |
+| process.Ext.process_vm_access.target_pid | PID of the process whose memory was accessed. | long |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
 | process.Ext.ptrace.addr | ptrace address. | long |

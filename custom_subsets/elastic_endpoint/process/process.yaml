@@ -175,6 +175,15 @@ fields:
               request: {}
               addr: {}
               data: {}
+          process_vm_access:
+            fields:
+              target_pid: {}
+              operation: {}
+              local_iovcnt: {}
+              remote_iovcnt: {}
+              remote_addr: {}
+              bytes_requested: {}
+              bytes_transferred: {}
           load_module:
             fields:
               name: {}
