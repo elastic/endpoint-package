@@ -1,8 +1,9 @@
 - version: "9.6.0-next"
   changes:
-    - description: TBD
+    - description: Add process_vm_access fields for process_vm_readv/writev cross-process memory access events
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/999999
+      link: https://github.com/elastic/endpoint-package/pull/787
+    - description: TBD
 - version: "9.5.0"
   changes:
     - description: Add mappings for process and security event sources metrics
