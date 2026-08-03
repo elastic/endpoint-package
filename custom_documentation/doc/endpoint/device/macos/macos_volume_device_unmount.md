@@ -1,10 +1,10 @@
-# macOS Device Mount
+# Device Unmount
 
 - OS: macOS
 - Data Stream: `logs-endpoint.events.device-*`
-- KQL: `event.action : "mount" and event.dataset : "endpoint.events.device" and event.module : "endpoint" and host.os.type : "macos"`
+- KQL: `event.action : "unmount" and event.dataset : "endpoint.events.device" and event.module : "endpoint" and host.os.type : "macos"`
 
-This event is generated when a device is mounted.
+This event is generated when a device is unmounted.
 
 | Field |
 |---|
@@ -18,7 +18,6 @@ This event is generated when a device is mounted.
 | device.image_path |
 | device.product.id |
 | device.product.name |
-| device.serial_number |
 | device.type |
 | device.vendor.id |
 | device.vendor.name |
@@ -41,10 +40,6 @@ This event is generated when a device is mounted.
 | host.name |
 | host.os.type |
 | message |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.trusted |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
@@ -56,7 +51,6 @@ This event is generated when a device is mounted.
 | process.name |
 | process.pid |
 | user.Ext.real.id |
-| user.domain |
 | user.id |
 | user.name |
 | volume.bus_type |
