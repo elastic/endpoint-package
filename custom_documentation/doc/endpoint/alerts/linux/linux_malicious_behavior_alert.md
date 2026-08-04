@@ -75,6 +75,7 @@ This alert is generated when a Malicious Behavior alert occurs.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

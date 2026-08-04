@@ -28,6 +28,7 @@ This event is generated when Antimalware Scan Interface (AMSI) APIs are called.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

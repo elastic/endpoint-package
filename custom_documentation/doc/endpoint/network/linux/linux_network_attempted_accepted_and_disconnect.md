@@ -37,6 +37,7 @@ This event is generated when a network session is accepted, attempted or termina
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

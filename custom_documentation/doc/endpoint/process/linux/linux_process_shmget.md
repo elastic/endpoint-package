@@ -42,6 +42,7 @@ This event is generated when when a process calls shmget().
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
