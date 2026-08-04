@@ -31,6 +31,7 @@ This event is generated when WMI Activity-related APIs are called.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

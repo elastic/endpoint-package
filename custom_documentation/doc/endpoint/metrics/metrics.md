@@ -204,6 +204,7 @@ This is an internal state management document that includes metrics on Endpoint'
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

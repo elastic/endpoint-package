@@ -43,6 +43,7 @@ This event is generated when the group id changes for a process.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

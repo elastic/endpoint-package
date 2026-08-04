@@ -43,6 +43,7 @@ This event is generated when a process calls `fork()`, `exec()`, exits, or an ag
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

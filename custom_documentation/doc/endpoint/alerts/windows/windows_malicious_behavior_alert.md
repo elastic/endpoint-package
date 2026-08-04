@@ -75,6 +75,7 @@ This alert occurs when a Malicious Behavior alert occurs.
 | event.type |
 | file.*<br /><br />file contains the file data from the primary event in Events. It can contain any fields that any other events includes within the file fieldset. |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

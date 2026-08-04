@@ -42,6 +42,7 @@ This event is generated when the user id changes for a process.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

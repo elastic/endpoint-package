@@ -33,6 +33,7 @@ This event is generated when the registry is modified.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
