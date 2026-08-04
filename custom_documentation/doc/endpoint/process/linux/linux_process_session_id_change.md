@@ -43,6 +43,7 @@ This event is generated when a process's session id changes.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
