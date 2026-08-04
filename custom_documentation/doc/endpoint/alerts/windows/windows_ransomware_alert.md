@@ -80,6 +80,7 @@ This alert is generated when a Ransomware alert occurs.
 | event.severity |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

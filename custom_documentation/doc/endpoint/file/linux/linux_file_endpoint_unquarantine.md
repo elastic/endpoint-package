@@ -36,6 +36,7 @@ This event is generated when Endpoint restores a file from the malware quarantin
 | file.name |
 | file.path |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

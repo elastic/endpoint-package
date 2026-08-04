@@ -80,6 +80,7 @@ fields:
   - event.type
   - file.*
   - host.architecture
+  - host.domain
   - host.hostname
   - host.id
   - host.ip
