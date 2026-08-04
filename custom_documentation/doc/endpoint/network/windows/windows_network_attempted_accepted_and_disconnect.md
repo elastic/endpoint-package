@@ -33,6 +33,7 @@ This event is generated when a connection is attempted, a connection is accepted
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

@@ -36,6 +36,7 @@ This event is generated when a file is deleted.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

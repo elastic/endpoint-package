@@ -41,6 +41,7 @@ This event is generated when results are returned for a DNS lookup request.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

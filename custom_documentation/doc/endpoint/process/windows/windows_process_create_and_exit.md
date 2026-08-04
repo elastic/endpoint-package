@@ -29,6 +29,7 @@ This event is generated when a process is created or exits.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

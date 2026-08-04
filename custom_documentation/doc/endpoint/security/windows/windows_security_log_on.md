@@ -31,6 +31,7 @@ This event is generated when a user logs on to the computer.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

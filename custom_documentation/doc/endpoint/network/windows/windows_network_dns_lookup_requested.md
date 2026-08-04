@@ -33,6 +33,7 @@ This event is generated when a DNS lookup request is initiated.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

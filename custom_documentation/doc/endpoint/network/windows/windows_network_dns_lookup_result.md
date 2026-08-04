@@ -34,6 +34,7 @@ This event is generated when results are returned for a DNS lookup request.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

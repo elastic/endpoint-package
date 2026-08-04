@@ -30,6 +30,7 @@ This event is generated when ETW Microsoft-Windows-TCPIP events are generated.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

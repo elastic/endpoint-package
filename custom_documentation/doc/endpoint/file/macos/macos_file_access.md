@@ -40,6 +40,7 @@ This event is generated when a file is accessed.
 | group.Ext.real.id |
 | group.id |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
