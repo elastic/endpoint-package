@@ -38,6 +38,7 @@ This event is generated when ETW Threat-Intelligence events are generated.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

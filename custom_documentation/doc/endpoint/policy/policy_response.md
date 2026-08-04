@@ -88,6 +88,7 @@ This is a state management document that is generated every time Endpoint refres
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

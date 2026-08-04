@@ -38,6 +38,7 @@ This event is generated when a remote thread is created.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
