@@ -35,6 +35,7 @@ This event is generated when ETW Microsoft-Windows-Kernel-Audit-API-Calls events
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
