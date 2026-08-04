@@ -42,6 +42,7 @@ This event includes information about a macOS Launch Daemon.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

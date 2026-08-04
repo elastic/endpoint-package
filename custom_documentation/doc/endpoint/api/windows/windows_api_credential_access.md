@@ -31,6 +31,7 @@ This event is generated when a process attempts to access priviledged credential
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
