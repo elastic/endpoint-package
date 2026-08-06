@@ -69,6 +69,8 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.Ext.windows.zone_identifier |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
