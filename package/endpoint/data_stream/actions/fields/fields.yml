@@ -92,6 +92,12 @@
       type: text
       description: A comment that describes the action that is requested
       default_field: false
+    - name: data.output.content.dump_executed_from_driver
+      level: custom
+      type: boolean
+      description: Indicates whether a live kernel memory dump was executed through the kernel driver.
+      example: true
+      default_field: false
     - name: expiration
       level: custom
       type: date

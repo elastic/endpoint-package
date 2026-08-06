@@ -67,6 +67,17 @@ EndpointActions.data.comment:
   norms: false
   short: comment text
   type: text
+EndpointActions.data.output.content.dump_executed_from_driver:
+  dashed_name: EndpointActions-data-output-content-dump-executed-from-driver
+  description: Indicates whether a live kernel memory dump was executed through the
+    kernel driver.
+  example: true
+  flat_name: EndpointActions.data.output.content.dump_executed_from_driver
+  level: custom
+  name: data.output.content.dump_executed_from_driver
+  normalize: []
+  short: dump executed from driver
+  type: boolean
 EndpointActions.expiration:
   dashed_name: EndpointActions-expiration
   description: Request expiration timestamp

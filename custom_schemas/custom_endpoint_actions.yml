@@ -58,6 +58,14 @@
       description: >
         A comment that describes the action that is requested
 
+    - name: data.output.content.dump_executed_from_driver
+      type: boolean
+      level: custom
+      short: dump executed from driver
+      description: >
+        Indicates whether a live kernel memory dump was executed through the kernel driver.
+      example: true
+
     - name: type
       type: keyword
       level: custom
