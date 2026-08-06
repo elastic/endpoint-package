@@ -82,6 +82,9 @@ fields:
   - process.Ext.memory_region.bytes_compressed_present
   - process.Ext.memory_region.malware_signature.all_names
   - process.Ext.memory_region.malware_signature.identifier
+  - process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+  - process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+  - process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
   - process.Ext.memory_region.malware_signature.primary.matches
   - process.Ext.memory_region.malware_signature.primary.signature.hash.sha256
   - process.Ext.memory_region.malware_signature.primary.signature.id
