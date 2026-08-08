@@ -1,7 +1,7 @@
 overview:
   name: Windows Network Connection Attempted, Connection Accepted and Disconnect Received
-  description: 'This event is generated when a connection is attempted, a connection
-    is accepted, or a request to terminate a network session is received.
+  description: 'This event is generated when a TCP connection is attempted, accepted,
+    or terminated, or when a UDP flow is attempted, established, or expires.
 
     '
 identification:
@@ -13,6 +13,9 @@ identification:
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: windows
+    network.transport:
+    - tcp
+    - udp
   os:
   - windows
   data_stream: logs-endpoint.events.network-*
