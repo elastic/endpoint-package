@@ -46,6 +46,7 @@ This alert is generated when a macOS Memory Thread alert occurs.
 | event.severity |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

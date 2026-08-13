@@ -47,6 +47,7 @@ This event is generated when a dynlib is loaded.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

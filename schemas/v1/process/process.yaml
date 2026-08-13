@@ -1678,7 +1678,7 @@ process.Ext.load_module.taints:
   dashed_name: process-Ext-load-module-taints
   description: Bitmask of the taint flags this module sets on the kernel. Zero means
     the module does not taint the kernel.
-  example: '4096'
+  example: 4096
   flat_name: process.Ext.load_module.taints
   level: custom
   name: Ext.load_module.taints

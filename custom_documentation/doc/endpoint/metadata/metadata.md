@@ -40,6 +40,7 @@ This is a relatively small state management document that includes details about
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
