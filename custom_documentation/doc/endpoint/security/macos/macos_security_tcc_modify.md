@@ -49,6 +49,7 @@ This event is generated when a Transparency, Consent, and Control (TCC) permissi
 | file.code_signature.team_id |
 | file.path |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
