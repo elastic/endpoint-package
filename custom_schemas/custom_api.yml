@@ -236,13 +236,6 @@
         The in-memory PE section overlapped by the target memory range.
       example: ".text"
 
-    - name: metadata.target_function_name
-      level: custom
-      type: keyword
-      description: >
-        Sensitive functions overlapped by the target memory range.
-      example: '[ "NtTraceEvent", "EtwEventWrite" ]'
-
     - name: parameters.allocation_type
       level: custom
       type: keyword
