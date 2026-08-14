@@ -32,6 +32,8 @@ This event is generated when a file is accessed.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.attributes |
+| file.extension |
 | file.hash.sha256 |
 | file.inode |
 | file.name |
@@ -60,6 +62,7 @@ This event is generated when a file is accessed.
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
+| process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.entity_id |

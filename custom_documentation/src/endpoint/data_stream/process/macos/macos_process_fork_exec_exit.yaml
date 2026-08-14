@@ -86,6 +86,7 @@ fields:
   - process.env_vars
   - process.executable
   - process.exit_code
+  - process.group_leader.pid
   - process.hash.md5
   - process.hash.sha1
   - process.hash.sha256
@@ -103,7 +104,6 @@ fields:
   - process.parent.name
   - process.parent.pid
   - process.pid
-  - process.group_leader.pid
   - process.session_leader.pid
   - user.Ext.real.id
   - user.Ext.real.name
