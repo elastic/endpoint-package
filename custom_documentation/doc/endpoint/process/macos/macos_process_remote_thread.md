@@ -64,12 +64,14 @@ This event is generated when a remote thread is created.
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
+| process.code_signature.subject_name |
 | process.code_signature.team_id |
 | process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
 | process.env_vars |
 | process.executable |
+| process.group_leader.pid |
 | process.hash.md5 |
 | process.hash.sha1 |
 | process.hash.sha256 |
@@ -87,7 +89,6 @@ This event is generated when a remote thread is created.
 | process.parent.name |
 | process.parent.pid |
 | process.pid |
-| process.group_leader.pid |
 | process.session_leader.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

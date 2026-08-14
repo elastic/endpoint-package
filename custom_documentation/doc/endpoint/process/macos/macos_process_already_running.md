@@ -65,6 +65,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.entity_id |
 | process.env_vars |
 | process.executable |
+| process.group_leader.pid |
 | process.hash.md5 |
 | process.hash.sha1 |
 | process.hash.sha256 |
@@ -73,9 +74,8 @@ This event is generated for a process that was already running before Endpoint's
 | process.parent.command_line |
 | process.parent.entity_id |
 | process.parent.pid |
-| process.group_leader.pid |
-| process.session_leader.pid |
 | process.pid |
+| process.session_leader.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |
