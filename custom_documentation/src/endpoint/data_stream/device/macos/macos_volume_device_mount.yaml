@@ -41,9 +41,21 @@ fields:
   - group.Ext.real.id
   - group.id
   - group.name
+  - host.architecture
+  - host.domain
+  - host.hostname
   - host.id
+  - host.ip
+  - host.mac
   - host.name
+  - host.os.Ext.variant
+  - host.os.family
+  - host.os.full
+  - host.os.kernel
+  - host.os.name
+  - host.os.platform
   - host.os.type
+  - host.os.version
   - message
   - process.Ext.code_signature.exists
   - process.Ext.code_signature.status
