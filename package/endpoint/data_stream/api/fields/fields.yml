@@ -125,6 +125,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -159,6 +177,27 @@
       level: custom
       type: nested
       description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
       enabled: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.secondary.matches
@@ -1969,6 +2008,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -2003,6 +2060,27 @@
       level: custom
       type: nested
       description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
       enabled: false
       default_field: false
     - name: Ext.memory_region.malware_signature.secondary.matches
