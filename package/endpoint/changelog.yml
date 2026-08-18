@@ -1,7 +1,7 @@
 - version: "9.6.0-next"
   changes:
     - description: Add missing agent field mappings to endpoint.events.api
-      type: bugfix
+      type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788
 - version: "9.5.0"
   changes:
