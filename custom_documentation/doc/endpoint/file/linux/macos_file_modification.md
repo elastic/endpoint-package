@@ -1,15 +1,19 @@
-# Linux File Create
+# Linux File Modification
 
 - OS: Linux
 - Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
+- KQL: `event.action : "modification" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a file is created.
+This event is generated when a file is modified.
 
 
 | Field |
 |---|
 | @timestamp |
+| Effective_process.entity_id |
+| Effective_process.executable |
+| Effective_process.name |
+| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -30,13 +34,16 @@ This event is generated when a file is created.
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
+| file.ai_agent.email |
+| file.ai_agent.api_key_auth |
 | file.extension |
 | file.hash.sha256 |
+| file.inode |
 | file.name |
 | file.path |
 | file.size |
-| file.ai_agent.email |
-| file.ai_agent.api_key_auth |
+| file.origin_url |
+| file.origin_referrer_url |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
@@ -57,16 +64,19 @@ This event is generated when a file is created.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.code_signature.exists |
+| process.code_signature.signing_id |
+| process.code_signature.status |
+| process.code_signature.subject_name |
+| process.code_signature.team_id |
+| process.code_signature.trusted |
+| process.parent.entity_id |
 | process.command_line |
 | process.entity_id |
-| process.entry_leader.entity_id |
-| process.entry_leader.parent.entity_id |
 | process.executable |
-| process.group_leader.entity_id |
 | process.name |
-| process.parent.entity_id |
+| process.parent.pid |
 | process.pid |
-| process.session_leader.entity_id |
 | user.Ext.real.id |
 | user.Ext.real.name |
 | user.id |

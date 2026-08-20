@@ -458,6 +458,37 @@
       description: >
         The url where the file is hosted.
 
+    - name: ai_agent
+      level: extended
+      type: object
+      alpha: This field is alpha and subject to change.
+      short: AI-agent tool identification fields.
+      description: >
+        Fields describing an AI-agent tool associated with a file event.
+
+        When a file operation is initiated by a known AI-agent development tool,
+        these fields can be populated to help analysts and detection rules
+        distinguish AI-agent-initiated file activity from human-initiated activity.
+
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Email address of the user associated with the AI-agent tool.
+      description: >
+        Email address of the user associated with the AI-agent tool that
+        initiated this file operation.
+
+    - name: ai_agent.api_key_auth
+      level: extended
+      type: bool
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Indicates that the AI agent was authenticated via an API key.
+      description: >
+        Indicates that the AI agent was authenticated via an API key.
+
     - name: pe
       level: custom
       type: object

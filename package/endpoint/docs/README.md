@@ -1773,6 +1773,9 @@ sent by the endpoint.
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
+| file.ai_agent | Fields describing an AI-agent tool associated with a file event. When a file operation is initiated by a known AI-agent development tool, these fields can be populated to help analysts and detection rules distinguish AI-agent-initiated file activity from human-initiated activity. | object |
+| file.ai_agent.api_key_auth | Indicates that the AI agent was authenticated via an API key. | bool |
+| file.ai_agent.email | Email address of the user associated with the AI-agent tool that initiated this file operation. | keyword |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
 | file.created | File creation time. Note that not all filesystems store the creation time. | date |
 | file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |

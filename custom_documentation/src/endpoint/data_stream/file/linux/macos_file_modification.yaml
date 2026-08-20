@@ -1,16 +1,16 @@
 overview:
-  name: macOS File Rename
-  description: 'This event is generated when a file is renamed.
+  name: Linux File Modification
+  description: 'This event is generated when a file is modified.
 
     '
 identification:
   filter:
-    event.action: rename
+    event.action: modification
     event.dataset: endpoint.events.file
     event.module: endpoint
-    host.os.type: macos
+    host.os.type: linux
   os:
-  - macos
+  - linux
   data_stream: logs-endpoint.events.file-*
 fields:
   endpoint:
@@ -37,16 +37,18 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.Ext.entropy
+  - file.Ext.header_bytes
   - file.ai_agent.email
   - file.ai_agent.api_key_auth
-  - file.Ext.original.extension
-  - file.Ext.original.path
   - file.extension
   - file.hash.sha256
   - file.inode
   - file.name
   - file.path
   - file.size
+  - file.origin_url
+  - file.origin_referrer_url
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id
@@ -73,6 +75,7 @@ fields:
   - process.code_signature.subject_name
   - process.code_signature.team_id
   - process.code_signature.trusted
+  - process.parent.entity_id
   - process.command_line
   - process.entity_id
   - process.executable

@@ -33,6 +33,8 @@ This event is generated when a file is renamed.
 | event.sequence |
 | event.type |
 | file.Ext.entropy |
+| file.ai_agent.email |
+| file.ai_agent.api_key_auth |
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
 | file.Ext.original.extension |
