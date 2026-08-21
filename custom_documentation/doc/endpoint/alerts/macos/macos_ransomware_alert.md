@@ -77,6 +77,7 @@ This alert is generated when a Ransomware alert occurs.
 | event.severity |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
@@ -125,11 +126,11 @@ This alert is generated when a Ransomware alert occurs.
 | process.Ext.user |
 | process.args |
 | process.args_count |
-| process.code_signature.team_id |
-| process.code_signature.signing_id |
 | process.code_signature.exists |
+| process.code_signature.signing_id |
 | process.code_signature.status |
 | process.code_signature.subject_name |
+| process.code_signature.team_id |
 | process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
 | process.command_line |
@@ -149,11 +150,11 @@ This alert is generated when a Ransomware alert occurs.
 | process.parent.Ext.user |
 | process.parent.args |
 | process.parent.args_count |
-| process.parent.code_signature.team_id |
-| process.parent.code_signature.signing_id |
 | process.parent.code_signature.exists |
+| process.parent.code_signature.signing_id |
 | process.parent.code_signature.status |
 | process.parent.code_signature.subject_name |
+| process.parent.code_signature.team_id |
 | process.parent.code_signature.thumbprint_sha256 |
 | process.parent.code_signature.trusted |
 | process.parent.command_line |
@@ -163,9 +164,9 @@ This alert is generated when a Ransomware alert occurs.
 | process.parent.hash.sha1 |
 | process.parent.hash.sha256 |
 | process.parent.name |
+| process.parent.pgid |
 | process.parent.pid |
 | process.parent.ppid |
-| process.parent.pgid |
 | process.parent.start |
 | process.parent.uptime |
 | process.pe.company |
@@ -173,8 +174,8 @@ This alert is generated when a Ransomware alert occurs.
 | process.pe.file_version |
 | process.pe.original_file_name |
 | process.pe.product |
-| process.pid |
 | process.pgid |
+| process.pid |
 | process.start |
 | process.uptime |
 | rule.ruleset |

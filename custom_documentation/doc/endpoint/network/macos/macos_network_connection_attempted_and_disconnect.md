@@ -38,6 +38,7 @@ This event is generated when a connection is attempted or a request to terminate
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

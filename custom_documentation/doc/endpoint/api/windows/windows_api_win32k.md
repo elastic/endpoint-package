@@ -32,6 +32,7 @@ This event is generated when keylogging-related Win32k APIs are called.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

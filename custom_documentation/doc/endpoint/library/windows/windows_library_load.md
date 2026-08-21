@@ -55,6 +55,7 @@ This event is generated when a DLL or driver is loaded.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

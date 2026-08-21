@@ -51,6 +51,7 @@ fields:
   - file.path
   - file.size
   - host.architecture
+  - host.domain
   - host.hostname
   - host.id
   - host.ip

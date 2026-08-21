@@ -46,6 +46,7 @@ This event is generated when a file is renamed.
 | file.path |
 | file.size |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

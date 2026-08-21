@@ -15,6 +15,7 @@ This event includes information about a macOS Launch Daemon.
 | Effective_process.name |
 | Effective_process.pid |
 | Persistence.args |
+| Persistence.executable |
 | Persistence.keepalive |
 | Persistence.name |
 | Persistence.path |
@@ -42,6 +43,7 @@ This event includes information about a macOS Launch Daemon.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

@@ -125,6 +125,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -159,6 +177,27 @@
       level: custom
       type: nested
       description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
       enabled: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.secondary.matches
@@ -859,6 +898,38 @@
       description: Process id.
       example: 4242
       default_field: false
+- name: agent
+  title: Agent
+  group: 2
+  description: 'The agent fields contain the data about the software entity, if any, that collects, detects, or observes events on a host, or takes measurements on a host.
+
+    Examples include Beats. Agents may also run on observers. ECS agent.* fields shall be populated with details of the agent running on the host or observer where the event happened or the measurement was taken.'
+  footnote: 'Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.'
+  type: group
+  default_field: true
+  fields:
+    - name: id
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Unique identifier of this agent (if one exists).
+
+        Example: For Beats this would be beat.id.'
+      example: 8a4f500d
+    - name: type
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: 'Type of the agent.
+
+        The agent type always stays the same and should be given by the agent used. In case of Filebeat the agent would always be Filebeat also if two Filebeat instances are run on the same machine.'
+      example: filebeat
+    - name: version
+      level: core
+      type: keyword
+      ignore_above: 1024
+      description: Version of the agent.
+      example: 6.0.0-rc2
 - name: data_stream
   title: data_stream
   group: 2
@@ -1969,6 +2040,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -2003,6 +2092,27 @@
       level: custom
       type: nested
       description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
       enabled: false
       default_field: false
     - name: Ext.memory_region.malware_signature.secondary.matches

@@ -34,6 +34,7 @@ This event is generated when a user grants a gatekeeper exception
 | file.code_signature.team_id |
 | file.path |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

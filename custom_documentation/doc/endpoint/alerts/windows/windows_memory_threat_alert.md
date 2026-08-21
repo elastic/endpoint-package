@@ -46,6 +46,7 @@ This alert is generated when a Memory Threat alert occurs.
 | event.severity |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
@@ -77,10 +78,20 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.memory_region.bytes_compressed_present |
 | process.Ext.memory_region.malware_signature.all_names |
 | process.Ext.memory_region.malware_signature.identifier |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier |
 | process.Ext.memory_region.malware_signature.primary.matches |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 |
 | process.Ext.memory_region.malware_signature.primary.signature.id |
 | process.Ext.memory_region.malware_signature.primary.signature.name |
+| process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id |
+| process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name |
+| process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier |
+| process.Ext.memory_region.malware_signature.secondary.matches |
+| process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256 |
+| process.Ext.memory_region.malware_signature.secondary.signature.id |
+| process.Ext.memory_region.malware_signature.secondary.signature.name |
 | process.Ext.memory_region.malware_signature.version |
 | process.Ext.memory_region.region_base |
 | process.Ext.memory_region.region_protection |
@@ -88,6 +99,7 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.memory_region.region_start_bytes |
 | process.Ext.memory_region.region_state |
 | process.Ext.protection |
+| process.Ext.services |
 | process.Ext.token.domain |
 | process.Ext.token.elevation |
 | process.Ext.token.elevation_type |

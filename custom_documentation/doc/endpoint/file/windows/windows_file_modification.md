@@ -43,6 +43,7 @@ This event is generated when a file is modified.
 | file.path |
 | file.size |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

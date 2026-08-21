@@ -1,6 +1,6 @@
 overview:
   name: A user account was created.
-  description: 'This event is generated when a user account was created.'
+  description: This event is generated when a user account was created.
 identification:
   filter:
     event.action: user_account_created

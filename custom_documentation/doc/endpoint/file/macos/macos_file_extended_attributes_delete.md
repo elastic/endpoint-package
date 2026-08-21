@@ -33,6 +33,7 @@ This event is generated when extended file attributes are deleted.
 | event.sequence |
 | event.type |
 | file.attributes |
+| file.extension |
 | file.hash.sha256 |
 | file.inode |
 | file.name |
@@ -43,6 +44,7 @@ This event is generated when extended file attributes are deleted.
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |

@@ -28,6 +28,7 @@ This event is generated when firewall tampering is detected.
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
