@@ -35,7 +35,6 @@ This event is generated when a file is modified.
 | file.ai_agent.api_key_auth |
 | file.extension |
 | file.hash.sha256 |
-| file.inode |
 | file.name |
 | file.path |
 | file.size |
@@ -69,7 +68,6 @@ This event is generated when a file is modified.
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
 | process.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

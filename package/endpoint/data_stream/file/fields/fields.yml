@@ -661,6 +661,14 @@
       ignore_above: 1024
       description: Email address of the user associated with the AI-agent tool that initiated this file operation.
       default_field: false
+    - name: ai_agent.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Canonical name of the AI-agent tool associated with this process or its ancestor.
+
+        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
+      default_field: false
     - name: attributes
       level: extended
       type: keyword

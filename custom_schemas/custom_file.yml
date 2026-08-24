@@ -474,7 +474,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      beta: This field is alpha and subject to change.
+      beta: This field is beta and subject to change.
       short: Email address of the user associated with the AI-agent tool.
       description: >
         Email address of the user associated with the AI-agent tool that
@@ -483,10 +483,23 @@
     - name: ai_agent.api_key_auth
       level: extended
       type: boolean
-      beta: This field is alpha and subject to change.
-      short: Indicates that the AI agent was authenticated via an API key.
+      beta: This field is beta and subject to change.
+      short: True if the AI agent was authenticated via an API key.
       description: >
         Indicates that the AI agent was authenticated via an API key.
+
+    - name: ai_agent.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      beta: This field is beta and subject to change.
+      short: Canonical name of the AI-agent tool.
+      description: >
+        Canonical name of the AI-agent tool associated with this process
+        or its ancestor.
+
+        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and
+        `gemini_cli`.
 
     - name: pe
       level: custom

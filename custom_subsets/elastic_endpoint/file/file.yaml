@@ -184,6 +184,7 @@ fields:
         fields:
           email: {}
           api_key_auth: {}
+          name: {}
       accessed: {}
       attributes: {}
       created: {}
