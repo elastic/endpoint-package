@@ -474,7 +474,7 @@
       level: extended
       type: keyword
       ignore_above: 1024
-      alpha: This field is alpha and subject to change.
+      beta: This field is alpha and subject to change.
       short: Email address of the user associated with the AI-agent tool.
       description: >
         Email address of the user associated with the AI-agent tool that
@@ -482,9 +482,8 @@
 
     - name: ai_agent.api_key_auth
       level: extended
-      type: bool
-      ignore_above: 1024
-      alpha: This field is alpha and subject to change.
+      type: boolean
+      beta: This field is alpha and subject to change.
       short: Indicates that the AI agent was authenticated via an API key.
       description: >
         Indicates that the AI agent was authenticated via an API key.

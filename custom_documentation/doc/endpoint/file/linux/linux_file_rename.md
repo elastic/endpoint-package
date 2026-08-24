@@ -39,6 +39,7 @@ This event is generated when a file is renamed.
 | file.path |
 | file.size |
 | file.ai_agent.email |
+| file.ai_agent.name |
 | file.ai_agent.api_key_auth |
 | group.Ext.real.id |
 | group.Ext.real.name |

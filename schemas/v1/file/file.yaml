@@ -1416,18 +1416,17 @@ file.ai_agent:
   short: AI-agent tool identification fields.
   type: object
 file.ai_agent.api_key_auth:
-  alpha: This field is alpha and subject to change.
+  beta: This field is alpha and subject to change.
   dashed_name: file-ai-agent-api-key-auth
   description: Indicates that the AI agent was authenticated via an API key.
   flat_name: file.ai_agent.api_key_auth
-  ignore_above: 1024
   level: extended
   name: ai_agent.api_key_auth
   normalize: []
   short: Indicates that the AI agent was authenticated via an API key.
-  type: bool
+  type: boolean
 file.ai_agent.email:
-  alpha: This field is alpha and subject to change.
+  beta: This field is alpha and subject to change.
   dashed_name: file-ai-agent-email
   description: Email address of the user associated with the AI-agent tool that initiated
     this file operation.

@@ -652,8 +652,7 @@
       default_field: false
     - name: ai_agent.api_key_auth
       level: extended
-      type: bool
-      ignore_above: 1024
+      type: boolean
       description: Indicates that the AI agent was authenticated via an API key.
       default_field: false
     - name: ai_agent.email

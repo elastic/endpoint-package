@@ -10,10 +10,6 @@ This event is generated when a file is modified.
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -35,6 +31,7 @@ This event is generated when a file is modified.
 | file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.ai_agent.email |
+| file.ai_agent.name |
 | file.ai_agent.api_key_auth |
 | file.extension |
 | file.hash.sha256 |
@@ -42,14 +39,13 @@ This event is generated when a file is modified.
 | file.name |
 | file.path |
 | file.size |
-| file.origin_url |
-| file.origin_referrer_url |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
 | group.name |
 | host.architecture |
 | host.hostname |
+| host.domain |
 | host.id |
 | host.ip |
 | host.mac |
@@ -64,12 +60,10 @@ This event is generated when a file is modified.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.code_signature.exists |
-| process.code_signature.signing_id |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.team_id |
-| process.code_signature.trusted |
+| process.entry_leader.entity_id |
+| process.entry_leader.parent.entity_id |
+| process.group_leader.entity_id |
+| process.session_leader.entity_id |
 | process.parent.entity_id |
 | process.command_line |
 | process.entity_id |
