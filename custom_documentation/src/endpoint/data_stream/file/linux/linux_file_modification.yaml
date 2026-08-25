@@ -1,24 +1,20 @@
 overview:
-  name: macOS File Delete
-  description: 'This event is generated when a file is deleted.
+  name: Linux File Modification
+  description: 'This event is generated when a file is modified.
 
     '
 identification:
   filter:
-    event.action: deletion
+    event.action: modification
     event.dataset: endpoint.events.file
     event.module: endpoint
-    host.os.type: macos
+    host.os.type: linux
   os:
-  - macos
+  - linux
   data_stream: logs-endpoint.events.file-*
 fields:
   endpoint:
   - '@timestamp'
-  - Effective_process.entity_id
-  - Effective_process.executable
-  - Effective_process.name
-  - Effective_process.pid
   - agent.id
   - agent.type
   - agent.version
@@ -37,11 +33,13 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.Ext.entropy
+  - file.Ext.header_bytes
   - file.ai_agent.email
   - file.ai_agent.name
   - file.ai_agent.api_key_auth
   - file.extension
-  - file.inode
+  - file.hash.sha256
   - file.name
   - file.path
   - file.size
@@ -50,8 +48,8 @@ fields:
   - group.id
   - group.name
   - host.architecture
-  - host.domain
   - host.hostname
+  - host.domain
   - host.id
   - host.ip
   - host.mac
@@ -66,17 +64,15 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
-  - process.code_signature.exists
-  - process.code_signature.signing_id
-  - process.code_signature.status
-  - process.code_signature.subject_name
-  - process.code_signature.team_id
-  - process.code_signature.trusted
+  - process.entry_leader.entity_id
+  - process.entry_leader.parent.entity_id
+  - process.group_leader.entity_id
+  - process.session_leader.entity_id
+  - process.parent.entity_id
   - process.command_line
   - process.entity_id
   - process.executable
   - process.name
-  - process.parent.pid
   - process.pid
   - user.Ext.real.id
   - user.Ext.real.name

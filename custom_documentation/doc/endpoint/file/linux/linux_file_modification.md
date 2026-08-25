@@ -1,19 +1,15 @@
-# Windows File Create
+# Linux File Modification
 
-- OS: Windows
+- OS: Linux
 - Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "modification" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a file is created.
+This event is generated when a file is modified.
 
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -32,23 +28,23 @@ This event is generated when a file is created.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.entropy |
+| file.Ext.header_bytes |
 | file.ai_agent.email |
 | file.ai_agent.name |
 | file.ai_agent.api_key_auth |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.windows.zone_identifier |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
-| file.origin_referrer_url |
-| file.origin_url |
 | file.path |
 | file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
-| host.domain |
 | host.hostname |
+| host.domain |
 | host.id |
 | host.ip |
 | host.mac |
@@ -63,24 +59,18 @@ This event is generated when a file is created.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.thumbprint_sha256 |
-| process.Ext.code_signature.trusted |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.thumbprint_sha256 |
-| process.code_signature.trusted |
+| process.entry_leader.entity_id |
+| process.entry_leader.parent.entity_id |
+| process.group_leader.entity_id |
+| process.session_leader.entity_id |
+| process.parent.entity_id |
 | process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
 | process.pid |
-| process.thread.id |
-| user.domain |
+| user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
 | user.name |
 
