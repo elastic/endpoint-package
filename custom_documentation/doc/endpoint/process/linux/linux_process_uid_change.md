@@ -69,6 +69,7 @@ This event is generated when the user id changes for a process.
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.ai_agent.is_descendant |
+| process.ai_agent.email |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |

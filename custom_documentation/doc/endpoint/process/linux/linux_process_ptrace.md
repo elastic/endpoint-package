@@ -73,6 +73,7 @@ This event is generated when when a process calls ptrace_attach on another proce
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.ai_agent.is_descendant |
+| process.ai_agent.email |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |

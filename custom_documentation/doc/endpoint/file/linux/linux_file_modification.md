@@ -59,11 +59,13 @@ This event is generated when a file is modified.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.name |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |
 | process.group_leader.entity_id |
 | process.session_leader.entity_id |
 | process.parent.entity_id |
+| process.parent.pid |
 | process.command_line |
 | process.entity_id |
 | process.executable |
