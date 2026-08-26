@@ -93,6 +93,37 @@
       type: long
       description: Number of documents that would be sent
       default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources
+      level: custom
+      type: object
+      description: An array of API Event document statistics per source
+      default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of API Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of API Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources.source
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: API Event document source name
+      default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed API Event documents from source
+      default_field: false
+    - name: metrics.diag_documents_volume.api_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed API Event documents from source
+      default_field: false
     - name: metrics.diag_documents_volume.api_events.suppressed_bytes
       level: custom
       type: long
@@ -303,6 +334,37 @@
       level: custom
       type: long
       description: Number of documents that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources
+      level: custom
+      type: object
+      description: An array of Security Event document statistics per source
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of Security Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of Security Event documents from source that would be sent
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources.source
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Security Event document source name
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed Security Event documents from source
+      default_field: false
+    - name: metrics.diag_documents_volume.security_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed Security Event documents from source
       default_field: false
     - name: metrics.diag_documents_volume.security_events.suppressed_bytes
       level: custom

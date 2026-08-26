@@ -3200,6 +3200,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.diag_documents_volume.alerts.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.api_events.sent_bytes | Total size of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.api_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sources | An array of API Event document statistics per source | object |
+| Endpoint.metrics.diag_documents_volume.api_events.sources.sent_bytes | Total size of API Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sources.sent_count | Number of API Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sources.source | API Event document source name | keyword |
+| Endpoint.metrics.diag_documents_volume.api_events.sources.suppressed_bytes | Total size of suppressed API Event documents from source | long |
+| Endpoint.metrics.diag_documents_volume.api_events.sources.suppressed_count | Number of suppressed API Event documents from source | long |
 | Endpoint.metrics.diag_documents_volume.api_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.api_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.diagnostic_alerts.sent_bytes | Total size of documents that would be sent | long |
@@ -3242,6 +3248,12 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.diag_documents_volume.registry_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.security_events.sent_bytes | Total size of documents that would be sent | long |
 | Endpoint.metrics.diag_documents_volume.security_events.sent_count | Number of documents that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sources | An array of Security Event document statistics per source | object |
+| Endpoint.metrics.diag_documents_volume.security_events.sources.sent_bytes | Total size of Security Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sources.sent_count | Number of Security Event documents from source that would be sent | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sources.source | Security Event document source name | keyword |
+| Endpoint.metrics.diag_documents_volume.security_events.sources.suppressed_bytes | Total size of suppressed Security Event documents from source | long |
+| Endpoint.metrics.diag_documents_volume.security_events.sources.suppressed_count | Number of suppressed Security Event documents from source | long |
 | Endpoint.metrics.diag_documents_volume.security_events.suppressed_bytes | Total size of suppressed documents | long |
 | Endpoint.metrics.diag_documents_volume.security_events.suppressed_count | Number of suppressed documents | long |
 | Endpoint.metrics.documents_volume | Statistics about sent documents | object |
