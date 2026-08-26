@@ -485,6 +485,11 @@
       description: Number of suppressed documents
       type: long
 
+    - name: metrics.diag_documents_volume.overall
+      level: custom
+      type: long
+      description: Overall statistics
+
     - name: metrics.diag_documents_volume.overall.sent_bytes
       level: custom
       description: Total size of documents that would be sent
@@ -594,6 +599,36 @@
       level: custom
       description: Number of suppressed documents
       type: long
+
+    - name: metrics.diag_documents_volume.api_events.sources
+      level: custom
+      type: object
+      description: An array of API Event document statistics per source
+
+    - name: metrics.diag_documents_volume.api_events.sources.source
+      level: custom
+      type: keyword
+      description: API Event document source name
+
+    - name: metrics.diag_documents_volume.api_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of API Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.api_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of API Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.api_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed API Event documents from source
+
+    - name: metrics.diag_documents_volume.api_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed API Event documents from source
 
     - name: metrics.diag_documents_volume.diagnostic_alerts.sent_bytes
       level: custom
@@ -714,6 +749,36 @@
       level: custom
       description: Number of suppressed documents
       type: long
+
+    - name: metrics.diag_documents_volume.security_events.sources
+      level: custom
+      type: object
+      description: An array of Security Event document statistics per source
+
+    - name: metrics.diag_documents_volume.security_events.sources.source
+      level: custom
+      type: keyword
+      description: Security Event document source name
+
+    - name: metrics.diag_documents_volume.security_events.sources.sent_count
+      level: custom
+      type: long
+      description: Number of Security Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.security_events.sources.sent_bytes
+      level: custom
+      type: long
+      description: Total size of Security Event documents from source that would be sent
+
+    - name: metrics.diag_documents_volume.security_events.sources.suppressed_count
+      level: custom
+      type: long
+      description: Number of suppressed Security Event documents from source
+
+    - name: metrics.diag_documents_volume.security_events.sources.suppressed_bytes
+      level: custom
+      type: long
+      description: Total size of suppressed Security Event documents from source
 
     - name: metrics.documents_volume
       level: custom
