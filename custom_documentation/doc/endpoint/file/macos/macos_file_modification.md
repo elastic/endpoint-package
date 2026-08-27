@@ -38,10 +38,10 @@ This event is generated when a file is modified.
 | file.hash.sha256 |
 | file.inode |
 | file.name |
+| file.origin_referrer_url |
+| file.origin_url |
 | file.path |
 | file.size |
-| file.origin_url |
-| file.origin_referrer_url |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |

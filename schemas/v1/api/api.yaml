@@ -197,6 +197,39 @@ Target.process.Ext.memory_region.malware_signature.primary:
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
+Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-custom-yara-signature-entry-id
+  description: Identifier of the user YARA entry that defined the matched rule.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.entry_id
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the user YARA entry that defined the matched rule.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-custom-yara-signature-entry-name
+  description: Name of the user YARA entry that defined the matched rule.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.entry_name
+  normalize: []
+  original_fieldset: malware_signature
+  short: Name of the user YARA entry that defined the matched rule.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-primary-custom-yara-signature-rule-identifier
+  description: Identifier of the matched user-defined YARA rule.
+  flat_name: Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.rule_identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the matched user-defined YARA rule.
+  type: keyword
 Target.process.Ext.memory_region.malware_signature.primary.matches:
   dashed_name: Target-process-Ext-memory-region-malware-signature-primary-matches
   description: The first matching details.
@@ -263,6 +296,42 @@ Target.process.Ext.memory_region.malware_signature.secondary:
   original_fieldset: malware_signature
   short: Additional matching details if available.
   type: nested
+Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-entry-id
+  description: Identifier of the user YARA entry that defined the matched rule.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.entry_id
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the user YARA entry that defined the matched rule.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-entry-name
+  description: Name of the user YARA entry that defined the matched rule.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.entry_name
+  normalize: []
+  original_fieldset: malware_signature
+  short: Name of the user YARA entry that defined the matched rule.
+  type: keyword
+Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier:
+  dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-rule-identifier
+  description: Identifier of the matched user-defined YARA rule.
+  enabled: false
+  flat_name: Target.process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.rule_identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the matched user-defined YARA rule.
+  type: keyword
 Target.process.Ext.memory_region.malware_signature.secondary.matches:
   dashed_name: Target-process-Ext-memory-region-malware-signature-secondary-matches
   description: The second matching details.
@@ -3846,6 +3915,39 @@ process.Ext.memory_region.malware_signature.primary:
   original_fieldset: malware_signature
   short: The first matching details.
   type: object
+process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-custom-yara-signature-entry-id
+  description: Identifier of the user YARA entry that defined the matched rule.
+  flat_name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.entry_id
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the user YARA entry that defined the matched rule.
+  type: keyword
+process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-custom-yara-signature-entry-name
+  description: Name of the user YARA entry that defined the matched rule.
+  flat_name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.entry_name
+  normalize: []
+  original_fieldset: malware_signature
+  short: Name of the user YARA entry that defined the matched rule.
+  type: keyword
+process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier:
+  dashed_name: process-Ext-memory-region-malware-signature-primary-custom-yara-signature-rule-identifier
+  description: Identifier of the matched user-defined YARA rule.
+  flat_name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+  ignore_above: 1024
+  level: custom
+  name: primary.custom_yara_signature.rule_identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the matched user-defined YARA rule.
+  type: keyword
 process.Ext.memory_region.malware_signature.primary.matches:
   dashed_name: process-Ext-memory-region-malware-signature-primary-matches
   description: The first matching details.
@@ -3912,6 +4014,42 @@ process.Ext.memory_region.malware_signature.secondary:
   original_fieldset: malware_signature
   short: Additional matching details if available.
   type: nested
+process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-entry-id
+  description: Identifier of the user YARA entry that defined the matched rule.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.entry_id
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the user YARA entry that defined the matched rule.
+  type: keyword
+process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-entry-name
+  description: Name of the user YARA entry that defined the matched rule.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.entry_name
+  normalize: []
+  original_fieldset: malware_signature
+  short: Name of the user YARA entry that defined the matched rule.
+  type: keyword
+process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier:
+  dashed_name: process-Ext-memory-region-malware-signature-secondary-custom-yara-signature-rule-identifier
+  description: Identifier of the matched user-defined YARA rule.
+  enabled: false
+  flat_name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+  ignore_above: 1024
+  level: custom
+  name: secondary.custom_yara_signature.rule_identifier
+  normalize: []
+  original_fieldset: malware_signature
+  short: Identifier of the matched user-defined YARA rule.
+  type: keyword
 process.Ext.memory_region.malware_signature.secondary.matches:
   dashed_name: process-Ext-memory-region-malware-signature-secondary-matches
   description: The second matching details.

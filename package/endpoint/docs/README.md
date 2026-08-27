@@ -336,6 +336,9 @@ sent by the endpoint.
 | Target.process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | Target.process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| Target.process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | Target.process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |
@@ -858,6 +861,9 @@ sent by the endpoint.
 | process.Ext.memory_region.malware_signature.all_names | A sequence of signature names matched. | keyword |
 | process.Ext.memory_region.malware_signature.identifier | malware signature identifier | keyword |
 | process.Ext.memory_region.malware_signature.primary | The first matching details. | object |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | process.Ext.memory_region.malware_signature.primary.matches | The first matching details. | keyword |
 | process.Ext.memory_region.malware_signature.primary.signature.hash | hash of file matching signature. | nested |
 | process.Ext.memory_region.malware_signature.primary.signature.hash.sha256 | sha256 hash of file matching signature. | keyword |

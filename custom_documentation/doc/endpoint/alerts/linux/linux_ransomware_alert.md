@@ -160,9 +160,9 @@ This alert is generated when a Ransomware alert occurs.
 | process.parent.hash.sha1 |
 | process.parent.hash.sha256 |
 | process.parent.name |
+| process.parent.pgid |
 | process.parent.pid |
 | process.parent.ppid |
-| process.parent.pgid |
 | process.parent.start |
 | process.parent.uptime |
 | process.pe.company |
@@ -170,8 +170,8 @@ This alert is generated when a Ransomware alert occurs.
 | process.pe.file_version |
 | process.pe.original_file_name |
 | process.pe.product |
-| process.pid |
 | process.pgid |
+| process.pid |
 | process.start |
 | process.uptime |
 | rule.ruleset |

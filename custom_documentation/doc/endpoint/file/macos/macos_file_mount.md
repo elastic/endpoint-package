@@ -32,6 +32,7 @@ This event is generated when a file system is mounted.
 | event.outcome |
 | event.sequence |
 | event.type |
+| file.Ext.original.extension |
 | file.Ext.original.path |
 | file.inode |
 | file.path |
