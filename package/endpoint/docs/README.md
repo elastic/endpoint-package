@@ -2466,6 +2466,7 @@ sent by the endpoint.
 | process.Ext.windows | Platform-specific Windows fields | object |
 | process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
 | process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent.email | Email address of the user associated with the AI-agent tool that initiated this process. | keyword |
 | process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
 | process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |

@@ -1172,6 +1172,12 @@
 
         When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity.'
       default_field: false
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Email address of the user associated with the AI-agent tool that initiated this process.
+      default_field: false
     - name: ai_agent.is_descendant
       level: extended
       type: boolean

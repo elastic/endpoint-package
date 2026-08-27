@@ -70,6 +70,7 @@ This event is generated when a process calls `fork()`, `exec()`, exits, or an ag
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.ai_agent.is_descendant |
+| process.ai_agent.email |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |

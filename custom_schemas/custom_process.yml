@@ -84,6 +84,16 @@
         This enables analysts and detection rules to distinguish AI-agent-initiated
         activity from human-initiated activity.
 
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Email address of the user associated with the AI-agent tool.
+      description: >
+        Email address of the user associated with the AI-agent tool
+        that initiated this process.
+
     - name: ai_agent.is_descendant
       level: extended
       type: boolean
