@@ -931,7 +931,7 @@
       level: custom
       type: long
       description: Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel.
-      example: 4096
+      example: '4096'
       default_field: false
     - name: Ext.load_module.version
       level: custom
@@ -992,6 +992,33 @@
       type: keyword
       ignore_above: 1024
       description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled
+      default_field: false
+    - name: Ext.mprotect
+      level: custom
+      type: object
+      description: Object for successful mprotect() calls that request executable memory.
+      default_field: false
+    - name: Ext.mprotect.addr
+      level: custom
+      type: long
+      description: Start address passed to the successful mprotect() call.
+      default_field: false
+    - name: Ext.mprotect.len
+      level: custom
+      type: long
+      description: Length in bytes passed to the successful mprotect() call.
+      default_field: false
+    - name: Ext.mprotect.prot
+      level: custom
+      type: long
+      description: Raw executable memory protection flags passed to the successful mprotect() call.
+      default_field: false
+    - name: Ext.mprotect.prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Decoded executable memory protection flags. Emitted values are X, RX, WX, and RWX, in fixed R, W, X order.
+      example: RWX
       default_field: false
     - name: Ext.protection
       level: custom
