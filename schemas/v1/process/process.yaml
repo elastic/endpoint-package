@@ -2119,6 +2119,18 @@ process.ai_agent:
   normalize: []
   short: AI-agent tool identification fields.
   type: object
+process.ai_agent.email:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-email
+  description: Email address of the user associated with the AI-agent tool that initiated
+    this process.
+  flat_name: process.ai_agent.email
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.email
+  normalize: []
+  short: Email address of the user associated with the AI-agent tool.
+  type: keyword
 process.ai_agent.is_descendant:
   alpha: This field is alpha and subject to change.
   dashed_name: process-ai-agent-is-descendant
