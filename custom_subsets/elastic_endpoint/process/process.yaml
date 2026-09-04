@@ -185,10 +185,18 @@ fields:
               taint_flags: {}
           mprotect:
             fields:
-              addr: {}
-              len: {}
-              prot: {}
-              prot_flags: {}
+              vma_start: {}
+              vma_end: {}
+              prev_prot_flags: {}
+              req_prot: {}
+              req_prot_flags: {}
+              effective_prot_flags: {}
+              file_backed: {}
+              file:
+                fields:
+                  path: {}
+                  inode: {}
+                  device: {}
           shmget:
             fields:
               key: {}
