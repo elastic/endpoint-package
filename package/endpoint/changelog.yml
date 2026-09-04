@@ -1,5 +1,7 @@
 - version: "9.6.0-next"
   changes:
+    - description: Add policy-management knowledge base documents
+      type: enhancement
     - description: Add missing agent field mappings to endpoint.events.api
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788
