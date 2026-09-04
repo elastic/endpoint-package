@@ -1792,55 +1792,132 @@ process.Ext.mitigation_policies:
   type: keyword
 process.Ext.mprotect:
   dashed_name: process-Ext-mprotect
-  description: Object for successful mprotect() calls that request executable memory.
+  description: Object for executable mprotect attempts. Linux only. Emitted when a
+    call to mprotect(), pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect
+    check with execute permission in the kernel-adjusted protection. The event describes
+    an attempt and does not assert that the protection change was committed.
   flat_name: process.Ext.mprotect
   level: custom
   name: Ext.mprotect
   normalize: []
-  short: Object for successful mprotect() calls that request executable memory.
+  short: Object for executable mprotect attempts. Linux only. Emitted when a call
+    to mprotect(), pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect
+    check with execute permission in the kernel-adjusted protection. The event describes
+    an attempt and does not assert that the protection change was committed.
   type: object
-process.Ext.mprotect.addr:
-  dashed_name: process-Ext-mprotect-addr
-  description: Start address passed to the successful mprotect() call.
-  flat_name: process.Ext.mprotect.addr
-  level: custom
-  name: Ext.mprotect.addr
-  normalize: []
-  short: Start address passed to the successful mprotect() call.
-  type: long
-process.Ext.mprotect.len:
-  dashed_name: process-Ext-mprotect-len
-  description: Length in bytes passed to the successful mprotect() call.
-  flat_name: process.Ext.mprotect.len
-  level: custom
-  name: Ext.mprotect.len
-  normalize: []
-  short: Length in bytes passed to the successful mprotect() call.
-  type: long
-process.Ext.mprotect.prot:
-  dashed_name: process-Ext-mprotect-prot
-  description: Raw executable memory protection flags passed to the successful mprotect()
-    call.
-  flat_name: process.Ext.mprotect.prot
-  level: custom
-  name: Ext.mprotect.prot
-  normalize: []
-  short: Raw executable memory protection flags passed to the successful mprotect()
-    call.
-  type: long
-process.Ext.mprotect.prot_flags:
-  dashed_name: process-Ext-mprotect-prot-flags
-  description: Decoded executable memory protection flags. Emitted values are X, RX,
-    WX, and RWX, in fixed R, W, X order.
-  example: RWX
-  flat_name: process.Ext.mprotect.prot_flags
+process.Ext.mprotect.effective_prot_flags:
+  dashed_name: process-Ext-mprotect-effective-prot-flags
+  description: Protection the kernel will apply after personality adjustments such
+    as READ_IMPLIES_EXEC, decoded in fixed R, W, X order. Always contains X; emitted
+    values are X, RX, WX and RWX.
+  example: RX
+  flat_name: process.Ext.mprotect.effective_prot_flags
   ignore_above: 1024
   level: custom
-  name: Ext.mprotect.prot_flags
+  name: Ext.mprotect.effective_prot_flags
   normalize: []
-  short: Decoded executable memory protection flags. Emitted values are X, RX, WX,
-    and RWX, in fixed R, W, X order.
+  short: Protection the kernel will apply after personality adjustments such as READ_IMPLIES_EXEC,
+    decoded in fixed R, W, X order. Always contains X; emitted values are X, RX, WX
+    and RWX.
   type: keyword
+process.Ext.mprotect.file.device:
+  dashed_name: process-Ext-mprotect-file-device
+  description: Device of the backing file as major:minor. Absent for anonymous memory.
+  example: '259:1'
+  flat_name: process.Ext.mprotect.file.device
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.file.device
+  normalize: []
+  short: Device of the backing file as major:minor. Absent for anonymous memory.
+  type: keyword
+process.Ext.mprotect.file.inode:
+  dashed_name: process-Ext-mprotect-file-inode
+  description: Inode number of the backing file. Absent for anonymous memory.
+  flat_name: process.Ext.mprotect.file.inode
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.file.inode
+  normalize: []
+  short: Inode number of the backing file. Absent for anonymous memory.
+  type: keyword
+process.Ext.mprotect.file.path:
+  dashed_name: process-Ext-mprotect-file-path
+  description: Mount-namespace relative path of the backing file. Absent for anonymous
+    memory.
+  flat_name: process.Ext.mprotect.file.path
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.file.path
+  normalize: []
+  short: Mount-namespace relative path of the backing file. Absent for anonymous memory.
+  type: keyword
+process.Ext.mprotect.file_backed:
+  dashed_name: process-Ext-mprotect-file-backed
+  description: True when the memory area is backed by a file, false for anonymous
+    memory.
+  example: 'false'
+  flat_name: process.Ext.mprotect.file_backed
+  level: custom
+  name: Ext.mprotect.file_backed
+  normalize: []
+  short: True when the memory area is backed by a file, false for anonymous memory.
+  type: boolean
+process.Ext.mprotect.prev_prot_flags:
+  dashed_name: process-Ext-mprotect-prev-prot-flags
+  description: Protection of the memory area before the call, decoded in fixed R,
+    W, X order. Empty when the area had no permissions.
+  example: RW
+  flat_name: process.Ext.mprotect.prev_prot_flags
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.prev_prot_flags
+  normalize: []
+  short: Protection of the memory area before the call, decoded in fixed R, W, X order.
+    Empty when the area had no permissions.
+  type: keyword
+process.Ext.mprotect.req_prot:
+  dashed_name: process-Ext-mprotect-req-prot
+  description: Raw protection flags passed to the call, including bits beyond read,
+    write and execute such as PROT_GROWSDOWN.
+  flat_name: process.Ext.mprotect.req_prot
+  level: custom
+  name: Ext.mprotect.req_prot
+  normalize: []
+  short: Raw protection flags passed to the call, including bits beyond read, write
+    and execute such as PROT_GROWSDOWN.
+  type: long
+process.Ext.mprotect.req_prot_flags:
+  dashed_name: process-Ext-mprotect-req-prot-flags
+  description: Protection requested by the call, decoded in fixed R, W, X order.
+  example: RX
+  flat_name: process.Ext.mprotect.req_prot_flags
+  ignore_above: 1024
+  level: custom
+  name: Ext.mprotect.req_prot_flags
+  normalize: []
+  short: Protection requested by the call, decoded in fixed R, W, X order.
+  type: keyword
+process.Ext.mprotect.vma_end:
+  dashed_name: process-Ext-mprotect-vma-end
+  description: End address (exclusive) of the virtual memory area the kernel considered.
+  flat_name: process.Ext.mprotect.vma_end
+  level: custom
+  name: Ext.mprotect.vma_end
+  normalize: []
+  short: End address (exclusive) of the virtual memory area the kernel considered.
+  type: long
+process.Ext.mprotect.vma_start:
+  dashed_name: process-Ext-mprotect-vma-start
+  description: Start address of the virtual memory area the kernel considered. Not
+    the address passed to the call.
+  flat_name: process.Ext.mprotect.vma_start
+  level: custom
+  name: Ext.mprotect.vma_start
+  normalize: []
+  short: Start address of the virtual memory area the kernel considered. Not the address
+    passed to the call.
+  type: long
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax

@@ -2434,11 +2434,17 @@ sent by the endpoint.
 | process.Ext.memfd.flags | Flags passed to the memfd operation. | long |
 | process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
-| process.Ext.mprotect | Object for successful mprotect() calls that request executable memory. | object |
-| process.Ext.mprotect.addr | Start address passed to the successful mprotect() call. | long |
-| process.Ext.mprotect.len | Length in bytes passed to the successful mprotect() call. | long |
-| process.Ext.mprotect.prot | Raw executable memory protection flags passed to the successful mprotect() call. | long |
-| process.Ext.mprotect.prot_flags | Decoded executable memory protection flags. Emitted values are X, RX, WX, and RWX, in fixed R, W, X order. | keyword |
+| process.Ext.mprotect | Object for executable mprotect attempts. Linux only. Emitted when a call to mprotect(), pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect check with execute permission in the kernel-adjusted protection. The event describes an attempt and does not assert that the protection change was committed. | object |
+| process.Ext.mprotect.effective_prot_flags | Protection the kernel will apply after personality adjustments such as READ_IMPLIES_EXEC, decoded in fixed R, W, X order. Always contains X; emitted values are X, RX, WX and RWX. | keyword |
+| process.Ext.mprotect.file.device | Device of the backing file as major:minor. Absent for anonymous memory. | keyword |
+| process.Ext.mprotect.file.inode | Inode number of the backing file. Absent for anonymous memory. | keyword |
+| process.Ext.mprotect.file.path | Mount-namespace relative path of the backing file. Absent for anonymous memory. | keyword |
+| process.Ext.mprotect.file_backed | True when the memory area is backed by a file, false for anonymous memory. | boolean |
+| process.Ext.mprotect.prev_prot_flags | Protection of the memory area before the call, decoded in fixed R, W, X order. Empty when the area had no permissions. | keyword |
+| process.Ext.mprotect.req_prot | Raw protection flags passed to the call, including bits beyond read, write and execute such as PROT_GROWSDOWN. | long |
+| process.Ext.mprotect.req_prot_flags | Protection requested by the call, decoded in fixed R, W, X order. | keyword |
+| process.Ext.mprotect.vma_end | End address (exclusive) of the virtual memory area the kernel considered. | long |
+| process.Ext.mprotect.vma_start | Start address of the virtual memory area the kernel considered. Not the address passed to the call. | long |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
 | process.Ext.ptrace.addr | ptrace address. | long |

@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "mprotect" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated only for successful mprotect() calls that request executable protection (X, RX, WX, or RWX), and only when advanced.events.hidden.emit_diagnostic_fields is enabled.
+This event is generated when a process attempts to make memory executable through mprotect(), pkey_mprotect() or a compat variant, as observed at the kernel's security_file_mprotect check. It describes an attempt and does not assert that the protection change was committed. Anonymous memory is reported once per protection transition per process life and file-backed memory once per protection transition per file per process life; the state resets on execve() and process exit. Only generated when advanced.events.hidden.emit_diagnostic_fields is enabled.
 
 | Field |
 |---|
@@ -64,10 +64,16 @@ This event is generated only for successful mprotect() calls that request execut
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
-| process.Ext.mprotect.addr |
-| process.Ext.mprotect.len |
-| process.Ext.mprotect.prot |
-| process.Ext.mprotect.prot_flags |
+| process.Ext.mprotect.effective_prot_flags |
+| process.Ext.mprotect.file.device |
+| process.Ext.mprotect.file.inode |
+| process.Ext.mprotect.file.path |
+| process.Ext.mprotect.file_backed |
+| process.Ext.mprotect.prev_prot_flags |
+| process.Ext.mprotect.req_prot |
+| process.Ext.mprotect.req_prot_flags |
+| process.Ext.mprotect.vma_end |
+| process.Ext.mprotect.vma_start |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.args |

@@ -931,7 +931,7 @@
       level: custom
       type: long
       description: Bitmask of the taint flags this module sets on the kernel. Zero means the module does not taint the kernel.
-      example: '4096'
+      example: 4096
       default_field: false
     - name: Ext.load_module.version
       level: custom
@@ -996,29 +996,68 @@
     - name: Ext.mprotect
       level: custom
       type: object
-      description: Object for successful mprotect() calls that request executable memory.
+      description: Object for executable mprotect attempts. Linux only. Emitted when a call to mprotect(), pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect check with execute permission in the kernel-adjusted protection. The event describes an attempt and does not assert that the protection change was committed.
       default_field: false
-    - name: Ext.mprotect.addr
-      level: custom
-      type: long
-      description: Start address passed to the successful mprotect() call.
-      default_field: false
-    - name: Ext.mprotect.len
-      level: custom
-      type: long
-      description: Length in bytes passed to the successful mprotect() call.
-      default_field: false
-    - name: Ext.mprotect.prot
-      level: custom
-      type: long
-      description: Raw executable memory protection flags passed to the successful mprotect() call.
-      default_field: false
-    - name: Ext.mprotect.prot_flags
+    - name: Ext.mprotect.effective_prot_flags
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Decoded executable memory protection flags. Emitted values are X, RX, WX, and RWX, in fixed R, W, X order.
-      example: RWX
+      description: Protection the kernel will apply after personality adjustments such as READ_IMPLIES_EXEC, decoded in fixed R, W, X order. Always contains X; emitted values are X, RX, WX and RWX.
+      example: RX
+      default_field: false
+    - name: Ext.mprotect.file.device
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Device of the backing file as major:minor. Absent for anonymous memory.
+      example: '259:1'
+      default_field: false
+    - name: Ext.mprotect.file.inode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Inode number of the backing file. Absent for anonymous memory.
+      default_field: false
+    - name: Ext.mprotect.file.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Mount-namespace relative path of the backing file. Absent for anonymous memory.
+      default_field: false
+    - name: Ext.mprotect.file_backed
+      level: custom
+      type: boolean
+      description: True when the memory area is backed by a file, false for anonymous memory.
+      example: 'false'
+      default_field: false
+    - name: Ext.mprotect.prev_prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the memory area before the call, decoded in fixed R, W, X order. Empty when the area had no permissions.
+      example: RW
+      default_field: false
+    - name: Ext.mprotect.req_prot
+      level: custom
+      type: long
+      description: Raw protection flags passed to the call, including bits beyond read, write and execute such as PROT_GROWSDOWN.
+      default_field: false
+    - name: Ext.mprotect.req_prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection requested by the call, decoded in fixed R, W, X order.
+      example: RX
+      default_field: false
+    - name: Ext.mprotect.vma_end
+      level: custom
+      type: long
+      description: End address (exclusive) of the virtual memory area the kernel considered.
+      default_field: false
+    - name: Ext.mprotect.vma_start
+      level: custom
+      type: long
+      description: Start address of the virtual memory area the kernel considered. Not the address passed to the call.
       default_field: false
     - name: Ext.protection
       level: custom
