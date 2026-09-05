@@ -28,14 +28,16 @@ Choose the mode in the policy UI. This article does not catalogue advanced contr
 
 ## Scan cost versus coverage
 
-Memory scanning is not free. When a process with a large memory footprint starts — large-footprint processes named in the high_cpu knowledge base docs — the scan can dominate CPU and memory on the host for as long as it runs. That cost is why some deployments disable the capability on specific policies.
+Memory scanning is not free. When a process with a large memory footprint starts — large-footprint processes named in the `windows_high_cpu` and `linux_high_cpu` knowledge base docs — the scan can dominate CPU and memory on the host for as long as it runs. That cost is why some deployments disable the capability on specific policies.
 
 The configuration tradeoff is coverage versus that scan cost:
 
 - Keep memory threat protection enabled when you need memory-signature coverage on the policy.
 - Expect large processes to be the expensive cases, not a reason to treat every host as if it had a published numeric CPU budget. This package does not define a safe scan-time or memory ceiling.
 
-If scan cost is unacceptable for a specific process, the process-specific carve-out is decided outside this article; the `high_cpu` knowledge base docs cover memory-scan cost incidents. Do not turn the capability off for a whole policy as the first response, unless you have decided that memory-signature coverage is not required on those hosts.
+One advanced memory-scan control behaves differently by operating system, and that difference decides the tradeoff. On Windows, memory threat protection stays effective when that scan is disabled. On macOS and Linux, disabling it effectively disables memory threat protection, so on those platforms it is a coverage decision and not a cost adjustment. This article does not name the key; use the maintained field reference for it.
+
+If scan cost is unacceptable for a specific process, the process-specific carve-out is decided outside this article; the `windows_high_cpu` and `linux_high_cpu` knowledge base docs cover memory-scan cost incidents. Do not turn the capability off for a whole policy as the first response, unless you have decided that memory-signature coverage is not required on those hosts.
 
 ## Exact settings
 
@@ -43,4 +45,4 @@ Do not invent memory-protection paths, defaults, licenses, or versions from this
 
 ## Related troubleshooting
 
-When memory-signature alerts are absent, see the `endpoint_alerts_not_appearing` knowledge base doc (the capability must be enabled). When scan cost shows up as high CPU on a large process, see the `high_cpu` knowledge base docs. Those articles are diagnostic; they are not a catalogue of memory-protection settings.
+When memory-signature alerts are absent, see the `endpoint_alerts_not_appearing` knowledge base doc (the capability must be enabled). When scan cost shows up as high CPU on a large process, see the `windows_high_cpu` and `linux_high_cpu` knowledge base docs. Those articles are diagnostic; they are not a catalogue of memory-protection settings.

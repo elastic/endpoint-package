@@ -39,7 +39,7 @@ On Linux, process collection is especially costly when a parent script or automa
 
 On Windows, file-intensive operations such as Office updates, backup software, and database maintenance can generate large bursts of file events. Those bursts increase indexed volume and output throughput.
 
-There is no package-supported numeric “safe” event rate. Choose collection from the visibility you need and the workload texture of the host, then use the policy UI for the concrete controls. When event volume already appears as an incident, the `output_kafka_message_size` and `high_cpu` knowledge base docs cover the failure side, including artifact-based volume reduction.
+There is no package-supported numeric “safe” event rate. Choose collection from the visibility you need and the workload texture of the host, then use the policy UI for the concrete controls. When event volume already appears as an incident, the `output_kafka_message_size`, `windows_high_cpu`, and `linux_high_cpu` knowledge base docs cover the failure side, including artifact-based volume reduction.
 
 ## Exact settings
 
@@ -47,4 +47,4 @@ Do not invent event-collection paths, defaults, licenses, or versions from this 
 
 ## Related troubleshooting
 
-When event volume appears as an incident rather than a configuration choice, see the `output_kafka_message_size` knowledge base doc for output failures and the `high_cpu` knowledge base docs for Windows Security-event processing and Linux short-lived process churn. Those articles are diagnostic; they are not a field catalogue for event collection.
+When event volume appears as an incident rather than a configuration choice, see the `output_kafka_message_size` knowledge base doc for output failures, the `windows_high_cpu` knowledge base doc for Windows Security-event processing, and the `linux_high_cpu` knowledge base doc for Linux short-lived process churn. Those articles are diagnostic; they are not a field catalogue for event collection.

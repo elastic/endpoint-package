@@ -26,9 +26,9 @@ The macOS policy choices in this article only take effect after the host grants 
 
 ## VPN clients versus DNS event collection
 
-VPN clients can conflict with Elastic Defend DNS event collection on macOS. Turning DNS event collection off in the policy is the policy-side lever. The incompatible_software_third_party knowledge base doc covers that conflict; confirm the current event-collection controls in the policy UI.
+VPN clients can conflict with Elastic Defend DNS event collection on macOS. Turning DNS event collection off in the policy is the policy-side lever. The `incompatible_software_third_party` knowledge base doc covers that conflict; confirm the current event-collection controls in the policy UI.
 
-Which ransomware controls exist on which macOS releases is unavailable in this package; use the policy UI or the maintained field reference.
+Ransomware protection on macOS has no top-level control in the Elastic Defend policy UI. A macOS ransomware mode exists as an advanced policy setting and defaults to off. Use the maintained field reference for that setting name and its legal values.
 
 ## Exact settings
 
@@ -36,4 +36,4 @@ Do not invent policy paths, defaults, licenses, or agent versions. Use the Elast
 
 ## Related troubleshooting
 
-When Full Disk Access is not granted, see the macos_full_disk_access knowledge base doc. When the system extension is not approved, see the macos_connect_kernel knowledge base doc. When network content filtering is not allowed, see the macos_detect_network_events knowledge base doc. When a VPN client conflicts with DNS event collection, see the incompatible_software_third_party knowledge base doc.
+When Full Disk Access is not granted, see the `macos_full_disk_access` knowledge base doc. When the system extension is not approved, see the `macos_connect_kernel` knowledge base doc. When network content filtering is not allowed, see the `macos_detect_network_events` knowledge base doc. When a VPN client conflicts with DNS event collection, see the `incompatible_software_third_party` knowledge base doc.

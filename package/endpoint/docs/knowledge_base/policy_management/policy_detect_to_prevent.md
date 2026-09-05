@@ -37,7 +37,7 @@ This package does not publish a safe alert count or CPU threshold as a policy ta
 
 ## Independent protection modes
 
-Malware, malicious behavior, memory threat protection, and ransomware are separate enable and mode choices. A detect to prevent transition can move one protection to prevent without moving the others.
+Malware, malicious behavior, and memory threat protection are separate enable and mode choices. A detect to prevent transition can move one protection to prevent without moving the others. Ransomware protection is not offered the same way on every operating system: Windows has a top-level ransomware control in the policy UI, macOS has a ransomware mode in advanced settings that defaults to off, and Linux has no ransomware mode choice. Confirm the available controls for the operating systems a policy serves before you plan a ransomware transition.
 
 Which detect or prevent mode to pick for memory threat protection is not catalogued here. Use the `policy_tradeoffs_memory_protection` knowledge base doc for that coverage-versus-cost choice, and the policy UI for the mode control.
 

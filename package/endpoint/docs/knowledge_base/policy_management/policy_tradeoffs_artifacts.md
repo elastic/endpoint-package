@@ -51,7 +51,7 @@ Choose a pin that meets both constraints for every endpoint that should apply it
 
 ## User artifacts and download path
 
-User artifacts reach endpoints over a separate download path from the global protection snapshot. When those lists fail to download, see the matching `download_user_artifacts` knowledge base docs; this article does not restate download-path failure mechanics.
+User artifacts reach endpoints over a separate download path from the global protection snapshot. When those lists fail to download, see the `windows_download_user_artifacts`, `macos_download_user_artifacts`, and `linux_download_user_artifacts` knowledge base docs; this article does not restate download-path failure mechanics.
 
 When a pin or user-artifact download fails to apply, treat that as an incident and use the troubleshooting articles below. Do not use those failure playbooks as the configuration model for pinning or retention.
 
@@ -61,4 +61,4 @@ Do not invent artifact paths, defaults, licenses, or versions from this article.
 
 ## Related troubleshooting
 
-When a global snapshot cannot be downloaded or applied, see the `windows_outdated_protection_artifacts`, `macos_outdated_protection_artifacts`, and `linux_outdated_protection_artifacts` knowledge base docs. When Trusted Applications, Event Filters, or other user artifacts fail to download, see the matching `download_user_artifacts` knowledge base docs. Those articles are diagnostic; they are not a catalogue of artifact identifiers.
+When a global snapshot cannot be downloaded or applied, see the `windows_outdated_protection_artifacts`, `macos_outdated_protection_artifacts`, and `linux_outdated_protection_artifacts` knowledge base docs. When Trusted Applications, Event Filters, or other user artifacts fail to download, see the `windows_download_user_artifacts`, `macos_download_user_artifacts`, and `linux_download_user_artifacts` knowledge base docs. Those articles are diagnostic; they are not a catalogue of artifact identifiers.
