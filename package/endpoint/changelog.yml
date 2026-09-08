@@ -3,6 +3,9 @@
     - description: Add missing agent field mappings to endpoint.events.api
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788
+    - description: Add Linux executable mprotect attempt fields to process events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/797
 - version: "9.5.0"
   changes:
     - description: Add mappings for process and security event sources metrics
@@ -23,9 +26,6 @@
     - description: Add Effective_process fields to malware events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/751
-    - description: Add Linux executable mprotect attempt fields to process events
-      type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/767
 - version: "9.4.0"
   changes:
     - description: automatic troubleshooting endpoint context docs
