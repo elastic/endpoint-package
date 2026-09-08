@@ -42,6 +42,7 @@ This event is generated when a process attempts to make memory executable throug
 | group.id |
 | group.name |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
@@ -64,6 +65,7 @@ This event is generated when a process attempts to make memory executable throug
 | orchestrator.resource.parent.type |
 | orchestrator.resource.type |
 | process.Ext.ancestry |
+| process.Ext.command_line_truncated |
 | process.Ext.mprotect.effective_prot_flags |
 | process.Ext.mprotect.file.device |
 | process.Ext.mprotect.file.inode |
@@ -76,6 +78,9 @@ This event is generated when a process attempts to make memory executable throug
 | process.Ext.mprotect.vma_start |
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
+| process.ai_agent.is_descendant |
+| process.ai_agent.email |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.command_line |
