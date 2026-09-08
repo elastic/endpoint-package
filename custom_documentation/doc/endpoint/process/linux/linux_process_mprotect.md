@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.process-*`
 - KQL: `event.action : "mprotect" and event.dataset : "endpoint.events.process" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a process attempts to make memory executable through mprotect(), pkey_mprotect() or a compat variant, as observed at the kernel's security_file_mprotect check. It describes an attempt and does not assert that the protection change was committed. Anonymous memory is reported once per protection transition per process life and file-backed memory once per protection transition per file per process life; the state resets on execve() and process exit. Only generated when advanced.events.hidden.emit_diagnostic_fields is enabled.
+This event is generated when a process attempts to make memory executable through mprotect(), pkey_mprotect() or a compat variant, as observed at the kernel's security_file_mprotect check. It describes an attempt and does not assert that the protection change was committed. Anonymous memory is reported once per protection transition per process life and file-backed memory once per protection transition per file per process life; the state resets on execve() and process exit. This is a diagnostic event. It is only collected while a diagnostic configuration is present (the diagnostic and global events.mprotect settings can switch it off), it feeds the diagnostic rules engine, and it is only written to Elasticsearch when advanced.events.hidden.emit_diagnostic_fields is enabled.
 
 | Field |
 |---|
