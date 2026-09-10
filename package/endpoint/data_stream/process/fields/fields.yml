@@ -1033,7 +1033,12 @@
     - name: Ext.process_vm_access.target_pid
       level: custom
       type: long
-      description: PID of the process whose memory was accessed.
+      description: PID of the process whose memory was accessed, resolved by the kernel from the pid passed to the call. It is a host PID even when the caller runs in a PID namespace, so it is comparable to process.pid.
+      default_field: false
+    - name: Ext.process_vm_access.target_start_time_ns
+      level: custom
+      type: long
+      description: Start time of the target process in nanoseconds since boot. Distinguishes the target from an unrelated process that later reuses the same PID.
       default_field: false
     - name: Ext.protection
       level: custom

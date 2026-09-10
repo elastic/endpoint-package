@@ -2431,7 +2431,8 @@ sent by the endpoint.
 | process.Ext.process_vm_access.operation | Direction of the memory access. Emitted values are read and write. | keyword |
 | process.Ext.process_vm_access.remote_addr | Base address of the first remote iovec, i.e. the address accessed in the target process's memory. | long |
 | process.Ext.process_vm_access.remote_iovcnt | Number of remote iovec entries passed to the call. | long |
-| process.Ext.process_vm_access.target_pid | PID of the process whose memory was accessed. | long |
+| process.Ext.process_vm_access.target_pid | PID of the process whose memory was accessed, resolved by the kernel from the pid passed to the call. It is a host PID even when the caller runs in a PID namespace, so it is comparable to process.pid. | long |
+| process.Ext.process_vm_access.target_start_time_ns | Start time of the target process in nanoseconds since boot. Distinguishes the target from an unrelated process that later reuses the same PID. | long |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
 | process.Ext.ptrace.addr | ptrace address. | long |

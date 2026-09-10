@@ -238,7 +238,18 @@
     - name: Ext.process_vm_access.target_pid
       level: custom
       type: long
-      description: PID of the process whose memory was accessed.
+      short: PID of the process whose memory was accessed.
+      description: PID of the process whose memory was accessed, resolved by the
+        kernel from the pid passed to the call. It is a host PID even when the
+        caller runs in a PID namespace, so it is comparable to process.pid.
+
+    - name: Ext.process_vm_access.target_start_time_ns
+      level: custom
+      type: long
+      short: Start time of the target process in nanoseconds since boot.
+      description: Start time of the target process in nanoseconds since boot.
+        Distinguishes the target from an unrelated process that later reuses the
+        same PID.
 
     - name: Ext.process_vm_access.operation
       level: custom
@@ -271,6 +282,7 @@
     - name: Ext.process_vm_access.bytes_transferred
       level: custom
       type: long
+      short: Raw syscall return value; bytes transferred, or a negated errno.
       description: Raw syscall return value. Non-negative on success (bytes actually
         transferred, which may be less than bytes_requested on a partial transfer);
         negative on failure (the negated errno).

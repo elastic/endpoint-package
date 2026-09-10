@@ -77,6 +77,7 @@ fields:
   - process.Ext.process_vm_access.remote_addr
   - process.Ext.process_vm_access.remote_iovcnt
   - process.Ext.process_vm_access.target_pid
+  - process.Ext.process_vm_access.target_start_time_ns
   - process.Ext.trusted
   - process.Ext.trusted_descendant
   - process.ai_agent.is_descendant

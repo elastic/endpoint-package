@@ -185,6 +185,7 @@ fields:
           process_vm_access:
             fields:
               target_pid: {}
+              target_start_time_ns: {}
               operation: {}
               local_iovcnt: {}
               remote_iovcnt: {}
