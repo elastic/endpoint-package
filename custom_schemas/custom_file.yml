@@ -215,7 +215,88 @@
       short: File event monotonic ID
       description: >
         File event monotonic ID.
-        
+
+    - name: Ext.access
+      level: custom
+      type: object
+      description: Object for Linux file open (access) event fields.
+
+    - name: Ext.access.flags
+      level: custom
+      type: long
+      short: Raw open(2) flags as requested by the caller.
+      description: >
+        Raw open(2) flags as requested by the caller, before any adjustment by the kernel.
+        Includes O_CREAT and O_TRUNC when given; an open performed by the kernel for execve(2) carries __FMODE_EXEC.
+      example: 577
+
+    - name: Ext.access.mode
+      level: custom
+      type: keyword
+      short: Decoded access classes of the open, fixed order.
+      description: >
+        Decoded access classes of the open in a fixed order: read, write, create, truncate, append, exec, path.
+        exec marks a file opened by the kernel for execution, path an O_PATH open that cannot read or write.
+      normalize:
+        - array
+      example: '["write", "create", "truncate"]'
+
+    - name: Ext.access.matched_path
+      level: custom
+      type: keyword
+      short: The configured path pattern this open matched.
+      description: >
+        The configured path pattern this open matched, as written in the policy.
+        Lets rules and volume attribution refer to the pattern instead of re-encoding it.
+      example: "/etc/shadow"
+
+    - name: Ext.procfs
+      level: custom
+      type: object
+      description: Fields describing an opened /proc/<pid>/ entry and the task it belongs to.
+
+    - name: Ext.procfs.interface
+      level: custom
+      type: keyword
+      short: Leaf name of the opened /proc/<pid>/ entry.
+      description: >
+        Leaf name of the opened /proc/<pid>/ entry, such as mem, maps, syscall or environ.
+        Only present when the opened file is a per-task procfs entry.
+      example: mem
+
+    - name: Ext.procfs.target
+      level: custom
+      type: object
+      description: The task an opened /proc/<pid>/ entry belongs to, resolved by the kernel.
+
+    - name: Ext.procfs.target.pid
+      level: custom
+      type: long
+      short: PID of the process the procfs entry belongs to.
+      description: >
+        PID of the process the procfs entry belongs to, resolved by the kernel from the entry itself.
+        It is a host PID regardless of how the caller spelled the path (self, a thread id, a PID namespace), so it is comparable to process.pid.
+
+    - name: Ext.procfs.target.entity_id
+      level: custom
+      type: keyword
+      short: Entity ID of the process the procfs entry belongs to.
+      description: >
+        Entity ID of the process the procfs entry belongs to, computed like process.entity_id so it joins with that process's events
+        and tells the target apart from an unrelated process that later reuses the same PID.
+
+    - name: Ext.procfs.target.thread
+      level: custom
+      type: object
+      description: The thread an opened /proc/<pid>/task/<tid>/ entry belongs to.
+
+    - name: Ext.procfs.target.thread.id
+      level: custom
+      type: long
+      short: Thread ID the procfs entry belongs to.
+      description: >
+        Thread ID the procfs entry belongs to. Equal to the target PID for /proc/<pid>/ entries and to the thread for /proc/<pid>/task/<tid>/ entries.
+
     - name: Ext.malware_signature
       level: custom
       type: nested

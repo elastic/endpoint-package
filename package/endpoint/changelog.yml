@@ -1,5 +1,8 @@
 - version: "9.6.0-next"
   changes:
+    - description: Add Linux file open (access) event fields, file.Ext.access.*, file.Ext.procfs.* and error.code
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/999999
     - description: Add missing agent field mappings to endpoint.events.api
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788

@@ -345,6 +345,16 @@ ecs.version:
   required: true
   short: ECS version this event conforms to.
   type: keyword
+error.code:
+  dashed_name: error-code
+  description: Error code describing the error.
+  flat_name: error.code
+  ignore_above: 1024
+  level: core
+  name: code
+  normalize: []
+  short: Error code describing the error.
+  type: keyword
 event.action:
   dashed_name: event-action
   description: 'The action captured by the event.
@@ -1034,6 +1044,54 @@ file.Ext:
   normalize: []
   short: Object for all custom defined fields to live in.
   type: object
+file.Ext.access:
+  dashed_name: file-Ext-access
+  description: Object for Linux file open (access) event fields.
+  flat_name: file.Ext.access
+  level: custom
+  name: Ext.access
+  normalize: []
+  short: Object for Linux file open (access) event fields.
+  type: object
+file.Ext.access.flags:
+  dashed_name: file-Ext-access-flags
+  description: Raw open(2) flags as requested by the caller, before any adjustment
+    by the kernel. Includes O_CREAT and O_TRUNC when given; an open performed by the
+    kernel for execve(2) carries __FMODE_EXEC.
+  example: 577
+  flat_name: file.Ext.access.flags
+  level: custom
+  name: Ext.access.flags
+  normalize: []
+  short: Raw open(2) flags as requested by the caller.
+  type: long
+file.Ext.access.matched_path:
+  dashed_name: file-Ext-access-matched-path
+  description: The configured path pattern this open matched, as written in the policy.
+    Lets rules and volume attribution refer to the pattern instead of re-encoding
+    it.
+  example: /etc/shadow
+  flat_name: file.Ext.access.matched_path
+  ignore_above: 1024
+  level: custom
+  name: Ext.access.matched_path
+  normalize: []
+  short: The configured path pattern this open matched.
+  type: keyword
+file.Ext.access.mode:
+  dashed_name: file-Ext-access-mode
+  description: 'Decoded access classes of the open in a fixed order: read, write,
+    create, truncate, append, exec, path. exec marks a file opened by the kernel for
+    execution, path an O_PATH open that cannot read or write.'
+  example: '["write", "create", "truncate"]'
+  flat_name: file.Ext.access.mode
+  ignore_above: 1024
+  level: custom
+  name: Ext.access.mode
+  normalize:
+  - array
+  short: Decoded access classes of the open, fixed order.
+  type: keyword
 file.Ext.device.bus_type:
   dashed_name: file-Ext-device-bus-type
   description: Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc.
@@ -1371,6 +1429,79 @@ file.Ext.original.uid:
   normalize: []
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
+file.Ext.procfs:
+  dashed_name: file-Ext-procfs
+  description: Fields describing an opened /proc/<pid>/ entry and the task it belongs
+    to.
+  flat_name: file.Ext.procfs
+  level: custom
+  name: Ext.procfs
+  normalize: []
+  short: Fields describing an opened /proc/<pid>/ entry and the task it belongs to.
+  type: object
+file.Ext.procfs.interface:
+  dashed_name: file-Ext-procfs-interface
+  description: Leaf name of the opened /proc/<pid>/ entry, such as mem, maps, syscall
+    or environ. Only present when the opened file is a per-task procfs entry.
+  example: mem
+  flat_name: file.Ext.procfs.interface
+  ignore_above: 1024
+  level: custom
+  name: Ext.procfs.interface
+  normalize: []
+  short: Leaf name of the opened /proc/<pid>/ entry.
+  type: keyword
+file.Ext.procfs.target:
+  dashed_name: file-Ext-procfs-target
+  description: The task an opened /proc/<pid>/ entry belongs to, resolved by the kernel.
+  flat_name: file.Ext.procfs.target
+  level: custom
+  name: Ext.procfs.target
+  normalize: []
+  short: The task an opened /proc/<pid>/ entry belongs to, resolved by the kernel.
+  type: object
+file.Ext.procfs.target.entity_id:
+  dashed_name: file-Ext-procfs-target-entity-id
+  description: Entity ID of the process the procfs entry belongs to, computed like
+    process.entity_id so it joins with that process's events and tells the target
+    apart from an unrelated process that later reuses the same PID.
+  flat_name: file.Ext.procfs.target.entity_id
+  ignore_above: 1024
+  level: custom
+  name: Ext.procfs.target.entity_id
+  normalize: []
+  short: Entity ID of the process the procfs entry belongs to.
+  type: keyword
+file.Ext.procfs.target.pid:
+  dashed_name: file-Ext-procfs-target-pid
+  description: PID of the process the procfs entry belongs to, resolved by the kernel
+    from the entry itself. It is a host PID regardless of how the caller spelled the
+    path (self, a thread id, a PID namespace), so it is comparable to process.pid.
+  flat_name: file.Ext.procfs.target.pid
+  level: custom
+  name: Ext.procfs.target.pid
+  normalize: []
+  short: PID of the process the procfs entry belongs to.
+  type: long
+file.Ext.procfs.target.thread:
+  dashed_name: file-Ext-procfs-target-thread
+  description: The thread an opened /proc/<pid>/task/<tid>/ entry belongs to.
+  flat_name: file.Ext.procfs.target.thread
+  level: custom
+  name: Ext.procfs.target.thread
+  normalize: []
+  short: The thread an opened /proc/<pid>/task/<tid>/ entry belongs to.
+  type: object
+file.Ext.procfs.target.thread.id:
+  dashed_name: file-Ext-procfs-target-thread-id
+  description: Thread ID the procfs entry belongs to. Equal to the target PID for
+    /proc/<pid>/ entries and to the thread for /proc/<pid>/task/<tid>/ entries.
+  flat_name: file.Ext.procfs.target.thread.id
+  level: custom
+  name: Ext.procfs.target.thread.id
+  normalize: []
+  short: Thread ID the procfs entry belongs to.
+  type: long
 file.Ext.windows:
   dashed_name: file-Ext-windows
   description: Platform-specific Windows fields
