@@ -1,6 +1,6 @@
 overview:
   name: A service was installed in the system.
-  description: 'This event is generated when a service was installed in the system.'
+  description: This event is generated when a service was installed in the system.
 identification:
   filter:
     event.action: service_installed

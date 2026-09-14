@@ -104,6 +104,7 @@ fields:
     fields:
       ai_agent:
         fields:
+          email: {}
           is_descendant: {}
           name: {}
       args: {}

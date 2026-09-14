@@ -63,6 +63,7 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.ai_agent.is_descendant |
+| process.ai_agent.email |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |
@@ -77,6 +78,7 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.env_vars |
 | process.executable |
 | process.exit_code |
+| process.group_leader.pid |
 | process.hash.md5 |
 | process.hash.sha1 |
 | process.hash.sha256 |
@@ -94,7 +96,6 @@ This event is generated when a process calls `fork()`, `exec()`, or exits.
 | process.parent.name |
 | process.parent.pid |
 | process.pid |
-| process.group_leader.pid |
 | process.session_leader.pid |
 | user.Ext.real.id |
 | user.Ext.real.name |

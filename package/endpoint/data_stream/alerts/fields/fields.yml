@@ -1265,6 +1265,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: process.Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -1294,6 +1312,67 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary
+      level: custom
+      type: nested
+      description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.matches
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The second matching details.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash
+      level: custom
+      type: nested
+      description: hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The id of the second yara rule matched.
+      enabled: false
+      default_field: false
+    - name: process.Ext.memory_region.malware_signature.secondary.signature.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the second yara rule matched.
+      enabled: false
       default_field: false
     - name: process.Ext.memory_region.malware_signature.version
       level: custom
@@ -4724,7 +4803,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - The acting process details may have been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded API was called"
+      description: "A list of observed behaviors.\n  \"cross-process\" - the observed activity was between two processes\n  \"parent-child\" - the observed activity was between a parent process and its child\n  \"native_api\" - a call was made directly to the Native API rather than the Win32 API\n  \"direct_syscall\" - a syscall instruction originated outside of the Native API layer\n  \"proxy_call\" - the call stack may indicate of a proxied API call to mask the true source\n  \"sensitive_api\" - executable non-image memory is unexpectedly calling a sensitive API\n  \"shellcode\" - suspicious executable non-image memory is calling a sensitive API\n  \"image_hooked\" - an entry in the callstack appears to have been hooked\n  \"image_indirect_call\" - an entry in the callstack was preceded by a call to a dynamically resolved function\n  \"image_rop\" - no call instruction preceded an entry in the call stack\n  \"image_rwx\" - an entry in the callstack is writable\n  \"unbacked_rwx\" - an entry in the callstack is non-image and writable\n  \"truncated_stack\" - call stack is unexpected truncated due to malicious tampering or system load\n  \"allocate_shellcode\" - a region of non-image executable memory allocated more executable memory\n  \"execute_fluctuation\" - the PAGE_EXECUTE protection is unexpectedly fluctuating\n  \"write_fluctuation\" - the PAGE_WRITE protection of executable memory is unexpectedly fluctuating\n  \"hook_api\" - a change to the memory protection of a small executable image memory region was made\n  \"hollow_image\" - a change to the memory protection of a large executable image memory region was made\n  \"hook_unbacked\" - a change to the memory protection of a small executable non-image memory was made\n  \"hollow_unbacked\" - a change to the memory protection of a large executable non-image memory was made\n  \"guarded_code\" - executable memory was unexpectedly marked as PAGE_GUARD\n  \"hidden_code\" - executable memory was unexpectedly marked as PAGE_NOACCESS\n  \"execute_shellcode\" - a region of non-image executable memory was unexpectedly transferred control\n  \"hardware_breakpoint_set\" - a hardware breakpoint was set\n  \"rapid_background_polling\" - a suspicious process which does rapid input polling via GetAsyncKeyState API was observed\n  \"multiple_polling_processes\" - multiple suspicious processes which do rapid input polling via the GetAsyncKeyState API were observed\n  \"pid_spoofing\" - The acting process details may have been spoofed to hide the true origin\n  \"legacy_api\" - a deprecated or superseded API was called\n  \"early_bird\" - the observed activity occurred in a process started suspended before its initial thread was first resumed, i.e., up to and including the first ResumeThread."
       example: '[ "cross-process", "rapid_background_polling", "multiple_polling_processes", "native_api", "shellcode" ]'
       default_field: false
     - name: Ext.api.name
@@ -5203,6 +5282,24 @@
       type: object
       description: The first matching details.
       default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.primary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      default_field: false
     - name: Ext.memory_region.malware_signature.primary.matches
       level: custom
       type: keyword
@@ -5232,6 +5329,67 @@
       type: keyword
       ignore_above: 1024
       description: The name of the first yara rule matched.
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary
+      level: custom
+      type: nested
+      description: Additional matching details if available.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.matches
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The second matching details.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.hash
+      level: custom
+      type: nested
+      description: hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.hash.sha256
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: sha256 hash of second file matching signature.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The id of the second yara rule matched.
+      enabled: false
+      default_field: false
+    - name: Ext.memory_region.malware_signature.secondary.signature.name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: The name of the second yara rule matched.
+      enabled: false
       default_field: false
     - name: Ext.memory_region.malware_signature.version
       level: custom

@@ -35,6 +35,9 @@ GO_TOOLS = $(ROOT_DIR)/scripts/go-tools/bin# where elastic-package gets installe
 ESTC_PKG_BIN = $(GO_TOOLS)/elastic-package# the formatting, linting & promotion tool
 DATA_STREAMS = $(notdir $(wildcard $(SUBSET_DIR)/*))# top-level name of each data_stream we ship
 CUST_SCHEMAS = $(wildcard $(SCHEMA_DIR)/*)# each custom schema file
+CUSTOM_DOC_DIR = custom_documentation
+CUSTOM_DOC_SOURCES = $(shell find $(CUSTOM_DOC_DIR)/src -type f \( -name '*.yaml' -o -name '*.yml' \))
+DOC_GENERATOR_SOURCES = $(wildcard scripts/generate-docs/*.go)
 
 # Get the package version from the manifest file
 PACKAGE_VERSION := $(shell awk '/^version: /{print $$2}' $(PKG_DIR)/manifest.yml)
@@ -63,7 +66,7 @@ SED := gsed
 endif
 
 # FIXME use `elastic-package check` to enable linting
-all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) $(DOC_TARGET) $(ESTC_PKG_BIN) $(SCHEMA_TARGETS)
+all: $(VENV_DIR) $(ECS_TAG_REF) $(PKG_FIELDS_TARGETS) docs $(ESTC_PKG_BIN) $(SCHEMA_TARGETS)
 	cd $(PKG_DIR) && $(ESTC_PKG_BIN) format && $(ESTC_PKG_BIN) build -v --skip-validation
 
 mac-deps:
@@ -76,11 +79,15 @@ clean:
 	rm -rf $(ROOT_DIR)/build
 	rm -rf $(GO_TOOLS)
 	rm -rf $(VENV_DIR)
+	rm -rf $(ROOT_DIR)/$(DOC_TARGET)
+	rm -rf $(ROOT_DIR)/$(CUSTOM_DOC_DIR)/doc
 	find $(ROOT_DIR)/package/endpoint/data_stream -name fields.yml -delete
 
 # create package/endpoint/docs/README.md based on the template file, and the fields inputs
-$(DOC_TARGET): doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS)
+docs: doc_templates/endpoint/docs/* $(PKG_FIELDS_TARGETS) $(MANIFESTS) $(CUSTOM_DOC_SOURCES) $(DOC_GENERATOR_SOURCES)
 	go run $(ROOT_DIR)/scripts/generate-docs
+
+$(DOC_TARGET): docs
 
 # how to generate the schema files
 schemas/v1/%.yaml: $(SUBSET_DIR)/%.yaml $(CUST_SCHEMAS)
@@ -175,5 +182,10 @@ test: static-test pipeline-test
 
 elastic-package: $(ESTC_PKG_BIN)
 
+# Verify committed custom_documentation/doc/ matches what would be generated from src/.
+# Run by CI to catch commits that updated src but forgot to regenerate doc.
+check-docs: docs
+	git diff --exit-code custom_documentation/doc/
+
 # recipes / commands. Not necessarily targets to build
-.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test elastic-package
+.PHONY: all update-elastic-package run-registry clean mac-deps build-package check-docker static-test pipeline-test test elastic-package docs check-docs

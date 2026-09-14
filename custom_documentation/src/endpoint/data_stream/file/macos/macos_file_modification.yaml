@@ -37,16 +37,19 @@ fields:
   - event.outcome
   - event.sequence
   - event.type
+  - file.ai_agent.email
+  - file.ai_agent.name
+  - file.ai_agent.api_key_auth
   - file.Ext.entropy
   - file.Ext.header_bytes
   - file.extension
   - file.hash.sha256
   - file.inode
   - file.name
+  - file.origin_referrer_url
+  - file.origin_url
   - file.path
   - file.size
-  - file.origin_url
-  - file.origin_referrer_url
   - group.Ext.real.id
   - group.Ext.real.name
   - group.id

@@ -171,7 +171,11 @@ func renderCustomDocumentationReadme(options generateOptions, packageName string
 
 	outputPath := filepath.Join(options.customDocDir, "doc", packageName, "README.md")
 
-	// Write data to dst
+	err = os.MkdirAll(filepath.Dir(outputPath), 0755)
+	if err != nil {
+		return errors.Wrapf(err, "creating custom documentation README directory failed (path: %s)", filepath.Dir(outputPath))
+	}
+
 	err = ioutil.WriteFile(outputPath, content, 0644)
 	if err != nil {
 		return errors.Wrapf(err, "write readme (path: %s)", outputPath)
@@ -265,6 +269,11 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 	}
 
 	outputPath := filepath.Join(options.customDocDir, "doc", packageName, subPath)
+	err = os.MkdirAll(filepath.Dir(outputPath), 0755)
+	if err != nil {
+		return errors.Wrapf(err, "creating custom documentation directory failed (path: %s)", filepath.Dir(outputPath))
+	}
+
 	f, err := os.OpenFile(outputPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
 		return errors.Wrapf(err, "opening %s for writing failed, does the directory exist?", outputPath)
@@ -280,6 +289,13 @@ func renderCustomDocumentationEvent(options generateOptions, packageName string,
 
 func renderCustomDocumentation(options generateOptions, packageName string) error {
 	customDocPackageDir := filepath.Join(options.customDocDir, "src", packageName)
+	customDocOutputPackageDir := filepath.Join(options.customDocDir, "doc", packageName)
+
+	err := os.RemoveAll(customDocOutputPackageDir)
+	if err != nil {
+		return errors.Wrapf(err, "failed to clean custom documentation output directory (path: %s)", customDocOutputPackageDir)
+	}
+
 	customFiles, err := findCustomDocFiles(customDocPackageDir)
 
 	if err != nil {

@@ -38,6 +38,9 @@ This event is generated when a file is renamed.
 | file.name |
 | file.path |
 | file.size |
+| file.ai_agent.email |
+| file.ai_agent.name |
+| file.ai_agent.api_key_auth |
 | group.Ext.real.id |
 | group.Ext.real.name |
 | group.id |
@@ -59,6 +62,7 @@ This event is generated when a file is renamed.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.name |
 | process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |

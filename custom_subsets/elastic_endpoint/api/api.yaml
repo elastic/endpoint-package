@@ -73,6 +73,11 @@ fields:
           Ext:
             fields:
               variant: {}
+  agent:
+    fields:
+      version: {}
+      type: {}
+      id: {}
   network:
     fields:
       transport: {}

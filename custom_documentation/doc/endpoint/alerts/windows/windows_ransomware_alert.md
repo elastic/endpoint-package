@@ -40,10 +40,10 @@ This alert is generated when a Ransomware alert occurs.
 | Ransomware.files.extension |
 | Ransomware.files.metrics |
 | Ransomware.files.operation |
-| Ransomware.files.path |
-| Ransomware.files.score |
 | Ransomware.files.original.extension |
 | Ransomware.files.original.path |
+| Ransomware.files.path |
+| Ransomware.files.score |
 | Ransomware.score |
 | Ransomware.version |
 | Responses.@timestamp |

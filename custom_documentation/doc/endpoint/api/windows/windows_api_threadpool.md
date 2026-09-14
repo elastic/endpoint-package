@@ -1,11 +1,10 @@
-# Windows Device Mount
+# Windows API
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.volume_device-*`
-- KQL: `event.action : "mount" and event.dataset : "endpoint.events.volume_device" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.api-*`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Thread Pool" and host.os.type : "windows"`
 
-This event is generated when a device is mounted.
-
+This event is generated when ETW Thread Pool events are generated.
 
 | Field |
 |---|
@@ -18,7 +17,6 @@ This event is generated when a device is mounted.
 | data_stream.type |
 | ecs.version |
 | elastic.agent.id |
-| event.action |
 | event.category |
 | event.created |
 | event.dataset |
@@ -26,9 +24,11 @@ This event is generated when a device is mounted.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
 | host.architecture |
+| host.domain |
 | host.hostname |
 | host.id |
 | host.ip |
@@ -43,30 +43,31 @@ This event is generated when a device is mounted.
 | host.os.type |
 | host.os.version |
 | message |
-| process.Ext.ancestry |
+| process.Ext.api.behaviors |
+| process.Ext.api.name |
+| process.Ext.api.parameters.argument1 |
+| process.Ext.api.parameters.procedure |
+| process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
+| process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
 | process.code_signature.thumbprint_sha256 |
 | process.code_signature.trusted |
+| process.command_line |
 | process.entity_id |
 | process.executable |
 | process.name |
+| process.parent.executable |
 | process.pid |
+| process.thread.id |
 | user.domain |
 | user.id |
 | user.name |
-| volume.bus_type |
-| volume.device_type |
-| volume.dos_name |
-| volume.file_system_type |
-| volume.nt_name |
-| volume.product_name |
-| volume.serial_number |
-| volume.vendor_name |
 

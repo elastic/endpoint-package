@@ -1,6 +1,6 @@
 overview:
   name: Schedule Task Created
-  description: 'This event is generated when a schedule task was created.'
+  description: This event is generated when a schedule task was created.
 identification:
   filter:
     event.action: scheduled_task_created
