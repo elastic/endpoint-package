@@ -3,7 +3,8 @@ overview:
   description: 'This event is generated when a TCP connection is attempted, accepted,
     or terminated, or when initial outgoing or incoming UDP traffic is observed,
     or a tracked UDP flow ends. UDP start events are ALE flow notifications,
-    not notifications for every datagram.
+    not notifications for every datagram. The disconnect_received action is shared
+    by TCP disconnects and UDP flow ends; use network.transport to distinguish them.
 
     '
 identification:
