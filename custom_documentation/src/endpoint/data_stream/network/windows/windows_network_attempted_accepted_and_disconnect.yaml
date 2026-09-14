@@ -12,8 +12,8 @@ identification:
     - connection_attempted
     - connection_accepted
     - disconnect_received
-    - udp_datagram_outgoing
-    - udp_datagram_incoming
+    - udp_flow_outbound
+    - udp_flow_inbound
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: windows
