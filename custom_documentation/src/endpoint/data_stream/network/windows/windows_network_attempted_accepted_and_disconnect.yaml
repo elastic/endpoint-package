@@ -1,7 +1,9 @@
 overview:
   name: Windows Network Connection Attempted, Connection Accepted and Disconnect Received
   description: 'This event is generated when a TCP connection is attempted, accepted,
-    or terminated, or when a UDP flow is attempted, established, or expires.
+    or terminated, or when initial outgoing or incoming UDP traffic is observed,
+    or a tracked UDP flow ends. UDP start events are ALE flow notifications,
+    not notifications for every datagram.
 
     '
 identification:
@@ -10,6 +12,8 @@ identification:
     - connection_attempted
     - connection_accepted
     - disconnect_received
+    - udp_datagram_outgoing
+    - udp_datagram_incoming
     event.dataset: endpoint.events.network
     event.module: endpoint
     host.os.type: windows

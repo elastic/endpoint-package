@@ -2,9 +2,9 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows" and network.transport : ("tcp" or "udp")`
+- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received" or "udp_datagram_outgoing" or "udp_datagram_incoming") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows" and network.transport : ("tcp" or "udp")`
 
-This event is generated when a TCP connection is attempted, accepted, or terminated, or when a UDP flow is attempted, established, or expires.
+This event is generated when a TCP connection is attempted, accepted, or terminated, or when initial outgoing or incoming UDP traffic is observed, or a tracked UDP flow ends. UDP start events are ALE flow notifications, not notifications for every datagram.
 
 
 | Field |
@@ -74,4 +74,3 @@ This event is generated when a TCP connection is attempted, accepted, or termina
 | user.domain |
 | user.id |
 | user.name |
-
