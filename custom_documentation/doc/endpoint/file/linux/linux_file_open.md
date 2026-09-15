@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "open" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a file whose path matches a configured sensitive path pattern is opened, or when such an open fails with EACCES, EPERM or ENOENT. Each combination of file and access class is reported once per process life. A successful open reports the path the kernel resolved; a failed open has no resolved path and reports the path the caller requested, so a denied open through a symlink or a relative spelling that matches no pattern is not reported.
+This event is generated when a file whose path matches a configured sensitive path pattern is opened, or when such an open fails with EACCES, EPERM or ENOENT. Each combination of file and access class is reported once per process life. A successful open reports the path the kernel resolved; a failed open has no resolved path and reports the path the caller requested, so a denied open through a symlink or a relative spelling that matches no pattern is not reported. A process opening an entry of its own /proc/self/ is reported for mem, maps and environ only; an open of another process's entry is reported like any other match, with that process in file.Ext.procfs.target.
 
 
 | Field |
