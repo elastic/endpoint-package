@@ -1,5 +1,10 @@
 {
     "@timestamp": "2023-01-09T19:38:51.5141503Z",
+    "agent": {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "type": "endpoint",
+        "version": "8.7.0"
+    },
     "Target": {
         "process": {
             "Ext": {

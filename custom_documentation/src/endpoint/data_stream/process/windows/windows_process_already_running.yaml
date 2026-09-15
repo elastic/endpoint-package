@@ -76,6 +76,7 @@ fields:
   - process.Ext.trusted_descendant
   - process.Ext.windows.zone_identifier
   - process.ai_agent.is_descendant
+  - process.ai_agent.email
   - process.ai_agent.name
   - process.args
   - process.args_count

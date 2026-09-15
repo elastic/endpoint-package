@@ -1,19 +1,14 @@
-# Windows File Create
+# Windows API
 
 - OS: Windows
-- Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- Data Stream: `logs-endpoint.events.api-*`
+- KQL: `event.dataset : "endpoint.events.api" and event.module : "endpoint" and event.provider : "Thread Pool" and host.os.type : "windows"`
 
-This event is generated when a file is created.
-
+This event is generated when ETW Thread Pool events are generated.
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -22,7 +17,6 @@ This event is generated when a file is created.
 | data_stream.type |
 | ecs.version |
 | elastic.agent.id |
-| event.action |
 | event.category |
 | event.created |
 | event.dataset |
@@ -30,22 +24,9 @@ This event is generated when a file is created.
 | event.kind |
 | event.module |
 | event.outcome |
+| event.provider |
 | event.sequence |
 | event.type |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
-| file.Ext.entropy |
-| file.Ext.header_bytes |
-| file.Ext.monotonic_id |
-| file.Ext.windows.zone_identifier |
-| file.extension |
-| file.hash.sha256 |
-| file.name |
-| file.origin_referrer_url |
-| file.origin_url |
-| file.path |
-| file.size |
 | host.architecture |
 | host.domain |
 | host.hostname |
@@ -62,12 +43,18 @@ This event is generated when a file is created.
 | host.os.type |
 | host.os.version |
 | message |
-| process.Ext.ancestry |
+| process.Ext.api.behaviors |
+| process.Ext.api.name |
+| process.Ext.api.parameters.argument1 |
+| process.Ext.api.parameters.procedure |
+| process.Ext.api.summary |
 | process.Ext.code_signature.exists |
 | process.Ext.code_signature.status |
 | process.Ext.code_signature.subject_name |
 | process.Ext.code_signature.thumbprint_sha256 |
 | process.Ext.code_signature.trusted |
+| process.Ext.protection |
+| process.Ext.token.integrity_level_name |
 | process.code_signature.exists |
 | process.code_signature.status |
 | process.code_signature.subject_name |
@@ -77,7 +64,7 @@ This event is generated when a file is created.
 | process.entity_id |
 | process.executable |
 | process.name |
-| process.parent.pid |
+| process.parent.executable |
 | process.pid |
 | process.thread.id |
 | user.domain |

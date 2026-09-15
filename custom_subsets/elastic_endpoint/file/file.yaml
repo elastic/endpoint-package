@@ -180,6 +180,11 @@ fields:
       runatload: {}
   file:
     fields:
+      ai_agent:
+        fields:
+          email: {}
+          api_key_auth: {}
+          name: {}
       accessed: {}
       attributes: {}
       created: {}
