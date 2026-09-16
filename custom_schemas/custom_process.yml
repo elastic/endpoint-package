@@ -239,6 +239,110 @@
       type: keyword
       example: "OE"
       description: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel.
+    - name: Ext.process_vm_access
+      level: custom
+      type: object
+      description: "Diagnostic process_vm_readv and process_vm_writev syscall attempts and results. User-vector metadata is a best-effort entry snapshot. Same resolved thread-group operations are suppressed. Pre-syscall seccomp denials are not guaranteed coverage."
+
+    - name: Ext.process_vm_access.target_pid
+      level: custom
+      type: long
+      description: "Resolved host thread-group ID of the attempted target. Present only when target_resolved is true; it does not imply access was permitted."
+
+    - name: Ext.process_vm_access.target_start_time_ns
+      level: custom
+      type: long
+      description: "Resolved target group-leader start time in CLOCK_MONOTONIC nanoseconds (excluding suspend), matching the sensor process identity clock. Present only when target_resolved is true."
+
+    - name: Ext.process_vm_access.target_resolved
+      level: custom
+      type: boolean
+      description: "Whether the kernel resolved a target task and reached mm_access. False includes attempts rejected before target lookup; host target identity is then absent."
+
+    - name: Ext.process_vm_access.requested_pid
+      level: custom
+      type: long
+      description: "Original signed pid argument, interpreted in the caller active PID namespace. It can name a nonleader thread and must not be treated as a host process ID."
+
+    - name: Ext.process_vm_access.caller_pidns
+      level: custom
+      type: long
+      description: "Inode number of the caller active PID namespace, for interpreting requested_pid."
+
+    - name: Ext.process_vm_access.operation
+      level: custom
+      type: keyword
+      description: "Direction requested by the syscall, read or write."
+
+    - name: Ext.process_vm_access.flags
+      level: custom
+      type: unsigned_long
+      description: "Raw flags argument. Nonzero values currently cause the syscall to fail."
+
+    - name: Ext.process_vm_access.local_iovcnt
+      level: custom
+      type: unsigned_long
+      description: "Number of local vectors supplied by the caller, including invalid counts."
+
+    - name: Ext.process_vm_access.remote_iovcnt
+      level: custom
+      type: unsigned_long
+      description: "Number of remote vectors supplied by the caller, including invalid counts."
+
+    - name: Ext.process_vm_access.first_remote_addr
+      level: custom
+      type: unsigned_long
+      description: "Base address from the first remote vector entry snapshot. Present only when first_remote_valid is true; not an authoritative accessed address or a description of subsequent vectors."
+
+    - name: Ext.process_vm_access.first_remote_len
+      level: custom
+      type: unsigned_long
+      description: "Length from the first remote vector entry snapshot, including zero. Present only when first_remote_valid is true; not the total requested or transferred length."
+
+    - name: Ext.process_vm_access.first_remote_valid
+      level: custom
+      type: boolean
+      description: "Whether the first remote vector was successfully snapshotted. False for zero vectors or an unavailable first entry."
+
+    - name: Ext.process_vm_access.local_capacity
+      level: custom
+      type: long
+      description: "Checked sum of local vector lengths at syscall entry. Present only for a complete snapshot of at most eight vectors; not a transferred byte count."
+
+    - name: Ext.process_vm_access.remote_capacity
+      level: custom
+      type: long
+      description: "Checked sum of remote vector lengths at syscall entry. Present only for a complete snapshot of at most eight vectors; not a transferred byte count."
+
+    - name: Ext.process_vm_access.local_snapshot_status
+      level: custom
+      type: keyword
+      description: "Status of the bounded local vector snapshot: complete, unreadable, truncated, overflow, or invalid_count. Concurrent user modifications can differ from what the kernel subsequently imports."
+
+    - name: Ext.process_vm_access.remote_snapshot_status
+      level: custom
+      type: keyword
+      description: "Status of the bounded remote vector snapshot: complete, unreadable, truncated, overflow, or invalid_count. Concurrent user modifications can differ from what the kernel subsequently imports."
+
+    - name: Ext.process_vm_access.requested_capacity
+      level: custom
+      type: long
+      description: "Minimum of the complete local and remote snapshot capacities. Present only when both snapshots are complete; an estimate of requested capacity, not proof of actual accessed ranges or complete transfer."
+
+    - name: Ext.process_vm_access.syscall_return
+      level: custom
+      type: long
+      description: "Signed raw syscall result. Nonnegative values are the actual number of bytes transferred, including zero and short transfers; negative values are negated kernel errors."
+
+    - name: Ext.process_vm_access.bytes_transferred
+      level: custom
+      type: long
+      description: "Actual nonnegative syscall result, present only for successful calls, including zero and short transfers."
+
+    - name: Ext.process_vm_access.error
+      level: custom
+      type: long
+      description: "Positive kernel error number, present only when syscall_return is negative."
 
     - name: Ext.memfd
       level: custom

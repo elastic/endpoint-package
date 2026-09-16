@@ -1790,6 +1790,247 @@ process.Ext.mitigation_policies:
   normalize: []
   short: Process mitigation policies.
   type: keyword
+process.Ext.process_vm_access:
+  dashed_name: process-Ext-process-vm-access
+  description: Diagnostic process_vm_readv and process_vm_writev syscall attempts
+    and results. User-vector metadata is a best-effort entry snapshot. Same resolved
+    thread-group operations are suppressed. Pre-syscall seccomp denials are not guaranteed
+    coverage.
+  flat_name: process.Ext.process_vm_access
+  level: custom
+  name: Ext.process_vm_access
+  normalize: []
+  short: Diagnostic process_vm_readv and process_vm_writev syscall attempts and results.
+    User-vector metadata is a best-effort entry snapshot. Same resolved thread-group
+    operations are suppressed. Pre-syscall seccomp denials are not guaranteed coverage.
+  type: object
+process.Ext.process_vm_access.bytes_transferred:
+  dashed_name: process-Ext-process-vm-access-bytes-transferred
+  description: Actual nonnegative syscall result, present only for successful calls,
+    including zero and short transfers.
+  flat_name: process.Ext.process_vm_access.bytes_transferred
+  level: custom
+  name: Ext.process_vm_access.bytes_transferred
+  normalize: []
+  short: Actual nonnegative syscall result, present only for successful calls, including
+    zero and short transfers.
+  type: long
+process.Ext.process_vm_access.caller_pidns:
+  dashed_name: process-Ext-process-vm-access-caller-pidns
+  description: Inode number of the caller active PID namespace, for interpreting requested_pid.
+  flat_name: process.Ext.process_vm_access.caller_pidns
+  level: custom
+  name: Ext.process_vm_access.caller_pidns
+  normalize: []
+  short: Inode number of the caller active PID namespace, for interpreting requested_pid.
+  type: long
+process.Ext.process_vm_access.error:
+  dashed_name: process-Ext-process-vm-access-error
+  description: Positive kernel error number, present only when syscall_return is negative.
+  flat_name: process.Ext.process_vm_access.error
+  level: custom
+  name: Ext.process_vm_access.error
+  normalize: []
+  short: Positive kernel error number, present only when syscall_return is negative.
+  type: long
+process.Ext.process_vm_access.first_remote_addr:
+  dashed_name: process-Ext-process-vm-access-first-remote-addr
+  description: Base address from the first remote vector entry snapshot. Present only
+    when first_remote_valid is true; not an authoritative accessed address or a description
+    of subsequent vectors.
+  flat_name: process.Ext.process_vm_access.first_remote_addr
+  level: custom
+  name: Ext.process_vm_access.first_remote_addr
+  normalize: []
+  short: Base address from the first remote vector entry snapshot. Present only when
+    first_remote_valid is true; not an authoritative accessed address or a description
+    of subsequent vectors.
+  type: unsigned_long
+process.Ext.process_vm_access.first_remote_len:
+  dashed_name: process-Ext-process-vm-access-first-remote-len
+  description: Length from the first remote vector entry snapshot, including zero.
+    Present only when first_remote_valid is true; not the total requested or transferred
+    length.
+  flat_name: process.Ext.process_vm_access.first_remote_len
+  level: custom
+  name: Ext.process_vm_access.first_remote_len
+  normalize: []
+  short: Length from the first remote vector entry snapshot, including zero. Present
+    only when first_remote_valid is true; not the total requested or transferred length.
+  type: unsigned_long
+process.Ext.process_vm_access.first_remote_valid:
+  dashed_name: process-Ext-process-vm-access-first-remote-valid
+  description: Whether the first remote vector was successfully snapshotted. False
+    for zero vectors or an unavailable first entry.
+  flat_name: process.Ext.process_vm_access.first_remote_valid
+  level: custom
+  name: Ext.process_vm_access.first_remote_valid
+  normalize: []
+  short: Whether the first remote vector was successfully snapshotted. False for zero
+    vectors or an unavailable first entry.
+  type: boolean
+process.Ext.process_vm_access.flags:
+  dashed_name: process-Ext-process-vm-access-flags
+  description: Raw flags argument. Nonzero values currently cause the syscall to fail.
+  flat_name: process.Ext.process_vm_access.flags
+  level: custom
+  name: Ext.process_vm_access.flags
+  normalize: []
+  short: Raw flags argument. Nonzero values currently cause the syscall to fail.
+  type: unsigned_long
+process.Ext.process_vm_access.local_capacity:
+  dashed_name: process-Ext-process-vm-access-local-capacity
+  description: Checked sum of local vector lengths at syscall entry. Present only
+    for a complete snapshot of at most eight vectors; not a transferred byte count.
+  flat_name: process.Ext.process_vm_access.local_capacity
+  level: custom
+  name: Ext.process_vm_access.local_capacity
+  normalize: []
+  short: Checked sum of local vector lengths at syscall entry. Present only for a
+    complete snapshot of at most eight vectors; not a transferred byte count.
+  type: long
+process.Ext.process_vm_access.local_iovcnt:
+  dashed_name: process-Ext-process-vm-access-local-iovcnt
+  description: Number of local vectors supplied by the caller, including invalid counts.
+  flat_name: process.Ext.process_vm_access.local_iovcnt
+  level: custom
+  name: Ext.process_vm_access.local_iovcnt
+  normalize: []
+  short: Number of local vectors supplied by the caller, including invalid counts.
+  type: unsigned_long
+process.Ext.process_vm_access.local_snapshot_status:
+  dashed_name: process-Ext-process-vm-access-local-snapshot-status
+  description: 'Status of the bounded local vector snapshot: complete, unreadable,
+    truncated, overflow, or invalid_count. Concurrent user modifications can differ
+    from what the kernel subsequently imports.'
+  flat_name: process.Ext.process_vm_access.local_snapshot_status
+  ignore_above: 1024
+  level: custom
+  name: Ext.process_vm_access.local_snapshot_status
+  normalize: []
+  short: 'Status of the bounded local vector snapshot: complete, unreadable, truncated,
+    overflow, or invalid_count. Concurrent user modifications can differ from what
+    the kernel subsequently imports.'
+  type: keyword
+process.Ext.process_vm_access.operation:
+  dashed_name: process-Ext-process-vm-access-operation
+  description: Direction requested by the syscall, read or write.
+  flat_name: process.Ext.process_vm_access.operation
+  ignore_above: 1024
+  level: custom
+  name: Ext.process_vm_access.operation
+  normalize: []
+  short: Direction requested by the syscall, read or write.
+  type: keyword
+process.Ext.process_vm_access.remote_capacity:
+  dashed_name: process-Ext-process-vm-access-remote-capacity
+  description: Checked sum of remote vector lengths at syscall entry. Present only
+    for a complete snapshot of at most eight vectors; not a transferred byte count.
+  flat_name: process.Ext.process_vm_access.remote_capacity
+  level: custom
+  name: Ext.process_vm_access.remote_capacity
+  normalize: []
+  short: Checked sum of remote vector lengths at syscall entry. Present only for a
+    complete snapshot of at most eight vectors; not a transferred byte count.
+  type: long
+process.Ext.process_vm_access.remote_iovcnt:
+  dashed_name: process-Ext-process-vm-access-remote-iovcnt
+  description: Number of remote vectors supplied by the caller, including invalid
+    counts.
+  flat_name: process.Ext.process_vm_access.remote_iovcnt
+  level: custom
+  name: Ext.process_vm_access.remote_iovcnt
+  normalize: []
+  short: Number of remote vectors supplied by the caller, including invalid counts.
+  type: unsigned_long
+process.Ext.process_vm_access.remote_snapshot_status:
+  dashed_name: process-Ext-process-vm-access-remote-snapshot-status
+  description: 'Status of the bounded remote vector snapshot: complete, unreadable,
+    truncated, overflow, or invalid_count. Concurrent user modifications can differ
+    from what the kernel subsequently imports.'
+  flat_name: process.Ext.process_vm_access.remote_snapshot_status
+  ignore_above: 1024
+  level: custom
+  name: Ext.process_vm_access.remote_snapshot_status
+  normalize: []
+  short: 'Status of the bounded remote vector snapshot: complete, unreadable, truncated,
+    overflow, or invalid_count. Concurrent user modifications can differ from what
+    the kernel subsequently imports.'
+  type: keyword
+process.Ext.process_vm_access.requested_capacity:
+  dashed_name: process-Ext-process-vm-access-requested-capacity
+  description: Minimum of the complete local and remote snapshot capacities. Present
+    only when both snapshots are complete; an estimate of requested capacity, not
+    proof of actual accessed ranges or complete transfer.
+  flat_name: process.Ext.process_vm_access.requested_capacity
+  level: custom
+  name: Ext.process_vm_access.requested_capacity
+  normalize: []
+  short: Minimum of the complete local and remote snapshot capacities. Present only
+    when both snapshots are complete; an estimate of requested capacity, not proof
+    of actual accessed ranges or complete transfer.
+  type: long
+process.Ext.process_vm_access.requested_pid:
+  dashed_name: process-Ext-process-vm-access-requested-pid
+  description: Original signed pid argument, interpreted in the caller active PID
+    namespace. It can name a nonleader thread and must not be treated as a host process
+    ID.
+  flat_name: process.Ext.process_vm_access.requested_pid
+  level: custom
+  name: Ext.process_vm_access.requested_pid
+  normalize: []
+  short: Original signed pid argument, interpreted in the caller active PID namespace.
+    It can name a nonleader thread and must not be treated as a host process ID.
+  type: long
+process.Ext.process_vm_access.syscall_return:
+  dashed_name: process-Ext-process-vm-access-syscall-return
+  description: Signed raw syscall result. Nonnegative values are the actual number
+    of bytes transferred, including zero and short transfers; negative values are
+    negated kernel errors.
+  flat_name: process.Ext.process_vm_access.syscall_return
+  level: custom
+  name: Ext.process_vm_access.syscall_return
+  normalize: []
+  short: Signed raw syscall result. Nonnegative values are the actual number of bytes
+    transferred, including zero and short transfers; negative values are negated kernel
+    errors.
+  type: long
+process.Ext.process_vm_access.target_pid:
+  dashed_name: process-Ext-process-vm-access-target-pid
+  description: Resolved host thread-group ID of the attempted target. Present only
+    when target_resolved is true; it does not imply access was permitted.
+  flat_name: process.Ext.process_vm_access.target_pid
+  level: custom
+  name: Ext.process_vm_access.target_pid
+  normalize: []
+  short: Resolved host thread-group ID of the attempted target. Present only when
+    target_resolved is true; it does not imply access was permitted.
+  type: long
+process.Ext.process_vm_access.target_resolved:
+  dashed_name: process-Ext-process-vm-access-target-resolved
+  description: Whether the kernel resolved a target task and reached mm_access. False
+    includes attempts rejected before target lookup; host target identity is then
+    absent.
+  flat_name: process.Ext.process_vm_access.target_resolved
+  level: custom
+  name: Ext.process_vm_access.target_resolved
+  normalize: []
+  short: Whether the kernel resolved a target task and reached mm_access. False includes
+    attempts rejected before target lookup; host target identity is then absent.
+  type: boolean
+process.Ext.process_vm_access.target_start_time_ns:
+  dashed_name: process-Ext-process-vm-access-target-start-time-ns
+  description: Resolved target group-leader start time in CLOCK_MONOTONIC nanoseconds
+    (excluding suspend), matching the sensor process identity clock. Present only
+    when target_resolved is true.
+  flat_name: process.Ext.process_vm_access.target_start_time_ns
+  level: custom
+  name: Ext.process_vm_access.target_start_time_ns
+  normalize: []
+  short: Resolved target group-leader start time in CLOCK_MONOTONIC nanoseconds (excluding
+    suspend), matching the sensor process identity clock. Present only when target_resolved
+    is true.
+  type: long
 process.Ext.protection:
   dashed_name: process-Ext-protection
   description: Indicates the protection level of this process.  Uses the same syntax
