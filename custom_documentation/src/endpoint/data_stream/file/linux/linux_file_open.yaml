@@ -8,7 +8,10 @@ overview:
     denied open through a symlink or a relative spelling that matches no pattern
     is not reported. A process opening an entry of its own /proc/self/ is reported
     for mem, maps and environ only; an open of another process''s entry is reported
-    like any other match, with that process in file.Ext.procfs.target.
+    like any other match, with that process in file.Ext.procfs.target. An open
+    through one of a process''s /proc/<pid>/ links (exe, cwd, root, fd/<n>,
+    map_files/<range>) is an open of the link''s target: it is reported only if
+    the target matches a pattern, without file.Ext.procfs.
 
     '
 identification:
