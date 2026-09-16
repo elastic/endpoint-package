@@ -2434,6 +2434,27 @@ sent by the endpoint.
 | process.Ext.memfd.flags | Flags passed to the memfd operation. | long |
 | process.Ext.memfd.name | Filename for the created file. Appears in /proc/self/fd. | keyword |
 | process.Ext.mitigation_policies | Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled | keyword |
+| process.Ext.process_vm_access | Diagnostic process_vm_readv and process_vm_writev syscall attempts and results. User-vector metadata is a best-effort entry snapshot. Same resolved thread-group operations are suppressed. Pre-syscall seccomp denials are not guaranteed coverage. | object |
+| process.Ext.process_vm_access.bytes_transferred | Actual nonnegative syscall result, present only for successful calls, including zero and short transfers. | long |
+| process.Ext.process_vm_access.caller_pidns | Inode number of the caller active PID namespace, for interpreting requested_pid. | long |
+| process.Ext.process_vm_access.error | Positive kernel error number, present only when syscall_return is negative. | long |
+| process.Ext.process_vm_access.first_remote_addr | Base address from the first remote vector entry snapshot. Present only when first_remote_valid is true; not an authoritative accessed address or a description of subsequent vectors. | unsigned_long |
+| process.Ext.process_vm_access.first_remote_len | Length from the first remote vector entry snapshot, including zero. Present only when first_remote_valid is true; not the total requested or transferred length. | unsigned_long |
+| process.Ext.process_vm_access.first_remote_valid | Whether the first remote vector was successfully snapshotted. False for zero vectors or an unavailable first entry. | boolean |
+| process.Ext.process_vm_access.flags | Raw flags argument. Nonzero values currently cause the syscall to fail. | unsigned_long |
+| process.Ext.process_vm_access.local_capacity | Checked sum of local vector lengths at syscall entry. Present only for a complete snapshot of at most eight vectors; not a transferred byte count. | long |
+| process.Ext.process_vm_access.local_iovcnt | Number of local vectors supplied by the caller, including invalid counts. | unsigned_long |
+| process.Ext.process_vm_access.local_snapshot_status | Status of the bounded local vector snapshot: complete, unreadable, truncated, overflow, or invalid_count. Concurrent user modifications can differ from what the kernel subsequently imports. | keyword |
+| process.Ext.process_vm_access.operation | Direction requested by the syscall, read or write. | keyword |
+| process.Ext.process_vm_access.remote_capacity | Checked sum of remote vector lengths at syscall entry. Present only for a complete snapshot of at most eight vectors; not a transferred byte count. | long |
+| process.Ext.process_vm_access.remote_iovcnt | Number of remote vectors supplied by the caller, including invalid counts. | unsigned_long |
+| process.Ext.process_vm_access.remote_snapshot_status | Status of the bounded remote vector snapshot: complete, unreadable, truncated, overflow, or invalid_count. Concurrent user modifications can differ from what the kernel subsequently imports. | keyword |
+| process.Ext.process_vm_access.requested_capacity | Minimum of the complete local and remote snapshot capacities. Present only when both snapshots are complete; an estimate of requested capacity, not proof of actual accessed ranges or complete transfer. | long |
+| process.Ext.process_vm_access.requested_pid | Original signed pid argument, interpreted in the caller active PID namespace. It can name a nonleader thread and must not be treated as a host process ID. | long |
+| process.Ext.process_vm_access.syscall_return | Signed raw syscall result. Nonnegative values are the actual number of bytes transferred, including zero and short transfers; negative values are negated kernel errors. | long |
+| process.Ext.process_vm_access.target_pid | Resolved host thread-group ID of the attempted target. Present only when target_resolved is true; it does not imply access was permitted. | long |
+| process.Ext.process_vm_access.target_resolved | Whether the kernel resolved a target task and reached mm_access. False includes attempts rejected before target lookup; host target identity is then absent. | boolean |
+| process.Ext.process_vm_access.target_start_time_ns | Resolved target group-leader start time in CLOCK_MONOTONIC nanoseconds (excluding suspend), matching the sensor process identity clock. Present only when target_resolved is true. | long |
 | process.Ext.protection | Indicates the protection level of this process.  Uses the same syntax as Process Explorer. Examples include PsProtectedSignerWinTcb, PsProtectedSignerWinTcb-Light, and PsProtectedSignerWindows-Light. | keyword |
 | process.Ext.ptrace | Object for ptrace events. | object |
 | process.Ext.ptrace.addr | ptrace address. | long |
