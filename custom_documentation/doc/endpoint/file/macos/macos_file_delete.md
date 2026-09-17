@@ -32,9 +32,6 @@ This event is generated when a file is deleted.
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.extension |
 | file.inode |
 | file.name |

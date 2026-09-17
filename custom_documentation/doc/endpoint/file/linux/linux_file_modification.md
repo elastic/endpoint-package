@@ -30,9 +30,6 @@ This event is generated when a file is modified.
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
