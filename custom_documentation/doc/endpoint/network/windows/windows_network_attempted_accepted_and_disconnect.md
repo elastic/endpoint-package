@@ -2,9 +2,9 @@
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received" or "udp_flow_outbound" or "udp_flow_inbound") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows" and network.transport : ("tcp" or "udp")`
+- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received" or "udp_flow_outbound" or "udp_flow_inbound" or "udp_flow_ended") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows" and network.transport : ("tcp" or "udp")`
 
-This event is generated when a TCP connection is attempted, accepted, or terminated, or when initial outgoing or incoming UDP traffic is observed, or a tracked UDP flow ends. UDP start events are ALE flow notifications, not notifications for every datagram. The disconnect_received action is shared by TCP disconnects and UDP flow ends; use network.transport to distinguish them.
+This event is generated when a TCP connection is attempted, accepted, or terminated, or when initial outgoing or incoming UDP traffic is observed, or a tracked UDP flow ends. UDP start events are ALE flow notifications, not notifications for every datagram. TCP disconnects use disconnect_received; UDP flow ends use udp_flow_ended. A UDP flow end means tracking ended, not that a disconnect packet was received or the remote socket closed. The event includes the final byte totals of the tracked flow, including when capture is disabled.
 
 
 | Field |
