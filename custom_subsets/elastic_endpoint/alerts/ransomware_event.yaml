@@ -734,3 +734,39 @@ fields:
               name: {}
   Ransomware:
     fields: "*"
+  Responses:
+    fields:
+      "@timestamp": {}
+      action:
+        fields:
+          action: {}
+          field: {}
+          state: {}
+          tree: {}
+          file:
+            fields:
+              path: {}
+              reason: {}
+              attributes: {}
+          source:
+            fields:
+              path: {}
+              attributes: {}
+          key:
+            fields:
+              actions: {}
+              path: {}
+              values:
+                fields:
+                  name: {}
+                  actions: {}
+          process:
+            fields:
+              path: {}
+      message: {}
+      process:
+        fields:
+          entity_id: {}
+          name: {}
+          pid: {}
+      result: {}
