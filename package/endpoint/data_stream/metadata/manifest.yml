@@ -13,3 +13,5 @@ elasticsearch:
           order:
             - desc
             - asc
+  dynamic_dataset: true
+  dynamic_namespace: true
