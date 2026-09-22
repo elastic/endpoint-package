@@ -41,8 +41,6 @@ This event is generated when an AI coding agent writes one of its credential fil
 | file.hash.sha256 |
 | file.inode |
 | file.name |
-| file.origin_referrer_url |
-| file.origin_url |
 | file.path |
 | file.size |
 | group.Ext.real.id |

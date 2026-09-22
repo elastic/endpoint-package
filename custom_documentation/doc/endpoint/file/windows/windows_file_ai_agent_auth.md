@@ -34,7 +34,6 @@ This event is generated when an AI coding agent writes one of its credential fil
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
-| file.Ext.monotonic_id |
 | file.ai_agent.api_key_auth |
 | file.ai_agent.email |
 | file.ai_agent.name |
