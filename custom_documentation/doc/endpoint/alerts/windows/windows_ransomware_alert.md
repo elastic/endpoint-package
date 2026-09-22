@@ -53,6 +53,7 @@ This alert is generated when a Ransomware alert occurs.
 | Responses.action.file.reason |
 | Responses.action.key.actions |
 | Responses.action.key.path |
+| Responses.action.process.path |
 | Responses.action.source.attributes |
 | Responses.action.source.path |
 | Responses.message |

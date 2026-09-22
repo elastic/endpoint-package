@@ -26,6 +26,7 @@ This alert is generated when a Memory Threat alert occurs.
 | Endpoint.policy.applied.version |
 | Responses.@timestamp |
 | Responses.action.action |
+| Responses.action.process.path |
 | Responses.message |
 | Responses.process.entity_id |
 | Responses.process.name |
