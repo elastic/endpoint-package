@@ -41,12 +41,19 @@ fields:
   - event.type
   - file.Ext.entropy
   - file.Ext.header_bytes
+  - file.Ext.monotonic_id
+  - file.Ext.original.extension
+  - file.Ext.original.name
+  - file.Ext.original.path
+  - file.Ext.windows.zone_identifier
   - file.ai_agent.api_key_auth
   - file.ai_agent.email
   - file.ai_agent.name
   - file.extension
   - file.hash.sha256
   - file.name
+  - file.origin_referrer_url
+  - file.origin_url
   - file.path
   - file.size
   - host.architecture

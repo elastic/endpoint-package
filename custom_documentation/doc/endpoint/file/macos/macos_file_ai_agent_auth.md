@@ -34,6 +34,8 @@ This event is generated when an AI coding agent writes one of its credential fil
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
+| file.Ext.original.extension |
+| file.Ext.original.path |
 | file.ai_agent.api_key_auth |
 | file.ai_agent.email |
 | file.ai_agent.name |
@@ -41,6 +43,8 @@ This event is generated when an AI coding agent writes one of its credential fil
 | file.hash.sha256 |
 | file.inode |
 | file.name |
+| file.origin_referrer_url |
+| file.origin_url |
 | file.path |
 | file.size |
 | group.Ext.real.id |
