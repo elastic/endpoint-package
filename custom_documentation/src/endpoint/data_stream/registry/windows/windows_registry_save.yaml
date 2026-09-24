@@ -1,6 +1,6 @@
 overview:
   name: Windows Registry Save
-  description: 'This event is generated when Endpoint blocks an attempt to save a protected Windows registry hive.
+  description: 'This event is generated when Endpoint reports a Windows registry key save attempt, including attempts blocked by registry credential hardening.
 
     '
 identification:
@@ -68,7 +68,6 @@ fields:
   - process.executable
   - process.name
   - process.pid
-  - registry.data.bytes
   - registry.data.strings
   - registry.data.type
   - registry.hive

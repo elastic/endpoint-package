@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.registry-*`
 - KQL: `event.action : "save" and event.dataset : "endpoint.events.registry" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when Endpoint blocks an attempt to save a protected Windows registry hive.
+This event is generated when Endpoint reports a Windows registry key save attempt, including attempts blocked by registry credential hardening.
 
 
 | Field |
@@ -63,7 +63,6 @@ This event is generated when Endpoint blocks an attempt to save a protected Wind
 | process.executable |
 | process.name |
 | process.pid |
-| registry.data.bytes |
 | registry.data.strings |
 | registry.data.type |
 | registry.hive |
