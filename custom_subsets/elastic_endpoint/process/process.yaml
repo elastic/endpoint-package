@@ -183,6 +183,20 @@ fields:
               src_version: {}
               taints: {}
               taint_flags: {}
+          mprotect:
+            fields:
+              vma_start: {}
+              vma_end: {}
+              prev_prot_flags: {}
+              req_prot: {}
+              req_prot_flags: {}
+              effective_prot_flags: {}
+              file_backed: {}
+              file:
+                fields:
+                  path: {}
+                  inode: {}
+                  device: {}
           shmget:
             fields:
               key: {}
