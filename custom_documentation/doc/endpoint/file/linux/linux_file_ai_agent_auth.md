@@ -1,19 +1,15 @@
-# Windows File Overwrite
+# Linux File AI Agent Authentication
 
-- OS: Windows
+- OS: Linux
 - Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "overwrite" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "ai_agent_auth" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "linux"`
 
-This event is generated when a file is overwritten
+This event is generated when an AI coding agent writes one of its credential files and Elastic Endpoint resolves the account the agent is authenticated with. It is emitted in addition to the file event for the write itself.
 
 
 | Field |
 |---|
 | @timestamp |
-| Effective_process.entity_id |
-| Effective_process.executable |
-| Effective_process.name |
-| Effective_process.pid |
 | agent.id |
 | agent.type |
 | agent.version |
@@ -34,12 +30,21 @@ This event is generated when a file is overwritten
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
-| file.Ext.monotonic_id |
+| file.Ext.original.extension |
+| file.Ext.original.name |
+| file.Ext.original.path |
+| file.ai_agent.api_key_auth |
+| file.ai_agent.email |
+| file.ai_agent.name |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
 | file.path |
 | file.size |
+| group.Ext.real.id |
+| group.Ext.real.name |
+| group.id |
+| group.name |
 | host.architecture |
 | host.domain |
 | host.hostname |
@@ -57,24 +62,19 @@ This event is generated when a file is overwritten
 | host.os.version |
 | message |
 | process.Ext.ancestry |
-| process.Ext.code_signature.exists |
-| process.Ext.code_signature.status |
-| process.Ext.code_signature.subject_name |
-| process.Ext.code_signature.thumbprint_sha256 |
-| process.Ext.code_signature.trusted |
-| process.code_signature.exists |
-| process.code_signature.status |
-| process.code_signature.subject_name |
-| process.code_signature.thumbprint_sha256 |
-| process.code_signature.trusted |
 | process.command_line |
 | process.entity_id |
+| process.entry_leader.entity_id |
+| process.entry_leader.parent.entity_id |
 | process.executable |
+| process.group_leader.entity_id |
 | process.name |
+| process.parent.entity_id |
 | process.parent.pid |
 | process.pid |
-| process.thread.id |
-| user.domain |
+| process.session_leader.entity_id |
+| user.Ext.real.id |
+| user.Ext.real.name |
 | user.id |
 | user.name |
 

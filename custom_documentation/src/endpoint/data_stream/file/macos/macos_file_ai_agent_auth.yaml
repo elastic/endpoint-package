@@ -1,11 +1,13 @@
 overview:
-  name: macOS File Modification
-  description: 'This event is generated when a file is modified.
+  name: macOS File AI Agent Authentication
+  description: 'This event is generated when an AI coding agent writes one of its credential
+    files and Elastic Endpoint resolves the account the agent is authenticated with. It is
+    emitted in addition to the file event for the write itself.
 
     '
 identification:
   filter:
-    event.action: modification
+    event.action: ai_agent_auth
     event.dataset: endpoint.events.file
     event.module: endpoint
     host.os.type: macos
@@ -39,6 +41,11 @@ fields:
   - event.type
   - file.Ext.entropy
   - file.Ext.header_bytes
+  - file.Ext.original.extension
+  - file.Ext.original.path
+  - file.ai_agent.api_key_auth
+  - file.ai_agent.email
+  - file.ai_agent.name
   - file.extension
   - file.hash.sha256
   - file.inode

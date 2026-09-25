@@ -1,10 +1,10 @@
-# Windows File Overwrite
+# Windows File AI Agent Authentication
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.file-*`
-- KQL: `event.action : "overwrite" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : "ai_agent_auth" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when a file is overwritten
+This event is generated when an AI coding agent writes one of its credential files and Elastic Endpoint resolves the account the agent is authenticated with. It is emitted in addition to the file event for the write itself.
 
 
 | Field |
@@ -35,9 +35,18 @@ This event is generated when a file is overwritten
 | file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
+| file.Ext.original.extension |
+| file.Ext.original.name |
+| file.Ext.original.path |
+| file.Ext.windows.zone_identifier |
+| file.ai_agent.api_key_auth |
+| file.ai_agent.email |
+| file.ai_agent.name |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
+| file.origin_referrer_url |
+| file.origin_url |
 | file.path |
 | file.size |
 | host.architecture |
