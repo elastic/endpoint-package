@@ -74,3 +74,4 @@ This event is generated when a TCP connection is attempted, accepted, or termina
 | user.domain |
 | user.id |
 | user.name |
+
