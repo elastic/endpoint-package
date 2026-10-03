@@ -64,6 +64,9 @@ fields:
       version: {}
       type: {}
       id: {}
+  error:
+    fields:
+      code: {}
   group:
     fields:
       domain: {}
@@ -228,6 +231,21 @@ fields:
           header_bytes: {}
           entropy: {}
           monotonic_id: {}
+          access:
+            fields:
+              flags: {}
+              mode: {}
+              matched_path: {}
+          procfs:
+            fields:
+              interface: {}
+              target:
+                fields:
+                  pid: {}
+                  entity_id: {}
+                  thread:
+                    fields:
+                      id: {}
           windows:
             fields:
               zone_identifier: {}

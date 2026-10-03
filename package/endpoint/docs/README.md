@@ -1722,6 +1722,7 @@ sent by the endpoint.
 | destination.geo.region_name | Region name. | keyword |
 | destination.geo.timezone | The time zone of the location, such as IANA time zone name. | keyword |
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
+| error.code | Error code describing the error. | keyword |
 | event.Ext | Object for all custom defined fields to live in. | object |
 | event.Ext.correlation | Information about event this should be correlated with. | object |
 | event.Ext.correlation.id | ID of event that this event is correlated to, e.g. quarantine event associated with an unquarantine event | keyword |
@@ -1741,6 +1742,10 @@ sent by the endpoint.
 | event.severity | The numeric severity of the event according to your event source. What the different severity values mean can be different between sources and use cases. It's up to the implementer to make sure severities are consistent across events from the same source. The Syslog severity belongs in `log.syslog.severity.code`. `event.severity` is meant to represent the severity according to the event source (e.g. firewall, IDS). If the event source does not publish its own severity, you may optionally copy the `log.syslog.severity.code` to `event.severity`. | long |
 | event.type | This is one of four ECS Categorization Fields, and indicates the third level in the ECS category hierarchy. `event.type` represents a categorization "sub-bucket" that, when used along with the `event.category` field values, enables filtering events down to a level appropriate for single visualization. This field is an array. This will allow proper categorization of some events that fall in multiple event types. | keyword |
 | file.Ext | Object for all custom defined fields to live in. | object |
+| file.Ext.access | Object for Linux file open (access) event fields. | object |
+| file.Ext.access.flags | Raw open(2) flags as requested by the caller, before any adjustment by the kernel. Includes O_CREAT and O_TRUNC when given; an open performed by the kernel for execve(2) carries __FMODE_EXEC. | long |
+| file.Ext.access.matched_path | The configured path pattern this open matched, as written in the policy. Lets rules and volume attribution refer to the pattern instead of re-encoding it. | keyword |
+| file.Ext.access.mode | Decoded access classes of the open in a fixed order: read, write, create, truncate, append, exec, path. exec marks a file opened by the kernel for execution, path an O_PATH open that cannot read or write. | keyword |
 | file.Ext.device.bus_type | Bus type of the device, such as Nvme, Usb, FileBackedVirtual,... etc. | keyword |
 | file.Ext.device.dos_name | DOS name of the device. DOS device name is in the format of driver letters such as C:, D:,... | keyword |
 | file.Ext.device.file_system_type | Volume device file system type. Following are examples of the most frequently seen volume device file system types: NTFS UDF | keyword |
@@ -1774,6 +1779,13 @@ sent by the endpoint.
 | file.Ext.original.owner | File owner's username. | keyword |
 | file.Ext.original.path | Original file path prior to a modification event | keyword |
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
+| file.Ext.procfs | Fields describing an opened /proc/<pid>/ entry and the task it belongs to. | object |
+| file.Ext.procfs.interface | Leaf name of the opened /proc/<pid>/ entry, such as mem, maps, syscall or environ. Only present when the opened file is a per-task procfs entry. | keyword |
+| file.Ext.procfs.target | The task an opened /proc/<pid>/ entry belongs to, resolved by the kernel. | object |
+| file.Ext.procfs.target.entity_id | Entity ID of the process the procfs entry belongs to, computed like process.entity_id so it joins with that process's events and tells the target apart from an unrelated process that later reuses the same PID. | keyword |
+| file.Ext.procfs.target.pid | PID of the process the procfs entry belongs to, resolved by the kernel from the entry itself. It is a host PID regardless of how the caller spelled the path (self, a thread id, a PID namespace), so it is comparable to process.pid. | long |
+| file.Ext.procfs.target.thread | The thread an opened /proc/<pid>/task/<tid>/ entry belongs to. | object |
+| file.Ext.procfs.target.thread.id | Thread ID the procfs entry belongs to. Equal to the target PID for /proc/<pid>/ entries and to the thread for /proc/<pid>/task/<tid>/ entries. | long |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
