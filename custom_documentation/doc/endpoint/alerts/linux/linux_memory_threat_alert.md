@@ -214,6 +214,9 @@ This alert is generated when a Memory Threat alert occurs.
 | process.user.id |
 | process.user.name |
 | process.working_directory |
+| rule.custom_yara_signature.entry_id |
+| rule.custom_yara_signature.entry_name |
+| rule.custom_yara_signature.rule_identifier |
 | rule.id |
 | rule.name |
 | rule.ruleset |
