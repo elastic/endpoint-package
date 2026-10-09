@@ -123,8 +123,8 @@
                     },
                     {
                         "allocation_private_bytes": 4096,
-                        "callsite_leading_bytes": "4c8bd1b8c8000000",
-                        "callsite_trailing_bytes": "c3cd2ecc0f1f4400",
+                        "callsite_leading_bytes": "ec0853575641544155415641574883ec204889cb48c7c10380000048c7c200000000ff9390040000488d4b4848c7c20000000049c7c000080000ff9368040000",
+                        "callsite_trailing_bytes": "4885c07421488943404889c1488d9348040000ff93700400004885c074104889d9e9c400000041bd05000000eb0841bd06000000eb00ff93a00400004889d944",
                         "instruction_pointer": 140705158956066,
                         "memory_section": {
                             "memory_address": 140705158664192,
