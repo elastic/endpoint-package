@@ -118,7 +118,7 @@
                         "module_path": "c:\\windows\\system32\\ntdll.dll",
                         "protection": "R-X",
                         "protection_provenance": "ntdll.dll",
-                        "rva": "643636",
+                        "rva": 643636,
                         "symbol_info": "c:\\windows\\system32\\ntdll.dll!NtAlpcSendWaitReceivePort+0x14"
                     },
                     {
@@ -135,7 +135,7 @@
                         "module_path": "c:\\windows\\system32\\rpcrt4.dll",
                         "protection": "RWX",
                         "protection_provenance": "Unbacked",
-                        "rva": "291874",
+                        "rva": 291874,
                         "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF879048422"
                     },
                     {
@@ -147,7 +147,7 @@
                         },
                         "module_name": "rpcrt4.dll",
                         "module_path": "c:\\windows\\system32\\rpcrt4.dll",
-                        "rva": "279921",
+                        "rva": 279921,
                         "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF879045571"
                     },
                     {
@@ -159,7 +159,7 @@
                         },
                         "module_name": "rpcrt4.dll",
                         "module_path": "c:\\windows\\system32\\rpcrt4.dll",
-                        "rva": "190271",
+                        "rva": 190271,
                         "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF87902F73F"
                     },
                     {
@@ -171,7 +171,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "565589",
+                        "rva": 565589,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C9B155"
                     },
                     {
@@ -183,7 +183,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "561672",
+                        "rva": 561672,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C9A208"
                     },
                     {
@@ -195,7 +195,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "555396",
+                        "rva": 555396,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C98984"
                     },
                     {
@@ -207,7 +207,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "557819",
+                        "rva": 557819,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C992FB"
                     },
                     {
@@ -219,7 +219,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "538132",
+                        "rva": 538132,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878C94614"
                     },
                     {
@@ -231,7 +231,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "742206",
+                        "rva": 742206,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878CC633E"
                     },
                     {
@@ -243,7 +243,7 @@
                         },
                         "module_name": "rpcrt4.dll",
                         "module_path": "c:\\windows\\system32\\rpcrt4.dll",
-                        "rva": "2032",
+                        "rva": 2032,
                         "symbol_info": "c:\\windows\\system32\\rpcrt4.dll!0x7FF8790017F0"
                     },
                     {
@@ -255,7 +255,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "720072",
+                        "rva": 720072,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878CC0CC8"
                     },
                     {
@@ -267,7 +267,7 @@
                         },
                         "module_name": "combase.dll",
                         "module_path": "c:\\windows\\system32\\combase.dll",
-                        "rva": "1240434",
+                        "rva": 1240434,
                         "symbol_info": "c:\\windows\\system32\\combase.dll!0x7FF878D3FD72"
                     },
                     {
@@ -279,7 +279,7 @@
                         },
                         "module_name": "fastprox.dll",
                         "module_path": "c:\\windows\\system32\\wbem\\fastprox.dll",
-                        "rva": "665107",
+                        "rva": 665107,
                         "symbol_info": "c:\\windows\\system32\\wbem\\fastprox.dll!0x7FF868293613"
                     },
                     {
@@ -291,7 +291,7 @@
                         },
                         "module_name": "alertstests.exe",
                         "module_path": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
-                        "rva": "6477251",
+                        "rva": 6477251,
                         "symbol_info": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301AE5C3"
                     },
                     {
@@ -303,7 +303,7 @@
                         },
                         "module_name": "alertstests.exe",
                         "module_path": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe",
-                        "rva": "6565959",
+                        "rva": 6565959,
                         "symbol_info": "c:\\users\\vagrant\\endpoint-dev\\build\\_ws-vs2019-x64-dbg\\alertstests\\debug\\alertstests.exe!0x7FF7301C4047"
                     },
                     {
@@ -315,7 +315,7 @@
                         },
                         "module_name": "kernel32.dll",
                         "module_path": "c:\\windows\\system32\\kernel32.dll",
-                        "rva": "91668",
+                        "rva": 91668,
                         "symbol_info": "c:\\windows\\system32\\kernel32.dll!BaseThreadInitThunk+0x14"
                     },
                     {
@@ -327,7 +327,7 @@
                         },
                         "module_name": "ntdll.dll",
                         "module_path": "c:\\windows\\system32\\ntdll.dll",
-                        "rva": "333473",
+                        "rva": 333473,
                         "symbol_info": "c:\\windows\\system32\\ntdll.dll!RtlUserThreadStart+0x21"
                     }
                 ],
