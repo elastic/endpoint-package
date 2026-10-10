@@ -66,6 +66,24 @@ fields:
           id: {}
           Ext:
             fields:
+              call_stack:
+                enabled: false
+                fields:
+                  module_path: {}
+                  module_name: {}
+                  instruction_pointer: {}
+                  allocation_private_bytes: {}
+                  callsite_leading_bytes: {}
+                  callsite_trailing_bytes: {}
+                  protection: {}
+                  protection_provenance: {}
+                  memory_section:
+                    fields:
+                      memory_address: {}
+                      memory_size: {}
+                      protection: {}
+                  symbol_info: {}
+                  rva: {}
               call_stack_final_hook_module:
                 fields:
                   path: {}
