@@ -138,6 +138,9 @@ This alert is generated when a macOS Memory Thread alert occurs.
 | process.ppid |
 | process.start |
 | process.uptime |
+| rule.custom_yara_signature.entry_id |
+| rule.custom_yara_signature.entry_name |
+| rule.custom_yara_signature.rule_identifier |
 | rule.id |
 | rule.name |
 | rule.ruleset |
