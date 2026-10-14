@@ -132,3 +132,9 @@ For example, the `policy` description is used in the [metadata.yaml](../schemas/
           description: ID of the policy that was active when the event was created.
           example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
 ```
+
+## AI tool content exposure
+
+`Endpoint.agent_exposure` contains classifier and observation metadata for rule-driven content exposure alerts.
+The fields describe syntax candidates and evidence limits; they do not label an AI tool as malware or establish upload.
+Matched credentials, prompts, document text, file paths and content hashes are excluded from this field group.

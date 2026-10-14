@@ -17,6 +17,254 @@
   required: true
   short: Date/time when the event originated.
   type: date
+Endpoint.agent_exposure:
+  dashed_name: Endpoint-agent-exposure
+  description: Content-free findings about candidate credentials or sensitivity labels
+    observed in AI tools.
+  flat_name: Endpoint.agent_exposure
+  level: custom
+  name: agent_exposure
+  normalize: []
+  short: Content-free findings about candidate credentials or sensitivity labels observed
+    in AI tools.
+  type: object
+Endpoint.agent_exposure.application_attribution:
+  dashed_name: Endpoint-agent-exposure-application-attribution
+  description: Basis for associating the artifact with an AI tool; a path match does
+    not prove vendor origin.
+  flat_name: Endpoint.agent_exposure.application_attribution
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.application_attribution
+  normalize: []
+  short: Basis for associating the artifact with an AI tool; a path match does not
+    prove vendor origin.
+  type: keyword
+Endpoint.agent_exposure.artifact_class:
+  dashed_name: Endpoint-agent-exposure-artifact-class
+  description: Class of the eligible local session artifact. Contains no file path.
+  flat_name: Endpoint.agent_exposure.artifact_class
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.artifact_class
+  normalize: []
+  short: Class of the eligible local session artifact. Contains no file path.
+  type: keyword
+Endpoint.agent_exposure.classifier:
+  dashed_name: Endpoint-agent-exposure-classifier
+  description: Classifier used to identify syntax candidates, such as content_patterns.
+  flat_name: Endpoint.agent_exposure.classifier
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.classifier
+  normalize: []
+  short: Classifier used to identify syntax candidates, such as content_patterns.
+  type: keyword
+Endpoint.agent_exposure.content_omitted:
+  dashed_name: Endpoint-agent-exposure-content-omitted
+  description: True when matched values, prompt contents and document text are excluded
+    from the finding.
+  flat_name: Endpoint.agent_exposure.content_omitted
+  level: custom
+  name: agent_exposure.content_omitted
+  normalize: []
+  short: True when matched values, prompt contents and document text are excluded
+    from the finding.
+  type: boolean
+Endpoint.agent_exposure.contract_version:
+  dashed_name: Endpoint-agent-exposure-contract-version
+  description: Version of the content exposure finding contract.
+  flat_name: Endpoint.agent_exposure.contract_version
+  level: custom
+  name: agent_exposure.contract_version
+  normalize: []
+  short: Version of the content exposure finding contract.
+  type: long
+Endpoint.agent_exposure.credential_writer:
+  dashed_name: Endpoint-agent-exposure-credential-writer
+  description: Whether the credential author is established. Later persistence snapshots
+    report unknown.
+  flat_name: Endpoint.agent_exposure.credential_writer
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.credential_writer
+  normalize: []
+  short: Whether the credential author is established. Later persistence snapshots
+    report unknown.
+  type: keyword
+Endpoint.agent_exposure.detector_ids:
+  dashed_name: Endpoint-agent-exposure-detector-ids
+  description: Static identifiers of matching credential or sensitivity-label patterns.
+    Contains no matched values.
+  flat_name: Endpoint.agent_exposure.detector_ids
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.detector_ids
+  normalize: []
+  short: Static identifiers of matching credential or sensitivity-label patterns.
+    Contains no matched values.
+  type: keyword
+Endpoint.agent_exposure.evidence:
+  dashed_name: Endpoint-agent-exposure-evidence
+  description: Observation evidence, such as reported paste, reported submission or
+    a local store write.
+  flat_name: Endpoint.agent_exposure.evidence
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.evidence
+  normalize: []
+  short: Observation evidence, such as reported paste, reported submission or a local
+    store write.
+  type: keyword
+Endpoint.agent_exposure.evidence_trust:
+  dashed_name: Endpoint-agent-exposure-evidence-trust
+  description: Trust assigned to the evidence. User-session reports are not authenticated
+    vendor observations.
+  flat_name: Endpoint.agent_exposure.evidence_trust
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.evidence_trust
+  normalize: []
+  short: Trust assigned to the evidence. User-session reports are not authenticated
+    vendor observations.
+  type: keyword
+Endpoint.agent_exposure.file_identity:
+  dashed_name: Endpoint-agent-exposure-file-identity
+  description: Whether identity was checked against both event and snapshot, or against
+    the scan-time snapshot only.
+  flat_name: Endpoint.agent_exposure.file_identity
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.file_identity
+  normalize: []
+  short: Whether identity was checked against both event and snapshot, or against
+    the scan-time snapshot only.
+  type: keyword
+Endpoint.agent_exposure.harness:
+  dashed_name: Endpoint-agent-exposure-harness
+  description: AI tool family identified by the adapter or inferred from an eligible
+    session artifact.
+  flat_name: Endpoint.agent_exposure.harness
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.harness
+  normalize: []
+  short: AI tool family identified by the adapter or inferred from an eligible session
+    artifact.
+  type: keyword
+Endpoint.agent_exposure.harness_source:
+  dashed_name: Endpoint-agent-exposure-harness-source
+  description: Source of the AI tool attribution, such as an adapter report.
+  flat_name: Endpoint.agent_exposure.harness_source
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.harness_source
+  normalize: []
+  short: Source of the AI tool attribution, such as an adapter report.
+  type: keyword
+Endpoint.agent_exposure.history_omitted:
+  dashed_name: Endpoint-agent-exposure-history-omitted
+  description: Whether the bounded persistence snapshot omitted earlier session history.
+  flat_name: Endpoint.agent_exposure.history_omitted
+  level: custom
+  name: agent_exposure.history_omitted
+  normalize: []
+  short: Whether the bounded persistence snapshot omitted earlier session history.
+  type: boolean
+Endpoint.agent_exposure.observation_outcome:
+  dashed_name: Endpoint-agent-exposure-observation-outcome
+  description: Observed outcome. An attempted action does not establish application
+    acceptance or upload.
+  flat_name: Endpoint.agent_exposure.observation_outcome
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.observation_outcome
+  normalize: []
+  short: Observed outcome. An attempted action does not establish application acceptance
+    or upload.
+  type: keyword
+Endpoint.agent_exposure.observation_scope:
+  dashed_name: Endpoint-agent-exposure-observation-scope
+  description: Content scope reported by the collector, such as text only or extracted
+    attachment text.
+  flat_name: Endpoint.agent_exposure.observation_scope
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.observation_scope
+  normalize: []
+  short: Content scope reported by the collector, such as text only or extracted attachment
+    text.
+  type: keyword
+Endpoint.agent_exposure.process_role:
+  dashed_name: Endpoint-agent-exposure-process-role
+  description: Role of the associated process, such as reporter or scan trigger; not
+    necessarily the credential author.
+  flat_name: Endpoint.agent_exposure.process_role
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.process_role
+  normalize: []
+  short: Role of the associated process, such as reporter or scan trigger; not necessarily
+    the credential author.
+  type: keyword
+Endpoint.agent_exposure.qualification:
+  dashed_name: Endpoint-agent-exposure-qualification
+  description: Qualification of a match. A syntax candidate is not proof that a credential
+    is valid.
+  flat_name: Endpoint.agent_exposure.qualification
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.qualification
+  normalize: []
+  short: Qualification of a match. A syntax candidate is not proof that a credential
+    is valid.
+  type: keyword
+Endpoint.agent_exposure.ruleset_source:
+  dashed_name: Endpoint-agent-exposure-ruleset-source
+  description: Source of the classifier catalog, such as the authenticated global
+    configuration artifact.
+  flat_name: Endpoint.agent_exposure.ruleset_source
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.ruleset_source
+  normalize: []
+  short: Source of the classifier catalog, such as the authenticated global configuration
+    artifact.
+  type: keyword
+Endpoint.agent_exposure.ruleset_version:
+  dashed_name: Endpoint-agent-exposure-ruleset-version
+  description: Version identifying the immutable classifier catalog used for this
+    observation.
+  flat_name: Endpoint.agent_exposure.ruleset_version
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.ruleset_version
+  normalize: []
+  short: Version identifying the immutable classifier catalog used for this observation.
+  type: keyword
+Endpoint.agent_exposure.scan_complete:
+  dashed_name: Endpoint-agent-exposure-scan-complete
+  description: Whether all admitted content was examined within the supported format
+    and scan bounds.
+  flat_name: Endpoint.agent_exposure.scan_complete
+  level: custom
+  name: agent_exposure.scan_complete
+  normalize: []
+  short: Whether all admitted content was examined within the supported format and
+    scan bounds.
+  type: boolean
+Endpoint.agent_exposure.stage:
+  dashed_name: Endpoint-agent-exposure-stage
+  description: 'Observation stage: input, submission or persistence. A stage does
+    not establish successful upload.'
+  flat_name: Endpoint.agent_exposure.stage
+  ignore_above: 256
+  level: custom
+  name: agent_exposure.stage
+  normalize: []
+  short: 'Observation stage: input, submission or persistence. A stage does not establish
+    successful upload.'
+  type: keyword
 Events:
   dashed_name: Events
   description: events array

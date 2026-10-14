@@ -1,6 +1,31 @@
 ---
 name: rule_detection_event
 fields:
+  Endpoint:
+    fields:
+      agent_exposure:
+        fields:
+          contract_version: {}
+          stage: {}
+          harness: {}
+          evidence: {}
+          evidence_trust: {}
+          harness_source: {}
+          observation_outcome: {}
+          observation_scope: {}
+          process_role: {}
+          credential_writer: {}
+          content_omitted: {}
+          detector_ids: {}
+          ruleset_version: {}
+          ruleset_source: {}
+          classifier: {}
+          qualification: {}
+          scan_complete: {}
+          history_omitted: {}
+          artifact_class: {}
+          application_attribution: {}
+          file_identity: {}
   # these fields are needed in the mapping so the maps page of the security app does not throw a bunch of errors
   source:
     fields:
