@@ -62,6 +62,8 @@ This event is generated when a file is accessed.
 | host.os.type |
 | host.os.version |
 | message |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
