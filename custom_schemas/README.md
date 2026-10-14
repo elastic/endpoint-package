@@ -135,6 +135,18 @@ For example, the `policy` description is used in the [metadata.yaml](../schemas/
 
 ## AI tool content exposure
 
-`Endpoint.agent_exposure` contains classifier and observation metadata for rule-driven content exposure alerts.
+`event.Ext.agent_exposure` contains classifier and observation metadata for rule-driven content exposure alerts.
 The fields describe syntax candidates and evidence limits; they do not label an AI tool as malware or establish upload.
 Matched credentials, prompts, document text, file paths and content hashes are excluded from this field group.
+
+These are per-observation extensions of the ECS `event` group, following the existing `event.Ext` convention.
+Standard `event.*`, `process.pid`/`process.entity_id` and behavioral-alert `rule.*` keep their ECS meanings.
+Within this extension, `ruleset_version`/`ruleset_source` identify the classifier catalog and `detector_ids`
+is an array of matching pattern IDs; none replaces the independent behavioral alert's `rule.id` or `rule.version`.
+An `attempt_reported` observation must not be mapped to `event.outcome: success`. Partial scans and omitted
+history remain explicit Boolean fields. Contract version is long; closed identifiers and labels are keyword.
+
+Any new field must be reviewed against ECS semantics, declared here with a stable indexed type, and aligned
+with Endpoint's generated EQL schema, native finding/alert serialization, independent rules and fixtures.
+The initial contract is unreleased: roll out the matching sensor, endpoint-rules artifact and package together.
+No compatibility alias or duplicate data is emitted under the previous development-only namespace.
