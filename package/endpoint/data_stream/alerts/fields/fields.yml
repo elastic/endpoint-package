@@ -3586,7 +3586,7 @@
       level: custom
       type: keyword
       ignore_above: 256
-      description: Observation evidence, such as reported paste, reported submission or a local store write.
+      description: Observation evidence, such as reported paste, reported submission, a local store write or bounded default-store discovery. Discovery does not identify a writer or prior gesture.
       default_field: false
     - name: Ext.agent_exposure.evidence_trust
       level: custom
@@ -3627,13 +3627,13 @@
       level: custom
       type: keyword
       ignore_above: 256
-      description: Content scope reported by the collector, such as text only or extracted attachment text.
+      description: Content scope reported by the collector, such as text only, extracted attachment text or bounded default-store discovery.
       default_field: false
     - name: Ext.agent_exposure.process_role
       level: custom
       type: keyword
       ignore_above: 256
-      description: Role of the associated process, such as reporter or scan trigger; not necessarily the credential author.
+      description: Role of the associated process, such as reporter or scan trigger; not necessarily the credential author. Discovery reports none and omits process identity.
       default_field: false
     - name: Ext.agent_exposure.qualification
       level: custom
