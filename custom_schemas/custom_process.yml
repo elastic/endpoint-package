@@ -84,6 +84,26 @@
         This enables analysts and detection rules to distinguish AI-agent-initiated
         activity from human-initiated activity.
 
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Email address of the account the AI-agent tool is signed in with.
+      description: >
+        Email address of the account the AI-agent tool is signed in with, read from
+        the tool's credential store on the host. Carried on events whose acting
+        process is the AI-agent tool.
+
+    - name: ai_agent.api_key_auth
+      level: extended
+      type: boolean
+      alpha: This field is alpha and subject to change.
+      short: True if the AI-agent tool authenticates with an API key.
+      description: >
+        True when the AI-agent tool's credential store shows API key authentication
+        rather than an account sign-in.
+
     - name: ai_agent.is_descendant
       level: extended
       type: boolean

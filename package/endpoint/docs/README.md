@@ -1781,10 +1781,6 @@ sent by the endpoint.
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
-| file.ai_agent | Fields describing an AI-agent tool associated with a file event. When a file operation is initiated by a known AI-agent development tool, these fields can be populated to help analysts and detection rules distinguish AI-agent-initiated file activity from human-initiated activity. | object |
-| file.ai_agent.api_key_auth | Indicates that the AI agent was authenticated via an API key. | boolean |
-| file.ai_agent.email | Email address of the user associated with the AI-agent tool that initiated this file operation. | keyword |
-| file.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | file.attributes | Array of file attributes. Attributes names will vary by platform. Here's a non-exhaustive list of values that are expected in this field: archive, compressed, directory, encrypted, execute, hidden, read, readonly, system, write. | keyword |
 | file.created | File creation time. Note that not all filesystems store the creation time. | date |
 | file.ctime | Last time the file attributes or metadata changed. Note that changes to the file content will update `mtime`. This implies `ctime` will be adjusted at the same time, since `mtime` is an attribute of the file. | date |
@@ -1852,6 +1848,11 @@ sent by the endpoint.
 | process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent.api_key_auth | True when the AI-agent tool's credential store shows API key authentication rather than an account sign-in. | boolean |
+| process.ai_agent.email | Email address of the account the AI-agent tool is signed in with, read from the tool's credential store on the host. Carried on events whose acting process is the AI-agent tool. | keyword |
+| process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
@@ -2238,6 +2239,11 @@ sent by the endpoint.
 | process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent.api_key_auth | True when the AI-agent tool's credential store shows API key authentication rather than an account sign-in. | boolean |
+| process.ai_agent.email | Email address of the account the AI-agent tool is signed in with, read from the tool's credential store on the host. Carried on events whose acting process is the AI-agent tool. | keyword |
+| process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2479,6 +2485,8 @@ sent by the endpoint.
 | process.Ext.windows | Platform-specific Windows fields | object |
 | process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
 | process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent.api_key_auth | True when the AI-agent tool's credential store shows API key authentication rather than an account sign-in. | boolean |
+| process.ai_agent.email | Email address of the account the AI-agent tool is signed in with, read from the tool's credential store on the host. Carried on events whose acting process is the AI-agent tool. | keyword |
 | process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
 | process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |

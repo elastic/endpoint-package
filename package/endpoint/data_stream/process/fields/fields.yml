@@ -1238,6 +1238,17 @@
 
         When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity.'
       default_field: false
+    - name: ai_agent.api_key_auth
+      level: extended
+      type: boolean
+      description: True when the AI-agent tool's credential store shows API key authentication rather than an account sign-in.
+      default_field: false
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Email address of the account the AI-agent tool is signed in with, read from the tool's credential store on the host. Carried on events whose acting process is the AI-agent tool.
+      default_field: false
     - name: ai_agent.is_descendant
       level: extended
       type: boolean

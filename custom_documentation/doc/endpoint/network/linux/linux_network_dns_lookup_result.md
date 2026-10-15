@@ -44,6 +44,10 @@ This event is generated when results are returned for a DNS lookup request.
 | network.protocol |
 | network.transport |
 | process.Ext.ancestry |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.command_line |
 | process.entity_id |
 | process.executable |

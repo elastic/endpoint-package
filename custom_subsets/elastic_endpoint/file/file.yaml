@@ -102,6 +102,12 @@ fields:
               name: {}
   process:
     fields:
+      ai_agent:
+        fields:
+          api_key_auth: {}
+          email: {}
+          is_descendant: {}
+          name: {}
       args_count: {}
       command_line: {}
       pid: {}
@@ -180,11 +186,6 @@ fields:
       runatload: {}
   file:
     fields:
-      ai_agent:
-        fields:
-          email: {}
-          api_key_auth: {}
-          name: {}
       accessed: {}
       attributes: {}
       created: {}
