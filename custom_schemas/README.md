@@ -153,5 +153,6 @@ No compatibility alias or duplicate data is emitted under the previous developme
 
 `store-open` is persistence evidence for a successful native open after an earlier finding
 and an unchanged protected snapshot. `process_role=accessor` identifies the opening process;
+`process_role=none` omits process identity when a native open is known but its actor cannot be safely attributed.
 `observation_outcome=open_observed` does not establish a content read or theft. The existing
 `file_identity` field retains the distinction between event-and-scan and scan-only identity.

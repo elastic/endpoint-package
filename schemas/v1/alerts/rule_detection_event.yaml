@@ -598,7 +598,8 @@ event.Ext.agent_exposure.process_role:
   dashed_name: event-Ext-agent-exposure-process-role
   description: Role of the associated process, such as reporter, scan trigger or accessor;
     not necessarily the credential author. An accessor opened the history; content
-    reads are not established. Discovery reports none and omits process identity.
+    reads are not established. Discovery and native opens with unavailable actor identity
+    report none and omit process identity.
   flat_name: event.Ext.agent_exposure.process_role
   ignore_above: 256
   level: custom
@@ -606,7 +607,8 @@ event.Ext.agent_exposure.process_role:
   normalize: []
   short: Role of the associated process, such as reporter, scan trigger or accessor;
     not necessarily the credential author. An accessor opened the history; content
-    reads are not established. Discovery reports none and omits process identity.
+    reads are not established. Discovery and native opens with unavailable actor identity
+    report none and omit process identity.
   type: keyword
 event.Ext.agent_exposure.qualification:
   dashed_name: event-Ext-agent-exposure-qualification

@@ -89,7 +89,7 @@
       level: custom
       type: keyword
       ignore_above: 256
-      description: "Role of the associated process, such as reporter, scan trigger or accessor; not necessarily the credential author. An accessor opened the history; content reads are not established. Discovery reports none and omits process identity."
+      description: "Role of the associated process, such as reporter, scan trigger or accessor; not necessarily the credential author. An accessor opened the history; content reads are not established. Discovery and native opens with unavailable actor identity report none and omit process identity."
 
     - name: Ext.agent_exposure.credential_writer
       level: custom
