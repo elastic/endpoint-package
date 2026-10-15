@@ -3586,7 +3586,7 @@
       level: custom
       type: keyword
       ignore_above: 256
-      description: Observation evidence, such as reported paste, reported submission, a local store write, bounded default-store discovery or subsequent store-open. Discovery does not identify a writer; an open does not prove a content read or theft.
+      description: Observation evidence, such as reported paste, reported submission, reported-file-read for inline file text offered as model context, a local store write, bounded default-store discovery or subsequent store-open. Reported-file-read does not establish a paste, drop or successful upload. Discovery does not identify a writer; an open does not prove a content read or theft.
       default_field: false
     - name: Ext.agent_exposure.evidence_trust
       level: custom
@@ -3662,7 +3662,7 @@
       level: custom
       type: keyword
       ignore_above: 256
-      description: 'Observation stage: input, submission or persistence. A stage does not establish successful upload.'
+      description: 'Observation stage: input, submission or persistence. Submission includes file text offered as model context. A stage does not establish successful upload.'
       default_field: false
     - name: action
       level: core
