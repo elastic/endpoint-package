@@ -502,16 +502,17 @@ event.Ext.agent_exposure.detector_ids:
 event.Ext.agent_exposure.evidence:
   dashed_name: event-Ext-agent-exposure-evidence
   description: Observation evidence, such as reported paste, reported submission,
-    a local store write or bounded default-store discovery. Discovery does not identify
-    a writer or prior gesture.
+    a local store write, bounded default-store discovery or subsequent store-open.
+    Discovery does not identify a writer; an open does not prove a content read or
+    theft.
   flat_name: event.Ext.agent_exposure.evidence
   ignore_above: 256
   level: custom
   name: Ext.agent_exposure.evidence
   normalize: []
   short: Observation evidence, such as reported paste, reported submission, a local
-    store write or bounded default-store discovery. Discovery does not identify a
-    writer or prior gesture.
+    store write, bounded default-store discovery or subsequent store-open. Discovery
+    does not identify a writer; an open does not prove a content read or theft.
   type: keyword
 event.Ext.agent_exposure.evidence_trust:
   dashed_name: event-Ext-agent-exposure-evidence-trust
@@ -583,26 +584,29 @@ event.Ext.agent_exposure.observation_outcome:
 event.Ext.agent_exposure.observation_scope:
   dashed_name: event-Ext-agent-exposure-observation-scope
   description: Content scope reported by the collector, such as text only, extracted
-    attachment text or bounded default-store discovery.
+    attachment text, bounded default-store discovery or a previously detected unchanged
+    snapshot.
   flat_name: event.Ext.agent_exposure.observation_scope
   ignore_above: 256
   level: custom
   name: Ext.agent_exposure.observation_scope
   normalize: []
   short: Content scope reported by the collector, such as text only, extracted attachment
-    text or bounded default-store discovery.
+    text, bounded default-store discovery or a previously detected unchanged snapshot.
   type: keyword
 event.Ext.agent_exposure.process_role:
   dashed_name: event-Ext-agent-exposure-process-role
-  description: Role of the associated process, such as reporter or scan trigger; not
-    necessarily the credential author. Discovery reports none and omits process identity.
+  description: Role of the associated process, such as reporter, scan trigger or accessor;
+    not necessarily the credential author. An accessor opened the history; content
+    reads are not established. Discovery reports none and omits process identity.
   flat_name: event.Ext.agent_exposure.process_role
   ignore_above: 256
   level: custom
   name: Ext.agent_exposure.process_role
   normalize: []
-  short: Role of the associated process, such as reporter or scan trigger; not necessarily
-    the credential author. Discovery reports none and omits process identity.
+  short: Role of the associated process, such as reporter, scan trigger or accessor;
+    not necessarily the credential author. An accessor opened the history; content
+    reads are not established. Discovery reports none and omits process identity.
   type: keyword
 event.Ext.agent_exposure.qualification:
   dashed_name: event-Ext-agent-exposure-qualification

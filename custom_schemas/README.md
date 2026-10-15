@@ -150,3 +150,8 @@ Any new field must be reviewed against ECS semantics, declared here with a stabl
 with Endpoint's generated EQL schema, native finding/alert serialization, independent rules and fixtures.
 The initial contract is unreleased: roll out the matching sensor, endpoint-rules artifact and package together.
 No compatibility alias or duplicate data is emitted under the previous development-only namespace.
+
+`store-open` is persistence evidence for a successful native open after an earlier finding
+and an unchanged protected snapshot. `process_role=accessor` identifies the opening process;
+`observation_outcome=open_observed` does not establish a content read or theft. The existing
+`file_identity` field retains the distinction between event-and-scan and scan-only identity.
