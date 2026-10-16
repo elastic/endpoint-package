@@ -61,6 +61,8 @@ fields:
   - process.Ext.code_signature.subject_name
   - process.Ext.code_signature.thumbprint_sha256
   - process.Ext.code_signature.trusted
+  - process.ai_agent.api_key_auth
+  - process.ai_agent.email
   - process.ai_agent.is_descendant
   - process.ai_agent.name
   - process.code_signature.exists
