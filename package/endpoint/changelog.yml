@@ -1,5 +1,8 @@
 - version: "9.6.0-next"
   changes:
+    - description: Add process.ai_agent fields to file and network events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/813
     - description: Add missing agent field mappings to endpoint.events.api
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788
