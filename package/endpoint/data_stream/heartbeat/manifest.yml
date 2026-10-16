@@ -13,3 +13,5 @@ elasticsearch:
             - event.ingested
           order:
             - desc
+  dynamic_dataset: true
+  dynamic_namespace: true

@@ -11,3 +11,5 @@ elasticsearch:
             limit: 5000
     mappings:
       dynamic: false
+  dynamic_dataset: true
+  dynamic_namespace: true
