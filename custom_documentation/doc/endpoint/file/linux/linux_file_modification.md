@@ -59,6 +59,7 @@ This event is generated when a file is modified.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |
