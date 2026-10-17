@@ -1,0 +1,104 @@
+{
+    "events": [
+        {
+            "event": {
+                "kind": "alert",
+                "module": "endpoint",
+                "code": "content_exposure",
+                "action": "rule_detection",
+                "type": [
+                    "info"
+                ],
+                "Ext": {
+                    "agent_exposure": {
+                        "contract_version": 1,
+                        "stage": "input",
+                        "harness": "claude-code",
+                        "evidence": "reported-paste",
+                        "content_omitted": true,
+                        "detector_ids": [
+                            "agent-exposure:aeg_heuristic_password"
+                        ],
+                        "ruleset_version": "agent-exposure:fixture-1",
+                        "ruleset_source": "global_config",
+                        "classifier": "content_patterns",
+                        "qualification": "syntax_candidate",
+                        "scan_complete": true,
+                        "process_role": "reporter",
+                        "evidence_trust": "user_session_report",
+                        "harness_source": "adapter_report",
+                        "observation_outcome": "attempt_reported",
+                        "observation_scope": "reported_text_only"
+                    }
+                }
+            }
+        },
+        {
+            "event": {
+                "kind": "alert",
+                "module": "endpoint",
+                "code": "content_exposure",
+                "action": "rule_detection",
+                "type": [
+                    "info"
+                ],
+                "Ext": {
+                    "agent_exposure": {
+                        "contract_version": 1,
+                        "stage": "submission",
+                        "harness": "claude-code",
+                        "evidence": "reported-submission",
+                        "content_omitted": true,
+                        "detector_ids": [
+                            "agent-exposure:aeg_heuristic_password"
+                        ],
+                        "ruleset_version": "agent-exposure:fixture-1",
+                        "ruleset_source": "global_config",
+                        "classifier": "content_patterns",
+                        "qualification": "syntax_candidate",
+                        "scan_complete": true,
+                        "process_role": "reporter",
+                        "evidence_trust": "user_session_report",
+                        "harness_source": "adapter_report",
+                        "observation_outcome": "attempt_reported",
+                        "observation_scope": "reported_text_only"
+                    }
+                }
+            }
+        },
+        {
+            "event": {
+                "kind": "alert",
+                "module": "endpoint",
+                "code": "content_exposure",
+                "action": "rule_detection",
+                "type": [
+                    "info"
+                ],
+                "Ext": {
+                    "agent_exposure": {
+                        "contract_version": 1,
+                        "stage": "persistence",
+                        "harness": "claude-code",
+                        "evidence": "store-write",
+                        "content_omitted": true,
+                        "detector_ids": [
+                            "agent-exposure:aeg_heuristic_password"
+                        ],
+                        "ruleset_version": "agent-exposure:fixture-1",
+                        "ruleset_source": "global_config",
+                        "classifier": "content_patterns",
+                        "qualification": "syntax_candidate",
+                        "scan_complete": true,
+                        "process_role": "scan_trigger",
+                        "credential_writer": "unknown",
+                        "history_omitted": false,
+                        "artifact_class": "claude-code-transcript",
+                        "application_attribution": "inferred-from-artifact",
+                        "file_identity": "event-and-scan"
+                    }
+                }
+            }
+        }
+    ]
+}

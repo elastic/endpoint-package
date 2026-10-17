@@ -132,3 +132,27 @@ For example, the `policy` description is used in the [metadata.yaml](../schemas/
           description: ID of the policy that was active when the event was created.
           example: c2a9093e-e289-4c0a-aa44-8c32a414fa7a
 ```
+
+## AI tool content exposure
+
+`event.Ext.agent_exposure` contains classifier and observation metadata for rule-driven content exposure alerts.
+The fields describe syntax candidates and evidence limits; they do not label an AI tool as malware or establish upload.
+Matched credentials, prompts, document text, file paths and content hashes are excluded from this field group.
+
+These are per-observation extensions of the ECS `event` group, following the existing `event.Ext` convention.
+Standard `event.*`, `process.pid`/`process.entity_id` and behavioral-alert `rule.*` keep their ECS meanings.
+Within this extension, `ruleset_version`/`ruleset_source` identify the classifier catalog and `detector_ids`
+is an array of matching pattern IDs; none replaces the independent behavioral alert's `rule.id` or `rule.version`.
+An `attempt_reported` observation must not be mapped to `event.outcome: success`. Partial scans and omitted
+history remain explicit Boolean fields. Contract version is long; closed identifiers and labels are keyword.
+
+Any new field must be reviewed against ECS semantics, declared here with a stable indexed type, and aligned
+with Endpoint's generated EQL schema, native finding/alert serialization, independent rules and fixtures.
+The initial contract is unreleased: roll out the matching sensor, behavioral-rule artifact and package together.
+No compatibility alias or duplicate data is emitted under the previous development-only namespace.
+
+`store-open` is persistence evidence for a successful native open after an earlier finding
+and an unchanged protected snapshot. `process_role=accessor` identifies the opening process;
+`process_role=none` omits process identity when a native open is known but its actor cannot be safely attributed.
+`observation_outcome=open_observed` does not establish a content read or theft. The existing
+`file_identity` field retains the distinction between event-and-scan and scan-only identity.

@@ -613,6 +613,29 @@ sent by the endpoint.
 | ecs.version | ECS version this event conforms to. `ecs.version` is a required field and must exist in all events. When querying across multiple indices -- which may conform to slightly different ECS versions -- this field lets integrations adjust to the schema version of the events. | keyword |
 | elastic.agent | The agent fields contain data about the Elastic Agent. The Elastic Agent is the management agent that manages other agents or process on the host. | object |
 | elastic.agent.id | Unique identifier of this elastic agent (if one exists). | keyword |
+| event.Ext | Object for all custom defined fields to live in. | object |
+| event.Ext.agent_exposure | Content-free findings about candidate credentials or sensitivity labels observed in AI tools. | object |
+| event.Ext.agent_exposure.application_attribution | Basis for associating the artifact with an AI tool; a path match does not prove vendor origin. | keyword |
+| event.Ext.agent_exposure.artifact_class | Class of the eligible local session artifact. Contains no file path. | keyword |
+| event.Ext.agent_exposure.classifier | Classifier used to identify syntax candidates, such as content_patterns. | keyword |
+| event.Ext.agent_exposure.content_omitted | True when matched values, prompt contents and document text are excluded from the finding. | boolean |
+| event.Ext.agent_exposure.contract_version | Version of the content exposure finding contract. | long |
+| event.Ext.agent_exposure.credential_writer | Whether the credential author is established. Later persistence snapshots report unknown. | keyword |
+| event.Ext.agent_exposure.detector_ids | Static identifiers of matching credential or sensitivity-label patterns. Contains no matched values. | keyword |
+| event.Ext.agent_exposure.evidence | Observation evidence, such as reported paste, reported submission, reported-file-read for inline file text offered as model context, a local store write, bounded default-store discovery or subsequent store-open. Reported-file-read does not establish a paste, drop or successful upload. Discovery does not identify a writer; an open does not prove a content read or theft. | keyword |
+| event.Ext.agent_exposure.evidence_trust | Trust assigned to the evidence. User-session reports are not authenticated vendor observations. | keyword |
+| event.Ext.agent_exposure.file_identity | Whether identity was checked against both event and snapshot, or against the scan-time snapshot only. | keyword |
+| event.Ext.agent_exposure.harness | AI tool family identified by the adapter or inferred from an eligible session artifact. | keyword |
+| event.Ext.agent_exposure.harness_source | Source of the AI tool attribution, such as an adapter report. | keyword |
+| event.Ext.agent_exposure.history_omitted | Whether the bounded persistence snapshot omitted earlier session history. | boolean |
+| event.Ext.agent_exposure.observation_outcome | Observed outcome. An attempted action does not establish application acceptance or upload. | keyword |
+| event.Ext.agent_exposure.observation_scope | Content scope reported by the collector, such as text only, extracted attachment text, bounded default-store discovery or a previously detected unchanged snapshot. | keyword |
+| event.Ext.agent_exposure.process_role | Role of the associated process, such as reporter, scan trigger or accessor; not necessarily the credential author. An accessor opened the history; content reads are not established. Discovery and native opens with unavailable actor identity report none and omit process identity. | keyword |
+| event.Ext.agent_exposure.qualification | Qualification of a match. A syntax candidate is not proof that a credential is valid. | keyword |
+| event.Ext.agent_exposure.ruleset_source | Source of the classifier catalog, such as the authenticated global configuration artifact. | keyword |
+| event.Ext.agent_exposure.ruleset_version | Version identifying the immutable classifier catalog used for this observation. | keyword |
+| event.Ext.agent_exposure.scan_complete | Whether all admitted content was examined within the supported format and scan bounds. | boolean |
+| event.Ext.agent_exposure.stage | Observation stage: input, submission or persistence. Submission includes file text offered as model context. A stage does not establish successful upload. | keyword |
 | event.action | The action captured by the event. This describes the information in the event. It is more specific than `event.category`. Examples are `group-add`, `process-started`, `file-created`. The value is normally defined by the implementer. | keyword |
 | event.category | This is one of four ECS Categorization Fields, and indicates the second level in the ECS category hierarchy. `event.category` represents the "big buckets" of ECS categories. For example, filtering on `event.category:process` yields all events relating to process activity. This field is closely related to `event.type`, which is used as a subcategory. This field is an array. This will allow proper categorization of some events that fall in multiple categories. | keyword |
 | event.code | Identification code for this event, if one exists. Some event sources use event codes to identify messages unambiguously, regardless of message language or wording adjustments over time. An example of this is the Windows Event ID. | keyword |

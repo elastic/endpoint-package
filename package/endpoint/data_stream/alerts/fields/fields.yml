@@ -3532,6 +3532,138 @@
   type: group
   default_field: true
   fields:
+    - name: Ext
+      level: custom
+      type: object
+      description: Object for all custom defined fields to live in.
+      default_field: false
+    - name: Ext.agent_exposure
+      level: custom
+      type: object
+      description: Content-free findings about candidate credentials or sensitivity labels observed in AI tools.
+      default_field: false
+    - name: Ext.agent_exposure.application_attribution
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Basis for associating the artifact with an AI tool; a path match does not prove vendor origin.
+      default_field: false
+    - name: Ext.agent_exposure.artifact_class
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Class of the eligible local session artifact. Contains no file path.
+      default_field: false
+    - name: Ext.agent_exposure.classifier
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Classifier used to identify syntax candidates, such as content_patterns.
+      default_field: false
+    - name: Ext.agent_exposure.content_omitted
+      level: custom
+      type: boolean
+      description: True when matched values, prompt contents and document text are excluded from the finding.
+      default_field: false
+    - name: Ext.agent_exposure.contract_version
+      level: custom
+      type: long
+      description: Version of the content exposure finding contract.
+      default_field: false
+    - name: Ext.agent_exposure.credential_writer
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Whether the credential author is established. Later persistence snapshots report unknown.
+      default_field: false
+    - name: Ext.agent_exposure.detector_ids
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Static identifiers of matching credential or sensitivity-label patterns. Contains no matched values.
+      default_field: false
+    - name: Ext.agent_exposure.evidence
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Observation evidence, such as reported paste, reported submission, reported-file-read for inline file text offered as model context, a local store write, bounded default-store discovery or subsequent store-open. Reported-file-read does not establish a paste, drop or successful upload. Discovery does not identify a writer; an open does not prove a content read or theft.
+      default_field: false
+    - name: Ext.agent_exposure.evidence_trust
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Trust assigned to the evidence. User-session reports are not authenticated vendor observations.
+      default_field: false
+    - name: Ext.agent_exposure.file_identity
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Whether identity was checked against both event and snapshot, or against the scan-time snapshot only.
+      default_field: false
+    - name: Ext.agent_exposure.harness
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: AI tool family identified by the adapter or inferred from an eligible session artifact.
+      default_field: false
+    - name: Ext.agent_exposure.harness_source
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Source of the AI tool attribution, such as an adapter report.
+      default_field: false
+    - name: Ext.agent_exposure.history_omitted
+      level: custom
+      type: boolean
+      description: Whether the bounded persistence snapshot omitted earlier session history.
+      default_field: false
+    - name: Ext.agent_exposure.observation_outcome
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Observed outcome. An attempted action does not establish application acceptance or upload.
+      default_field: false
+    - name: Ext.agent_exposure.observation_scope
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Content scope reported by the collector, such as text only, extracted attachment text, bounded default-store discovery or a previously detected unchanged snapshot.
+      default_field: false
+    - name: Ext.agent_exposure.process_role
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Role of the associated process, such as reporter, scan trigger or accessor; not necessarily the credential author. An accessor opened the history; content reads are not established. Discovery and native opens with unavailable actor identity report none and omit process identity.
+      default_field: false
+    - name: Ext.agent_exposure.qualification
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Qualification of a match. A syntax candidate is not proof that a credential is valid.
+      default_field: false
+    - name: Ext.agent_exposure.ruleset_source
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Source of the classifier catalog, such as the authenticated global configuration artifact.
+      default_field: false
+    - name: Ext.agent_exposure.ruleset_version
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: Version identifying the immutable classifier catalog used for this observation.
+      default_field: false
+    - name: Ext.agent_exposure.scan_complete
+      level: custom
+      type: boolean
+      description: Whether all admitted content was examined within the supported format and scan bounds.
+      default_field: false
+    - name: Ext.agent_exposure.stage
+      level: custom
+      type: keyword
+      ignore_above: 256
+      description: 'Observation stage: input, submission or persistence. Submission includes file text offered as model context. A stage does not establish successful upload.'
+      default_field: false
     - name: action
       level: core
       type: keyword

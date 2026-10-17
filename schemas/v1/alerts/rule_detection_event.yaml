@@ -403,6 +403,274 @@ destination.geo.timezone:
   original_fieldset: geo
   short: Time zone.
   type: keyword
+event.Ext:
+  dashed_name: event-Ext
+  description: Object for all custom defined fields to live in.
+  flat_name: event.Ext
+  level: custom
+  name: Ext
+  normalize: []
+  short: Object for all custom defined fields to live in.
+  type: object
+event.Ext.agent_exposure:
+  dashed_name: event-Ext-agent-exposure
+  description: Content-free findings about candidate credentials or sensitivity labels
+    observed in AI tools.
+  flat_name: event.Ext.agent_exposure
+  level: custom
+  name: Ext.agent_exposure
+  normalize: []
+  short: Content-free findings about candidate credentials or sensitivity labels observed
+    in AI tools.
+  type: object
+event.Ext.agent_exposure.application_attribution:
+  dashed_name: event-Ext-agent-exposure-application-attribution
+  description: Basis for associating the artifact with an AI tool; a path match does
+    not prove vendor origin.
+  flat_name: event.Ext.agent_exposure.application_attribution
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.application_attribution
+  normalize: []
+  short: Basis for associating the artifact with an AI tool; a path match does not
+    prove vendor origin.
+  type: keyword
+event.Ext.agent_exposure.artifact_class:
+  dashed_name: event-Ext-agent-exposure-artifact-class
+  description: Class of the eligible local session artifact. Contains no file path.
+  flat_name: event.Ext.agent_exposure.artifact_class
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.artifact_class
+  normalize: []
+  short: Class of the eligible local session artifact. Contains no file path.
+  type: keyword
+event.Ext.agent_exposure.classifier:
+  dashed_name: event-Ext-agent-exposure-classifier
+  description: Classifier used to identify syntax candidates, such as content_patterns.
+  flat_name: event.Ext.agent_exposure.classifier
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.classifier
+  normalize: []
+  short: Classifier used to identify syntax candidates, such as content_patterns.
+  type: keyword
+event.Ext.agent_exposure.content_omitted:
+  dashed_name: event-Ext-agent-exposure-content-omitted
+  description: True when matched values, prompt contents and document text are excluded
+    from the finding.
+  flat_name: event.Ext.agent_exposure.content_omitted
+  level: custom
+  name: Ext.agent_exposure.content_omitted
+  normalize: []
+  short: True when matched values, prompt contents and document text are excluded
+    from the finding.
+  type: boolean
+event.Ext.agent_exposure.contract_version:
+  dashed_name: event-Ext-agent-exposure-contract-version
+  description: Version of the content exposure finding contract.
+  flat_name: event.Ext.agent_exposure.contract_version
+  level: custom
+  name: Ext.agent_exposure.contract_version
+  normalize: []
+  short: Version of the content exposure finding contract.
+  type: long
+event.Ext.agent_exposure.credential_writer:
+  dashed_name: event-Ext-agent-exposure-credential-writer
+  description: Whether the credential author is established. Later persistence snapshots
+    report unknown.
+  flat_name: event.Ext.agent_exposure.credential_writer
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.credential_writer
+  normalize: []
+  short: Whether the credential author is established. Later persistence snapshots
+    report unknown.
+  type: keyword
+event.Ext.agent_exposure.detector_ids:
+  dashed_name: event-Ext-agent-exposure-detector-ids
+  description: Static identifiers of matching credential or sensitivity-label patterns.
+    Contains no matched values.
+  flat_name: event.Ext.agent_exposure.detector_ids
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.detector_ids
+  normalize: []
+  short: Static identifiers of matching credential or sensitivity-label patterns.
+    Contains no matched values.
+  type: keyword
+event.Ext.agent_exposure.evidence:
+  dashed_name: event-Ext-agent-exposure-evidence
+  description: Observation evidence, such as reported paste, reported submission,
+    reported-file-read for inline file text offered as model context, a local store
+    write, bounded default-store discovery or subsequent store-open. Reported-file-read
+    does not establish a paste, drop or successful upload. Discovery does not identify
+    a writer; an open does not prove a content read or theft.
+  flat_name: event.Ext.agent_exposure.evidence
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.evidence
+  normalize: []
+  short: Observation evidence, such as reported paste, reported submission, reported-file-read
+    for inline file text offered as model context, a local store write, bounded default-store
+    discovery or subsequent store-open. Reported-file-read does not establish a paste,
+    drop or successful upload. Discovery does not identify a writer; an open does
+    not prove a content read or theft.
+  type: keyword
+event.Ext.agent_exposure.evidence_trust:
+  dashed_name: event-Ext-agent-exposure-evidence-trust
+  description: Trust assigned to the evidence. User-session reports are not authenticated
+    vendor observations.
+  flat_name: event.Ext.agent_exposure.evidence_trust
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.evidence_trust
+  normalize: []
+  short: Trust assigned to the evidence. User-session reports are not authenticated
+    vendor observations.
+  type: keyword
+event.Ext.agent_exposure.file_identity:
+  dashed_name: event-Ext-agent-exposure-file-identity
+  description: Whether identity was checked against both event and snapshot, or against
+    the scan-time snapshot only.
+  flat_name: event.Ext.agent_exposure.file_identity
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.file_identity
+  normalize: []
+  short: Whether identity was checked against both event and snapshot, or against
+    the scan-time snapshot only.
+  type: keyword
+event.Ext.agent_exposure.harness:
+  dashed_name: event-Ext-agent-exposure-harness
+  description: AI tool family identified by the adapter or inferred from an eligible
+    session artifact.
+  flat_name: event.Ext.agent_exposure.harness
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.harness
+  normalize: []
+  short: AI tool family identified by the adapter or inferred from an eligible session
+    artifact.
+  type: keyword
+event.Ext.agent_exposure.harness_source:
+  dashed_name: event-Ext-agent-exposure-harness-source
+  description: Source of the AI tool attribution, such as an adapter report.
+  flat_name: event.Ext.agent_exposure.harness_source
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.harness_source
+  normalize: []
+  short: Source of the AI tool attribution, such as an adapter report.
+  type: keyword
+event.Ext.agent_exposure.history_omitted:
+  dashed_name: event-Ext-agent-exposure-history-omitted
+  description: Whether the bounded persistence snapshot omitted earlier session history.
+  flat_name: event.Ext.agent_exposure.history_omitted
+  level: custom
+  name: Ext.agent_exposure.history_omitted
+  normalize: []
+  short: Whether the bounded persistence snapshot omitted earlier session history.
+  type: boolean
+event.Ext.agent_exposure.observation_outcome:
+  dashed_name: event-Ext-agent-exposure-observation-outcome
+  description: Observed outcome. An attempted action does not establish application
+    acceptance or upload.
+  flat_name: event.Ext.agent_exposure.observation_outcome
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.observation_outcome
+  normalize: []
+  short: Observed outcome. An attempted action does not establish application acceptance
+    or upload.
+  type: keyword
+event.Ext.agent_exposure.observation_scope:
+  dashed_name: event-Ext-agent-exposure-observation-scope
+  description: Content scope reported by the collector, such as text only, extracted
+    attachment text, bounded default-store discovery or a previously detected unchanged
+    snapshot.
+  flat_name: event.Ext.agent_exposure.observation_scope
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.observation_scope
+  normalize: []
+  short: Content scope reported by the collector, such as text only, extracted attachment
+    text, bounded default-store discovery or a previously detected unchanged snapshot.
+  type: keyword
+event.Ext.agent_exposure.process_role:
+  dashed_name: event-Ext-agent-exposure-process-role
+  description: Role of the associated process, such as reporter, scan trigger or accessor;
+    not necessarily the credential author. An accessor opened the history; content
+    reads are not established. Discovery and native opens with unavailable actor identity
+    report none and omit process identity.
+  flat_name: event.Ext.agent_exposure.process_role
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.process_role
+  normalize: []
+  short: Role of the associated process, such as reporter, scan trigger or accessor;
+    not necessarily the credential author. An accessor opened the history; content
+    reads are not established. Discovery and native opens with unavailable actor identity
+    report none and omit process identity.
+  type: keyword
+event.Ext.agent_exposure.qualification:
+  dashed_name: event-Ext-agent-exposure-qualification
+  description: Qualification of a match. A syntax candidate is not proof that a credential
+    is valid.
+  flat_name: event.Ext.agent_exposure.qualification
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.qualification
+  normalize: []
+  short: Qualification of a match. A syntax candidate is not proof that a credential
+    is valid.
+  type: keyword
+event.Ext.agent_exposure.ruleset_source:
+  dashed_name: event-Ext-agent-exposure-ruleset-source
+  description: Source of the classifier catalog, such as the authenticated global
+    configuration artifact.
+  flat_name: event.Ext.agent_exposure.ruleset_source
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.ruleset_source
+  normalize: []
+  short: Source of the classifier catalog, such as the authenticated global configuration
+    artifact.
+  type: keyword
+event.Ext.agent_exposure.ruleset_version:
+  dashed_name: event-Ext-agent-exposure-ruleset-version
+  description: Version identifying the immutable classifier catalog used for this
+    observation.
+  flat_name: event.Ext.agent_exposure.ruleset_version
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.ruleset_version
+  normalize: []
+  short: Version identifying the immutable classifier catalog used for this observation.
+  type: keyword
+event.Ext.agent_exposure.scan_complete:
+  dashed_name: event-Ext-agent-exposure-scan-complete
+  description: Whether all admitted content was examined within the supported format
+    and scan bounds.
+  flat_name: event.Ext.agent_exposure.scan_complete
+  level: custom
+  name: Ext.agent_exposure.scan_complete
+  normalize: []
+  short: Whether all admitted content was examined within the supported format and
+    scan bounds.
+  type: boolean
+event.Ext.agent_exposure.stage:
+  dashed_name: event-Ext-agent-exposure-stage
+  description: 'Observation stage: input, submission or persistence. Submission includes
+    file text offered as model context. A stage does not establish successful upload.'
+  flat_name: event.Ext.agent_exposure.stage
+  ignore_above: 256
+  level: custom
+  name: Ext.agent_exposure.stage
+  normalize: []
+  short: 'Observation stage: input, submission or persistence. Submission includes
+    file text offered as model context. A stage does not establish successful upload.'
+  type: keyword
 message:
   dashed_name: message
   description: 'For log events the message field contains the log message, optimized
