@@ -1,5 +1,8 @@
 - version: "9.6.0-next"
   changes:
+    - description: Add content-free event.Ext.agent_exposure fields to Endpoint alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/812
     - description: Add process.ai_agent fields to file and network events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/813
