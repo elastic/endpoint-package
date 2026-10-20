@@ -28,7 +28,7 @@ The macOS policy choices in this article only take effect after the host grants 
 
 VPN clients can conflict with Elastic Defend DNS event collection on macOS. Turning DNS event collection off in the policy is the policy-side lever. The `incompatible_software_third_party` knowledge base doc covers that conflict; confirm the current event-collection controls in the policy UI.
 
-Ransomware protection on macOS has no top-level control in the Elastic Defend policy UI. A macOS ransomware mode exists as an advanced policy setting and defaults to off. Use the maintained field reference for that setting name and its legal values.
+Ransomware protection on macOS is part of the same per-operating-system ransomware control as Windows and Linux on current stacks. Older stacks differ: the macOS ransomware mode exists only as an advanced policy setting that defaults to off. Use the policy UI or the maintained field reference for the current control and its legal values.
 
 ## Exact settings
 
