@@ -503,22 +503,11 @@
       ignore_above: 1024
       description: Value name recovered by Rollback
       default_field: false
-    - name: action.process.message
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Status message for Process Rollback
-      default_field: false
     - name: action.process.path
       level: custom
       type: keyword
       ignore_above: 1024
       description: Path of process killed by Process Rollback
-      default_field: false
-    - name: action.process.result
-      level: custom
-      type: long
-      description: Result code for Process Rollback
       default_field: false
     - name: action.source.attributes
       level: custom
@@ -8222,6 +8211,29 @@
       ignore_above: 1024
       description: A categorization value keyword used by the entity using the rule for detection of this event.
       example: Attempted Information Leak
+      default_field: false
+    - name: custom_yara_signature
+      level: custom
+      type: object
+      description: Details of the user-defined YARA signature that generated the alert.
+      default_field: false
+    - name: custom_yara_signature.entry_id
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: custom_yara_signature.entry_name
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Name of the user YARA entry that defined the matched rule.
+      default_field: false
+    - name: custom_yara_signature.rule_identifier
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Identifier of the matched user-defined YARA rule.
       default_field: false
     - name: description
       level: extended

@@ -105,6 +105,11 @@ fields:
     fields:
       author: {}
       category: {}
+      custom_yara_signature:
+        fields:
+          entry_id: {}
+          entry_name: {}
+          rule_identifier: {}
       description: {}
       id: {}
       license: {}
@@ -847,4 +852,6 @@ fields:
         fields: *process-fields
 
   Memory_protection:
+    fields: "*"
+  Responses:
     fields: "*"

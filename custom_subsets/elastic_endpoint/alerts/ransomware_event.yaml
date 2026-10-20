@@ -734,3 +734,5 @@ fields:
               name: {}
   Ransomware:
     fields: "*"
+  Responses:
+    fields: "*"

@@ -51,8 +51,10 @@ This event is generated for a process that was already running before Endpoint's
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
 | process.Ext.effective_parent.pid |
-| process.ai_agent.is_descendant |
+| process.Ext.trusted |
+| process.Ext.trusted_descendant |
 | process.ai_agent.email |
+| process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |

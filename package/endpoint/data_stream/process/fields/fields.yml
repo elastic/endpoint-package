@@ -993,6 +993,72 @@
       ignore_above: 1024
       description: Process mitigation policies include SignaturePolicy, DynamicCodePolicy, UserShadowStackPolicy, ControlFlowGuardPolicy, etc. Examples include Microsoft only, CF Guard, User Shadow Stack enabled
       default_field: false
+    - name: Ext.mprotect
+      level: custom
+      type: object
+      description: Object for executable mprotect attempts. Linux only. Emitted when a call to mprotect(), pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect check with execute permission in the kernel-adjusted protection. The event describes an attempt and does not assert that the protection change was committed.
+      default_field: false
+    - name: Ext.mprotect.effective_prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection the kernel will apply after personality adjustments such as READ_IMPLIES_EXEC, decoded in fixed R, W, X order. Always contains X; emitted values are X, RX, WX and RWX.
+      example: RX
+      default_field: false
+    - name: Ext.mprotect.file.device
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Device of the backing file as major:minor. Absent for anonymous memory.
+      example: '259:1'
+      default_field: false
+    - name: Ext.mprotect.file.inode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Inode number of the backing file. Absent for anonymous memory.
+      default_field: false
+    - name: Ext.mprotect.file.path
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Mount-namespace relative path of the backing file. Absent for anonymous memory.
+      default_field: false
+    - name: Ext.mprotect.file_backed
+      level: custom
+      type: boolean
+      description: True when the memory area is backed by a file, false for anonymous memory.
+      example: 'false'
+      default_field: false
+    - name: Ext.mprotect.prev_prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection of the memory area before the call, decoded in fixed R, W, X order. Empty when the area had no permissions.
+      example: RW
+      default_field: false
+    - name: Ext.mprotect.req_prot
+      level: custom
+      type: long
+      description: Raw protection flags passed to the call, including bits beyond read, write and execute such as PROT_GROWSDOWN.
+      default_field: false
+    - name: Ext.mprotect.req_prot_flags
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Protection requested by the call, decoded in fixed R, W, X order.
+      example: RX
+      default_field: false
+    - name: Ext.mprotect.vma_end
+      level: custom
+      type: long
+      description: End address (exclusive) of the virtual memory area the kernel considered.
+      default_field: false
+    - name: Ext.mprotect.vma_start
+      level: custom
+      type: long
+      description: Start address of the virtual memory area the kernel considered. Not the address passed to the call.
+      default_field: false
     - name: Ext.protection
       level: custom
       type: keyword
@@ -1168,9 +1234,9 @@
     - name: ai_agent
       level: extended
       type: object
-      description: 'Fields describing an AI-agent tool associated with a process.
+      description: 'Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action.
 
-        When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity.'
+        Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity.'
       default_field: false
     - name: ai_agent.email
       level: extended
@@ -1181,13 +1247,13 @@
     - name: ai_agent.is_descendant
       level: extended
       type: boolean
-      description: True when this process was spawned, directly or transitively, by a known AI-agent tool process.
+      description: False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively.
       default_field: false
     - name: ai_agent.name
       level: extended
       type: keyword
       ignore_above: 1024
-      description: 'Canonical name of the AI-agent tool associated with this process or its ancestor.
+      description: 'Canonical name of the AI-agent tool, either the process itself or the ancestor that started it.
 
         Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
       default_field: false

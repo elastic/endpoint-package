@@ -77,12 +77,13 @@
       alpha: This field is alpha and subject to change.
       short: AI-agent tool identification fields.
       description: >
-        Fields describing an AI-agent tool associated with a process.
+        Identifies the AI-agent tool behind the process: either the process is a known
+        AI-agent tool itself, or it was started by one, directly or transitively.
+        On file, network and other non-process events, the process is the one that
+        performed the action.
 
-        When a process is identified as a known AI-agent development tool, these fields
-        can be populated on the process event and propagated to descendant processes.
-        This enables analysts and detection rules to distinguish AI-agent-initiated
-        activity from human-initiated activity.
+        Lets analysts and detection rules separate activity driven by AI agents from
+        human-initiated activity.
 
     - name: ai_agent.email
       level: extended
@@ -98,10 +99,10 @@
       level: extended
       type: boolean
       alpha: This field is alpha and subject to change.
-      short: Whether this process is a descendant of an AI-agent tool process.
+      short: Whether the process was started by an AI-agent tool.
       description: >
-        True when this process was spawned, directly or transitively, by
-        a known AI-agent tool process.
+        False when the process is the AI-agent tool itself; true when it was started
+        by one, directly or transitively.
 
     - name: ai_agent.name
       level: extended
@@ -110,8 +111,8 @@
       alpha: This field is alpha and subject to change.
       short: Canonical name of the AI-agent tool.
       description: >
-        Canonical name of the AI-agent tool associated with this process
-        or its ancestor.
+        Canonical name of the AI-agent tool, either the process itself or the ancestor
+        that started it.
 
         Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and
         `gemini_cli`.
@@ -239,6 +240,72 @@
       type: keyword
       example: "OE"
       description: Kernel taint letters for this module, e.g. O for out-of-tree and E for unsigned. Only present when the module taints the kernel.
+
+    - name: Ext.mprotect
+      level: custom
+      type: object
+      description: >
+        Object for executable mprotect attempts. Linux only. Emitted when a call to mprotect(),
+        pkey_mprotect() or a compat variant reaches the kernel's security_file_mprotect check
+        with execute permission in the kernel-adjusted protection. The event describes an
+        attempt and does not assert that the protection change was committed.
+
+    - name: Ext.mprotect.vma_start
+      level: custom
+      type: long
+      description: Start address of the virtual memory area the kernel considered. Not the address passed to the call.
+
+    - name: Ext.mprotect.vma_end
+      level: custom
+      type: long
+      description: End address (exclusive) of the virtual memory area the kernel considered.
+
+    - name: Ext.mprotect.prev_prot_flags
+      level: custom
+      type: keyword
+      example: "RW"
+      description: Protection of the memory area before the call, decoded in fixed R, W, X order. Empty when the area had no permissions.
+
+    - name: Ext.mprotect.req_prot
+      level: custom
+      type: long
+      description: Raw protection flags passed to the call, including bits beyond read, write and execute such as PROT_GROWSDOWN.
+
+    - name: Ext.mprotect.req_prot_flags
+      level: custom
+      type: keyword
+      example: "RX"
+      description: Protection requested by the call, decoded in fixed R, W, X order.
+
+    - name: Ext.mprotect.effective_prot_flags
+      level: custom
+      type: keyword
+      example: "RX"
+      description: >
+        Protection the kernel will apply after personality adjustments such as READ_IMPLIES_EXEC,
+        decoded in fixed R, W, X order. Always contains X; emitted values are X, RX, WX and RWX.
+
+    - name: Ext.mprotect.file_backed
+      level: custom
+      type: boolean
+      example: "false"
+      description: True when the memory area is backed by a file, false for anonymous memory.
+
+    - name: Ext.mprotect.file.path
+      level: custom
+      type: keyword
+      description: Mount-namespace relative path of the backing file. Absent for anonymous memory.
+
+    - name: Ext.mprotect.file.inode
+      level: custom
+      type: keyword
+      description: Inode number of the backing file. Absent for anonymous memory.
+
+    - name: Ext.mprotect.file.device
+      level: custom
+      type: keyword
+      example: "259:1"
+      description: Device of the backing file as major:minor. Absent for anonymous memory.
 
     - name: Ext.memfd
       level: custom

@@ -39,9 +39,13 @@ This alert is generated when a Shellcode Threat alert occurs.
 | Responses.action.key.path |
 | Responses.action.key.values.actions |
 | Responses.action.key.values.name |
+| Responses.action.process.path |
 | Responses.action.source.attributes |
 | Responses.action.source.path |
 | Responses.message |
+| Responses.process.entity_id |
+| Responses.process.name |
+| Responses.process.pid |
 | Responses.result |
 | Target.process.Ext.architecture |
 | Target.process.Ext.code_signature.exists |

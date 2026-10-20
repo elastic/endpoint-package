@@ -24,6 +24,13 @@ This alert is generated when a Memory Threat alert occurs.
 | Endpoint.policy.applied.id |
 | Endpoint.policy.applied.name |
 | Endpoint.policy.applied.version |
+| Responses.@timestamp |
+| Responses.action.action |
+| Responses.message |
+| Responses.process.entity_id |
+| Responses.process.name |
+| Responses.process.pid |
+| Responses.result |
 | agent.build.original |
 | agent.id |
 | agent.type |
@@ -207,6 +214,9 @@ This alert is generated when a Memory Threat alert occurs.
 | process.user.id |
 | process.user.name |
 | process.working_directory |
+| rule.custom_yara_signature.entry_id |
+| rule.custom_yara_signature.entry_name |
+| rule.custom_yara_signature.rule_identifier |
 | rule.id |
 | rule.name |
 | rule.ruleset |
