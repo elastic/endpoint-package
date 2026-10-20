@@ -93,6 +93,10 @@ fields:
               name: {}
   process:
     fields:
+      ai_agent:
+        fields:
+          is_descendant: {}
+          name: {}
       pid: {}
       command_line: {}
       name: {}

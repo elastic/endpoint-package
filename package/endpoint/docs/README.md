@@ -1211,6 +1211,10 @@ sent by the endpoint.
 | registry.value | Name of the value written. | keyword |
 | rule.author | Name, organization, or pseudonym of the author or authors who created the rule used to generate this event. | keyword |
 | rule.category | A categorization value keyword used by the entity using the rule for detection of this event. | keyword |
+| rule.custom_yara_signature | Details of the user-defined YARA signature that generated the alert. | object |
+| rule.custom_yara_signature.entry_id | Identifier of the user YARA entry that defined the matched rule. | keyword |
+| rule.custom_yara_signature.entry_name | Name of the user YARA entry that defined the matched rule. | keyword |
+| rule.custom_yara_signature.rule_identifier | Identifier of the matched user-defined YARA rule. | keyword |
 | rule.description | The description of the rule generating the event. | keyword |
 | rule.id | A rule ID that is unique within the scope of an agent, observer, or other entity using the rule for detection of this event. | keyword |
 | rule.license | Name of the license under which the rule used to generate this event is made available. | keyword |
@@ -1848,6 +1852,9 @@ sent by the endpoint.
 | process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.ai_agent | Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action. Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity. | object |
+| process.ai_agent.is_descendant | False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool, either the process itself or the ancestor that started it. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
@@ -2234,6 +2241,9 @@ sent by the endpoint.
 | process.Ext.code_signature.thumbprint_sha256 | Certificate SHA256 hash that uniquely identifies the code signer. | keyword |
 | process.Ext.code_signature.trusted | Stores the trust status of the certificate chain. Validating the trust of the certificate chain may be complicated, and this field should only be populated by tools that actively check the status. | boolean |
 | process.Ext.code_signature.valid | Boolean to capture if the digital signature is verified against the binary content. Leave unpopulated if a certificate was unchecked. | boolean |
+| process.ai_agent | Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action. Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity. | object |
+| process.ai_agent.is_descendant | False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool, either the process itself or the ancestor that started it. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
 | process.code_signature.signing_id | The identifier used to sign the process. This is used to identify the application manufactured by a software vendor. The field is relevant to Apple *OS only. | keyword |
 | process.code_signature.status | Additional information about the certificate status. This is useful for logging cryptographic errors with the certificate validity or trust status. Leave unpopulated if the validity or trust of the certificate was unchecked. | keyword |
@@ -2474,10 +2484,10 @@ sent by the endpoint.
 | process.Ext.trusted_descendant | Whether or not the process is a descendent of a trusted application | boolean |
 | process.Ext.windows | Platform-specific Windows fields | object |
 | process.Ext.windows.zone_identifier | Windows zone identifier for a process's executable file | keyword |
-| process.ai_agent | Fields describing an AI-agent tool associated with a process. When a process is identified as a known AI-agent development tool, these fields can be populated on the process event and propagated to descendant processes. This enables analysts and detection rules to distinguish AI-agent-initiated activity from human-initiated activity. | object |
+| process.ai_agent | Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action. Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity. | object |
 | process.ai_agent.email | Email address of the user associated with the AI-agent tool that initiated this process. | keyword |
-| process.ai_agent.is_descendant | True when this process was spawned, directly or transitively, by a known AI-agent tool process. | boolean |
-| process.ai_agent.name | Canonical name of the AI-agent tool associated with this process or its ancestor. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
+| process.ai_agent.is_descendant | False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively. | boolean |
+| process.ai_agent.name | Canonical name of the AI-agent tool, either the process itself or the ancestor that started it. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | process.code_signature.exists | Boolean to capture if a signature is present. | boolean |
