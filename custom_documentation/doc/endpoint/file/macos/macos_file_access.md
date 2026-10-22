@@ -32,9 +32,6 @@ This event is generated when a file is accessed.
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.attributes |
 | file.extension |
 | file.hash.sha256 |
@@ -62,6 +59,8 @@ This event is generated when a file is accessed.
 | host.os.type |
 | host.os.version |
 | message |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.code_signature.exists |

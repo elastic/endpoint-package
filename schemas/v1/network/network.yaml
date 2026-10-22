@@ -1868,6 +1868,30 @@ process.ai_agent:
   normalize: []
   short: AI-agent tool identification fields.
   type: object
+process.ai_agent.api_key_auth:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-api-key-auth
+  description: True when the AI-agent tool's credential store shows API key authentication
+    rather than an account sign-in.
+  flat_name: process.ai_agent.api_key_auth
+  level: extended
+  name: ai_agent.api_key_auth
+  normalize: []
+  short: True if the AI-agent tool authenticates with an API key.
+  type: boolean
+process.ai_agent.email:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-email
+  description: Email address of the account the AI-agent tool is signed in with, read
+    from the tool's credential store on the host. Carried on events whose acting process
+    is the AI-agent tool.
+  flat_name: process.ai_agent.email
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.email
+  normalize: []
+  short: Email address of the account the AI-agent tool is signed in with.
+  type: keyword
 process.ai_agent.is_descendant:
   alpha: This field is alpha and subject to change.
   dashed_name: process-ai-agent-is-descendant

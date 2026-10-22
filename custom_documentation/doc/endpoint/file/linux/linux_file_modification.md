@@ -30,9 +30,6 @@ This event is generated when a file is modified.
 | event.type |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
@@ -59,6 +56,8 @@ This event is generated when a file is modified.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.entry_leader.entity_id |
