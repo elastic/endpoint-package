@@ -66,6 +66,10 @@ This event is generated when a process generates text output.
 | orchestrator.resource.type |
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.command_line |

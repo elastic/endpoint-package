@@ -95,6 +95,8 @@ fields:
     fields:
       ai_agent:
         fields:
+          api_key_auth: {}
+          email: {}
           is_descendant: {}
           name: {}
       pid: {}

@@ -83,8 +83,9 @@ This event is generated when a process is created or exits.
 | process.Ext.trusted |
 | process.Ext.trusted_descendant |
 | process.Ext.windows.zone_identifier |
-| process.ai_agent.is_descendant |
+| process.ai_agent.api_key_auth |
 | process.ai_agent.email |
+| process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.args |
 | process.args_count |

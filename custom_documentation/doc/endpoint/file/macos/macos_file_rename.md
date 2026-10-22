@@ -32,9 +32,6 @@ This event is generated when a file is renamed.
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.Ext.original.extension |
 | file.Ext.original.path |
 | file.extension |
@@ -64,6 +61,8 @@ This event is generated when a file is renamed.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
 | process.code_signature.exists |
