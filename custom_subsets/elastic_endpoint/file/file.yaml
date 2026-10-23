@@ -259,6 +259,12 @@ fields:
                   matches: {}
               secondary: {}
               version: {}
+          pipe:
+            fields:
+              type: {}
+              operation: {}
+              mode: {}
+              is_remote: {}
           device:
            fields:
              bus_type: {}

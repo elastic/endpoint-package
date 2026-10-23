@@ -61,7 +61,7 @@
       type: keyword
       description: >
         Message describing quarantine results.
-        
+
     - name: Ext.windows
       level: custom
       type: object
@@ -215,19 +215,19 @@
       short: File event monotonic ID
       description: >
         File event monotonic ID.
-        
+
     - name: Ext.malware_signature
       level: custom
       type: nested
       description: Nested version of malware_signature fieldset.
-      
+
     - name: Ext.malware_signature.all_names
       level: custom
       type: text
       short: Yara signature names
       description: >
         The concatenated names of all yara signatures
-    
+
     - name: Ext.malware_signature.identifier
       level: custom
       type: text
@@ -241,7 +241,7 @@
       short: Primary malware signature match
       description: >
         Primary malware signature match.
-            
+
     - name: Ext.malware_signature.primary.matches
       level: custom
       type: nested
@@ -271,7 +271,7 @@
       short: Primary malware signature sha256
       description: >
         Primary malware signature sha256.
-        
+
     - name: Ext.malware_signature.primary.signature.id
       level: custom
       type: keyword
@@ -294,13 +294,51 @@
         An array of malware signature matches
       normalize:
         - array
-        
+
     - name: Ext.malware_signature.version
       level: custom
       type: keyword
       short: Primary malware signature version
       description: >
         Primary malware signature version.
+
+    - name: Ext.pipe
+      level: custom
+      type: object
+      short: Named pipe or mailslot information.
+      description: >
+        Information about a named pipe or mailslot operation (Windows only).
+
+    - name: Ext.pipe.type
+      level: custom
+      type: keyword
+      short: Type of the pipe.
+      description: >
+        Type of the pipe object.
+      example: one of "NamedPipe", "Mailslot"
+
+    - name: Ext.pipe.operation
+      level: custom
+      type: keyword
+      short: Operation performed on the pipe.
+      description: >
+        Operation performed on the named pipe or mailslot.
+      example: "Create"
+
+    - name: Ext.pipe.mode
+      level: custom
+      type: keyword
+      short: Pipe mode of the named pipe.
+      description: >
+        Type mode the named pipe was created with. Not set for mailslots.
+      example: one of "Byte", "Message"
+
+    - name: Ext.pipe.is_remote
+      level: custom
+      type: boolean
+      short: Whether remote clients are accepted.
+      description: >
+        True if the named pipe accepts connections from remote clients. Not set for mailslots.
 
     - name: Ext.device.bus_type
       level: custom
