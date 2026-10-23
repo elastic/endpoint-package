@@ -1,5 +1,8 @@
 - version: "9.6.0-next"
   changes:
+    - description: Add Linux file open (access) event fields, file.Ext.access.*, file.Ext.procfs.* and error.code
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/798
     - description: Add AI-agent account email and API-key authentication fields to process, file, and network events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/801
