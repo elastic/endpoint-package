@@ -1,0 +1,1096 @@
+{
+    "accessControl": {
+        "accessMode": "default",
+        "owner": "u_621312050_cloud"
+    },
+    "attributes": {
+        "description": "",
+        "esqlApproximation": false,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "autoApplyFilters": true,
+            "hidePanelBorders": false,
+            "hidePanelTitles": false,
+            "syncColors": true,
+            "syncCursor": true,
+            "syncTooltips": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [],
+                        "state": {
+                            "adHocDataViews": {
+                                "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf": {
+                                    "allowHidden": false,
+                                    "allowNoIndex": false,
+                                    "fieldAttrs": {},
+                                    "fieldFormats": {},
+                                    "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                    "managed": false,
+                                    "name": "logs-*",
+                                    "runtimeFieldMap": {},
+                                    "sourceFilters": [],
+                                    "timeFieldName": "@timestamp",
+                                    "title": "logs-*",
+                                    "type": "esql"
+                                }
+                            },
+                            "datasourceStates": {
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
+                                    "layers": {
+                                        "4f9f19cf-cd4f-47c4-a4a2-87a7de608820": {
+                                            "columns": [
+                                                {
+                                                    "columnId": "a871332e-f84b-4f6f-a655-49fcad9ba8f4",
+                                                    "customLabel": false,
+                                                    "fieldName": "email_domain",
+                                                    "label": "email_domain",
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "params": {
+                                                            "id": "string"
+                                                        },
+                                                        "sourceParams": {
+                                                            "indexPattern": "logs-*",
+                                                            "isSourceFieldFilterable": false,
+                                                            "sourceField": "email_domain"
+                                                        },
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "626d1225-c5dd-4027-af18-5a5bf8a80d73",
+                                                    "fieldName": "email_count",
+                                                    "inMetricDimension": true,
+                                                    "label": "email_count",
+                                                    "meta": {
+                                                        "esType": "long",
+                                                        "params": {
+                                                            "id": "number"
+                                                        },
+                                                        "sourceParams": {
+                                                            "indexPattern": "logs-*",
+                                                            "isSourceFieldFilterable": false,
+                                                            "sourceField": "email_count"
+                                                        },
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            ],
+                                            "index": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                            "query": {
+                                                "esql": "FROM logs-*\n| WHERE process.ai_agent.email IS NOT NULL AND process.ai_agent.email LIKE \"*@*\" AND event.module == \"endpoint\"\n| DISSECT process.ai_agent.email \"%{?user}@%{email_domain}\"\n| STATS email_count = COUNT_DISTINCT(process.ai_agent.email) BY email_domain\n| SORT email_count DESC"
+                                            },
+                                            "timeField": "@timestamp"
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [
+                                {
+                                    "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                    "name": "textBasedLanguages-datasource-layer-4f9f19cf-cd4f-47c4-a4a2-87a7de608820",
+                                    "type": "index-pattern"
+                                }
+                            ],
+                            "needsRefresh": false,
+                            "query": {
+                                "esql": "FROM logs-*\n| WHERE process.ai_agent.email IS NOT NULL AND process.ai_agent.email LIKE \"*@*\" AND event.module == \"endpoint\"\n| DISSECT process.ai_agent.email \"%{?user}@%{email_domain}\"\n| STATS email_count = COUNT_DISTINCT(process.ai_agent.email) BY email_domain\n| SORT email_count DESC"
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "categoryDisplay": "default",
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "default",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rules": [
+                                                        {
+                                                            "type": "other"
+                                                        }
+                                                    ],
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "4f9f19cf-cd4f-47c4-a4a2-87a7de608820",
+                                        "layerType": "data",
+                                        "legendDisplay": "default",
+                                        "metrics": [
+                                            "626d1225-c5dd-4027-af18-5a5bf8a80d73"
+                                        ],
+                                        "nestedLegend": false,
+                                        "numberDisplay": "percent",
+                                        "primaryGroups": [
+                                            "a871332e-f84b-4f6f-a655-49fcad9ba8f4"
+                                        ]
+                                    }
+                                ],
+                                "shape": "treemap"
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsPie"
+                    },
+                    "drilldowns": [],
+                    "title": "Login email providers"
+                },
+                "gridData": {
+                    "h": 17,
+                    "i": "74f6b64c-146d-4d9f-98b7-ee82fc8655c9",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "74f6b64c-146d-4d9f-98b7-ee82fc8655c9",
+                "type": "vis"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1d993c56-f0b0-4302-a742-9462844ce6b0": {
+                                            "columnOrder": [
+                                                "402da27e-d7c0-4444-a2b8-716de794dbe4",
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                            ],
+                                            "columns": {
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Unique hosts",
+                                                    "operationType": "unique_count",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "host.name"
+                                                },
+                                                "402da27e-d7c0-4444-a2b8-716de794dbe4": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 20 values of process.ai_agent.name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "173efdca-6498-4633-869b-9bbecd7b24ed",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "secondaryFields": [],
+                                                        "size": 20
+                                                    },
+                                                    "sourceField": "process.ai_agent.name"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : endpoint and process.ai_agent.name : * "
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "categoryDisplay": "default",
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "default",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rules": [
+                                                        {
+                                                            "type": "other"
+                                                        }
+                                                    ],
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                        "layerType": "data",
+                                        "legendDisplay": "default",
+                                        "metrics": [
+                                            "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                        ],
+                                        "nestedLegend": false,
+                                        "numberDisplay": "percent",
+                                        "primaryGroups": [
+                                            "402da27e-d7c0-4444-a2b8-716de794dbe4"
+                                        ]
+                                    }
+                                ],
+                                "shape": "treemap"
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsPie"
+                    },
+                    "drilldowns": [],
+                    "title": "Top AI tools"
+                },
+                "gridData": {
+                    "h": 17,
+                    "i": "a164e093-4bad-4be8-b279-b538554938e5",
+                    "w": 12,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "a164e093-4bad-4be8-b279-b538554938e5",
+                "type": "vis"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1d993c56-f0b0-4302-a742-9462844ce6b0": {
+                                            "columnOrder": [
+                                                "402da27e-d7c0-4444-a2b8-716de794dbe4",
+                                                "9fb0164f-4e05-4f48-b596-8ba0965f342a",
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                            ],
+                                            "columns": {
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Unique hosts",
+                                                    "operationType": "unique_count",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "host.name"
+                                                },
+                                                "402da27e-d7c0-4444-a2b8-716de794dbe4": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "9fb0164f-4e05-4f48-b596-8ba0965f342a": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 20 values of process.ai_agent.name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "173efdca-6498-4633-869b-9bbecd7b24ed",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 20
+                                                    },
+                                                    "sourceField": "process.ai_agent.name"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : endpoint and process.ai_agent.name : * "
+                            },
+                            "visualization": {
+                                "areaFill": "solid",
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "Linear",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                        ],
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "elastic_line_optimized",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rules": [
+                                                        {
+                                                            "type": "other"
+                                                        }
+                                                    ],
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                        "layerType": "data",
+                                        "seriesType": "line",
+                                        "splitAccessors": [
+                                            "9fb0164f-4e05-4f48-b596-8ba0965f342a"
+                                        ],
+                                        "xAccessor": "402da27e-d7c0-4444-a2b8-716de794dbe4"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "line",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsXY"
+                    },
+                    "drilldowns": [],
+                    "title": "Top AI tools over time"
+                },
+                "gridData": {
+                    "h": 17,
+                    "i": "9e036a66-d769-4965-bc1b-af77737841b4",
+                    "w": 24,
+                    "x": 24,
+                    "y": 0
+                },
+                "panelIndex": "9e036a66-d769-4965-bc1b-af77737841b4",
+                "type": "vis"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1d993c56-f0b0-4302-a742-9462844ce6b0": {
+                                            "columnOrder": [
+                                                "160df256-f7fe-4be9-9427-252d171df833",
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed",
+                                                "c0ec5d91-c894-49ee-a86b-7db0c2bebf7f"
+                                            ],
+                                            "columns": {
+                                                "160df256-f7fe-4be9-9427-252d171df833": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": false,
+                                                        "interval": "auto"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Destination",
+                                                    "operationType": "sum",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 2
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "destination.bytes"
+                                                },
+                                                "c0ec5d91-c894-49ee-a86b-7db0c2bebf7f": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Source",
+                                                    "operationType": "sum",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "sourceField": "source.bytes"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : endpoint and process.ai_agent.name : * "
+                            },
+                            "visualization": {
+                                "areaFill": "solid",
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": false,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "Linear",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "173efdca-6498-4633-869b-9bbecd7b24ed",
+                                            "c0ec5d91-c894-49ee-a86b-7db0c2bebf7f"
+                                        ],
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "default",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rules": [
+                                                        {
+                                                            "type": "other"
+                                                        }
+                                                    ],
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                        "layerType": "data",
+                                        "seriesType": "bar",
+                                        "xAccessor": "160df256-f7fe-4be9-9427-252d171df833"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsXY"
+                    },
+                    "drilldowns": [],
+                    "title": "Bytes transferred"
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "85bb850b-c05f-491c-a65c-cdebbf2842af",
+                    "w": 24,
+                    "x": 24,
+                    "y": 17
+                },
+                "panelIndex": "85bb850b-c05f-491c-a65c-cdebbf2842af",
+                "type": "vis"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [],
+                        "state": {
+                            "adHocDataViews": {
+                                "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf": {
+                                    "allowHidden": false,
+                                    "allowNoIndex": false,
+                                    "fieldAttrs": {},
+                                    "fieldFormats": {},
+                                    "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                    "managed": false,
+                                    "name": "logs-*",
+                                    "runtimeFieldMap": {},
+                                    "sourceFilters": [],
+                                    "timeFieldName": "@timestamp",
+                                    "title": "logs-*",
+                                    "type": "esql"
+                                }
+                            },
+                            "datasourceStates": {
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
+                                    "layers": {
+                                        "e2de40ae-4d28-46fd-b3c8-f138b19b698f": {
+                                            "columns": [
+                                                {
+                                                    "columnId": "domain",
+                                                    "customLabel": true,
+                                                    "fieldName": "domain",
+                                                    "label": "Top level domain",
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "lookup_count",
+                                                    "customLabel": true,
+                                                    "fieldName": "lookup_count",
+                                                    "inMetricDimension": true,
+                                                    "label": "Queries",
+                                                    "meta": {
+                                                        "esType": "long",
+                                                        "type": "number"
+                                                    },
+                                                    "params": {
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "full_domains",
+                                                    "customLabel": true,
+                                                    "fieldName": "full_domains",
+                                                    "label": "Full domains",
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ],
+                                            "index": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                            "query": {
+                                                "esql": "FROM logs-*\n| WHERE process.ai_agent.name IS NOT NULL\n    AND event.module == \"endpoint\" \n    AND event.dataset == \"endpoint.events.network\" \n    AND dns.question.name IS NOT NULL\n| REGISTERED_DOMAIN rd = dns.question.name\n| EVAL domain = COALESCE(rd.registered_domain, dns.question.name)\n| STATS lookup_count = COUNT(domain), \n        hostnames_array = VALUES(dns.question.name) BY domain\n| EVAL full_domains = MV_CONCAT(hostnames_array, \", \")\n| KEEP domain, lookup_count, full_domains\n| SORT lookup_count DESC\n| LIMIT 200"
+                                            },
+                                            "timeField": "@timestamp"
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [
+                                {
+                                    "id": "0e601c662b99f0a8e56b13de42e18322039f88b9db406bcb5c154f500316cbbf",
+                                    "name": "textBasedLanguages-datasource-layer-e2de40ae-4d28-46fd-b3c8-f138b19b698f",
+                                    "type": "index-pattern"
+                                }
+                            ],
+                            "needsRefresh": false,
+                            "query": {
+                                "esql": "FROM logs-*\n| WHERE process.ai_agent.name IS NOT NULL\n    AND event.module == \"endpoint\" \n    AND event.dataset == \"endpoint.events.network\" \n    AND dns.question.name IS NOT NULL\n| REGISTERED_DOMAIN rd = dns.question.name\n| EVAL domain = COALESCE(rd.registered_domain, dns.question.name)\n| STATS lookup_count = COUNT(domain), \n        hostnames_array = VALUES(dns.question.name) BY domain\n| EVAL full_domains = MV_CONCAT(hostnames_array, \", \")\n| KEEP domain, lookup_count, full_domains\n| SORT lookup_count DESC\n| LIMIT 200"
+                            },
+                            "visualization": {
+                                "columns": [
+                                    {
+                                        "colorMode": "none",
+                                        "columnId": "domain",
+                                        "isTransposed": false,
+                                        "width": 147
+                                    },
+                                    {
+                                        "colorMode": "cell",
+                                        "columnId": "lookup_count",
+                                        "isTransposed": false,
+                                        "palette": {
+                                            "name": "positive",
+                                            "params": {
+                                                "colorStops": [],
+                                                "continuity": "above",
+                                                "name": "positive",
+                                                "progression": "fixed",
+                                                "rangeMax": 100,
+                                                "rangeMin": 0,
+                                                "rangeType": "percent",
+                                                "reverse": false,
+                                                "steps": 5,
+                                                "stops": [
+                                                    {
+                                                        "color": "#d4efe6",
+                                                        "stop": 20
+                                                    },
+                                                    {
+                                                        "color": "#b1e4d1",
+                                                        "stop": 40
+                                                    },
+                                                    {
+                                                        "color": "#8cd9bb",
+                                                        "stop": 60
+                                                    },
+                                                    {
+                                                        "color": "#62cea6",
+                                                        "stop": 80
+                                                    },
+                                                    {
+                                                        "color": "#24c292",
+                                                        "stop": 100
+                                                    }
+                                                ]
+                                            },
+                                            "type": "palette"
+                                        },
+                                        "width": 126
+                                    },
+                                    {
+                                        "columnId": "full_domains",
+                                        "isTransposed": false
+                                    }
+                                ],
+                                "layerId": "e2de40ae-4d28-46fd-b3c8-f138b19b698f",
+                                "layerType": "data",
+                                "showRowNumbers": true,
+                                "sorting": {
+                                    "columnId": "hostname_count",
+                                    "direction": "desc"
+                                }
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsDatatable"
+                    },
+                    "drilldowns": [],
+                    "title": "DNS queries by domain"
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "a55d237f-7ca4-4d6b-98a5-e7deb413a43a",
+                    "w": 48,
+                    "x": 0,
+                    "y": 33
+                },
+                "panelIndex": "a55d237f-7ca4-4d6b-98a5-e7deb413a43a",
+                "type": "vis"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1d993c56-f0b0-4302-a742-9462844ce6b0": {
+                                            "columnOrder": [
+                                                "ac52c075-eee1-46a6-9a4f-a9eb6d9021ea",
+                                                "160df256-f7fe-4be9-9427-252d171df833",
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                            ],
+                                            "columns": {
+                                                "160df256-f7fe-4be9-9427-252d171df833": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "173efdca-6498-4633-869b-9bbecd7b24ed": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Queries",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "dns.question.name"
+                                                },
+                                                "ac52c075-eee1-46a6-9a4f-a9eb6d9021ea": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 20 values of dns.question.name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "173efdca-6498-4633-869b-9bbecd7b24ed",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": false,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 20
+                                                    },
+                                                    "sourceField": "dns.question.name"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : endpoint and process.ai_agent.name : * "
+                            },
+                            "visualization": {
+                                "areaFill": "solid",
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "Linear",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "173efdca-6498-4633-869b-9bbecd7b24ed"
+                                        ],
+                                        "layerId": "1d993c56-f0b0-4302-a742-9462844ce6b0",
+                                        "layerType": "data",
+                                        "seriesType": "line",
+                                        "splitAccessors": [
+                                            "ac52c075-eee1-46a6-9a4f-a9eb6d9021ea"
+                                        ],
+                                        "xAccessor": "160df256-f7fe-4be9-9427-252d171df833"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "line",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "version": 3,
+                        "visualizationType": "lnsXY"
+                    },
+                    "drilldowns": [],
+                    "title": "Top DNS queries"
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "d07f6557-0244-4641-8c63-81217f915925",
+                    "w": 24,
+                    "x": 0,
+                    "y": 17
+                },
+                "panelIndex": "d07f6557-0244-4641-8c63-81217f915925",
+                "type": "vis"
+            }
+        ],
+        "pinned_panels": {
+            "panels": {
+                "39c3ae1d-7983-42eb-9004-ba2103b1a34c": {
+                    "config": {
+                        "dataViewRefName": "39c3ae1d-7983-42eb-9004-ba2103b1a34c:optionsListDataView",
+                        "exclude": false,
+                        "exists_selected": false,
+                        "field_name": "process.ai_agent.email",
+                        "ignore_validations": false,
+                        "run_past_timeout": false,
+                        "search_technique": "wildcard",
+                        "selected_options": [],
+                        "single_select": false,
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "Email",
+                        "use_global_filters": true,
+                        "values_source": "field"
+                    },
+                    "grow": true,
+                    "order": 2,
+                    "type": "options_list_control",
+                    "width": "medium"
+                },
+                "47ebf925-f434-4465-b04c-f91ba696ef33": {
+                    "config": {
+                        "dataViewRefName": "47ebf925-f434-4465-b04c-f91ba696ef33:optionsListDataView",
+                        "exclude": false,
+                        "exists_selected": false,
+                        "field_name": "process.ai_agent.name",
+                        "ignore_validations": false,
+                        "run_past_timeout": false,
+                        "search_technique": "wildcard",
+                        "selected_options": [],
+                        "single_select": false,
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "Tool",
+                        "use_global_filters": true,
+                        "values_source": "field"
+                    },
+                    "grow": true,
+                    "order": 0,
+                    "type": "options_list_control",
+                    "width": "medium"
+                },
+                "b22644c7-9dbf-4a4a-8b02-fecd0a96bfcf": {
+                    "config": {
+                        "dataViewRefName": "b22644c7-9dbf-4a4a-8b02-fecd0a96bfcf:optionsListDataView",
+                        "exclude": false,
+                        "exists_selected": false,
+                        "field_name": "host.name",
+                        "ignore_validations": false,
+                        "run_past_timeout": false,
+                        "search_technique": "wildcard",
+                        "selected_options": [],
+                        "single_select": false,
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "Host",
+                        "use_global_filters": true,
+                        "values_source": "field"
+                    },
+                    "grow": true,
+                    "order": 1,
+                    "type": "options_list_control",
+                    "width": "medium"
+                }
+            }
+        },
+        "timeRestore": false,
+        "title": "[Elastic Defend] AI Visibility"
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2026-10-19T15:39:37.438Z",
+    "created_by": "u_621312050_cloud",
+    "id": "endpoint-5f488138-ced0-4b2b-98d5-19d4a4c9adae",
+    "references": [
+        {
+            "id": "endpoint-security-solution-default",
+            "name": "tag-ref-security-solution-default",
+            "type": "tag"
+        },
+        {
+            "id": "logs-*",
+            "name": "a164e093-4bad-4be8-b279-b538554938e5:indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "9e036a66-d769-4965-bc1b-af77737841b4:indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "85bb850b-c05f-491c-a65c-cdebbf2842af:indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "d07f6557-0244-4641-8c63-81217f915925:indexpattern-datasource-layer-1d993c56-f0b0-4302-a742-9462844ce6b0",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "47ebf925-f434-4465-b04c-f91ba696ef33:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "b22644c7-9dbf-4a4a-8b02-fecd0a96bfcf:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "39c3ae1d-7983-42eb-9004-ba2103b1a34c:optionsListDataView",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "dashboard",
+    "typeMigrationVersion": "10.3.0",
+    "updated_by": "u_621312050_cloud"
+}
