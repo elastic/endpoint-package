@@ -1,17 +1,41 @@
-- version: "9.6.0-next"
+- version: "9.6.0"
   changes:
-    - description: Add AI-agent account email and API-key authentication fields to process, file, and network events
+    - description: prep main for 9.6 dev
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/801
-    - description: Add process.ai_agent fields to file and network events
+      link: https://github.com/elastic/endpoint-package/pull/774
+    - description: Add custom yara signature
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/813
+      link: https://github.com/elastic/endpoint-package/pull/776
     - description: Add missing agent field mappings to endpoint.events.api
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/788
+    - description: Add fields for detection of shadow AI authentication file events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/792
+    - description: Add AI auth email fields to process events, update linux file events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/793
+    - description: Add early_bird to api.behaviors documentation
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/710
+    - description: package policy management skill KB docs
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/796
     - description: Add Linux executable mprotect attempt fields to process events
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/797
+    - description: Add Responses.x to for malware and ransomware events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/803
+    - description: Add rule.custom_yara_signature to memory threat alerts
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/810
+    - description: Add process.ai_agent fields to file and network events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/813
+    - description: Add AI-agent account email and API-key authentication fields to process, file, and network events
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/801
 - version: "9.5.0"
   changes:
     - description: Add mappings for process and security event sources metrics
