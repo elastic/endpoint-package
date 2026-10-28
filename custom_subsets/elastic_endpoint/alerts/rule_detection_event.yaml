@@ -18,6 +18,10 @@ fields:
       "Events": {}
   process:
     fields:
+      ai_agent:
+        fields:
+          is_descendant: {}
+          name: {}
       pid: {}
       name: {}
       executable: {}

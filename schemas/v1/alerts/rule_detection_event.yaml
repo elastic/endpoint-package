@@ -709,6 +709,47 @@ process.Ext.token.integrity_level_name:
   original_fieldset: token
   short: Human readable integrity level.
   type: keyword
+process.ai_agent:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent
+  description: 'Identifies the AI-agent tool behind the process: either the process
+    is a known AI-agent tool itself, or it was started by one, directly or transitively.
+    On file, network and other non-process events, the process is the one that performed
+    the action. On alerts, it is the process the alert is attributed to.
+
+    Lets analysts and detection rules separate activity driven by AI agents from human-initiated
+    activity.'
+  flat_name: process.ai_agent
+  level: extended
+  name: ai_agent
+  normalize: []
+  short: AI-agent tool identification fields.
+  type: object
+process.ai_agent.is_descendant:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-is-descendant
+  description: False when the process is the AI-agent tool itself; true when it was
+    started by one, directly or transitively.
+  flat_name: process.ai_agent.is_descendant
+  level: extended
+  name: ai_agent.is_descendant
+  normalize: []
+  short: Whether the process was started by an AI-agent tool.
+  type: boolean
+process.ai_agent.name:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-name
+  description: 'Canonical name of the AI-agent tool, either the process itself or
+    the ancestor that started it.
+
+    Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
+  flat_name: process.ai_agent.name
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.name
+  normalize: []
+  short: Canonical name of the AI-agent tool.
+  type: keyword
 process.code_signature.exists:
   dashed_name: process-code-signature-exists
   description: Boolean to capture if a signature is present.
