@@ -97,6 +97,8 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.memory_region.region_protection |
 | process.Ext.memory_region.region_size |
 | process.Ext.user |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.command_line |
