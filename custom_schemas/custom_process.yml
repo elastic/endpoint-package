@@ -127,6 +127,22 @@
         Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and
         `gemini_cli`.
 
+    - name: ai_agent.session_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      alpha: This field is alpha and subject to change.
+      short: Session ID of the AI-agent tool.
+      description: >
+        Identifier of the AI-agent tool session the process belongs to, as the tool
+        reports it in its own telemetry. For the AI-agent tool itself, this is the
+        session it is currently in. A process started by the tool keeps the session
+        it was started in.
+
+        Lets analysts join these events with the tool's own telemetry.
+        Currently reported for Claude Code on Linux and macOS.
+      example: 1f2e3d4c-5b6a-4789-8a9b-0c1d2e3f4a5b
+
     - name: parent.thread
       level: custom
       type: object
