@@ -108,6 +108,7 @@ fields:
           email: {}
           is_descendant: {}
           name: {}
+          session_id: {}
       args_count: {}
       command_line: {}
       pid: {}

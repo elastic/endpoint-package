@@ -74,6 +74,7 @@ This event is generated when when a process calls shmget().
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |

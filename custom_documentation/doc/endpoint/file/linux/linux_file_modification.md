@@ -60,6 +60,7 @@ This event is generated when a file is modified.
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.entry_leader.entity_id |
 | process.entry_leader.parent.entity_id |
 | process.group_leader.entity_id |
