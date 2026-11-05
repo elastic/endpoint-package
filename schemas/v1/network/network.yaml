@@ -1858,7 +1858,7 @@ process.ai_agent:
   description: 'Identifies the AI-agent tool behind the process: either the process
     is a known AI-agent tool itself, or it was started by one, directly or transitively.
     On file, network and other non-process events, the process is the one that performed
-    the action.
+    the action. On alerts, it is the process the alert is attributed to.
 
     Lets analysts and detection rules separate activity driven by AI agents from human-initiated
     activity.'

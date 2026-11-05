@@ -66,6 +66,11 @@ fields:
           #          type: {}
   process:
     fields:
+      ai_agent:
+        fields:
+          is_descendant: {}
+          name: {}
+          session_id: {}
       args: {}
       args_count: {}
       command_line: {}
