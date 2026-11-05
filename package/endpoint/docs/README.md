@@ -382,9 +382,6 @@ sent by the endpoint.
 | Target.process.Ext.token.type | Type of the token, either primary or impersonation. | keyword |
 | Target.process.Ext.token.user | Username of token owner. | keyword |
 | Target.process.Ext.user | User associated with the running process. | keyword |
-| Target.process.ai_agent | Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action. On alerts, it is the process the alert is attributed to. Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity. | object |
-| Target.process.ai_agent.is_descendant | False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively. | boolean |
-| Target.process.ai_agent.name | Canonical name of the AI-agent tool, either the process itself or the ancestor that started it. Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`. | keyword |
 | Target.process.args | Array of process arguments, starting with the absolute path to the executable. May be filtered to protect sensitive information. | keyword |
 | Target.process.args_count | Length of the process.args array. This field can be useful for querying or performing bucket analysis on how many arguments were provided to start a process. More arguments may be an indication of suspicious activity. | long |
 | Target.process.code_signature.exists | Boolean to capture if a signature is present. | boolean |

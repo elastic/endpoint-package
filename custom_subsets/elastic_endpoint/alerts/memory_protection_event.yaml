@@ -550,280 +550,281 @@ fields:
               id: {}
               name: {}
   process:
-    fields: &process-fields
+    fields:
+      <<: &process-fields
+        args: {}
+        args_count: {}
+        command_line: {}
+        entity_id: {}
+        executable: {}
+        exit_code: {}
+        hash:
+          fields:
+            md5: {}
+            sha1: {}
+            sha256: {}
+            sha512: {}
+        name: {}
+        pe:
+          fields:
+            company: {}
+            description: {}
+            file_version: {}
+            imphash: {}
+            original_file_name: {}
+            product: {}
+        pgid: {}
+        pid: {}
+        ppid: {}
+        start: {}
+        thread:
+          fields:
+            id: {}
+            name: {}
+            Ext:
+              fields:
+                call_stack:
+                  enabled: false
+                  fields:
+                    module_path: {}
+                    module_name: {}
+                    instruction_pointer: {}
+                    memory_section:
+                      fields:
+                        memory_address: {}
+                        memory_size: {}
+                        protection: {}
+                    symbol_info: {}
+                    rva: {}
+                call_stack_summary: {}
+                call_stack_final_user_module:
+                  fields:
+                    name: {}
+                    path: {}
+                    code_signature:
+                      fields:
+                        exists: {}
+                        status: {}
+                        subject_name: {}
+                        thumbprint_sha256: {}
+                        trusted: {}
+                        valid: {}
+                    hash:
+                      fields:
+                        sha256: {}
+                hardware_breakpoint_set: {}
+                parameter: {}
+                parameter_bytes_compressed: {}
+                parameter_bytes_compressed_present: {}
+                start: {}
+                start_address: {}
+                start_address_module: {}
+                start_address_allocation_offset: {}
+                start_address_bytes: {}
+                start_address_bytes_disasm: {}
+                start_address_bytes_disasm_hash: {}
+                original_start_address: {}
+                original_start_address_module: {}
+                original_start_address_allocation_offset: {}
+                original_start_address_bytes: {}
+                original_start_address_bytes_disasm: {}
+                original_start_address_bytes_disasm_hash: {}
+                service: {}
+                token:
+                  fields:
+                    domain: {}
+                    elevation: {}
+                    elevation_type: {}
+                    impersonation_level: {}
+                    integrity_level: {}
+                    integrity_level_name: {}
+                    is_appcontainer: {}
+                    privileges:
+                      fields:
+                        name: {}
+                        enabled: {}
+                        description: {}
+                    sid: {}
+                    type: {}
+                    user: {}
+                uptime: {}
+        title: {}
+        uptime: {}
+        working_directory: {}
+        code_signature:
+          fields:
+            exists: {}
+            signing_id: {}
+            status: {}
+            subject_name: {}
+            thumbprint_sha256: {}
+            team_id: {}
+            trusted: {}
+            valid: {}
+        Ext:
+          fields:
+            ancestry: {}
+            architecture: {}
+            authentication_id: {}
+            dll:
+              fields: *dll-fields
+            services: {}
+            session: {}
+            user: {}
+            code_signature:
+              fields:
+                exists: {}
+                status: {}
+                subject_name: {}
+                thumbprint_sha256: {}
+                trusted: {}
+                valid: {}
+            protection: {}
+            token:
+              fields:
+                domain: {}
+                elevation: {}
+                elevation_type: {}
+                impersonation_level: {}
+                integrity_level: {}
+                integrity_level_name: {}
+                is_appcontainer: {}
+                privileges:
+                  fields:
+                    name: {}
+                    enabled: {}
+                    description: {}
+                sid: {}
+                type: {}
+                user: {}
+            memory_region:
+              fields:
+                allocation_base: {}
+                allocation_protection: {}
+                allocation_size: {}
+                allocation_type: {}
+                bytes_address: {}
+                bytes_allocation_offset: {}
+                bytes_compressed: {}
+                bytes_compressed_present: {}
+                malware_signature:
+                  fields:
+                    all_names: {}
+                    identifier: {}
+                    primary:
+                      fields:
+                        signature:
+                          fields:
+                            id: {}
+                            name: {}
+                            hash:
+                              fields:
+                                sha256: {}
+                        matches: {}
+                        custom_yara_signature:
+                          fields:
+                            entry_id: {}
+                            entry_name: {}
+                            rule_identifier: {}
+                    secondary:
+                      fields: "*"
+                    version: {}
+                mapped_path: {}
+                mapped_pe:
+                  fields: *pe-fields
+                mapped_pe_detected: {}
+                memory_pe:
+                  fields: *pe-fields
+                memory_pe_detected: {}
+                region_base: {}
+                region_protection: {}
+                region_size: {}
+                region_start_bytes: {}
+                region_state: {}
+                strings: {}
+        parent:
+          fields:
+            args: {}
+            args_count: {}
+            command_line: {}
+            entity_id: {}
+            executable: {}
+            exit_code: {}
+            hash:
+              fields:
+                md5: {}
+                sha1: {}
+                sha256: {}
+                sha512: {}
+            name: {}
+            pe:
+              fields:
+                company: {}
+                description: {}
+                file_version: {}
+                imphash: {}
+                original_file_name: {}
+                product: {}
+            pgid: {}
+            pid: {}
+            ppid: {}
+            start: {}
+            thread:
+              fields:
+                id: {}
+                name: {}
+            title: {}
+            uptime: {}
+            working_directory: {}
+            code_signature:
+              fields:
+                exists: {}
+                signing_id: {}
+                status: {}
+                subject_name: {}
+                thumbprint_sha256: {}
+                team_id: {}
+                trusted: {}
+                valid: {}
+            Ext:
+              fields:
+                architecture: {}
+                real:
+                  fields:
+                    pid: {}
+                code_signature:
+                  fields:
+                    exists: {}
+                    status: {}
+                    subject_name: {}
+                    thumbprint_sha256: {}
+                    trusted: {}
+                    valid: {}
+                dll:
+                  fields: *dll-fields
+                protection: {}
+                token:
+                  fields:
+                    domain: {}
+                    elevation: {}
+                    elevation_type: {}
+                    impersonation_level: {}
+                    integrity_level: {}
+                    integrity_level_name: {}
+                    is_appcontainer: {}
+                    privileges:
+                      fields:
+                        name: {}
+                        enabled: {}
+                        description: {}
+                    sid: {}
+                    type: {}
+                    user: {}
+                user: {}
       ai_agent:
         fields:
           is_descendant: {}
           name: {}
-      args: {}
-      args_count: {}
-      command_line: {}
-      entity_id: {}
-      executable: {}
-      exit_code: {}
-      hash:
-        fields:
-          md5: {}
-          sha1: {}
-          sha256: {}
-          sha512: {}
-      name: {}
-      pe:
-        fields:
-          company: {}
-          description: {}
-          file_version: {}
-          imphash: {}
-          original_file_name: {}
-          product: {}
-      pgid: {}
-      pid: {}
-      ppid: {}
-      start: {}
-      thread:
-        fields:
-          id: {}
-          name: {}
-          Ext:
-            fields:
-              call_stack:
-                enabled: false
-                fields:
-                  module_path: {}
-                  module_name: {}
-                  instruction_pointer: {}
-                  memory_section:
-                    fields:
-                      memory_address: {}
-                      memory_size: {}
-                      protection: {}
-                  symbol_info: {}
-                  rva: {}
-              call_stack_summary: {}
-              call_stack_final_user_module:
-                fields:
-                  name: {}
-                  path: {}
-                  code_signature:
-                    fields:
-                      exists: {}
-                      status: {}
-                      subject_name: {}
-                      thumbprint_sha256: {}
-                      trusted: {}
-                      valid: {}
-                  hash:
-                    fields:
-                      sha256: {}
-              hardware_breakpoint_set: {}
-              parameter: {}
-              parameter_bytes_compressed: {}
-              parameter_bytes_compressed_present: {}
-              start: {}
-              start_address: {}
-              start_address_module: {}
-              start_address_allocation_offset: {}
-              start_address_bytes: {}
-              start_address_bytes_disasm: {}
-              start_address_bytes_disasm_hash: {}
-              original_start_address: {}
-              original_start_address_module: {}
-              original_start_address_allocation_offset: {}
-              original_start_address_bytes: {}
-              original_start_address_bytes_disasm: {}
-              original_start_address_bytes_disasm_hash: {}
-              service: {}
-              token:
-                fields:
-                  domain: {}
-                  elevation: {}
-                  elevation_type: {}
-                  impersonation_level: {}
-                  integrity_level: {}
-                  integrity_level_name: {}
-                  is_appcontainer: {}
-                  privileges:
-                    fields:
-                      name: {}
-                      enabled: {}
-                      description: {}
-                  sid: {}
-                  type: {}
-                  user: {}
-              uptime: {}
-      title: {}
-      uptime: {}
-      working_directory: {}
-      code_signature:
-        fields:
-          exists: {}
-          signing_id: {}
-          status: {}
-          subject_name: {}
-          thumbprint_sha256: {}
-          team_id: {}
-          trusted: {}
-          valid: {}
-      Ext:
-        fields:
-          ancestry: {}
-          architecture: {}
-          authentication_id: {}
-          dll:
-            fields: *dll-fields
-          services: {}
-          session: {}
-          user: {}
-          code_signature:
-            fields:
-              exists: {}
-              status: {}
-              subject_name: {}
-              thumbprint_sha256: {}
-              trusted: {}
-              valid: {}
-          protection: {}
-          token:
-            fields:
-              domain: {}
-              elevation: {}
-              elevation_type: {}
-              impersonation_level: {}
-              integrity_level: {}
-              integrity_level_name: {}
-              is_appcontainer: {}
-              privileges:
-                fields:
-                  name: {}
-                  enabled: {}
-                  description: {}
-              sid: {}
-              type: {}
-              user: {}
-          memory_region:
-            fields:
-              allocation_base: {}
-              allocation_protection: {}
-              allocation_size: {}
-              allocation_type: {}
-              bytes_address: {}
-              bytes_allocation_offset: {}
-              bytes_compressed: {}
-              bytes_compressed_present: {}
-              malware_signature:
-                fields:
-                  all_names: {}
-                  identifier: {}
-                  primary:
-                    fields:
-                      signature:
-                        fields:
-                          id: {}
-                          name: {}
-                          hash:
-                            fields:
-                              sha256: {}
-                      matches: {}
-                      custom_yara_signature:
-                        fields:
-                          entry_id: {}
-                          entry_name: {}
-                          rule_identifier: {}
-                  secondary:
-                    fields: "*"
-                  version: {}
-              mapped_path: {}
-              mapped_pe:
-                fields: *pe-fields
-              mapped_pe_detected: {}
-              memory_pe:
-                fields: *pe-fields
-              memory_pe_detected: {}
-              region_base: {}
-              region_protection: {}
-              region_size: {}
-              region_start_bytes: {}
-              region_state: {}
-              strings: {}
-      parent:
-        fields:
-          args: {}
-          args_count: {}
-          command_line: {}
-          entity_id: {}
-          executable: {}
-          exit_code: {}
-          hash:
-            fields:
-              md5: {}
-              sha1: {}
-              sha256: {}
-              sha512: {}
-          name: {}
-          pe:
-            fields:
-              company: {}
-              description: {}
-              file_version: {}
-              imphash: {}
-              original_file_name: {}
-              product: {}
-          pgid: {}
-          pid: {}
-          ppid: {}
-          start: {}
-          thread:
-            fields:
-              id: {}
-              name: {}
-          title: {}
-          uptime: {}
-          working_directory: {}
-          code_signature:
-            fields:
-              exists: {}
-              signing_id: {}
-              status: {}
-              subject_name: {}
-              thumbprint_sha256: {}
-              team_id: {}
-              trusted: {}
-              valid: {}
-          Ext:
-            fields:
-              architecture: {}
-              real:
-                fields:
-                  pid: {}
-              code_signature:
-                fields:
-                  exists: {}
-                  status: {}
-                  subject_name: {}
-                  thumbprint_sha256: {}
-                  trusted: {}
-                  valid: {}
-              dll:
-                fields: *dll-fields
-              protection: {}
-              token:
-                fields:
-                  domain: {}
-                  elevation: {}
-                  elevation_type: {}
-                  impersonation_level: {}
-                  integrity_level: {}
-                  integrity_level_name: {}
-                  is_appcontainer: {}
-                  privileges:
-                    fields:
-                      name: {}
-                      enabled: {}
-                      description: {}
-                  sid: {}
-                  type: {}
-                  user: {}
-              user: {}
   user:
     fields:
       domain: {}
