@@ -73,6 +73,7 @@ This event is generated for a process that was already running before Endpoint's
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |
