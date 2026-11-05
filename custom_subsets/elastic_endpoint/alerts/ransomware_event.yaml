@@ -550,6 +550,7 @@ fields:
         fields:
           is_descendant: {}
           name: {}
+          session_id: {}
       args: {}
       args_count: {}
       command_line: {}

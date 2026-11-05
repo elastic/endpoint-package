@@ -825,6 +825,7 @@ fields:
         fields:
           is_descendant: {}
           name: {}
+          session_id: {}
   user:
     fields:
       domain: {}

@@ -22,6 +22,7 @@ fields:
         fields:
           is_descendant: {}
           name: {}
+          session_id: {}
       pid: {}
       name: {}
       executable: {}

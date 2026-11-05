@@ -99,6 +99,7 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.user |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |

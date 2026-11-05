@@ -99,6 +99,7 @@ This alert is generated when a macOS Memory Thread alert occurs.
 | process.Ext.user |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
