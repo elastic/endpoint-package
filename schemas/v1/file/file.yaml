@@ -2306,6 +2306,23 @@ process.ai_agent.name:
   normalize: []
   short: Canonical name of the AI-agent tool.
   type: keyword
+process.ai_agent.session_id:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-session-id
+  description: 'Identifier of the AI-agent tool session the process belongs to, as
+    the tool reports it in its own telemetry. For the AI-agent tool itself, this is
+    the session it is currently in. A process started by the tool keeps the session
+    it was started in.
+
+    Lets analysts join these events with the tool''s own telemetry.'
+  example: 1f2e3d4c-5b6a-4789-8a9b-0c1d2e3f4a5b
+  flat_name: process.ai_agent.session_id
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.session_id
+  normalize: []
+  short: Session ID of the AI-agent tool.
+  type: keyword
 process.args_count:
   dashed_name: process-args-count
   description: 'Length of the process.args array.

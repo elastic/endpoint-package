@@ -108,6 +108,7 @@ fields:
           email: {}
           is_descendant: {}
           name: {}
+          session_id: {}
       args: {}
       args_count: {}
       code_signature:

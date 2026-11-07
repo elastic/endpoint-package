@@ -99,6 +99,7 @@ fields:
           email: {}
           is_descendant: {}
           name: {}
+          session_id: {}
       pid: {}
       command_line: {}
       name: {}

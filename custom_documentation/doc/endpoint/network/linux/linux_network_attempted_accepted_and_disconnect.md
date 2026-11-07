@@ -60,6 +60,7 @@ This event is generated when a network session is accepted, attempted or termina
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |
