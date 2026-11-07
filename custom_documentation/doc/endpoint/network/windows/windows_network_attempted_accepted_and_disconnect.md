@@ -1,11 +1,26 @@
-# Windows Network Connection Attempted, Connection Accepted and Disconnect Received
+# Windows TCP Connection and UDP Flow Events
 
 - OS: Windows
 - Data Stream: `logs-endpoint.events.network-*`
-- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows"`
+- KQL: `event.action : ("connection_attempted" or "connection_accepted" or "disconnect_received" or "udp_flow_outbound" or "udp_flow_inbound" or "udp_flow_ended") and event.dataset : "endpoint.events.network" and event.module : "endpoint" and host.os.type : "windows" and network.transport : ("tcp" or "udp")`
 
-This event is generated when a connection is attempted, a connection is accepted, or a request to terminate a network session is received.
+This event is generated when a TCP connection is attempted, accepted, or
+terminated, or when a tracked UDP flow starts or ends. The UDP start actions
+`udp_flow_outbound` and `udp_flow_inbound` report the start of a tracked flow,
+not each datagram. TCP disconnects use `disconnect_received`.
 
+`udp_flow_ended` carries the final `source.bytes` and `destination.bytes` of
+the tracked UDP flow. It means tracking ended, not that a disconnect packet
+was received or the remote socket closed.
+
+UDP collection and forwarding are disabled by default. Collection can be
+enabled by either production policy or diagnostic configuration. Forwarding
+UDP events to Elasticsearch requires both Windows policy switches
+`events.network` and `events.udp_send_to_es` to remain enabled. When UDP
+collection is turned off, existing tracked flows are ended and their final
+events can still be forwarded if both output switches remain enabled.
+Turning off production UDP collection does not stop collection while it
+remains enabled by diagnostic configuration.
 
 | Field |
 |---|
