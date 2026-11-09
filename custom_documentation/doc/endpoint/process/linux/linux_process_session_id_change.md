@@ -67,6 +67,11 @@ This event is generated when a process's session id changes.
 | orchestrator.resource.type |
 | process.Ext.ancestry |
 | process.Ext.command_line_truncated |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |

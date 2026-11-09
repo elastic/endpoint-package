@@ -57,9 +57,11 @@ This event is generated when a remote thread is created.
 | process.Ext.command_line_truncated |
 | process.Ext.effective_parent.pid |
 | process.Ext.trusted |
-| process.ai_agent.is_descendant |
+| process.ai_agent.api_key_auth |
 | process.ai_agent.email |
+| process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |

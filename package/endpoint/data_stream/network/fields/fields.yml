@@ -865,6 +865,46 @@
         Leave unpopulated if a certificate was unchecked.'
       example: 'true'
       default_field: false
+    - name: ai_agent
+      level: extended
+      type: object
+      description: 'Identifies the AI-agent tool behind the process: either the process is a known AI-agent tool itself, or it was started by one, directly or transitively. On file, network and other non-process events, the process is the one that performed the action. On alerts, it is the process the alert is attributed to.
+
+        Lets analysts and detection rules separate activity driven by AI agents from human-initiated activity.'
+      default_field: false
+    - name: ai_agent.api_key_auth
+      level: extended
+      type: boolean
+      description: True when the AI-agent tool's credential store shows API key authentication rather than an account sign-in.
+      default_field: false
+    - name: ai_agent.email
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: Email address of the account the AI-agent tool is signed in with, read from the tool's credential store on the host. Carried on events whose acting process is the AI-agent tool.
+      default_field: false
+    - name: ai_agent.is_descendant
+      level: extended
+      type: boolean
+      description: False when the process is the AI-agent tool itself; true when it was started by one, directly or transitively.
+      default_field: false
+    - name: ai_agent.name
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Canonical name of the AI-agent tool, either the process itself or the ancestor that started it.
+
+        Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
+      default_field: false
+    - name: ai_agent.session_id
+      level: extended
+      type: keyword
+      ignore_above: 1024
+      description: 'Identifier of the AI-agent tool session the process belongs to, as the tool reports it in its own telemetry. For the AI-agent tool itself, this is the session it is currently in. A process started by the tool keeps the session it was started in.
+
+        Lets analysts join these events with the tool''s own telemetry.'
+      example: 1f2e3d4c-5b6a-4789-8a9b-0c1d2e3f4a5b
+      default_field: false
     - name: code_signature.exists
       level: core
       type: boolean

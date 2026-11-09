@@ -28,9 +28,6 @@ This event is generated when a file is created.
 | event.outcome |
 | event.sequence |
 | event.type |
-| file.ai_agent.email |
-| file.ai_agent.name |
-| file.ai_agent.api_key_auth |
 | file.Ext.entropy |
 | file.Ext.header_bytes |
 | file.extension |
@@ -59,7 +56,11 @@ This event is generated when a file is created.
 | host.os.version |
 | message |
 | process.Ext.ancestry |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
+| process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.command_line |
 | process.entity_id |
 | process.entry_leader.entity_id |

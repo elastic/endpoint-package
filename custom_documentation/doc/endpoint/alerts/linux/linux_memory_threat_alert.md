@@ -97,6 +97,9 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.memory_region.region_protection |
 | process.Ext.memory_region.region_size |
 | process.Ext.user |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |
@@ -214,6 +217,9 @@ This alert is generated when a Memory Threat alert occurs.
 | process.user.id |
 | process.user.name |
 | process.working_directory |
+| rule.custom_yara_signature.entry_id |
+| rule.custom_yara_signature.entry_name |
+| rule.custom_yara_signature.rule_identifier |
 | rule.id |
 | rule.name |
 | rule.ruleset |

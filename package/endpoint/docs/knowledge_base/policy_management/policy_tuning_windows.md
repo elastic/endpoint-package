@@ -36,7 +36,7 @@ Current official documentation does not specify how disabling the Windows kernel
 
 ## Ransomware protection
 
-Ransomware protection is a separate enable and mode choice from malware protection, and Windows is the only operating system with a top-level ransomware control in the Elastic Defend policy UI. Advanced ransomware controls exist as well; this article does not list them. Use the Elastic Defend policy UI or the maintained field reference for the mode control and any advanced keys.
+Ransomware protection is a separate enable and mode choice from malware protection. Windows has had a ransomware mode in the policy UI across stacks; on current stacks, macOS and Linux have their own ransomware modes alongside it. Advanced ransomware controls exist as well; this article does not list them. Use the Elastic Defend policy UI or the maintained field reference for the mode control and any advanced keys.
 
 ## Exact settings
 

@@ -93,6 +93,13 @@ fields:
               name: {}
   process:
     fields:
+      ai_agent:
+        fields:
+          api_key_auth: {}
+          email: {}
+          is_descendant: {}
+          name: {}
+          session_id: {}
       pid: {}
       command_line: {}
       name: {}

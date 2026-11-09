@@ -60,6 +60,11 @@ This event is generated when results are returned for a DNS lookup request.
 | network.transport |
 | network.type |
 | process.Ext.ancestry |
+| process.ai_agent.api_key_auth |
+| process.ai_agent.email |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |

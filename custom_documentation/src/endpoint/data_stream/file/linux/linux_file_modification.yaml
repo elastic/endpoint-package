@@ -35,9 +35,6 @@ fields:
   - event.type
   - file.Ext.entropy
   - file.Ext.header_bytes
-  - file.ai_agent.email
-  - file.ai_agent.name
-  - file.ai_agent.api_key_auth
   - file.extension
   - file.hash.sha256
   - file.name
@@ -64,7 +61,11 @@ fields:
   - host.os.version
   - message
   - process.Ext.ancestry
+  - process.ai_agent.api_key_auth
+  - process.ai_agent.email
+  - process.ai_agent.is_descendant
   - process.ai_agent.name
+  - process.ai_agent.session_id
   - process.entry_leader.entity_id
   - process.entry_leader.parent.entity_id
   - process.group_leader.entity_id

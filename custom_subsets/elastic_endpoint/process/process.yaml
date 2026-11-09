@@ -104,9 +104,11 @@ fields:
     fields:
       ai_agent:
         fields:
+          api_key_auth: {}
           email: {}
           is_descendant: {}
           name: {}
+          session_id: {}
       args: {}
       args_count: {}
       code_signature:

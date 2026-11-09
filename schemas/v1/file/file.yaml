@@ -1401,56 +1401,6 @@ file.accessed:
   normalize: []
   short: Last time the file was accessed.
   type: date
-file.ai_agent:
-  alpha: This field is alpha and subject to change.
-  dashed_name: file-ai-agent
-  description: 'Fields describing an AI-agent tool associated with a file event.
-
-    When a file operation is initiated by a known AI-agent development tool, these
-    fields can be populated to help analysts and detection rules distinguish AI-agent-initiated
-    file activity from human-initiated activity.'
-  flat_name: file.ai_agent
-  level: extended
-  name: ai_agent
-  normalize: []
-  short: AI-agent tool identification fields.
-  type: object
-file.ai_agent.api_key_auth:
-  beta: This field is beta and subject to change.
-  dashed_name: file-ai-agent-api-key-auth
-  description: Indicates that the AI agent was authenticated via an API key.
-  flat_name: file.ai_agent.api_key_auth
-  level: extended
-  name: ai_agent.api_key_auth
-  normalize: []
-  short: True if the AI agent was authenticated via an API key.
-  type: boolean
-file.ai_agent.email:
-  beta: This field is beta and subject to change.
-  dashed_name: file-ai-agent-email
-  description: Email address of the user associated with the AI-agent tool that initiated
-    this file operation.
-  flat_name: file.ai_agent.email
-  ignore_above: 1024
-  level: extended
-  name: ai_agent.email
-  normalize: []
-  short: Email address of the user associated with the AI-agent tool.
-  type: keyword
-file.ai_agent.name:
-  beta: This field is beta and subject to change.
-  dashed_name: file-ai-agent-name
-  description: 'Canonical name of the AI-agent tool associated with this process or
-    its ancestor.
-
-    Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
-  flat_name: file.ai_agent.name
-  ignore_above: 1024
-  level: extended
-  name: ai_agent.name
-  normalize: []
-  short: Canonical name of the AI-agent tool.
-  type: keyword
 file.attributes:
   dashed_name: file-attributes
   description: 'Array of file attributes.
@@ -2291,6 +2241,88 @@ process.Ext.code_signature.valid:
   short: Boolean to capture if the digital signature is verified against the binary
     content.
   type: boolean
+process.ai_agent:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent
+  description: 'Identifies the AI-agent tool behind the process: either the process
+    is a known AI-agent tool itself, or it was started by one, directly or transitively.
+    On file, network and other non-process events, the process is the one that performed
+    the action. On alerts, it is the process the alert is attributed to.
+
+    Lets analysts and detection rules separate activity driven by AI agents from human-initiated
+    activity.'
+  flat_name: process.ai_agent
+  level: extended
+  name: ai_agent
+  normalize: []
+  short: AI-agent tool identification fields.
+  type: object
+process.ai_agent.api_key_auth:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-api-key-auth
+  description: True when the AI-agent tool's credential store shows API key authentication
+    rather than an account sign-in.
+  flat_name: process.ai_agent.api_key_auth
+  level: extended
+  name: ai_agent.api_key_auth
+  normalize: []
+  short: True if the AI-agent tool authenticates with an API key.
+  type: boolean
+process.ai_agent.email:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-email
+  description: Email address of the account the AI-agent tool is signed in with, read
+    from the tool's credential store on the host. Carried on events whose acting process
+    is the AI-agent tool.
+  flat_name: process.ai_agent.email
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.email
+  normalize: []
+  short: Email address of the account the AI-agent tool is signed in with.
+  type: keyword
+process.ai_agent.is_descendant:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-is-descendant
+  description: False when the process is the AI-agent tool itself; true when it was
+    started by one, directly or transitively.
+  flat_name: process.ai_agent.is_descendant
+  level: extended
+  name: ai_agent.is_descendant
+  normalize: []
+  short: Whether the process was started by an AI-agent tool.
+  type: boolean
+process.ai_agent.name:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-name
+  description: 'Canonical name of the AI-agent tool, either the process itself or
+    the ancestor that started it.
+
+    Examples include `cursor`, `claude_code`, `codex`, `copilot`, `ollama`, and `gemini_cli`.'
+  flat_name: process.ai_agent.name
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.name
+  normalize: []
+  short: Canonical name of the AI-agent tool.
+  type: keyword
+process.ai_agent.session_id:
+  alpha: This field is alpha and subject to change.
+  dashed_name: process-ai-agent-session-id
+  description: 'Identifier of the AI-agent tool session the process belongs to, as
+    the tool reports it in its own telemetry. For the AI-agent tool itself, this is
+    the session it is currently in. A process started by the tool keeps the session
+    it was started in.
+
+    Lets analysts join these events with the tool''s own telemetry.'
+  example: 1f2e3d4c-5b6a-4789-8a9b-0c1d2e3f4a5b
+  flat_name: process.ai_agent.session_id
+  ignore_above: 1024
+  level: extended
+  name: ai_agent.session_id
+  normalize: []
+  short: Session ID of the AI-agent tool.
+  type: keyword
 process.args_count:
   dashed_name: process-args-count
   description: 'Length of the process.args array.

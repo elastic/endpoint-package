@@ -115,6 +115,8 @@ This alert is generated when a Memory Threat alert occurs.
 | process.Ext.token.sid |
 | process.Ext.token.user |
 | process.Ext.user |
+| process.ai_agent.is_descendant |
+| process.ai_agent.name |
 | process.args |
 | process.args_count |
 | process.code_signature.exists |
@@ -159,6 +161,9 @@ This alert is generated when a Memory Threat alert occurs.
 | process.ppid |
 | process.start |
 | process.uptime |
+| rule.custom_yara_signature.entry_id |
+| rule.custom_yara_signature.entry_name |
+| rule.custom_yara_signature.rule_identifier |
 | rule.id |
 | rule.name |
 | rule.ruleset |
