@@ -548,6 +548,229 @@ Ransomware.version:
   normalize: []
   short: Ransomware artifact version.
   type: keyword
+Responses.@timestamp:
+  dashed_name: Responses-timestamp
+  description: Timestamp in which action was taken
+  flat_name: Responses.@timestamp
+  format: string
+  level: custom
+  name: '@timestamp'
+  normalize: []
+  short: Timestamp in which action was taken
+  type: date
+Responses.action:
+  dashed_name: Responses-action
+  description: Dictionary representing requested response action
+  flat_name: Responses.action
+  level: custom
+  name: action
+  normalize: []
+  short: Dictionary representing requested response action
+  type: nested
+Responses.action.action:
+  dashed_name: Responses-action-action
+  description: Response action name
+  flat_name: Responses.action.action
+  ignore_above: 1024
+  level: custom
+  name: action.action
+  normalize: []
+  short: Response action name
+  type: keyword
+Responses.action.field:
+  dashed_name: Responses-action-field
+  description: Field in the triggering event to use as input for action
+  flat_name: Responses.action.field
+  level: custom
+  name: action.field
+  normalize: []
+  norms: false
+  short: Field in the triggering event to use as input for action
+  type: text
+Responses.action.file.attributes:
+  dashed_name: Responses-action-file-attributes
+  description: Destination file attributes
+  flat_name: Responses.action.file.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.file.attributes
+  normalize: []
+  short: Destination file attributes
+  type: keyword
+Responses.action.file.path:
+  dashed_name: Responses-action-file-path
+  description: Destination file path
+  flat_name: Responses.action.file.path
+  ignore_above: 1024
+  level: custom
+  name: action.file.path
+  normalize: []
+  short: Destination file path
+  type: keyword
+Responses.action.file.reason:
+  dashed_name: Responses-action-file-reason
+  description: Combined USN file modification reason
+  flat_name: Responses.action.file.reason
+  level: custom
+  name: action.file.reason
+  normalize: []
+  short: Combined USN file modification reason
+  type: long
+Responses.action.key.actions:
+  dashed_name: Responses-action-key-actions
+  description: Actions taken by Registry Rollback for key
+  flat_name: Responses.action.key.actions
+  ignore_above: 1024
+  level: custom
+  name: action.key.actions
+  normalize: []
+  short: Actions taken by Registry Rollback for key
+  type: keyword
+Responses.action.key.path:
+  dashed_name: Responses-action-key-path
+  description: NT path of registry key recovered by Rollback
+  flat_name: Responses.action.key.path
+  ignore_above: 1024
+  level: custom
+  name: action.key.path
+  normalize: []
+  short: NT path of registry key recovered by Rollback
+  type: keyword
+Responses.action.key.values:
+  dashed_name: Responses-action-key-values
+  description: Values modified
+  flat_name: Responses.action.key.values
+  level: custom
+  name: action.key.values
+  normalize: []
+  short: Values modified
+  type: object
+Responses.action.key.values.actions:
+  dashed_name: Responses-action-key-values-actions
+  description: Actions taken by Registry Rollback for value
+  flat_name: Responses.action.key.values.actions
+  ignore_above: 1024
+  level: custom
+  name: action.key.values.actions
+  normalize: []
+  short: Actions taken by Registry Rollback for value
+  type: keyword
+Responses.action.key.values.name:
+  dashed_name: Responses-action-key-values-name
+  description: Value name recovered by Rollback
+  flat_name: Responses.action.key.values.name
+  ignore_above: 1024
+  level: custom
+  name: action.key.values.name
+  normalize: []
+  short: Value name recovered by Rollback
+  type: keyword
+Responses.action.process.path:
+  dashed_name: Responses-action-process-path
+  description: Path of process killed by Process Rollback
+  flat_name: Responses.action.process.path
+  ignore_above: 1024
+  level: custom
+  name: action.process.path
+  normalize: []
+  short: Path of process killed by Process Rollback
+  type: keyword
+Responses.action.source.attributes:
+  dashed_name: Responses-action-source-attributes
+  description: Source file attributes
+  flat_name: Responses.action.source.attributes
+  ignore_above: 1024
+  level: custom
+  name: action.source.attributes
+  normalize: []
+  short: Source file attributes
+  type: keyword
+Responses.action.source.path:
+  dashed_name: Responses-action-source-path
+  description: Source file path
+  flat_name: Responses.action.source.path
+  ignore_above: 1024
+  level: custom
+  name: action.source.path
+  normalize: []
+  short: Source file path
+  type: keyword
+Responses.action.state:
+  dashed_name: Responses-action-state
+  description: Index of event in events array to use for field lookup
+  flat_name: Responses.action.state
+  level: custom
+  name: action.state
+  normalize: []
+  short: Index of event in events array to use for field lookup
+  type: long
+Responses.action.tree:
+  dashed_name: Responses-action-tree
+  description: Indicates whether or not an action was taken against an entire process
+    tree
+  flat_name: Responses.action.tree
+  level: custom
+  name: action.tree
+  normalize: []
+  short: Indicates whether or not an action was taken against an entire process tree
+  type: boolean
+Responses.message:
+  dashed_name: Responses-message
+  description: Result message
+  flat_name: Responses.message
+  level: custom
+  name: message
+  normalize: []
+  norms: false
+  short: Result message
+  type: text
+Responses.process:
+  dashed_name: Responses-process
+  description: Dictionary representing process information
+  flat_name: Responses.process
+  level: custom
+  name: process
+  normalize: []
+  short: Dictionary representing process information
+  type: nested
+Responses.process.entity_id:
+  dashed_name: Responses-process-entity-id
+  description: Entity id of actionable process
+  flat_name: Responses.process.entity_id
+  level: custom
+  name: process.entity_id
+  normalize: []
+  norms: false
+  short: Entity id of actionable process
+  type: text
+Responses.process.name:
+  dashed_name: Responses-process-name
+  description: Name of actionable process
+  flat_name: Responses.process.name
+  ignore_above: 1024
+  level: custom
+  name: process.name
+  normalize: []
+  short: Name of actionable process
+  type: keyword
+Responses.process.pid:
+  dashed_name: Responses-process-pid
+  description: pid of actionable process
+  flat_name: Responses.process.pid
+  level: custom
+  name: process.pid
+  normalize: []
+  short: pid of actionable process
+  type: long
+Responses.result:
+  dashed_name: Responses-result
+  description: Response action result code
+  flat_name: Responses.result
+  level: custom
+  name: result
+  normalize: []
+  short: Response action result code
+  type: long
 agent.ephemeral_id:
   dashed_name: agent-ephemeral-id
   description: 'Ephemeral identifier of this agent (if one exists).

@@ -29,6 +29,14 @@ fields:
   - Endpoint.policy.applied.id
   - Endpoint.policy.applied.name
   - Endpoint.policy.applied.version
+  - Responses.@timestamp
+  - Responses.action.action
+  - Responses.action.process.path
+  - Responses.message
+  - Responses.process.entity_id
+  - Responses.process.name
+  - Responses.process.pid
+  - Responses.result
   - agent.build.original
   - agent.id
   - agent.type

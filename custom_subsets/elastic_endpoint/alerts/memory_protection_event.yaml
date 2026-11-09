@@ -848,3 +848,5 @@ fields:
 
   Memory_protection:
     fields: "*"
+  Responses:
+    fields: "*"
