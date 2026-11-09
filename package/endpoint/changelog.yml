@@ -1,8 +1,11 @@
-- version: "9.6.1-next"
+- version: "9.6.1"
   changes:
-    - description: TBD
+    - description: Add call_stack fields to rule_detection_event alerts (#811)
       type: enhancement
-      link: https://github.com/elastic/endpoint-package/pull/9999
+      link: https://github.com/elastic/endpoint-package/pull/822
+    - description: Add AI Visibility dashboard (#817)
+      type: enhancement
+      link: https://github.com/elastic/endpoint-package/pull/823
 - version: "9.6.0"
   changes:
     - description: prep main for 9.6 dev
