@@ -721,6 +721,42 @@
                     "sent_bytes": 24748966
                 }
             },
+            "diag_documents_volume": {
+                "dns_events": {
+                    "sent_bytes": 0,
+                    "sent_count": 0,
+                    "suppressed_bytes": 6331,
+                    "suppressed_count": 4
+                },
+                "overall": {
+                    "sent_bytes": 1819060,
+                    "sent_count": 1101,
+                    "suppressed_bytes": 9686398,
+                    "suppressed_count": 5866
+                },
+                "process_events": {
+                    "sent_bytes": 1819060,
+                    "sent_count": 1101,
+                    "sources": [
+                        {
+                            "sent_bytes": 1379792,
+                            "sent_count": 827,
+                            "source": "ptrace",
+                            "suppressed_bytes": 7329613,
+                            "suppressed_count": 4395
+                        },
+                        {
+                            "sent_bytes": 439268,
+                            "sent_count": 274,
+                            "source": "termination",
+                            "suppressed_bytes": 2350454,
+                            "suppressed_count": 1467
+                        }
+                    ],
+                    "suppressed_bytes": 9680067,
+                    "suppressed_count": 5862
+                }
+            },
             "cpu": {
                 "endpoint": {
                     "mean": 0.324235176435677,
