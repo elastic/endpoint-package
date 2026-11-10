@@ -1,6 +1,6 @@
 - version: "9.7.0-next"
   changes:
-    - description: TBD
+    - description: Add fields for Named Pipe and Mailslot events for Windows
       type: enhancement
       link: https://github.com/elastic/endpoint-package/pull/99999
 - version: "9.6.0"

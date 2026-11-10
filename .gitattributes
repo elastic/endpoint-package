@@ -1,2 +1,3 @@
 generated/** linguist-generated=true
 schemas/** linguist-generated=true
+custom_documentation/doc/** text eol=lf

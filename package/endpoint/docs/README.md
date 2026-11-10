@@ -1782,6 +1782,11 @@ sent by the endpoint.
 | file.Ext.original.owner | File owner's username. | keyword |
 | file.Ext.original.path | Original file path prior to a modification event | keyword |
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
+| file.Ext.pipe | Information about a named pipe or mailslot operation (Windows only). | object |
+| file.Ext.pipe.is_remote | True if the named pipe accepts connections from remote clients. Not set for mailslots. | boolean |
+| file.Ext.pipe.mode | Type mode the named pipe was created with. Not set for mailslots. | keyword |
+| file.Ext.pipe.operation | Operation performed on the named pipe or mailslot. | keyword |
+| file.Ext.pipe.type | Type of the pipe object. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
 | file.Ext.windows.zone_identifier | Windows zone identifier for a file | keyword |
 | file.accessed | Last time the file was accessed. Note that not all filesystems keep track of access time. | date |
