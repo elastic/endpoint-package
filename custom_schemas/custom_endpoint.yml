@@ -1078,6 +1078,18 @@
       short:  The total milliseconds spent queueing ETW Win32k events for the process over the last week
       description: The total milliseconds spent queueing ETW Win32k events (currently, only keylogging events) for the process over the last week
 
+    - name: metrics.system_impact.pipe_events.week_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent on named pipe and mailslot events for the process over the last week
+
+    - name: metrics.system_impact.pipe_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      index: false
+      description: The total milliseconds spent queueing named pipe and mailslot events for the process over the last week
+
     - name: metrics.system_impact.process.executable
       level: custom
       type: unsigned_long
