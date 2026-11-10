@@ -1371,6 +1371,58 @@ file.Ext.original.uid:
   normalize: []
   short: The user ID (UID) or security identifier (SID) of the file owner.
   type: keyword
+file.Ext.pipe:
+  dashed_name: file-Ext-pipe
+  description: Information about a named pipe or mailslot operation (Windows only).
+  flat_name: file.Ext.pipe
+  level: custom
+  name: Ext.pipe
+  normalize: []
+  short: Named pipe or mailslot information.
+  type: object
+file.Ext.pipe.is_remote:
+  dashed_name: file-Ext-pipe-is-remote
+  description: True if the named pipe accepts connections from remote clients. Not
+    set for mailslots.
+  flat_name: file.Ext.pipe.is_remote
+  level: custom
+  name: Ext.pipe.is_remote
+  normalize: []
+  short: Whether remote clients are accepted.
+  type: boolean
+file.Ext.pipe.mode:
+  dashed_name: file-Ext-pipe-mode
+  description: Type mode the named pipe was created with. Not set for mailslots.
+  example: one of "Byte", "Message"
+  flat_name: file.Ext.pipe.mode
+  ignore_above: 1024
+  level: custom
+  name: Ext.pipe.mode
+  normalize: []
+  short: Pipe mode of the named pipe.
+  type: keyword
+file.Ext.pipe.operation:
+  dashed_name: file-Ext-pipe-operation
+  description: Operation performed on the named pipe or mailslot.
+  example: Create
+  flat_name: file.Ext.pipe.operation
+  ignore_above: 1024
+  level: custom
+  name: Ext.pipe.operation
+  normalize: []
+  short: Operation performed on the pipe.
+  type: keyword
+file.Ext.pipe.type:
+  dashed_name: file-Ext-pipe-type
+  description: Type of the pipe object.
+  example: one of "NamedPipe", "Mailslot"
+  flat_name: file.Ext.pipe.type
+  ignore_above: 1024
+  level: custom
+  name: Ext.pipe.type
+  normalize: []
+  short: Type of the pipe.
+  type: keyword
 file.Ext.windows:
   dashed_name: file-Ext-windows
   description: Platform-specific Windows fields
