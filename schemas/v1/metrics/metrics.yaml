@@ -1042,6 +1042,32 @@ Endpoint.metrics.system_impact.overall.week_ms:
   normalize: []
   short: The total milliseconds spent monitoring the process over the last week
   type: unsigned_long
+Endpoint.metrics.system_impact.pipe_events.week_idle_ms:
+  dashed_name: Endpoint-metrics-system-impact-pipe-events-week-idle-ms
+  description: The total milliseconds spent queueing named pipe and mailslot events
+    for the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.pipe_events.week_idle_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.pipe_events.week_idle_ms
+  normalize: []
+  short: The total milliseconds spent queueing named pipe and mailslot events for
+    the process over the last week
+  type: unsigned_long
+Endpoint.metrics.system_impact.pipe_events.week_ms:
+  dashed_name: Endpoint-metrics-system-impact-pipe-events-week-ms
+  description: The total milliseconds spent on named pipe and mailslot events for
+    the process over the last week
+  doc_values: false
+  flat_name: Endpoint.metrics.system_impact.pipe_events.week_ms
+  index: false
+  level: custom
+  name: metrics.system_impact.pipe_events.week_ms
+  normalize: []
+  short: The total milliseconds spent on named pipe and mailslot events for the process
+    over the last week
+  type: unsigned_long
 Endpoint.metrics.system_impact.process.code_signature:
   dashed_name: Endpoint-metrics-system-impact-process-code-signature
   description: Code signature of the process

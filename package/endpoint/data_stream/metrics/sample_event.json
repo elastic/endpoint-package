@@ -22,6 +22,9 @@
                     "file_events": {
                         "week_ms": 418
                     },
+                    "pipe_events": {
+                        "week_ms": 12
+                    },
                     "process": {
                         "code_signature": [
                             {
@@ -49,7 +52,7 @@
                         "week_ms": 8
                     },
                     "overall": {
-                        "week_ms": 11744
+                        "week_ms": 11756
                     },
                     "authentication_events": {
                         "week_ms": 155
@@ -70,6 +73,9 @@
                 {
                     "file_events": {
                         "week_ms": 46
+                    },
+                    "pipe_events": {
+                        "week_ms": 20
                     },
                     "process": {
                         "code_signature": [
@@ -92,7 +98,7 @@
                         "week_ms": 3
                     },
                     "overall": {
-                        "week_ms": 8290
+                        "week_ms": 8310
                     },
                     "library_load_events": {
                         "week_ms": 7890

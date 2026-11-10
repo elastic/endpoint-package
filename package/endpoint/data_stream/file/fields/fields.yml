@@ -564,37 +564,6 @@
       ignore_above: 1024
       description: Primary malware signature version.
       default_field: false
-    - name: Ext.pipe
-      level: custom
-      type: object
-      description: Information about a named pipe or mailslot operation (Windows only).
-      default_field: false
-    - name: Ext.pipe.is_remote
-      level: custom
-      type: boolean
-      description: True if the named pipe accepts connections from remote clients. Not set for mailslots.
-      default_field: false
-    - name: Ext.pipe.mode
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Type mode the named pipe was created with. Not set for mailslots.
-      example: one of "Byte", "Message"
-      default_field: false
-    - name: Ext.pipe.operation
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Operation performed on the named pipe or mailslot.
-      example: Create
-      default_field: false
-    - name: Ext.pipe.type
-      level: custom
-      type: keyword
-      ignore_above: 1024
-      description: Type of the pipe object.
-      example: one of "NamedPipe", "Mailslot"
-      default_field: false
     - name: Ext.monotonic_id
       level: custom
       type: unsigned_long
@@ -656,6 +625,37 @@
       ignore_above: 1024
       description: The user ID (UID) or security identifier (SID) of the file owner.
       example: '1001'
+      default_field: false
+    - name: Ext.pipe
+      level: custom
+      type: object
+      description: Information about a named pipe or mailslot operation (Windows only).
+      default_field: false
+    - name: Ext.pipe.is_remote
+      level: custom
+      type: boolean
+      description: True if the named pipe accepts connections from remote clients. Not set for mailslots.
+      default_field: false
+    - name: Ext.pipe.mode
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Type mode the named pipe was created with. Not set for mailslots.
+      example: one of "Byte", "Message"
+      default_field: false
+    - name: Ext.pipe.operation
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Operation performed on the named pipe or mailslot.
+      example: Create
+      default_field: false
+    - name: Ext.pipe.type
+      level: custom
+      type: keyword
+      ignore_above: 1024
+      description: Type of the pipe object.
+      example: one of "NamedPipe", "Mailslot"
       default_field: false
     - name: Ext.windows
       level: custom
