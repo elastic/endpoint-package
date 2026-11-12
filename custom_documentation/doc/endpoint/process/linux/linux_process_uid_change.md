@@ -72,6 +72,7 @@ This event is generated when the user id changes for a process.
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.args |
 | process.args_count |
 | process.command_line |

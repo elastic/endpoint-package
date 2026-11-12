@@ -67,6 +67,7 @@ This event is generated when a file is modified.
 | process.ai_agent.email |
 | process.ai_agent.is_descendant |
 | process.ai_agent.name |
+| process.ai_agent.session_id |
 | process.code_signature.exists |
 | process.code_signature.signing_id |
 | process.code_signature.status |
