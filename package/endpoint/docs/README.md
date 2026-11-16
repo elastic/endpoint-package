@@ -147,9 +147,7 @@ sent by the endpoint.
 
 ### alerts
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -1691,13 +1689,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### file
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -1920,13 +1914,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### library
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -2129,13 +2119,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### network
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -2310,13 +2296,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### process
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -2773,13 +2755,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### registry
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -2915,13 +2893,9 @@ sent by the endpoint.
 | user.name | Short name or login of the user. | keyword |
 
 
-</dropdown>
-
 ### security
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -3128,8 +3102,6 @@ sent by the endpoint.
 | winlog.event_data.WorkstationName | Machine name from which a logon attempt was performed. | keyword |
 
 
-</dropdown>
-
 ## Metrics
 
 The metrics type of documents are stored in `metrics-endpoint.*` indices. The following sections define the mapped fields
@@ -3137,9 +3109,7 @@ sent by the endpoint.
 
 ### metadata
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -3202,15 +3172,11 @@ sent by the endpoint.
 | host.uptime | Seconds the host has been up. | long |
 
 
-</dropdown>
-
 ### metrics
 
 Metrics documents contain performance information about the endpoint executable and the host it is running on.
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -3339,13 +3305,9 @@ Metrics documents contain performance information about the endpoint executable 
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 
 
-</dropdown>
-
 ### policy response
 
-<dropdown title="Exported fields">
-
-#### Exported fields
+**Exported fields**
 
 | Field | Description | Type |
 |---|---|---|
@@ -3418,5 +3380,3 @@ Metrics documents contain performance information about the endpoint executable 
 | host.os.version | Operating system version as a raw string. | keyword |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
 
-
-</dropdown>
