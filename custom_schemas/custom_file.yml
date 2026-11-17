@@ -328,9 +328,10 @@
     - name: Ext.pipe.mode
       level: custom
       type: keyword
-      short: Pipe mode of the named pipe.
+      short: Data transfer mode of the named pipe.
       description: >
-        Type mode the named pipe was created with. Not set for mailslots.
+        Data transfer mode the named pipe was created with as specified by the
+        PIPE_TYPE_* flags of CreateNamedPipe. Not set for mailslots.
       example: one of "Byte", "Message"
 
     - name: Ext.pipe.is_remote
