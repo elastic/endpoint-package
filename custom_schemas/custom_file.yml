@@ -323,7 +323,7 @@
       short: Operation performed on the pipe.
       description: >
         Operation performed on the named pipe or mailslot.
-      example: "Create"
+      example: one of "Create", "Connect"
 
     - name: Ext.pipe.mode
       level: custom
