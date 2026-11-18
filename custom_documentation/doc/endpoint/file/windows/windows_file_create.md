@@ -4,7 +4,7 @@
 - Data Stream: `logs-endpoint.events.file-*`
 - KQL: `event.action : "creation" and event.dataset : "endpoint.events.file" and event.module : "endpoint" and host.os.type : "windows"`
 
-This event is generated when a file is created.
+This event is generated when a file, named pipe or mailslot is created.
 
 
 | Field |
@@ -36,6 +36,10 @@ This event is generated when a file is created.
 | file.Ext.header_bytes |
 | file.Ext.monotonic_id |
 | file.Ext.windows.zone_identifier |
+| file.Ext.pipe.is_remote |
+| file.Ext.pipe.mode |
+| file.Ext.pipe.operation |
+| file.Ext.pipe.type |
 | file.extension |
 | file.hash.sha256 |
 | file.name |
