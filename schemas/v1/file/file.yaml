@@ -1392,19 +1392,20 @@ file.Ext.pipe.is_remote:
   type: boolean
 file.Ext.pipe.mode:
   dashed_name: file-Ext-pipe-mode
-  description: Type mode the named pipe was created with. Not set for mailslots.
+  description: Data transfer mode the named pipe was created with as specified by
+    the PIPE_TYPE_* flags of CreateNamedPipe. Not set for mailslots.
   example: one of "Byte", "Message"
   flat_name: file.Ext.pipe.mode
   ignore_above: 1024
   level: custom
   name: Ext.pipe.mode
   normalize: []
-  short: Pipe mode of the named pipe.
+  short: Data transfer mode of the named pipe.
   type: keyword
 file.Ext.pipe.operation:
   dashed_name: file-Ext-pipe-operation
   description: Operation performed on the named pipe or mailslot.
-  example: Create
+  example: one of "Create", "Connect"
   flat_name: file.Ext.pipe.operation
   ignore_above: 1024
   level: custom

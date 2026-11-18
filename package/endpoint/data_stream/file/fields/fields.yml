@@ -640,7 +640,7 @@
       level: custom
       type: keyword
       ignore_above: 1024
-      description: Type mode the named pipe was created with. Not set for mailslots.
+      description: Data transfer mode the named pipe was created with as specified by the PIPE_TYPE_* flags of CreateNamedPipe. Not set for mailslots.
       example: one of "Byte", "Message"
       default_field: false
     - name: Ext.pipe.operation
@@ -648,7 +648,7 @@
       type: keyword
       ignore_above: 1024
       description: Operation performed on the named pipe or mailslot.
-      example: Create
+      example: one of "Create", "Connect"
       default_field: false
     - name: Ext.pipe.type
       level: custom
