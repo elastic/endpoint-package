@@ -1784,7 +1784,7 @@ sent by the endpoint.
 | file.Ext.original.uid | The user ID (UID) or security identifier (SID) of the file owner. | keyword |
 | file.Ext.pipe | Information about a named pipe or mailslot operation (Windows only). | object |
 | file.Ext.pipe.is_remote | True if the named pipe accepts connections from remote clients. Not set for mailslots. | boolean |
-| file.Ext.pipe.mode | Data transfer mode the named pipe was created with as specified by the PIPE_TYPE_* flags of CreateNamedPipe. Not set for mailslots. | keyword |
+| file.Ext.pipe.mode | Type mode the named pipe was created with. Not set for mailslots. | keyword |
 | file.Ext.pipe.operation | Operation performed on the named pipe or mailslot. | keyword |
 | file.Ext.pipe.type | Type of the pipe object. | keyword |
 | file.Ext.windows | Platform-specific Windows fields | object |
