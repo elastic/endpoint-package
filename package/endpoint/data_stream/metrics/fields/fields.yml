@@ -602,6 +602,20 @@
       index: false
       doc_values: false
       default_field: false
+    - name: metrics.system_impact.pipe_events.week_idle_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent queueing named pipe and mailslot events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
+    - name: metrics.system_impact.pipe_events.week_ms
+      level: custom
+      type: unsigned_long
+      description: The total milliseconds spent on named pipe and mailslot events for the process over the last week
+      index: false
+      doc_values: false
+      default_field: false
     - name: metrics.system_impact.process.code_signature
       level: custom
       type: nested
