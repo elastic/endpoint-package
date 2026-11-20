@@ -727,6 +727,26 @@
                     "sent_bytes": 24748966
                 }
             },
+            "output": {
+                "overall": {
+                    "sent_bytes": 2931408,
+                    "uncompressed_bytes": 25310774,
+                    "requests": 412,
+                    "failed_requests": 3,
+                    "avg_request_bytes": 7114,
+                    "max_request_bytes": 118462
+                },
+                "by_output": {
+                    "elasticsearch": {
+                        "sent_bytes": 2931408,
+                        "uncompressed_bytes": 25310774,
+                        "requests": 412,
+                        "failed_requests": 3,
+                        "avg_request_bytes": 7114,
+                        "max_request_bytes": 118462
+                    }
+                }
+            },
             "cpu": {
                 "endpoint": {
                     "mean": 0.324235176435677,
