@@ -850,6 +850,309 @@ Endpoint.metrics.memory.endpoint.private.mean:
   normalize: []
   short: Average memory usage by the endpoint since its start
   type: long
+Endpoint.metrics.output:
+  dashed_name: Endpoint-metrics-output
+  description: Statistics about the data sent to the configured output
+  flat_name: Endpoint.metrics.output
+  level: custom
+  name: metrics.output
+  normalize: []
+  short: Statistics about the data sent to the configured output
+  type: object
+Endpoint.metrics.output.by_output:
+  dashed_name: Endpoint-metrics-output-by-output
+  description: Statistics per output, an output is present once it has sent data
+  flat_name: Endpoint.metrics.output.by_output
+  level: custom
+  name: metrics.output.by_output
+  normalize: []
+  short: Statistics per output, an output is present once it has sent data
+  type: object
+Endpoint.metrics.output.by_output.elasticsearch:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch
+  description: Statistics about the data sent to Elasticsearch
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch
+  level: custom
+  name: metrics.output.by_output.elasticsearch
+  normalize: []
+  short: Statistics about the data sent to Elasticsearch
+  type: object
+Endpoint.metrics.output.by_output.elasticsearch.avg_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-avg-request-bytes
+  description: Average size of the requests sent to Elasticsearch since the previous
+    metrics document, 0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.avg_request_bytes
+  level: custom
+  name: metrics.output.by_output.elasticsearch.avg_request_bytes
+  normalize: []
+  short: Average size of the requests sent to Elasticsearch since the previous metrics
+    document, 0 if there were none
+  type: long
+Endpoint.metrics.output.by_output.elasticsearch.failed_requests:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-failed-requests
+  description: Number of requests to Elasticsearch that were not accepted by the output
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.failed_requests
+  level: custom
+  name: metrics.output.by_output.elasticsearch.failed_requests
+  normalize: []
+  short: Number of requests to Elasticsearch that were not accepted by the output
+  type: long
+Endpoint.metrics.output.by_output.elasticsearch.max_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-max-request-bytes
+  description: Largest request sent to Elasticsearch since the previous metrics document,
+    0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.max_request_bytes
+  level: custom
+  name: metrics.output.by_output.elasticsearch.max_request_bytes
+  normalize: []
+  short: Largest request sent to Elasticsearch since the previous metrics document,
+    0 if there were none
+  type: long
+Endpoint.metrics.output.by_output.elasticsearch.requests:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-requests
+  description: Number of requests sent to Elasticsearch. One request carries a batch
+    of documents
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.requests
+  level: custom
+  name: metrics.output.by_output.elasticsearch.requests
+  normalize: []
+  short: Number of requests sent to Elasticsearch. One request carries a batch of
+    documents
+  type: long
+Endpoint.metrics.output.by_output.elasticsearch.sent_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-sent-bytes
+  description: Total size of the request bodies sent to Elasticsearch, as handed to
+    the transport (after compression). Transport headers and TLS framing are not counted
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.sent_bytes
+  level: custom
+  name: metrics.output.by_output.elasticsearch.sent_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Elasticsearch, as handed to the
+    transport (after compression). Transport headers and TLS framing are not counted
+  type: long
+Endpoint.metrics.output.by_output.elasticsearch.uncompressed_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-elasticsearch-uncompressed-bytes
+  description: Total size of the request bodies sent to Elasticsearch before compression
+  flat_name: Endpoint.metrics.output.by_output.elasticsearch.uncompressed_bytes
+  level: custom
+  name: metrics.output.by_output.elasticsearch.uncompressed_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Elasticsearch before compression
+  type: long
+Endpoint.metrics.output.by_output.kafka:
+  dashed_name: Endpoint-metrics-output-by-output-kafka
+  description: Statistics about the data sent to Kafka
+  flat_name: Endpoint.metrics.output.by_output.kafka
+  level: custom
+  name: metrics.output.by_output.kafka
+  normalize: []
+  short: Statistics about the data sent to Kafka
+  type: object
+Endpoint.metrics.output.by_output.kafka.avg_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-avg-request-bytes
+  description: Average size of the requests sent to Kafka since the previous metrics
+    document, 0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.kafka.avg_request_bytes
+  level: custom
+  name: metrics.output.by_output.kafka.avg_request_bytes
+  normalize: []
+  short: Average size of the requests sent to Kafka since the previous metrics document,
+    0 if there were none
+  type: long
+Endpoint.metrics.output.by_output.kafka.failed_requests:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-failed-requests
+  description: Number of requests to Kafka that were not accepted by the output
+  flat_name: Endpoint.metrics.output.by_output.kafka.failed_requests
+  level: custom
+  name: metrics.output.by_output.kafka.failed_requests
+  normalize: []
+  short: Number of requests to Kafka that were not accepted by the output
+  type: long
+Endpoint.metrics.output.by_output.kafka.max_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-max-request-bytes
+  description: Largest request sent to Kafka since the previous metrics document,
+    0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.kafka.max_request_bytes
+  level: custom
+  name: metrics.output.by_output.kafka.max_request_bytes
+  normalize: []
+  short: Largest request sent to Kafka since the previous metrics document, 0 if there
+    were none
+  type: long
+Endpoint.metrics.output.by_output.kafka.requests:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-requests
+  description: Number of requests sent to Kafka. One request carries a batch of documents
+  flat_name: Endpoint.metrics.output.by_output.kafka.requests
+  level: custom
+  name: metrics.output.by_output.kafka.requests
+  normalize: []
+  short: Number of requests sent to Kafka. One request carries a batch of documents
+  type: long
+Endpoint.metrics.output.by_output.kafka.sent_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-sent-bytes
+  description: Total size of the request bodies sent to Kafka, as handed to the transport
+    (after compression). Transport headers and TLS framing are not counted. Compression
+    is done by the Kafka producer, so this is the size of the documents before compression
+  flat_name: Endpoint.metrics.output.by_output.kafka.sent_bytes
+  level: custom
+  name: metrics.output.by_output.kafka.sent_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Kafka, as handed to the transport
+    (after compression). Transport headers and TLS framing are not counted. Compression
+    is done by the Kafka producer, so this is the size of the documents before compression
+  type: long
+Endpoint.metrics.output.by_output.kafka.uncompressed_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-kafka-uncompressed-bytes
+  description: Total size of the request bodies sent to Kafka before compression.
+    Compression is done by the Kafka producer, so this is the size of the documents
+    before compression
+  flat_name: Endpoint.metrics.output.by_output.kafka.uncompressed_bytes
+  level: custom
+  name: metrics.output.by_output.kafka.uncompressed_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Kafka before compression. Compression
+    is done by the Kafka producer, so this is the size of the documents before compression
+  type: long
+Endpoint.metrics.output.by_output.logstash:
+  dashed_name: Endpoint-metrics-output-by-output-logstash
+  description: Statistics about the data sent to Logstash
+  flat_name: Endpoint.metrics.output.by_output.logstash
+  level: custom
+  name: metrics.output.by_output.logstash
+  normalize: []
+  short: Statistics about the data sent to Logstash
+  type: object
+Endpoint.metrics.output.by_output.logstash.avg_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-avg-request-bytes
+  description: Average size of the requests sent to Logstash since the previous metrics
+    document, 0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.logstash.avg_request_bytes
+  level: custom
+  name: metrics.output.by_output.logstash.avg_request_bytes
+  normalize: []
+  short: Average size of the requests sent to Logstash since the previous metrics
+    document, 0 if there were none
+  type: long
+Endpoint.metrics.output.by_output.logstash.failed_requests:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-failed-requests
+  description: Number of requests to Logstash that were not accepted by the output
+  flat_name: Endpoint.metrics.output.by_output.logstash.failed_requests
+  level: custom
+  name: metrics.output.by_output.logstash.failed_requests
+  normalize: []
+  short: Number of requests to Logstash that were not accepted by the output
+  type: long
+Endpoint.metrics.output.by_output.logstash.max_request_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-max-request-bytes
+  description: Largest request sent to Logstash since the previous metrics document,
+    0 if there were none
+  flat_name: Endpoint.metrics.output.by_output.logstash.max_request_bytes
+  level: custom
+  name: metrics.output.by_output.logstash.max_request_bytes
+  normalize: []
+  short: Largest request sent to Logstash since the previous metrics document, 0 if
+    there were none
+  type: long
+Endpoint.metrics.output.by_output.logstash.requests:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-requests
+  description: Number of requests sent to Logstash. One request carries a batch of
+    documents
+  flat_name: Endpoint.metrics.output.by_output.logstash.requests
+  level: custom
+  name: metrics.output.by_output.logstash.requests
+  normalize: []
+  short: Number of requests sent to Logstash. One request carries a batch of documents
+  type: long
+Endpoint.metrics.output.by_output.logstash.sent_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-sent-bytes
+  description: Total size of the request bodies sent to Logstash, as handed to the
+    transport (after compression). Transport headers and TLS framing are not counted
+  flat_name: Endpoint.metrics.output.by_output.logstash.sent_bytes
+  level: custom
+  name: metrics.output.by_output.logstash.sent_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Logstash, as handed to the transport
+    (after compression). Transport headers and TLS framing are not counted
+  type: long
+Endpoint.metrics.output.by_output.logstash.uncompressed_bytes:
+  dashed_name: Endpoint-metrics-output-by-output-logstash-uncompressed-bytes
+  description: Total size of the request bodies sent to Logstash before compression
+  flat_name: Endpoint.metrics.output.by_output.logstash.uncompressed_bytes
+  level: custom
+  name: metrics.output.by_output.logstash.uncompressed_bytes
+  normalize: []
+  short: Total size of the request bodies sent to Logstash before compression
+  type: long
+Endpoint.metrics.output.overall:
+  dashed_name: Endpoint-metrics-output-overall
+  description: Statistics about the data sent to all outputs
+  flat_name: Endpoint.metrics.output.overall
+  level: custom
+  name: metrics.output.overall
+  normalize: []
+  short: Statistics about the data sent to all outputs
+  type: object
+Endpoint.metrics.output.overall.avg_request_bytes:
+  dashed_name: Endpoint-metrics-output-overall-avg-request-bytes
+  description: Average size of the requests sent to all outputs since the previous
+    metrics document, 0 if there were none
+  flat_name: Endpoint.metrics.output.overall.avg_request_bytes
+  level: custom
+  name: metrics.output.overall.avg_request_bytes
+  normalize: []
+  short: Average size of the requests sent to all outputs since the previous metrics
+    document, 0 if there were none
+  type: long
+Endpoint.metrics.output.overall.failed_requests:
+  dashed_name: Endpoint-metrics-output-overall-failed-requests
+  description: Number of requests to all outputs that were not accepted by the output
+  flat_name: Endpoint.metrics.output.overall.failed_requests
+  level: custom
+  name: metrics.output.overall.failed_requests
+  normalize: []
+  short: Number of requests to all outputs that were not accepted by the output
+  type: long
+Endpoint.metrics.output.overall.max_request_bytes:
+  dashed_name: Endpoint-metrics-output-overall-max-request-bytes
+  description: Largest request sent to all outputs since the previous metrics document,
+    0 if there were none
+  flat_name: Endpoint.metrics.output.overall.max_request_bytes
+  level: custom
+  name: metrics.output.overall.max_request_bytes
+  normalize: []
+  short: Largest request sent to all outputs since the previous metrics document,
+    0 if there were none
+  type: long
+Endpoint.metrics.output.overall.requests:
+  dashed_name: Endpoint-metrics-output-overall-requests
+  description: Number of requests sent to all outputs. One request carries a batch
+    of documents
+  flat_name: Endpoint.metrics.output.overall.requests
+  level: custom
+  name: metrics.output.overall.requests
+  normalize: []
+  short: Number of requests sent to all outputs. One request carries a batch of documents
+  type: long
+Endpoint.metrics.output.overall.sent_bytes:
+  dashed_name: Endpoint-metrics-output-overall-sent-bytes
+  description: Total size of the request bodies sent to all outputs, as handed to
+    the transport (after compression). Transport headers and TLS framing are not counted
+  flat_name: Endpoint.metrics.output.overall.sent_bytes
+  level: custom
+  name: metrics.output.overall.sent_bytes
+  normalize: []
+  short: Total size of the request bodies sent to all outputs, as handed to the transport
+    (after compression). Transport headers and TLS framing are not counted
+  type: long
+Endpoint.metrics.output.overall.uncompressed_bytes:
+  dashed_name: Endpoint-metrics-output-overall-uncompressed-bytes
+  description: Total size of the request bodies sent to all outputs before compression
+  flat_name: Endpoint.metrics.output.overall.uncompressed_bytes
+  level: custom
+  name: metrics.output.overall.uncompressed_bytes
+  normalize: []
+  short: Total size of the request bodies sent to all outputs before compression
+  type: long
 Endpoint.metrics.system_impact:
   dashed_name: Endpoint-metrics-system-impact
   description: An array of system impact information
