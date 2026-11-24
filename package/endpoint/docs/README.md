@@ -3296,6 +3296,36 @@ Metrics documents contain performance information about the endpoint executable 
 | Endpoint.metrics.memory.endpoint.private | The memory private to the endpoint | object |
 | Endpoint.metrics.memory.endpoint.private.latest | The memory usage by the endpoint for the last sample interval | long |
 | Endpoint.metrics.memory.endpoint.private.mean | Average memory usage by the endpoint since its start | long |
+| Endpoint.metrics.output | Statistics about the data sent to the configured output | object |
+| Endpoint.metrics.output.by_output | Statistics per output, an output is present once it has sent data | object |
+| Endpoint.metrics.output.by_output.elasticsearch | Statistics about the data sent to Elasticsearch | object |
+| Endpoint.metrics.output.by_output.elasticsearch.avg_request_bytes | Average size of the requests sent to Elasticsearch since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.elasticsearch.failed_requests | Number of requests to Elasticsearch that were not accepted by the output | long |
+| Endpoint.metrics.output.by_output.elasticsearch.max_request_bytes | Largest request sent to Elasticsearch since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.elasticsearch.requests | Number of requests sent to Elasticsearch. One request carries a batch of documents | long |
+| Endpoint.metrics.output.by_output.elasticsearch.sent_bytes | Total size of the request bodies sent to Elasticsearch, as handed to the transport (after compression). Transport headers and TLS framing are not counted | long |
+| Endpoint.metrics.output.by_output.elasticsearch.uncompressed_bytes | Total size of the request bodies sent to Elasticsearch before compression | long |
+| Endpoint.metrics.output.by_output.kafka | Statistics about the data sent to Kafka | object |
+| Endpoint.metrics.output.by_output.kafka.avg_request_bytes | Average size of the requests sent to Kafka since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.kafka.failed_requests | Number of requests to Kafka that were not accepted by the output | long |
+| Endpoint.metrics.output.by_output.kafka.max_request_bytes | Largest request sent to Kafka since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.kafka.requests | Number of requests sent to Kafka. One request carries a batch of documents | long |
+| Endpoint.metrics.output.by_output.kafka.sent_bytes | Total size of the request bodies sent to Kafka, as handed to the transport (after compression). Transport headers and TLS framing are not counted. Compression is done by the Kafka producer, so this is the size of the documents before compression | long |
+| Endpoint.metrics.output.by_output.kafka.uncompressed_bytes | Total size of the request bodies sent to Kafka before compression. Compression is done by the Kafka producer, so this is the size of the documents before compression | long |
+| Endpoint.metrics.output.by_output.logstash | Statistics about the data sent to Logstash | object |
+| Endpoint.metrics.output.by_output.logstash.avg_request_bytes | Average size of the requests sent to Logstash since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.logstash.failed_requests | Number of requests to Logstash that were not accepted by the output | long |
+| Endpoint.metrics.output.by_output.logstash.max_request_bytes | Largest request sent to Logstash since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.by_output.logstash.requests | Number of requests sent to Logstash. One request carries a batch of documents | long |
+| Endpoint.metrics.output.by_output.logstash.sent_bytes | Total size of the request bodies sent to Logstash, as handed to the transport (after compression). Transport headers and TLS framing are not counted | long |
+| Endpoint.metrics.output.by_output.logstash.uncompressed_bytes | Total size of the request bodies sent to Logstash before compression | long |
+| Endpoint.metrics.output.overall | Statistics about the data sent to all outputs | object |
+| Endpoint.metrics.output.overall.avg_request_bytes | Average size of the requests sent to all outputs since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.overall.failed_requests | Number of requests to all outputs that were not accepted by the output | long |
+| Endpoint.metrics.output.overall.max_request_bytes | Largest request sent to all outputs since the previous metrics document, 0 if there were none | long |
+| Endpoint.metrics.output.overall.requests | Number of requests sent to all outputs. One request carries a batch of documents | long |
+| Endpoint.metrics.output.overall.sent_bytes | Total size of the request bodies sent to all outputs, as handed to the transport (after compression). Transport headers and TLS framing are not counted | long |
+| Endpoint.metrics.output.overall.uncompressed_bytes | Total size of the request bodies sent to all outputs before compression | long |
 | Endpoint.metrics.uptime | Number of seconds since boot | object |
 | Endpoint.metrics.uptime.endpoint | Number of seconds since the endpoint was started | long |
 | Endpoint.metrics.uptime.system | Number of seconds since the system was started | long |

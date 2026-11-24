@@ -780,6 +780,156 @@
       type: long
       description: Total size of suppressed API Event documents from source
 
+    - name: metrics.output
+      level: custom
+      type: object
+      description: Statistics about the data sent to the configured output
+
+    - name: metrics.output.overall
+      level: custom
+      type: object
+      description: Statistics about the data sent to all outputs
+
+    - name: metrics.output.overall.sent_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to all outputs, as handed to the transport (after compression). Transport headers and TLS framing are not counted
+
+    - name: metrics.output.overall.uncompressed_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to all outputs before compression
+
+    - name: metrics.output.overall.requests
+      level: custom
+      type: long
+      description: Number of requests sent to all outputs. One request carries a batch of documents
+
+    - name: metrics.output.overall.failed_requests
+      level: custom
+      type: long
+      description: Number of requests to all outputs that were not accepted by the output
+
+    - name: metrics.output.overall.avg_request_bytes
+      level: custom
+      type: long
+      description: Average size of the requests sent to all outputs since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.overall.max_request_bytes
+      level: custom
+      type: long
+      description: Largest request sent to all outputs since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output
+      level: custom
+      type: object
+      description: Statistics per output, an output is present once it has sent data
+
+    - name: metrics.output.by_output.elasticsearch
+      level: custom
+      type: object
+      description: Statistics about the data sent to Elasticsearch
+
+    - name: metrics.output.by_output.elasticsearch.sent_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Elasticsearch, as handed to the transport (after compression). Transport headers and TLS framing are not counted
+
+    - name: metrics.output.by_output.elasticsearch.uncompressed_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Elasticsearch before compression
+
+    - name: metrics.output.by_output.elasticsearch.requests
+      level: custom
+      type: long
+      description: Number of requests sent to Elasticsearch. One request carries a batch of documents
+
+    - name: metrics.output.by_output.elasticsearch.failed_requests
+      level: custom
+      type: long
+      description: Number of requests to Elasticsearch that were not accepted by the output
+
+    - name: metrics.output.by_output.elasticsearch.avg_request_bytes
+      level: custom
+      type: long
+      description: Average size of the requests sent to Elasticsearch since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output.elasticsearch.max_request_bytes
+      level: custom
+      type: long
+      description: Largest request sent to Elasticsearch since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output.logstash
+      level: custom
+      type: object
+      description: Statistics about the data sent to Logstash
+
+    - name: metrics.output.by_output.logstash.sent_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Logstash, as handed to the transport (after compression). Transport headers and TLS framing are not counted
+
+    - name: metrics.output.by_output.logstash.uncompressed_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Logstash before compression
+
+    - name: metrics.output.by_output.logstash.requests
+      level: custom
+      type: long
+      description: Number of requests sent to Logstash. One request carries a batch of documents
+
+    - name: metrics.output.by_output.logstash.failed_requests
+      level: custom
+      type: long
+      description: Number of requests to Logstash that were not accepted by the output
+
+    - name: metrics.output.by_output.logstash.avg_request_bytes
+      level: custom
+      type: long
+      description: Average size of the requests sent to Logstash since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output.logstash.max_request_bytes
+      level: custom
+      type: long
+      description: Largest request sent to Logstash since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output.kafka
+      level: custom
+      type: object
+      description: Statistics about the data sent to Kafka
+
+    - name: metrics.output.by_output.kafka.sent_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Kafka, as handed to the transport (after compression). Transport headers and TLS framing are not counted. Compression is done by the Kafka producer, so this is the size of the documents before compression
+
+    - name: metrics.output.by_output.kafka.uncompressed_bytes
+      level: custom
+      type: long
+      description: Total size of the request bodies sent to Kafka before compression. Compression is done by the Kafka producer, so this is the size of the documents before compression
+
+    - name: metrics.output.by_output.kafka.requests
+      level: custom
+      type: long
+      description: Number of requests sent to Kafka. One request carries a batch of documents
+
+    - name: metrics.output.by_output.kafka.failed_requests
+      level: custom
+      type: long
+      description: Number of requests to Kafka that were not accepted by the output
+
+    - name: metrics.output.by_output.kafka.avg_request_bytes
+      level: custom
+      type: long
+      description: Average size of the requests sent to Kafka since the previous metrics document, 0 if there were none
+
+    - name: metrics.output.by_output.kafka.max_request_bytes
+      level: custom
+      type: long
+      description: Largest request sent to Kafka since the previous metrics document, 0 if there were none
+
     - name: metrics.uptime
       level: custom
       type: object
