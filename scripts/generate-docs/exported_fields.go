@@ -53,7 +53,7 @@ func renderExportedFields(options generateOptions, packageName, dataStreamName s
 	}
 
 	var builder strings.Builder
-	builder.WriteString("#### Exported fields\n\n")
+	builder.WriteString("**Exported fields**\n\n")
 
 	if len(collected) == 0 {
 		builder.WriteString("(no fields available)\n")
